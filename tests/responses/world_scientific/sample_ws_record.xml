@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//Atypon//DTD Atypon Systems Journal Archiving and Interchange NLM DTD v3.0.5 20110520//EN" "article-archivearticle3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oasis="http://docs.oasis-open.org/ns/oasis-exchange/table" article-type="research-article" dtd-version="3.0" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">nano</journal-id>
+      <journal-title-group>
+        <journal-title xml:lang="en">NANO</journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">1793-2920</issn>
+      <issn pub-type="epub">1793-7094</issn>
+      <publisher>
+        <publisher-name>World Scientific Publishing Company</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1142/S1793292014400013</article-id>
+      <article-categories>
+        <subj-group subj-group-type="heading">
+          <subject>Special Issue on Mesoscopic Solar Cells; Guest Editor: Nam-Gyu Park – BRIEF REPORTS</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>HIGH-EFFICIENT SOLID-STATE PEROVSKITE SOLAR CELL WITHOUT LITHIUM SALT IN THE HOLE TRANSPORT MATERIAL</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author" xlink:type="simple">
+          <string-name>
+            <given-names>DONGQIN</given-names>
+            <x xml:space="preserve" />
+            <surname>BI</surname>
+          </string-name>
+          <aff>Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, <country>Sweden</country></aff>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <string-name>
+            <given-names>GERRIT</given-names>
+            <x xml:space="preserve" />
+            <surname>BOSCHLOO</surname>
+          </string-name>
+          <aff>Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, <country>Sweden</country></aff>
+        </contrib>
+        <contrib contrib-type="author" xlink:type="simple">
+          <string-name>
+            <given-names>ANDERS</given-names>
+            <x xml:space="preserve" />
+            <surname>HAGFELDT</surname>
+          </string-name>
+          <email xlink:type="simple">anders.hagfeldt@kemi.uu.se</email>
+          <aff>Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, <country>Sweden</country></aff>
+          <aff>School of Chemical Engineering, Sungkyunkwan University, Suwon 440-746, <country>Korea</country></aff>
+          <collab xlink:type="simple">for the Belle Collaboration</collab>
+        </contrib>
+      </contrib-group>
+      <pub-date pub-type="ppub">
+        <month>07</month>
+        <year>2014</year>
+        <string-date>July 2014</string-date>
+      </pub-date>
+      <volume>9</volume>
+      <issue>05</issue>
+      <elocation-id>1440001</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>24</day>
+          <month>02</month>
+          <year>2014</year>
+          <string-date>Received: 24 February 2014</string-date>
+        </date>
+        <date date-type="accepted">
+          <day>25</day>
+          <month>03</month>
+          <year>2014</year>
+          <string-date>Accepted: 25 March 2014</string-date>
+        </date>
+        <date date-type="published">
+          <day>05</day>
+          <month>06</month>
+          <year>2014</year>
+          <string-date>Published: 5 June 2014</string-date>
+        </date>
+      </history>
+      <permissions>
+        <copyright-year>2014</copyright-year>
+        <copyright-holder>World Scientific Publishing Company</copyright-holder>
+      </permissions>
+      <self-uri content-type="pdf" xlink:href="s1793292014400013.pdf" xlink:type="simple"></self-uri>
+      <abstract>
+        <p><roman>CH</roman><sub>3</sub><roman>NH</roman><sub>3</sub><roman>PbX</roman>(<roman>X</roman> = <roman>Br</roman>, <roman>I</roman>, <roman>Cl</roman>) perovskites have recently been used as light absorbers in hybrid organic-inorganic solid-state solar cells, with efficiencies above 15%. To date, it is essential to add Lithium bis(Trifluoromethanesulfonyl)Imide (<roman>LiTFSI</roman>) to the hole transport materials (HTM) to get a higher conductivity. However, the detrimental effect of high <roman>LiTFSI</roman> concentration on the charge transport, DOS in the conduction band of the <roman>TiO</roman><sub>2</sub> substrate and device stability results in an overall compromise for a satisfactory device. Using a higher mobility hole conductor to avoid lithium salt is an interesting alternative. Herein, we successfully made an efficient perovskite solar cell by applying a hole conductor PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in the absence of <roman>LiTFSI</roman>. Under AM 1.5 illumination of 100 mW/cm<sup>2</sup>, an efficiency of 10.9% was achieved, which is comparable to the efficiency of 12.3% with the addition of 1.3 mM <roman>LiTFSI</roman>. An unsealed device without <roman>Li</roman><sup>+</sup> shows interestingly a promising stability.</p>
+      </abstract>
+      <abstract abstract-type="graphical">
+        <fig id="con" position="float" orientation="portrait">
+          <graphic xlink:href="s1793292014400013.jpg" position="float" orientation="portrait" xlink:type="simple"></graphic>
+        </fig>
+      </abstract>
+      <abstract abstract-type="short" xml:lang="en">
+        <p>Up to now, it is essential to add lithium bis(Trifluoromethanesulfonyl)Imide (LiTFSI) to the organic hole transport materials (HTM) to get an efficient perovskite solar cells. However, in this paper, an efficiency of 10.9% (AM 1.5 illumination of 100 mW/cm<sup>2</sup>) was achieved by applying with a higher mobility hole conductor PTAA in the absence of LiTFSI. Initial device stability test showed that the solar cell can have a relatively higher stability without LiTFSI.
+</p>
+      </abstract>
+      <kwd-group>
+        <kwd>Perovskite <roman>CH</roman><sub>3</sub><roman>NH</roman><sub>3</sub><roman>PbI</roman><sub>3</sub></kwd>
+        <kwd>solar cell</kwd>
+        <kwd>lithium</kwd>
+      </kwd-group>
+      <counts>
+        <page-count count="7"></page-count>
+      </counts>
+    </article-meta>
+  </front>
+
+</article>
