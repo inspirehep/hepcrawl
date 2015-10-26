@@ -21,25 +21,46 @@
         </a>
     </p>
 
+
+
 .. include:: ../README.rst
 
+.. include:: overview.rst
 
-Developers Guide
-================
+Contents
+========
 
+.. toctree::
+   :numbered:
+   :maxdepth: 2
+
+   overview
+   contributing
+   guide
+
+.. include:: contributing.rst
 .. include:: guide.rst
 
-
-API
-===
+API documentation
+=================
 
 .. automodule:: hepcrawl
+   :members:
+
+.. automodule:: hepcrawl.items
+   :members:
+
+.. automodule:: hepcrawl.spiders
+   :members:
+
+.. automodule:: hepcrawl.spiders.wsp_spider
    :members:
 
 .. include:: ../CHANGES.rst
 
 .. include:: ../AUTHORS.rst
 
+Happy crawling!
 
 | INSPIRE Development Team
 |   Email: feedback@inspirehep.net

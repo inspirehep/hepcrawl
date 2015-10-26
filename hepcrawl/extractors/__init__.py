@@ -7,12 +7,4 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Version information for hepcrawl.
-
-This file is imported by ``hepcrawl.__init__``,
-and parsed by ``setup.py``.
-"""
-
-from __future__ import absolute_import, print_function
-
-__version__ = "0.1.0"
+"""Contains common extractor mixins for use in spiders."""

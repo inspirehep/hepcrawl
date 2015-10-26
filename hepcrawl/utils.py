@@ -8,12 +8,12 @@
 # more details.
 
 import os
+import re
 
 from netrc import netrc
-
-from zipfile import ZipFile
-
 from harvestingkit.ftp_utils import FtpHandler
+from tempfile import mkstemp
+from zipfile import ZipFile
 
 
 def unzip_xml_files(filename, target_folder):
@@ -52,3 +52,36 @@ def ftp_list_files(server_folder, target_folder, **serverinfo):
             missing_files.append(source_file)
         all_files.append(source_file)
     return all_files, missing_files
+
+
+def get_first(iterable, default=None):
+    """Get first item in iterable or default."""
+    if iterable:
+        for item in iterable:
+            return item
+    return default
+
+
+def collapse_initials(name):
+    """Remove the space between initials, eg T. A. --> T.A."""
+    if len(name.split(".")) > 1:
+        name = re.sub(r'([A-Z]\.)[\s\-]+(?=[A-Z]\.)', r'\1', name)
+    return name
+
+
+def get_temporary_file(prefix="tmp_",
+                       suffix="",
+                       directory=None):
+    """Generate a safe and closed filepath."""
+    try:
+        file_fd, filepath = mkstemp(prefix=prefix,
+                                    suffix=suffix,
+                                    dir=directory)
+        os.close(file_fd)
+    except IOError, e:
+        try:
+            os.remove(filepath)
+        except Exception:
+            pass
+        raise e
+    return filepath

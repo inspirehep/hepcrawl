@@ -9,9 +9,14 @@
 
 include LICENSE *.rst
 include pytest.ini
+include scrapy.cfg
 
 recursive-include hepcrawl *
 recursive-include *.py *.css *.css_t *.conf *.html
-recursive-include tests *.py
 recursive-include docs *.py
+recursive-include docs *.rst
+recursive-include docs Makefile
+recursive-include tests *.py
 recursive-include tests *.xml
+recursive-include tests *.zip
+recursive-include tests netrc

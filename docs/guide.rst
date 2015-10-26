@@ -9,26 +9,48 @@
 .. currentmodule:: hepcrawl
 
 
-Adding a new crawler
-====================
+Useful tools
+============
 
-Add a new file under ``hepcrawl/spider`` following the naming pattern ``myname_spider.py``.
+Testing your spider
+-------------------
 
-
-Useful development tools
-========================
-
-The scrapy shell is very useful when writing the extraction from the source XML to an item.
-
-``scrapy shell file:///path/to/sample.xml``
-
-You can then run xpath expressions like:
-
-``response.selector.xpath("//abstract")``
+Thanks to the command line tools provided by Scrapy, we can easily test the
+spiders as we are developing them:
 
 
-| INSPIRE Development Team
-|   Email: feedback@inspirehep.net
-|   Twitter: http://twitter.com/inspirehep
-|   GitHub: http://github.com/inspirehep
-|   URL: http://inspirehep.net
+.. code-block:: console
+
+    scrapy crawl WSP -a 'ftp_host=ftp.example.com' -a 'ftp_netrc=/path/to/netrc'
+
+
+``WSP`` is the name of the spider as defined in the ``name`` attribute of the spider.
+
+As you see, you can also pass custom arguments to the spider via the ``-a`` flag. These will
+be directly mapped to the constructor of the spider.
+
+If you want to change the directory where your JSON file will be stored, pass
+the settings variable ``JSON_OUTPUT_DIR`` to any ``scrapy crawl`` command:
+
+.. code-block:: console
+
+    scrapy crawl WSP -s 'JSON_OUTPUT_DIR=/tmp/' -a 'ftp_host=ftp.example.com' -a 'ftp_netrc=/path/to/netrc'
+
+
+Writing extraction code with scrapy shell
+-----------------------------------------
+
+In order to help you implement the extraction from the XML files, scrapy provides
+a shell simulating a response:
+
+.. code-block:: console
+
+    scrapy shell file:///path/to/sample.xml
+
+
+You can then run xpath expressions in the shell:
+
+.. code-block:: python
+
+    response.selector.xpath("//abstract").extract()
+    ["...some abstract ..."]

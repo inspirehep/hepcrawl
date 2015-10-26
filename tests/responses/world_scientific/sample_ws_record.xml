@@ -19,6 +19,12 @@
         <subj-group subj-group-type="heading">
           <subject>Special Issue on Mesoscopic Solar Cells; Guest Editor: Nam-Gyu Park – BRIEF REPORTS</subject>
         </subj-group>
+        <subj-group subj-group-type="AMSC">
+          <subject>35Q92</subject>
+          <subject>35L60</subject>
+          <subject>82C22</subject>
+          <subject>82C70</subject>
+        </subj-group>
       </article-categories>
       <title-group>
         <article-title>HIGH-EFFICIENT SOLID-STATE PEROVSKITE SOLAR CELL WITHOUT LITHIUM SALT IN THE HOLE TRANSPORT MATERIAL</article-title>
@@ -38,6 +44,7 @@
             <x xml:space="preserve" />
             <surname>BOSCHLOO</surname>
           </string-name>
+          <xref ref-type="aff" rid="S021773231530027XAF001"><sup>1</sup></xref>
           <aff>Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, <country>Sweden</country></aff>
         </contrib>
         <contrib contrib-type="author" xlink:type="simple">
@@ -52,6 +59,7 @@
           <collab xlink:type="simple">for the Belle Collaboration</collab>
         </contrib>
       </contrib-group>
+      <aff id="S021773231530027XAF001"><label><sup>1</sup></label>Physics Department, Brookhaven National Laboratory, Upton, NY 11973, <country>USA</country></aff>
       <pub-date pub-type="ppub">
         <month>07</month>
         <year>2014</year>
@@ -83,6 +91,9 @@
       <permissions>
         <copyright-year>2014</copyright-year>
         <copyright-holder>World Scientific Publishing Company</copyright-holder>
+        <license license-type="open-access" xlink:type="simple">
+          <license-p>This is an open access article published by World Scientific Publishing Company and distributed under the terms of the <ext-link xlink:href="https://creativecommons.org/licenses/by/4.0" xlink:type="simple">Creative Commons Attribution (CC-BY) 4.0 License</ext-link>, which permits use, distribution and reproduction in any medium, provided the original author(s) and source are credited.</license-p>
+        </license>
       </permissions>
       <self-uri content-type="pdf" xlink:href="s1793292014400013.pdf" xlink:type="simple"></self-uri>
       <abstract>
