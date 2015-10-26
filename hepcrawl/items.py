@@ -16,6 +16,15 @@ import scrapy
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Join, MapCompose
 
+from w3lib.html import remove_tags
+
+
+def selective_remove_tags(which_ones):
+    """Remove specific tags from value."""
+    def _remove_tags(value):
+        return remove_tags(value, which_ones=which_ones)
+    return _remove_tags
+
 
 class HEPRecord(scrapy.Item):
     abstract = scrapy.Field()
@@ -23,5 +32,5 @@ class HEPRecord(scrapy.Item):
 
 
 class HEPLoader(ItemLoader):
-    abstract_in = MapCompose(unicode.strip)
+    abstract_in = MapCompose(selective_remove_tags(("abstract",)), unicode.strip)
     abstract_out = Join('')

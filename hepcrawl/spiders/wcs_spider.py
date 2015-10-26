@@ -62,5 +62,5 @@ class WorldScientificSpider(XMLFeedSpider):
 
     def parse_node(self, response, node):
         l = HEPLoader(item=HEPRecord(), selector=node, response=response)
-        l.add_xpath('abstract', '//abstract//text()')
+        l.add_xpath('abstract', '//abstract[1]')
         return l.load_item()
