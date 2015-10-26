@@ -23,6 +23,13 @@
 
 .. include:: ../README.rst
 
+
+Developers Guide
+================
+
+.. include:: guide.rst
+
+
 API
 ===
 
