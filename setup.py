@@ -78,6 +78,7 @@ setup(
     description=__doc__,
     long_description=readme + '\n\n' + history,
     url='https://github.com/inspirehep/hepcrawl',
+    author="CERN",
     author_email='admin@inspirehep.net',
     entry_points={'scrapy': ['settings = hepcrawl.settings']},
     zip_safe=False,
