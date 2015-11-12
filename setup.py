@@ -88,7 +88,8 @@ setup(
     extras_require={
         'docs': [
             'Sphinx>=1.3',
-            'sphinx_rtd_theme>=0.1.7'
+            'sphinx_rtd_theme>=0.1.7',
+            'Sphinx-PyPI-upload>=0.2.1',
         ],
         'tests': test_requirements
     },
