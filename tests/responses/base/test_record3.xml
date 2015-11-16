@@ -1,0 +1,38 @@
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2015-10-14T12:49:46.965704+00:00</responseDate>
+<request verb="ListRecords" set="typenorm:0004 deweyfull:53*" metadataPrefix="base_dc">http://oai.base-search.net/oai</request>
+<record>
+      <header>
+        <identifier>ftcanadathes:oai:collectionscanada.gc.ca:BVAU./1394</identifier>
+        <datestamp>2013-11-23T21:52:24Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Hydrodynamic controls on the movement of invertebrate larvae and organic matter in small streams</dc:title>
+          <dc:creator>Hoover, Trent</dc:creator>
+          <dc:description>The movement of organisms and resources within ecosystems are essential elements in the productivity, stability, and distribution of communities. This thesis examines how water velocity, a defining factor of lotic systems, influences the dispersion of benthic organisms and particulate organic matter in small stream ecosystems. Variation in movement-related behaviours in two rheophilous (‘flow-loving’) mayflies (Epeorus and Baetis) and two rheophobic (‘flow-avoiding’) mayflies (Ameletus and Paraleptophlebia) were compared to determine how benthic organisms disperse between and within habitat patches in hydrodynamically complex landscapes. The degree to which water velocity and particle shape influence the retention of organic matter (including deciduous leaves, conifer needles, red-cedar fronds, and branch fragments) was examined to determine how physical factors determine detrital resource availability in streams. Although water velocity did not influence the crawling rates of Baetis and Ameletus in daylight conditions, both mayflies dispersed rapidly upstream in low-velocity flows in dark conditions. Drift rates of both mayflies were lower in daylight than dark conditions, and were generally inversely related to their habitat preferences. Escape responses in grazing Epeorus, Baetis, and Ameletus larvae in a range of flow conditions showed that retreat distance was more sensitive than flight initiation distance to variation in water velocity, suggesting that hydrodynamics mediate the risks of predation and the costs of flight in stream systems. Comparisons of the transport distances of live larvae, dead larvae, and passive tracer particles in low and high water velocities showed that drift distance varied substantially among taxa, and that behavioural control over drift distance generally declined as water velocity increased. While organic matter particles generally travelled further in high-velocity reaches, leaves were retained in riffles when they impacted on protruding clasts, while ‘stiff’ particles were retained when they settled into streambed interstices. Leaves placed in high-velocity microhabitats were broken down more slowly than leaves in low-flow areas, likely due to the exclusion of large-bodied detritivores. In conclusion, this thesis supports the view that hydrodynamic forces control trophic interactions and local population dynamics in stream ecosystems by directly altering the physical – and sometimes behavioural – processes of particle entrainment, transport, and deposition.</dc:description>
+          <dc:language>eng</dc:language>
+          <dc:date>2008-08-18T14:00:44Z</dc:date>
+          <dc:identifier>http://hdl.handle.net/2429/1394</dc:identifier>
+          <dc:subject>Streams</dc:subject>
+          <dc:subject>Dispersal</dc:subject>
+          <dc:subject>Organic matter</dc:subject>
+          <dc:subject>Hydrodynamics</dc:subject>
+          <dc:publisher>University of British Columbia</dc:publisher>
+          <dc:format>1192868 bytes</dc:format>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Electronic Thesis or Dissertation</dc:type>
+          <base_dc:autoclasscode type="ddc">532</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcanadathes</base_dc:collection>
+          <base_dc:collname>Theses Canada Portal (Host: Library and Archives Canada)</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>ca</base_dc:country>
+          <base_dc:lang>eng</base_dc:lang>
+          <base_dc:year>2008</base_dc:year>
+          <base_dc:link>http://hdl.handle.net/2429/1394</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+</OAI-PMH>

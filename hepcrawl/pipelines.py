@@ -53,8 +53,9 @@ class JsonWriterPipeline(object):
             self.output_uri,
         ))
 
-    def process_item(self, item, spider):
-        line = json.dumps(dict(item)) + ",\n"
+    def process_item(self, item, spider): #WHY ARE WE NOT USING UNICODE?
+        #line = json.dumps(dict(item)) + ",\n" #Why is it like this? It creates an extra comma at the end
+        line = json.dumps(dict(item), indent=4)
         self.file.write(line)
         self.count += 1
         return item
@@ -63,3 +64,4 @@ class JsonWriterPipeline(object):
 class HepCrawlPipeline(object):
     def process_item(self, item, spider):
         return item
+ 

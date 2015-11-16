@@ -1,0 +1,35 @@
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2015-10-14T12:49:46.965704+00:00</responseDate>
+<request verb="ListRecords" set="typenorm:0004 deweyfull:53*" metadataPrefix="base_dc">http://oai.base-search.net/oai</request>
+<record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:3325</identifier>
+        <datestamp>2015-08-02T14:12:39Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Part I. An investigation of shock strengthening in a conical, convergent channel. Part II. Spectroscopic investigation of strong shockwaves in a conical, convergent channel</dc:title>
+          <dc:creator>Storm, Erik</dc:creator>
+          <dc:description>NOTE: Text or symbols not renderable in plain ASCII are indicated by [.]. Abstract is included in .pdf document. ABSTRACT OF PART I: The behavior of an initially plane, strong shock wave propagating into a conical convergence is investigated experimentally and theoretically. In the experiment a [.] half-angle cone is mounted on the end of a pressure-driven shock tube. Shock waves with initial Mach numbers varying from 6.0 to 10.2 are generated in argon at a pressure of 1.5 torr. During each run local shock velocities at several positions along the cone axis are measured using a thin, multi-crystal piezoelectric probe inserted from the vertex. This technique produces accurate velocity data for both the incident and reflected shock waves. In the corresponding analysis, a simplified characteristics method is used to obtain an approximate solution of the axisymmetric diffraction equations derived by Whitham (1959). Both the shock velocity measurements and the axisymmetric diffraction solution confirm that the incident shock behavior is dominated by cyclic diffraction processes which originate at the entrance of the cone. Each diffraction cycle is characterized by Mach reflection on the cone wall followed by Mach reflection on the axis. These cycles evidently persist until the shock reaches the cone vertex, where the measured velocity has increased by as much as a factor of three. Real-gas effects, enhanced in the experiment by increasing the initial Mach number and decreasing the pressure, apparently alter the shock wave behavior only in the region near the vertex. Velocity measurements for the reflected shock within the cone show that the shock velocity is nearly constant throughout most of the convergence length. ABSTRACT OF PART II: The thermodynamic conditions behind the incident and reflected shock wave close to the vertex of a convergent channel are investigated spectroscopically. The investigation was initiated in order to better determine the possible uses of such a geometrical device as a tool for high temperature plasma research. Using argon at an initial pressure of 1.5 torr, the shock Mach number prior to the entrance of the cone is 10.2. Two windows are mounted at x/1 = 0.9 in the cone, where the Mach number has increased to 24, and the emitted radiation is monitored for both time-resolved (Monochromator - Photomultiplier) and time-integrated (Spectrograph) analysis. The relative line intensity method is used to measure the electron temperature. The Stark broadened profile of the 6965.4 [.] neutral argon line, and continuum intensity measurements are used to determine the electron number density. From initial values of [.] and [.], both the electron temperature and number density profiles behind the incident shock are dominated by the previous shock diffraction processes. The general trend is a gradual increase, presumably due to the continuing compression of the gas shocked at successively earlier times. Superimposed upon this is the effect of hot slugs of gas from previous localized regions of very high Mach number. The reflected shock wave heats and compresses the gas even further. The subsequent expansion results in a series of rapid exponential decreases in temperature, density and pressure. Immediately after the reflected shock wave has passed, the gas appears to be in a nonequilibrium state with a population inversion among the upper excited atomic energy levels. There is an indication of the presence of a second reflected wave. The effects of self-absorption on Stark broadened lines is studied. An equation is derived, demonstrating the effect of individual corrections that are necessary before accurate interpretations of measured quantities can be made. Simple self-absorption correction schemes are demonstrated and shown to be self-consistent.</dc:description>
+          <dc:date>1973</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/3325/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-09042007-104952</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/3325/1/Storm_e_1973.pdf</dc:relation>
+          <dc:relation>Storm, Erik (1973) Part I. An investigation of shock strengthening in a conical, convergent channel. Part II. Spectroscopic investigation of strong shockwaves in a conical, convergent channel. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-09042007-104952 &lt;http://resolver.caltech.edu/CaltechETD:etd-09042007-104952&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">532</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1973</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/3325/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+</OAI-PMH>
