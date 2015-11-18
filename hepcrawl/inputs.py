@@ -62,24 +62,13 @@ def add_author_full_name(value):
     return value
 
 
-#def clean_tags_from_affiliations(value):
-    #"""Clean the affiliaton string for an author."""
-    #for affiliation in value['affiliations']:
-        ## Remove tag AND content of any prefix like <label><sup>1</sup></label>
-        #affiliation['value'] = remove_tags_with_content(affiliation['value'], ('label',))
-        ## Now remove all tags but KEEP content
-        #affiliation['value'] = remove_tags(affiliation['value'])
-    #return value
-
-#probably better now?
-#this caused very strange bugs in testing!
 def clean_tags_from_affiliations(value):
     """Clean the affiliaton string for an author."""
     for affiliation in value.get('affiliations', []):
         # Remove tag AND content of any prefix like <label><sup>1</sup></label>
-        value['affiliations'] = remove_tags_with_content(affiliation, ('label',)) 
+        affiliation['value'] = remove_tags_with_content(affiliation['value'], ('label',))
         # Now remove all tags but KEEP content
-        value['affiliations'] = remove_tags(affiliation)
+        affiliation['value'] = remove_tags(affiliation['value'])
     return value
 
 

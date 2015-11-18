@@ -78,3 +78,5 @@ class HEPRecord(scrapy.Item):
     notes = scrapy.Field()
     references = scrapy.Field()
     collections = scrapy.Field()
+    thesis = scrapy.Field()
+    url = scrapy.Field()

@@ -14,7 +14,7 @@
           <dc:date>1973</dc:date>
           <dc:identifier>http://thesis.library.caltech.edu/3325/</dc:identifier>
           <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-09042007-104952</dc:identifier>
-          <dc:relation>http://thesis.library.caltech.edu/3325/1/Storm_e_1973.pdf</dc:relation>
+          <dc:relation>http://thesis.library.caltech.edu/3325/1/Storm_e_1973.jpg.pdf</dc:relation>
           <dc:relation>Storm, Erik (1973) Part I. An investigation of shock strengthening in a conical, convergent channel. Part II. Spectroscopic investigation of strong shockwaves in a conical, convergent channel. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-09042007-104952 &lt;http://resolver.caltech.edu/CaltechETD:etd-09042007-104952&gt;</dc:relation>
           <dc:format>application/pdf</dc:format>
           <dc:type>Thesis</dc:type>
@@ -29,6 +29,35 @@
           <base_dc:lang>unknown</base_dc:lang>
           <base_dc:year>1973</base_dc:year>
           <base_dc:link>http://thesis.library.caltech.edu/3325/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftanucanberra:oai:digitalcollections.anu.edu.au:1885/10005</identifier>
+        <datestamp>2015-07-27T22:17:31Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>The effect of ground-state spin on fission and quasi-fission anisotropies</dc:title>
+          <dc:title>are reproduced only when the nuclear spin and deformation?</dc:title>
+          <dc:creator>Butt, Rachel Deborah</dc:creator>
+          <dc:description>In heavy-ion induced fusion-fission reactions, the angular distribution of fission fragments is sensitive to the mean square angular momentum brought in by the fusion process, and the nuclear shape and temperature at the fission saddle point. Experimental fission fragment angular distributions are often used to infer one or more of these properties. Historically the analysis of these distributions has re­ lied on the alignment of the total angular momentum J of the compound nucleus, perpendicular to the projectile velocity. A full theoretical approach, written into a computer code for the first time, allows the effect of ground-state spin of the projectile and target nuclei to be correctly treated. This approach takes into account the change in alignment of J due to the inclusion of this spin, an effect which is shown to be markedly stronger if the nucleus with appreciable spin also has a strong quadrupole deformation. This change in alignment of J results in a much reduced fission fragment anisotropy. In extreme cases, the anisotropy may be below unity, and it ceases to be sufficient to characterise the fission fragment angular distribution. The calculations have been tested experimentally, by measuring fission and sur­ vival cross-sections and fission fragment angular distributions for the four reactions 31P+175,176Lu and 28.29 Si+178Hf, where 176Lu is a strongly-deformed nucleus with an intrinsic spin of 7 units, and 178Hf has very similar deformation, but zero spin. The reactions form the compound nuclei 206.207Rn. The total fusion excitation func­ tions are well-reproduced by calculations, but the fission fragment anisotropies are reproduced only when the nuclear spin and deformation are taken into account, con­ firming the theory and supporting the recent understanding of the role of nuclear deformation in the fusion process and of compound nucleus angular momentum in the fission process. Having established the effect in the well-understood fusion-fission reactions, the effect of nuclear spin is examined for the less well understood quasi-fission reaction. Experiments were performed to measure fission cross-sections and fission fragment angular distributions for the reactions 16O+235,238U, where 235U has a spin of 7/2 and 238U has a spin of zero. Both nuclei are quadrupole-deformed, and 160+238U was already known to exhibit evidence for quasi-fission. Theoretical calculations indicate that the fitted anisotropy is sensitive to the range of angles over which the angular distribution is measured, showing that where quasi-fission is present, the anisotropy is not sufficient to entirely characterise the fission fragment angular dis­ tribution. Comparison of the measured anisotropies with fusion-fission calculations shows clearly that the reaction is quasi-fission dominated. However, although exist­ ing quasi-fission models predict a strong effect from the spin of 235U, it is shown that the observed effect is appreciably stronger still in the experimental angular range. This should be an important tool in evaluating future models of the quasi-fission process.</dc:description>
+          <dc:description>AFdjfspdfkp fmeofmpdl eel dmfsdmf!</dc:description>
+          <dc:language>en_AU</dc:language>
+          <dc:date>2013-05-09T05:16:48Z</dc:date>
+          <dc:identifier>http://hdl.handle.net/1885/10005</dc:identifier>
+          <dc:type>Thesis (PhD)</dc:type>
+          <base_dc:autoclasscode type="ddc">530</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftanucanberra</base_dc:collection>
+          <base_dc:collname>Australian National University: ANU Digital Collections</base_dc:collname>
+          <base_dc:continent>cau</base_dc:continent>
+          <base_dc:country>au</base_dc:country>
+          <base_dc:lang>eng</base_dc:lang>
+          <base_dc:year>2013</base_dc:year>
+          <base_dc:link>http://hdl.handle.net/1885/10005</base_dc:link>
         </base_dc:dc>
       </metadata>
     </record>

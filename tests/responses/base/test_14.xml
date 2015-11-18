@@ -1,0 +1,443 @@
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2015-10-14T12:49:46.965704+00:00</responseDate>
+  <request verb="ListRecords" set="typenorm:0004 deweyfull:53*" metadataPrefix="base_dc">http://oai.base-search.net/oai</request>
+  <ListRecords>
+<record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2403</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Topics in particle physics and cosmology beyond the standard model</dc:title>
+          <dc:creator>Jenkins, Alejandro</dc:creator>
+          <dc:description>We review our understanding of spin-1 and spin-2 massless particles as mediators of long-range forces. We discuss how a quantum description of such particles that is compatible with Lorentz covariance leads to gauge invariance, a mathematical redundancy in the description of the physics. We discuss the Weinberg-Witten theorem, which underlines the need for gauge invariance in relativistic theories with massless mediators of higher spin. This leads us to consider a class of models in which long-range interactions are mediated by the Goldstone bosons of spontaneous Lorentz violation. Since the Lorentz symmetry is realized non-linearly in the Goldstones, these models could evade the Weinberg-Witten theorem and the need for gauge invariance. In the case of gravity, the broken symmetry would protect the theory from having non-zero cosmological constant, while the compositeness of the graviton could provide a solution to the perturbative non-renormalizability of gravity. Next we consider the phenomenology of spontaneous Lorentz violation and the experimental limits thereon. We find the general low-energy effective action of the Goldstones of this kind of symmetry breaking minimally coupled to gravity. We compare this effective theory to the ghost condensate that has been proposed in the literature as a model for gravity in a Higgs phase. We compute the modification to Newton's law from this mechanism and discuss observational limits on this kind of Lorentz violation from solar system tests of gravity and from gravitational Cherenkov radiation of cosmic rays. We then summarize the cosmological constant problems and show that models in which a scalar field causes super-acceleration of the universe generally exhibit instabilities connected to violation of the null-energy condition. We discuss how the equation of state evolves in a universe where the dark energy is caused by a ghost condensate. We comment on the anthropic argument for a small cosmological constant and how it is weakened if the inflaton self-coupling varies over the landscape of possible universes. Finally, we discuss the reverse sprinkler, a problem in elementary fluid mechanics that had eluded a definitive treatment for decades.</dc:description>
+          <dc:date>2006</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2403/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06022006-145211</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2403/1/thesis.pdf</dc:relation>
+          <dc:relation>Jenkins, Alejandro (2006) Topics in particle physics and cosmology beyond the standard model. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06022006-145211 &lt;http://resolver.caltech.edu/CaltechETD:etd-06022006-145211&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">539</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2006</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2403/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:241</identifier>
+        <datestamp>2015-08-02T14:09:23Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Tsunamis - harbor oscillations induced by nonlinear transient long waves</dc:title>
+          <dc:creator>Lepelletier, Thierry Georges</dc:creator>
+          <dc:description>The process of excitation of harbors and bays by transient nonlinear long waves is investigated theoretically and experimentally. In addition, nonlinear shallow water waves generated in a closed rectangular basin by the motion of the basin are also examined. Two numerical methods based on finite element techniques are used to solve the weakly nonlinear-dispersive-dissipative equations of motion and are applied to the basin excitation problem and the transient harbor oscillation problem, respectively. In the latter case, the open sea conditions are simulated by including a radiative boundary condition in time at a finite distance from the harbor entrance. Various dissipative effects are also included. In addition to the numerical results, analytical solutions are presented to investigate certain particular aspects of basin and harbor oscillations (e.g., the effects of viscous dissipation in a harbor with simple geometry). Experiments conducted in the closed rectangular basin indicate that for a continuous excitation at or near a resonant mode of oscillation the linear theory becomes inadequate and the nonlinear-dispersive-dissipative theory must be used. For a transient excitation the validity of the linear theory depends on the value of the Stokes parameter. Indeed, some features not predicted by the linear theory can be directly inferred from the magnitude of this parameter. Experiments on the continuous wave induced oscillations of a narrow rectangular harbor with constant depth show that at the first resonant mode convective nonlinearities can be neglected and a linear dissipative solution is sufficient to describe the waves inside the harbor. At the second resonant mode which corresponds to a longer harbor relative to the length of the incident wave, nonlinear convective effects become important and must be incorporated into the numerical model. Also the characteristics of various sources of dissipation which reduce resonance in the harbor are investigated experimentally. The sources considered include, among others, laminar boundary friction, leakage losses underneath the harbor walls, and energy dissipation due to flow separation at the entrance of the harbor. The good agreement obtained between the experiments and the nonlinear numerical model developed in this study suggests that this model could be used with some confidence to predict the response characteristics of prototype harbors. As an example, the results of this study have been applied to the response of Ofunato Bay (Japan) to the tsunami generated by the Tokachi-Oki earthquake of May 16,1968. The model has been used to investigate the effects of convective nonlinearities on the bay oscillations and also to determine the efficiency of the breakwater which was built to reduce the effects of tsunamis at Ofunato.</dc:description>
+          <dc:date>1981</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/241/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-01192007-153149</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/241/1/Lepelletier_tg_1981.pdf</dc:relation>
+          <dc:relation>Lepelletier, Thierry Georges (1981) Tsunamis - harbor oscillations induced by nonlinear transient long waves. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-01192007-153149 &lt;http://resolver.caltech.edu/CaltechETD:etd-01192007-153149&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1981</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/241/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2410</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Probing electronic properties of carbon nanotubes</dc:title>
+          <dc:creator>Heo, Jinseong</dc:creator>
+          <dc:description>Carbon nanotubes are quasi-one-dimensional objects that have many remarkable electronic properties. In Chapter I, an electrostatic force microscopy technique to probe the local density of states of single-walled carbon nanotubes (SWCNTs) under ambient conditions is described. Coupling the atomic force microscope tip motion with the quantum capacitance of nanotubes enables the van Hove singularities in the one-dimensional density of states to be resolved. We utilized this technique to identify individual semiconducting and metallic tubes, and further to estimate the chiral angle of a nanotube. Moreover, in order to realize a SWCNT interferometer, nanotube loop devices where a self-crossing geometry yields two electron paths that is a possible analog of the optical Sagnac interferometer are fabricated and explored in Chapter II. Scanning gate microscopy reveals for semiconducting devices a 0–50% transmission probability into the loop segment at the junction, which can be controlled by applying back gate voltage, hence shifting the Fermi level of the nanotube. Metallic loop devices having low contact resistance showed a large- scale conductance peak with fast oscillations superposed on it. Possible theoretical explanations including Sagnac-type interference, which takes the velocity difference between left and right movers in to account, and Fabry-Perot-type interference are compared with the experimental observations. In Chapter III, in accordance with increasing demand for developing spin-electronic devices, cobalt-filled multi-walled carbon nanotubes (Co–filled MWCNTs) are first synthesized and imaged by transmission electron microscopy, and also characterized by various spectroscopy tools like X–ray diffraction and energy dispersive X–ray spectrometry. Further, a Co–filled MWCNT device having reproducible switching in magnetoresistance was demonstrated. The last topic, in Chapter IV, covers the effects of a transverse electric field in MWCNT devices, where conductance fluctuations as a function of the transverse electric field were observed. The electric field spacing between the peaks of the fluctuations is in agreement with the theoretical predictions of band structure modulation by transverse electric fields. Future work following our experimental studies is proposed and discussed at the end of each chapter.</dc:description>
+          <dc:date>2008</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2410/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06022008-222640</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2410/1/thesis.pdf</dc:relation>
+          <dc:relation>Heo, Jinseong (2008) Probing electronic properties of carbon nanotubes. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06022008-222640 &lt;http://resolver.caltech.edu/CaltechETD:etd-06022008-222640&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">530</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2008</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2410/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2416</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>On problems of heat conduction in a compressible fluid</dc:title>
+          <dc:creator>Wu, Theodore Yao-tsu</dc:creator>
+          <dc:description>The present work starts with a study of heat conduction in a non-viscous compressible fluid based on a linearized theory which is similar to that used in the theory of sound. Important features of exact equations of motion and their corresponding linearized equations are studied briefly. For this linear system, which preserves many of the features of the original non-linear system, the fundamental solutions are found and discussed. The additional role played by viscosity in the heat conduction problem is then investigated. The fundamental solutions for this compressible, viscous, heat-conducting flow problem are found and compared with the non-viscous case. The problem of heat conduction in a two-dimensional stationary flow of a viscous compressible fluid is further studied by finding the fundamental solutions and discussing the result in some detail. As an example proposed to show how a superposition of these fundamental solutions can be used to solve a boundary value problem, the problem of the anemometry of a heated flat plate is solved for both large and small values of the Reynolds number. The result obtained herein is discussed and compared with some existing theories and experiments. The causes of the discrepancy resulting from this linearized theory are briefly explained.</dc:description>
+          <dc:date>1952</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2416/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06032004-135328</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2416/1/Wu_t_1952.pdf</dc:relation>
+          <dc:relation>Wu, Theodore Yao-tsu (1952) On problems of heat conduction in a compressible fluid. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06032004-135328 &lt;http://resolver.caltech.edu/CaltechETD:etd-06032004-135328&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">532</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1952</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2416/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2419</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>The theory of neutron wave propagation</dc:title>
+          <dc:creator>Duderstadt, James Johnson</dc:creator>
+          <dc:description>The objectives of this thesis include the development of an exact theory of neutron wave propagation in non-multiplying media as well as the application of this theory to analyze current experimental work.   An initial study is made of the eigenvalue spectrum of the velocity-dependent Boltzmann transport operator for plane wave propagation in both noncrystalline and polycrystalline moderators. The point spectrum is discussed in detail, and a theorem concerning the existence of discrete eigenvalues for high frequency, high absorption, and/or small transverse dimensions is demonstrated. The limiting cases of low and high frequency behavior are analyzed. A physical interpretation of the discrete and continuum eigenfunctions (plane wave modes) is given, and the point spectrum existence theorem is explained in the light of such interpretations.   Using this spectral representation, a technique for solving full-range boundary value problems for a general noncrystalline scattering kernel ~s presented. Orthogonality and completeness of the eigenfunctions are demonstrated, and the problem of a plane source at the origin of an infinite medium is solved. This solution is compared with that obtained by a Fourier transform technique. A procedure for solving half- range boundary value problems is presented for a one-term separable kernel model. For purposes of illustration, the problem of an oscillating source incident upon the boundary of a half-space is solved. The difficulty in extending the half-range theory to more general scattering models is discussed.   The second part of the thesis proceeds to demonstrate this theory in more detail by applying it to analyze recent neutron wave experiments in graphite and D 2 O parallelepipeds. To facilitate the interpretation of the general solution, the inelastic scattering kernel is approximated by a separable kernel, while the elastic scattering is modeled with a Dirac δ-function. The eigenvalue spectrum is analyzed in some detail, revealing several interesting conclusions concerning the experimental data and methods of data analysis. Several modifications in experimental design and analysis are suggested.   The agreement of the theory with experiment is sufficient to warrant its application to the analysis of more complicated experiments (multiple·-region, multiplying media, pulse propagation, etc.}. Several suggestions for such extensions are indicated.</dc:description>
+          <dc:date>1968</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2419/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06032004-144322</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2419/1/Duderstadt_jj_1968.pdf</dc:relation>
+          <dc:relation>Duderstadt, James Johnson (1968) The theory of neutron wave propagation. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06032004-144322 &lt;http://resolver.caltech.edu/CaltechETD:etd-06032004-144322&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1968</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2419/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2421</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Trapped atoms in cavity QED for quantum optics and quantum information</dc:title>
+          <dc:creator>McKeever, Jason Terence Taylor</dc:creator>
+          <dc:description>One of the requirements for the physical implementation of many protocols in quantum information science is the ability to convert quantum information from stationary to travelling form and transmit it over long distances. The strong coupling domain of cavity quantum electrodynamics (QED) provides a near-ideal setting for the pursuit of these goals. In addition, cavity QED is a unique system for the study of open quantum systems and quantum coherence. Cavity QED experiments have entered a new era in recent years, with the advent of single atom intracavity trapping. Experiments described in this thesis represent significant progress in these areas. Beginning with a tremendous set of improvements to far-off-resonance optical trapping of single Cs atoms in a Fabry-Perot resonator, we have undertaken a series of investigations in which strongly coupled trapped atoms have been used for quantum optics and quantum information. These improvements in trapping go beyond quantitative lengthening of storage times, in that the trap is largely insensitive to the atom's internal state. As a result of this unique property of the optical trap, a breakthrough was made in the continuous observation time of trapped atoms. Individual atoms can be observed for times of order 1 second, and this scheme enables real-time monitoring and measurement of the number of atoms strongly coupled to the cavity. This enables deterministic preparation of a particular atom number of the experimenter's choice. Using single trapped atoms in our cavity, we have also experimentally realized the one-atom laser in a regime of strong coupling. The unconventional characteristics of this system are explored in detail, including strongly nonclassical output. This represents a significant milestone of long-standing interest in the quantum optics community, and goes beyond previous work with atomic beams where there was a fluctuating atom number in the cavity. Finally, we have achieved the first deterministic generation of single photons in a setting suitable for quantum networks. By illuminating a strongly coupled, trapped atom by classical laser pulses, single photons have been generated on demand, with intrinsic efficiency near unity. Although a great deal of work remains to configure this system as a true node in a quantum network, the ground-work has been laid for progress in the near future, where one goal is to create an entangled state of two atoms in distantly separated cavities.</dc:description>
+          <dc:date>2004</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2421/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06032004-163753</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2421/1/mckeever-thesis.pdf</dc:relation>
+          <dc:relation>McKeever, Jason Terence Taylor (2004) Trapped atoms in cavity QED for quantum optics and quantum information. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06032004-163753 &lt;http://resolver.caltech.edu/CaltechETD:etd-06032004-163753&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2004</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2421/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2426</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Frequency chirp and spectral dynamics in semiconductor lasers</dc:title>
+          <dc:creator>Feng, Jing</dc:creator>
+          <dc:description>A study of the effects of the longitudinal distribution of optical intensity and carrier density on the static and dynamic characteristics of semiconductor lasers has been performed. Through a self-consistent way, a static model for above threshold operation of a single mode distributed feedback (DFB) laser is developed by calculating the longitudinal optical intensity and carrier density distribution. A dynamic model for large signal modulation of the DFB laser is also presented based on time-dependent coupled-mode equation for electric traveling waves in the laser. The spatial hole burning (SHB) has been analyzed in a quarter wavelength shifted DFB laser and a conventional DFB laser. A small-signal model is developed by including the optical intensity and carrier density distributions. Expressions are derived for the intensity modulation and resonance frequency, the frequency chirp and FM modulation, and the linewidth enhancement factor. Theoretical analysis of the frequency chirp in the DFB lasers has been used to support our experimental results. The model has led us to a new understanding of frequency chirp in DFB lasers and discovery of the ultra small chirp lasers. The spectral dynamics and high speed response of uncooled DFB lasers have been studied. The most distinguished element differentiating the uncooled DFB lasers from uncooled FP lasers is that in uncooled DFB lasers; the wavelength detuning plays an important role in determining their spectral and high speed characteristics at high temperatures. Comparing with lasers lasing at gain peak, the DFB lasers with large negative wavelength detune could have better high speed performance at room temperature, but they might have higher threshold current. We can achieve optimum performance of uncooled DFB lasers by choosing wavelength detuning properly based on the laser applications.</dc:description>
+          <dc:date>1997</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2426/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06032005-160031</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2426/1/Feng_j_1997.pdf</dc:relation>
+          <dc:relation>Feng, Jing (1997) Frequency chirp and spectral dynamics in semiconductor lasers. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06032005-160031 &lt;http://resolver.caltech.edu/CaltechETD:etd-06032005-160031&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1997</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2426/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2430</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Optical pulse-phased observations of faint pulsars with a phase-binning CCD camera</dc:title>
+          <dc:creator>Kern, Brian Daniel</dc:creator>
+          <dc:description>We have constructed a phase-binning CCD camera optimized for optical observations of faint pulsars. The phase-binning CCD camera combines the high quantum efficiency of a CCD with a pulse-phased time resolution capable of observing pulsars as fast as 10 ms, with no read noise penalty. The phase-binning CCD can also operate as a two-channel imaging polarimeter, obtaining pulse-phased linear photopolarimetric observations. We have used this phase-binning CCD to make the first measurements of optical pulsations from an anomalous X-ray pulsar. We measured the optical pulse profile of 4U 0142+61, finding a pulsed fraction of 27%, many times larger than the pulsed fraction in X-rays. From this observation, we concluded that 4U 0142+61 must be a magnetar, an ultramagnetized neutron star (B &gt; 10^14 G). The optical pulse is double-peaked, similar to the soft X-ray pulse profile. We also used the phase-binning CCD to obtain the photometric and polarimetric pulse profiles of PSR B0656+14, a middle-aged isolated rotation-powered pulsar. The optical pulse profile we measured significantly disagrees with the low signal-to-noise profile previously published for this pulsar. Our results show that the optical flux is entirely pulsed, with optical peaks at phases 0.2 and 0.8 with respect to the radio peak, and a bridge of emission between the peaks. The significance of the detection of pulsed polarized flux is low, but the position angles match the extrapolation of the radio polarization profile. The optical data, both photometric and polarimetric, are consistent with the polar cap model of pulsar magnetospheric emission. The fit of the optical data with the competing emission model, the outer gap model, has not yet been determined. We have developed a number of statistical tools, both to estimate the errors in our measurements and to identify systematic errors present in the pulse profiles. The statistical tools, when applied to the data presented here, show that the systematic errors are negligible, bolstering the claims of significance of these results.</dc:description>
+          <dc:date>2002</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2430/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06042002-125011</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2430/1/thesis020605.pdf</dc:relation>
+          <dc:relation>Kern, Brian Daniel (2002) Optical pulse-phased observations of faint pulsars with a phase-binning CCD camera. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06042002-125011 &lt;http://resolver.caltech.edu/CaltechETD:etd-06042002-125011&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">530</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2002</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2430/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2448</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Fiber-coupled nanophotonic devices for nonlinear optics and cavity QED</dc:title>
+          <dc:creator>Barclay, Paul Edward</dc:creator>
+          <dc:description>The sub-wavelength optical confinement and low optical loss of nanophotonic devices dramatically enhances the interaction between light and matter within these structures. When nanophotonic devices are combined with an efficient optical coupling channel, nonlinear optical behavior can be observed at low power levels in weakly-nonlinear materials. In a similar vein, when resonant atomic systems interact with nanophotonic devices, atom-photon coupling effects can be observed at a single quanta level. Crucially, the chip based nature of nanophotonics provides a scalable platform from which to study these effects.   This thesis addresses the use of nanophotonic devices in nonlinear and quantum optics, including device design, optical coupling, fabrication and testing, modeling, and integration with more complex systems. We present a fiber taper coupling technique that allows efficient power transfer from an optical fiber into a photonic crystal waveguide. Greater than 97% power transfer into a silicon photonic crystal waveguide is demonstrated. This optical channel is then connected to a high-Q (&gt; 40,000), ultra-small mode volume (V &lt; (λ/n) 3 ) photonic crystal cavity, into which we couple &gt; 44% of the photons input to a fiber. This permits the observation of optical bistability in silicon for sub-mW input powers at telecommunication wavelengths.   To port this technology to cavity QED experiments at near-visible wavelengths, we also study silicon nitride microdisk cavities at wavelengths near 852 nm, and observe resonances with Q &gt; 3 million and V &lt; 15 (λ/n) 3 ). This Q/V ratio is sufficiently high to reach the strong coupling regime with cesium atoms. We then permanently align and mount a fiber taper within the near-field an array of microdisks, and integrate this device with an atom chip, creating an "atom-cavity chip" which can magnetically trap laser cooled atoms above the microcavity. Calculations of the microcavity single atom sensitivity as a function of Q/V are presented and compared with numerical simulations. Taking into account non-idealities, these cavities should allow detection of single laser cooled cesium atoms.</dc:description>
+          <dc:date>2007</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2448/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06042007-124631</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2448/1/thesis_double_sided.pdf</dc:relation>
+          <dc:relation>http://thesis.library.caltech.edu/2448/2/thesis_single_sided.pdf</dc:relation>
+          <dc:relation>Barclay, Paul Edward (2007) Fiber-coupled nanophotonic devices for nonlinear optics and cavity QED. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06042007-124631 &lt;http://resolver.caltech.edu/CaltechETD:etd-06042007-124631&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2007</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2448/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2460</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Silicon nanocrystal charging dynamics and memory device applications</dc:title>
+          <dc:creator>Feng, Tao</dc:creator>
+          <dc:description>The application of Si nanocrystals as floating gate in the metal oxide semiconductor field-effect transistor (MOSFET) based memory, which brings many advantages due to separated charge storage, attracted much attention in recent years. In this work, Si nanocrystal memory with nanocrystals synthesized by ion implantation was characterized to provide a better understanding of the relationship between structure and performance -- especially charge retention characteristics. In the structural characterization it was demonstrated that scanning tunneling microscopy (STM) and non-contact atomic force microscopy (nc-AFM) enable much more accurate measurements of the ensemble size distribution and array density for small Si nanocrystals in SiO2, estimated to be around 2-3 nm and 4 x 10^12 -3 x 10^13 cm^-2, respectively. The reflection high energy electron diffraction (RHEED) pattern further verified the existence of nanocrystals in SiO2. Capacitance-voltage (C-V) measurements demonstrated the memory effects. The comparison between charge density and nanocrystal density suggests single charge storage on individual Si nanocrystals. The electronic property of tunnel oxide layer is a key factor influencing charge retention, and was characterized by conductive atomic force microscopy (C-AFM). An overall high conductance observed between the nanocrystal floating gate and the substrate is believed to be responsible for the relatively short retention time for electrons. A narrowed denuded zone contaminated with nanocrystals is suggested to be the reason for the high conductance, which is further supported by switching events and fluctuations in local current-voltage (I-V) curves. From the results of C-AFM, a better control of nanocrystal distribution close to the channel is shown to be critical for non-volatile nanocrystal memory made via Si ion implantation. Nanoscale charge retention characteristics of both electrons and holes were probed directly by ultrahigh vacuum (UHV) nc-AFM, in which a highly doped Si tip was applied to inject charges into the nanocrystal layer and monitor subsequent charge dissipation. The results reveal a much longer hole retention time (e.g., &gt;1 day) than that for electrons (e.g., &lt;1 hour), which is consistent with the charge retention characteristics from electrical characterization of nanocrystal floating gate MOS capacitors as well as time-resolved photoluminescence measurements. The large difference in charge retention times for electrons and holes is attributed to the difference in tunneling barrier heights: 3.1 eV and 4.7 eV for electrons and holes, respectively. Based on the charge injection and retention characteristics obtained from UHV nc-AFM and nanocrystal floating gate MOS devices, we suggest that hole programming in Si nanocrystal memory is an interesting choice in improving data retention or in further device scaling. UHV nc-AFM guarantees high detection sensitivity and stability in charge imaging experiments due to a lack of air damping, so a three-dimensional (3D) electrostatic model can be developed to provide quantitative information regarding the distribution and evolution of the localized charges. For example, a transition from initial complementary error function distribution to Gaussian distribution was suggested in the simulation. In addition, charge detection sensitivity was found to increase with the scanning height, showing much room for further improvement of the sensitivity in UHV nc-AFM. The limitation of the electrostatic model is also discussed, and some knowledge regarding the charge distribution obtained from theoretical analysis and other experimental methods is suggested to be necessary supplements to the quantitative charge analysis by nc-AFM. Finally, the approach used in the electrostatic simulation of nc-AFM was applied in 3D simulation of Si nanocrystal memory. The dependence of Coulomb charging energy on dielectric environment is analyzed. From the local variation of channel minority carrier density due to separated charge storage, the threshold number density of charged nanocrytals for 1D approximation to break down is shown to be 10^12 cm^-2 in the sample geometry investigated.</dc:description>
+          <dc:date>2006</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2460/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06052006-141803</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2460/1/Taothesisfinalversion.pdf</dc:relation>
+          <dc:relation>Feng, Tao (2006) Silicon nanocrystal charging dynamics and memory device applications. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06052006-141803 &lt;http://resolver.caltech.edu/CaltechETD:etd-06052006-141803&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">530</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2006</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2460/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2465</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Hamilton-Pontryagin integrators on Lie groups</dc:title>
+          <dc:creator>Bou-Rabee, Nawaf</dc:creator>
+          <dc:description>In this thesis structure-preserving time integrators for mechanical systems whose configuration space is a Lie group are derived from a Hamilton-Pontryagin (HP) variational principle. In addition to its attractive properties for degenerate mechanical systems, the HP viewpoint also affords a practical way to design discrete Lagrangians, which are the cornerstone of variational integration theory. The HP principle states that a mechanical system traverses a path that extremizes an HP action integral. The integrand of the HP action integral consists of two terms: the Lagrangian and a kinematic constraint paired with a Lagrange multiplier (the momentum). The kinematic constraint relates the velocity of the mechanical system to a curve on the tangent bundle. This form of the action integral makes it amenable to discretization. In particular, our strategy is to implement an s-stage Runge-Kutta-Munthe-Kaas (RKMK) discretization of the kinematic constraint. We are motivated by the fact that the theory, order conditions, and implementation of such methods are mature. In analogy with the continuous system, the discrete HP action sum consists of two parts: a weighted sum of the Lagrangian using the weights from the Butcher tableau of the RKMK scheme, and a pairing between a discrete Lagrange multiplier (the discrete momentum) and the discretized kinematic constraint. In the vector space context, it is shown that this strategy yields a well-known class of symplectic partitioned Runge-Kutta methods including the Lobatto IIIA-IIIB pair which generalize to higher-order accuracy. In the Lie group context, the strategy yields an interesting and novel family of variational partitioned Runge-Kutta methods. Specifically, for mechanical systems on Lie groups we analyze the ideal context of EP systems. For such systems the HP principle can be transformed from the Pontryagin bundle to a reduced space. To set up the discrete theory, a continuous reduced HP principle is also analyzed. It is this reduced HP principle that we apply our discretization strategy to. The resulting integrator describes an update scheme on the reduced space. As in RKMK we parametrize the Lie group using coordinate charts whose model space is the Lie algebra and that approximate the exponential map. Since the Lie group is non abelian, the structure of these integrators is not the same as in the vector space context. We carry out an in-depth study of the simplest integrators within this family that we call variational Euler integrators; specifically we analyze the integrator's efficiency, global error, and geometric properties. Because of their variational character, the variational Euler integrators preserve a discrete momentum map and symplectic form. Moreover, since the update on the configuration space is explicit, the configuration updates exhibit no drift from the Lie group. We also prove that the global error of these methods is second order. Numerical experiments on the free rigid body and the chaotic dynamics of an underwater vehicle reveal that these reduced variational integrators possess structure-preserving properties that methods designed to preserve momentum (using the coadjoint action of the Lie group) and energy (for example, by projection) lack. In addition we discuss how the HP integrators extend to a wider class of mechanical systems with, e.g., configuration dependent potentials and non trivial shape-space dynamics.</dc:description>
+          <dc:date>2007</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2465/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06052007-153115</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2465/1/bothesis2007.pdf</dc:relation>
+          <dc:relation>Bou-Rabee, Nawaf (2007) Hamilton-Pontryagin integrators on Lie groups. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06052007-153115 &lt;http://resolver.caltech.edu/CaltechETD:etd-06052007-153115&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">531</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2007</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2465/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2466</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Investigation and application of microscale semiconductor lasers and cavities</dc:title>
+          <dc:creator>Perahia, Raviv</dc:creator>
+          <dc:description>As optical, active, semiconductor devices are miniaturized to the wavelength scale, many applications of cavities, lasers, and detectors become possible. In order to make such devices useful in real-world applications one must first understand how these devices behave when they are reduced in size and what technological barriers must be overcome. In this dissertation several thrusts are presented toward the investigation and application of microscale active semiconductor cavities. Work is divided into four thrusts: fluid sensing based on surface sensitive quantum cascade lasers, hybridization of surface plasmon modes and waveguide modes as well as lasing in near-infrared subwavelength microdisks, quantum dot based cavities for strong coupling, and nascent work on optomechanical tuning of active cavities. In all four thrusts design and fabrication techniques are used to overcome challenges and capitalize on reduced scale. Progress in fabrication, design, and testing of surface sensitive quantum cascade lasers is presented. Work focuses on increasing surface sensitivity by modifying the metal contacts on top of active material originally intended to be used with a surface plasmon waveguide. An experiment where isopropyl and ethyl alcohol is differentiated based on laser behavior is carried out. Work toward integration of semiconductor lasers with fluidic delivery systems is explored. Work then turns to the intimate and advantageous inclusion of metal into subwavelength strained quantum well microdisk lasers in the near-infrared. Optical and thermal characteristics are simulated. Hybridization of surface plasmon mode and waveguide whispering-gallery modes is simulated and experimentally verified. Lasing behavior of such small devices is investigated. In parallel, work toward improving the probability of achieving a strongly coupled quantum dot microdisk cavity system is carried out. Improvements in fabrication techniques and potential metal integration makes this project a natural extension of the subwavelength microdisk laser project. Finally, a new project is discussed where the above projects are combined with investigation of optomechanical systems currently ongoing in our lab. Work toward the combination of active optical cavities with optomechanical devices will lead to wide band wavelength tuning functionality.</dc:description>
+          <dc:date>2009</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2466/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06052009-131714</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2466/1/thesis_Raviv_Perahia_single_sided.pdf</dc:relation>
+          <dc:relation>http://thesis.library.caltech.edu/2466/2/thesis_Raviv_Perahia_two_sided.pdf</dc:relation>
+          <dc:relation>Perahia, Raviv (2009) Investigation and application of microscale semiconductor lasers and cavities. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06052009-131714 &lt;http://resolver.caltech.edu/CaltechETD:etd-06052009-131714&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">535</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2009</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2466/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2467</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Observation of single-molecule rotational diﬀusion at microsecond timescales by polarized fluorescence correlation spectroscopy</dc:title>
+          <dc:creator>Shapiro, Ian Ross McKay</dc:creator>
+          <dc:description>This work presents a series of experimental and numerical studies of macromolecular organic, inorganic and biological structures, in all instances focusing on the behavior characteristic of individual discrete molecular elements. Chapters 1 and 2, beginning on pages 1 and 31, respectively, describe fabrication, use and numerical analysis of of single-walled carbon nanotube probes for amplitude-modulation atomic force microscopy. These studies reach the conclusion that the molecular structure and nanoscale surface interaction potential unique to carbon nanotubes collectively give rise to atomic force microscopy imaging artifacts manifesting as apparent lateral topographic resolution signiﬁcantly better than that predicted by the probe and sample structures. Chapter 3 (p. 61) presents a brief review of single-molecule microscopy, describes a generalized mathematical formalism for focusing polarized visible-spectrum electromagnetic radiation, and delineates the construction of a custom two-channel scanning confocal ﬂuorescence microscope system with single-photon detection capability for spectral- and polarization-resolved studies of individual mobile ﬂuorophores. This Chapter includes a theory-based optical analysis of the confocal probe volume structure and photoluminescence collection efficiency from 3D-polarized single-dipole emitters. The latter analysis was aided by introducing a modiﬁed Jones formalism using non-square matrix representation for polarization state changes in the speciﬁc context of confocal optics. Proper calculation of the expected confocal probe volume dimensions was essential for accurately interpreting experimental data in the following chapter. Additionally, the quantitative understanding that followed from analysis of 3D polarization state measurement by orthogonally polarized detection channels was critical to both the interpretation of experimental data and the numerical generation of simulated data in Chapter 5. Chapter 4 (p. 125) presents a generalized formalism for correlation analysis of the ﬂuorescence signal collected using the two-channel microscopy system described in Chapter 3. Particular focus was directed toward the theoretical auto- and cross-correlation traces anticipated from polarization-sensitive bivariate time series of photoluminescence emission from freely-rotating transition dipoles. Chapter 4 also presents population-resolved data collected from single F¨orster resonance energy transfer ﬂuorphore pairs conjugated to DNA oligomers as they undergo cleavage by restriction endonucleases. The endonuclease enzyme Michaelis constants KM measured for EcoRI and BglI via ﬂuorescence burst analysis were in agreement with prior literature. The success of these experiments provide concrete conﬁrmation of the microscope’s ﬂuorescence emission sensitivity and detection channel selectivity in the context of single-molecule experiments. Chapter 5 describes a polarized ﬂuorescence correlation spectroscopy (PFCS) investigation of liquid phase rotational diffusion by colloidal CdSe semiconductor nanocrystals possessing two-dimensional nondegenerate photoluminescence transition dipoles, as well as red ﬂuorescent protein (monomeric DsRed) and rhodamine-labeled phospholipids that possess more conventional one-dimensional ﬂuorescence transition dipoles. The experimental PFCS data collected from these samples is in close agreement with simulated PFCS data produced by a Monte Carlo rotational diffusion numerical routine that incorporates the microscope 3D polarization state sensitivity calculated in Chapter 3. Appendices beginning on page 221 include a matrix-based description of arbitrary 3D rotation that was used in the rotational diffusion simulations, Matlab code transcripts (p. 227), and an additional mathematical formalism based on information theoretic precepts (p. 242) for assessing directed causal relationships in bivariate time series data.</dc:description>
+          <dc:date>2009</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2467/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06052009-140716</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2467/1/Ian_Shapiro_PhD_thesis.pdf</dc:relation>
+          <dc:relation>Shapiro, Ian Ross McKay (2009) Observation of single-molecule rotational diﬀusion at microsecond timescales by polarized fluorescence correlation spectroscopy. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06052009-140716 &lt;http://resolver.caltech.edu/CaltechETD:etd-06052009-140716&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">530</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>2009</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2467/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+      <header>
+        <identifier>ftcaltechdiss:oai:thesis.library.caltech.edu:2472</identifier>
+        <datestamp>2015-08-02T14:11:41Z</datestamp>
+      </header>
+      <metadata>
+        <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+          <dc:title>Experimental and theoretical studies on two-phase flows</dc:title>
+          <dc:creator>Koh, Christopher James</dc:creator>
+          <dc:description>This thesis, comprised of two parts, deals with the flow of suspensions. Part I concerns specifically with the stability of a single drop translating through a quiescent, unbounded suspending fluid at low Reynolds number. The evolution of the shape of an initially nonspherical drop as it translates is studied numerically and experimentally. For finite capillary numbers, it is shown that the drop reverts to a sphere provided that the initial deformation is small enough. However, beyond certain critical initial deformation, the drop deforms continuously. For initially prolate shapes, the drop elongates with the formation of a tail; for initially oblate shapes, the drop flattens with the formation of a cavity at its rear. Experiments extend the numerical results. It is found that initially unstable prolate drops break up into multiple droplets, while initially unstable oblate drops deform in double-emulsion drops. Part II of this thesis considers the flow of high concentration solid suspensions through a rectangular channel. By adapting the well-known Laser Doppler Anemometry, an experimental technique is developed to measure the velocity as well as particle volume fraction of the suspension. A crucial element in these experiments is the reduction of the optical turbidity of the suspension. To accomplish this goal, a systematic method based on refractive-index-matching of the two phases is employed. Experimental results show that the velocity profile is blunted while the concentration profile has a maximum near the center. The qualitative features of the experimental data compare reasonably well with theoretical predictions based on the shear-induced particle migration theory.</dc:description>
+          <dc:date>1991</dc:date>
+          <dc:identifier>http://thesis.library.caltech.edu/2472/</dc:identifier>
+          <dc:identifier>http://resolver.caltech.edu/CaltechETD:etd-06062005-103146</dc:identifier>
+          <dc:relation>http://thesis.library.caltech.edu/2472/1/Koh_CJ_1991.pdf</dc:relation>
+          <dc:relation>Koh, Christopher James (1991) Experimental and theoretical studies on two-phase flows. Dissertation (Ph.D.), California Institute of Technology. http://resolver.caltech.edu/CaltechETD:etd-06062005-103146 &lt;http://resolver.caltech.edu/CaltechETD:etd-06062005-103146&gt;</dc:relation>
+          <dc:format>application/pdf</dc:format>
+          <dc:type>Thesis</dc:type>
+          <dc:type>NonPeerReviewed</dc:type>
+          <base_dc:autoclasscode type="ddc">532</base_dc:autoclasscode>
+          <base_dc:typenorm>0004</base_dc:typenorm>
+          <base_dc:oa>2</base_dc:oa>
+          <base_dc:collection>ftcaltechdiss</base_dc:collection>
+          <base_dc:collname>California Institute of Technology: CaltechTHESIS</base_dc:collname>
+          <base_dc:continent>cna</base_dc:continent>
+          <base_dc:country>us</base_dc:country>
+          <base_dc:lang>unknown</base_dc:lang>
+          <base_dc:year>1991</base_dc:year>
+          <base_dc:link>http://thesis.library.caltech.edu/2472/</base_dc:link>
+        </base_dc:dc>
+      </metadata>
+    </record>
+    <record>
+</ListRecords>
+</OAI-PMH>
