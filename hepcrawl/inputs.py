@@ -64,7 +64,7 @@ def add_author_full_name(value):
 
 def clean_tags_from_affiliations(value):
     """Clean the affiliaton string for an author."""
-    for affiliation in value['affiliations']:
+    for affiliation in value.get('affiliations', []):
         # Remove tag AND content of any prefix like <label><sup>1</sup></label>
         affiliation['value'] = remove_tags_with_content(affiliation['value'], ('label',))
         # Now remove all tags but KEEP content
