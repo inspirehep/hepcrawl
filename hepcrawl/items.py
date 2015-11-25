@@ -44,9 +44,9 @@ class HEPRecord(scrapy.Item):
             "surname": "Ellis",
             "given_names": "Richard John",
             "full_name": "", # if no surname/given_names
-            "affiliations": [
-                "raw string", ..
-            ]
+            "affiliations": [{
+                value: "raw string", ..
+            }]
         }
     """
     collaboration = scrapy.Field()
@@ -79,4 +79,4 @@ class HEPRecord(scrapy.Item):
     references = scrapy.Field()
     collections = scrapy.Field()
     thesis = scrapy.Field()
-    url = scrapy.Field()
+    urls = scrapy.Field()

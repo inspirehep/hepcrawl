@@ -9,11 +9,13 @@
 
 import os
 import re
+import requests
 
 from netrc import netrc
 from harvestingkit.ftp_utils import FtpHandler
 from tempfile import mkstemp
 from zipfile import ZipFile
+from urlparse import urlparse
 
 
 def unzip_xml_files(filename, target_folder):
@@ -69,6 +71,14 @@ def collapse_initials(name):
     return name
 
 
+def split_fullname(author):
+    """Split an author name to surname and given names from the form 'foo, bar'."""
+    fullname = re.sub(r',', '', author).split()
+    surname = fullname[0]  # Assuming surname comes first.
+    given_names = " ".join(fullname[1:])
+    return surname, given_names
+
+
 def get_temporary_file(prefix="tmp_",
                        suffix="",
                        directory=None):
@@ -106,3 +116,22 @@ def build_dict(seq, key):
     Used to make searching in a list of objects faster (get operations are O(1)).
     """
     return dict((d[key], dict(d, index=i)) for (i, d) in enumerate(seq))
+
+
+def get_mime_type(url):
+    """Get mime type from url."""
+    if not url:
+        return ""
+    resp = requests.head(url)
+    content_type = resp.headers.get("Content-Type")
+    if content_type is None:
+        raise Exception("No content-type found in URL {0}".format(url))
+    return content_type
+
+
+def parse_domain(url):
+    """Parse domain from a given url."""
+    parsed_uri = urlparse(url)
+    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    return domain
+

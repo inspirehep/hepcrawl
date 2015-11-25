@@ -24,6 +24,7 @@ requirements = [
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
     'HarvestingKit>=0.6.3',
+    'requests>=2.8.1',
 ]
 
 test_requirements = [
@@ -31,6 +32,7 @@ test_requirements = [
     'pytest>=2.8.0',
     'pytest-cov>=2.1.0',
     'pytest-pep8>=1.0.6',
+    'responses>=0.5.0'
 ]
 
 
