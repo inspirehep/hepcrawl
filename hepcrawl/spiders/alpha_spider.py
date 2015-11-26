@@ -93,10 +93,7 @@ class AlphaSpider(CrawlSpider):
     def parse_author_data(self, author_line):
         """Parses the line where there are data about the author(s)
         """
-
         author_data = []
-        print("Parsing author data")
-
         author_list = re.sub(r'[\n\t\xa0]', '', author_line).split(
             ",")  # remove unwanted characters
 
@@ -105,11 +102,11 @@ class AlphaSpider(CrawlSpider):
 
         for i in author_list:
             if "thesis" in i.lower():
-                thesis_type = i.strip()  # there might be some unwanted whitespaces
+                thesis_type = i.strip()
             if "university" in i.lower():
-                # affiliation element might include the year
                 affiliation = re.sub(r"[^A-Za-z\s]+", '', i).strip()
             if self.has_numbers(i):
+                # Affiliation element might include the year
                 year = re.findall(r'\d+', i)[0].strip()
 
         author_data.append({
@@ -126,18 +123,11 @@ class AlphaSpider(CrawlSpider):
         """Gets the desired elements from author_data,
         these will be put in the scrapy author item
         """
-        try:
-            assert self.author_data
-        except AssertionError:
-            print("AssertionError: "
-                  "You must call self.parse_author_data(author_line[0]) "
-                  "before calling get_authors()!")
-
         authors = []
         for author in self.author_data:
             authors.append({
                 'surname': author['surname'],
-                'given_names': author['given_names'],  # this must be a string?
+                'given_names': author['given_names'],
                 # 'full_name': author.extract(), # should we only use full_name?
                 'affiliations': [{"value": author['affiliation']}]
             })
@@ -145,12 +135,11 @@ class AlphaSpider(CrawlSpider):
         return authors
 
     def get_abstract(self, abs_pars):
-        """Abstracts might be divided to multiple paragraphs.
+        """Returns a unified abstract.
+
+        Abstracts might be divided to multiple paragraphs.
         This way we can just merge the paragraphs and input this to HEPloader.
         If we don't do this, HEPLoader takes just the first paragraph.
-        Other way would be to make an AlphaLoader and override
-        HEPloaders abstract_out = TakeFirst().
-        This is better though.
         """
         whole_abstract = " ".join(abs_pars)
         return whole_abstract
@@ -158,10 +147,9 @@ class AlphaSpider(CrawlSpider):
     def parse(self, response):
         """Parse Alpha web page into a HEP record."""
 
-        # random <br>'s will create problems:
+        # Random <br>'s will create problems:
         response = response.replace(body=response.body.replace('<br />', ''))
-        text = response.body
-        node = Selector(text=text, type='html')
+        node = response.selector
 
         for thesis in node.xpath(self.itertag):
             record = HEPLoader(item=HEPRecord(), selector=thesis, response=response)
@@ -173,16 +161,10 @@ class AlphaSpider(CrawlSpider):
             ).extract()
             # author_line looks like this:
             # [u'Chukman So, PhD Thesis, University of California, Berkeley (2014)']
-            try:
-                self.author_data = self.parse_author_data(author_line[0])
-                authors = self.get_authors()
-
-                record.add_value('authors', authors)
-                record.add_value('date_published', self.author_data[0]['year'])
-            except:
-                print("Author data couldn't be found. "
-                    "There's probably something wrong with the HTML structure, check the source")
-                pass
+            self.author_data = self.parse_author_data(author_line[0])
+            authors = self.get_authors()
+            record.add_value('authors', authors)
+            record.add_value('date_published', self.author_data[0]['year'])
 
             # Abstract:
             record.add_xpath(
@@ -191,13 +173,8 @@ class AlphaSpider(CrawlSpider):
                 "./div[@class = 'content clearfix']//div[@class='field-item even']"
                 "/p[normalize-space()][string-length(text()) > 0][position() < last()]/text()"
             ).extract()
-            try:
-                abstract = self.get_abstract(abs_paragraphs)
-                record.add_value("abstract", abstract)
-            except:
-                print("Abstract couldn't be found. "
-                    "Theres's probably something wrong with the HTML structure, check the source")
-                pass
+            abstract = self.get_abstract(abs_paragraphs)
+            record.add_value("abstract", abstract)
 
             # PDF link:
             record.add_xpath('files', "./div[@class = 'content clearfix']//span[@class='file']/a/@href")
