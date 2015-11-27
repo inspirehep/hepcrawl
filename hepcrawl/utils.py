@@ -85,3 +85,24 @@ def get_temporary_file(prefix="tmp_",
             pass
         raise e
     return filepath
+
+
+def get_nested(root, *keys):
+    """
+    Returns the nested value of the provided key series.
+    Returns '' otherwise
+    """
+    if not keys:
+        return root
+    if keys[0] not in root:
+        return ''
+    if keys[0] in root:
+        return get_nested(root[keys[0]], *keys[1:])
+
+
+def build_dict(seq, key):
+    """
+    Creates a dictionary from a list, using the specified key.
+    Used to make searching in a list of objects faster (get operations are O(1)).
+    """
+    return dict((d[key], dict(d, index=i)) for (i, d) in enumerate(seq))
