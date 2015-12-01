@@ -72,8 +72,7 @@ class BaseSpider(XMLFeedSpider):
     download_delay = 5  # Is this a good value and how to make this domain specific?
 
     # This way you can scrape twice: otherwise duplicate requests are filtered:
-    custom_settings = {'DUPEFILTER_CLASS': 'scrapy.dupefilters.BaseDupeFilter',
-                       'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,  # Does this help at all?
+    custom_settings = {'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,  # Does this help at all?
                        'LOG_FILE': 'base.log'}  # Does this log at all?
 
     namespaces = [
@@ -186,14 +185,10 @@ class BaseSpider(XMLFeedSpider):
             request.meta["node"] = node
             return request
         else:
-            request = Request(
-                self.source_file,
-                callback=self.build_item
-            )
-            request.meta["direct_link"] = direct_link
-            request.meta["urls"] = urls_in_record
-            request.meta["node"] = node
-            return request
+            response.meta["direct_link"] = direct_link
+            response.meta["urls"] = urls_in_record
+            response.meta["node"] = node
+            return self.build_item(response)
 
     def build_item(self, response):
         """Build the final record."""
@@ -232,11 +227,7 @@ class BaseSpider(XMLFeedSpider):
             if pdf and "jpg" not in link.lower():
                 pdf_links.append(urljoin(domain, link))
 
-        request = Request(
-            self.source_file,
-            callback=self.build_item
-        )
-        request.meta["direct_link"] = pdf_links
-        request.meta["node"] = response.meta.get('node')
-        request.meta["urls"] = response.meta.get('urls')
-        return request
+        response.meta["direct_link"] = pdf_links
+        response.meta["node"] = response.meta.get('node')
+        response.meta["urls"] = response.meta.get('urls')
+        return self.build_item(response)
