@@ -85,9 +85,6 @@ class BaseSpider(XMLFeedSpider):
         """Construct BASE spider"""
         super(BaseSpider, self).__init__(*args, **kwargs)
         self.source_file = source_file
-        self.target_folder = "tmp/"  # Change this in the final version to "/tmp/BASE"
-        if not os.path.exists(self.target_folder):
-            os.makedirs(self.target_folder)
 
     def start_requests(self):
         """Default starting point for scraping shall be the local XML file"""
