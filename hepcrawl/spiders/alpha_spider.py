@@ -67,14 +67,15 @@ class AlphaSpider(CrawlSpider):
         """Construct Alpha spider"""
         super(AlphaSpider, self).__init__(*args, **kwargs)
         self.source_file = source_file
-        self.target_folder = "tmp/"
-        if not os.path.exists(self.target_folder):
-            os.makedirs(self.target_folder)
 
-    # def start_requests(self):
-        # """You can test the spider with local files with this.
-        # Uncomment this function when crawling the test page."""
-        # yield Request(self.source_file)
+    def start_requests(self):
+        """You can test the spider with local files with this.
+        Uncomment this function when crawling the test page."""
+        if self.source_file:
+            yield Request(self.source_file)
+        elif self.start_urls:
+            for url in self.start_urls:
+                yield Request(url)
 
     def split_fullname(self, author):
         """If we want to split the author name to surname and given names.
