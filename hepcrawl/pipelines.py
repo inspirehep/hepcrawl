@@ -53,8 +53,8 @@ class JsonWriterPipeline(object):
             self.output_uri,
         ))
 
-    def process_item(self, item, spider):  # Are we using unicode?
-        line = json.dumps(dict(item), indent=4) + ",\n"  # Now this is missing commas between records
+    def process_item(self, item, spider):
+        line = json.dumps(dict(item), indent=4) + ",\n"
         self.file.write(line)
         self.count += 1
         return item

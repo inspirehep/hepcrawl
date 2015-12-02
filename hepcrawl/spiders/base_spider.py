@@ -27,51 +27,49 @@ class BaseSpider(XMLFeedSpider):
 
     """BASE crawler
     Scrapes BASE metadata XML files one at a time.
-    The actual files should be retrieved from BASE viat its OAI interface.
+    The actual files should be retrieved from BASE viat its OAI interface. The
+    file can contain multiple records.
 
     This spider takes one BASE metadata record which are stored in an XML file.
 
     1. First a request is sent to parse_node() to look through the XML file
-       and determine if it has direct link(s) to a fulltext pdf.
-       (Actually it doesn't recognize fulltexts; it's happy when it sees a pdf of some kind.)
+       and determine if it has direct link(s) to a fulltext pdf. (Actually it
+       doesn't recognize fulltexts; it's happy when it sees a pdf of some kind.)
        calls: parse_node()
 
-    2a.If direct link exists, it will call build_item() to extract all desired data from
-        the XML file. Data will be put to a HEPrecord item and sent to a pipeline
-        for processing.
-        calls: build_item()
+    2a.If direct link exists, it will call build_item() to extract all desired
+       data from the XML file. Data will be put to a HEPrecord item and sent
+       to a pipeline for processing.
+       calls: build_item()
 
-    2b.If no direct link exists, it will call scrape_for_pdf() to follow links and
-       extract the pdf url. It will then send a request to build_item() to build HEPrecord.
-       This will be a duplicate request, so we have to enable duplicates by a custom
-       setting 'DUPEFILTER_CLASS' : 'scrapy.dupefilters.BaseDupeFilter'.
+    2b.If no direct link exists, it will send a request to scrape_for_pdf() to
+       follow links and extract the pdf url. It will then call build_item() to
+       build HEPrecord.
        calls: scrape_for_pdf(), then build_item()
 
 
     Example usage:
-    scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_record1_no_namespaces.xml -s "JSON_OUTPUT_DIR=tmp/"
     scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_record2.xml -s "JSON_OUTPUT_DIR=tmp/"
 
     TODO:
-    *Is the JSON pipeline writing unicode?
-    *JSON pipeline is printing an extra comma at the end of the file.
-    (or else it's not printing commas between records)
     *Some Items missing (language, what else?)
     *With a test document of 1000 records only 974 returned.
-    *SSL errors, this helps? http://stackoverflow.com/questions/32950694/disable-ssl-certificate-verification-in-scrapy
+     Check SSL and internal errors.
     *Testing is not testing the pdf link and urls. Otherwise it's working.
+    *Now does only theses, should it be able to scrape all kinds of documents?
+    *The utils.split_fullname() doesn't necessarily work with metadata formats
+     other than BASE.
 
 
     Happy crawling!
     """
 
     name = 'BASE'
-    start_urls = []  # This will contain the links in the XML file
+    start_urls = []
     iterator = 'xml'  # Needed for proper namespace handling
     itertag = 'OAI-PMH:record'
     download_delay = 5  # Is this a good value and how to make this domain specific?
 
-    # This way you can scrape twice: otherwise duplicate requests are filtered:
     custom_settings = {'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,  # Does this help at all?
                        'LOG_FILE': 'base.log'}  # Does this log at all?
 
@@ -128,7 +126,7 @@ class BaseSpider(XMLFeedSpider):
         """Return all the different urls in the xml.
 
         Urls might be stored in identifier, relation, or link element. Beware
-        the strange "filaname.jpg.pdf" urls.
+        the strange "filename.jpg.pdf" urls.
         """
         identifiers = [
             identifier for identifier in node.xpath(".//dc:identifier/text()").extract()
@@ -212,7 +210,8 @@ class BaseSpider(XMLFeedSpider):
         parse_with_link() to parse the XML node.
         """
         pdf_links = []
-        all_links = response.xpath("//a[contains(@href, 'pdf')]/@href").extract()
+        all_links = response.xpath(
+            "//a[contains(@href, 'pdf')]/@href").extract()
         # Take only pdf-links, join relative urls with domain,
         # and remove possible duplicates:
         domain = parse_domain(response.url)
