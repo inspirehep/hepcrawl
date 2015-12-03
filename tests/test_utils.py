@@ -13,13 +13,18 @@ import os
 
 import pytest
 import six
+import responses
+import requests
 
 from hepcrawl.utils import (
     unzip_xml_files,
     ftp_connection_info,
     get_first,
     get_nested,
-    build_dict
+    build_dict,
+    split_fullname,
+    parse_domain,
+    get_mime_type,
 )
 
 
@@ -108,3 +113,45 @@ def test_build_dict(list_for_dict):
     assert dict_from_list['John']['age'] == 20
     assert dict_from_list['Mark']['age'] == 27
     assert dict_from_list['Bruce']['age'] == 9
+
+
+def test_split_fullname():
+    """Test author fullname splitting."""
+    author1 = 'Doe, John Magic'
+    author2 = 'Doe Boe, John Magic'
+    author3 = 'Doe Boe John Magic'
+    author4 = 'John Magic Doe'
+    author5 = 'John Magic Doe Boe'
+    author6 = 'John Magic, Doe Boe'
+    assert split_fullname(author1) == ('Doe', 'John Magic')
+    assert split_fullname(author2) == ('Doe Boe', 'John Magic')
+    assert split_fullname(author3) == ('Doe', 'Boe John Magic')
+    assert split_fullname(author4, surname='last') == ('Doe', 'John Magic')
+    assert split_fullname(author5, surname='last') == ('Boe', 'John Magic Doe')
+    assert split_fullname(author6, surname='last') == ('Doe Boe', 'John Magic') 
+
+
+def test_parse_domain():
+    """Test domain parsing."""
+    url = 'http://www.example.com/0351/content'
+    domain = 'http://www.example.com/'
+    assert parse_domain(url) == domain
+
+
+@responses.activate
+def test_get_mime_type():
+    """Test MIME type getting.
+
+    Apparently the mocked response always has 'Content-Type'
+    and it seems to default to 'text/html'?
+    Because of this, right now is not testing if missing header
+    information raises and exception.
+    """
+    url = 'http://www.example.com/files/einstein_1905.pdf'
+    responses.add(responses.HEAD, url, status=200, content_type='application/pdf')
+    resp = requests.head(url)
+    assert get_mime_type(None) == ''
+    assert get_mime_type('') == ''
+
+    if resp.headers['Content-Type']:
+        assert get_mime_type(url) == 'application/pdf'

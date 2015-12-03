@@ -22,6 +22,7 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..utils import split_fullname
 
 
 class AlphaSpider(CrawlSpider):
@@ -38,9 +39,6 @@ class AlphaSpider(CrawlSpider):
     scrapy crawl alpha -s "JSON_OUTPUT_DIR=tmp/"
     scrapy crawl alpha -a source_file=file://`pwd`/tests/responses/alpha/test_10.htm -s "JSON_OUTPUT_DIR=tmp/"
 
-    TODO:
-    * Author names are not comma separated in the html page. Because of this,
-      possible multiple surnames are not correctly recognised.
 
     Happy crawling!
     """
@@ -63,28 +61,24 @@ class AlphaSpider(CrawlSpider):
             for url in self.start_urls:
                 yield Request(url)
 
-    def split_fullname(self, author):
-        """If we want to split the author name to surname and given names.
-        """
-        import re
-        fullname = author.split()
-        # CAVEAT: Here we are *assuming* surname comes last
-        surname = fullname[-1]
-        given_names = " ".join(fullname[:-1])
-        return surname, given_names
-
     def has_numbers(self, s):
         """Detects if a string contains numbers"""
         return any(char.isdigit() for char in s)
 
-    def parse_author_data(self, author_line):
-        """Parses the line where there are data about the author(s)"""
-        author_data = []
-        author_list = re.sub(r'[\n\t\xa0]', '', author_line).split(
-            ",")  # Author name might contain unwanted characters.
+    def parse_author_data(self, thesis):
+        """Parses the line where there are data about the author(s)
 
+        Note that author surnames and given names are not comma separated, so
+        split_fullname() might get a wrong surname.
+        """
+        author_line = thesis.xpath(
+            "./div[@class = 'content clearfix']//div[@class='field-item even']"
+            "/p[contains(text(),'Thesis')]/text()"
+        ).extract()
+        author_list = re.sub(r'[\n\t\xa0]', '', author_line[0]).split(
+            ",")  # Author name might contain unwanted characters.
         author = author_list[0]
-        surname, given_names = self.split_fullname(author)
+        surname, given_names = split_fullname(author, surname="last")
 
         for i in author_list:
             if "thesis" in i.lower():
@@ -95,35 +89,24 @@ class AlphaSpider(CrawlSpider):
                 # Affiliation element might include the year
                 year = re.findall(r'\d+', i)[0].strip()
 
-        author_data.append({
-            'fullname': surname + ", " + given_names,
+        authors = []
+        authors.append({
+            # 'fullname': surname + ", " + given_names,
             'surname': surname,
             'given_names': given_names,
-            'thesis_type': thesis_type,
-            'affiliation': affiliation,
-            'year': year
+            'affiliations': [{"value": affiliation}]
         })
-        return author_data
 
-    def get_authors(self, author_data):
-        """Gets the desired elements from author_data,
-        these will be put in the scrapy author item
-        """
-        authors = []
-        for author in author_data:
-            authors.append({
-                'surname': author['surname'],
-                'given_names': author['given_names'],
-                # 'full_name': author['fullname'],  # Not really necessary.
-                'affiliations': [{"value": author['affiliation']}]
-            })
+        return authors, thesis_type, year
 
-        return authors
-
-    def get_abstract(self, abs_pars):
+    def get_abstract(self, thesis):
         """Returns a unified abstract, if divided to multiple paragraphs.
         """
-        whole_abstract = " ".join(abs_pars)
+        abs_paragraphs = thesis.xpath(
+            "./div[@class = 'content clearfix']//div[@class='field-item even']"
+            "/p[normalize-space()][string-length(text()) > 0][position() < last()]/text()"
+        ).extract()
+        whole_abstract = " ".join(abs_paragraphs)
         return whole_abstract
 
     def get_title(self, node):
@@ -145,31 +128,23 @@ class AlphaSpider(CrawlSpider):
             record = HEPLoader(
                 item=HEPRecord(), selector=thesis, response=response)
 
-            # Author, affiliation, year:
-            author_line = thesis.xpath(
-                "./div[@class = 'content clearfix']//div[@class='field-item even']"
-                "/p[contains(text(),'Thesis')]/text()"
-            ).extract()
-            author_data = self.parse_author_data(author_line[0])
-            authors = self.get_authors(author_data)
-            record.add_value('authors', authors)
-            record.add_value('date_published', author_data[0]['year'])
+            authors, thesis_type, year = self.parse_author_data(thesis)
 
-            # Abstract:
+            record.add_value('authors', authors)
+            record.add_value('date_published', year)
+            record.add_value('thesis', {'degree_type': thesis_type})
+
             title, urls = self.get_title(thesis)
             record.add_value('title', title)
             record.add_value('urls', urls)
-            abs_paragraphs = thesis.xpath(
-                "./div[@class = 'content clearfix']//div[@class='field-item even']"
-                "/p[normalize-space()][string-length(text()) > 0][position() < last()]/text()"
-            ).extract()
-            abstract = self.get_abstract(abs_paragraphs)
+
+            abstract = self.get_abstract(thesis)
             record.add_value("abstract", abstract)
 
-            # PDF link:
             record.add_xpath(
                 'files', "./div[@class = 'content clearfix']//span[@class='file']/a/@href")
-            # Experiment name:
             record.add_value('source', 'Alpha experiment')
+            record.add_value('collections', ['HEP', 'THESIS'])
 
-            yield record.load_item()
+            if "phd" in thesis_type.lower():
+                yield record.load_item()

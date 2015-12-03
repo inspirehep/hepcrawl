@@ -28,7 +28,7 @@ class BaseSpider(XMLFeedSpider):
     """BASE crawler
     Scrapes BASE metadata XML files one at a time.
     The actual files should be retrieved from BASE viat its OAI interface. The
-    file can contain multiple records.
+    file can contain multiple records. This spider harvests only theses.
 
     This spider takes one BASE metadata record which are stored in an XML file.
 
@@ -56,9 +56,8 @@ class BaseSpider(XMLFeedSpider):
     *With a test document of 1000 records only 974 returned.
      Check SSL and internal errors.
     *Testing is not testing the pdf link and urls. Otherwise it's working.
-    *Now does only theses, should it be able to scrape all kinds of documents?
-    *The utils.split_fullname() doesn't necessarily work with metadata formats
-     other than BASE.
+    *When it should be checked if a thesis is about HEP?
+     Should collections: ['HEP', 'THESIS'] or collections: ['THESIS']
 
 
     Happy crawling!
@@ -69,7 +68,6 @@ class BaseSpider(XMLFeedSpider):
     iterator = 'xml'  # Needed for proper namespace handling
     itertag = 'OAI-PMH:record'
     download_delay = 5  # Is this a good value and how to make this domain specific?
-
     custom_settings = {'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,  # Does this help at all?
                        'LOG_FILE': 'base.log'}  # Does this log at all?
 
@@ -94,24 +92,21 @@ class BaseSpider(XMLFeedSpider):
         Probably there is only one author but it's not
         necessarily in the creator element. If it's only in the contributor
         element, it's impossible to detect unless it's explicitly declared
-        as an author name. As of now, only checks one element with
-        creator being the first one.
+        as an author name.
         """
 
         authors = []
         if node.xpath('.//dc:creator'):
             for author in node.xpath('.//dc:creator/text()'):
-                # Should we only use full_name?
                 surname, given_names = split_fullname(author.extract())
                 authors.append({
                     'surname': surname,
                     'given_names': given_names,
                     'full_name': author.extract(),
                 })
-        elif node.xpath(".//base_dc:contributor"):
+        if node.xpath(".//base_dc:contributor"):
             for author in node.xpath(".//base_dc:contributor/text()"):
                 if "author" in author.extract().lower():
-                    # Should we only use full_name?
                     cleaned_author = author.extract().replace('(Author)', '').strip()
                     surname, given_names = split_fullname(
                         cleaned_author)
@@ -167,7 +162,8 @@ class BaseSpider(XMLFeedSpider):
         """Iterate through all the record nodes in the XML.
 
         With each node it checks if direct link exists, and sends
-        a request to appropriate function to parse the XML.
+        a request to scrape the direct link or calls build_item() to build
+        the HEPrecord.
         """
         urls_in_record = self.get_urls_in_record(node)
         direct_link = self.find_direct_links(urls_in_record)
@@ -195,10 +191,9 @@ class BaseSpider(XMLFeedSpider):
         record.add_xpath('title', './/dc:title/text()')
         record.add_xpath('date_published', './/dc:date/text()')
         record.add_xpath('source', './/base_dc:collname/text()')
-        # Should this be able to scrape all kinds of publications?
-        # Now does only theses:
-        record.add_value('thesis', {'degree_type': 'PhD'})
         record.add_value("authors", self.get_authors(node))
+        record.add_value('thesis', {'degree_type': 'PhD'})
+        record.add_value('collections', ['HEP', 'THESIS'])  # When it is checked if a thesis is about HEP?
         return record.load_item()
 
     def scrape_for_pdf(self, response):
@@ -206,8 +201,8 @@ class BaseSpider(XMLFeedSpider):
 
         If direct link didn't exists, parse_node() will yield a request
         here to scrape the urls. This will find a direct pdf link from a
-        splash page, if it exists. Then it will send a request to
-        parse_with_link() to parse the XML node.
+        splash page, if it exists. Then it will ask build_item to build the
+        HEPrecord.
         """
         pdf_links = []
         all_links = response.xpath(

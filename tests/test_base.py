@@ -17,18 +17,34 @@ from hepcrawl.spiders import base_spider
 
 from .responses import fake_response_from_file
 
-
 @pytest.fixture
 def record():
     """Return results generator from the WSP spider."""
     spider = base_spider.BaseSpider()
-    response = fake_response_from_file('base/test_record1.xml')
+    response = fake_response_from_file('base/test_1.xml')
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
     nodes = selector.xpath('//%s' % spider.itertag)
     response.meta["node"] = nodes[0]
     response.meta["direct_link"] = ["https://digitalcollections.anu.edu.au/bitstream/1885/10005/1/Butt_R.D._2003.pdf"]
+    response.meta["urls"] = ["http://hdl.handle.net/1885/10005"]
     return spider.build_item(response)
+
+@pytest.fixture
+def urls():
+    spider = base_spider.BaseSpider()
+    response = fake_response_from_file('base/test_1.xml')
+    selector = Selector(response, type='xml')
+    spider._register_namespaces(selector)
+    nodes = selector.xpath('//%s' % spider.itertag)
+    return spider.get_urls_in_record(nodes[0])
+
+@pytest.fixture
+def direct_links():
+    spider = base_spider.BaseSpider()
+    urls = ["http://hdl.handle.net/1885/10005"]
+    return spider.find_direct_links(urls)
+
 
 
 def test_abstract(record):
@@ -90,7 +106,7 @@ def test_date_published(record):
 
 def test_authors(record):
     """Test authors."""
-    authors = ["Butt, Rachel Deborah"]
+    authors = ["Butt, Rachel Deborah", "Butt Surname, Rachel Deborah Firstname"]
     assert record['authors']
     assert len(record['authors']) == len(authors)
 
@@ -104,3 +120,20 @@ def test_files(record):
     files = ["https://digitalcollections.anu.edu.au/bitstream/1885/10005/1/Butt_R.D._2003.pdf"]
     assert 'files' in record
     assert record["files"] == files
+
+def test_urls(record):
+    """Test url in record"""
+    urls = ["http://hdl.handle.net/1885/10005"]
+    assert "urls" in record
+    assert record["urls"] == urls
+
+
+def test_get_urls(urls):
+    """Test url getting from the xml"""
+    assert urls == ["http://hdl.handle.net/1885/10005"]
+
+
+def test_find_direct_links(direct_links):
+    """Test direct link recognising"""
+    assert direct_links == []
+

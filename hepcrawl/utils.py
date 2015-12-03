@@ -71,11 +71,25 @@ def collapse_initials(name):
     return name
 
 
-def split_fullname(author):
-    """Split an author name to surname and given names from the form 'foo, bar'."""
-    fullname = re.sub(r',', '', author).split()
-    surname = fullname[0]  # Assuming surname comes first.
-    given_names = " ".join(fullname[1:])
+def split_fullname(author, surname="first"):
+    """Split an author name to surname and given names.
+
+    It accepts author strings with and without comma separation
+    and surname can be first or last. Note that multi-part surnames are incorrectly
+    detected in strings without comma separation.
+    """
+    if "," in author:
+        fullname = [n.strip() for n in author.split(',')]
+    else:
+        fullname = [n.strip() for n in author.split()]
+
+    if surname == "first":
+        surname = fullname[0]
+        given_names = " ".join(fullname[1:])
+    else:
+        surname = fullname[-1]
+        given_names = " ".join(fullname[:-1])
+
     return surname, given_names
 
 
@@ -134,4 +148,3 @@ def parse_domain(url):
     parsed_uri = urlparse(url)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
-

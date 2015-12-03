@@ -9,11 +9,8 @@
 
 import os
 
-<<<<<<< HEAD
 from scrapy.http import Request, TextResponse
-=======
-from scrapy.http import XmlResponse, Request
->>>>>>> base_spider: enhancements to flow
+
 
 
 def fake_response_from_file(file_name, url='http://www.example.com', response_type=TextResponse):
