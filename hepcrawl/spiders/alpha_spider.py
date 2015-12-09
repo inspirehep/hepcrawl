@@ -22,7 +22,7 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname
+from ..utils import split_fullname, has_numbers
 
 
 class AlphaSpider(CrawlSpider):
@@ -61,10 +61,6 @@ class AlphaSpider(CrawlSpider):
             for url in self.start_urls:
                 yield Request(url)
 
-    def has_numbers(self, s):
-        """Detects if a string contains numbers"""
-        return any(char.isdigit() for char in s)
-
     def parse_author_data(self, thesis):
         """Parses the line where there are data about the author(s)
 
@@ -78,14 +74,14 @@ class AlphaSpider(CrawlSpider):
         author_list = re.sub(r'[\n\t\xa0]', '', author_line[0]).split(
             ",")  # Author name might contain unwanted characters.
         author = author_list[0]
-        surname, given_names = split_fullname(author, surname="last")
+        surname, given_names = split_fullname(author, surname_first=False)
 
         for i in author_list:
             if "thesis" in i.lower():
                 thesis_type = i.strip()
             if "university" in i.lower():
                 affiliation = re.sub(r"[^A-Za-z\s]+", '', i).strip()
-            if self.has_numbers(i):
+            if has_numbers(i):
                 # Affiliation element might include the year
                 year = re.findall(r'\d+', i)[0].strip()
 
@@ -130,6 +126,9 @@ class AlphaSpider(CrawlSpider):
 
             authors, thesis_type, year = self.parse_author_data(thesis)
 
+            if "phd" not in thesis_type.lower():
+                continue
+
             record.add_value('authors', authors)
             record.add_value('date_published', year)
             record.add_value('thesis', {'degree_type': thesis_type})
@@ -146,5 +145,4 @@ class AlphaSpider(CrawlSpider):
             record.add_value('source', 'Alpha experiment')
             record.add_value('collections', ['HEP', 'THESIS'])
 
-            if "phd" in thesis_type.lower():
-                yield record.load_item()
+            yield record.load_item()

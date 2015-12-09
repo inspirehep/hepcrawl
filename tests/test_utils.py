@@ -25,6 +25,7 @@ from hepcrawl.utils import (
     split_fullname,
     parse_domain,
     get_mime_type,
+    has_numbers,
 )
 
 
@@ -123,12 +124,14 @@ def test_split_fullname():
     author4 = 'John Magic Doe'
     author5 = 'John Magic Doe Boe'
     author6 = 'John Magic, Doe Boe'
+    author7 = ''
     assert split_fullname(author1) == ('Doe', 'John Magic')
     assert split_fullname(author2) == ('Doe Boe', 'John Magic')
     assert split_fullname(author3) == ('Doe', 'Boe John Magic')
-    assert split_fullname(author4, surname='last') == ('Doe', 'John Magic')
-    assert split_fullname(author5, surname='last') == ('Boe', 'John Magic Doe')
-    assert split_fullname(author6, surname='last') == ('Doe Boe', 'John Magic') 
+    assert split_fullname(author4, surname_first=False) == ('Doe', 'John Magic')
+    assert split_fullname(author5, surname_first=False) == ('Boe', 'John Magic Doe')
+    assert split_fullname(author6, surname_first=False) == ('Doe Boe', 'John Magic')
+    assert split_fullname(author7) == ('', '') 
 
 
 def test_parse_domain():
@@ -140,18 +143,26 @@ def test_parse_domain():
 
 @responses.activate
 def test_get_mime_type():
-    """Test MIME type getting.
-
-    Apparently the mocked response always has 'Content-Type'
-    and it seems to default to 'text/html'?
-    Because of this, right now is not testing if missing header
-    information raises and exception.
-    """
+    """Test MIME type getting when Content-Type is given."""
     url = 'http://www.example.com/files/einstein_1905.pdf'
     responses.add(responses.HEAD, url, status=200, content_type='application/pdf')
-    resp = requests.head(url)
+    assert get_mime_type(url) == 'application/pdf'
     assert get_mime_type(None) == ''
     assert get_mime_type('') == ''
 
-    if resp.headers['Content-Type']:
-        assert get_mime_type(url) == 'application/pdf'
+
+@responses.activate
+def test_get_mime_type_no_content():
+    """Test MIME type getting when no Content-Type given."""
+    url = 'http://www.example.com/files/einstein_1905.pdf'
+    responses.add(responses.HEAD, url, status=200, content_type=None)
+    with pytest.raises(Exception):
+        assert get_mime_type(url)
+
+
+def test_has_numbers():
+    """Test number detection"""
+    text1 = "154 numbers"
+    text2 = "no numbers"
+    assert has_numbers(text1) == True
+    assert has_numbers(text2) == False

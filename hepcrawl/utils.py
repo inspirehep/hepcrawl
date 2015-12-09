@@ -71,19 +71,22 @@ def collapse_initials(name):
     return name
 
 
-def split_fullname(author, surname="first"):
+def split_fullname(author, surname_first=True):
     """Split an author name to surname and given names.
 
     It accepts author strings with and without comma separation
     and surname can be first or last. Note that multi-part surnames are incorrectly
     detected in strings without comma separation.
     """
+    if not author:
+        return "", ""
+
     if "," in author:
         fullname = [n.strip() for n in author.split(',')]
     else:
         fullname = [n.strip() for n in author.split()]
 
-    if surname == "first":
+    if surname_first:
         surname = fullname[0]
         given_names = " ".join(fullname[1:])
     else:
@@ -148,3 +151,8 @@ def parse_domain(url):
     parsed_uri = urlparse(url)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return domain
+
+
+def has_numbers(text):
+    """Detects if a string contains numbers"""
+    return any(char.isdigit() for char in text)
