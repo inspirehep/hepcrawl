@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2015-12-11T11:15:42Z</responseDate>
+  <request metadataPrefix="MARC21-xml" set="dnb-all:online:dissertations:sg530" verb="ListRecords" from="2014-12-08" until="2015-12-10">https://services.dnb.de/oai/accessToken~f294ff4c129c74227ab19a1a1c6f9f5/repository</request>
+  <ListRecords xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+    <record>
+      <header>
+        <identifier>oai:dnb.de/dnb-all:online:dissertations:sg530/1079912991</identifier>
+        <datestamp>2015-12-10T02:00:47Z</datestamp>
+        <setSpec>dnb-all:online:dissertations:sg530</setSpec>
+      </header>
+      <metadata>
+        <slim:record xmlns:slim="http://www.loc.gov/MARC21/slim" type="Bibliographic">
+          <slim:leader>01782nam a2200421uc 4500</slim:leader>
+          <slim:controlfield tag="001">1079912991</slim:controlfield>
+          <slim:controlfield tag="003">DE-101</slim:controlfield>
+          <slim:controlfield tag="005">20151210030047.0</slim:controlfield>
+          <slim:controlfield tag="007">cr||||||||||||</slim:controlfield>
+          <slim:controlfield tag="008">151209s2015    gw |||||om||| 00||||ger  </slim:controlfield>
+          <slim:datafield tag="015" ind1=" " ind2=" ">
+            <slim:subfield code="a">16,O01</slim:subfield>
+            <slim:subfield code="2">dnb</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="016" ind1="7" ind2=" ">
+            <slim:subfield code="2">DE-101</slim:subfield>
+            <slim:subfield code="a">1079912991</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="024" ind1="7" ind2=" ">
+            <slim:subfield code="2">urn</slim:subfield>
+            <slim:subfield code="a">urn:nbn:de:hebis:30:3-386257</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="035" ind1=" " ind2=" ">
+            <slim:subfield code="a">(DE-599)DNB1079912991</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="040" ind1=" " ind2=" ">
+            <slim:subfield code="a">1240</slim:subfield>
+            <slim:subfield code="b">ger</slim:subfield>
+            <slim:subfield code="c">DE-101</slim:subfield>
+            <slim:subfield code="d">9999</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="041" ind1=" " ind2=" ">
+            <slim:subfield code="a">ger</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="044" ind1=" " ind2=" ">
+            <slim:subfield code="c">XA-DE-HE</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="082" ind1="7" ind2="4">
+            <slim:subfield code="8">1\p</slim:subfield>
+            <slim:subfield code="a">530</slim:subfield>
+            <slim:subfield code="q">DE-101</slim:subfield>
+            <slim:subfield code="2">23sdnb</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="084" ind1=" " ind2=" ">
+            <slim:subfield code="a">530</slim:subfield>
+            <slim:subfield code="q">DE-101</slim:subfield>
+            <slim:subfield code="2">sdnb</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="100" ind1="1" ind2=" ">
+            <slim:subfield code="0">(DE-588)12391082X</slim:subfield>
+            <slim:subfield code="0">(DE-101)12391082X</slim:subfield>
+            <slim:subfield code="a">Busch, Marco</slim:subfield>
+            <slim:subfield code="4">aut</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="245" ind1="1" ind2="0">
+            <slim:subfield code="a">Auslegung und Messungen einer supraleitenden 325 MHz CH-Struktur für Strahlbetrieb</slim:subfield>
+            <slim:subfield code="h">Elektronische Ressource</slim:subfield>
+            <slim:subfield code="c">Marco Busch. Betreuer: Holger Podlech. Gutachter: Holger Podlech ; Ulrich Ratzinger</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="264" ind1=" " ind2="1">
+            <slim:subfield code="a">Frankfurt am Main</slim:subfield>
+            <slim:subfield code="b">Univ.-Bibliothek Frankfurt am Main</slim:subfield>
+            <slim:subfield code="c">2015</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="300" ind1=" " ind2=" ">
+            <slim:subfield code="a">Online-Ressource</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="502" ind1=" " ind2=" ">
+            <slim:subfield code="a">Frankfurt am Main, Johann Wolfgang Goethe-Univ., Diss., 2015</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="583" ind1="1" ind2=" ">
+            <slim:subfield code="a">Langzeitarchivierung gewährleistet</slim:subfield>
+            <slim:subfield code="i">LZA</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="653" ind1=" " ind2=" ">
+            <slim:subfield code="a">Beschleuniger</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="653" ind1=" " ind2=" ">
+            <slim:subfield code="a">supraleitend</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="653" ind1=" " ind2=" ">
+            <slim:subfield code="a">CH-Struktur</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="653" ind1=" " ind2=" ">
+            <slim:subfield code="a">325 MHz</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="653" ind1=" " ind2=" ">
+            <slim:subfield code="a">Linac</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="700" ind1="1" ind2=" ">
+            <slim:subfield code="0">(DE-588)122039866</slim:subfield>
+            <slim:subfield code="0">(DE-101)122039866</slim:subfield>
+            <slim:subfield code="a">Podlech, Holger</slim:subfield>
+            <slim:subfield code="4">oth</slim:subfield>
+            <slim:subfield code="e">Betreuer</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="700" ind1="1" ind2=" ">
+            <slim:subfield code="0">(DE-588)122039866</slim:subfield>
+            <slim:subfield code="0">(DE-101)122039866</slim:subfield>
+            <slim:subfield code="a">Podlech, Holger</slim:subfield>
+            <slim:subfield code="4">oth</slim:subfield>
+            <slim:subfield code="e">Gutachter</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="700" ind1="1" ind2=" ">
+            <slim:subfield code="0">(DE-588)111407532</slim:subfield>
+            <slim:subfield code="0">(DE-101)111407532</slim:subfield>
+            <slim:subfield code="a">Ratzinger, Ulrich</slim:subfield>
+            <slim:subfield code="4">oth</slim:subfield>
+            <slim:subfield code="e">Gutachter</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="856" ind1="4" ind2="0">
+            <slim:subfield code="u">http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257</slim:subfield>
+            <slim:subfield code="x">Resolving-System</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="856" ind1=" " ind2="0">
+            <slim:subfield code="u">http://d-nb.info/1079912991/34</slim:subfield>
+            <slim:subfield code="x">Langzeitarchivierung Nationalbibliothek</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="856" ind1="4" ind2=" ">
+            <slim:subfield code="u">http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625</slim:subfield>
+            <slim:subfield code="x">Verlag</slim:subfield>
+            <slim:subfield code="z">kostenfrei</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="883" ind1="0" ind2=" ">
+            <slim:subfield code="8">1\p</slim:subfield>
+            <slim:subfield code="a">maschinell gebildet</slim:subfield>
+            <slim:subfield code="c">0,999</slim:subfield>
+            <slim:subfield code="d">20151210</slim:subfield>
+            <slim:subfield code="q">DE-101</slim:subfield>
+          </slim:datafield>
+          <slim:datafield tag="925" ind1="r" ind2=" ">
+            <slim:subfield code="a">ro</slim:subfield>
+            <slim:subfield code="a">rh</slim:subfield>
+          </slim:datafield>
+        </slim:record>
+      </metadata>
+    </record>
+  </ListRecords>
+</OAI-PMH>
+

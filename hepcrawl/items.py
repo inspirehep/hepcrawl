@@ -120,7 +120,6 @@ class HEPRecord(scrapy.Item):
     collections = scrapy.Field()
     thesis = scrapy.Field()
     urls = scrapy.Field()
-
     external_systems_number = scrapy.Field()
     """External Systems Number
 
@@ -148,3 +147,6 @@ class HEPRecord(scrapy.Item):
             "categories": ['hep-ph', 'hep-lat', 'nucl-th']
         }
     """
+
+    thesis_supervisor = scrapy.Field()
+    language = scrapy.Field()
