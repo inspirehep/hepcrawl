@@ -1,0 +1,115 @@
+[
+    {
+        "abstract": "",
+        "ant_publisher": "",
+        "authors": [
+            "Jennings, Bob",
+            "Frederik, Jensen"
+        ],
+        "categories": [
+            {
+                "ancestry": [
+                    {
+                        "id": "15",
+                        "name": "Philosophy of Language"
+                    },
+                    {
+                        "id": "6460",
+                        "name": "Specific Expressions"
+                    },
+                    {
+                        "id": "6619",
+                        "name": "Temporal Expressions"
+                    }
+                ],
+                "id": "6619",
+                "name": "Temporal Expressions"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "13",
+                        "name": "Metaphysics"
+                    },
+                    {
+                        "id": "1385",
+                        "name": "Time"
+                    },
+                    {
+                        "id": "5972",
+                        "name": "The Passage of Time"
+                    },
+                    {
+                        "id": "5976",
+                        "name": "B-Theories of Time"
+                    }
+                ],
+                "id": "5976",
+                "name": "B-Theories of Time"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "13",
+                        "name": "Metaphysics"
+                    },
+                    {
+                        "id": "1385",
+                        "name": "Time"
+                    },
+                    {
+                        "id": "5972",
+                        "name": "The Passage of Time"
+                    },
+                    {
+                        "id": "5974",
+                        "name": "A-Theories of Time"
+                    }
+                ],
+                "id": "5974",
+                "name": "A-Theories of Time"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "13",
+                        "name": "Metaphysics"
+                    },
+                    {
+                        "id": "1385",
+                        "name": "Time"
+                    },
+                    {
+                        "id": "1380",
+                        "name": "Temporal Ontology"
+                    },
+                    {
+                        "id": "5969",
+                        "name": "Presentism"
+                    }
+                ],
+                "id": "5969",
+                "name": "Presentism"
+            }
+        ],
+        "collection": "Analys",
+        "doi": "10.1093/analys/23.2.132",
+        "editors": [
+            "Holmgård, Bengt"
+        ],
+        "id": "DGGDFG",
+        "issue": "3",
+        "journal": "Analys",
+        "links": [
+            "http://philpapers.org/rec/DGGDFG"
+        ],
+        "pages": "194-202",
+        "pubInfo": "_Analys_ 66 (3):194-202.",
+        "pub_type": "journal",
+        "publisher": "Elsewhere University Press",
+        "title": "Tense Relations",
+        "type": "article",
+        "volume": "66",
+        "year": "2006"
+    }
+]
