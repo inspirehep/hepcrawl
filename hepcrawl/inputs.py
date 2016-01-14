@@ -45,10 +45,10 @@ def convert_html_subscripts_to_latex(text):
     return text
 
 
-def selective_remove_tags(which_ones=()):
+def selective_remove_tags(which_ones=(), keep=()):
     """Remove specific tags from value."""
     def _remove_tags(value):
-        return remove_tags(value, which_ones=which_ones)
+        return remove_tags(value, which_ones=which_ones, keep=keep)
     return _remove_tags
 
 
@@ -75,3 +75,10 @@ def clean_tags_from_affiliations(value):
 def clean_collaborations(value):
     """Remove the prefixes for collaborations"""
     return value.replace("for the", "").strip()
+
+
+def clean_abstract(text):
+    """Remove unwanted special characters from abstract."""
+    text = text.replace("\n", "")
+    text = text.replace("\t", "")
+    return text

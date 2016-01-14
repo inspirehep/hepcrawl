@@ -57,7 +57,7 @@ class HEPRecord(scrapy.Item):
             }]
         }, ..]
     """
-    collaboration = scrapy.Field()
+    collaborations = scrapy.Field()
     """A list of the record collaborations, if any.
 
     .. code-block:: python
@@ -160,6 +160,7 @@ class HEPRecord(scrapy.Item):
     journal_issue = scrapy.Field()
     journal_pages = scrapy.Field()
     journal_artid = scrapy.Field()
+    journal_issn = scrapy.Field()
     journal_doctype = scrapy.Field()
     """Special type of publication. E.g. "Erratum", "Addendum"."""
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -24,6 +24,7 @@ from .inputs import (
     add_author_full_name,
     clean_tags_from_affiliations,
     clean_collaborations,
+    clean_abstract,
 )
 
 from .outputs import (
@@ -32,6 +33,7 @@ from .outputs import (
     ListToValueDict,
 )
 
+from .mappings import MATHML_ELEMENTS
 
 class HEPLoader(ItemLoader):
     """Input/Output processors for a HEP record.
@@ -100,3 +102,13 @@ class HEPLoader(ItemLoader):
     dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
     urls_out = ListToValueDict(key="url")
+
+
+class ElsevierLoader(HEPLoader):
+    """Special Input/Output processors for an Elsevier record."""
+    abstract_in = MapCompose(
+        clean_abstract,
+        convert_html_subscripts_to_latex,
+        selective_remove_tags(keep=MATHML_ELEMENTS),
+        unicode.strip,
+    )
