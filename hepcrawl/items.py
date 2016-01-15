@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -50,14 +50,41 @@ class HEPRecord(scrapy.Item):
         }
     """
     collaboration = scrapy.Field()
-    source = scrapy.Field()  # Source of the record (e.g. "World Scientific").
+    """A list of the record collaborations, if any.
+
+    .. code-block:: python
+
+        [
+            'Planck Collaboration'
+        ]
+    """
+
+    source = scrapy.Field()
+    """Source of the record, e.g. 'World Scientific'."""
+
     abstract = scrapy.Field()
+    """Abstract of the record, e.g. 'We study the dynamics of quantum...'."""
+
     title = scrapy.Field()
+    """Title of the record, e.g. 'Perturbative Renormalization of Neutron-Antineutron Operators'."""
+
     subtitle = scrapy.Field()
     free_keywords = scrapy.Field()
     classification_numbers = scrapy.Field()  # Like PACS numbers
+
     date_published = scrapy.Field()
+    """Date of publication in string format, e.g. '2016-01-14'."""
+
     dois = scrapy.Field()
+    """DOIs
+
+    .. code-block:: python
+
+        [
+            '10.1103/PhysRevD.93.016005'
+        ]
+    """
+
     related_article_doi = scrapy.Field()
     license = scrapy.Field()
     license_url = scrapy.Field()
@@ -75,8 +102,49 @@ class HEPRecord(scrapy.Item):
     journal_artid = scrapy.Field()
     journal_doctype = scrapy.Field()  # E.g. "Erratum", "Addendum"
     pubinfo_freetext = scrapy.Field()  # Raw journal reference string
+
     notes = scrapy.Field()
+    """Notes
+
+    .. code-block:: python
+
+        [
+            {
+                "source": "arXiv",
+                "value": "46 pages, 3 figures; v2 typos corrected, citations added"
+            }
+        ]
+    """
+
     references = scrapy.Field()
     collections = scrapy.Field()
     thesis = scrapy.Field()
     urls = scrapy.Field()
+
+    external_systems_number = scrapy.Field()
+    """External Systems Number
+
+    .. code-block:: python
+
+        [
+            {
+                "institute": "SPIRESTeX",
+                "value": "Mayrhofer:2012zy"
+            },
+            {
+                "institute": "arXiv",
+                "value": "oai:arXiv.org:1211.6742"
+            }
+        ]
+    """
+
+    arxiv_eprints = scrapy.Field()
+    """ArXiv E-print information
+
+    .. code-block:: python
+
+        {
+            "value": "1506.00647",
+            "categories": ['hep-ph', 'hep-lat', 'nucl-th']
+        }
+    """
