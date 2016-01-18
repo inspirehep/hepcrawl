@@ -22,7 +22,6 @@ BOT_NAME = 'hepcrawl'
 SPIDER_MODULES = ['hepcrawl.spiders']
 NEWSPIDER_MODULE = 'hepcrawl.spiders'
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'hepcrawl (+http://www.inspirehep.net)'
 
@@ -69,8 +68,14 @@ USER_AGENT = 'hepcrawl (+http://www.inspirehep.net)'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
+
+API_PIPELINE_URL = ""
+API_PIPELINE_TASK_ENDPOINT_DEFAULT = ""
+API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
+
 ITEM_PIPELINES = {
-    'hepcrawl.pipelines.JsonWriterPipeline': 300,
+    #'hepcrawl.pipelines.JsonWriterPipeline': 300,
+    'hepcrawl.pipelines.APIPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

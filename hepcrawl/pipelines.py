@@ -14,7 +14,10 @@ Don't forget to add pipelines to the ITEM_PIPELINES setting
 See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 """
 
+import os
+
 import json
+import requests
 
 from .utils import get_temporary_file
 
@@ -60,6 +63,26 @@ class JsonWriterPipeline(object):
         return item
 
 
-class HepCrawlPipeline(object):
+class APIPipeline(object):
+
     def process_item(self, item, spider):
         return item
+
+    def close_spider(self, spider):
+        """Post results to API."""
+        api_url = os.path.join(
+            spider.settings['API_PIPELINE_URL'],
+            spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
+                spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
+            )
+        )
+        if api_url:
+            requests.post(api_url, json={
+                "kwargs": {
+                    "job_id": os.environ['SCRAPY_JOB'],
+                    "results_uri": os.environ['SCRAPY_FEED_URI'],
+                    "log_file": os.environ['SCRAPY_LOG_FILE'],
+                }
+            })
+        else:
+            print("No URL!")
