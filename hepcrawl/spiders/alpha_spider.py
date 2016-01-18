@@ -11,13 +11,11 @@
 
 from __future__ import absolute_import, print_function
 
-import os
 import re
-import sys
 
 from urlparse import urljoin
 
-from scrapy import Request, Selector
+from scrapy import Request
 from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
@@ -76,6 +74,9 @@ class AlphaSpider(CrawlSpider):
         author = author_list[0]
         surname, given_names = split_fullname(author, surname_first=False)
 
+        year = ''
+        thesis_type = ''
+        affiliation = ''
         for i in author_list:
             if "thesis" in i.lower():
                 thesis_type = i.strip()
@@ -85,13 +86,12 @@ class AlphaSpider(CrawlSpider):
                 # Affiliation element might include the year
                 year = re.findall(r'\d+', i)[0].strip()
 
-        authors = []
-        authors.append({
+        authors = [{
             # 'fullname': surname + ", " + given_names,
             'surname': surname,
             'given_names': given_names,
             'affiliations': [{"value": affiliation}]
-        })
+        }]
 
         return authors, thesis_type, year
 
