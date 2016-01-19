@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -83,4 +83,39 @@ OA_LICENSES = [
     r'^Creative Commons Attribution',
     r'^OA$',
     r'^Open Access$'
+]
+
+CONFERENCE_PAPERS = [
+    'colloquium',
+    'colloquiums',
+    'conf',
+    'conference',
+    'conferences',
+    'contrib',
+    'contributed',
+    'contribution',
+    'contributions',
+    'forum',
+    'lecture',
+    'lectures',
+    'meeting',
+    'meetings',
+    'pres',
+    'presented',
+    'proc',
+    'proceeding',
+    'proceedings',
+    'rencontre',
+    'rencontres',
+    'school',
+    'schools',
+    'seminar',
+    'seminars',
+    'symp',
+    'symposium',
+    'symposiums',
+    'talk',
+    'talks',
+    'workshop',
+    'workshops'
 ]
