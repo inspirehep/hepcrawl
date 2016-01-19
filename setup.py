@@ -93,7 +93,11 @@ setup(
             'sphinx_rtd_theme>=0.1.7',
             'Sphinx-PyPI-upload>=0.2.1',
         ],
-        'tests': test_requirements
+        'tests': test_requirements,
+        'sentry': [
+            'raven==5.1.1',
+            'scrapy-sentry',
+        ]
     },
     classifiers=[
         'Intended Audience :: Developers',

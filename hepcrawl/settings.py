@@ -63,8 +63,10 @@ DOWNLOADER_MIDDLEWARES = {
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 EXTENSIONS = {
+    # 'scrapy_sentry.extensions.Errors': 10,
     'hepcrawl.extensions.ErrorHandler': 555,
 }
+SENTRY_DSN = ''
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
@@ -96,3 +98,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
