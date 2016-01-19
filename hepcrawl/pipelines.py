@@ -63,7 +63,7 @@ class JsonWriterPipeline(object):
         return item
 
 
-class APIPipeline(object):
+class APIPushPipeline(object):
 
     def process_item(self, item, spider):
         return item
@@ -76,13 +76,19 @@ class APIPipeline(object):
                 spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
             )
         )
-        if api_url:
+        if api_url and 'SCRAPY_JOB' in os.environ:
+            payload = {}
+            if 'errors' in spider.state:
+                # There has been errors!
+                payload['errors'] = [
+                    (err['exception'].getTraceback(), str(err['sender']))
+                    for err in spider.state['errors']
+                ]
+            payload = {
+                "job_id": os.environ['SCRAPY_JOB'],
+                "results_uri": os.environ['SCRAPY_FEED_URI'],
+                "log_file": os.environ['SCRAPY_LOG_FILE'],
+            }
             requests.post(api_url, json={
-                "kwargs": {
-                    "job_id": os.environ['SCRAPY_JOB'],
-                    "results_uri": os.environ['SCRAPY_FEED_URI'],
-                    "log_file": os.environ['SCRAPY_LOG_FILE'],
-                }
+                "kwargs": payload
             })
-        else:
-            print("No URL!")

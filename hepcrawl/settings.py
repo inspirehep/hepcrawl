@@ -50,21 +50,21 @@ USER_AGENT = 'hepcrawl (+http://www.inspirehep.net)'
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'hepcrawl.middlewares.MyCustomSpiderMiddleware': 543,
-#}
+SPIDER_MIDDLEWARES = {
+    'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
+}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'hepcrawl.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-#EXTENSIONS = {
-#    'scrapy.telnet.TelnetConsole': None,
-#}
+EXTENSIONS = {
+    'hepcrawl.extensions.ErrorHandler': 555,
+}
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
@@ -74,8 +74,8 @@ API_PIPELINE_TASK_ENDPOINT_DEFAULT = ""
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
 ITEM_PIPELINES = {
-    #'hepcrawl.pipelines.JsonWriterPipeline': 300,
-    'hepcrawl.pipelines.APIPipeline': 300,
+    # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
+    'hepcrawl.pipelines.APIPushPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
