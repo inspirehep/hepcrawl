@@ -1,0 +1,134 @@
+[
+    {
+        "abstract": "Now indulgence dissimilar for his thoroughly has terminated. Agreement offending commanded my an. Change wholly say why eldest period. Are projection put celebrated particular unreserved joy unsatiable its. In then dare good am rose bred or. On am in nearer square wanted.",
+        "ant_publisher": "",
+        "authors": [
+            "Jennings, Bob"
+        ],
+        "categories": [
+            {
+                "ancestry": [
+                    {
+                        "id": "5680",
+                        "name": "Philosophy of Physical Science"
+                    },
+                    {
+                        "id": "5719",
+                        "name": "Philosophy of Cosmology"
+                    },
+                    {
+                        "id": "5731",
+                        "name": "Design and Observership in Cosmology"
+                    },
+                    {
+                        "id": "5733",
+                        "name": "Anthropic Principle"
+                    }
+                ],
+                "id": "5733",
+                "name": "Anthropic Principle"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "5856",
+                        "name": "Philosophy of Probability"
+                    },
+                    {
+                        "id": "5878",
+                        "name": "Probabilistic Reasoning"
+                    },
+                    {
+                        "id": "5919",
+                        "name": "Subjective Probability"
+                    },
+                    {
+                        "id": "5927",
+                        "name": "Imprecise Credences"
+                    }
+                ],
+                "id": "5927",
+                "name": "Imprecise Credences"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "5932",
+                        "name": "General Philosophy of Science"
+                    },
+                    {
+                        "id": "6100",
+                        "name": "Theories and Models"
+                    },
+                    {
+                        "id": "6112",
+                        "name": "Theoretical Virtues"
+                    },
+                    {
+                        "id": "6122",
+                        "name": "Simplicity and Parsimony"
+                    }
+                ],
+                "id": "6122",
+                "name": "Simplicity and Parsimony"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "5680",
+                        "name": "Philosophy of Physical Science"
+                    },
+                    {
+                        "id": "5750",
+                        "name": "Philosophy of Physics, Miscellaneous"
+                    },
+                    {
+                        "id": "5751",
+                        "name": "Astrophysics"
+                    }
+                ],
+                "id": "5751",
+                "name": "Astrophysics"
+            },
+            {
+                "ancestry": [
+                    {
+                        "id": "5856",
+                        "name": "Philosophy of Probability"
+                    },
+                    {
+                        "id": "5878",
+                        "name": "Probabilistic Reasoning"
+                    },
+                    {
+                        "id": "5879",
+                        "name": "Bayesian Reasoning"
+                    },
+                    {
+                        "id": "5881",
+                        "name": "Bayesian Reasoning, Misc"
+                    }
+                ],
+                "id": "5881",
+                "name": "Bayesian Reasoning, Misc"
+            }
+        ],
+        "collection": "",
+        "doi": null,
+        "editors": [],
+        "id": "SDFGSDFGDGSDF",
+        "issue": "",
+        "journal": "",
+        "links": [
+            "http://philpapers.org/rec/SDFGSDFGDGSDF"
+        ],
+        "pages": "",
+        "pubInfo": "Dissertation, The University of Somewhere",
+        "pub_type": "thesis",
+        "publisher": "",
+        "title": "Bringing Goodness",
+        "type": "book",
+        "volume": "0",
+        "year": "14/12/2015"
+    }
+]
