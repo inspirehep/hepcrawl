@@ -63,7 +63,6 @@ DOWNLOADER_MIDDLEWARES = {
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 EXTENSIONS = {
-    # 'scrapy_sentry.extensions.Errors': 10,
     'hepcrawl.extensions.ErrorHandler': 555,
 }
 SENTRY_DSN = ''
@@ -77,7 +76,7 @@ API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
 ITEM_PIPELINES = {
     # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
-    'hepcrawl.pipelines.APIPushPipeline': 300,
+    'hepcrawl.pipelines.InspireAPIPushPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

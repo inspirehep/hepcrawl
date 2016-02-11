@@ -53,11 +53,11 @@ class ArxivSpider(XMLFeedSpider):
 
         pages, notes, doctype = self._get_comments_info(node)
         record.add_value('page_nr', pages)
-        record.add_value('notes', notes)
+        record.add_value('public_notes', notes)
         record.add_value('journal_doctype', doctype)
 
         record.add_value('arxiv_eprints', self._get_arxiv_eprint(node))
-        record.add_value('external_systems_number', self._get_ext_systems_number(node))
+        record.add_value('external_system_numbers', self._get_ext_systems_number(node))
         # record.add_value('thesis', self._get_thesis(node))
 
         license_str, license_url = self._get_license(node)

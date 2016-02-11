@@ -1,0 +1,170 @@
+{
+   "data":[
+      {
+         "abstract":{
+            "value":"<p>We use a popular fictional disease, zombies, in order to introduce techniques used in modern epidemiology modeling, and ideas and techniques used in the numerical study of critical phenomena. We consider variants of zombie models, from fully connected continuous time dynamics to a full scale exact stochastic dynamic simulation of a zombie outbreak on the continental United States. Along the way, we offer a closed form analytical expression for the fully connected differential equation, and demonstrate that the single person per site two dimensional square lattice version of zombies lies in the percolation universality class. We end with a quantitative study of the full scale US outbreak, including the average susceptibility of different geographical regions.</p>",
+            "format":"html"
+         },
+         "metadata_last_modified_at":"2015-11-02T10:03:32-0500",
+         "type":"article",
+         "hasArticleId":true,
+         "id":"10.1103/PhysRevE.92.052801",
+         "title":{
+            "value":"You can run, you can hide: The epidemiology and statistical mechanics of zombies",
+            "format":"html"
+         },
+         "last_modified_at":"2015-11-02T10:03:32-0500",
+         "affiliations":[
+            {
+               "name":"Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA",
+               "id":"a1"
+            },
+            {
+               "name":"Institute of Biotechnology, Cornell University, Ithaca, New York 14853, USA",
+               "id":"a2"
+            }
+         ],
+         "articleType":"article",
+         "pageStart":"052801",
+         "issue":{
+            "number":"5"
+         },
+         "tocSection":{
+            "label":"Networks and Interdisciplinary Physics"
+         },
+         "journal":{
+            "id":"PRE",
+            "name":"Physical Review E",
+            "abbreviatedName":"Phys. Rev. E"
+         },
+         "volume":{
+            "number":"92"
+         },
+         "fundings":[
+            {
+               "funderId":"http://dx.doi.org/10.13039/100000001",
+               "awards":[
+                  "IIS\u20131247696"
+               ],
+               "funderName":"National Science Foundation"
+            },
+            {
+               "funderId":"http://dx.doi.org/10.13039/100007231",
+               "awards":[
+
+               ],
+               "funderName":"Cornell University"
+            }
+         ],
+         "authors":[
+            {
+               "type":"Collaboration",
+               "name":"OSQAR Collaboration"
+            },
+            {
+               "surname":"Alemi",
+               "affiliationIds":[
+                  "a1"
+               ],
+               "type":"Person",
+               "name":"Alexander A. Alemi",
+               "firstname":"Alexander A."
+            },
+            {
+               "surname":"Bierbaum",
+               "affiliationIds":[
+                  "a1"
+               ],
+               "type":"Person",
+               "name":"Matthew Bierbaum",
+               "firstname":"Matthew"
+            },
+            {
+               "surname":"Myers",
+               "affiliationIds":[
+                  "a1",
+                  "a2"
+               ],
+               "type":"Person",
+               "name":"Christopher R. Myers",
+               "firstname":"Christopher R."
+            },
+            {
+               "surname":"Sethna",
+               "affiliationIds":[
+                  "a1"
+               ],
+               "type":"Person",
+               "name":"James P. Sethna",
+               "firstname":"James P."
+            }
+         ],
+         "date":"2015-11-02",
+         "numPages":11,
+         "publisher":{
+            "name":"APS"
+         },
+         "rights":{
+            "creativeCommons":true,
+            "copyrightYear":2015,
+            "licenses":[
+               {
+                  "url":"http://creativecommons.org/licenses/by/3.0/"
+               }
+            ],
+            "copyrightHolders":[
+               {
+                  "name":"authors"
+               }
+            ],
+            "rightsStatement":"Published by the American Physical Society"
+         },
+         "classificationSchemes":{
+            "subjectAreas":[
+
+            ]
+         },
+         "notes":[
+            {
+               "_type":"Tesseract::Core::Text",
+               "contentType":"text/html",
+               "format":"html",
+               "value":"<p>aaa244@cornell.edu</p>",
+               "label":"*",
+               "type":"contrib",
+               "id":"n1"
+            },
+            {
+               "_type":"Tesseract::Core::Text",
+               "contentType":"text/html",
+               "format":"html",
+               "value":"<p>mkb72@cornell.edu</p>",
+               "label":"\u2020",
+               "type":"contrib",
+               "id":"n2"
+            },
+            {
+               "_type":"Tesseract::Core::Text",
+               "contentType":"text/html",
+               "format":"html",
+               "value":"<p>c.myers@cornell.edu</p>",
+               "label":"\u2021",
+               "type":"contrib",
+               "id":"n3"
+            },
+            {
+               "_type":"Tesseract::Core::Text",
+               "contentType":"text/html",
+               "format":"html",
+               "value":"<p>sethna@lassp.cornell.edu</p>",
+               "label":"\u00a7",
+               "type":"contrib",
+               "id":"n4"
+            }
+         ],
+         "identifiers":{
+            "doi":"10.1103/PhysRevE.92.052801"
+         }
+      }
+   ]
+}

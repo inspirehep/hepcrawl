@@ -18,7 +18,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..extractors.jats import Jats
 from ..items import HEPRecord
-from ..loaders import WSPLoader
+from ..loaders import HEPLoader
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
@@ -124,7 +124,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
             # Filter out non-interesting article types
             return None
 
-        record = WSPLoader(item=HEPRecord(), selector=node, response=response)
+        record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         if article_type in ['correction',
                             'addendum']:
             record.add_xpath('related_article_doi', "//related-article[@ext-link-type='doi']/@href")

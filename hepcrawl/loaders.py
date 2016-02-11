@@ -29,7 +29,7 @@ from .inputs import (
 from .outputs import (
     FreeKeywords,
     ClassificationNumbers,
-    Dois,
+    ListToValueDict,
 )
 
 
@@ -56,6 +56,9 @@ class HEPLoader(ItemLoader):
     collaboration_in = MapCompose(
         clean_collaborations
     )
+    collaboration_out = ListToValueDict()
+
+    collections_out = ListToValueDict(key="primary")
 
     title_in = MapCompose(
         fix_title_capitalization,
@@ -93,8 +96,6 @@ class HEPLoader(ItemLoader):
 
     classification_numbers_out = ClassificationNumbers()
 
-    dois_out = Dois()
-
-class WSPLoader(HEPLoader):
-    """Special Input/Output processors for a WSP record."""
-    pass
+    dois_out = ListToValueDict()
+    related_article_doi_out = ListToValueDict()
+    urls_out = ListToValueDict(key="url")

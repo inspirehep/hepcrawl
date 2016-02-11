@@ -63,9 +63,47 @@ class JsonWriterPipeline(object):
         return item
 
 
-class APIPushPipeline(object):
+class InspireAPIPushPipeline(object):
 
     def process_item(self, item, spider):
+        """Convert internal format to INSPIRE data model."""
+        if 'related_article_doi' in item:
+            item['dois'] += item.pop('related_article_doi', [])
+
+        source = item.pop('source', spider.name)
+
+        item['titles'] = [{
+            'title': item.pop('title', ''),
+            'subtitle': item.pop('subtitle', ''),
+            'source': source,
+        }]
+        item['abstracts'] = [{
+            'value': item.pop('abstract', ''),
+            'source': source,
+        }]
+        item['imprints'] = [{
+            'date': item.pop('date_published', ''),
+        }]
+        item['license'] = [{
+            'license': item.pop('license', ''),
+            'url': item.pop('license_url', ''),
+            'material': item.pop('license_type', ''),
+        }]
+        item['copyright'] = [{
+            'holder': item.pop('copyright_holder', ''),
+            'year': item.pop('copyright_year', ''),
+            'statement': item.pop('copyright_statement', ''),
+            'material': item.pop('copyright_material', ''),
+        }]
+        item['publication_info'] = [{
+            'journal_title': item.pop('journal_title', ''),
+            'journal_volume': item.pop('journal_volume', ''),
+            'year': item.pop('journal_year', ''),
+            'journal_issue': item.pop('journal_issue', ''),
+            'page_artid': item.pop('journal_pages', '') if item.pop('journal_pages', '') else item.pop('journal_artid', ''),
+            'note': item.pop('journal_doctype', ''),
+            'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
+        }]
         return item
 
     def close_spider(self, spider):

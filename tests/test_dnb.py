@@ -10,14 +10,13 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
-import responses
-import requests
 
 from scrapy.selector import Selector
 
 from hepcrawl.spiders import dnb_spider
 
 from .responses import fake_response_from_file
+
 
 @pytest.fixture
 def record():
@@ -30,11 +29,12 @@ def record():
     response.meta["node"] = nodes[0]
     response.meta["direct_links"] = ["http://d-nb.info/1079912991/34"]
     response.meta["urls"] = [
-        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
-        "http://d-nb.info/1079912991/34", 
+        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
+        "http://d-nb.info/1079912991/34",
         "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
     ]
     return spider.build_item(response)
+
 
 @pytest.fixture
 def authors():
@@ -45,6 +45,7 @@ def authors():
     nodes = selector.xpath("//%s" % spider.itertag)
     return spider.get_authors(nodes[0])
 
+
 @pytest.fixture
 def urls():
     spider = dnb_spider.DNBSpider()
@@ -54,15 +55,17 @@ def urls():
     nodes = selector.xpath("//%s" % spider.itertag)
     return spider.get_urls_in_record(nodes[0])
 
+
 @pytest.fixture
 def direct_links():
     spider = dnb_spider.DNBSpider()
     urls = [
-        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
-        "http://d-nb.info/1079912991/34", 
+        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
+        "http://d-nb.info/1079912991/34",
         "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
     ]
     return spider.find_direct_links(urls)
+
 
 @pytest.fixture
 def affiliations():
@@ -72,6 +75,7 @@ def affiliations():
     spider._register_namespaces(selector)
     nodes = selector.xpath("//%s" % spider.itertag)
     return spider.get_affiliations(nodes[0])
+
 
 @pytest.fixture
 def parse_node_requests():
@@ -85,6 +89,7 @@ def parse_node_requests():
 
     return spider.parse_node(orig_response, nodes[0])
 
+
 @pytest.fixture
 def splash():
     """Returns a call to build_item(), and ultimately the HEPrecord"""
@@ -96,8 +101,8 @@ def splash():
     nodes = selector.xpath("//%s" % spider.itertag)
 
     response = fake_response_from_file("dnb/test_splash.html", url="http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625")
-    response.meta["urls"] = ["http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
-                            "http://d-nb.info/1079912991/34", 
+    response.meta["urls"] = ["http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
+                            "http://d-nb.info/1079912991/34",
                             "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"]
     response.meta["node"] = nodes[0]
 
@@ -127,11 +132,13 @@ def test_authors(record):
     for index, name in enumerate(authors):
         assert record["authors"][index]["full_name"] == name
 
+
 def test_supervisors(record):
     """Test thesis supervisors"""
     supervisors = ["Podlech, Holger"]
     assert record["thesis_supervisor"]
     assert record["thesis_supervisor"] == supervisors
+
 
 def test_source(record):
     """Test thesis source"""
@@ -139,11 +146,13 @@ def test_source(record):
     assert record["source"]
     assert record["source"] == source
 
+
 def test_language(record):
     """Test thesis language"""
     language = [u'ger']
     assert record["language"]
     assert record["language"] == language
+
 
 def test_files(record):
     """Test files."""
@@ -151,15 +160,23 @@ def test_files(record):
     assert "files" in record
     assert record["files"] == files
 
+
 def test_urls(record):
     """Test url in record."""
     urls = [
-        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
-        "http://d-nb.info/1079912991/34", 
+        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
+        "http://d-nb.info/1079912991/34",
         "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
     ]
     assert "urls" in record
-    assert record["urls"] == urls
+    assert len(record["urls"]) == 3
+
+    seen_urls = set()
+    for url in record["urls"]:
+        assert url['url'] in urls
+        assert url['url'] not in seen_urls
+        seen_urls.add(url['url'])
+
 
 def test_doctype(record):
     """Test doctype"""
@@ -167,19 +184,21 @@ def test_doctype(record):
     assert record["thesis"]
     assert record["thesis"][0]["degree_type"] == doctype
 
+
 def test_parse_node(parse_node_requests):
     """Test request metadata that has been defined in parse_node()."""
-    urls = [u'http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257', 
-            u'http://d-nb.info/1079912991/34', 
+    urls = [u'http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257',
+            u'http://d-nb.info/1079912991/34',
             u'http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625']
     assert parse_node_requests.meta["urls"]
     assert parse_node_requests.meta["direct_links"]
     assert parse_node_requests.meta["urls"] == urls
     assert parse_node_requests.meta["direct_links"] == [u'http://d-nb.info/1079912991/34']
 
+
 def test_scrape(splash):
     """Test data that has been fetched in scrape_for_abstract()."""
-    abstract_gt = ( 
+    abstract_gt = (
             "Die vorliegende Arbeit handelt von der Entwicklung, dem Bau, den "
             "Zwischenmessungen sowie den abschließenden Tests unter kryogenen "
             "Bedingungen einer neuartigen, supraleitenden CH-Struktur für "
@@ -232,35 +251,39 @@ def test_scrape(splash):
     assert splash["page_nr"]
     assert splash["page_nr"] == page_nr_gt
 
+
 def test_get_affiliations(affiliations):
     """Test affiliation getting."""
     assert affiliations == ["Frankfurt am Main, Johann Wolfgang Goethe-Univ."]
+
 
 def test_get_authors(authors):
     """Test author getting."""
     assert authors
     assert authors == [
         {
-            "affiliation": "Frankfurt am Main, Johann Wolfgang Goethe-Univ.", 
-            "surname": "Busch", 
-            "given_names": "Marco", 
+            "affiliation": "Frankfurt am Main, Johann Wolfgang Goethe-Univ.",
+            "surname": "Busch",
+            "given_names": "Marco",
             "full_name": "Busch, Marco"
         }
     ]
 
+
 def test_get_urls(urls):
     """Test url getting from the xml."""
     assert urls == [
-        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
-        u"http://d-nb.info/1079912991/34", 
+        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
+        u"http://d-nb.info/1079912991/34",
         u"http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
     ]
 
+
 def test_find_direct_links(direct_links):
-    """Test direct and splash link recognising."""
+    """Test direct and splash link recognizing."""
     splash_links = direct_links[1]
     assert direct_links[0] == ["http://d-nb.info/1079912991/34"]
     assert splash_links == [
-        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257", 
+        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
         u"http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
     ]

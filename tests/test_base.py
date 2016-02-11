@@ -123,7 +123,7 @@ def test_files(record):
 
 def test_urls(record):
     """Test url in record"""
-    urls = ["http://hdl.handle.net/1885/10005"]
+    urls = [{"url": "http://hdl.handle.net/1885/10005"}]
     assert "urls" in record
     assert record["urls"] == urls
 
@@ -136,4 +136,3 @@ def test_get_urls(urls):
 def test_find_direct_links(direct_links):
     """Test direct link recognising"""
     assert direct_links == []
-

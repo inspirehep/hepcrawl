@@ -76,7 +76,7 @@ def test_authors(results):
         assert 'authors' in record
         assert len(record['authors']) == len(authors)
 
-        # here we are making sure order is kept             
+        # here we are making sure order is kept
         for index, name in enumerate(authors):
             assert record['authors'][index]['full_name'] == name
             assert record['authors'][index]['affiliations'][0]['value'] == affiliation
@@ -91,7 +91,7 @@ def test_pdf_link(results):
 
 
 def test_urls(results):
-    urls = ['http://alpha.web.cern.ch/node/276']
+    urls = [{'url': 'http://alpha.web.cern.ch/node/276'}]
     for record in results:
         assert 'urls' in record
         assert record['urls'] == urls

@@ -21,7 +21,7 @@ def results():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    return spider.parse(fake_response_from_file('aps/sample_aps_record.json', response_type=TextResponse))
+    return spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
 
 
 def test_abstract(results):
@@ -39,7 +39,6 @@ def test_abstract(results):
     for record in results:
         assert 'abstract' in record
         assert record['abstract'] == abstract
-        break
 
 
 def test_title(results):
@@ -48,7 +47,6 @@ def test_title(results):
     for record in results:
         assert 'title' in record
         assert record['title'] == title
-        break
 
 
 def test_date_published(results):
@@ -57,7 +55,6 @@ def test_date_published(results):
     for record in results:
         assert 'date_published' in record
         assert record['date_published'] == date_published
-        break
 
 
 def test_page_nr(results):
@@ -66,7 +63,6 @@ def test_page_nr(results):
     for record in results:
         assert 'page_nr' in record
         assert record['page_nr'] == page_nr
-        break
 
 
 def test_free_keywords(results):
@@ -86,15 +82,14 @@ def test_license(results):
         assert record['license_url'] == license_url
         # assert 'license_type' in record
         # assert record['license_type'] == license_type
-        break
 
 
 def test_dois(results):
     """Test extracting dois."""
-    dois = ["10.1103/PhysRevE.92.052801"]
+    dois = "10.1103/PhysRevE.92.052801"
     for record in results:
         assert 'dois' in record
-        assert record['dois'] == dois
+        assert record['dois'][0]['value'] == dois
         break
 
 
@@ -103,17 +98,16 @@ def test_collections(results):
     collections = ['HEP', 'Citeable', 'Published']
     for record in results:
         assert 'collections' in record
-        assert record['collections'] == collections
-        break
+        for coll in collections:
+            assert {"primary": coll} in record['collections']
 
 
 def test_collaboration(results):
     """Test extracting collaboration."""
-    collaboration = ["OSQAR Collaboration"]
+    collaboration = [{"value": "OSQAR Collaboration"}]
     for record in results:
         assert 'collaboration' in record
         assert record['collaboration'] == collaboration
-        break
 
 
 def test_publication_info(results):
@@ -134,7 +128,6 @@ def test_publication_info(results):
         assert record['journal_volume'] == journal_volume
         assert 'journal_issue' in record
         assert record['journal_issue'] == journal_issue
-        break
 
 
 def test_authors(results):
@@ -149,7 +142,6 @@ def test_authors(results):
         assert set(author_full_names) == set(record_full_names)  # assert that we have the same list of authors
         for author in record['authors']:
             assert author['affiliations'][0]['value'] == affiliation
-        break
 
 
 def test_copyrights(results):
@@ -167,4 +159,3 @@ def test_copyrights(results):
         assert record['copyright_statement'] == copyright_statement
         assert 'copyright_material' in record
         assert record['copyright_material'] == copyright_material
-        break

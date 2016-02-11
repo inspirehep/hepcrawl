@@ -30,7 +30,15 @@ class HEPRecord(scrapy.Item):
     JSON Schema for details.
     """
     files = scrapy.Field()
-    """Files (fulltexts, package) belonging to this item."""
+    """Files (fulltexts, package) belonging to this item.
+
+    .. code-block:: python
+
+        [{
+            "type": "Fulltext",  # Fulltext, Supplemental, Data, Figure
+            "uri": "file:///path/to/file",  # can also be HTTP
+        }]
+    """
 
     authors = scrapy.Field()
     """Special author format which will transform the incoming raw data to
@@ -40,14 +48,14 @@ class HEPRecord(scrapy.Item):
 
     .. code-block:: python
 
-        {
+        [{
             "surname": "Ellis",
             "given_names": "Richard John",
             "full_name": "", # if no surname/given_names
             "affiliations": [{
                 value: "raw string", ..
             }]
-        }
+        }, ..]
     """
     collaboration = scrapy.Field()
     """A list of the record collaborations, if any.
@@ -60,7 +68,10 @@ class HEPRecord(scrapy.Item):
     """
 
     source = scrapy.Field()
-    """Source of the record, e.g. 'World Scientific'."""
+    """Source of the record, e.g. 'World Scientific'. Used across many fields."""
+
+    abstracts = scrapy.Field()
+    """Final structure of abstract information. DO NOT ADD DATA TO THIS FIELD."""
 
     abstract = scrapy.Field()
     """Abstract of the record, e.g. 'We study the dynamics of quantum...'."""
@@ -68,9 +79,39 @@ class HEPRecord(scrapy.Item):
     title = scrapy.Field()
     """Title of the record, e.g. 'Perturbative Renormalization of Neutron-Antineutron Operators'."""
 
+    titles = scrapy.Field()
+    """List of title structures."""
+
     subtitle = scrapy.Field()
+    """Sub-title of the record, e.g. 'A treatese on the universe'."""
+
     free_keywords = scrapy.Field()
+    """Free keywords
+
+    .. code-block:: python
+
+        [
+            {
+                'value': 'Physics',
+                'source': 'author'
+            }, ...
+        ]
+    """
     classification_numbers = scrapy.Field()  # Like PACS numbers
+    """Classification numbers like PACS numbers.
+
+    .. code-block:: python
+
+        [
+            {
+                'classification_number': 'FOO',
+                'standard': 'PACS'
+            }, ...
+        ]
+    """
+
+    imprints = scrapy.Field()
+    """Structure for imprint information."""
 
     date_published = scrapy.Field()
     """Date of publication in string format, e.g. '2016-01-14'."""
@@ -80,30 +121,52 @@ class HEPRecord(scrapy.Item):
 
     .. code-block:: python
 
-        [
-            '10.1103/PhysRevD.93.016005'
-        ]
+        [{
+            'value': '10.1103/PhysRevD.93.016005'
+        }]
     """
 
     related_article_doi = scrapy.Field()
+    """DOI of Addendum/Erratum
+
+    .. code-block:: python
+
+        [{
+            'value': '10.1103/PhysRevD.93.016005'
+        }]
+    """
+
+    page_nr = scrapy.Field()
+    """Page number as string. E.g. '2'."""
+
     license = scrapy.Field()
     license_url = scrapy.Field()
     license_type = scrapy.Field()  # E.g. "open-access"
+
+    copyright = scrapy.Field()
+    """Final structure for copyright information."""
+
     copyright_holder = scrapy.Field()
     copyright_year = scrapy.Field()
     copyright_statement = scrapy.Field()
     copyright_material = scrapy.Field()  # E.g "Article"
-    page_nr = scrapy.Field()
+
     journal_title = scrapy.Field()
     journal_volume = scrapy.Field()
     journal_year = scrapy.Field()
     journal_issue = scrapy.Field()
     journal_pages = scrapy.Field()
     journal_artid = scrapy.Field()
-    journal_doctype = scrapy.Field()  # E.g. "Erratum", "Addendum"
-    pubinfo_freetext = scrapy.Field()  # Raw journal reference string
+    journal_doctype = scrapy.Field()
+    """Special type of publication. E.g. "Erratum", "Addendum"."""
 
-    notes = scrapy.Field()
+    pubinfo_freetext = scrapy.Field()
+    """Raw journal reference string."""
+
+    publication_info = scrapy.Field()
+    """Structured publication information."""
+
+    public_notes = scrapy.Field()
     """Notes
 
     .. code-block:: python
@@ -116,12 +179,58 @@ class HEPRecord(scrapy.Item):
         ]
     """
 
-    references = scrapy.Field()
     collections = scrapy.Field()
+    """List of collections article belongs to. E.g. ['CORE', 'THESIS']."""
+
+    references = scrapy.Field()
+    """List of references in the following form:
+
+    .. code-block:: python
+
+        [{
+            'recid': '',
+            'texkey': '',
+            'doi': '',
+            'collaboration': '',
+            'editors': '',
+            'authors': '',
+            'misc': '',
+            'number': '',
+            'isbn': '',
+            'publisher': '',
+            'maintitle': '',
+            'report_number': '',
+            'title': '',
+            'url': '',
+            'journal_pubnote': '',
+            'raw_reference': '',
+            'year': '',
+        }, ..]
+    """
+
     thesis = scrapy.Field()
+    """Thesis information
+
+    .. code-block:: python
+
+        [{
+            'date': '',
+            'defense_date': '',
+            'university': '',
+            'degree_type': '',
+        }]
+    """
+
     urls = scrapy.Field()
-    external_systems_number = scrapy.Field()
-    """External Systems Number
+    """URLs to splash page.
+
+    .. code-block:: python
+
+        ['http://hdl.handle.net/1885/10005']
+    """
+
+    external_system_numbers = scrapy.Field()
+    """External System Numbers
 
     .. code-block:: python
 

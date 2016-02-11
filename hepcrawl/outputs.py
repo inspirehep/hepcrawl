@@ -37,22 +37,22 @@ class ClassificationNumbers(object):
     def __call__(self, values):
         """Return the appropriate classification number structure."""
         return [
-            {"standard": self.standard, "value": val}
+            {"standard": self.standard, "classification_number": val}
             for val in values
         ]
 
 
-class Dois(object):
+class ListToValueDict(object):
 
-    """Build the appropriate DOIs structure."""
+    """Build the appropriate {'value': value} structure from list of values."""
 
-    def __init__(self, source="DOI"):
-        """Initialize the DOIs structure with a source."""
-        self.source = source
+    def __init__(self, key="value"):
+        """Initialize the formatter with the desired keyname (defaults to "value")."""
+        self.key = key
 
     def __call__(self, values):
-        """Return the appropriate DOIs structure."""
+        """Return the appropriate classification number structure."""
         return [
-            {"source": self.source, "value": val}
+            {self.key: val}
             for val in values
         ]

@@ -94,10 +94,10 @@ def test_license(results):
 
 def test_dois(results):
     """Test extracting dois."""
-    dois = ["10.1142/S1793292014400013"]
+    dois = "10.1142/S1793292014400013"
     for record in results:
         assert 'dois' in record
-        assert record['dois'] == dois
+        assert record['dois'][0]['value'] == dois
 
 
 def test_collections(results):
@@ -105,12 +105,13 @@ def test_collections(results):
     collections = ["HEP", "Published"]
     for record in results:
         assert 'collections' in record
-        assert record['collections'] == collections
+        for coll in collections:
+            assert {"primary": coll} in record['collections']
 
 
 def test_collaboration(results):
     """Test extracting collaboration."""
-    collaboration = ["Belle Collaboration"]
+    collaboration = [{"value": "Belle Collaboration"}]
     for record in results:
         assert 'collaboration' in record
         assert record['collaboration'] == collaboration

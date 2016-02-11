@@ -80,8 +80,8 @@ def test_notes(results):
         'value': u'6 pages, 4 figures, conference paper'
     }
     for record in results:
-        assert 'notes' in record
-        rec_notes = record['notes'][0]
+        assert 'public_notes' in record
+        rec_notes = record['public_notes'][0]
         assert rec_notes['source'] == notes['source']
         assert rec_notes['value'] == notes['value']
 
@@ -99,15 +99,15 @@ def test_license(results):
 
 def test_dois(results):
     """Test extracting dois."""
-    dois = ["10.1103/PhysRevD.93.016005"]
+    dois = "10.1103/PhysRevD.93.016005"
     for record in results:
         assert 'dois' in record
-        assert record['dois'] == dois
+        assert record['dois'][0]['value'] == dois
 
 
 def test_collaboration(results):
     """Test extracting collaboration."""
-    collaboration = ["Planck Collaboration"]
+    collaboration = [{"value": "Planck Collaboration"}]
     for record in results:
         assert 'collaboration' in record
         assert record['collaboration'] == collaboration
@@ -135,13 +135,13 @@ def test_arxiv_eprints(results):
         assert set(rec_eprints['categories']) == set(eprints['categories'])
 
 
-def test_external_systems_number(results):
+def test_external_system_numbers(results):
     esn = {
         'institute': 'arXiv',
         'value': u'oai:arXiv.org:1601.03238'
     }
     for record in results:
-        assert 'external_systems_number' in record
-        rec_esn = record['external_systems_number'][0]
+        assert 'external_system_numbers' in record
+        rec_esn = record['external_system_numbers'][0]
         assert rec_esn['value'] == esn['value']
         assert rec_esn['institute'] == esn['institute']
