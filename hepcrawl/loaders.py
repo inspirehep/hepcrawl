@@ -29,6 +29,7 @@ from .inputs import (
 from .outputs import (
     FreeKeywords,
     ClassificationNumbers,
+    Dois,
 )
 
 
@@ -92,6 +93,7 @@ class HEPLoader(ItemLoader):
 
     classification_numbers_out = ClassificationNumbers()
 
+    dois_out = Dois()
 
 class WSPLoader(HEPLoader):
     """Special Input/Output processors for a WSP record."""

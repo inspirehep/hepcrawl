@@ -40,3 +40,19 @@ class ClassificationNumbers(object):
             {"standard": self.standard, "value": val}
             for val in values
         ]
+
+
+class Dois(object):
+
+    """Build the appropriate DOIs structure."""
+
+    def __init__(self, source="DOI"):
+        """Initialize the DOIs structure with a source."""
+        self.source = source
+
+    def __call__(self, values):
+        """Return the appropriate DOIs structure."""
+        return [
+            {"source": self.source, "value": val}
+            for val in values
+        ]
