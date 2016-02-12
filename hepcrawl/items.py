@@ -110,6 +110,9 @@ class HEPRecord(scrapy.Item):
         ]
     """
 
+    subject_terms = scrapy.Field()
+    """Structure for subject information."""
+
     imprints = scrapy.Field()
     """Structure for imprint information."""
 

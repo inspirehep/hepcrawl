@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -10,9 +10,11 @@
 """Spider for APS."""
 
 from __future__ import absolute_import, print_function
+
 import json
 
 from scrapy import Request, Spider
+
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import get_nested, build_dict
@@ -61,7 +63,10 @@ class APSSpider(Spider):
             published_date = article.get('date', '')
             record.add_value('journal_year', published_date[:4])
             record.add_value('date_published', published_date)
-
+            record.add_value('subject_terms', [
+                term.get('label')
+                for term in get_nested(article, 'classificationSchemes', 'subjectAreas')
+            ])
             record.add_value('copyright_holder', get_nested(article, 'rights', 'copyrightHolders')[0]['name'])
             record.add_value('copyright_year', str(get_nested(article, 'rights', 'copyrightYear')))
             record.add_value('copyright_statement', get_nested(article, 'rights', 'rightsStatement'))

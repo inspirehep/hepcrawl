@@ -121,7 +121,10 @@
          },
          "classificationSchemes":{
             "subjectAreas":[
-
+                {
+                  "id": "quantum-info",
+                  "label": "Quantum Information"
+                }
             ]
          },
          "notes":[

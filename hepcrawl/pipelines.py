@@ -77,6 +77,10 @@ class InspireAPIPushPipeline(object):
             'subtitle': item.pop('subtitle', ''),
             'source': source,
         }]
+        item['subject_terms'] = [
+            {"term": term, "source": source, "scheme": source}
+            for term in item.get('subject_terms', [])
+        ]
         item['abstracts'] = [{
             'value': item.pop('abstract', ''),
             'source': source,
