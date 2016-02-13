@@ -37,6 +37,7 @@ Contents
    overview
    contributing
    guide
+   operations
 
 .. include:: contributing.rst
 .. include:: guide.rst
