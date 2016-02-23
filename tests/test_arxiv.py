@@ -105,12 +105,12 @@ def test_dois(results):
         assert record['dois'][0]['value'] == dois
 
 
-def test_collaboration(results):
+def test_collaborations(results):
     """Test extracting collaboration."""
-    collaboration = [{"value": "Planck Collaboration"}]
+    collaborations = [{"value": "Planck Collaboration"}]
     for record in results:
-        assert 'collaboration' in record
-        assert record['collaboration'] == collaboration
+        assert 'collaborations' in record
+        assert record['collaborations'] == collaborations
 
 
 def test_authors(results):

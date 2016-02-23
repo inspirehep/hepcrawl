@@ -35,6 +35,7 @@ from .outputs import (
 
 from .mappings import MATHML_ELEMENTS
 
+
 class HEPLoader(ItemLoader):
     """Input/Output processors for a HEP record.
 
@@ -57,10 +58,10 @@ class HEPLoader(ItemLoader):
 
     abstract_out = TakeFirst()
 
-    collaboration_in = MapCompose(
+    collaborations_in = MapCompose(
         clean_collaborations
     )
-    collaboration_out = ListToValueDict()
+    collaborations_out = ListToValueDict()
 
     collections_out = ListToValueDict(key="primary")
 

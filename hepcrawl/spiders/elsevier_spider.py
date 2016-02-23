@@ -102,7 +102,7 @@ class ElsevierSpider(XMLFeedSpider):
         'ASR': 'Advances in Space Research',
         'EPSL': 'Earth and Planetary Science Letters',
         'ICARUS': 'Icarus',
-        }
+    }
 
     DOCTYPE_MAPPING = {
         'abs': 'abstract',
@@ -140,7 +140,7 @@ class ElsevierSpider(XMLFeedSpider):
         'rev': 'review',
         'sco': 'short communication',
         'ssu': 'short survey',
-        }
+    }
 
     ERROR_CODES = range(400, 432)
 
@@ -161,7 +161,7 @@ class ElsevierSpider(XMLFeedSpider):
             yield Request(
                 self.xml_file,
                 meta={"xml_url": self.xml_file},
-                )
+            )
 
     def handle_feed(self, response):
         """Handle the feed and yield a request for every zip package found."""
@@ -190,7 +190,7 @@ class ElsevierSpider(XMLFeedSpider):
                 xml_url,
                 meta={"package_path": zip_filepath,
                       "xml_url": xml_url},
-                )
+            )
 
     @staticmethod
     def get_dois(node):
@@ -219,7 +219,6 @@ class ElsevierSpider(XMLFeedSpider):
         if keywords:
             return keywords.extract()
 
-
     def get_copyright(self, node):
         """Get copyright information."""
         cr_holder = node.xpath("//ce:copyright/text()")
@@ -228,7 +227,8 @@ class ElsevierSpider(XMLFeedSpider):
         if not (cr_statement or cr_holder) or "unknown" in cr_statement.lower():
             cr_statement = node.xpath("//prism:copyright/text()").extract()
             if len(cr_statement) > 1:
-                cr_statement = [st for st in cr_statement if "unknown" not in st.lower()]
+                cr_statement = [
+                    st for st in cr_statement if "unknown" not in st.lower()]
 
         copyrights = {}
         if cr_holder:
@@ -248,13 +248,15 @@ class ElsevierSpider(XMLFeedSpider):
         """
         affiliations_by_id = []
         for aff_id in ref_ids:
-            ce_affiliation = author_group.xpath("//ce:affiliation[@id='" + aff_id + "']")
+            ce_affiliation = author_group.xpath(
+                "//ce:affiliation[@id='" + aff_id + "']")
             if ce_affiliation.xpath(".//sa:affiliation"):
                 aff = ce_affiliation.xpath(
                     ".//*[self::sa:organization or self::sa:city or self::sa:country]/text()")
                 affiliations_by_id.append(", ".join(aff.extract()))
             elif ce_affiliation:
-                aff = ce_affiliation.xpath("./ce:textfn/text()").extract_first()
+                aff = ce_affiliation.xpath(
+                    "./ce:textfn/text()").extract_first()
                 aff = re.sub(r'^(\d+\ ?)', "", aff)
                 affiliations_by_id.append(aff)
 
@@ -267,7 +269,8 @@ class ElsevierSpider(XMLFeedSpider):
         function _find_affiliations_by_id().
         """
         ref_ids = author.xpath(".//@refid").extract()
-        group_affs = author_group.xpath(".//ce:affiliation[not(@*)]/ce:textfn/text()")
+        group_affs = author_group.xpath(
+            ".//ce:affiliation[not(@*)]/ce:textfn/text()")
         # Don't take correspondence (cor1) or deceased (fn1):
         ref_ids = [refid for refid in ref_ids if "aff" in refid]
         affiliations = []
@@ -427,7 +430,8 @@ class ElsevierSpider(XMLFeedSpider):
 
         for author in raw_authors:
             surname = author.xpath("./ce:surname/text()").extract_first()
-            given_names = author.xpath("./ce:given-name/text()").extract_first()
+            given_names = author.xpath(
+                "./ce:given-name/text()").extract_first()
             if surname and given_names:
                 fullname = u"{}, {}".format(surname, given_names)
                 authors.append(fullname)
@@ -493,7 +497,7 @@ class ElsevierSpider(XMLFeedSpider):
             ".//sb:contribution/sb:title/sb:maintitle//text()").extract())
         trans_title = ref.xpath(
             ".//sb:contribution/sb:translated-title/sb:maintitle//text()"
-            ).extract()
+        ).extract()
         if title and trans_title:
             # NOTE: concatenating title with translated title:
             title = "{} ({})".format(title, self._fix_node_text(trans_title))
@@ -538,7 +542,7 @@ class ElsevierSpider(XMLFeedSpider):
             if not book_title:
                 book_title = ref.xpath(
                     ".//sb:edited-book/sb:title/ce:inter-ref/text()"
-                    ).extract_first()
+                ).extract_first()
         else:
             book_title = ref.xpath(
                 ".//sb:book//sb:maintitle/text()").extract_first()
@@ -621,7 +625,7 @@ class ElsevierSpider(XMLFeedSpider):
         comment = ", ".join([com.strip("()") for com in comments]).strip(": ")
         isbn = ref.xpath(".//sb:isbn/text()").extract_first()
         # NOTE do we want ISSN info:
-        #issn = ref.xpath(".//sb:issn/text()").extract_first()
+        # issn = ref.xpath(".//sb:issn/text()").extract_first()
         year = self._get_ref_years(ref)
         # TODO: collaborations should be standardized
         collaboration = ref.xpath(".//sb:collaboration/text()").extract_first()
@@ -745,7 +749,8 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def _get_publication(node):
         """Get publication (journal) title data."""
-        publication = node.xpath('//prism:publicationName/text()').extract_first()
+        publication = node.xpath(
+            '//prism:publicationName/text()').extract_first()
         jid = node.xpath('//ja:jid/text()').extract_first()
         if not publication and jid:
             # publication = self.ELSEVIER_JID_MAP[jid]
@@ -818,10 +823,9 @@ class ElsevierSpider(XMLFeedSpider):
         keys_wanted = set([
             "journal_title", "volume", "issue", "fpage", "lpage", "year",
             "date_published", "dois", "journal_pages", "page_nr",
-            ])
+        ])
         keys_existing = set(info.keys())
         keys_missing = keys_wanted - keys_existing
-
 
         if len(keys_missing) > 0:
             sd_url = self._get_sd_url(xml_file)
@@ -845,13 +849,16 @@ class ElsevierSpider(XMLFeedSpider):
         nrs = []
         volume = ''
 
-        volume = node.xpath("//meta[@name='citation_volume']/@content").extract_first()
+        volume = node.xpath(
+            "//meta[@name='citation_volume']/@content").extract_first()
         if volume and "online" in volume:
             volume = "proof"
             return nrs, volume
 
-        fpage = node.xpath("//meta[@name='citation_firstpage']/@content").extract_first()
-        lpage = node.xpath("//meta[@name='citation_lastpage']/@content").extract_first()
+        fpage = node.xpath(
+            "//meta[@name='citation_firstpage']/@content").extract_first()
+        lpage = node.xpath(
+            "//meta[@name='citation_lastpage']/@content").extract_first()
         if fpage and lpage:
             nrs = [fpage, lpage]
         elif fpage:
@@ -859,15 +866,19 @@ class ElsevierSpider(XMLFeedSpider):
 
         if not volume or nrs:
             # Alternate locations for volume and page numbers.
-            vol_element = node.xpath("//p[@class='volIssue']/a/text()").extract_first()
-            more_vol_info = node.xpath("//p[@class='volIssue']/text()").extract_first()
+            vol_element = node.xpath(
+                "//p[@class='volIssue']/a/text()").extract_first()
+            more_vol_info = node.xpath(
+                "//p[@class='volIssue']/text()").extract_first()
             if more_vol_info and "online" in more_vol_info.lower():
                 volume = "proof"
                 return nrs, volume
             if vol_element:
-                volume = get_first([i for i in vol_element.split() if i.isdigit()])
+                volume = get_first(
+                    [i for i in vol_element.split() if i.isdigit()])
             if more_vol_info and "pages" in more_vol_info.lower():
-                pages_nrs = [num for num in more_vol_info.split(",") if "pages" in num.lower()]
+                pages_nrs = [num for num in more_vol_info.split(
+                    ",") if "pages" in num.lower()]
                 try:
                     nrs = pages_nrs[0].split()[-1].split(u"\u2013")
                 except IndexError:
@@ -906,6 +917,7 @@ class ElsevierSpider(XMLFeedSpider):
         year = ''
         date_published = ''
         dois = []
+
         def _strip_data(raw_data):
             """Strip data from a script code line"""
             if raw_data:
@@ -917,12 +929,14 @@ class ElsevierSpider(XMLFeedSpider):
             "//script[contains(text(), 'SDM.pm.coverDate')]").extract_first()
         if script:
             script = script.split("\n")
-            raw_dois = [i for i in script if "SDM.doi" in i or "SDM.pm.doi" in i]
+            raw_dois = [
+                i for i in script if "SDM.doi" in i or "SDM.pm.doi" in i]
             dois = list(set([_strip_data(doi) for doi in raw_dois]))
 
             cover_date = [i for i in script if "SDM.pm.coverDate" in i]
             if cover_date:
-                year = dparser.parse(_strip_data(get_first(cover_date, ''))).year
+                year = dparser.parse(_strip_data(
+                    get_first(cover_date, ''))).year
                 date_published = dparser.parse(
                     _strip_data(get_first(cover_date, ''))).date().isoformat()
         if not script:
@@ -930,14 +944,16 @@ class ElsevierSpider(XMLFeedSpider):
                 "//script[contains(text(), 'coverDate')]/text()").extract_first()
         if script:
             var_sdm = [sc for sc in script.split("var") if "SDM" in sc][0]
-            cover_date_raw = [i for i in var_sdm.split("\n") if "coverDate" in i]
+            cover_date_raw = [i for i in var_sdm.split(
+                "\n") if "coverDate" in i]
             cover_date = cover_date_raw[0].split()[1].strip('",')
             date = dparser.parse(cover_date)
             date_published = date.date().isoformat()
             year = date.year
 
         if not dois:
-            raw_dois = node.xpath("//p[@class='article-doi']/a/text()").extract()
+            raw_dois = node.xpath(
+                "//p[@class='article-doi']/a/text()").extract()
             dois = [raw_doi.lstrip("doi:") for raw_doi in raw_dois]
         return year, date_published, dois
 
@@ -946,7 +962,6 @@ class ElsevierSpider(XMLFeedSpider):
         # Build the HEPRecord even if web page unreachable:
         if response.status in self.ERROR_CODES:
             return self.build_item(response)
-
 
         info = response.meta.get("info")
         keys_missing = response.meta.get("keys_missing")
@@ -970,7 +985,7 @@ class ElsevierSpider(XMLFeedSpider):
             if not journal_title:
                 journal_title = node.xpath(
                     "//meta[@name='citation_journal_title']/@content"
-                    ).extract_first()
+                ).extract_first()
             if journal_title:
                 info["journal_title"] = journal_title
         if "year" in keys_missing and year:
@@ -996,7 +1011,8 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def get_license(node):
         """Get the license."""
-        pub_license_url = node.xpath(".//oa:userLicense/text()").extract_first()
+        pub_license_url = node.xpath(
+            ".//oa:userLicense/text()").extract_first()
         lic_text = 'http://creativecommons.org/licenses/by/3.0'
         if pub_license_url and pub_license_url.startswith(lic_text):
             pub_license = u'CC-BY-3.0'
@@ -1015,7 +1031,7 @@ class ElsevierSpider(XMLFeedSpider):
             "url": xml_file,
             # NOTE: we are not yet using this? Should we have a separate FFT item?
             # "type": "Fulltext",
-            }
+        }
         return files
 
     def build_item(self, response):
@@ -1062,7 +1078,8 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('copyright_holder', copyrights.get("cr_holder"))
         record.add_value('copyright_year', copyrights.get("cr_year"))
         record.add_value('copyright_statement', copyrights.get("cr_statement"))
-        collaborations = node.xpath("//ce:collaboration/ce:text/text()").extract()
+        collaborations = node.xpath(
+            "//ce:collaboration/ce:text/text()").extract()
         record.add_value('collaborations', collaborations)
         record.add_value('collections', self.get_collections(doctype))
         record.add_value('references', self.get_references(node))

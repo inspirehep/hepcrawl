@@ -102,12 +102,12 @@ def test_collections(results):
             assert {"primary": coll} in record['collections']
 
 
-def test_collaboration(results):
+def test_collaborations(results):
     """Test extracting collaboration."""
-    collaboration = [{"value": "OSQAR Collaboration"}]
+    collaborations = [{"value": "OSQAR Collaboration"}]
     for record in results:
-        assert 'collaboration' in record
-        assert record['collaboration'] == collaboration
+        assert 'collaborations' in record
+        assert record['collaborations'] == collaborations
 
 
 def test_subjects(results):
