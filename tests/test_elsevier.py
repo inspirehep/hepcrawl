@@ -1367,7 +1367,6 @@ def ref_eproceedings_article():
 
 def test_ref_eproceedings_article(ref_eproceedings_article):
     assert ref_eproceedings_article
-    #pytest.set_trace()
     assert ref_eproceedings_article == [{
         'book_title': u'Proc. 1996 USENIX Technical Conference',
         'title': u'Tracking and viewing changes on the web',
@@ -1431,15 +1430,18 @@ def handled_package(handled_feed):
 
 def test_handle_package(handled_package):
     """Check whether the response metadata is correct. A bit silly also.
-    See above comments."""
+    Now testing with mock zip files without real copyrighted content.
+    """
     xml_files = []
     astropart, nima  = handled_package
     for i, j in zip(astropart, nima):
         assert j
         assert i
-        assert i.meta == {'package_path': 'tests/responses/elsevier/astropart.zip', 'xml_url': 'file:///home/henrikv/.virtualenvs/hepcrawl/src/hepcrawl/tmp/elsevier/astropart/0927-6505/aip/S0927650515001656/S0927650515001656.xml'}
-        assert j.meta == {'package_path': 'tests/responses/elsevier/nima.zip', 'xml_url': 'file:///home/henrikv/.virtualenvs/hepcrawl/src/hepcrawl/tmp/elsevier/nima/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'}
+        assert i.meta["package_path"] == "tests/responses/elsevier/astropart.zip"
+        assert "tmp/elsevier/astropart/0927-6505/aip/S0927650515001656/S0927650515001656.xml" in i.meta["xml_url"]
 
+        assert j.meta["package_path"] == "tests/responses/elsevier/nima.zip"
+        assert "tmp/elsevier/nima/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml" in j.meta["xml_url"]
 
 
 @pytest.fixture
