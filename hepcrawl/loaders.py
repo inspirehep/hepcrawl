@@ -24,7 +24,7 @@ from .inputs import (
     add_author_full_name,
     clean_tags_from_affiliations,
     clean_collaborations,
-    clean_abstract,
+    clean_whitespace_characters,
 )
 
 from .outputs import (
@@ -49,10 +49,12 @@ class HEPLoader(ItemLoader):
     )
 
     abstract_in = MapCompose(
+        clean_whitespace_characters,
         convert_html_subscripts_to_latex,
-        selective_remove_tags(),
+        selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
     )
+
     abstract_out = TakeFirst()
 
     collaboration_in = MapCompose(
@@ -102,13 +104,3 @@ class HEPLoader(ItemLoader):
     dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
     urls_out = ListToValueDict(key="url")
-
-
-class ElsevierLoader(HEPLoader):
-    """Special Input/Output processors for an Elsevier record."""
-    abstract_in = MapCompose(
-        clean_abstract,
-        convert_html_subscripts_to_latex,
-        selective_remove_tags(keep=MATHML_ELEMENTS),
-        unicode.strip,
-    )

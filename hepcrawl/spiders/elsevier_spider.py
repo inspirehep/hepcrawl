@@ -19,7 +19,7 @@ from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
-from ..loaders import ElsevierLoader
+from ..loaders import HEPLoader
 from ..utils import (
     unzip_xml_files,
     split_fullname,
@@ -1021,7 +1021,7 @@ class ElsevierSpider(XMLFeedSpider):
     def build_item(self, response):
         """Parse an Elsevier XML file into a HEP record."""
         node = response.meta.get("node")
-        record = ElsevierLoader(
+        record = HEPLoader(
             item=HEPRecord(), selector=node, response=response)
         doctype = self.get_doctype(node)
         self.logger.info("Doc type is %s", doctype)

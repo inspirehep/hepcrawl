@@ -77,7 +77,7 @@ def clean_collaborations(value):
     return value.replace("for the", "").strip()
 
 
-def clean_abstract(text):
+def clean_whitespace_characters(text):
     """Remove unwanted special characters from abstract."""
     text = text.replace("\n", "")
     text = text.replace("\t", "")
