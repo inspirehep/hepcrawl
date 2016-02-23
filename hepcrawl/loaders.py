@@ -69,8 +69,10 @@ class HEPLoader(ItemLoader):
         fix_title_capitalization,
         unicode.strip,
     )
-    title_out = TakeFirst()
+
     subtitle_out = TakeFirst()
+    title_out = Join()
+
 
     journal_title_out = TakeFirst()
     journal_year_out = TakeFirst()

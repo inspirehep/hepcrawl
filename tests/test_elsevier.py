@@ -266,13 +266,10 @@ def test_urls(record):
     assert record["urls"] == [{'url': u'http://dx.doi.org/10.1016/0370-2693(88)91603-6'}]
 
 def test_files(record):
-    access = "HIDDEN"
-    url = "file:///home/henrikv/.virtualenvs/hepcrawl/src/hepcrawl/tests/responses/elsevier/sample_consyn_record.xml"
-    description = "Elsevier"
+    """Test file urls."""
     assert record["files"]
-    assert record["files"][0]["access"] == "HIDDEN"
     assert record["files"][0]["url"] == "elsevier/sample_consyn_record.xml"
-    assert record["files"][0]["description"] == "Elsevier"
+
 
 def test_dois(record):
     """Test that dois are good."""
@@ -1385,14 +1382,14 @@ def handled_feed():
     <feed xmlns="http://www.w3.org/2005/Atom">
         <entry>
             <title>30378-00001-FULL-XML-ASTROPART PHYS (0927-6505) 1.7.ZIP</title>
-            <link href="file://tests/responses/elsevier/astropart.zip"/>
+            <link href="file://tests/responses/elsevier/fake_astropart.zip"/>
             <id>564321351</id>
             <updated>2015-10-31T10:29:32.774545Z</updated>
             <summary>ASTROPART PHYS (0927-6505)</summary>
         </entry>
         <entry>
             <title>9261-00001-FULL-XML-NIMA (0168-9002) 1.7.2014.ZIP</title>
-            <link href="file://tests/responses/elsevier/nima.zip"/>
+            <link href="file://tests/responses/elsevier/fake_nima.zip"/>
             <id>asdsdasda</id>
             <updated>2015-10-31T10:29:32.774545Z</updated>
             <summary>NIMA (0168-9002)</summary>
@@ -1410,17 +1407,14 @@ def test_hadle_feed(handled_feed):
         zip_files.append(feed.url)
     assert zip_files
     assert zip_files == [
-        'file://tests/responses/elsevier/astropart.zip',
-        'file://tests/responses/elsevier/nima.zip'
+        'file://tests/responses/elsevier/fake_astropart.zip',
+        'file://tests/responses/elsevier/fake_nima.zip'
         ]
 
 @pytest.fixture
 def handled_package(handled_feed):
     """Take the handle_feed request and use it to yield 
-    requests to process individual xml files. A bit silly,
-    had some problems with yielding in pytest.
-    NOTE: Should we skip this? Requires making folders
-    and unzipping files.
+    requests to process individual xml files.
     """
     spider = elsevier_spider.ElsevierSpider()
     astropart, nima = handled_feed
@@ -1429,7 +1423,7 @@ def handled_package(handled_feed):
             )
 
 def test_handle_package(handled_package):
-    """Check whether the response metadata is correct. A bit silly also.
+    """Check whether the response metadata is correct.
     Now testing with mock zip files without real copyrighted content.
     """
     xml_files = []
@@ -1437,11 +1431,11 @@ def test_handle_package(handled_package):
     for i, j in zip(astropart, nima):
         assert j
         assert i
-        assert i.meta["package_path"] == "tests/responses/elsevier/astropart.zip"
-        assert "tmp/elsevier/astropart/0927-6505/aip/S0927650515001656/S0927650515001656.xml" in i.meta["xml_url"]
+        assert i.meta["package_path"] == "tests/responses/elsevier/fake_astropart.zip"
+        assert "tmp/elsevier/fake_astropart/0927-6505/aip/S0927650515001656/S0927650515001656.xml" in i.meta["xml_url"]
 
-        assert j.meta["package_path"] == "tests/responses/elsevier/nima.zip"
-        assert "tmp/elsevier/nima/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml" in j.meta["xml_url"]
+        assert j.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
+        assert "tmp/elsevier/fake_nima/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml" in j.meta["xml_url"]
 
 
 @pytest.fixture

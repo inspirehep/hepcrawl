@@ -15,6 +15,8 @@ import os
 import re
 import dateutil.parser as dparser
 
+import requests
+
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
@@ -143,6 +145,12 @@ class ElsevierSpider(XMLFeedSpider):
     }
 
     ERROR_CODES = range(400, 432)
+    
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'hepcrawl.pipelines.JsonWriterPipeline': 300,
+            }, 
+        }
 
     def __init__(self, atom_feed=None, zip_file=None, xml_file=None, *args, **kwargs):
         """Construct Elsevier spider."""
@@ -176,7 +184,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Handle the zip package and yield a request for every XML found."""
         self.log("Visited %s" % response.url)
         filename = os.path.basename(response.url).rstrip(".zip")
-        # FIXME: in the final version should be /tmp/ or smthing else. (What?):
+        # FIXME: in the final version target_folder should be /tmp/ or smthing else?
         target_folder = "tmp/elsevier/" + filename
         if not os.path.exists(target_folder):
             os.makedirs(target_folder)
@@ -195,20 +203,19 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def get_dois(node):
         """Get the dois."""
-        dois = node.xpath("//ce:doi/text()")
+        dois = node.xpath("//ja:item-info/ce:doi/text()")
         if not dois:
             dois = node.xpath("//prism:doi/text()")
         if dois:
             return dois.extract()
 
-    @staticmethod
-    def get_title(node):
+    def get_title(self, node):
         """Get article title."""
         title = node.xpath("//ce:title/text()")
         if not title:
             title = node.xpath("//dct:title/text()")
         if title:
-            return title.extract()
+            return self._fix_node_text(title.extract())
 
     @staticmethod
     def get_keywords(node):
@@ -460,13 +467,6 @@ class ElsevierSpider(XMLFeedSpider):
         else:
             return pub_name
 
-    # @staticmethod
-    # def _resolve_arxiv_uri(arxiv_url):  # NOTE: do we need this?
-        # """Takes the url as in the reference and makes it a valid HTTP URL."""
-        # arxiv_id = arxiv_url.split(":")[-1]
-        # url = "http://arxiv.org/abs/" + arxiv_id
-        # return url
-
     @staticmethod
     def _get_ref_links(ref, only_arxiv=True):
         """Return the reference's urls. Default: only arxiv links."""
@@ -550,10 +550,14 @@ class ElsevierSpider(XMLFeedSpider):
 
     @staticmethod
     def _fix_node_text(text_nodes):
-        """Text might be split to multiple elements, this joins them.
+        """Join text split to multiple elements.
 
-        Input must me a list. Returns a string."""
+        Also clean unwantend whitespaces. Input must be a list.
+        Returns a string.
+        """
         # NOTE: should this be more general?
+        # FIXME: this could be in loaders?
+        # This does more than `from scrapy.loader.processors import Join`
         title = " ".join(" ".join(text_nodes).split())
         return title
 
@@ -743,7 +747,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Construct a sciencedirect url from the xml filename."""
         basename = os.path.basename(xml_file)
         elsevier_id = os.path.splitext(basename)[0]
-        url = 'http://www.sciencedirect.com/science/article/pii/' + elsevier_id
+        url = u"http://www.sciencedirect.com/science/article/pii/" + elsevier_id
         return url
 
     @staticmethod
@@ -835,7 +839,6 @@ class ElsevierSpider(XMLFeedSpider):
             request.meta["node"] = node
             request.meta["xml_url"] = xml_file
             request.meta["handle_httpstatus_list"] = self.ERROR_CODES
-
             return request
 
         else:
@@ -1020,19 +1023,17 @@ class ElsevierSpider(XMLFeedSpider):
         else:
             return '', ''
 
-    @staticmethod
-    def add_fft_files(xml_file):
-        """Add a structured 'files' item."""
-        files = {}
-
-        files = {
-            "access": "HIDDEN",
-            "description": "Elsevier",
-            "url": xml_file,
-            # NOTE: we are not yet using this? Should we have a separate FFT item?
-            # "type": "Fulltext",
+    #@staticmethod
+    def add_fft_file(self, file_path, file_access, file_type):
+        """Create a structured dictionary and add to 'files' item."""
+        file_dict = {
+            "access": file_access,
+            "description": self.name.title(),
+            "url": file_path,
+            # NOTE: should we be using the 'type' here already?
+            "type": file_type,
         }
-        return files
+        return file_dict
 
     def build_item(self, response):
         """Parse an Elsevier XML file into a HEP record."""
@@ -1047,15 +1048,16 @@ class ElsevierSpider(XMLFeedSpider):
 
         xml_file = response.meta.get("xml_url")
         if xml_file:
-            record.add_value('files', self.add_fft_files(xml_file))
+            record.add_value('files', self.add_fft_file(xml_file, "HIDDEN", "Fulltext"))
+            sd_url = self._get_sd_url(xml_file)
+            if requests.head(sd_url).status_code == 200:  # Test if valid url
+                record.add_value("urls", sd_url)
 
         pub_license, pub_license_url = self.get_license(node)
         if pub_license:
             record.add_value('license', pub_license)
             record.add_value('license_url', pub_license_url)
             record.add_value('license_type', "Open access")
-            # NOTE: Direct url to sciencedirect web page, do we need this:
-            # sd_url = self._get_sd_url(xml_file)
 
         record.add_value('abstract', self.get_abstract(node))
         record.add_value('title', self.get_title(node))
@@ -1083,5 +1085,6 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('collaborations', collaborations)
         record.add_value('collections', self.get_collections(doctype))
         record.add_value('references', self.get_references(node))
+        # FIXME: why this is not outputting all the records?
 
         return record.load_item()
