@@ -834,7 +834,7 @@ def test_ref_book_translated(ref_book_translated):
         'authors': u'Luria, A.R.',
         'book_title': u'The mind of a mnemonist',
         'label': u'7',
-        'misc': u'L. Solotarof, Trans., Original work published 1965',
+        'misc': u'L. Solotarof, Trans. Original work published 1965',
         'publisher': u'New York: Avon books',
         'year': u'1969'
             }]

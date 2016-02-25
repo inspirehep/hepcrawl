@@ -208,8 +208,8 @@ class ElsevierSpider(XMLFeedSpider):
         """Get copyright information."""
         cr_holder = node.xpath("//ce:copyright/text()")
         cr_year = node.xpath("//ce:copyright/@year")
-        cr_statement = node.xpath("//ce:copyright/@type").extract_first()
-        if not (cr_statement or cr_holder) or "unknown" in cr_statement.lower():
+        cr_statement = node.xpath("//ce:copyright/@type").extract()
+        if not (cr_statement or cr_holder) or "unknown" in " ".join(cr_statement).lower():
             cr_statement = node.xpath("//prism:copyright/text()").extract()
             if len(cr_statement) > 1:
                 cr_statement = [
@@ -596,8 +596,10 @@ class ElsevierSpider(XMLFeedSpider):
         # edition = ref.xpath(".//sb:edition/text()").extract_first()
         volume = self._get_ref_volume(ref)
         issue = ref.xpath(".//sb:issue-nr/text()").extract_first()
-        comments = ref.xpath(".//sb:comment/text()").extract()
-        comment = ", ".join([com.strip("()") for com in comments]).strip(": ")
+        #comments = ref.xpath(".//sb:comment/text()").extract()
+        comments = self._fix_node_text(ref.xpath(".//sb:comment/text()").extract())
+        comment = " ".join([com.strip("()") for com in comments.split()]).strip(": ")
+        #import ipdb; ipdb.set_trace()
         isbn = ref.xpath(".//sb:isbn/text()").extract_first()
         # NOTE do we need ISSN info:
         # issn = ref.xpath(".//sb:issn/text()").extract_first()
@@ -737,16 +739,16 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def get_journal_and_section(publication):
         """Take journal title data (with possible section) and try to fix it."""
-        journal_title = get_first(publication.split(",")).strip()
         section = ''
-        try:
-            sec = publication.split(",")[1].strip()
-            if sec.startswith("Section"):
-                sec = sec[7:].strip()
-            if sec and not section:
-                section = sec
-        except IndexError:
-            pass
+        journal_title = ''
+        possible_sections = ["A", "B", "C", "D", "E"]
+
+        # filter after re.split, which may return empty elements:
+        split_pub = filter(None, re.split(r'(\W+)', publication))
+        if split_pub[-1] in possible_sections:
+            section = split_pub.pop(-1)
+
+        journal_title = "".join([word for word in split_pub if "section" not in word.lower()]).strip(", ")
 
         return journal_title, section
 

@@ -82,3 +82,8 @@ def clean_whitespace_characters(text):
     text = text.replace("\n", "")
     text = text.replace("\t", "")
     return text
+
+def remove_attributes_from_mathml(text):
+    text =  '<math altimg="si2.gif" display="inline" overflow="scroll"><msub><mrow><mi>\\u03bc</mi></mrow><mrow><mi>I</mi></mrow></msub><mo>&gt;</mo><msub><mrow><mi>m</mi></mrow><mrow><mi>\\u03c0</mi></mrow></msub><mo stretchy="false">/</mo><mn>2</mn></math> under the temporal'
+    re.sub(r'<math (altimg)', 'HA HAHA', text)
+    # TODO: WORKON THI!
