@@ -84,28 +84,6 @@ class ElsevierSpider(XMLFeedSpider):
         ("xlink", "http://www.w3.org/1999/xlink"),
     ]
 
-    # TODO: complete this JID mapping. Inspire has 33 Elsevier journals
-    # (search 643:ELSEVIER)
-    # OR maybe shouldn't do any mapping here?
-    ELSEVIER_JID_MAP = {
-        'PLB': 'Physics letters B',
-        'NUPHB': 'Nuclear Physics B',
-        'CEMGE': 'Chemical Geology',
-        'SOLMAT': 'Solar Energy Materials & Solar Cells',
-        'APCATB': 'Applied Catalysis B: Environmental',
-        'NUMA': 'Journal of Nuclear Materials',
-        'NIMA': 'Nuclear Instruments and Methods in Physics Research, Section A',
-        'ASTPHY': 'Astroparticle Physics',
-        'APPLTHERMALENG': 'Applied Thermal Engineering',
-        'RINP': 'Results in Physics',
-        'IMAVIS': 'Image and Vision Computing',
-        'OPTLASENG': 'Optics and Lasers in Engineering',
-        'ADND': 'Atomic Data and Nuclear Data Tables',
-        'ASR': 'Advances in Space Research',
-        'EPSL': 'Earth and Planetary Science Letters',
-        'ICARUS': 'Icarus',
-    }
-
     DOCTYPE_MAPPING = {
         'abs': 'abstract',
         'add': 'addendum',
@@ -251,7 +229,7 @@ class ElsevierSpider(XMLFeedSpider):
     def _find_affiliations_by_id(author_group, ref_ids):
         """Return affiliations with given ids.
 
-        TODO: Affiliations should be standardized later.
+        Affiliations should be standardized later.
         """
         affiliations_by_id = []
         for aff_id in ref_ids:
@@ -416,8 +394,6 @@ class ElsevierSpider(XMLFeedSpider):
             collections += ['ConferencePaper']
         elif doctype == "review-article":
             collections += ['Review']
-        # elif:
-            # collections += ['']  # NOTE: What else?
         return collections
 
     @staticmethod
@@ -499,7 +475,7 @@ class ElsevierSpider(XMLFeedSpider):
             ".//sb:contribution/sb:translated-title/sb:maintitle//text()"
         ).extract()
         if title and trans_title:
-            # NOTE: concatenating title with translated title:
+            # NOTE: concatenating title with translated title, OK?
             title = "{} ({})".format(title, self._fix_node_text(trans_title))
         elif trans_title:  # NOTE: is this case even possible?
             title = trans_title
@@ -555,9 +531,6 @@ class ElsevierSpider(XMLFeedSpider):
         Also clean unwantend whitespaces. Input must be a list.
         Returns a string.
         """
-        # NOTE: should this be more general?
-        # FIXME: this could be in loaders?
-        # This does more than `from scrapy.loader.processors import Join`
         title = " ".join(" ".join(text_nodes).split())
         return title
 
@@ -621,8 +594,6 @@ class ElsevierSpider(XMLFeedSpider):
         book_title = self._get_ref_book_title(ref, title)
         # NOTE: do we need the book edition:
         # edition = ref.xpath(".//sb:edition/text()").extract_first()
-        # TODO: shoud use Inspire standard format journal names, like this:
-        # fixed_title, _ = fix_journal_name(journal, self.journal_mappings)
         volume = self._get_ref_volume(ref)
         issue = ref.xpath(".//sb:issue-nr/text()").extract_first()
         comments = ref.xpath(".//sb:comment/text()").extract()
@@ -631,7 +602,7 @@ class ElsevierSpider(XMLFeedSpider):
         # NOTE do we want ISSN info:
         # issn = ref.xpath(".//sb:issn/text()").extract_first()
         year = self._get_ref_years(ref)
-        # TODO: collaborations should be standardized
+        # Collaborations should be standardized later
         collaboration = ref.xpath(".//sb:collaboration/text()").extract_first()
         authors = self._get_ref_authors(ref)
         editors = self._get_ref_authors(ref, editors=True)
@@ -757,8 +728,7 @@ class ElsevierSpider(XMLFeedSpider):
             '//prism:publicationName/text()').extract_first()
         jid = node.xpath('//ja:jid/text()').extract_first()
         if not publication and jid:
-            # publication = self.ELSEVIER_JID_MAP[jid]
-            # NOTE: or maybe we don't want to do any mapping in the spider?
+            # NOTE: JIDs should be mapped to standard journal names later
             publication = jid
         if not publication:
             publication = ''
@@ -768,8 +738,6 @@ class ElsevierSpider(XMLFeedSpider):
     def get_journal_and_section(publication):
         """Take journal title data (with possible section) and try to fix it."""
         journal_title = get_first(publication.split(",")).strip()
-        # TODO: use the journal_mappings dict to get standard journal name:
-        # fixed_title, section = fix_journal_name(journal_title, self.journal_mappings)
         section = ''
         try:
             sec = publication.split(",")[1].strip()
@@ -972,7 +940,7 @@ class ElsevierSpider(XMLFeedSpider):
 
         if "volume" in keys_missing or "lpage" in keys_missing:
             nrs, volume = self._get_volume_from_web(node)
-            if volume == "proof":
+            if volume == "proof":  # Don't build unpublished records
                 return None
         if "year" in keys_missing or "date_published" in keys_missing:
             year, date_published = self._get_date_from_web(node)
@@ -1085,6 +1053,5 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('collaborations', collaborations)
         record.add_value('collections', self.get_collections(doctype))
         record.add_value('references', self.get_references(node))
-        # FIXME: why this is not outputting all the records?
 
         return record.load_item()
