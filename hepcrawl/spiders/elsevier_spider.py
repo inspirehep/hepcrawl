@@ -13,8 +13,9 @@ from __future__ import absolute_import, print_function
 
 import os
 import re
-import dateutil.parser as dparser
+from tempfile import mkdtemp
 
+import dateutil.parser as dparser
 import requests
 
 from scrapy import Request
@@ -123,12 +124,12 @@ class ElsevierSpider(XMLFeedSpider):
     }
 
     ERROR_CODES = range(400, 432)
-    
+
     custom_settings = {
         'ITEM_PIPELINES': {
             'hepcrawl.pipelines.JsonWriterPipeline': 300,
-            }, 
-        }
+        },
+    }
 
     def __init__(self, atom_feed=None, zip_file=None, xml_file=None, *args, **kwargs):
         """Construct Elsevier spider."""
@@ -162,14 +163,13 @@ class ElsevierSpider(XMLFeedSpider):
         """Handle the zip package and yield a request for every XML found."""
         self.log("Visited %s" % response.url)
         filename = os.path.basename(response.url).rstrip(".zip")
-        # FIXME: in the final version target_folder should be /tmp/ or smthing else?
-        target_folder = "tmp/elsevier/" + filename
-        if not os.path.exists(target_folder):
-            os.makedirs(target_folder)
+        # TMP dir to extract zip packages:
+        target_folder = mkdtemp(prefix="elsevier_" + filename + "_", dir="/tmp/")
 
         zip_filepath = response.url.replace("file://", "")
         xml_files = unzip_xml_files(zip_filepath, target_folder)
-
+        # The xml files shouldn't be removed after processing; they will
+        # be later uploaded to Inspire. So don't remove any tmp files here.
         for xml_file in xml_files:
             xml_url = u"file://{0}".format(os.path.abspath(xml_file))
             yield Request(
@@ -599,7 +599,7 @@ class ElsevierSpider(XMLFeedSpider):
         comments = ref.xpath(".//sb:comment/text()").extract()
         comment = ", ".join([com.strip("()") for com in comments]).strip(": ")
         isbn = ref.xpath(".//sb:isbn/text()").extract_first()
-        # NOTE do we want ISSN info:
+        # NOTE do we need ISSN info:
         # issn = ref.xpath(".//sb:issn/text()").extract_first()
         year = self._get_ref_years(ref)
         # Collaborations should be standardized later
@@ -991,7 +991,6 @@ class ElsevierSpider(XMLFeedSpider):
         else:
             return '', ''
 
-    #@staticmethod
     def add_fft_file(self, file_path, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {

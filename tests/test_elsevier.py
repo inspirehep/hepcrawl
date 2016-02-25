@@ -9,6 +9,8 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
+import fnmatch
+
 import pytest
 
 from scrapy import Request
@@ -1428,14 +1430,16 @@ def test_handle_package(handled_package):
     """
     xml_files = []
     astropart, nima  = handled_package
-    for i, j in zip(astropart, nima):
-        assert j
-        assert i
-        assert i.meta["package_path"] == "tests/responses/elsevier/fake_astropart.zip"
-        assert "tmp/elsevier/fake_astropart/0927-6505/aip/S0927650515001656/S0927650515001656.xml" in i.meta["xml_url"]
+    for astro, nima in zip(astropart, nima):
+        assert nima
+        assert astro
+        assert astro.meta["package_path"] == "tests/responses/elsevier/fake_astropart.zip"
+        url_to_match = u'file:///tmp/elsevier_fake_astropart_*/0927-6505/aip/S0927650515001656/S0927650515001656.xml'
+        assert astro.meta["xml_url"] == fnmatch.filter([astro.meta["xml_url"]], url_to_match)[0]
 
-        assert j.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
-        assert "tmp/elsevier/fake_nima/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml" in j.meta["xml_url"]
+        assert nima.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
+        url_to_match = u'file:///tmp/elsevier_fake_nima_*/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'
+        assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]  
 
 
 @pytest.fixture
