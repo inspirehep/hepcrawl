@@ -91,10 +91,12 @@ def test_abstract(record):
 
 
 def test_title(record):
-    """Test extracting title."""
+    """Test extracting title and subtitle."""
     title = "The effect of ground-state spin on fission and quasi-fission anisotropies"
+    subtitle = "This is an optional subtitle"
     assert record['title']
     assert record['title'] == title
+    assert record['subtitle'] == subtitle
 
 
 def test_date_published(record):

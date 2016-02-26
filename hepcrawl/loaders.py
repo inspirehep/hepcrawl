@@ -65,6 +65,7 @@ class HEPLoader(ItemLoader):
         unicode.strip,
     )
     title_out = TakeFirst()
+    subtitle_out = TakeFirst()
 
     journal_title_out = TakeFirst()
     journal_year_out = TakeFirst()
