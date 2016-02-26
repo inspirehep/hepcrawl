@@ -65,8 +65,7 @@
 	 		<ce:abstract id="ab1" class="author" xml:lang="en">
 	 			<ce:section-title>Abstract</ce:section-title>
 	 			<ce:abstract-sec>
-	 				<ce:simple-para id="SP0005" view="all">By studying the representations of the mapping class groups which arise in 2D conformal theories we derive some restrictions on the value of the conformal dimension <ce:italic>h</ce:italic>
-	 				<ce:inf loc="post">i</ce:inf> of operators and the central charge <ce:italic>c</ce:italic> of the Virasoro algebra. As a simple application we show that when there are a finite number of operators in the conformal algebra, the <ce:italic>h</ce:italic><ce:inf loc="post">i</ce:inf> and <ce:italic>c</ce:italic> are all rational.
+	 				<ce:simple-para id="SP0005" view="all">By studying the representations of the mapping class groups which arise in 2D conformal theories we derive some restrictions on the value of the conformal dimension <ce:italic>h</ce:italic><ce:inf loc="post">i</ce:inf> of operators and the central charge <ce:italic>c</ce:italic> of the Virasoro algebra. As a simple application we show that when there are a finite number of operators in the conformal algebra, the <ce:italic>h</ce:italic><ce:inf loc="post">i</ce:inf> and <ce:italic>c</ce:italic> are all rational.
 	 			</ce:simple-para>
 	 		</ce:abstract-sec>
 	 	</ce:abstract>

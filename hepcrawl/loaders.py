@@ -75,7 +75,6 @@ class HEPLoader(ItemLoader):
     subtitle_out = TakeFirst()
     title_out = Join()
 
-
     journal_title_out = TakeFirst()
     journal_year_out = TakeFirst()
     journal_artid_out = TakeFirst()

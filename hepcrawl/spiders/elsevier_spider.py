@@ -125,12 +125,6 @@ class ElsevierSpider(XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
-    custom_settings = {
-        'ITEM_PIPELINES': {
-            'hepcrawl.pipelines.JsonWriterPipeline': 300,
-        },
-    }
-
     def __init__(self, atom_feed=None, zip_file=None, xml_file=None, *args, **kwargs):
         """Construct Elsevier spider."""
         super(ElsevierSpider, self).__init__(*args, **kwargs)
@@ -323,11 +317,12 @@ class ElsevierSpider(XMLFeedSpider):
         Works only with DOIs of the form 10.1016/j.nima.2016.01.020,
         where 2016 is the year.
         """
+        year = 0
         doi_pattern = re.compile(r'^\d+\.\d+\/.\.[a-z]+\.(\d{4})\.\d+\.\d+$')
         search_result = doi_pattern.search(dois[0])
         if search_result:
             year = search_result.groups(1)[0]
-            return int(year)
+        return int(year)
 
     def get_date(self, node):
         """Get the year, month, and day."""
@@ -596,10 +591,8 @@ class ElsevierSpider(XMLFeedSpider):
         # edition = ref.xpath(".//sb:edition/text()").extract_first()
         volume = self._get_ref_volume(ref)
         issue = ref.xpath(".//sb:issue-nr/text()").extract_first()
-        #comments = ref.xpath(".//sb:comment/text()").extract()
         comments = self._fix_node_text(ref.xpath(".//sb:comment/text()").extract())
         comment = " ".join([com.strip("()") for com in comments.split()]).strip(": ")
-        #import ipdb; ipdb.set_trace()
         isbn = ref.xpath(".//sb:isbn/text()").extract_first()
         # NOTE do we need ISSN info:
         # issn = ref.xpath(".//sb:issn/text()").extract_first()
@@ -635,16 +628,17 @@ class ElsevierSpider(XMLFeedSpider):
                 if volume:
                     volume = section + volume
                     references['volume'] = volume
-                    pubstring = u"{}, {}".format(journal_title, volume)
+                    # NOTE: will the pubstring handling happen here or later?
+                    pubstring = u"{},{}".format(journal_title, volume)
                     if issue and fpage and lpage:
-                        pubstring += u"({}), {}-{}".format(issue, fpage, lpage)
+                        pubstring += u"({}),{}-{}".format(issue, fpage, lpage)
                     elif issue and fpage:
-                        pubstring += u"({}), {}".format(issue, fpage)
+                        pubstring += u"({}),{}".format(issue, fpage)
                     elif issue:
                         pubstring += u"({})".format(issue)
                     elif fpage:
-                        pubstring += ", " + fpage
-                    references['journal_pubnote'] = pubstring
+                        pubstring += "," + fpage
+                    references['journal_pubnote'] = pubstring.replace(". ", ".")
         if book_title:
             references['book_title'] = book_title
         if title and title != book_title:
@@ -704,9 +698,9 @@ class ElsevierSpider(XMLFeedSpider):
     def get_abstract(node):
         """Get the abstract and remove namespaces from it.
 
-        This helps with MathML elements. TODO: See whether we
-        should remove MathML tag attributes like
+        This helps with MathML elements. The tag attributes like
         <math altimg=\"si1.gif\" display=\"inline\" overflow=\"scroll\">
+        can be removed in the loader.
         """
         abs_raw = node.xpath(".//ce:abstract-sec/ce:simple-para")
         if abs_raw:
@@ -1031,7 +1025,7 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('abstract', self.get_abstract(node))
         record.add_value('title', self.get_title(node))
         record.add_value('authors', self.get_authors(node))
-        record.add_xpath("urls", "//prism:url/text()")
+        # record.add_xpath("urls", "//prism:url/text()")  # We don't want dx.doi urls?
         record.add_value('free_keywords', self.get_keywords(node))
         info = response.meta.get("info")
         if info:
