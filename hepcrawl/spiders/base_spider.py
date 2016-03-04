@@ -11,8 +11,6 @@
 
 from __future__ import absolute_import, print_function
 
-import os
-
 from urlparse import urljoin
 
 from scrapy import Request
@@ -52,12 +50,9 @@ class BaseSpider(XMLFeedSpider):
     scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_record2.xml -s "JSON_OUTPUT_DIR=tmp/"
 
     TODO:
-    *Some Items missing (language, what else?)
     *With a test document of 1000 records only 974 returned.
      Check SSL and internal errors.
-    *Testing is not testing the pdf link and urls. Otherwise it's working.
-    *When it should be checked if a thesis is about HEP?
-     Should collections: ['HEP', 'THESIS'] or collections: ['THESIS']
+    *More testing should be done (pdf link, urls)
 
 
     Happy crawling!
@@ -68,8 +63,8 @@ class BaseSpider(XMLFeedSpider):
     iterator = 'xml'  # Needed for proper namespace handling
     itertag = 'OAI-PMH:record'
     download_delay = 5  # Is this a good value and how to make this domain specific?
-    custom_settings = {'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,  # Does this help at all?
-                       'LOG_FILE': 'base.log'}  # Does this log at all?
+    custom_settings = {'MAX_CONCURRENT_REQUESTS_PER_DOMAIN': 5,
+                       'LOG_FILE': 'base.log'}
 
     namespaces = [
         ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/"),
@@ -86,8 +81,9 @@ class BaseSpider(XMLFeedSpider):
         """Default starting point for scraping shall be the local XML file"""
         yield Request(self.source_file)
 
-    def get_authors(self, node):
-        """Gets the authors.
+    @staticmethod
+    def get_authors(node):
+        """Get the authors.
 
         Probably there is only one author but it's not
         necessarily in the creator element. If it's only in the contributor
@@ -117,7 +113,8 @@ class BaseSpider(XMLFeedSpider):
                     })
         return authors
 
-    def get_urls_in_record(self, node):
+    @staticmethod
+    def get_urls_in_record(node):
         """Return all the different urls in the xml.
 
         Urls might be stored in identifier, relation, or link element. Beware
@@ -158,6 +155,20 @@ class BaseSpider(XMLFeedSpider):
 
         return direct_link
 
+    @staticmethod
+    def get_title(node):
+        """Get the title and possible subtitle."""
+        title = ''
+        subtitle = ''
+        titles = node.xpath('.//dc:title/text()').extract()
+        if titles:
+            title = titles[0]
+            if len(titles) == 2:
+                subtitle = titles[1]
+            else:
+                title = " ".join(titles)
+        return title, subtitle
+
     def parse_node(self, response, node):
         """Iterate through all the record nodes in the XML.
 
@@ -188,12 +199,16 @@ class BaseSpider(XMLFeedSpider):
         record.add_value('files', response.meta.get("direct_link"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_xpath('abstract', './/dc:description/text()')
-        record.add_xpath('title', './/dc:title/text()')
+        title, subtitle = self.get_title(node)
+        if title:
+            record.add_value('title', title)
+        if subtitle:
+            record.add_value('subtitle', subtitle)
         record.add_xpath('date_published', './/dc:date/text()')
         record.add_xpath('source', './/base_dc:collname/text()')
         record.add_value("authors", self.get_authors(node))
         record.add_value('thesis', {'degree_type': 'PhD'})
-        record.add_value('collections', ['HEP', 'THESIS'])  # When it is checked if a thesis is about HEP?
+        record.add_value('collections', ['HEP', 'THESIS'])
         return record.load_item()
 
     def scrape_for_pdf(self, response):
