@@ -153,7 +153,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('subtitle', '//subtitle/text()')
 
         record.add_value('authors', self._get_authors(node))
-        record.add_xpath('collaboration', "//contrib/collab/text()")
+        record.add_xpath('collaborations', "//contrib/collab/text()")
 
         free_keywords, classification_numbers = self._get_keywords(node)
         record.add_value('free_keywords', free_keywords)

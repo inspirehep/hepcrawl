@@ -10,7 +10,7 @@
 import os
 
 from scrapy.http import Request, TextResponse
-
+from scrapy.selector import Selector
 
 
 def fake_response_from_file(file_name, url='http://www.example.com', response_type=TextResponse):
@@ -24,6 +24,7 @@ def fake_response_from_file(file_name, url='http://www.example.com', response_ty
 
     :returns: A scrapy HTTP response which can be used for unittesting.
     """
+    meta = {}
     request = Request(url=url)
 
     if not file_name[0] == '/':
@@ -40,4 +41,30 @@ def fake_response_from_file(file_name, url='http://www.example.com', response_ty
         body=file_content,
         **{'encoding': 'utf-8'}
     )
+
     return response
+
+
+def fake_response_from_string(text, url='http://www.example.com', response_type=TextResponse):
+    """Fake Scrapy response from a string."""
+    meta = {}
+    request = Request(url=url)
+    response = response_type(
+        url=url,
+        request=request,
+        body=text,
+        **{'encoding': 'utf-8'}
+        )
+
+    return response
+
+
+def get_node(spider, tag, response=None, text=None):
+    """Get the desired node in a response or an xml string."""
+    if response:
+        selector = Selector(response, type='xml')
+    elif text:
+        selector = Selector(text=text, type='xml')
+    spider._register_namespaces(selector)
+    node = selector.xpath(tag)
+    return node

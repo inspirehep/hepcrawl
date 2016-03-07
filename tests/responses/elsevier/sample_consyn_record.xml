@@ -1,0 +1,493 @@
+<doc:document xmlns:doc="http://www.elsevier.com/xml/document/schema"
+	 xmlns:dp="http://www.elsevier.com/xml/common/doc-properties/schema"
+	 xmlns:cp="http://www.elsevier.com/xml/common/consyn-properties/schema"
+	 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	 xmlns:dct="http://purl.org/dc/terms/"
+	 xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/"
+	 xmlns:oa="http://vtw.elsevier.com/data/ns/properties/OpenAccess-1/"
+	 xmlns:cja="http://www.elsevier.com/xml/cja/schema"
+	 xmlns:ja="http://www.elsevier.com/xml/ja/schema"
+	 xmlns:bk="http://www.elsevier.com/xml/bk/schema"
+	 xmlns:ce="http://www.elsevier.com/xml/common/schema"
+	 xmlns:mml="http://www.w3.org/1998/Math/MathML"
+	 xmlns:cals="http://www.elsevier.com/xml/common/cals/schema"
+	 xmlns:tb="http://www.elsevier.com/xml/common/table/schema"
+	 xmlns:sa="http://www.elsevier.com/xml/common/struct-aff/schema"
+	 xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	 <rdf:RDF>
+	 	<rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
+	 		<dct:format>application/xml</dct:format>
+	 		<dct:title>Toward classification of conformal theories</dct:title>
+	 		<dct:creator>Cumrun Vafa</dct:creator>
+	 		<dct:description>Physics Letters B 206 (1988) 421-426. doi:10.1016/0370-2693(88)91603-6</dct:description>
+	 		<prism:aggregationType>journal</prism:aggregationType>
+	 		<prism:publicationName>Physics Letters B</prism:publicationName>
+	 		<prism:copyright>Copyright unknown. Published by Elsevier B.V.</prism:copyright>
+	 		<dct:publisher>Elsevier B.V.</dct:publisher>
+	 		<prism:issn>0370-2693</prism:issn>
+	 		<prism:volume>206</prism:volume>
+	 		<prism:number>3</prism:number>
+	 		<prism:coverDisplayDate>26 May 1988</prism:coverDisplayDate>
+	 		<prism:coverDate>1988-05-26</prism:coverDate>
+	 		<prism:pageRange>421-426</prism:pageRange>
+	 		<prism:startingPage>421</prism:startingPage>
+	 		<prism:endingPage>426</prism:endingPage>
+	 		<prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
+	 		<prism:url>http://dx.doi.org/10.1016/0370-2693(88)91603-6</prism:url>
+	 		<dct:identifier>doi:10.1016/0370-2693(88)91603-6</dct:identifier>
+	 	</rdf:Description>
+	 </rdf:RDF>
+	 <dp:document-properties>
+	 	<dp:aggregation-type>Journals</dp:aggregation-type>
+	 	<dp:version-number>S350.2</dp:version-number>
+	 </dp:document-properties>
+	 <ja:article version="5.1" xml:lang="en" docsubtype="fla">
+	 	<ja:item-info>
+	 		<ja:jid>PLB</ja:jid>
+	 		<ja:aid>91603</ja:aid>
+	 		<ce:pii>0370-2693(88)91603-6</ce:pii>
+	 		<ce:doi>10.1016/0370-2693(88)91603-6</ce:doi>
+	 		<ce:copyright type="unknown" year="1988"/>
+	 	</ja:item-info>
+	 	<ja:head>
+	 		<ce:title>Toward classification of conformal theories</ce:title>
+	 		<ce:author-group>
+	 			<ce:author orcid="1234-5678-4321-8765">
+	 				<ce:given-name>Cumrun</ce:given-name>
+	 				<ce:surname>Vafa</ce:surname>
+	 			</ce:author>
+	 			<ce:affiliation>
+	 				<ce:textfn>Lyman Laboratory of Physics, Harvard University, Cambridge, MA 02138, USA</ce:textfn>
+	 			</ce:affiliation>
+	 		</ce:author-group>
+	 		<ce:date-received day="29" month="2" year="1988"/>
+	 		<ce:abstract id="ab1" class="author" xml:lang="en">
+	 			<ce:section-title>Abstract</ce:section-title>
+	 			<ce:abstract-sec>
+	 				<ce:simple-para id="SP0005" view="all">By studying the representations of the mapping class groups which arise in 2D conformal theories we derive some restrictions on the value of the conformal dimension <ce:italic>h</ce:italic><ce:inf loc="post">i</ce:inf> of operators and the central charge <ce:italic>c</ce:italic> of the Virasoro algebra. As a simple application we show that when there are a finite number of operators in the conformal algebra, the <ce:italic>h</ce:italic><ce:inf loc="post">i</ce:inf> and <ce:italic>c</ce:italic> are all rational.
+	 			</ce:simple-para>
+	 		</ce:abstract-sec>
+	 	</ce:abstract>
+	 	<prism:copyright>Copyright 2014 Elsevier B.V. All rights reserved.</prism:copyright>
+	 	<ce:keywords id="kws0010" view="all" class="keyword">
+	 		<ce:section-title id="st0020">Keywords</ce:section-title>
+	 		<ce:keyword id="kw0010">
+	 			<ce:text>Heavy quarkonia</ce:text>
+	 		</ce:keyword>
+	 		<ce:keyword id="kw0020">
+	 			<ce:text>Quark gluon plasma</ce:text>
+	 		</ce:keyword>
+	 		<ce:keyword id="kw0030">
+	 			<ce:text>Mott effect</ce:text>
+	 		</ce:keyword>
+	 		<ce:keyword id="kw0040">
+	 			<ce:text>X(3872)</ce:text>
+	 		</ce:keyword>
+	 	</ce:keywords>
+	 </ja:head>
+	 <ja:tail view="all">
+	 	<ce:bibliography id="R0005" view="all">
+	 		<ce:section-title>References</ce:section-title>
+	 		<ce:bibliography-sec id="RS0005">
+	 			<ce:bib-reference id="bib1">
+	 				<ce:label>[1]</ce:label>
+	 				<sb:reference id="SB0005">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Belavin</ce:surname>
+	 								<ce:given-name>A.A.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Polyakov</ce:surname>
+	 								<ce:given-name>A.M.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Zamolodchikov</ce:surname>
+	 								<ce:given-name>A.B.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Nucl. Phys. B</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>241</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1984</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>333</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 				</sb:reference>
+	 			</ce:bib-reference>
+	 			<ce:bib-reference id="bib2">
+	 				<ce:label>[2]</ce:label>
+	 				<sb:reference id="SB0010">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Friedan</ce:surname>
+	 								<ce:given-name>D.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Qiu</ce:surname>
+	 								<ce:given-name>Z.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Shenker</ce:surname>
+	 								<ce:given-name>S.H.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Phys. Rev. Lett.</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>52</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1984</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>1575</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 				</sb:reference>
+	 			</ce:bib-reference>
+	 			<ce:bib-reference id="bib3">
+	 				<ce:label>[3]</ce:label>
+	 				<sb:reference id="SB0015">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Cardy</ce:surname>
+	 								<ce:given-name>J.L.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Nucl. Phys. B</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>270</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1986</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>186</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 					<sb:comment>[FS16]</sb:comment>
+	 				</sb:reference>
+	 				<sb:reference id="SB0020">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Capelli</ce:surname>
+	 								<ce:given-name>A.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Itzykson</ce:surname>
+	 								<ce:given-name>C.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Zuber</ce:surname>
+	 								<ce:given-name>J.-B.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Nucl. Phys. B</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>280</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1987</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>445</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 					<sb:comment>[FS 18]</sb:comment>
+	 				</sb:reference>
+	 				<sb:reference id="SB0025">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Capelli</ce:surname>
+	 								<ce:given-name>A.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Itzykson</ce:surname>
+	 								<ce:given-name>C.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Zuber</ce:surname>
+	 								<ce:given-name>J.-B.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Commun. Math. Phys.</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>113</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1987</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>1</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 				</sb:reference>
+	 				<sb:reference id="SB0030">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Gepner</ce:surname>
+	 								<ce:given-name>D.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Nucl. Phys. B</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>287</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1987</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>111</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 				</sb:reference>
+	 			</ce:bib-reference>
+	 			<ce:bib-reference id="bib4">
+	 				<ce:label>[4]</ce:label>
+	 				<ce:other-ref id="CE0005">
+	 					<ce:textref>G. Anderson and G. Moore, IAS preprint IASSNS-HEP-87/69.</ce:textref>
+	 				</ce:other-ref>
+	 			</ce:bib-reference>
+	 			<ce:bib-reference id="bib5">
+	 				<ce:label>[5]</ce:label>
+	 				<sb:reference id="SB0035">
+	 					<sb:contribution langtype="en">
+	 						<sb:authors>
+	 							<sb:author>
+	 								<ce:surname>Friedan</ce:surname>
+	 								<ce:given-name>D.</ce:given-name>
+	 							</sb:author>
+	 							<sb:author>
+	 								<ce:surname>Shenker</ce:surname>
+	 								<ce:given-name>S.</ce:given-name>
+	 							</sb:author>
+	 						</sb:authors>
+	 					</sb:contribution>
+	 					<sb:host>
+	 						<sb:issue>
+	 							<sb:series>
+	 								<sb:title>
+	 									<sb:maintitle>Phys. Lett. B</sb:maintitle>
+	 								</sb:title>
+	 								<sb:volume-nr>175</sb:volume-nr>
+	 							</sb:series>
+	 							<sb:date>1986</sb:date>
+	 						</sb:issue>
+	 						<sb:pages>
+	 							<sb:first-page>287</sb:first-page>
+	 						</sb:pages>
+	 					</sb:host>
+	 				</sb:reference>
+	 				<sb:reference id="SB0040">
+	 					<sb:contribution langtype="en"><sb:authors>
+	 						<sb:author>
+	 							<ce:surname>Friedan</ce:surname>
+	 							<ce:given-name>D.</ce:given-name>
+	 						</sb:author>
+	 						<sb:author>
+	 							<ce:surname>Shenker</ce:surname>
+	 							<ce:given-name>S.</ce:given-name>
+	 						</sb:author>
+	 					</sb:authors>
+	 				</sb:contribution>
+	 				<sb:host>
+	 					<sb:issue>
+	 						<sb:series>
+	 							<sb:title>
+	 								<sb:maintitle>Nucl. Phys. B</sb:maintitle>
+	 							</sb:title>
+	 							<sb:volume-nr>281</sb:volume-nr>
+	 						</sb:series>
+	 						<sb:date>1987</sb:date>
+	 					</sb:issue>
+	 					<sb:pages>
+	 						<sb:first-page>509</sb:first-page>
+	 					</sb:pages>
+	 				</sb:host>
+	 			</sb:reference>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib6">
+	 			<ce:label>[6]</ce:label>
+	 			<ce:other-ref id="CE0010">
+	 				<ce:textref>E. Martinec and S. Shenker, unpublished.</ce:textref>
+	 			</ce:other-ref>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib7">
+	 			<ce:label>[7]</ce:label>
+	 			<sb:reference id="SB0045">
+	 				<sb:contribution langtype="en">
+	 					<sb:authors>
+	 						<sb:author>
+	 							<ce:surname>Vafa</ce:surname>
+	 							<ce:given-name>C.</ce:given-name>
+	 						</sb:author>
+	 					</sb:authors>
+	 				</sb:contribution>
+	 				<sb:host>
+	 					<sb:issue>
+	 						<sb:series>
+	 							<sb:title>
+	 								<sb:maintitle>Phys. Lett. B</sb:maintitle>
+	 							</sb:title>
+	 							<sb:volume-nr>199</sb:volume-nr>
+	 						</sb:series>
+	 						<sb:date>1987</sb:date>
+	 					</sb:issue>
+	 					<sb:pages>
+	 						<sb:first-page>195</sb:first-page>
+	 					</sb:pages>
+	 				</sb:host>
+	 			</sb:reference>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib8">
+	 			<ce:label>[8]</ce:label>
+	 			<sb:reference id="SB0050">
+	 				<sb:contribution langtype="en">
+	 					<sb:authors>
+	 						<sb:author>
+	 							<ce:surname>Harer</ce:surname>
+	 							<ce:given-name>J.</ce:given-name>
+	 						</sb:author>
+	 					</sb:authors>
+	 				</sb:contribution>
+	 				<sb:host>
+	 					<sb:issue>
+	 						<sb:series>
+	 							<sb:title>
+	 								<sb:maintitle>Inv. Math.</sb:maintitle>
+	 							</sb:title>
+	 							<sb:volume-nr>72</sb:volume-nr>
+	 						</sb:series>
+	 						<sb:date>1983</sb:date>
+	 					</sb:issue>
+	 					<sb:pages>
+	 						<sb:first-page>221</sb:first-page>
+	 					</sb:pages>
+	 				</sb:host>
+	 			</sb:reference>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib9">
+	 			<ce:label>[9]</ce:label>
+	 			<sb:reference id="SB0055">
+	 				<sb:contribution langtype="en">
+	 					<sb:authors>
+	 						<sb:author>
+	 							<ce:surname>Tsuchiya</ce:surname>
+	 							<ce:given-name>A.</ce:given-name>
+	 						</sb:author>
+	 						<sb:author>
+	 							<ce:surname>Kanie</ce:surname>
+	 							<ce:given-name>Y.</ce:given-name>
+	 						</sb:author>
+	 					</sb:authors>
+	 				</sb:contribution>
+	 				<sb:host>
+	 					<sb:issue>
+	 						<sb:series>
+	 							<sb:title>
+	 								<sb:maintitle>Lett. Math. Phys.</sb:maintitle>
+	 							</sb:title>
+	 							<sb:volume-nr>13</sb:volume-nr>
+	 						</sb:series>
+	 						<sb:date>1987</sb:date>
+	 					</sb:issue>
+	 					<sb:pages>
+	 						<sb:first-page>303</sb:first-page>
+	 					</sb:pages>
+	 				</sb:host>
+	 			</sb:reference>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib10">
+	 			<ce:label>[10]</ce:label>
+	 			<ce:other-ref id="CE0015">
+	 				<ce:textref>E. Verlinde, to be published.</ce:textref>
+	 			</ce:other-ref>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib11">
+	 			<ce:label>[11]</ce:label>
+	 			<sb:reference id="SB0060">
+	 				<sb:contribution langtype="en">
+	 					<sb:authors>
+	 						<sb:author>
+	 							<ce:surname>Dehn</ce:surname>
+	 							<ce:given-name>M.</ce:given-name>
+	 						</sb:author>
+	 					</sb:authors>
+	 				</sb:contribution>
+	 				<sb:host>
+	 					<sb:issue>
+	 						<sb:series>
+	 							<sb:title>
+	 								<sb:maintitle>Acta Math.</sb:maintitle>
+	 							</sb:title>
+	 							<sb:volume-nr>69</sb:volume-nr>
+	 						</sb:series>
+	 						<sb:date>1938</sb:date>
+	 					</sb:issue>
+	 					<sb:pages>
+	 						<sb:first-page>135</sb:first-page>
+	 					</sb:pages>
+	 				</sb:host>
+	 			</sb:reference>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib12">
+	 			<ce:label>[12]</ce:label>
+	 			<ce:other-ref id="CE0020">
+	 				<ce:textref>D. Friedan and S. Shenker, unpublished.</ce:textref>
+	 			</ce:other-ref>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib13">
+	 			<ce:label>[13]</ce:label>
+	 			<ce:other-ref id="CE0025">
+	 				<ce:textref>J. Harvey, G. Moore, and C. Vafa, Nucl. Phys. B, to be published</ce:textref>
+	 			</ce:other-ref>
+	 		</ce:bib-reference>
+	 		<ce:bib-reference id="bib14">
+	 			<ce:label>[14]</ce:label>
+	 			<ce:other-ref id="CE0030">
+	 				<ce:textref>D. Kastor, E. Martinec and Z. Qiu, E. Fermi Institute preprint EFI-87-58.</ce:textref>
+	 			</ce:other-ref>
+	 			<ce:other-ref id="CE0035">
+	 				<ce:textref>G. Moore and N. Seiberg, unpublished.</ce:textref>
+	 			</ce:other-ref>
+	 		</ce:bib-reference>
+	 	</ce:bibliography-sec>
+	 </ce:bibliography>
+	</ja:tail>
+</ja:article>
+</doc:document>

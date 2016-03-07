@@ -48,9 +48,9 @@ class APSSpider(Spider):
             record.add_value('title', get_nested(article, 'title', 'value'))
             # record.add_value('subtitle', '')
 
-            authors, collaboration = self._get_authors_and_collab(article)
+            authors, collaborations = self._get_authors_and_collab(article)
             record.add_value('authors', authors)
-            record.add_value('collaboration', collaboration)
+            record.add_value('collaborations', collaborations)
 
             # record.add_value('free_keywords', free_keywords)
             # record.add_value('classification_numbers', classification_numbers)

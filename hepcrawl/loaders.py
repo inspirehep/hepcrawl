@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015 CERN.
+# Copyright (C) 2015, 2016 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -24,6 +24,8 @@ from .inputs import (
     add_author_full_name,
     clean_tags_from_affiliations,
     clean_collaborations,
+    clean_whitespace_characters,
+    remove_attributes_from_tags,
 )
 
 from .outputs import (
@@ -31,6 +33,8 @@ from .outputs import (
     ClassificationNumbers,
     ListToValueDict,
 )
+
+from .mappings import MATHML_ELEMENTS
 
 
 class HEPLoader(ItemLoader):
@@ -47,16 +51,19 @@ class HEPLoader(ItemLoader):
     )
 
     abstract_in = MapCompose(
+        clean_whitespace_characters,
         convert_html_subscripts_to_latex,
-        selective_remove_tags(),
+        remove_attributes_from_tags,
+        selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
     )
+
     abstract_out = TakeFirst()
 
-    collaboration_in = MapCompose(
+    collaborations_in = MapCompose(
         clean_collaborations
     )
-    collaboration_out = ListToValueDict()
+    collaborations_out = ListToValueDict()
 
     collections_out = ListToValueDict(key="primary")
 
@@ -64,8 +71,9 @@ class HEPLoader(ItemLoader):
         fix_title_capitalization,
         unicode.strip,
     )
-    title_out = TakeFirst()
+
     subtitle_out = TakeFirst()
+    title_out = Join()
 
     journal_title_out = TakeFirst()
     journal_year_out = TakeFirst()

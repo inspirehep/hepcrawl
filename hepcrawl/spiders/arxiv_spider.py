@@ -47,9 +47,9 @@ class ArxivSpider(XMLFeedSpider):
         record.add_xpath('pubinfo_freetext', '//journal-ref//text()')
         record.add_value('source', 'arXiv')
 
-        authors, collab = self._get_authors_or_collaboration(node)
+        authors, collabs = self._get_authors_or_collaboration(node)
         record.add_value('authors', authors)
-        record.add_value('collaboration', collab)
+        record.add_value('collaborations', collabs)
 
         pages, notes, doctype = self._get_comments_info(node)
         record.add_value('page_nr', pages)
