@@ -36,6 +36,8 @@ from .outputs import (
 
 from .mappings import MATHML_ELEMENTS
 
+from .dateutils import format_date
+
 
 class HEPLoader(ItemLoader):
     """Input/Output processors for a HEP record.
@@ -82,6 +84,10 @@ class HEPLoader(ItemLoader):
     journal_volume_out = TakeFirst()
     journal_issue_out = TakeFirst()
     journal_doctype_out = TakeFirst()
+
+    date_published_in = MapCompose(
+        format_date,
+    )
     date_published_out = TakeFirst()
 
     related_article_doi_out = TakeFirst()

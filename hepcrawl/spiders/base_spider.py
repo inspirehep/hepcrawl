@@ -13,6 +13,9 @@ from __future__ import absolute_import, print_function
 
 from urlparse import urljoin
 
+# import datetime
+# import dateutil.parser as dparser
+
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 

@@ -101,7 +101,7 @@ def test_title(record):
 
 def test_date_published(record):
     """Test extracting date_published."""
-    date_published = "2013-05-09T05:16:48Z"
+    date_published = "2013-05-09"
     assert record['date_published']
     assert record['date_published'] == date_published
 
