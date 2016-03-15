@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+Dettaglio Tesi</title>
+<link href="http://www.infn.it/css/stile.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" type="text/javascript">
+ function setName(n, c, s, sez, e, cf, uuid, ln, dn, nid, cid, sid, eid, cfid, uuidid, lnid, dnid) {
+  document.getElementById('posizione1').checked = true;
+  
+  nome = document.getElementById(nid);
+  nome.readOnly=true;
+  cognome = document.getElementById(cid);
+  cognome.readOnly=true;  
+  struttura = document.getElementById(sid);
+  email = document.getElementById(eid);
+  codfis = document.getElementById(cfid);
+  infnuuid = document.getElementById(uuidid);
+  lunasci = document.getElementById(lnid);
+  danasci = document.getElementById(dnid);
+
+  nome.value = n;
+  cognome.value = c;
+  codfis.value = cf;
+  infnuuid.value = uuid;
+  email.value = e;
+  lunasci.value = ln;
+  danasci.value = dn;
+
+  struttura.options[struttura.length] = new Option(sez, s, true);
+  struttura.selectedIndex = struttura.length-1;
+}
+
+ function resetName(nid, cid, sid, eid, cfid, lnid, dnid) {
+  nome = document.getElementById(nid);
+  nome.readOnly=false;
+  cognome = document.getElementById(cid);
+  cognome.readOnly=false;  
+  struttura = document.getElementById(sid);
+  email = document.getElementById(eid);
+  codfis = document.getElementById(cfid);
+  lunasci = document.getElementById(lnid);
+  danasci = document.getElementById(dnid);
+
+  nome.value = '';
+  cognome.value = '';
+  codfis.value = '';
+  email.value = '';
+  lunasci.value = '';
+  danasci.value = '';
+ } 
+
+</script>
+<style type="text/css">
+<!--
+.Stile1 {color: #FF0000}
+.style1 {font-weight: bold}
+-->
+</style>
+</head>
+<body>
+<div align="center">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><span class="titolo"><img src="http://www.infn.it/logo/weblogo5.gif" width="126" height="80" /></span></td>
+      <td><span class="titolo">
+        <h1><img src="img/header.gif" width="487" height="30" /></h1>
+      </span></td>
+    </tr>
+  </table>
+</div>
+<p>&nbsp;</p>
+    </p>
+  <table width="60%" border="0" align="center" cellpadding="3" cellspacing="1">
+    <tr valign="top">
+      <th colspan="2" align="left" class="testa">&lt;&lt; <a href="index.php#10136">Torna alla home page</a> </th>
+    </tr>
+	    <tr valign="top">
+      <th colspan="2" align="center">L'inserimento della tesi pu&ograve; essere fatto dall'autore stesso, da un responsabile d'esperimento o dalle segreterie scientifiche<br />
+        Per qualsiasi problema di natura tecnica scrivere a <a href="mailto:sysinfo.websupport@lists.infn.it">Supporto Web INFN</a> <br />
+        <br />
+        <span class="Stile1"><strong>NEW</strong></span><span class="titolo"><strong>: E' assolutamente </strong></span><span class="Stile1"><strong>vietato</strong></span><span class="titolo"><strong> inserire il nome del relatore al posto del tesista per &quot;bypassare&quot; l'inserimento in anagrafica. Le tesi cos&igrave; formate saranno ritenute </strong></span><span class="Stile1"><strong>invalide</strong></span><span class="titolo"><strong> ed eliminate dal sistema<br />
+        <br />
+        </strong>Il tesista dev'essere presente nel database dell'anagrafica centralizzata (<strong>GODiVA</strong>)<br />
+Cercare il tesista per cognome, cliccando sul pulsante apposito, ed eventualmente inserirlo tramite il link proposto. 
+Sono richieste le informazioni fondamentali di anagrafica e tipo/numero di documento di riconoscimento</span></th>
+    </tr>
+    <tr valign="top">
+      <th align="left" class="intest">Ultimo aggiornamento </th>
+      <td align="left" class="bordo">8 mar 2016</td>
+    </tr>
+	    <tr valign="top">
+      <td  align="left" class="intest">Autore<br />
+      
+      </td>
+      <td align="left" valign="middle" class="bordo" bgcolor="">
+      <strong>
+      <span id="autore_nome_text">Christian      
+      </span>
+      <span id="autore_cognome_text">Fedon</span><br />
+      </strong>
+      <span id="messaggio_godiva">
+    
+	</span>
+    <input name="autore_nome" type="hidden" id="autore_nome" value="Christian" />
+    <input name="autore_cognome" type="hidden" id="autore_cognome" value="Fedon" />
+</td>
+    </tr> 
+    <tr valign="top">
+      <td align="left" class="intest">Sesso</td>
+      <td align="left" class="bordo"><span id="autore_sesso_text">M</span></td>
+    </tr>
+       
+    <tr valign="top">
+      <th width="20%" align="left" class="intest">Esperimento</th>
+      <td align="left" class="bordo">
+SYRMA-CT	  </td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest"> Tipo</td>
+      <td align="left" class="bordo">
+     Dottorato	 </td>
+    </tr>
+    <tr valign="top">
+      <td align="left" nowrap="nowrap" class="intest">Destinazione dopo il cons. del titolo</td>
+      <td align="left" class="bordo" bgcolor="">
+Post-dottorato (estero)      
+      </td>      
+    </tr>
+    
+        <tr valign="top">
+      <td align="left" class="intest">Universit&agrave;</td>
+      <td align="left" class="bordo">
+
+	    Universit Di Trieste	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest"><span class="">Strutt.INFN/Ente</span><br />      </td>
+            <td align="left" nowrap="nowrap" class="bordo">	    Trieste	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest"> Titolo </td>
+      <td align="left" class="bordo">	    Simulations and experimental assessment of dosimetric evaluations for breast imaging studies with Synchrotron Radiation	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest" >Abstract</td>
+      <td align="left" class="bordo">	    The main aim of the PhD research is to develop methods for the evaluation of the dose delivered to patients during the SR-BCT exams. Due to the partial breast irradiation, no previous studies are presented in the literature as in the clinical mammographic exams the whole breast is always exposed. Thus, a suitable Monte Carlo code has been developed for calculating the coefficients which allow the dose to be evaluated. The toolkit GEANT4 is the MC software used in this research.
+An upgrade of the dosimetric safety system present on the SYRMEP beamline to meet the requirements of the SR-BCT exams is needed (as the ionizing chambers, which allow the measurement of the air-kerma during the exam, has to be calibrated to higher energy).	   	  </td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest" >Anno iscrizione </td>
+      <td align="left" class="bordo">	    2013	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest" >Data conseguimento </td>
+      <td align="left" class="bordo">        	    18 mar 2016	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" nowrap="nowrap" class="intest">Luogo conseguimento </td>
+      <td align="left" class="bordo">	    Trieste	   	  </td>
+    </tr>
+    <tr valign="top">
+      <td align="left" nowrap="nowrap" class="intest">Relatore/i<br />      </td>
+      <td align="left" class="bordo">        	    Renata Longo&nbsp;Giuliana Tromba&nbsp;&nbsp;	   		</td>
+    </tr>
+    <tr valign="top">
+      <td align="left" nowrap="nowrap" class="intest"><span class="">File PDF </span><br />      </td>
+      <td align="left" class="bordo">
+                <a href="http://www.infn.it/thesis/PDF/getfile.php?filename=10136-Fedon-dottorato.pdf">
+        Tesi_FEDON_Christian.pdf        </a>      </td>
+    </tr>
+    <tr valign="top">
+      <td align="left" class="intest">File PS </td>
+      <td align="left" class="bordo">
+        </td>
+    </tr>
+    
+    <tr align="center">
+      <td colspan="2" class="testa">      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
