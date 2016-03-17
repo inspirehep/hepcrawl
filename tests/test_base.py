@@ -12,21 +12,27 @@ from __future__ import absolute_import, print_function, unicode_literals
 import pytest
 
 from scrapy.selector import Selector
+import scrapy
+
+import hepcrawl
 
 from hepcrawl.spiders import base_spider
 
-from .responses import fake_response_from_file
+from .responses import (
+    fake_response_from_file,
+    fake_response_from_string, 
+    get_node,
+    )
 
 @pytest.fixture
 def record():
-    """Return results generator from the WSP spider."""
+    """Return built HEPRecord from the BASE spider."""
     spider = base_spider.BaseSpider()
     response = fake_response_from_file('base/test_1.xml')
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
     nodes = selector.xpath('//%s' % spider.itertag)
     response.meta["node"] = nodes[0]
-    response.meta["direct_link"] = ["https://digitalcollections.anu.edu.au/bitstream/1885/10005/1/Butt_R.D._2003.pdf"]
     response.meta["urls"] = ["http://hdl.handle.net/1885/10005"]
     return spider.build_item(response)
 
@@ -117,12 +123,6 @@ def test_authors(record):
         assert record['authors'][index]['full_name'] == name
 
 
-def test_files(record):
-    """Test files."""
-    files = ["https://digitalcollections.anu.edu.au/bitstream/1885/10005/1/Butt_R.D._2003.pdf"]
-    assert 'files' in record
-    assert record["files"] == files
-
 def test_urls(record):
     """Test url in record"""
     urls = [{"url": "http://hdl.handle.net/1885/10005"}]
@@ -138,3 +138,105 @@ def test_get_urls(urls):
 def test_find_direct_links(direct_links):
     """Test direct link recognising"""
     assert direct_links == []
+
+
+@pytest.fixture
+def splash():
+    """Call web scraper function, return final HEPRecord."""
+    spider = base_spider.BaseSpider()
+    splash_response = fake_response_from_file('base/test_1_splash.htm')
+    response = fake_response_from_file('base/test_1.xml')
+    selector = Selector(response, type='xml')
+    spider._register_namespaces(selector)
+    nodes = selector.xpath('//%s' % spider.itertag)
+    splash_response.meta["node"] = nodes[0]
+    return spider.scrape_for_pdf(splash_response)
+
+def test_splash(splash):
+    """Test web page scraping. There should be a direct pdf link."""
+    assert splash["files"]
+    assert splash["files"][0] == "http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf"
+
+
+@pytest.fixture
+def parsed_node():
+    """Call parse_node function with a direct link"""
+    # NOTE: makes a get request to some random pdf file on the web.
+    spider = base_spider.BaseSpider()
+    body = """
+    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <record>
+        <metadata>
+            <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+            <base_dc:link>http://stlab.adobe.com/wiki/images/d/d3/Test.pdf</base_dc:link>
+            </base_dc:dc>
+        </metadata>
+        </record>
+    </OAI-PMH>
+    """
+    response = fake_response_from_string(text=body)
+    node = get_node(spider, 'OAI-PMH:record', text=body)
+    response.meta["node"] = node
+    return spider.parse_node(response, node)
+
+def test_parsed_node(parsed_node):
+    """Test call to parse_node when there is a direct link.
+    Result object should be the final HEPRecord.
+    """
+    assert isinstance(parsed_node, hepcrawl.items.HEPRecord)
+    assert parsed_node["urls"][0]["url"] == "http://stlab.adobe.com/wiki/images/d/d3/Test.pdf"
+
+
+@pytest.fixture
+def parsed_node_without_link():
+    """Call parse_node function without a direct link"""
+    spider = base_spider.BaseSpider()
+    body = """
+    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <record>
+        <metadata>
+            <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+            <base_dc:link>http://www.example.com</base_dc:link>
+            </base_dc:dc>
+        </metadata>
+        </record>
+    </OAI-PMH>
+    """
+    response = fake_response_from_string(text=body)
+    node = get_node(spider, 'OAI-PMH:record', text=body)
+    response.meta["node"] = node
+    return spider.parse_node(response, node)
+
+def test_parsed_node_without_link(parsed_node_without_link):
+    """Test call to parse_node when there is no direct link.
+    Result object should be a scrapy request.
+    """
+    assert isinstance(parsed_node_without_link, scrapy.http.request.Request)
+
+
+@pytest.fixture
+def parsed_node_missing_scheme():
+    """Call parse_node function with a link missing a http identifier."""
+    spider = base_spider.BaseSpider()
+    body = """
+    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <record>
+        <metadata>
+            <base_dc:dc xmlns:base_dc="http://oai.base-search.net/base_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xsi:schemaLocation="http://oai.base-search.net/base_dc/         http://oai.base-search.net/base_dc/base_dc.xsd">
+            <base_dc:link>www.example.com</base_dc:link>
+            </base_dc:dc>
+        </metadata>
+        </record>
+    </OAI-PMH>
+    """
+    response = fake_response_from_string(text=body)
+    node = get_node(spider, 'OAI-PMH:record', text=body)
+    response.meta["node"] = node
+    return spider.parse_node(response, node)
+
+def test_parsed_node_missing_scheme(parsed_node_missing_scheme):
+    """Test call to parse_node when there is a link missing a http identifier.
+    Result object should be a scrapy request, and its meta should contain
+    a fixed http url.
+    """
+    assert parsed_node_missing_scheme.meta["urls"][0] == "http://www.example.com"
