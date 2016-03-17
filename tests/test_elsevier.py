@@ -1376,11 +1376,82 @@ def test_ref_eproceedings_article(ref_eproceedings_article):
     assert ref_eproceedings_article == [{
         'book_title': u'Proc. 1996 USENIX Technical Conference',
         'title': u'Tracking and viewing changes on the web',
-        'year': u'January 1996',
+        'year': u'1996',
         'label': u'15',
         'urls': [u'http://www.research.att.com/papers/aide.ps.gz', u'http://usenix.org/sd96.html'],
         'authors': u'Douglis, F. & Ball, Th.'
             }]
+
+
+@pytest.fixture
+def ref_comment_and_note():
+    """Entire issue of a journal. In addition to the sb:title in the sb:series
+    (the journal title), the issue of this example has a title and (guest) editors
+    of its own. The additional text ’(special issue)’ is tagged as a comment. Only
+    author surnames given.
+    """
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
+        xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema">
+    <ce:bib-reference id="ref3">
+        <sb:reference>
+            <sb:host>
+            <sb:issue>
+                <sb:series>
+                    <sb:title>
+                        <sb:maintitle>American Psychologist</sb:maintitle>
+                    </sb:title>
+                </sb:series>
+            </sb:issue>
+            </sb:host>
+            <sb:comment>(special issue)</sb:comment>
+        </sb:reference>
+        <ce:note>
+            <ce:simple-para>This reference discusses the basic concepts in
+            a very thorough manner.</ce:simple-para>
+            <ce:simple-para>Its literature list is a main entry point
+            into the discipline.</ce:simple-para>
+        </ce:note>
+    </ce:bib-reference>
+    </doc>"""
+    node = get_node(spider, '/doc', text=body)
+    return spider.get_references(node)
+
+def test_ref_comment_and_note(ref_comment_and_note):
+    """Test what happens if there are both comment and note."""
+    assert ref_comment_and_note
+    assert ref_comment_and_note[0]["misc"] == 'special issue; This reference discusses the basic concepts in a very thorough manner. Its literature list is a main entry point into the discipline.'
+
+
+@pytest.fixture
+def ref_multi_years():
+    """Multi-year reference."""
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
+        xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema">
+    <ce:bib-reference id="ref11">
+        <sb:reference>
+            <sb:host>
+            <sb:edited-book>
+                <sb:date>1980</sb:date>
+                <sb:date>1981</sb:date>
+                <sb:date>1982</sb:date>
+                <sb:date>1985</sb:date>
+            </sb:edited-book>
+            </sb:host>
+        </sb:reference>
+    </ce:bib-reference>
+    </doc>"""
+    node = get_node(spider, '/doc', text=body)
+    return spider.get_references(node)
+
+def test_ref_multi_years(ref_multi_years):
+    """Test multi year reference formatting."""
+    assert ref_multi_years
+    assert ref_multi_years[0]["year"] == "1980-1982, 1985"
+    
 
 
 @pytest.fixture
@@ -1514,4 +1585,30 @@ def test_sciencedirect(sciencedirect):
     assert sciencedirect["journal_issue"] == u'3'
     assert sciencedirect["journal_pages"] == u'421-426'
     assert sciencedirect["journal_year"] == 1988
-    
+
+
+@pytest.fixture
+def sciencedirect_proof():
+    """Scrape data from a minimal example web page. This hasn't been published 
+    yet. There is only the online paper, i.e. this is a proof.
+    """
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <html>
+    <head>
+        <meta name="citation_volume" content="Online 1.1.2016">
+    </head>
+    </html>"""
+    response = fake_response_from_string(body)
+    response.meta["keys_missing"] = set(["volume"])
+    response.meta["info"] = {}
+    response.meta["node"] = get_node(spider, '/head', text=body)
+    return spider.scrape_sciencedirect(response)
+
+
+def test_sciencedirect_proof(sciencedirect_proof):
+    """Test scraping sciencedirect web page for missing values.
+
+    As this is a paper proof, resulting HEPRecord should be None.
+    """
+    assert sciencedirect_proof is None

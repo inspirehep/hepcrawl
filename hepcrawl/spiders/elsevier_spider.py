@@ -13,6 +13,8 @@ from __future__ import absolute_import, print_function
 
 import os
 import re
+from operator import itemgetter
+from itertools import groupby
 from tempfile import mkdtemp
 
 import dateutil.parser as dparser
@@ -542,24 +544,37 @@ class ElsevierSpider(XMLFeedSpider):
         return ", ".join(volumes)
 
     @staticmethod
-    def _get_ref_years(ref):
-        """Get the reference year.
+    def range_as_string(data):
+        """Detects integer ranges and returns a string representing them.
+        E.g. ["1981", "1982", "1985"] -> "1981-1982, 1985"
+        """
+        data = [int(i) for i in data]
+        ranges = []
+        for key, group in groupby(enumerate(data), lambda (index, item): index - item):
+            group = map(itemgetter(1), group)
+            if len(group) > 1:
+                rangestring = "{}-{}".format(str(group[0]), str(group[-1]))
+                ranges.append(rangestring)
+            else:
+                ranges.append(str(group[0]))
+        return ", ".join(ranges)
+
+    def _get_ref_years(self, ref):
+        """Get the reference year(s) as a string.
 
         Return a formatted string if multiple volumes with multiple years.
         """
         host = ref.xpath(".//sb:host")
         years = host.xpath(".//sb:date/text()").extract()
+        # Extract numbers from the years list
+        years = [i for year in years for i in year.split() if i.isdigit()]
+
         if host and years and len(host) > 1:
             # If reference is contained in multiple hosts, e.g. reprinted.
             return ", ".join(years)
         elif host and years:
-            if len(years) == 1:
-                year = years[0]
-            elif len(years) == 2:
-                year = years[0] + "-" + years[1]
-            else:
-                year = ", ".join(years)
-            return year
+            years = self.range_as_string(years)
+            return years
 
     def _parse_references(self, ref, label):
         """Parse all the references."""
@@ -820,7 +835,7 @@ class ElsevierSpider(XMLFeedSpider):
 
         volume = node.xpath(
             "//meta[@name='citation_volume']/@content").extract_first()
-        if volume and "online" in volume:
+        if volume and "online" in volume.lower():
             volume = "proof"
             return nrs, volume
 
