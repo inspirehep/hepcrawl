@@ -10,6 +10,8 @@
 import os
 import re
 import requests
+from operator import itemgetter
+from itertools import groupby
 
 from netrc import netrc
 from harvestingkit.ftp_utils import FtpHandler
@@ -158,3 +160,19 @@ def parse_domain(url):
 def has_numbers(text):
     """Detects if a string contains numbers"""
     return any(char.isdigit() for char in text)
+
+
+def range_as_string(data):
+    """Detects integer ranges in a list and returns a string representing them.
+    E.g. ["1981", "1982", "1985"] -> "1981-1982, 1985"
+    """
+    data = [int(i) for i in data]
+    ranges = []
+    for key, group in groupby(enumerate(data), lambda (index, item): index - item):
+        group = map(itemgetter(1), group)
+        if len(group) > 1:
+            rangestring = "{}-{}".format(str(group[0]), str(group[-1]))
+            ranges.append(rangestring)
+        else:
+            ranges.append(str(group[0]))
+    return ", ".join(ranges)

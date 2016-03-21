@@ -52,7 +52,6 @@ class BaseSpider(XMLFeedSpider):
     TODO:
     *With a test document of 1000 records only 974 returned.
      Check SSL and internal errors.
-    *More testing should be done (pdf link, urls)
 
 
     Happy crawling!
@@ -132,10 +131,7 @@ class BaseSpider(XMLFeedSpider):
         links = node.xpath(".//base_dc:link/text()").extract()
         urls_in_record = []
         for url in identifiers + relations + links:
-            if url.startswith('<'):
-                url = url[1:]
-            if url.endswith('>'):
-                url = url[:-1]
+            url = url.strip("<>")
             if not url.startswith("http://") and not url.startswith("https://"):
                 url = "http://{0}".format(url)
             if url not in urls_in_record:
@@ -165,8 +161,6 @@ class BaseSpider(XMLFeedSpider):
             title = titles[0]
             if len(titles) == 2:
                 subtitle = titles[1]
-            else:
-                title = " ".join(titles)
         return title, subtitle
 
     def parse_node(self, response, node):
@@ -186,7 +180,7 @@ class BaseSpider(XMLFeedSpider):
             request.meta["urls"] = urls_in_record
             request.meta["node"] = node
             return request
-        else:
+        elif direct_link:
             response.meta["direct_link"] = direct_link
             response.meta["urls"] = urls_in_record
             response.meta["node"] = node

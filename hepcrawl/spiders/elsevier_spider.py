@@ -13,9 +13,12 @@ from __future__ import absolute_import, print_function
 
 import os
 import re
+
 from tempfile import mkdtemp
 
 import dateutil.parser as dparser
+
+import datetime
 import requests
 
 from scrapy import Request
@@ -28,7 +31,10 @@ from ..utils import (
     split_fullname,
     get_first,
     has_numbers,
+    range_as_string,
 )
+
+from ..dateutils import format_year
 
 
 class ElsevierSpider(XMLFeedSpider):
@@ -326,6 +332,7 @@ class ElsevierSpider(XMLFeedSpider):
 
     def get_date(self, node):
         """Get the year, month, and day."""
+        # NOTE: this uses dateutils.py
         year = 0
         date_published = u''
 
@@ -336,30 +343,19 @@ class ElsevierSpider(XMLFeedSpider):
             "//oa:openAccessEffective/text()").extract_first()
 
         if cover_date:
-            date = dparser.parse(cover_date)
-            date_published = date.date().isoformat()
-            year = date.year
+            raw_date = cover_date
         elif cover_display_date:
-            date_raw = cover_display_date.split()
-            date = dparser.parse(cover_display_date)
-            if len(date_raw) == 1:
-                date_published = unicode(date.year)
-            elif len(date_raw) == 2:
-                date_published = u"{}-{}".format(date.year, date.month)
-            else:
-                date_published = date.date().isoformat()
-            year = date.year
+            raw_date = cover_display_date
         elif oa_effective:
-            date = dparser.parse(oa_effective)
-            date_published = date.date().isoformat()
-            year = date.year
+            raw_date = oa_effective
         else:
             dois = self.get_dois(node)
             if dois:
-                year = self._get_year_from_doi(dois)
-                date_published = unicode(year)
+                raw_date = self._get_year_from_doi(dois)
 
-        return year, date_published
+        # return year, raw_date
+        # NOTE: I have call this here (not in the loader), because I need the year.
+        return format_year(raw_date), unicode(raw_date)
 
     def get_doctype(self, node):
         """Return a doctype mapped from abbreviation."""
@@ -547,25 +543,22 @@ class ElsevierSpider(XMLFeedSpider):
 
         return ", ".join(volumes)
 
-    @staticmethod
-    def _get_ref_years(ref):
-        """Get the reference year.
+    def _get_ref_years(self, ref):
+        """Get the reference year(s) as a string.
 
         Return a formatted string if multiple volumes with multiple years.
         """
         host = ref.xpath(".//sb:host")
         years = host.xpath(".//sb:date/text()").extract()
+        # Extract numbers from the years list
+        years = [i for year in years for i in year.split() if i.isdigit()]
+
         if host and years and len(host) > 1:
             # If reference is contained in multiple hosts, e.g. reprinted.
             return ", ".join(years)
         elif host and years:
-            if len(years) == 1:
-                year = years[0]
-            elif len(years) == 2:
-                year = years[0] + "-" + years[1]
-            else:
-                year = ", ".join(years)
-            return year
+            years = range_as_string(years)
+            return years
 
     def _parse_references(self, ref, label):
         """Parse all the references."""
@@ -712,9 +705,12 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def _get_sd_url(xml_file):
         """Construct a sciencedirect url from the xml filename."""
-        basename = os.path.basename(xml_file)
-        elsevier_id = os.path.splitext(basename)[0]
-        url = u"http://www.sciencedirect.com/science/article/pii/" + elsevier_id
+        try:
+            basename = os.path.basename(xml_file)
+            elsevier_id = os.path.splitext(basename)[0]
+            url = u"http://www.sciencedirect.com/science/article/pii/" + elsevier_id
+        except AttributeError:
+            url = ''
         return url
 
     @staticmethod
@@ -737,12 +733,15 @@ class ElsevierSpider(XMLFeedSpider):
         journal_title = ''
         possible_sections = ["A", "B", "C", "D", "E"]
 
-        # filter after re.split, which may return empty elements:
-        split_pub = filter(None, re.split(r'(\W+)', publication))
-        if split_pub[-1] in possible_sections:
-            section = split_pub.pop(-1)
+        try:
+            # filter after re.split, which may return empty elements:
+            split_pub = filter(None, re.split(r'(\W+)', publication))
+            if split_pub[-1] in possible_sections:
+                section = split_pub.pop(-1)
 
-        journal_title = "".join([word for word in split_pub if "section" not in word.lower()]).strip(", ")
+            journal_title = "".join([word for word in split_pub if "section" not in word.lower()]).strip(", ")
+        except IndexError:
+            pass
 
         return journal_title, section
 
@@ -797,18 +796,18 @@ class ElsevierSpider(XMLFeedSpider):
 
         if len(keys_missing) > 0:
             sd_url = self._get_sd_url(xml_file)
-            request = Request(sd_url, callback=self.scrape_sciencedirect)
-            request.meta["info"] = info
-            request.meta["keys_missing"] = keys_missing
-            request.meta["node"] = node
-            request.meta["xml_url"] = xml_file
-            request.meta["handle_httpstatus_list"] = self.ERROR_CODES
-            return request
+            if sd_url:
+                request = Request(sd_url, callback=self.scrape_sciencedirect)
+                request.meta["info"] = info
+                request.meta["keys_missing"] = keys_missing
+                request.meta["node"] = node
+                request.meta["xml_url"] = xml_file
+                request.meta["handle_httpstatus_list"] = self.ERROR_CODES
+                return request
 
-        else:
-            response.meta["info"] = info
-            response.meta["node"] = node
-            return self.build_item(response)
+        response.meta["info"] = info
+        response.meta["node"] = node
+        return self.build_item(response)
 
     @staticmethod
     def _get_volume_from_web(node):
@@ -818,7 +817,7 @@ class ElsevierSpider(XMLFeedSpider):
 
         volume = node.xpath(
             "//meta[@name='citation_volume']/@content").extract_first()
-        if volume and "online" in volume:
+        if volume and "online" in volume.lower():
             volume = "proof"
             return nrs, volume
 
@@ -860,9 +859,7 @@ class ElsevierSpider(XMLFeedSpider):
         if not date_raw:
             year, date_published, _ = self._parse_script(node)
         else:
-            date = dparser.parse(date_raw)
-            date_published = date.date().isoformat()
-            year = date.year
+            year, date_published = format_year(date_raw), date_raw
 
         return year, date_published
 
@@ -993,7 +990,6 @@ class ElsevierSpider(XMLFeedSpider):
             "access": file_access,
             "description": self.name.title(),
             "url": file_path,
-            # NOTE: should we be using the 'type' here already?
             "type": file_type,
         }
         return file_dict
@@ -1005,7 +1001,8 @@ class ElsevierSpider(XMLFeedSpider):
             item=HEPRecord(), selector=node, response=response)
         doctype = self.get_doctype(node)
         self.logger.info("Doc type is %s", doctype)
-        if doctype in {'correction', 'addendum'}:  # NOTE: is this correct?
+        if doctype in {'correction', 'addendum'}:
+            # NOTE: should test if this is working as intended.
             record.add_xpath(
                 'related_article_doi', "//related-article[@ext-link-type='doi']/@href")
 
@@ -1025,7 +1022,7 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('abstract', self.get_abstract(node))
         record.add_value('title', self.get_title(node))
         record.add_value('authors', self.get_authors(node))
-        # record.add_xpath("urls", "//prism:url/text()")  # We don't want dx.doi urls?
+        # record.add_xpath("urls", "//prism:url/text()")  # We don't want dx.doi urls
         record.add_value('free_keywords', self.get_keywords(node))
         info = response.meta.get("info")
         if info:

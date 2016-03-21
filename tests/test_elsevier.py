@@ -61,21 +61,21 @@ def parsed_node():
             <oa:userLicense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://creativecommons.org/licenses/by/3.0/</oa:userLicense>
         </oa:openAccessInformation>
         <rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
-                <dct:title>Toward classification of conformal theories</dct:title>
-                <prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
-                <prism:startingPage>421</prism:startingPage>
-                <prism:publicationName>Physics Letters, Section B</prism:publicationName>
-                <prism:volume>206</prism:volume>
-                <dct:creator>Cumrun Vafa</dct:creator>
-                <dct:subject>
-                    <rdf:Bag>
-                        <rdf:li>Heavy quarkonia</rdf:li>
-                        <rdf:li>Quark gluon plasma</rdf:li>
-                        <rdf:li>Mott effect</rdf:li>
-                        <rdf:li>X(3872)</rdf:li>
-                    </rdf:Bag>
-                </dct:subject>
-            </rdf:Description>
+            <dct:title>Toward classification of conformal theories</dct:title>
+            <prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
+            <prism:startingPage>421</prism:startingPage>
+            <prism:publicationName>Physics Letters, Section B</prism:publicationName>
+            <prism:volume>206</prism:volume>
+            <dct:creator>Cumrun Vafa</dct:creator>
+            <dct:subject>
+                <rdf:Bag>
+                    <rdf:li>Heavy quarkonia</rdf:li>
+                    <rdf:li>Quark gluon plasma</rdf:li>
+                    <rdf:li>Mott effect</rdf:li>
+                    <rdf:li>X(3872)</rdf:li>
+                </rdf:Bag>
+            </dct:subject>
+        </rdf:Description>
     </doc>"""
 
     response = fake_response_from_string(body)
@@ -128,62 +128,68 @@ def test_get_sd_url(sd_url):
 
 @pytest.fixture
 def cover_display_date():
+    """Parse and build the record with only date (day, month and year)."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
-        <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+    <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
         <rdf:Description>
-                <prism:coverDisplayDate>1 December 2014</prism:coverDisplayDate>
-            </rdf:Description>
+            <prism:coverDisplayDate>1 December 2014</prism:coverDisplayDate>
+        </rdf:Description>
     </doc>"""
 
     node = get_node(spider, '/doc', text=body)
-    return spider.get_date(node)
+    response = fake_response_from_string(body)
+    return spider.parse_node(response, node)
 
 def test_cover_display_date(cover_display_date):
-    year, date_published = cover_display_date
+    """Test coverDisplayDate and correct formatting with day, year and month."""
     assert cover_display_date
-    assert year == 2014
-    assert date_published == '2014-12-01'
+    assert cover_display_date["journal_year"] == 2014
+    assert cover_display_date["date_published"] == '2014-12-01'
 
 
 @pytest.fixture
 def cover_display_date_y_m():
+    """Parse and build the record with only date (month and year)."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
-        <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+    <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
         <rdf:Description>
-                <prism:coverDisplayDate>December 2014</prism:coverDisplayDate>
-            </rdf:Description>
+            <prism:coverDisplayDate>December 2014</prism:coverDisplayDate>
+        </rdf:Description>
     </doc>"""
     node = get_node(spider, '/doc', text=body)
-    return spider.get_date(node)
+    response = fake_response_from_string(body)
+    return spider.parse_node(response, node)
 
 def test_cover_display_date_y_m(cover_display_date_y_m):
-    year, date_published = cover_display_date_y_m
+    """Test coverDisplayDate and correct formatting with only year and month."""
     assert cover_display_date_y_m
-    assert year == 2014
-    assert date_published == '2014-12'
-    
+    assert cover_display_date_y_m["journal_year"] == 2014
+    assert cover_display_date_y_m["date_published"] == '2014-12'
+
 @pytest.fixture
 def cover_display_date_y():
+    """Parse and build the record with only date (year)."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
-        <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-            xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+    <doc xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
         <rdf:Description>
-                <prism:coverDisplayDate>2014</prism:coverDisplayDate>
-            </rdf:Description>
+            <prism:coverDisplayDate>2014</prism:coverDisplayDate>
+        </rdf:Description>
     </doc>"""
     node = get_node(spider, '/doc', text=body)
-    return spider.get_date(node)
+    response = fake_response_from_string(body)
+    return spider.parse_node(response, node)
 
 def test_cover_display_date_y(cover_display_date_y):
-    year, date_published = cover_display_date_y
+    """Test coverDisplayDate and correct formatting with only year."""
     assert cover_display_date_y
-    assert year == 2014
-    assert date_published == '2014'
+    assert cover_display_date_y["journal_year"] == 2014
+    assert cover_display_date_y["date_published"] == '2014'
 
 @pytest.fixture(scope="module")
 def item_info():
@@ -1370,11 +1376,82 @@ def test_ref_eproceedings_article(ref_eproceedings_article):
     assert ref_eproceedings_article == [{
         'book_title': u'Proc. 1996 USENIX Technical Conference',
         'title': u'Tracking and viewing changes on the web',
-        'year': u'January 1996',
+        'year': u'1996',
         'label': u'15',
         'urls': [u'http://www.research.att.com/papers/aide.ps.gz', u'http://usenix.org/sd96.html'],
         'authors': u'Douglis, F. & Ball, Th.'
             }]
+
+
+@pytest.fixture
+def ref_comment_and_note():
+    """Entire issue of a journal. In addition to the sb:title in the sb:series
+    (the journal title), the issue of this example has a title and (guest) editors
+    of its own. The additional text ’(special issue)’ is tagged as a comment. Only
+    author surnames given.
+    """
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
+        xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema">
+    <ce:bib-reference id="ref3">
+        <sb:reference>
+            <sb:host>
+            <sb:issue>
+                <sb:series>
+                    <sb:title>
+                        <sb:maintitle>American Psychologist</sb:maintitle>
+                    </sb:title>
+                </sb:series>
+            </sb:issue>
+            </sb:host>
+            <sb:comment>(special issue)</sb:comment>
+        </sb:reference>
+        <ce:note>
+            <ce:simple-para>This reference discusses the basic concepts in
+            a very thorough manner.</ce:simple-para>
+            <ce:simple-para>Its literature list is a main entry point
+            into the discipline.</ce:simple-para>
+        </ce:note>
+    </ce:bib-reference>
+    </doc>"""
+    node = get_node(spider, '/doc', text=body)
+    return spider.get_references(node)
+
+def test_ref_comment_and_note(ref_comment_and_note):
+    """Test what happens if there are both comment and note."""
+    assert ref_comment_and_note
+    assert ref_comment_and_note[0]["misc"] == 'special issue; This reference discusses the basic concepts in a very thorough manner. Its literature list is a main entry point into the discipline.'
+
+
+@pytest.fixture
+def ref_multi_years():
+    """Multi-year reference."""
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
+        xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema">
+    <ce:bib-reference id="ref11">
+        <sb:reference>
+            <sb:host>
+            <sb:edited-book>
+                <sb:date>1980</sb:date>
+                <sb:date>1981</sb:date>
+                <sb:date>1982</sb:date>
+                <sb:date>1985</sb:date>
+            </sb:edited-book>
+            </sb:host>
+        </sb:reference>
+    </ce:bib-reference>
+    </doc>"""
+    node = get_node(spider, '/doc', text=body)
+    return spider.get_references(node)
+
+def test_ref_multi_years(ref_multi_years):
+    """Test multi year reference formatting."""
+    assert ref_multi_years
+    assert ref_multi_years[0]["year"] == "1980-1982, 1985"
+    
 
 
 @pytest.fixture
@@ -1508,4 +1585,30 @@ def test_sciencedirect(sciencedirect):
     assert sciencedirect["journal_issue"] == u'3'
     assert sciencedirect["journal_pages"] == u'421-426'
     assert sciencedirect["journal_year"] == 1988
-    
+
+
+@pytest.fixture
+def sciencedirect_proof():
+    """Scrape data from a minimal example web page. This hasn't been published 
+    yet. There is only the online paper, i.e. this is a proof.
+    """
+    spider = elsevier_spider.ElsevierSpider()
+    body = """
+    <html>
+    <head>
+        <meta name="citation_volume" content="Online 1.1.2016">
+    </head>
+    </html>"""
+    response = fake_response_from_string(body)
+    response.meta["keys_missing"] = set(["volume"])
+    response.meta["info"] = {}
+    response.meta["node"] = get_node(spider, '/head', text=body)
+    return spider.scrape_sciencedirect(response)
+
+
+def test_sciencedirect_proof(sciencedirect_proof):
+    """Test scraping sciencedirect web page for missing values.
+
+    As this is a paper proof, resulting HEPRecord should be None.
+    """
+    assert sciencedirect_proof is None
