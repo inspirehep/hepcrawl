@@ -128,8 +128,7 @@ def parse_date(raw_date):
 def format_date(raw_date):
     """Get the ISO formatted year and date.
     Calls first the format preserving date creator function, if that fails
-    calls the function that uses dateutils. Then tries to get year from the
-    resulting date.
+    calls the function that uses dateutils.
     """
     date_published = create_valid_date(raw_date)
     if not date_published:

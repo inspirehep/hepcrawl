@@ -26,6 +26,7 @@ from hepcrawl.utils import (
     parse_domain,
     get_mime_type,
     has_numbers,
+    range_as_string,
 )
 
 
@@ -131,7 +132,7 @@ def test_split_fullname():
     assert split_fullname(author4, surname_first=False) == ('Doe', 'John Magic')
     assert split_fullname(author5, surname_first=False) == ('Boe', 'John Magic Doe')
     assert split_fullname(author6, surname_first=False) == ('Doe Boe', 'John Magic')
-    assert split_fullname(author7) == ('', '') 
+    assert split_fullname(author7) == ('', '')
 
 
 def test_parse_domain():
@@ -164,5 +165,19 @@ def test_has_numbers():
     """Test number detection"""
     text1 = "154 numbers"
     text2 = "no numbers"
-    assert has_numbers(text1) == True
-    assert has_numbers(text2) == False
+    assert has_numbers(text1) is True
+    assert has_numbers(text2) is False
+
+
+def test_range_as_string():
+    """Test range detection in a list of (string) integers."""
+    years1 = ["1981", "1982", "1983"]
+    years2 = ["1981", "1982", "1985"]
+    years3 = ["1981", "1989", "1995"]
+    years4 = ["1981", "1982", "1989", "2015", "2016"]
+    years5 = [500, 501, 600]
+    assert range_as_string(years1) == "1981-1983"
+    assert range_as_string(years2) == "1981-1982, 1985"
+    assert range_as_string(years3) == "1981, 1989, 1995"
+    assert range_as_string(years4) == "1981-1982, 1989, 2015-2016"
+    assert range_as_string(years5) == "500-501, 600"

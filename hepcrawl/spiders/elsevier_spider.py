@@ -13,8 +13,7 @@ from __future__ import absolute_import, print_function
 
 import os
 import re
-from operator import itemgetter
-from itertools import groupby
+
 from tempfile import mkdtemp
 
 import dateutil.parser as dparser
@@ -32,6 +31,7 @@ from ..utils import (
     split_fullname,
     get_first,
     has_numbers,
+    range_as_string,
 )
 
 from ..dateutils import format_year
@@ -543,22 +543,6 @@ class ElsevierSpider(XMLFeedSpider):
 
         return ", ".join(volumes)
 
-    @staticmethod
-    def range_as_string(data):
-        """Detects integer ranges and returns a string representing them.
-        E.g. ["1981", "1982", "1985"] -> "1981-1982, 1985"
-        """
-        data = [int(i) for i in data]
-        ranges = []
-        for key, group in groupby(enumerate(data), lambda (index, item): index - item):
-            group = map(itemgetter(1), group)
-            if len(group) > 1:
-                rangestring = "{}-{}".format(str(group[0]), str(group[-1]))
-                ranges.append(rangestring)
-            else:
-                ranges.append(str(group[0]))
-        return ", ".join(ranges)
-
     def _get_ref_years(self, ref):
         """Get the reference year(s) as a string.
 
@@ -573,7 +557,7 @@ class ElsevierSpider(XMLFeedSpider):
             # If reference is contained in multiple hosts, e.g. reprinted.
             return ", ".join(years)
         elif host and years:
-            years = self.range_as_string(years)
+            years = range_as_string(years)
             return years
 
     def _parse_references(self, ref, label):
@@ -812,7 +796,7 @@ class ElsevierSpider(XMLFeedSpider):
 
         if len(keys_missing) > 0:
             sd_url = self._get_sd_url(xml_file)
-            try:
+            if sd_url:
                 request = Request(sd_url, callback=self.scrape_sciencedirect)
                 request.meta["info"] = info
                 request.meta["keys_missing"] = keys_missing
@@ -820,8 +804,6 @@ class ElsevierSpider(XMLFeedSpider):
                 request.meta["xml_url"] = xml_file
                 request.meta["handle_httpstatus_list"] = self.ERROR_CODES
                 return request
-            except ValueError:
-                pass
 
         response.meta["info"] = info
         response.meta["node"] = node
