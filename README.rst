@@ -59,7 +59,7 @@ spider:
 .. code-block:: console
 
     cdvirtualenv src/hepcrawl
-    scrapy crawl Sample -a source_file=file://`pwd`/tests/responses/world_scientific/sample_ws_record.xml
+    scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
 
 
 Thanks for contributing!
