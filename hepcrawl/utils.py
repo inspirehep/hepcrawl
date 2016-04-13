@@ -12,6 +12,7 @@ import re
 import requests
 from operator import itemgetter
 from itertools import groupby
+from .mappings import LANGUAGES
 
 from netrc import netrc
 from harvestingkit.ftp_utils import FtpHandler
@@ -73,20 +74,26 @@ def collapse_initials(name):
     return name
 
 
-def split_fullname(author, surname_first=True):
+def split_fullname(author, switch_name_order=False):
     """Split an author name to surname and given names.
 
-    It accepts author strings with and without comma separation
-    and surname can be first or last. Note that multi-part surnames are incorrectly
-    detected in strings without comma separation.
+    It accepts author strings with and without comma separation.
+    As default surname is first in case of comma separation, otherwise last.
+    Note that multi-part surnames are incorrectly detected in strings without comma separation.
     """
     if not author:
         return "", ""
 
     if "," in author:
         fullname = [n.strip() for n in author.split(',')]
+        surname_first = True
     else:
         fullname = [n.strip() for n in author.split()]
+        surname_first = False
+
+#    surname_first = not switch_name_order == surname_first
+    if switch_name_order:
+        surname_first = not surname_first
 
     if surname_first:
         surname = fullname[0]
@@ -96,6 +103,20 @@ def split_fullname(author, surname_first=True):
         given_names = " ".join(fullname[:-1])
 
     return surname, given_names
+
+
+def translate_language(lang):
+    """Translate language. Dont return english"""
+    english = ['en', 'eng', 'english']
+
+    if lang.lower() in english:
+        language = ""
+    else:
+        if lang.lower() in LANGUAGES.keys():
+            language = LANGUAGES[lang.lower()]
+        else:
+            language = lang
+    return language
 
 
 def get_temporary_file(prefix="tmp_",

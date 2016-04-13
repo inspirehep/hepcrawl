@@ -72,7 +72,7 @@ class AlphaSpider(CrawlSpider):
         author_list = re.sub(r'[\n\t\xa0]', '', author_line[0]).split(
             ",")  # Author name might contain unwanted characters.
         author = author_list[0]
-        surname, given_names = split_fullname(author, surname_first=False)
+        surname, given_names = split_fullname(author)
 
         year = ''
         thesis_type = ''

@@ -23,6 +23,7 @@ from hepcrawl.utils import (
     get_nested,
     build_dict,
     split_fullname,
+    translate_language,
     parse_domain,
     get_mime_type,
     has_numbers,
@@ -128,11 +129,18 @@ def test_split_fullname():
     author7 = ''
     assert split_fullname(author1) == ('Doe', 'John Magic')
     assert split_fullname(author2) == ('Doe Boe', 'John Magic')
-    assert split_fullname(author3) == ('Doe', 'Boe John Magic')
-    assert split_fullname(author4, surname_first=False) == ('Doe', 'John Magic')
-    assert split_fullname(author5, surname_first=False) == ('Boe', 'John Magic Doe')
-    assert split_fullname(author6, surname_first=False) == ('Doe Boe', 'John Magic')
+    assert split_fullname(author3, switch_name_order=True) == ('Doe', 'Boe John Magic')
+    assert split_fullname(author4 ) == ('Doe', 'John Magic')
+    assert split_fullname(author5 ) == ('Boe', 'John Magic Doe')
+    assert split_fullname(author6, switch_name_order=True) == ('Doe Boe', 'John Magic')
     assert split_fullname(author7) == ('', '')
+
+
+def test_translate_language():
+    """Test language translation."""
+    test_lang = {'English': '', 'cn': 'Chinese', 'Fre': 'French', 'Norwegian': 'Norwegian'}
+    for key, value in test_lang.items():
+        assert translate_language(key) == value
 
 
 def test_parse_domain():

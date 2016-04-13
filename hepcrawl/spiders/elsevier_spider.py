@@ -305,8 +305,7 @@ class ElsevierSpider(XMLFeedSpider):
                     authors.append(auth_dict)
         elif node.xpath('//dct:creator'):
             for author in node.xpath('//dct:creator/text()'):
-                surname, given_names = split_fullname(
-                    author.extract(), surname_first=False)
+                surname, given_names = split_fullname(author.extract())
                 auth_dict = {}
                 if surname:
                     auth_dict['surname'] = surname
