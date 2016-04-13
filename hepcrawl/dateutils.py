@@ -24,8 +24,7 @@ DATE_FORMATS_MONTH = [
 ]
 DATE_FORMATS_FULL = [
     "%Y-%m-%d", "%d %m %Y", "%x", "%d %b %Y",
-    "%d %B %Y", "%d %b %y", "%d %B %y", "%Y-%m-%dT%H:%M:%SZ"  # NOTE: I added one format here.
-
+    "%d %B %Y", "%d %b %y", "%d %B %y", "%Y-%m-%dT%H:%M:%SZ", "%d-%m-%Y",
 ]
 
 
