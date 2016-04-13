@@ -149,7 +149,7 @@ def test_source(record):
 
 def test_language(record):
     """Test thesis language"""
-    language = [u'ger']
+    language = [u'German']
     assert record["language"]
     assert record["language"] == language
 
@@ -263,9 +263,10 @@ def test_get_authors(authors):
     assert authors == [
         {
             "affiliation": "Frankfurt am Main, Johann Wolfgang Goethe-Univ.",
-            "surname": "Busch",
-            "given_names": "Marco",
-            "full_name": "Busch, Marco"
+#            "surname": "Busch",
+#            "given_names": "Marco",
+#            "full_name": "Busch, Marco",
+            "raw_name": "Busch, Marco"
         }
     ]
 

@@ -18,7 +18,6 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname
 
 
 class PhenixSpider(XMLFeedSpider):
@@ -86,11 +85,8 @@ class PhenixSpider(XMLFeedSpider):
         _, _, affiliation, _ = self.parse_datablock(node)
 
         for aut in author:
-            surname, given_names = split_fullname(aut, surname_first=False)
             authors.append({
-                # 'fullname': surname + ", " + given_names,
-                'surname': surname,
-                'given_names': given_names,
+                'raw_name': aut,
                 'affiliations': [{"value": affiliation}]
             })
 

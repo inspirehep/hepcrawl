@@ -141,7 +141,7 @@ def test_publication_info(results):
 def test_authors(results):
     """Test authors."""
     affiliation = 'Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA'
-    author_full_names = ['Alexander A. Alemi', 'Matthew Bierbaum', 'Christopher R. Myers', 'James P. Sethna']
+    author_full_names = ['Alemi, Alexander A.', 'Bierbaum, Matthew', 'Myers, Christopher R.', 'Sethna, James P.']
     for record in results:
         assert 'authors' in record
         assert len(record['authors']) == 4

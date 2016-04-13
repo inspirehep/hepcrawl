@@ -19,7 +19,7 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname, parse_domain, get_mime_type
+from ..utils import parse_domain, get_mime_type
 
 
 class PhilSpider(CrawlSpider):
@@ -65,16 +65,7 @@ class PhilSpider(CrawlSpider):
         """Parses the line where there are data about the author(s)."""
         authors = []
         for auth in author_element:
-            split_author = split_fullname(auth)
-            surname = split_author[0]
-            given_names = split_author[-1]
-            authors.append({
-                # Automatic fullname creation behaves strangely here
-                'full_name': surname + ", " + given_names,
-                'surname': surname,
-                'given_names': given_names,
-            })
-
+            authors.append({'raw_name': auth})
         return authors
 
     def get_date(self, record):
