@@ -15,12 +15,13 @@ from scrapy.selector import Selector
 import scrapy
 
 import hepcrawl
+import responses
 
 from hepcrawl.spiders import base_spider
 
 from .responses import (
     fake_response_from_file,
-    fake_response_from_string, 
+    fake_response_from_string,
     get_node,
     )
 
@@ -159,9 +160,11 @@ def test_splash(splash):
 
 
 @pytest.fixture
+@responses.activate
 def parsed_node():
     """Call parse_node function with a direct link"""
-    # NOTE: makes a get request to some random pdf file on the web.
+    url = "http://stlab.adobe.com/wiki/images/d/d3/Test.pdf"
+    responses.add(responses.HEAD, url, status=200, content_type='application/pdf')
     spider = base_spider.BaseSpider()
     body = """
     <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
