@@ -86,7 +86,6 @@ class ArxivSpider(XMLFeedSpider):
                 authors.append({
                     'surname': keyname,
                     'given_names': forenames,
-                    "full_name": '{} {}'.format(forenames, keyname),
                     'affiliations': ''
                 })
         return authors, collaboration

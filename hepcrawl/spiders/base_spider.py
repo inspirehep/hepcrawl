@@ -18,7 +18,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_mime_type, parse_domain, split_fullname
+from ..utils import get_mime_type, parse_domain
 
 
 class BaseSpider(XMLFeedSpider):
@@ -93,23 +93,12 @@ class BaseSpider(XMLFeedSpider):
         authors = []
         if node.xpath('.//dc:creator'):
             for author in node.xpath('.//dc:creator/text()'):
-                surname, given_names = split_fullname(author.extract())
-                authors.append({
-                    'surname': surname,
-                    'given_names': given_names,
-                    'full_name': author.extract(),
-                })
+                authors.append({'raw_name': author.extract()})
         if node.xpath(".//base_dc:contributor"):
             for author in node.xpath(".//base_dc:contributor/text()"):
                 if "author" in author.extract().lower():
                     cleaned_author = author.extract().replace('(Author)', '').strip()
-                    surname, given_names = split_fullname(
-                        cleaned_author)
-                    authors.append({
-                        'surname': surname,
-                        'given_names': given_names,
-                        'full_name': cleaned_author,
-                    })
+                    authors.append({'raw_name': cleaned_author})
         return authors
 
     @staticmethod
