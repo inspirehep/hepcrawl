@@ -86,7 +86,7 @@ class PhenixSpider(XMLFeedSpider):
         _, _, affiliation, _ = self.parse_datablock(node)
 
         for aut in author:
-            surname, given_names = split_fullname(aut, surname_first=False)
+            surname, given_names = split_fullname(aut)
             authors.append({
                 # 'fullname': surname + ", " + given_names,
                 'surname': surname,
