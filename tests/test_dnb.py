@@ -142,7 +142,7 @@ def test_supervisors(record):
 
 def test_source(record):
     """Test thesis source"""
-    source = [u'Univ.-Bibliothek Frankfurt am Main']
+    source = 'Univ.-Bibliothek Frankfurt am Main'
     assert record["source"]
     assert record["source"] == source
 

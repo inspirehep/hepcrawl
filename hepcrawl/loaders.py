@@ -48,6 +48,8 @@ class HEPLoader(ItemLoader):
     TakeFirst is used when only one item is expected to just take the first item
     in the list.
     """
+    source_out = TakeFirst()
+
     authors_in = MapCompose(
         parse_authors,
         clean_tags_from_affiliations,
