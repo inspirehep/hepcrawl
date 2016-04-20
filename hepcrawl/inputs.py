@@ -18,9 +18,13 @@ from w3lib.html import (
 
 import lxml.html.clean as clean
 
-from .mappings import COMMON_ACRONYMS
+from .mappings import (
+    COMMON_ACRONYMS,
+    LANGUAGES
+)
 from .utils import (
     collapse_initials,
+    split_fullname,
 )
 
 
@@ -54,6 +58,23 @@ def selective_remove_tags(which_ones=(), keep=()):
     return _remove_tags
 
 
+def parse_authors(value):
+    """Add missing information for an author:
+     `full_name` combination value and
+     `surname` + `given_names` values;
+     delete spaces from initials"""
+    if "raw_name" in value and "surname" not in value:
+        value['surname'], value['given_names'] = split_fullname(value['raw_name'])
+    if 'given_names' in value and value['given_names']:
+        value['given_names'] = collapse_initials(value['given_names'])
+        value['full_name'] = '{0}, {1}'.format(
+            value['surname'], value['given_names'], )
+    else:
+        value['full_name'] = value['surname']
+
+    return value
+
+
 def add_author_full_name(value):
     """Add `full_name` combination value for an author, if required."""
     if "full_name" not in value:
@@ -84,6 +105,18 @@ def clean_whitespace_characters(text):
     text = text.replace("\n", "")
     text = text.replace("\t", "")
     return text
+
+
+def translate_language(lang):
+    """Translate language. Dont return english"""
+    english = ['en', 'eng', 'english']
+
+    if lang.lower() not in english:
+        if lang.lower() in LANGUAGES.keys():
+            language = LANGUAGES[lang.lower()]
+        else:
+            language = lang.title()
+        return language
 
 
 def remove_attributes_from_tags(text):

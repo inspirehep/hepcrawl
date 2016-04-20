@@ -73,20 +73,25 @@ def collapse_initials(name):
     return name
 
 
-def split_fullname(author, surname_first=True):
+def split_fullname(author, switch_name_order=False):
     """Split an author name to surname and given names.
 
-    It accepts author strings with and without comma separation
-    and surname can be first or last. Note that multi-part surnames are incorrectly
-    detected in strings without comma separation.
+    It accepts author strings with and without comma separation.
+    As default surname is first in case of comma separation, otherwise last.
+    Note that multi-part surnames are incorrectly detected in strings without comma separation.
     """
     if not author:
         return "", ""
 
     if "," in author:
         fullname = [n.strip() for n in author.split(',')]
+        surname_first = True
     else:
         fullname = [n.strip() for n in author.split()]
+        surname_first = False
+
+    if switch_name_order:
+        surname_first = not surname_first
 
     if surname_first:
         surname = fullname[0]

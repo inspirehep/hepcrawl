@@ -16,7 +16,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_mime_type, parse_domain, split_fullname
+from ..utils import get_mime_type, parse_domain
 
 
 class DNBSpider(XMLFeedSpider):
@@ -89,11 +89,8 @@ class DNBSpider(XMLFeedSpider):
 
         authors = []
         for author, affiliation in zip(authors_raw, affiliations):
-            surname, given_names = split_fullname(author)
             authors.append({
-                'surname': surname,
-                'given_names': given_names,
-                'full_name': author,
+                'raw_name': author,
                 'affiliation': affiliation,
             })
 
@@ -198,7 +195,7 @@ class DNBSpider(XMLFeedSpider):
                          "./slim:datafield[@tag='700'][slim:subfield[@code='e'][contains(text(), 'Betreuer')]]/slim:subfield[@code='a']/text()")
         languages = node.xpath(
             "./slim:datafield[@tag='041']/slim:subfield[@code='a']/text()").extract()
-        if "en" not in languages[0].lower():
+        if languages:
             record.add_value('language', languages[0])
         record.add_value('urls', response.meta.get('urls'))
         record.add_value('files', response.meta.get("direct_links"))

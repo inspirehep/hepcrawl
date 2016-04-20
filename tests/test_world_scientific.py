@@ -139,7 +139,7 @@ def test_publication_info(results):
 
 def test_authors(results):
     """Test authors."""
-    authors = ["Bi, Dongqin", "Boschloo, Gerrit", "Hagfeldt, Anders"]
+    authors = ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"]
     affiliation = "Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, Sweden"
     xref_affiliation = "Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA"
     collab = "Belle Collaboration"

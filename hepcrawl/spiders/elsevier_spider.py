@@ -28,7 +28,6 @@ from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
     unzip_xml_files,
-    split_fullname,
     get_first,
     has_numbers,
     range_as_string,
@@ -305,14 +304,7 @@ class ElsevierSpider(XMLFeedSpider):
                     authors.append(auth_dict)
         elif node.xpath('//dct:creator'):
             for author in node.xpath('//dct:creator/text()'):
-                surname, given_names = split_fullname(
-                    author.extract(), surname_first=False)
-                auth_dict = {}
-                if surname:
-                    auth_dict['surname'] = surname
-                if given_names:
-                    auth_dict['given_names'] = given_names
-                authors.append(auth_dict)
+                authors.append({'raw_name': author.extract()})
 
         return authors
 
