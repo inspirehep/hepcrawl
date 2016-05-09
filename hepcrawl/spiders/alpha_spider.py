@@ -20,7 +20,7 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname, has_numbers
+from ..utils import has_numbers
 
 
 class AlphaSpider(CrawlSpider):
@@ -60,11 +60,8 @@ class AlphaSpider(CrawlSpider):
                 yield Request(url)
 
     def parse_author_data(self, thesis):
-        """Parses the line where there are data about the author(s)
+        """Parses the line where there are data about the author(s)"""
 
-        Note that author surnames and given names are not comma separated, so
-        split_fullname() might get a wrong surname.
-        """
         author_line = thesis.xpath(
             "./div[@class = 'content clearfix']//div[@class='field-item even']"
             "/p[contains(text(),'Thesis')]/text()"
@@ -72,7 +69,6 @@ class AlphaSpider(CrawlSpider):
         author_list = re.sub(r'[\n\t\xa0]', '', author_line[0]).split(
             ",")  # Author name might contain unwanted characters.
         author = author_list[0]
-        surname, given_names = split_fullname(author, surname_first=False)
 
         year = ''
         thesis_type = ''
@@ -87,9 +83,7 @@ class AlphaSpider(CrawlSpider):
                 year = re.findall(r'\d+', i)[0].strip()
 
         authors = [{
-            # 'fullname': surname + ", " + given_names,
-            'surname': surname,
-            'given_names': given_names,
+            'raw_name': author,
             'affiliations': [{"value": affiliation}]
         }]
 

@@ -26,9 +26,19 @@ class HEPRecord(scrapy.Item):
     NOTE: This is not a 1-to-1 mapping to the HEP JSON schema.
 
     This is a bit flatter structure that will be transformed before
-    export to INSPIRE. For complex fields, like authors, please refer to the HEP
-    JSON Schema for details.
+    export to INSPIRE. For complex fields, like authors, please refer to the
+    HEP JSON Schema for details.
     """
+    extra_data = scrapy.Field()
+    """Extra data belonging to this item that will NOT be part of final record.
+
+    .. code-block:: python
+
+        {
+            "foo": "bar"
+        }
+    """
+
     files = scrapy.Field()
     """Files (fulltexts, package) belonging to this item.
 

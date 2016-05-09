@@ -15,17 +15,18 @@ See documentation in: http://doc.scrapy.org/en/latest/topics/items.html
 
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Join, MapCompose, TakeFirst
-
+from scrapy.utils.url import canonicalize_url
 
 from .inputs import (
     fix_title_capitalization,
     selective_remove_tags,
     convert_html_subscripts_to_latex,
-    add_author_full_name,
+    parse_authors,
     clean_tags_from_affiliations,
     clean_collaborations,
     clean_whitespace_characters,
     remove_attributes_from_tags,
+    translate_language,
 )
 
 from .outputs import (
@@ -48,7 +49,7 @@ class HEPLoader(ItemLoader):
     in the list.
     """
     authors_in = MapCompose(
-        add_author_full_name,
+        parse_authors,
         clean_tags_from_affiliations,
     )
 
@@ -90,6 +91,10 @@ class HEPLoader(ItemLoader):
     )
     date_published_out = TakeFirst()
 
+    language_in = MapCompose(
+        translate_language,
+    )
+
     related_article_doi_out = TakeFirst()
 
     page_nr_out = TakeFirst()
@@ -113,4 +118,11 @@ class HEPLoader(ItemLoader):
 
     dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
+
+    urls_in = MapCompose(
+        canonicalize_url,
+    )
     urls_out = ListToValueDict(key="url")
+
+# FIXME: if possible everything with open access should get a FFT
+# FIXME: check that every record has collection HEP

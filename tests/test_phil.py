@@ -125,7 +125,7 @@ def test__thesis_authors(record):
 
     # here we are making sure order is kept
     for index, name in enumerate(authors):
-        assert unicode(record['authors'][index]['full_name']) == name
+        assert unicode(record['authors'][index]['raw_name']) == name
 
 def test__journal_authors(journal):
     """Test authors."""
@@ -159,9 +159,7 @@ def test_journal(journal):
 def test_get_authors(authors):
     """Test author getting"""
     authors_gt = [
-        {'surname': u'Jennings',
-         'given_names': u'Bob',
-         'full_name': u'Jennings, Bob'}
+        {'raw_name': u'Jennings, Bob'}
     ]
     assert authors
     assert authors == authors_gt

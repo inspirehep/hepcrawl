@@ -128,10 +128,10 @@ def test_split_fullname():
     author7 = ''
     assert split_fullname(author1) == ('Doe', 'John Magic')
     assert split_fullname(author2) == ('Doe Boe', 'John Magic')
-    assert split_fullname(author3) == ('Doe', 'Boe John Magic')
-    assert split_fullname(author4, surname_first=False) == ('Doe', 'John Magic')
-    assert split_fullname(author5, surname_first=False) == ('Boe', 'John Magic Doe')
-    assert split_fullname(author6, surname_first=False) == ('Doe Boe', 'John Magic')
+    assert split_fullname(author3, switch_name_order=True) == ('Doe', 'Boe John Magic')
+    assert split_fullname(author4 ) == ('Doe', 'John Magic')
+    assert split_fullname(author5 ) == ('Boe', 'John Magic Doe')
+    assert split_fullname(author6, switch_name_order=True) == ('Doe Boe', 'John Magic')
     assert split_fullname(author7) == ('', '')
 
 

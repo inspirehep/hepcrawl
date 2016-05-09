@@ -115,7 +115,7 @@ def test_collaborations(results):
 
 def test_authors(results):
     """Test authors."""
-    author_full_names = ['Jieci Wang', 'Zehua Tian', 'Jiliang Jing', 'Heng Fan']
+    author_full_names = ['Wang, Jieci', 'Tian, Zehua', 'Jing, Jiliang', 'Fan, Heng']
     for record in results:
         assert 'authors' in record
         assert len(record['authors']) == 4
