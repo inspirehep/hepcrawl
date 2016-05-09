@@ -9,6 +9,8 @@
 
 """Spider for POS."""
 
+import re
+
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 from ..utils import get_first
@@ -16,7 +18,6 @@ from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..mappings import OA_LICENSES
-import re
 
 
 class POSSpider(XMLFeedSpider):
@@ -34,6 +35,8 @@ class POSSpider(XMLFeedSpider):
         ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/")
     ]
 
+    pos_base_url = "http://pos.sissa.it/contribution?id="
+
     def __init__(self, source_file=None, **kwargs):
         """Construct POS spider."""
         super(POSSpider, self).__init__(**kwargs)
@@ -43,14 +46,33 @@ class POSSpider(XMLFeedSpider):
         yield Request(self.source_file)
 
     def parse_node(self, response, node):
-        """Parse an PoS XML exported file into a HEP record."""
+        """Get PDF information."""
         node.remove_namespaces()
+        identifier = response.xpath(
+            "//metadata//identifier/text()"
+        ).extract_first()
+        pos_url = "{0}{1}".format(self.pos_base_url, identifier)
+        meta = {}
+        meta["pos_url"] = pos_url
+        meta["node"] = node
+        return Request(pos_url, meta=meta, callback=self.scrape_pos_page)
+
+    def scrape_pos_page(self, response):
+        """Parse a page for PDF link."""
+        response.meta["pos_pdf_url"] = response.xpath(
+            "//a[contains(text(),'pdf')]/@href"
+        ).extract_first()
+        return self.build_item(response)
+
+    def build_item(self, response):
+        """Parse an PoS XML exported file into a HEP record."""
+        node = response.meta["node"]
 
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         record.add_xpath('title', '//metadata//title/text()')
         record.add_xpath('subject_terms', '//metadata//subject/text()')
         record.add_xpath('source', '//metadata//publisher/text()')
-        record.add_xpath('external_system_numbers', '//header//identifier/text()')  # FIXME: or to oai-pmh??
+        record.add_xpath('external_system_numbers', '//header//identifier/text()')
 
         pub_license, pub_license_url, openaccess = self._get_license(node)
         if pub_license:
@@ -66,7 +88,10 @@ class POSSpider(XMLFeedSpider):
             record.add_value('journal_year', year)
 
         identifier = node.xpath("//metadata//identifier/text()").extract_first()
-        conf_number = '187'  # FIXME: how do I get that number??????????????
+        record.add_value('urls', [
+            response.meta['pos_url'],
+            response.meta['pos_pdf_url']
+        ])
         if identifier:
             pbn = re.split('[()]', identifier)
             if len(pbn) == 3:
@@ -75,10 +100,6 @@ class POSSpider(XMLFeedSpider):
                 record.add_value('journal_title', pbn[0])
                 record.add_value('journal_volume', conf_acronym)
                 record.add_value('journal_artid', article_id)
-                url = "http://pos.sissa.it/archive/conferences/%s/%s/%s_%s.pdf" % \
-                    (conf_number, article_id, conf_acronym.replace(' ', '%20'),
-                        article_id)
-                record.add_value('urls', [url, ])
             else:
                 record.add_value('pubinfo_freetext', identifier)
 
@@ -91,8 +112,8 @@ class POSSpider(XMLFeedSpider):
             record.add_value('authors', authors)
 
         extra_data = self._get_extra_data(node)
-#        if extra_data:
-#            record.add_value('extra_data', extra_data)
+        if extra_data:
+            record.add_value('extra_data', extra_data)
 
         record.add_value('collections', ['HEP', 'ConferencePaper'])
         return record.load_item()

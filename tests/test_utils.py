@@ -135,18 +135,6 @@ def test_split_fullname():
     assert split_fullname(author7) == ('', '')
 
 
-# is now in inputs - no tests????????
-# def test_translate_language():
-#     """Test language translation."""
-#     test_lang = [
-#                 ['English', ''],
-#                 ['cn', 'Chinese'],
-#                 ['Fre', 'French'],
-#                 ['FRENCH', 'French']]
-#     for inval, outval in test_lang:
-#         assert translate_language(inval) == outval
-
-
 def test_parse_domain():
     """Test domain parsing."""
     url = 'http://www.example.com/0351/content'

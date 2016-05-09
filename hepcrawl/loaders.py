@@ -15,7 +15,7 @@ See documentation in: http://doc.scrapy.org/en/latest/topics/items.html
 
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Join, MapCompose, TakeFirst
-
+from scrapy.utils.url import canonicalize_url
 
 from .inputs import (
     fix_title_capitalization,
@@ -118,6 +118,10 @@ class HEPLoader(ItemLoader):
 
     dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
+
+    urls_in = MapCompose(
+        canonicalize_url,
+    )
     urls_out = ListToValueDict(key="url")
 
 # FIXME: if possible everything with open access should get a FFT
