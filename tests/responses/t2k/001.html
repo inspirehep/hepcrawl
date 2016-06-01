@@ -1,0 +1,593 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+
+  
+    
+    
+    
+    
+
+
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="generator" content="Plone - http://plone.org" />
+
+    
+      <base href="http://www.t2k.org/docs/thesis/001/" /><!--[if lt IE 7]></base><![endif]-->
+    
+
+    
+        <meta content="A Monte Carlo investigation into the efficiencies of the electromagnetic calorimeters in T2K’s off-axis near detector was undertaken. T2K is a long baseline neutrino oscillation experiment in Japan, running 295 km from the J-PARC facility in Tokai to the Super-Kamiokande detector in the Kamioka mine. The near detector will be installed on the J-PARC site during 2009, and has been designed to measure the neutrino flux, through charged current neutrino interactions, as well as the neutral current π 0 cross-section. To make these measurements, the calorimeters must reconstruct muons and photons with high efficiency, and it has been shown that 90% efficiency can be achieved for muons above 100 MeV and 80% for photons over 150 MeV. These are the two particles most important for the planned measurements; electrons are also very important and are expected to have efficiencies similar to photons. The efficiency deteriorates for particles with less energy, but this is clearly shown to be caused by the minimal signal created in the detector.
+
+To validate the Monte Carlo characterisation of the calorimeter, the same reconstruction methods were applied to data from the SciBooNE experiment. With the aim of measuring neutrino interaction cross-sections, the SciBooNE experiment was based at FermiLab in Illinois and used the Booster Neutrino Beam. One of SciBooNE’s detectors was the SciBar, a scintillating plastic detector similar in design to T2K’s calorimeter. The reconstruction showed 100% efficiency for locating charged muon tracks, with excellent position and direction reconstruction, and simultaneously confirmed the reconstruction of photon showers.
+"
+      name="description" />
+
+  
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.t2k.org/portal_css/Plone%20Classic%20Theme/reset-cachekey-b944556ef5373af8982764c89b27b0a7.css" />
+    <style type="text/css" media="screen">@import url(http://www.t2k.org/portal_css/Plone%20Classic%20Theme/base-cachekey-56e0edebfe05944562bf0fb99079e98a.css);</style>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.t2k.org/portal_css/Plone%20Classic%20Theme/resourcetinymce.stylesheetstinymce-cachekey-f5019978555184e5bf9f45593d39ae3a.css" />
+    <style type="text/css">@import url(http://www.t2k.org/portal_css/Plone%20Classic%20Theme/print-cachekey-ed43c4e0705648f52ae0318b68c6d91c.css);</style>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.t2k.org/portal_css/Plone%20Classic%20Theme/resourceplone.app.discussion.stylesheetsdiscussion-cachekey-36690102998f5448fed65546980a5682.css" />
+    <style type="text/css">@import url(http://www.t2k.org/portal_css/Plone%20Classic%20Theme/dropdown-menu-cachekey-df10dd2f393dc576ac15b7028ebe66a2.css);</style>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://www.t2k.org/portal_css/Plone%20Classic%20Theme/resourceplone.app.jquerytools.dateinput-cachekey-8429898c2e8d10443cd9cf039908f30f.css" />
+    <style type="text/css" media="screen">@import url(http://www.t2k.org/portal_css/Plone%20Classic%20Theme/resourceplone.formwidget.autocompletejquery.autocomplete-cachekey-b729f1ce692cdf71caa0ab78c6548513.css);</style>
+
+  
+  
+    <script type="text/javascript" src="http://www.t2k.org/portal_javascripts/Plone%20Classic%20Theme/resourceplone.app.jquery-cachekey-314d4502333773d288ac0321064bec9c.js"></script>
+    <script type="text/javascript" src="http://www.t2k.org/portal_javascripts/Plone%20Classic%20Theme/resourcedropdown-menu-cachekey-7c14ac240c17b6cc4422db2f86b6f1ba.js"></script>
+
+
+<title>Development of T2K 280m Near Detector Software for Muon and Photon Reconstruction &mdash; T2K Intranet</title>
+
+        
+    <link rel="canonical" href="http://www.t2k.org/docs/thesis/001" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.t2k.org/favicon.ico" />
+    <link rel="apple-touch-icon" href="http://www.t2k.org/touch_icon.png" />
+
+
+
+
+
+
+    <link rel="search" href="http://www.t2k.org/@@search" title="Search this site" />
+
+
+
+        
+        
+
+        
+        
+
+        
+        
+
+        
+        
+    
+
+  </head>
+
+  <body class="template-serialized_folder_listing portaltype-serialized_folder site-t2k section-docs subsection-thesis subsection-thesis-001 icons-on userrole-anonymous" dir="ltr">
+    <div id="visual-portal-wrapper">
+
+      <div id="portal-top">
+        <div id="portal-header">
+    <p class="hiddenStructure">
+  <a accesskey="2" href="http://www.t2k.org/docs/thesis/001#content">Skip to content.</a> |
+
+  <a accesskey="6" href="http://www.t2k.org/docs/thesis/001#portal-globalnav">Skip to navigation</a>
+</p>
+
+
+
+<a id="portal-logo" title="T2K Intranet" accesskey="1" href="http://www.t2k.org">
+    <img src="http://www.t2k.org/logo.jpg" alt="T2K Intranet" title="T2K Intranet" height="57" width="114" /></a>
+
+
+    <h5 class="hiddenStructure">Sections</h5>
+
+    <ul id="portal-globalnav"><li id="portaltab-index_html" class="selected">
+        
+            </li><li id="portaltab-news" class="plain">
+        
+            </li></ul>
+
+</div>
+
+<div id="portal-personaltools-wrapper">
+
+<h5 class="hiddenStructure">Personal tools</h5>
+
+<ul id="portal-personaltools" class="visualInline">
+   
+   
+        <li><a href="howtoregister">Register</a></li>
+   
+
+    
+        <li id="personaltools-login">
+            <a href="http://www.t2k.org/acl_users/credentials_cookie_auth/require_login?came_from=http%3A//www.t2k.org">Log in</a>
+        </li>
+    
+
+</ul>
+</div>
+
+
+<div id="portal-breadcrumbs">
+
+    <span id="breadcrumbs-you-are-here">You
+are here:</span>
+    <span id="breadcrumbs-home">
+        <a href="http://www.t2k.org">Home</a>
+        <span class="breadcrumbSeparator">
+            /
+            
+        </span>
+    </span>
+    <span id="breadcrumbs-1" dir="ltr">
+        
+            <a href="http://www.t2k.org/docs">Official documents</a>
+            <span class="breadcrumbSeparator">
+                /
+                
+            </span>
+            
+         
+    </span>
+    <span id="breadcrumbs-2" dir="ltr">
+        
+            <a href="http://www.t2k.org/docs/thesis">T2K Theses (T2K-THESIS-nnn)</a>
+            <span class="breadcrumbSeparator">
+                /
+                
+            </span>
+            
+         
+    </span>
+    <span id="breadcrumbs-3" dir="ltr">
+        
+            
+            
+            <span id="breadcrumbs-current">Development of T2K 280m Near Detector Software for Muon and Photon Reconstruction</span>
+         
+    </span>
+
+</div>
+
+      </div>
+
+      <div class="visualClear" id="clear-space-before-wrapper-table"><!-- --></div>
+
+      <table id="portal-columns">
+        <tbody>
+          <tr>
+            
+                
+                
+                
+            
+
+            
+            <td id="portal-column-content">
+
+              <div id="viewlet-above-content"></div>
+
+              
+                <div class="">
+
+                    
+
+                    <span id="contentTopLeft"></span>
+                    <span id="contentTopRight"></span>
+
+                    
+
+    <dl class="portalMessage info" id="kssPortalMessage" style="display:none">
+        <dt>Info</dt>
+        <dd></dd>
+    </dl>
+
+
+
+                    
+                    <div id="content">
+                      
+                      
+
+                        
+                            
+                            
+                                
+                                
+            
+            <h1 class="documentFirstHeading">Development of T2K 280m Near Detector Software for Muon and Photon Reconstruction</h1>
+        
+                            
+                            
+
+
+
+
+                            
+                                
+                                
+            
+            <div class="documentDescription description">A Monte Carlo investigation into the efficiencies of the electromagnetic calorimeters in T2K’s off-axis near detector was undertaken. T2K is a long baseline neutrino oscillation experiment in Japan, running 295 km from the J-PARC facility in Tokai to the Super-Kamiokande detector in the Kamioka mine. The near detector will be installed on the J-PARC site during 2009, and has been designed to measure the neutrino flux, through charged current neutrino interactions, as well as the neutral current π 0 cross-section. To make these measurements, the calorimeters must reconstruct muons and photons with high efficiency, and it has been shown that 90% efficiency can be achieved for muons above 100 MeV and 80% for photons over 150 MeV. These are the two particles most important for the planned measurements; electrons are also very important and are expected to have efficiencies similar to photons. The efficiency deteriorates for particles with less energy, but this is clearly shown to be caused by the minimal signal created in the detector.
+
+To validate the Monte Carlo characterisation of the calorimeter, the same reconstruction methods were applied to data from the SciBooNE experiment. With the aim of measuring neutrino interaction cross-sections, the SciBooNE experiment was based at FermiLab in Illinois and used the Booster Neutrino Beam. One of SciBooNE’s detectors was the SciBar, a scintillating plastic detector similar in design to T2K’s calorimeter. The reconstruction showed 100% efficiency for locating charged muon tracks, with excellent position and direction reconstruction, and simultaneously confirmed the reconstruction of photon showers.
+</div>
+        
+                            
+
+                            
+                            <div id="content-core">
+                                
+
+
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      <span>
+	Number: 1<p></p>
+      </span>
+      <span>
+	Name: Ian Taylor<p></p>
+      </span>
+      <span>
+	Title: Development of T2K 280m Near Detector Software for Muon and Photon Reconstruction<p></p>
+      </span>
+      <span>
+	Folder Created: 2009-07-11<p></p>
+      </span>
+      <span>
+	Creators: Ian Taylor<p></p>
+      </span>
+      <span>
+	Categories: ND280<p></p>
+      </span>
+    </div>
+
+    
+    
+    
+
+        <dl>
+            
+            
+                
+                <dt class="">
+
+                    <span class="summary">
+                        <img width="16" height="16" src="http://www.t2k.org/pdf.png" alt="File" />
+			<span>
+			  <a href="http://www.t2k.org/docs/thesis/001/IJT-THESIS" class="contenttype-file state-internal url">The thesis PDF</a>
+			</span>
+			
+                    </span>
+
+                    <span class="documentByLine">
+                        
+                        
+                        
+                         
+                        
+                    </span>
+
+                </dt>
+
+                <dd>
+                    <span>          This is the final version, as printed and submitted to the University of London.</span>
+                    <p></p>
+                </dd>
+            
+            
+            
+        </dl>
+
+        
+
+    <!-- Navigation -->
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+
+
+
+                            </div>
+                            
+
+
+
+    <div class="visualClear"><!-- --></div>
+
+    <div class="documentActions">
+        
+
+            <p class="hiddenStructure">
+              Document Actions
+            </p>
+
+            <ul>
+                  <li id="document-action-print">
+                      <a href="javascript:this.print();" title="">Print this</a>
+                  </li>
+            </ul>
+        
+
+        
+
+    </div>
+
+
+                        
+
+                      
+                    </div>
+                    
+
+                    
+
+                    <span id="contentBottomLeft"></span>
+                    <span id="contentBottomRight"></span>
+
+                </div>
+              
+
+              <div id="viewlet-below-content">
+
+
+
+</div>
+
+            </td>
+            
+
+            
+                
+                <td id="portal-column-two">
+                  <div class="visualPadding">
+                    
+                      
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6c6f636174696f6e706f72746c6574" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6c6f636174696f6e706f72746c6574">
+
+
+  
+    <div>
+     
+    </div>
+  
+
+  
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a77656174686572706f72746c6574" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a77656174686572706f72746c6574">
+
+
+  
+    <div>
+     
+    </div>
+  
+
+  
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a63616c656e646172" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a63616c656e646172">
+<dl class="portlet portletCalendar">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://www.t2k.org/docs/pub/022?month:int=2&amp;year:int=2016&amp;orig_query=" rel="nofollow" title="Previous month" class="calendarPrev" data-month="2" id="calendar-previous" data-year="2016">&laquo;</a>
+
+        
+            March
+            2016
+        
+
+        <a href="http://www.t2k.org/docs/pub/022?month:int=4&amp;year:int=2016&amp;orig_query=" rel="nofollow" title="Next month" class="calendarNext" data-month="4" id="calendar-next" data-year="2016">&raquo;</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem">
+        <table class="ploneCalendar" summary="Calendar">
+            <caption class="hiddenStructure">March</caption>
+            <thead>
+                <tr class="weekdays"><th scope="col">Su</th><th scope="col">Mo</th><th scope="col">Tu</th><th scope="col">We</th><th scope="col">Th</th><th scope="col">Fr</th><th scope="col">Sa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                </tr>
+                <tr><td>6</td><td>7</td><td class="todaynoevent"><strong>8</strong></td><td>9</td><td>10</td><td>11</td><td>12</td>
+                </tr>
+                <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+                </tr>
+                <tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+                </tr>
+                <tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td>
+                </tr>
+            </tbody>
+
+        </table>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6576656e7473" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6576656e7473">
+<dl class="portlet portletEvents">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://www.t2k.org/events_listing" class="tile">
+            Upcoming Events
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    
+    <dd class="portletItem odd">
+        <a href="http://www.t2k.org/news/t2k201605" class="tile" title="Meeting at JPARC">
+            
+            T2K collaboration meeting
+        </a>
+            <span class="portletItemDetails">
+                
+                
+                <span>May 23, 2016 - May 28, 2016</span>
+                <span> &mdash;
+                    JPARC
+                </span>
+            </span>
+    </dd>
+    
+    
+    <dd class="portletItem even">
+        <a href="http://www.t2k.org/news/t2k201609" class="tile" title="Meeting at JPARC">
+            
+            T2K collaboration meeting
+        </a>
+            <span class="portletItemDetails">
+                
+                
+                <span>Sep 26, 2016 - Oct 01, 2016</span>
+                <span> &mdash;
+                    JPARC
+                </span>
+            </span>
+    </dd>
+    
+
+    
+
+    <dd class="portletFooter">
+        <a href="http://www.t2k.org/events_listing" class="tile">
+                Upcoming events&hellip;
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6c6172676566696c65706f72746c6574" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6c6172676566696c65706f72746c6574">
+
+
+  
+    <div>
+     
+<br>
+    </div>
+  
+
+  
+
+</div>
+
+<div class="portletWrapper" data-portlethash="706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6e657773" id="portletwrapper-706c6f6e652e7269676874636f6c756d6e0a636f6e746578740a2f74326b0a6e657773">
+<dl class="portlet portletNews">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href="http://www.t2k.org/news" class="tile">News</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    
+    <dd class="portletItem odd">
+
+        <a href="http://www.t2k.org/news/breakthrough2016/breakthrough" class="tile" title="Prize is shared with Kamland, Daya-Bay, Super-Kamiokande and SNO experiments">
+            
+            2016 Breakthrough Prize in Fundamental Physics awarded to K2K and T2K
+         </a>
+            <span class="portletItemDetails">Nov 09, 2015</span>
+
+    </dd>
+    
+    
+    <dd class="portletItem even">
+
+        <a href="http://www.t2k.org/news/suwaprize2013/suwa2013" class="tile" title="">
+            
+            J-PARC neutrino beam group awarded the 2013 Suwa award
+         </a>
+            <span class="portletItemDetails">Jan 25, 2014</span>
+
+    </dd>
+    
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <a href="http://www.t2k.org/news">
+          More news&hellip;
+        </a>
+        <span class="portletBottomRight"></span>
+    </dd>
+    
+</dl>
+
+</div>
+
+
+
+
+                    
+                    &nbsp;
+                  </div>
+                </td>
+                
+            
+          </tr>
+        </tbody>
+      </table>
+      
+
+      <div class="visualClear" id="clear-space-before-footer"><!-- --></div>
+
+      
+
+        <div id="portal-footer">
+<a href="http://plone.org" title="This site was built using Plone CMS, the Open Source Content Management System. Click for more information.">
+            Powered by Plone</a>
+</div>
+
+
+
+      
+
+      <div class="visualClear"><!-- --></div>
+    </div>
+</body>
+</html>
+

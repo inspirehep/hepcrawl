@@ -16,7 +16,8 @@ from w3lib.html import (
     remove_tags_with_content,
 )
 
-import lxml.html.clean as clean
+import lxml.etree
+from lxml.html import clean
 
 from .mappings import (
     COMMON_ACRONYMS,
@@ -104,6 +105,7 @@ def clean_whitespace_characters(text):
     """Remove unwanted special characters from abstract."""
     text = text.replace("\n", "")
     text = text.replace("\t", "")
+    text = text.replace("\r", " ")
     return text
 
 
@@ -122,6 +124,9 @@ def translate_language(lang):
 def remove_attributes_from_tags(text):
     """Removes attributes from e.g. MathML tags"""
     if text:
-        cleaner = clean.Cleaner(safe_attrs_only=True, remove_unknown_tags=False)
-        text = cleaner.clean_html(text)
+        try:
+            cleaner = clean.Cleaner(safe_attrs_only=True, remove_unknown_tags=False)
+            text = cleaner.clean_html(text)
+        except lxml.etree.ParserError:
+            return text
     return text
