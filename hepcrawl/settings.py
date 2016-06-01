@@ -17,6 +17,9 @@ http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 """
 
+import os
+
+
 BOT_NAME = 'hepcrawl'
 
 SPIDER_MODULES = ['hepcrawl.spiders']
@@ -69,15 +72,29 @@ SENTRY_DSN = ''
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
+    'hepcrawl.pipelines.InspireCeleryPushPipeline': 300,
+}
+
 
 API_PIPELINE_URL = ""
 API_PIPELINE_TASK_ENDPOINT_DEFAULT = ""
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
-ITEM_PIPELINES = {
-    # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
-    'hepcrawl.pipelines.InspireAPIPushPipeline': 300,
-}
+# Celery
+# ======
+BROKER_URL = os.environ.get(
+    "BROKER_URL",
+    "amqp://guest:guest@localhost:5672//")
+CELERY_RESULT_BACKEND = os.environ.get(
+    "CELERY_RESULT_BACKEND",
+    "amqp://guest:guest@localhost:5672//")
+CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
+CELERY_TIMEZONE = 'Europe/Amsterdam'
+CELERY_DISABLE_RATE_LIMITS = True
+
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

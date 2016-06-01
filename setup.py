@@ -25,6 +25,7 @@ requirements = [
     'six>=1.9.0',
     'HarvestingKit>=0.6.3',
     'requests>=2.8.1',
+    'celery>=3.1.23',
 ]
 
 test_requirements = [

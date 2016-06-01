@@ -19,6 +19,8 @@ import os
 import json
 import requests
 
+from celery import Celery
+
 from .utils import get_temporary_file
 
 
@@ -126,11 +128,43 @@ class InspireAPIPushPipeline(object):
                     (err['exception'].getTraceback(), str(err['sender']))
                     for err in spider.state['errors']
                 ]
-            payload = {
+            payload.update({
                 "job_id": os.environ['SCRAPY_JOB'],
                 "results_uri": os.environ['SCRAPY_FEED_URI'],
                 "log_file": os.environ['SCRAPY_LOG_FILE'],
-            }
+            })
             requests.post(api_url, json={
                 "kwargs": payload
             })
+
+
+class InspireCeleryPushPipeline(InspireAPIPushPipeline):
+
+    def __init__(self):
+        self.celery = Celery()
+
+    def open_spider(self, spider):
+        self.celery.conf.update(dict(
+            BROKER_URL=spider.settings['BROKER_URL'],
+            CELERY_RESULT_BACKEND=spider.settings['CELERY_RESULT_BACKEND'],
+            CELERY_ACCEPT_CONTENT=spider.settings['CELERY_ACCEPT_CONTENT'],
+            CELERY_TIMEZONE=spider.settings['CELERY_TIMEZONE'],
+            CELERY_DISABLE_RATE_LIMITS=spider.settings['CELERY_DISABLE_RATE_LIMITS'],
+            CELERY_TASK_SERIALIZER='json',
+            CELERY_RESULT_SERIALIZER='json',
+        ))
+
+    def close_spider(self, spider):
+        if 'SCRAPY_JOB' in os.environ:
+            payload = dict(log_file=os.environ['SCRAPY_LOG_FILE'])
+            if 'errors' in spider.state:
+                # There has been errors!
+                payload['errors'] = [
+                    (err['exception'].getTraceback(), str(err['sender']))
+                    for err in spider.state['errors']
+                ]
+            self.celery.send_task(
+                "inspire_crawler.tasks.submit_results",
+                args=(os.environ['SCRAPY_JOB'], os.environ['SCRAPY_FEED_URI']),
+                kwargs=payload,
+            )
