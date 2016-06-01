@@ -19,7 +19,7 @@ readme = open('README.rst').read()
 history = open('CHANGES.rst').read()
 
 requirements = [
-    'Scrapy>=1.0.3',
+    'Scrapy>=1.1.0',
     'scrapyd>=1.1.0',
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',

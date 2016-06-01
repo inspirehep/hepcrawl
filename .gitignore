@@ -49,5 +49,11 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+# Scrapy
+jobs
+dbs
+items
+logs
+
 # Local settings
 local_settings.py
