@@ -1,6 +1,6 @@
 ..
     This file is part of hepcrawl.
-    Copyright (C) 2015 CERN.
+    Copyright (C) 2015, 2016 CERN.
 
     hepcrawl is a free software; you can redistribute it and/or modify it
     under the terms of the Revised BSD License; see LICENSE file for
@@ -10,6 +10,22 @@
 ==========
  HEPcrawl
 ==========
+
+.. image:: https://img.shields.io/travis/inspirehep/hepcrawl.svg
+        :target: https://travis-ci.org/inspirehep/hepcrawl
+
+.. image:: https://img.shields.io/coveralls/inspirehep/hepcrawl.svg
+        :target: https://coveralls.io/r/inspirehep/hepcrawl
+
+.. image:: https://img.shields.io/github/tag/inspirehep/hepcrawl.svg
+        :target: https://github.com/inspirehep/hepcrawl/releases
+
+.. image:: https://img.shields.io/pypi/dm/hepcrawl.svg
+        :target: https://pypi.python.org/pypi/hepcrawl
+
+.. image:: https://img.shields.io/github/license/inspirehep/hepcrawl.svg
+        :target: https://github.com/inspirehep/hepcrawl/blob/master/LICENSE
+
 
 HEPcrawl is a harvesting library based on Scrapy (http://scrapy.org) for INSPIRE-HEP
 (http://inspirehep.net) that focuses on automatic and semi-automatic retrieval of
