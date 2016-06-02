@@ -24,6 +24,7 @@ install_requires = [
     'HarvestingKit>=0.6.3',
     'requests>=2.8.1',
     'celery>=3.1.23',
+    'pyasn1>=0.1.8'  # Needed for dependency resolving.
 ]
 
 tests_require = [
