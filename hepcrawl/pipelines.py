@@ -116,12 +116,13 @@ class InspireAPIPushPipeline(object):
         return item
 
     def close_spider(self, spider):
-        """Post results to API."""
+        """Post results to HTTP API."""
+        task_endpoint = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
+            spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
+        )
         api_url = os.path.join(
             spider.settings['API_PIPELINE_URL'],
-            spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
-                spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
-            )
+            task_endpoint
         )
         if api_url and 'SCRAPY_JOB' in os.environ:
             payload = {}
@@ -158,7 +159,11 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
         ))
 
     def close_spider(self, spider):
+        """Post results to BROKER API."""
         if 'SCRAPY_JOB' in os.environ:
+            task_endpoint = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
+                spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
+            )
             payload = dict(log_file=os.environ['SCRAPY_LOG_FILE'])
             if 'errors' in spider.state:
                 # There has been errors!
@@ -167,7 +172,7 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
                     for err in spider.state['errors']
                 ]
             self.celery.send_task(
-                "inspire_crawler.tasks.submit_results",
+                task_endpoint,
                 args=(os.environ['SCRAPY_JOB'], os.environ['SCRAPY_FEED_URI']),
                 kwargs=payload,
             )
