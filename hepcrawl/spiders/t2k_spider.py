@@ -71,7 +71,7 @@ class T2kSpider(XMLFeedSpider):
         authors = []
 
         for author in author_line:
-            surname, given_names = split_fullname(author, surname_first=False)
+            surname, given_names = split_fullname(author)
             authors.append({
                 'surname': surname,
                 'given_names': given_names,
