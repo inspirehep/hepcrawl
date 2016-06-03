@@ -24,23 +24,24 @@ install_requires = [
     'HarvestingKit>=0.6.3',
     'requests>=2.8.1',
     'celery>=3.1.23',
+    'redis>=2.10.5',
     'pyasn1>=0.1.8'  # Needed for dependency resolving.
 ]
 
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'isort==4.2.2',
     'pytest>=2.8.0',
     'pytest-cov>=2.1.0',
     'pytest-pep8>=1.0.6',
-    'pytest-runner>=2.7.0',
-    'responses>=0.5.0'
+    'responses>=0.5.0',
+    'pydocstyle>=1.0.0',
 ]
 
 extras_require = {
     'docs': [
         'Sphinx>=1.4',
-        'Sphinx-PyPI-upload>=0.2.1',
     ],
     'tests': tests_require,
     'sentry': [
@@ -48,6 +49,10 @@ extras_require = {
         'scrapy-sentry',
     ],
 }
+
+setup_requires = [
+    'pytest-runner>=2.7.0',
+]
 
 extras_require['all'] = []
 for name, reqs in extras_require.items():
@@ -72,6 +77,7 @@ setup(
     zip_safe=False,
     include_package_data=True,
     platforms='any',
+    setup_requires=setup_requires,
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require=extras_require,
