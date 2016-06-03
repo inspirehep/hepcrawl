@@ -7,24 +7,22 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""
-Pipelines for saving extracted records are defined here.
+"""Pipelines for saving extracted items are defined here.
 
 Don't forget to add pipelines to the ITEM_PIPELINES setting
 See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 """
 
 import os
-
+import datetime
 import json
 import requests
-
-from celery import Celery
 
 from .utils import get_temporary_file
 
 
 class JsonWriterPipeline(object):
+    """Pipeline for outputting items in JSON lines format."""
 
     def __init__(self, output_uri=None):
         self.output_uri = output_uri
@@ -69,13 +67,24 @@ class JsonWriterPipeline(object):
 
 
 class InspireAPIPushPipeline(object):
+    """Push to INSPIRE API via tasks API."""
+
+    def __init__(self):
+        self.count = 0
 
     def process_item(self, item, spider):
         """Convert internal format to INSPIRE data model."""
+        self.count += 1
         if 'related_article_doi' in item:
             item['dois'] += item.pop('related_article_doi', [])
 
         source = item.pop('source', spider.name)
+        item['acquisition_source'] = {
+            'source': source,
+            'method': 'hepcrawl',
+            'date': datetime.datetime.now().isoformat(),
+            'submission_number': os.environ.get('SCRAPY_JOB'),
+        }
 
         item['titles'] = [{
             'title': item.pop('title', ''),
@@ -115,6 +124,25 @@ class InspireAPIPushPipeline(object):
         }]
         return item
 
+    def _prepare_payload(self, spider):
+        """Return payload for push."""
+        payload = dict(
+            job_id=os.environ['SCRAPY_JOB'],
+            results_uri=os.environ['SCRAPY_FEED_URI'],
+            log_file=os.environ['SCRAPY_LOG_FILE'],
+        )
+        payload['errors'] = [
+            (str(err['exception']), str(err['sender']))
+            for err in spider.state.get('errors', [])
+        ]
+        return payload
+
+    def _cleanup(self, spider):
+        """Run cleanup."""
+        # Cleanup errors
+        if 'errors' in spider.state:
+            del spider.state['errors']
+
     def close_spider(self, spider):
         """Post results to HTTP API."""
         task_endpoint = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
@@ -125,26 +153,20 @@ class InspireAPIPushPipeline(object):
             task_endpoint
         )
         if api_url and 'SCRAPY_JOB' in os.environ:
-            payload = {}
-            if 'errors' in spider.state:
-                # There has been errors!
-                payload['errors'] = [
-                    (err['exception'].getTraceback(), str(err['sender']))
-                    for err in spider.state['errors']
-                ]
-            payload.update({
-                "job_id": os.environ['SCRAPY_JOB'],
-                "results_uri": os.environ['SCRAPY_FEED_URI'],
-                "log_file": os.environ['SCRAPY_LOG_FILE'],
-            })
             requests.post(api_url, json={
-                "kwargs": payload
+                "kwargs": self._prepare_payload(spider)
             })
+
+        self._cleanup(spider)
 
 
 class InspireCeleryPushPipeline(InspireAPIPushPipeline):
+    """Push to INSPIRE API via Celery."""
 
     def __init__(self):
+        from celery import Celery
+
+        super(InspireCeleryPushPipeline, self).__init__()
         self.celery = Celery()
 
     def open_spider(self, spider):
@@ -160,19 +182,13 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
 
     def close_spider(self, spider):
         """Post results to BROKER API."""
-        if 'SCRAPY_JOB' in os.environ:
+        if 'SCRAPY_JOB' in os.environ and self.count > 0:
             task_endpoint = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
                 spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
             )
-            payload = dict(log_file=os.environ['SCRAPY_LOG_FILE'])
-            if 'errors' in spider.state:
-                # There has been errors!
-                payload['errors'] = [
-                    (err['exception'].getTraceback(), str(err['sender']))
-                    for err in spider.state['errors']
-                ]
             self.celery.send_task(
                 task_endpoint,
-                args=(os.environ['SCRAPY_JOB'], os.environ['SCRAPY_FEED_URI']),
-                kwargs=payload,
+                kwargs=self._prepare_payload(spider),
             )
+
+        self._cleanup(spider)

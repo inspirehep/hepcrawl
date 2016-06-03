@@ -80,6 +80,9 @@ class HEPRecord(scrapy.Item):
     source = scrapy.Field()
     """Source of the record, e.g. 'World Scientific'. Used across many fields."""
 
+    acquisition_source = scrapy.Field()
+    """Source of the record in the acquisition_source format."""
+
     abstracts = scrapy.Field()
     """Final structure of abstract information. DO NOT ADD DATA TO THIS FIELD."""
 
