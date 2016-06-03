@@ -86,11 +86,12 @@ class APSSpider(Spider):
         for author in article['authors']:
             if author['type'] == 'Person':
                 author_affiliations = []
-                affiliations = build_dict(article['affiliations'], 'id')
-                for aff_id in author['affiliationIds']:
-                    author_affiliations.append({
-                        'value': affiliations[aff_id]['name']
-                    })
+                if 'affiliations' in article and 'affiliationIds' in author:
+                    affiliations = build_dict(article['affiliations'], 'id')
+                    for aff_id in author['affiliationIds']:
+                        author_affiliations.append({
+                            'value': affiliations[aff_id]['name']
+                        })
 
                 authors.append({
                     'surname': author.get('surname', ''),
