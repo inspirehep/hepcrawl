@@ -42,7 +42,7 @@ class ArxivSpider(XMLFeedSpider):
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         record.add_xpath('title', '//title/text()')
         record.add_xpath('abstract', '//abstract/text()')
-        record.add_xpath('date_published', '//created/text()')
+        record.add_xpath('preprint_date', '//created/text()')
         record.add_xpath('dois', '//doi//text()')
         record.add_xpath('pubinfo_freetext', '//journal-ref//text()')
         record.add_value('source', 'arXiv')
@@ -55,6 +55,8 @@ class ArxivSpider(XMLFeedSpider):
         record.add_value('page_nr', pages)
         record.add_value('public_notes', notes)
         record.add_value('journal_doctype', doctype)
+
+        record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
 
         record.add_value('arxiv_eprints', self._get_arxiv_eprint(node))
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
@@ -86,18 +88,17 @@ class ArxivSpider(XMLFeedSpider):
                 authors.append({
                     'surname': keyname,
                     'given_names': forenames,
-                    'affiliations': ''
                 })
         return authors, collaboration
 
     def _get_comments_info(self, node):
-        comments = get_first(node.xpath('//comments//text()').extract())
+        comments = get_first(node.xpath('//comments//text()').extract(), default='')
         notes = {
             'source': 'arXiv',
             'value': comments
         }
 
-        page_nr = get_first(comments.split())
+        page_nr = get_first(comments.split(), default='')
         pages = page_nr if 'pages' in comments and page_nr.isdigit() else ''
 
         doctype = 'arXiv'  # TODO: check out what happens here
@@ -105,16 +106,22 @@ class ArxivSpider(XMLFeedSpider):
             doctype = 'ConferencePaper'
         return pages, notes, doctype
 
+    def _get_arxiv_report_numbers(self, node):
+        report_numbers = get_first(node.xpath('//report-no//text()').extract(), default='')
+        if report_numbers:
+            return [rn for rn in report_numbers.split(',')]
+        return []
+
     def _get_arxiv_eprint(self, node):
-        category_str = get_first(node.xpath('//categories//text()').extract())
-        id = get_first(node.xpath('//id//text()').extract())
+        category_str = get_first(node.xpath('//categories//text()').extract(), default='')
+        id = get_first(node.xpath('//id//text()').extract(), default='')
         return {
             'value': id,
             'categories': category_str.split()
         }
 
     def _get_license(self, node):
-        license_url = get_first(node.xpath('//license//text()').extract())
+        license_url = get_first(node.xpath('//license//text()').extract(), default='')
         license_str = ''
         licenses = {  # TODO: more licenses here?
             'creativecommons.org/licenses/by/3.0': 'CC-BY-3.0',
@@ -130,5 +137,5 @@ class ArxivSpider(XMLFeedSpider):
     def _get_ext_systems_number(self, node):
         return {
             'institute': 'arXiv',
-            'value': get_first(node.xpath('//identifier//text()').extract())
+            'value': get_first(node.xpath('//identifier//text()').extract(), default='')
         }

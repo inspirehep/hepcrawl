@@ -49,12 +49,12 @@ def test_title(results):
         assert record['title'] == title
 
 
-def test_date_published(results):
-    """Test extracting date_published."""
-    date_published = "2016-01-13"
+def test_preprint_date(results):
+    """Test extracting preprint_date."""
+    preprint_date = "2016-01-13"
     for record in results:
-        assert 'date_published' in record
-        assert record['date_published'] == date_published
+        assert 'preprint_date' in record
+        assert record['preprint_date'] == preprint_date
 
 
 def test_page_nr(results):

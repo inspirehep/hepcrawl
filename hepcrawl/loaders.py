@@ -49,6 +49,7 @@ class HEPLoader(ItemLoader):
     in the list.
     """
     source_out = TakeFirst()
+    preprint_date_out = TakeFirst()
 
     authors_in = MapCompose(
         parse_authors,

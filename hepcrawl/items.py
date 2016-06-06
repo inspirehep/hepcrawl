@@ -129,6 +129,9 @@ class HEPRecord(scrapy.Item):
     imprints = scrapy.Field()
     """Structure for imprint information."""
 
+    report_numbers = scrapy.Field()
+    """Structure for report_numbers, e.g. ['CERN-001', 'DESY-002']."""
+
     date_published = scrapy.Field()
     """Date of publication in string format, e.g. '2016-01-14'."""
 
@@ -182,6 +185,9 @@ class HEPRecord(scrapy.Item):
 
     publication_info = scrapy.Field()
     """Structured publication information."""
+
+    preprint_date = scrapy.Field()
+    """Date of preprint release."""
 
     public_notes = scrapy.Field()
     """Notes

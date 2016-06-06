@@ -99,6 +99,10 @@ class InspireAPIPushPipeline(object):
             'value': item.pop('abstract', ''),
             'source': source,
         }]
+        item['report_numbers'] = [
+            {"value": rn, "source": source}
+            for rn in item.get('report_numbers', [])
+        ]
         item['imprints'] = [{
             'date': item.pop('date_published', ''),
         }]
