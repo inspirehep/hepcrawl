@@ -39,7 +39,7 @@ Installation for developers
 
 We start by creating a virtual environment for our Python packages:
 
-.. code-block:: shell
+.. code-block:: console
 
     mkvirtualenv hepcrawl
     cdvirtualenv
@@ -48,7 +48,7 @@ We start by creating a virtual environment for our Python packages:
 
 Now we grab the code and install it in development mode:
 
-.. code-block:: shell
+.. code-block:: console
 
     git clone https://github.com/inspirehep/hepcrawl.git
     cd hepcrawl
@@ -60,7 +60,7 @@ taken into account = no need to install again after changing something.
 
 Finally run the tests to make sure all is setup correctly:
 
-.. code-block:: shell
+.. code-block:: console
 
     python setup.py test
 
