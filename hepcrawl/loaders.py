@@ -43,13 +43,31 @@ from .dateutils import format_date
 class HEPLoader(ItemLoader):
     """Input/Output processors for a HEP record.
 
-    The item values are usually lists.
+    The item values are typically lists from the `xpath.extract()` functions.
 
-    TakeFirst is used when only one item is expected to just take the first item
-    in the list.
+    Common input processors
+    ~~~~~~~~~~~~~~~~~~~~~~~
+
+    Every field suffixed by `_in`.
+
+    MapCompose receives a series of functions to apply to every element
+    in the input value list. Typically used for "cleaning" data items.
+
+    Common output processors
+    ~~~~~~~~~~~~~~~~~~~~~~~~
+
+    Every field suffixed by `_out`.
+
+    TakeFirst is used when only one item is expected to just take the first
+    item in the list. E.g. ['foo', 'bar'] becomes 'foo'.
+
+    Join is used to join together all elements in a list to one string.
+    E.g. ['foo', 'bar'] becomes 'foo bar'.
+
+    ListToValueDict is used to generate the appropriate nested dictionary
+    structures required by the HEP data model.
     """
     source_out = TakeFirst()
-    preprint_date_out = TakeFirst()
 
     authors_in = MapCompose(
         parse_authors,
@@ -88,7 +106,9 @@ class HEPLoader(ItemLoader):
     journal_volume_out = TakeFirst()
     journal_issue_out = TakeFirst()
     journal_doctype_out = TakeFirst()
+    pubinfo_freetext_out = TakeFirst()
 
+    preprint_date_out = TakeFirst()
     date_published_in = MapCompose(
         format_date,
     )
