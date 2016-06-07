@@ -37,9 +37,11 @@ def scrape_pos_page_body():
 def record(scrape_pos_page_body):
     """Return results generator from the PoS spider."""
     spider = pos_spider.POSSpider()
-    request = spider.parse(fake_response_from_file('pos/sample_pos_record.xml')).next()
+    request = spider.parse(
+        fake_response_from_file('pos/sample_pos_record.xml')
+    ).next()
     response = HtmlResponse(
-        url=request.meta['pos_url'],
+        url=request.url,
         request=request,
         body=scrape_pos_page_body,
         **{'encoding': 'utf-8'}

@@ -9,7 +9,6 @@
 
 
 import six
-import re
 import time
 
 from datetime import date as real_date

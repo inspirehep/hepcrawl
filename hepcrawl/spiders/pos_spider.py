@@ -12,7 +12,7 @@
 import re
 
 from scrapy import Request, Selector
-from scrapy.spiders import XMLFeedSpider
+from scrapy.spiders import Spider
 from ..utils import get_first
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
@@ -20,21 +20,14 @@ from ..loaders import HEPLoader
 from ..mappings import OA_LICENSES
 
 
-class POSSpider(XMLFeedSpider):
+class POSSpider(Spider):
     """POS/Sissa crawler.
 
     Extracts from metadata:
     title, article-id, conf-acronym, authors, affiliations,
     publication-date, publisher, license, language, link
     """
-
     name = 'PoS'
-    iterator = 'xml'
-    itertag = 'OAI-PMH:record'
-    namespaces = [
-        ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/")
-    ]
-
     pos_base_url = "http://pos.sissa.it/contribution?id="
 
     def __init__(self, source_file=None, **kwargs):
@@ -45,35 +38,39 @@ class POSSpider(XMLFeedSpider):
     def start_requests(self):
         yield Request(self.source_file)
 
-    def parse_node(self, response, node):
+    def parse(self, response):
         """Get PDF information."""
+        node = response.selector
         node.remove_namespaces()
-        identifier = response.xpath(
-            "//metadata//identifier/text()"
-        ).extract_first()
-        pos_url = "{0}{1}".format(self.pos_base_url, identifier)
-        meta = {}
-        meta["pos_url"] = pos_url
-        meta["node"] = node
-        return Request(pos_url, meta=meta, callback=self.scrape_pos_page)
+        for record in node.xpath('//record'):
+            identifier = record.xpath('.//identifier/text()').extract_first()
+            if identifier:
+                # Probably all links lead to same place, so take first
+                pos_url = "{0}{1}".format(self.pos_base_url, identifier)
+                request = Request(pos_url, callback=self.scrape_pos_page)
+                request.meta["url"] = response.url
+                request.meta["record"] = record.extract()
+                yield request
 
     def scrape_pos_page(self, response):
         """Parse a page for PDF link."""
-        response.meta["pos_pdf_url"] = response.xpath(
+        response.meta["pos_pdf_url"] = response.selector.xpath(
             "//a[contains(text(),'pdf')]/@href"
         ).extract_first()
+        response.meta["pos_url"] = response.url
         return self.build_item(response)
 
     def build_item(self, response):
         """Parse an PoS XML exported file into a HEP record."""
-        node = response.meta["node"]
-
-        record = HEPLoader(item=HEPRecord(), selector=node, response=response)
+        text = response.meta["record"]
+        node = Selector(text=text, type="xml")
+        node.remove_namespaces()
+        record = HEPLoader(item=HEPRecord(), selector=node)
         record.add_xpath('title', '//metadata//title/text()')
         record.add_xpath('subject_terms', '//metadata//subject/text()')
         record.add_xpath('source', '//metadata//publisher/text()')
-        record.add_xpath('external_system_numbers', '//header//identifier/text()')
 
+        record.add_value('external_system_numbers', self._get_ext_systems_number(node))
         pub_license, pub_license_url, openaccess = self._get_license(node)
         if pub_license:
             record.add_value('license', pub_license)
@@ -117,6 +114,12 @@ class POSSpider(XMLFeedSpider):
 
         record.add_value('collections', ['HEP', 'ConferencePaper'])
         return record.load_item()
+
+    def _get_ext_systems_number(self, node):
+        return {
+            'institute': 'PoS',
+            'value': node.xpath('//metadata//identifier/text()').extract_first()
+        }
 
     def _get_license(self, node):
         """Get article licence."""
