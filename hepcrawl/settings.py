@@ -70,7 +70,12 @@ DOWNLOADER_MIDDLEWARES = {
 EXTENSIONS = {
     'hepcrawl.extensions.ErrorHandler': 555,
 }
-SENTRY_DSN = ''
+SENTRY_DSN = os.environ.get('SENTRY_DSN')
+if SENTRY_DSN:
+    EXTENSIONS = {
+        'scrapy_sentry.extensions.Errors': 10,
+        'hepcrawl.extensions.ErrorHandler': 555,
+    }
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html

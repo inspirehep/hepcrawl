@@ -137,7 +137,7 @@ This will install all dependencies, including ``scrapyd``.
 
 
 Enable Sentry
-=============
+-------------
 
 To enable sentry you need to install some packages:
 
@@ -146,24 +146,24 @@ To enable sentry you need to install some packages:
     pip install -e .[sentry]
 
 
-And enable the correct ``EXTENSIONS``:
+And then add to your environment the variable ``SENTRY_DSN`` with the connection information.
 
-.. code-block:: python
+.. code-block:: console
 
-    EXTENSIONS = {
-        'scrapy_sentry.extensions.Errors': 10,
-        'hepcrawl.extensions.ErrorHandler': 555,
-    }
-    SENTRY_DSN = 'YOUR DSN URL'
+    SENTRY_DSN="https://foo:bar@sentry.example.com/1" scrapyd
+
+
+.. note::
+
+    If you have setup `supervisord` you can use the ``environment`` config option to add variables.
 
 
 
 Known issues
 ============
 
-
 Sentry integration with Python 2.7.9
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 You need to install our fork of Raven:
 
