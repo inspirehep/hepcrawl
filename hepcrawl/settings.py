@@ -29,7 +29,8 @@ NEWSPIDER_MODULE = 'hepcrawl.spiders'
 # user-agent
 USER_AGENT = 'hepcrawl (+http://www.inspirehep.net)'
 
-# DUPEFILTER_CLASS = "scrapy.dupefilters.BaseDupeFilter"
+# Allow duplicate requests
+DUPEFILTER_CLASS = "scrapy.dupefilters.BaseDupeFilter"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS=32
