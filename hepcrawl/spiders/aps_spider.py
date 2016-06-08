@@ -12,6 +12,9 @@
 from __future__ import absolute_import, print_function
 
 import json
+import link_header
+
+from furl import furl
 
 from scrapy import Request, Spider
 
@@ -21,17 +24,43 @@ from ..utils import get_nested, build_dict
 
 
 class APSSpider(Spider):
-    """APS crawler."""
+    """APS crawler.
 
+    Uses the APS REST API v2. See documentation here:
+    http://harvest.aps.org/docs/harvest-api#endpoints
+
+    scrapy crawl APS -a 'from_date=2016-05-01' -a 'until_date=2016-05-15' -a 'set=openaccess'
+    """
     name = 'APS'
+    aps_base_url = "http://harvest.aps.org/v2/journals/articles"
 
-    def __init__(self, url=None, **kwargs):
+    def __init__(self, url=None, from_date=None, until_date=None,
+                 date="published", journals=None, sets=None, per_page=100,
+                 **kwargs):
         """Construct APS spider."""
         super(APSSpider, self).__init__(**kwargs)
+        if url is None:
+            # We Construct.
+            params = {}
+            if from_date:
+                params['from'] = from_date
+            if until_date:
+                params['until'] = until_date
+            if date:
+                params['date'] = date
+            if journals:
+                params['journals'] = journals
+            if per_page:
+                params['per_page'] = per_page
+            if sets:
+                params['set'] = sets
+
+            # Put it together: furl is awesome
+            url = furl(APSSpider.aps_base_url).add(params).url
         self.url = url
 
     def start_requests(self):
-        # TODO: Add authentication handling
+        """Just yield the url."""
         yield Request(self.url)
 
     def parse(self, response):
@@ -78,6 +107,14 @@ class APSSpider(Spider):
 
             record.add_value('collections', ['HEP', 'Citeable', 'Published'])
             yield record.load_item()
+
+        # Pagination support. Will yield until no more "next" pages are found
+        if 'Link' in response.headers:
+            links = link_header.parse(response.headers['Link'])
+            next = links.links_by_attr_pairs([('rel', 'next')])
+            if next:
+                next_url = next[0].href
+                yield Request(next_url)
 
     def _get_authors_and_collab(self, article):
         authors = []

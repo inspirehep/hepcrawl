@@ -25,7 +25,9 @@ install_requires = [
     'requests>=2.8.1',
     'celery>=3.1.23',
     'redis>=2.10.5',
-    'pyasn1>=0.1.8'  # Needed for dependency resolving.
+    'pyasn1>=0.1.8',  # Needed for dependency resolving.
+    'LinkHeader>=0.4.3',
+    'furl>=0.4.95',
 ]
 
 tests_require = [
