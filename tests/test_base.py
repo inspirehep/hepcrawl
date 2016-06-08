@@ -155,8 +155,8 @@ def splash():
 
 def test_splash(splash):
     """Test web page scraping. There should be a direct pdf link."""
-    assert splash["files"]
-    assert splash["files"][0] == "http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf"
+    assert splash["file_urls"]
+    assert splash["file_urls"][0] == "http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf"
 
 
 @pytest.fixture

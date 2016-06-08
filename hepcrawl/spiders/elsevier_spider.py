@@ -18,7 +18,6 @@ from tempfile import mkdtemp
 
 import dateutil.parser as dparser
 
-import datetime
 import requests
 
 from scrapy import Request
@@ -1000,7 +999,7 @@ class ElsevierSpider(XMLFeedSpider):
 
         xml_file = response.meta.get("xml_url")
         if xml_file:
-            record.add_value('files', self.add_fft_file(xml_file, "HIDDEN", "Fulltext"))
+            record.add_value('additional_files', self.add_fft_file(xml_file, "HIDDEN", "Fulltext"))
             sd_url = self._get_sd_url(xml_file)
             if requests.head(sd_url).status_code == 200:  # Test if valid url
                 record.add_value("urls", sd_url)

@@ -20,7 +20,6 @@ from hepcrawl.spiders import t2k_spider
 from .responses import fake_response_from_file
 
 
-
 @pytest.fixture
 def record():
     """Return results from the T2K spider."""
@@ -100,18 +99,18 @@ def test_authors(record):
         assert record['authors'][index]['full_name'] == name
 
 
-
 def test_url(record):
     """Test pdf link(s)"""
     url = "file:///tests/responses/t2k/001"
     assert 'urls' in record
     assert record['urls'][0]['url'] == url
 
+
 def test_pdf_link(record):
     """Test pdf link(s)"""
     files = "http://www.t2k.org/docs/thesis/001/IJT-THESIS"
-    assert 'files' in record
-    assert record['files'][0]['url'] == files
+    assert 'additional_files' in record
+    assert record['additional_files'][0]['url'] == files
 
 
 @pytest.fixture
@@ -125,6 +124,7 @@ def non_url():
     nodes = selector.xpath('//%s' % spider.itertag)
 
     return spider.parse_node(response, nodes[0]).next()
+
 
 def test_non_url(non_url):
     """Test that the result of calling `parse_node` without a url

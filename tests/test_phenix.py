@@ -39,7 +39,7 @@ def non_thesis():
     body = """
     <ul>
     <li><b>M.Sc. Author</b>:
-    "This is an Master's thesis, not a PhD", &nbsp; M.Sc. thesis at Master Science University, 2016,&nbsp; 
+    "This is an Master's thesis, not a PhD", &nbsp; M.Sc. thesis at Master Science University, 2016,&nbsp;
     <br><br>
     </ul>
     """
@@ -83,5 +83,5 @@ def test_authors(record):
 def test_pdf_link(record):
     """Test pdf link(s)"""
     files = "http://www.phenix.bnl.gov/phenix/WWW/talk/archive/theses/2015/Guragain_Hari-DISSERTATION.pdf"
-    assert 'files' in record
-    assert record['files'][0]['url'] == files
+    assert 'additional_files' in record
+    assert record['additional_files'][0]['url'] == files

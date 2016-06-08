@@ -137,8 +137,8 @@ def test_files_scraped(record):
     This pdf link is scraped from the splash page.
     The fake response has a domain www.example.com.
     """
-    assert record["files"]
-    assert record["files"][0] == "http://www.example.com/studio/item/bdr:11303/PDF/"
+    assert record["file_urls"]
+    assert record["file_urls"][0] == "http://www.example.com/studio/item/bdr:11303/PDF/"
 
 def test_page_nr(record):
     """Test number of pages."""

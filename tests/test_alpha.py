@@ -86,8 +86,8 @@ def test_pdf_link(results):
     """Test pdf link(s)"""
     files = ["http://alpha.web.cern.ch/sites/alpha.web.cern.ch/files/thesis_chukman_dec23_dist.pdf"]
     for record in results:
-        assert 'files' in record
-        assert record['files'] == files
+        assert 'file_urls' in record
+        assert record['file_urls'] == files
 
 
 def test_urls(results):

@@ -135,7 +135,7 @@ class AlphaSpider(CrawlSpider):
             record.add_value("abstract", abstract)
 
             record.add_xpath(
-                'files', "./div[@class = 'content clearfix']//span[@class='file']/a/@href")
+                'file_urls', "./div[@class = 'content clearfix']//span[@class='file']/a/@href")
             record.add_value('source', 'Alpha experiment')
             record.add_value('collections', ['HEP', 'THESIS'])
 

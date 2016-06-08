@@ -81,8 +81,8 @@ def splash():
 
 def test_scrape(splash):
     """Test pdf link scraping"""
-    assert splash["files"]
-    assert splash["files"] == [u'http://philpapers.org/www.example.com/file.pdf']
+    assert splash["file_urls"]
+    assert splash["file_urls"] == [u'http://philpapers.org/www.example.com/file.pdf']
 
 def test_parse(parse_requests):
     """Test request metadata that has been defined in parse()."""
@@ -144,8 +144,8 @@ def test_pdf_link(record):
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fanalysis.oxfordjournals.org%2Fcontent%2F66%2F3%2F194.full.pdf%2Bhtml%3Fframe%3Dsidebar",
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fbrogaardb.googlepages.com%2Ftensedrelationsoffprint.pdf"
     ]
-    assert 'files' in record
-    assert record['files'] == files
+    assert 'file_urls' in record
+    assert record['file_urls'] == files
 
 def test_journal(journal):
     """Test journal info getting."""

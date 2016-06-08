@@ -179,7 +179,7 @@ class BaseSpider(XMLFeedSpider):
         """Build the final record."""
         node = response.meta["node"]
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
-        record.add_value('files', response.meta.get("direct_link"))
+        record.add_value('file_urls', response.meta.get("direct_link"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_xpath('abstract', './/dc:description/text()')
         title, subtitle = self.get_title(node)

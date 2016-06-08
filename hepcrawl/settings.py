@@ -84,9 +84,21 @@ if SENTRY_DSN:
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
+    'scrapy.pipelines.files.FilesPipeline': 1,
     'hepcrawl.pipelines.InspireCeleryPushPipeline': 300,
 }
 
+# Files Pipeline settings
+# =======================
+FILES_STORE = os.environ.get(
+    "FILES_STORE",
+    'files'
+)
+FILES_URLS_FIELD = 'file_urls'
+FILES_RESULT_FIELD = 'files'
+
+# INSPIRE Push Pipeline settings
+# ==============================
 API_PIPELINE_URL = ""
 API_PIPELINE_TASK_ENDPOINT_DEFAULT = ""
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
@@ -106,6 +118,7 @@ CELERY_DISABLE_RATE_LIMITS = True
 # Jobs
 # ====
 JOBDIR = "jobs"
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

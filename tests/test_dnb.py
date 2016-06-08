@@ -157,8 +157,8 @@ def test_language(record):
 def test_files(record):
     """Test files."""
     files = ["http://d-nb.info/1079912991/34"]
-    assert "files" in record
-    assert record["files"] == files
+    assert "file_urls" in record
+    assert record["file_urls"] == files
 
 
 def test_urls(record):

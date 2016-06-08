@@ -137,7 +137,7 @@ class T2kSpider(XMLFeedSpider):
             "//a[@class='contenttype-file state-internal url']/@href").extract()
 
         response.meta["abstract"] = abstract
-        response.meta["files"] = self.add_fft_file(file_paths, "HIDDEN", "Fulltext")
+        response.meta["additional_files"] = self.add_fft_file(file_paths, "HIDDEN", "Fulltext")
 
         return self.build_item(response)
 
@@ -153,7 +153,7 @@ class T2kSpider(XMLFeedSpider):
         record.add_value('title', response.meta.get("title"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_value("abstract", response.meta.get("abstract"))
-        record.add_value("files", response.meta.get("files"))
+        record.add_value("additional_files", response.meta.get("additional_files"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
         yield record.load_item()

@@ -85,10 +85,8 @@ class POSSpider(Spider):
             record.add_value('journal_year', year)
 
         identifier = node.xpath("//metadata//identifier/text()").extract_first()
-        record.add_value('urls', [
-            response.meta['pos_url'],
-            response.meta['pos_pdf_url']
-        ])
+        record.add_value('urls', response.meta['pos_url'])
+        record.add_value('additional_files', {'type': "Fulltext", "url": response.meta['pos_pdf_url']})
         if identifier:
             pbn = re.split('[()]', identifier)
             if len(pbn) == 3:

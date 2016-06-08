@@ -198,7 +198,7 @@ class DNBSpider(XMLFeedSpider):
         if languages:
             record.add_value('language', languages[0])
         record.add_value('urls', response.meta.get('urls'))
-        record.add_value('files', response.meta.get("direct_links"))
+        record.add_value('file_urls', response.meta.get("direct_links"))
         record.add_value('abstract', response.meta.get("abstract"))
         record.add_value('page_nr', response.meta.get("page_nr"))
 

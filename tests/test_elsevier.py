@@ -21,7 +21,7 @@ from hepcrawl.spiders import elsevier_spider
 
 from .responses import (
     fake_response_from_file,
-    fake_response_from_string, 
+    fake_response_from_string,
     get_node,
     )
 
@@ -268,16 +268,10 @@ def test_authors(record):
         assert record['authors'][index]['full_name'] == name
         assert record['authors'][index]['affiliations'][0]['value'] == affiliation
 
-#@pytest.mark.skip(reason="Apparently we don't want dx.doi urls?")
-#def test_urls(record):
-    #"""Test url in record"""
-    #assert "urls" in record
-    #assert record["urls"] == [{'url': u'http://dx.doi.org/10.1016/0370-2693(88)91603-6'}]
-
 def test_files(record):
     """Test file urls."""
-    assert record["files"]
-    assert record["files"][0]["url"] == "elsevier/sample_consyn_record.xml"
+    assert record["additional_files"]
+    assert record["additional_files"][0]['url'] == "elsevier/sample_consyn_record.xml"
 
 
 def test_dois(record):
@@ -492,7 +486,7 @@ def test_ref_simple_journal(ref_simple_journal):
         'authors': u'P\xe4ivi\xf6, A. & Becker, L.J. et al.',
         'label': u'1',
         'lpage': u'647',
-        'fpage': u'635', 
+        'fpage': u'635',
         'year': u'1975',
         'issue': u'2',
         'journal_pubnote': u'Cognition,37(2),635-647'
@@ -560,7 +554,7 @@ def test_ref_simple_journal_suppl(ref_simple_journal_suppl):
         'collaboration': u'The Collaboration',
         'journal': u'Acta Psychiatrica Scandinavica',
         'authors': u'Koczkas, S., Holmberg, G. & Wedin, L.',
-        'label': u'2', 
+        'label': u'2',
         'volume': u'63',
         'fpage': u'328',
         'year': u'1981',
@@ -684,7 +678,7 @@ def test_ref_translated_article(ref_translated_article):
         'volume': u'54',
         'title': u'Het aanleren van deelgeheel relaties (Teaching partwhole relations)',
         'journal': u'Pedagogische Studie\u0308n',
-        'authors': u'Assink, E.M.H. & Verloop, N.', 
+        'authors': u'Assink, E.M.H. & Verloop, N.',
         'label': u'4',
         'lpage': u'142',
         'fpage': u'130',
@@ -1194,7 +1188,7 @@ def test_ref_multi_volume_edited(ref_multi_volume_edited):
 
 @pytest.fixture
 def ref_multi_volume():
-    """A volume in a multi-volume work. 
+    """A volume in a multi-volume work.
 
     This volume has an author and a title. It is also split into two volumes.
     """
@@ -1451,7 +1445,7 @@ def test_ref_multi_years(ref_multi_years):
     """Test multi year reference formatting."""
     assert ref_multi_years
     assert ref_multi_years[0]["year"] == "1980-1982, 1985"
-    
+
 
 
 @pytest.fixture
@@ -1476,7 +1470,7 @@ def handled_feed():
         </entry>
     </feed>"""
 
-    response = fake_response_from_string(body)   
+    response = fake_response_from_string(body)
     node = get_node(spider, '/doc', response)
     return spider.handle_feed(response)
 
@@ -1493,7 +1487,7 @@ def test_hadle_feed(handled_feed):
 
 @pytest.fixture
 def handled_package(handled_feed):
-    """Take the handle_feed request and use it to yield 
+    """Take the handle_feed request and use it to yield
     requests to process individual xml files.
     """
     spider = elsevier_spider.ElsevierSpider()
@@ -1517,7 +1511,7 @@ def test_handle_package(handled_package):
 
         assert nima.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
         url_to_match = u'file:///tmp/elsevier_fake_nima_*/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'
-        assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]  
+        assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]
 
 
 @pytest.fixture
@@ -1589,7 +1583,7 @@ def test_sciencedirect(sciencedirect):
 
 @pytest.fixture
 def sciencedirect_proof():
-    """Scrape data from a minimal example web page. This hasn't been published 
+    """Scrape data from a minimal example web page. This hasn't been published
     yet. There is only the online paper, i.e. this is a proof.
     """
     spider = elsevier_spider.ElsevierSpider()

@@ -40,6 +40,12 @@ class HEPRecord(scrapy.Item):
     """
 
     files = scrapy.Field()
+    """List of downloaded files by FilesPipeline."""
+
+    file_urls = scrapy.Field()
+    """List of files to be downloaded with FilesPipeline and added to files."""
+
+    additional_files = scrapy.Field()
     """Files (fulltexts, package) belonging to this item.
 
     .. code-block:: python

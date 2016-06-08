@@ -138,7 +138,7 @@ class PhilSpider(CrawlSpider):
         record.add_value('dois', jsonrecord['doi'])
         record.add_value('page_nr', jsonrecord['pages'])
         record.add_value('authors', self.get_authors(jsonrecord['authors']))
-        record.add_value('files', response.meta.get("direct_links"))
+        record.add_value('file_urls', response.meta.get("direct_links"))
         record.add_value('urls', jsonrecord['links'])
         record.add_value('source', "Philpapers.org")
         if not jsonrecord.get('year') == "forthcoming":
