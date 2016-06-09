@@ -7,7 +7,11 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+"""Date parsing utilities that support dates before 1900."""
 
+from __future__ import absolute_import, division, print_function
+
+import re
 import six
 import time
 
@@ -26,8 +30,57 @@ DATE_FORMATS_FULL = [
     "%d %B %Y", "%d %b %y", "%d %B %y", "%Y-%m-%dT%H:%M:%SZ", "%d-%m-%Y",
 ]
 
+# This library does not support strftime's "%s" or "%y" format strings.
+# Allowed if there's an even number of "%"s because they are escaped.
+_illegal_formatting = re.compile(r"((^|[^%])(%%)*%[sy])")
+
+
+class date(real_date):
+    """Special date subclass with custom strftime implementation."""
+
+    def strftime(self, fmt):
+        return strftime(fmt, self)
+
+
+class datetime(real_datetime):
+    """Special datetime subclass with custom implementations."""
+
+    def strftime(self, fmt):
+        return strftime(fmt, self)
+
+    @classmethod
+    def combine(self, date, time):
+        return self(date.year, date.month, date.day, time.hour, time.minute,
+                    time.second, time.microsecond, time.tzinfo)
+
+    def __add__(self, other):
+        d = real_datetime.combine(self, self.timetz())
+        d += other
+        return self.combine(d, d.timetz())
+
+    def date(self):
+        return date(self.year, self.month, self.day)
+
+    @staticmethod
+    def strptime(date_string, format):
+        return datetime(*(time.strptime(date_string, format)[0:6]))
+
+
+def _findall(text, substr):
+    # Also finds overlaps
+    sites = []
+    i = 0
+    while True:
+        j = text.find(substr, i)
+        if j == -1:
+            break
+        sites.append(j)
+        i = j + 1
+    return sites
+
 
 def strftime(fmt, dt):
+    """A strftime(format, date object) that support dates before 1900."""
     if not isinstance(dt, real_date):
         dt = datetime(dt.tm_year, dt.tm_mon, dt.tm_mday, dt.tm_hour, dt.tm_min,
                       dt.tm_sec)
@@ -67,6 +120,7 @@ def strftime(fmt, dt):
 
 
 def strptime(date_string, fmt):
+    """A strptime(date string, format) that support dates before 1900."""
     return real_datetime(*(time.strptime(date_string, fmt)[:6]))
 
 
@@ -104,12 +158,13 @@ def create_valid_date(date, date_format_full="%Y-%m-%d",
 
 def parse_date(raw_date):
     """Get the date in correct format using dateutils.parser.
+
     Note that if no month or day can be found in the raw date string, they
     will be set to 1 (e.g., "Mar 1999" -> "1999-03-01"). If the string cannot
     be parsed, return the string.
     """
     if not raw_date:
-        return date_published
+        return raw_date
     if not isinstance(raw_date, str):
         raw_date = str(raw_date)
 
@@ -125,6 +180,7 @@ def parse_date(raw_date):
 
 def format_date(raw_date):
     """Get the ISO formatted year and date.
+
     Calls first the format preserving date creator function, if that fails
     calls the function that uses dateutils.
     """

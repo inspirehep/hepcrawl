@@ -41,21 +41,7 @@ Contents
 
 .. include:: contributing.rst
 .. include:: guide.rst
-
-API documentation
-=================
-
-.. automodule:: hepcrawl
-   :members:
-
-.. automodule:: hepcrawl.items
-   :members:
-
-.. automodule:: hepcrawl.spiders
-   :members:
-
-.. automodule:: hepcrawl.spiders.wsp_spider
-   :members:
+.. include:: api.rst
 
 .. include:: ../CHANGES.rst
 
