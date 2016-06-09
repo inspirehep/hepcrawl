@@ -7,23 +7,19 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+"""Item models for scraped HEP records.
 
-"""
-HEPRecord item
---------------
-
-Defines the item model for scraped HEP records. **Work in progress**
-
-See documentation in: http://doc.scrapy.org/en/latest/topics/items.html
+See documentation about items in:
+http://doc.scrapy.org/en/latest/topics/items.html
 """
 
 import scrapy
 
 
 class HEPRecord(scrapy.Item):
-    """Represents a generic HEP record based* on HEP JSON schema.
+    """HEPRecord represents a generic HEP record based on HEP JSON schema.
 
-    NOTE: This is not a 1-to-1 mapping to the HEP JSON schema.
+    **This is not a 1-to-1 mapping to the HEP JSON schema.**
 
     This is a bit flatter structure that will be transformed before
     export to INSPIRE. For complex fields, like authors, please refer to the

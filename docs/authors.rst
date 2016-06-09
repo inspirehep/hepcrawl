@@ -7,13 +7,4 @@
     more details.
 
 
-Authors
-=======
-
-Contributors:
-
-* Jan Aage Lavik <jan.age.lavik@cern.ch>
-* Henrik Vesterinen <henrik.vesterinen@cern.ch>
-* Kirsten Sachs <kirsten.sachs@desy.de>
-
-Thanks for contributing!
+.. include:: ../AUTHORS.rst

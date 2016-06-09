@@ -6,14 +6,4 @@
     under the terms of the Revised BSD License; see LICENSE file for
     more details.
 
-
-Authors
-=======
-
-Contributors:
-
-* Jan Aage Lavik <jan.age.lavik@cern.ch>
-* Henrik Vesterinen <henrik.vesterinen@cern.ch>
-* Kirsten Sachs <kirsten.sachs@desy.de>
-
-Thanks for contributing!
+.. include:: ../CHANGES.rst

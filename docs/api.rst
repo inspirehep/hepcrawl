@@ -15,8 +15,15 @@ API
 .. automodule:: hepcrawl
    :members:
 
+Items
+-----
+
 .. automodule:: hepcrawl.items
    :members:
+
+
+Spiders
+-------
 
 .. automodule:: hepcrawl.spiders
    :members:
