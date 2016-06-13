@@ -151,6 +151,20 @@ class InfnSpider(XMLFeedSpider):
         }
         return thesis
 
+    @staticmethod
+    def get_thesis_supervisors(node):
+        """Create a structured supervisor dictionary."""
+        supervisors_raw = node.xpath(u"//tr/td[contains(text(), 'Relatore/i')]/following-sibling::td/text()").extract()
+
+        supervisors = []
+        for supervisor in supervisors_raw:
+            supervisor = " ".join(supervisor.split())
+            supervisors.append({
+                'raw_name': supervisor,
+            })
+
+        return supervisors
+
     def parse_node(self, response, node):
         """Parse INFN web page into a HEP record."""
 
@@ -193,9 +207,6 @@ class InfnSpider(XMLFeedSpider):
         abstracts = node.xpath(
             u"//tr/td[contains(text(), 'Abstract')]/following-sibling::td/text()").extract()
 
-        supervisors_raw = node.xpath(
-            u"//tr/td[contains(text(), 'Relatore/i')]/following-sibling::td/text()").extract()
-
         if "pdf_links" not in response.meta:
             response.meta["pdf_links"] = node.xpath(u"//tr/td/a/@href").extract()
 
@@ -205,7 +216,7 @@ class InfnSpider(XMLFeedSpider):
         response.meta["experiment"] = experiment
         response.meta["titles"] = titles
         response.meta["abstract"] = abstracts
-        response.meta["supervisors"] = self._fix_node_text(supervisors_raw)
+        response.meta["supervisors"] = self.get_thesis_supervisors(node)
 
         return self.build_item(response)
 

@@ -96,6 +96,18 @@ class DNBSpider(XMLFeedSpider):
 
         return authors
 
+    def get_thesis_supervisors(self, node):
+        """Create a structured supervisor dictionary."""
+        supervisors_raw = node.xpath("./slim:datafield[@tag='700'][slim:subfield[@code='e'][contains(text(), 'Betreuer')]]/slim:subfield[@code='a']/text()").extract()
+
+        supervisors = []
+        for supervisor in supervisors_raw:
+            supervisors.append({
+                'raw_name': supervisor,
+            })
+
+        return supervisors
+
     def get_urls_in_record(self, node):
         """Return all the different urls in the xml."""
         urls_in_record = node.xpath(
@@ -191,8 +203,7 @@ class DNBSpider(XMLFeedSpider):
                          "./slim:datafield[@tag='264']/slim:subfield[@code='b']/text()")
         record.add_xpath('date_published',
                          "./slim:datafield[@tag='264']/slim:subfield[@code='c']/text()")
-        record.add_xpath('thesis_supervisor',
-                         "./slim:datafield[@tag='700'][slim:subfield[@code='e'][contains(text(), 'Betreuer')]]/slim:subfield[@code='a']/text()")
+        record.add_value('thesis_supervisor', self.get_thesis_supervisors(node))
         languages = node.xpath(
             "./slim:datafield[@tag='041']/slim:subfield[@code='a']/text()").extract()
         if languages:
