@@ -135,9 +135,9 @@ def test_authors(record):
 
 def test_supervisors(record):
     """Test thesis supervisors"""
-    supervisors = ["Podlech, Holger"]
+    supervisor = "Podlech, Holger"
     assert record["thesis_supervisor"]
-    assert record["thesis_supervisor"] == supervisors
+    assert record["thesis_supervisor"][0]["full_name"] == supervisor
 
 
 def test_source(record):

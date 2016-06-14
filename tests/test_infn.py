@@ -94,7 +94,8 @@ def test_thesis_supervisor(record):
     NOTE: Not formatted very well. Nothing can be done really, because
     the supervisor string can be anything.
     """
-    assert record["thesis_supervisor"][0] == 'Renata Longo Giuliana Tromba'
+    assert "thesis_supervisor" in record
+    assert record["thesis_supervisor"][0]["full_name"] == 'Tromba, Renata Longo Giuliana'
 
 
 def test_non_thesis():

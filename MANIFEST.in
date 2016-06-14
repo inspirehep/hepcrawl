@@ -30,3 +30,5 @@ recursive-include docs *.rst
 recursive-include docs Makefile
 recursive-include hepcrawl *.html
 recursive-include hepcrawl *.xml
+recursive-include tests *.gz
+recursive-include tests *.pdf

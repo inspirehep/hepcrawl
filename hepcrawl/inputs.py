@@ -77,6 +77,15 @@ def parse_authors(value):
     return value
 
 
+def parse_thesis_supervisors(value):
+    """Do the same as with authors but preserve only full_name and affiliation."""
+    value = parse_authors(value)
+    return {
+        'full_name': value.get('full_name'),
+        'affiliation': value.get('affiliation'),
+    }
+
+
 def add_author_full_name(value):
     """Add `full_name` combination value for an author, if required."""
     if "full_name" not in value:

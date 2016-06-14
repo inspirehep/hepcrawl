@@ -59,12 +59,12 @@ def fake_response_from_string(text, url='http://www.example.com', response_type=
     return response
 
 
-def get_node(spider, tag, response=None, text=None):
+def get_node(spider, tag, response=None, text=None, rtype="xml"):
     """Get the desired node in a response or an xml string."""
     if response:
-        selector = Selector(response, type='xml')
+        selector = Selector(response, type=rtype)
     elif text:
-        selector = Selector(text=text, type='xml')
+        selector = Selector(text=text, type=rtype)
     spider._register_namespaces(selector)
     node = selector.xpath(tag)
     return node

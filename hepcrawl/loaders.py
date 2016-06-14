@@ -27,6 +27,7 @@ from .inputs import (
     clean_whitespace_characters,
     remove_attributes_from_tags,
     translate_language,
+    parse_thesis_supervisors,
 )
 
 from .outputs import (
@@ -142,6 +143,10 @@ class HEPLoader(ItemLoader):
 
     dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
+
+    thesis_supervisor_in = MapCompose(
+        parse_thesis_supervisors,
+    )
 
     urls_in = MapCompose(
         canonicalize_url,

@@ -31,9 +31,11 @@ Spiders
 .. automodule:: hepcrawl.spiders.wsp_spider
    :members:
 
-
 .. automodule:: hepcrawl.spiders.infn_spider
    :members:
 
 .. automodule:: hepcrawl.spiders.iop_spider
+   :members:
+
+.. automodule:: hepcrawl.spiders.mit_spider
    :members:
