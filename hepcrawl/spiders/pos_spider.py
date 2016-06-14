@@ -26,6 +26,11 @@ class POSSpider(Spider):
     Extracts from metadata:
     title, article-id, conf-acronym, authors, affiliations,
     publication-date, publisher, license, language, link
+
+    .. code-block:: console
+
+        scrapy crawl PoS -a source_file=file://`pwd`/tests/responses/pos/sample_pos_record.xml
+
     """
     name = 'PoS'
     pos_base_url = "http://pos.sissa.it/contribution?id="
@@ -43,7 +48,7 @@ class POSSpider(Spider):
         node = response.selector
         node.remove_namespaces()
         for record in node.xpath('//record'):
-            identifier = record.xpath('.//identifier/text()').extract_first()
+            identifier = record.xpath('.//metadata/pex-dc/identifier/text()').extract_first()
             if identifier:
                 # Probably all links lead to same place, so take first
                 pos_url = "{0}{1}".format(self.pos_base_url, identifier)
@@ -66,9 +71,9 @@ class POSSpider(Spider):
         node = Selector(text=text, type="xml")
         node.remove_namespaces()
         record = HEPLoader(item=HEPRecord(), selector=node)
-        record.add_xpath('title', '//metadata//title/text()')
-        record.add_xpath('subject_terms', '//metadata//subject/text()')
-        record.add_xpath('source', '//metadata//publisher/text()')
+        record.add_xpath('title', '//metadata/pex-dc/title/text()')
+        record.add_xpath('subject_terms', '//metadata/pex-dc/subject/text()')
+        record.add_xpath('source', '//metadata/pex-dc/publisher/text()')
 
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
         pub_license, pub_license_url, openaccess = self._get_license(node)
@@ -84,9 +89,10 @@ class POSSpider(Spider):
         if year:
             record.add_value('journal_year', year)
 
-        identifier = node.xpath("//metadata//identifier/text()").extract_first()
+        identifier = node.xpath("//metadata/pex-dc/identifier/text()").extract_first()
         record.add_value('urls', response.meta['pos_url'])
-        record.add_value('additional_files', {'type': "Fulltext", "url": response.meta['pos_pdf_url']})
+        if response.meta['pos_pdf_url']:
+            record.add_value('additional_files', {'type': "Fulltext", "url": response.meta['pos_pdf_url']})
         if identifier:
             pbn = re.split('[()]', identifier)
             if len(pbn) == 3:
@@ -98,7 +104,7 @@ class POSSpider(Spider):
             else:
                 record.add_value('pubinfo_freetext', identifier)
 
-        language = node.xpath("//metadata//language/text()").extract_first()
+        language = node.xpath("//metadata/pex-dc/language/text()").extract_first()
         if language:
             record.add_value('language', language)
 
@@ -114,17 +120,23 @@ class POSSpider(Spider):
         return record.load_item()
 
     def _get_ext_systems_number(self, node):
-        return {
-            'institute': 'PoS',
-            'value': node.xpath('//metadata//identifier/text()').extract_first()
-        }
+        return [
+            {
+                'institute': 'PoS',
+                'value': node.xpath('//metadata/pex-dc/identifier/text()').extract_first()
+            },
+            {
+                'institute': 'PoS',
+                'value': node.xpath('//identifier/text()').extract_first()
+            },
+        ]
 
     def _get_license(self, node):
         """Get article licence."""
         licenses = \
             {'Creative Commons Attribution-NonCommercial-ShareAlike':
                 ['CC-BY-NC-SA-3.0', 'https://creativecommons.org/licenses/by-nc-sa/3.0']}
-        license_text = node.xpath("//metadata//rights/text()").extract_first()
+        license_text = node.xpath("//metadata/pex-dc/rights/text()").extract_first()
         license_str = ''
         license_url = ''
         for key in licenses.keys():
@@ -143,7 +155,7 @@ class POSSpider(Spider):
         """Get article date."""
         date = ''
         year = ''
-        full_date = node.xpath("//metadata//date/text()").extract_first()
+        full_date = node.xpath("//metadata/pex-dc/date/text()").extract_first()
         date = create_valid_date(full_date)
         if date:
             year = date[0:4]
@@ -151,7 +163,7 @@ class POSSpider(Spider):
 
     def _get_authors(self, node):
         """Get article authors."""
-        author_selectors = node.xpath('//metadata//creator')
+        author_selectors = node.xpath('//metadata/pex-dc/creator')
         authors = []
         for selector in author_selectors:
             auth_dict = {}
@@ -171,6 +183,6 @@ class POSSpider(Spider):
         """Get info to help selection - not for INSPIRE record"""
         extra_data = {}
 
-        section = node.xpath("//metadata//description/text()").extract_first()
+        section = node.xpath("//metadata/pex-dc/description/text()").extract_first()
         extra_data['section'] = section.split(';', 1)[-1].strip()
         return extra_data

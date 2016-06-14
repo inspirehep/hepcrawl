@@ -25,17 +25,32 @@ Items
 Spiders
 -------
 
-.. automodule:: hepcrawl.spiders
-   :members:
+World Scientific
+~~~~~~~~~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.wsp_spider
    :members:
 
+INFN
+~~~~
+
 .. automodule:: hepcrawl.spiders.infn_spider
    :members:
+
+IOP
+~~~
 
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
+MIT
+~~~
+
 .. automodule:: hepcrawl.spiders.mit_spider
+   :members:
+
+Proceedings of Science
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.pos_spider
    :members:
