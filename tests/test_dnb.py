@@ -173,9 +173,9 @@ def test_urls(record):
 
     seen_urls = set()
     for url in record["urls"]:
-        assert url['url'] in urls
-        assert url['url'] not in seen_urls
-        seen_urls.add(url['url'])
+        assert url['value'] in urls
+        assert url['value'] not in seen_urls
+        seen_urls.add(url['value'])
 
 
 def test_doctype(record):
@@ -199,51 +199,50 @@ def test_parse_node(parse_node_requests):
 def test_scrape(splash):
     """Test data that has been fetched in scrape_for_abstract()."""
     abstract_gt = (
-            "Die vorliegende Arbeit handelt von der Entwicklung, dem Bau, den "
-            "Zwischenmessungen sowie den abschließenden Tests unter kryogenen "
-            "Bedingungen einer neuartigen, supraleitenden CH-Struktur für "
-            "Strahlbetrieb mit hoher Strahllast. Diese Struktur setzt das Konzept "
-            "des erfolgreich getesteten 19-zelligen 360 MHz CH-Prototypen fort, der "
-            "einen weltweiten Spitzenwert in Bezug auf Beschleunigungsspannung im "
-            "Niederenergiesegment erreichte, jedoch wurden einige Aspekte "
-            "weiterentwickelt bzw. den neuen Rahmenbedingungen angepasst. Bei dem "
-            "neuen Resonator wurde der Schwerpunkt auf ein kompaktes Design, "
-            "effektives Tuning, leichte Präparationsmöglichkeiten und auf den "
-            "Einsatz eines Leistungskopplers für Strahlbetrieb gelegt. Die "
-            "Resonatorgeometrie besteht aus sieben Beschleunigungszellen, wird bei "
-            "325 MHz betrieben und das Geschwindigkeitsprofil ist auf eine "
-            "Teilcheneingangsenergie von 11.4 MeV/u ausgelegt. Veränderungen liegen "
-            "in der um 90° gedrehten Stützengeometrie vor, um Platz für Tuner und "
-            "Kopplerflansche zu gewährleisten, und in der Verwendung von schrägen "
-            "Stützen am Resonatorein- und ausgang zur Verkürzung der Tanklänge und "
-            "Erzielung eines flachen Feldverlaufs. Weiterhin wurden pro Tankdeckel "
-            "zwei zusätzliche Spülflansche für die chemische Präparation sowie für "
-            "die Hochdruckspüle mit hochreinem Wasser hinzugefügt. Das Tuning der "
-            "Kavität erfolgt über einen neuartigen Ansatz, indem zwei bewegliche "
-            "Balgtuner in das Resonatorvolumen eingebracht werden und extern über "
-            "eine Tunerstange ausgelenkt werden können. Der Antrieb der Stange soll "
-            "im späteren Betrieb wahlweise über einen Schrittmotor oder einen "
-            "Piezoaktor stattfinden. Für ein langsames/ statisches Tuning kann der "
-            "Schrittmotor den Tuner im Bereich +/- 1 mm auslenken, um größeren "
-            "Frequenzabweichungen in der Größenordnung 100 kHz nach dem Abkühlen "
-            "entgegenzuwirken. Das schnelle Tuning im niedrigen kHz-Bereich wird "
-            "von einem Piezoaktor übernommen, welcher den Balg um einige µm bewegen "
-            "kann, um Microphonics oder Lorentz-Force-Detuning zu kompensieren. Der "
-            "Resonator wird von einem aus Titan bestehendem Heliummantel umgeben, "
-            "wodurch ein geschlossener Heliumkreislauf gebildet wird. Derzeit "
-            "befinden sich mehrere Projekte in der Planung bzw. im Bau, welche auf "
-            "eine derartige Resonatorgeometrie zurückgreifen könnten. An der GSI "
-            "basiert der Hauptteil des zukünftigen cw LINAC auf supraleitenden CH-"
-            "Strukturen, um einen Strahl für die Synthese neuer, superschwerer "
-            "Elemente zu liefern. Weiterhin könnte ein Upgrade des vorhandenen GSI "
-            "UNILAC durch den Einsatz von supraleitenden CH-Resonatoren gestaltet "
-            "werden. Zudem besteht die Möglichkeit, die bisherige Alvarez-Sektion "
-            "des UNILAC alternativ durch eine kompakte, supraleitende CH-Sektion zu "
-            "realisieren. Ebenfalls sollen die beiden parallelbetriebenen "
-            "Injektorsektionen des MYRRHA-Projektes durch den Einsatz von "
-            "supraleitenden CH-Strukturen erfolgen."
-
-        )
+        "Die vorliegende Arbeit handelt von der Entwicklung, dem Bau, den "
+        "Zwischenmessungen sowie den abschließenden Tests unter kryogenen "
+        "Bedingungen einer neuartigen, supraleitenden CH-Struktur für "
+        "Strahlbetrieb mit hoher Strahllast. Diese Struktur setzt das Konzept "
+        "des erfolgreich getesteten 19-zelligen 360 MHz CH-Prototypen fort, der "
+        "einen weltweiten Spitzenwert in Bezug auf Beschleunigungsspannung im "
+        "Niederenergiesegment erreichte, jedoch wurden einige Aspekte "
+        "weiterentwickelt bzw. den neuen Rahmenbedingungen angepasst. Bei dem "
+        "neuen Resonator wurde der Schwerpunkt auf ein kompaktes Design, "
+        "effektives Tuning, leichte Präparationsmöglichkeiten und auf den "
+        "Einsatz eines Leistungskopplers für Strahlbetrieb gelegt. Die "
+        "Resonatorgeometrie besteht aus sieben Beschleunigungszellen, wird bei "
+        "325 MHz betrieben und das Geschwindigkeitsprofil ist auf eine "
+        "Teilcheneingangsenergie von 11.4 MeV/u ausgelegt. Veränderungen liegen "
+        "in der um 90° gedrehten Stützengeometrie vor, um Platz für Tuner und "
+        "Kopplerflansche zu gewährleisten, und in der Verwendung von schrägen "
+        "Stützen am Resonatorein- und ausgang zur Verkürzung der Tanklänge und "
+        "Erzielung eines flachen Feldverlaufs. Weiterhin wurden pro Tankdeckel "
+        "zwei zusätzliche Spülflansche für die chemische Präparation sowie für "
+        "die Hochdruckspüle mit hochreinem Wasser hinzugefügt. Das Tuning der "
+        "Kavität erfolgt über einen neuartigen Ansatz, indem zwei bewegliche "
+        "Balgtuner in das Resonatorvolumen eingebracht werden und extern über "
+        "eine Tunerstange ausgelenkt werden können. Der Antrieb der Stange soll "
+        "im späteren Betrieb wahlweise über einen Schrittmotor oder einen "
+        "Piezoaktor stattfinden. Für ein langsames/ statisches Tuning kann der "
+        "Schrittmotor den Tuner im Bereich +/- 1 mm auslenken, um größeren "
+        "Frequenzabweichungen in der Größenordnung 100 kHz nach dem Abkühlen "
+        "entgegenzuwirken. Das schnelle Tuning im niedrigen kHz-Bereich wird "
+        "von einem Piezoaktor übernommen, welcher den Balg um einige µm bewegen "
+        "kann, um Microphonics oder Lorentz-Force-Detuning zu kompensieren. Der "
+        "Resonator wird von einem aus Titan bestehendem Heliummantel umgeben, "
+        "wodurch ein geschlossener Heliumkreislauf gebildet wird. Derzeit "
+        "befinden sich mehrere Projekte in der Planung bzw. im Bau, welche auf "
+        "eine derartige Resonatorgeometrie zurückgreifen könnten. An der GSI "
+        "basiert der Hauptteil des zukünftigen cw LINAC auf supraleitenden CH-"
+        "Strukturen, um einen Strahl für die Synthese neuer, superschwerer "
+        "Elemente zu liefern. Weiterhin könnte ein Upgrade des vorhandenen GSI "
+        "UNILAC durch den Einsatz von supraleitenden CH-Resonatoren gestaltet "
+        "werden. Zudem besteht die Möglichkeit, die bisherige Alvarez-Sektion "
+        "des UNILAC alternativ durch eine kompakte, supraleitende CH-Sektion zu "
+        "realisieren. Ebenfalls sollen die beiden parallelbetriebenen "
+        "Injektorsektionen des MYRRHA-Projektes durch den Einsatz von "
+        "supraleitenden CH-Strukturen erfolgen."
+    )
     page_nr_gt = "133"
 
     assert splash["abstract"]

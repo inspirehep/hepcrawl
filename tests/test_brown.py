@@ -153,7 +153,7 @@ def test_thesis(record):
 def test_urls(record):
     """Test urls."""
     assert record["urls"]
-    assert record["urls"][0]["url"] == "brown/test_splash.html"
+    assert record["urls"][0]["value"] == "brown/test_splash.html"
 
 
 @pytest.fixture

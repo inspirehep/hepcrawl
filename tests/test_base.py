@@ -129,7 +129,7 @@ def test_authors(record):
 
 def test_urls(record):
     """Test url in record"""
-    urls = [{"url": "http://hdl.handle.net/1885/10005"}]
+    urls = [{"value": "http://hdl.handle.net/1885/10005"}]
     assert "urls" in record
     assert record["urls"] == urls
 
@@ -194,8 +194,7 @@ def test_parsed_node(parsed_node):
     Result object should be the final HEPRecord.
     """
     assert isinstance(parsed_node, hepcrawl.items.HEPRecord)
-    assert parsed_node["urls"][0][
-        "url"] == "http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf"
+    assert parsed_node["urls"][0]["value"] == "http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf"
 
 
 @pytest.fixture
