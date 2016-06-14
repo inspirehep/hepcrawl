@@ -48,6 +48,7 @@ def fix_title_capitalization(title):
 def convert_html_subscripts_to_latex(text):
     """Convert some HTML tags to latex equivalents."""
     text = re.sub("<sub>(.*?)</sub>", r"$_{\1}$", text)
+    text = re.sub("<inf>(.*?)</inf>", r"$_{\1}$", text)
     text = re.sub("<sup>(.*?)</sup>", r"$^{\1}$", text)
     return text
 
@@ -93,6 +94,8 @@ def clean_tags_from_affiliations(value):
         affiliation['value'] = remove_tags_with_content(affiliation['value'], ('label',))
         # Now remove all tags but KEEP content
         affiliation['value'] = remove_tags(affiliation['value'])
+        # Remove random whitespaces
+        affiliation['value'] = clean_whitespace_characters(affiliation['value'])
     return value
 
 
@@ -102,15 +105,13 @@ def clean_collaborations(value):
 
 
 def clean_whitespace_characters(text):
-    """Remove unwanted special characters from abstract."""
-    text = text.replace("\n", "")
-    text = text.replace("\t", "")
-    text = text.replace("\r", " ")
+    """Remove unwanted special characters from text."""
+    text = " ".join(text.split())
     return text
 
 
 def translate_language(lang):
-    """Translate language. Dont return english"""
+    """Translate language. Don't return English"""
     english = ['en', 'eng', 'english']
 
     if lang.lower() not in english:

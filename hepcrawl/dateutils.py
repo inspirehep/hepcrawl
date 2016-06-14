@@ -157,7 +157,7 @@ def create_valid_date(date, date_format_full="%Y-%m-%d",
 
 
 def parse_date(raw_date):
-    """Get the date in correct format using dateutils.parser.
+    """Get the date in correct format using dateutil.parser.
 
     Note that if no month or day can be found in the raw date string, they
     will be set to 1 (e.g., "Mar 1999" -> "1999-03-01"). If the string cannot

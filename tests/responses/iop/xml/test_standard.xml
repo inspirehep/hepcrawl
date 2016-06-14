@@ -1,0 +1,122 @@
+<!DOCTYPE ArticleSet PUBLIC "-//NLM//DTD PubMed 2.6//EN" "http://www.ncbi.nlm.nih.gov/corehtml/query/static/PubMed.dtd">
+<ArticleSet>
+    <Article>
+        <Journal>
+            <PublisherName>American Society for Clinical Pathology</PublisherName>
+            <JournalTitle>Am J Clin Pathol</JournalTitle>
+            <Issn>1943-7722</Issn>
+            <Volume>143</Volume>
+            <Issue>3</Issue>
+            <PubDate PubStatus="ppublish">
+                <Year>2015</Year>
+                <Month>03</Month>
+            </PubDate>
+        </Journal>
+        <ArticleTitle>A Modified Lynch Syndrome Screening Algorithm in Colon Cancer: BRAF Immunohistochemistry Is Efficacious and Cost Beneficial.</ArticleTitle>
+        <FirstPage>336</FirstPage>
+        <LastPage>343</LastPage>
+        <ELocationID    
+		EIdType="doi">10.1309/AJCP4D7RXOBHLKGJ</ELocationID>
+        <Language>EN</Language>
+        <AuthorList>
+            <Author>
+               <FirstName>Rachel</FirstName>
+               <MiddleName>M</MiddleName>
+               <LastName>Roth</LastName>
+               <Affiliation>Department of Pathology, The Ohio State 
+               University Wexner Medical Center, Columbus</Affiliation>
+            </Author>
+            <Author>
+               <FirstName>Heather</FirstName>
+               <LastName>Hampel</LastName>
+               <Affiliation>Department of Human Genetics, The Ohio
+         State University Wexner Medical Center
+         Columbus</Affiliation>           
+            </Author>
+            <Author>
+               <FirstName>Christina A</FirstName>
+               <LastName>Arnold</LastName>
+               <AffiliationInfo>
+               <Affiliation>Department of Pathology, The Ohio State 
+         University Wexner Medical Center, Columbus</Affiliation>
+               </AffiliationInfo>
+               <AffiliationInfo>
+               <Affiliation>Department of Microbiology, The Ohio State 
+         University Wexner Medical Center, Columbus</Affiliation>
+               </AffiliationInfo>
+            </Author>
+            <Author>
+               <FirstName>Martha</FirstName>
+               <MiddleName>M</MiddleName>
+               <LastName>Yearsley</LastName>
+               <Affiliation>Department of Pathology, The Ohio State 
+         University Wexner Medical Center, Columbus</Affiliation>
+            </Author>
+            <Author>
+               <FirstName>William L</FirstName>
+               <LastName>Marsh</LastName>
+               <Affiliation>Department of Pathology, The Ohio State 
+         University Wexner Medical Center, Columbus</Affiliation>
+            </Author>
+            <Author>
+               <FirstName>Wendy L</FirstName>
+               <LastName>Frankel</LastName>
+               <AffiliationInfo>
+               <Affiliation>Department of Pathology, The Ohio State 
+         University Wexner Medical Center, Columbus</Affiliation>
+               </AffiliationInfo>
+               <AffiliationInfo>
+               <Affiliation>Department of Human Genetics, The Ohio 
+         State University Wexner Medical Center,       
+         Columbus</Affiliation>  
+               </AffiliationInfo>
+            </Author>
+        </AuthorList>
+        <PublicationType>Journal Article</PublicationType>
+        <ArticleIdList>
+            <ArticleId IdType="pii">j143/3/336</ArticleId>
+            <ArticleId 
+       IdType="doi">110.1309/AJCP4D7RXOBHLKGJ</ArticleId>
+        </ArticleIdList>
+        <History>
+            <PubDate PubStatus="received">
+                <Year>2014</Year>
+                <Month>09</Month>
+                <Day>30</Day>
+            </PubDate>
+            <PubDate PubStatus="accepted">
+                <Year>2014</Year>
+                <Month>10</Month>
+                <Day>14</Day>
+            </PubDate>
+            <PubDate PubStatus="aheadofprint">
+                <Year>2015</Year>
+                <Month>01</Month>
+                <Day>17</Day>
+            </PubDate>
+        </History>
+        <Abstract>
+            <AbstractText Label="OBJECTIVES">Somatic BRAF mutation in colon cancer essentially excludes Lynch syndrome. We compared BRAF V600E immunohistochemistry (IHC) with BRAF mutation in core, biopsy, and whole-section slides to determine whether IHC is similar and to assess the cost-benefit of IHC.</AbstractText>
+            <AbstractText Label="METHODS">Resection cases (2009-2013) with absent MLH1 and PMS2 and prior BRAF mutation polymerase chain reaction results were chosen (n = 57). To mimic biopsy specimens, tissue microarrays (TMAs) were constructed. In addition, available biopsies performed prior to the resection were available in 15 cases. BRAF V600E IHC was performed and graded on TMAs, available biopsy specimens, and whole-section slides. Mutation status was compared with IHC, and cost-benefit analysis was performed.</AbstractText>
+            <AbstractText Label="RESULTS">BRAF V600E IHC was similar in TMAs, biopsy specimens, and whole-section slides, with only four (7%) showing discordance between IHC and mutation status. Using BRAF V600E IHC in our Lynch syndrome screening algorithm, we found a 10% cost savings compared with mutational analysis.</AbstractText>
+            <AbstractText Label="CONCLUSIONS">BRAF V600E IHC was concordant between TMAs, biopsy specimens, and whole-section slides, suggesting biopsy specimens are as useful as whole sections. IHC remained cost beneficial compared with mutational analysis, even though more patients needed additional molecular testing to exclude Lynch
+                syndrome.</AbstractText>
+        </Abstract>
+        <CopyrightInformation>Copyright© by the American Society for 
+  Clinical Pathology</CopyrightInformation>
+        <ObjectList>
+            <Object Type="keyword">
+                <Param Name="value">BRAF</Param>
+            </Object>
+            <Object Type="keyword">
+                <Param Name="value">MLH1</Param>
+            </Object>
+            <Object Type="keyword">
+                <Param Name="value">Immunohistochemistry</Param>
+            </Object>
+            <Object Type="keyword">
+                <Param Name="value">Cost-benefit analysis</Param>
+            </Object>
+        </ObjectList>
+    </Article>
+</ArticleSet> 

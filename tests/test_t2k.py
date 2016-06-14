@@ -57,7 +57,7 @@ def test_abstact(record):
         "planned measurements; electrons are also very important and are "
         "expected to have efficiencies similar to photons. The efficiency "
         "deteriorates for particles with less energy, but this is clearly shown "
-        "to be caused by the minimal signal created in the detector.  To "
+        "to be caused by the minimal signal created in the detector. To "
         "validate the Monte Carlo characterisation of the calorimeter, the same "
         "reconstruction methods were applied to data from the SciBooNE "
         "experiment. With the aim of measuring neutrino interaction cross-"
