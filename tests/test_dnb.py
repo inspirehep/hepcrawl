@@ -26,7 +26,7 @@ def record():
     selector = Selector(response, type="xml")
     spider._register_namespaces(selector)
     nodes = selector.xpath("//%s" % spider.itertag)
-    response.meta["node"] = nodes[0]
+    response.meta["record"] = nodes[0].extract()
     response.meta["direct_links"] = ["http://d-nb.info/1079912991/34"]
     response.meta["urls"] = [
         "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
@@ -104,7 +104,7 @@ def splash():
     response.meta["urls"] = ["http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
                             "http://d-nb.info/1079912991/34",
                             "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"]
-    response.meta["node"] = nodes[0]
+    response.meta["record"] = nodes[0].extract()
 
     return spider.scrape_for_abstract(response)
 

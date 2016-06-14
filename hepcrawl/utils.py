@@ -19,6 +19,8 @@ from tempfile import mkstemp
 from zipfile import ZipFile
 from urlparse import urlparse
 
+from scrapy import Selector
+
 
 def unzip_xml_files(filename, target_folder):
     """Unzip files (XML only) into target folder."""
@@ -181,3 +183,12 @@ def range_as_string(data):
         else:
             ranges.append(str(group[0]))
     return ", ".join(ranges)
+
+
+def get_node(text, namespaces=None):
+    """Get a scrapy selector for the given text node."""
+    node = Selector(text=text, type="xml")
+    if namespaces:
+        for ns in namespaces:
+            node.register_namespace(ns[0], ns[1])
+    return node
