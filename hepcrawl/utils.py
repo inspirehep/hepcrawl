@@ -10,11 +10,13 @@
 import os
 import re
 import requests
+
+import ftputil
+
 from operator import itemgetter
 from itertools import groupby
 
 from netrc import netrc
-from harvestingkit.ftp_utils import FtpHandler
 from tempfile import mkstemp
 from zipfile import ZipFile
 from urlparse import urlparse
@@ -36,27 +38,29 @@ def unzip_xml_files(filename, target_folder):
 
 
 def ftp_connection_info(ftp_host, netrc_file):
+    """Return ftp connection info from netrc and optional host address."""
+    if not ftp_host:
+        ftp_host = netrc(netrc_file).hosts.keys()[0]
     logininfo = netrc(netrc_file).authenticators(ftp_host)
-    connection_string = "ftp://{0}".format(ftp_host)
     connection_params = {
         "ftp_user": logininfo[0],
         "ftp_password": logininfo[2],
     }
-    return connection_string, connection_params
+    return ftp_host, connection_params
 
 
-def ftp_list_files(server_folder, target_folder, **serverinfo):
+def ftp_list_files(server_folder, target_folder, server, user, password):
     """List files from given FTP's server folder to target folder."""
-    ftp = FtpHandler(**serverinfo)
-    ftp.cd(server_folder)
-    missing_files = []
-    all_files = []
-    for filename in ftp.ls()[0]:
-        destination_file = os.path.join(target_folder, filename)
-        source_file = os.path.join(server_folder, filename)
-        if not os.path.exists(destination_file):
-            missing_files.append(source_file)
-        all_files.append(source_file)
+    with ftputil.FTPHost(server, user, password) as host:
+        files = host.listdir(host.curdir + '/' + server_folder)
+        missing_files = []
+        all_files = []
+        for filename in files:
+            destination_file = os.path.join(target_folder, filename)
+            source_file = os.path.join(server_folder, filename)
+            if not os.path.exists(destination_file):
+                missing_files.append(source_file)
+            all_files.append(source_file)
     return all_files, missing_files
 
 

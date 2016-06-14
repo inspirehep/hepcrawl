@@ -21,13 +21,14 @@ install_requires = [
     'scrapyd>=1.1.0',
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
-    'HarvestingKit>=0.6.3',
     'requests>=2.8.1',
     'celery>=3.1.23',
     'redis>=2.10.5',
     'pyasn1>=0.1.8',  # Needed for dependency resolving.
     'LinkHeader>=0.4.3',
     'furl>=0.4.95',
+    'ftputil>=3.3.1',
+    'python-dateutil>=2.4.2'
 ]
 
 tests_require = [

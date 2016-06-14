@@ -89,7 +89,7 @@ def test_get_first(zipfile, tmpdir):
 def test_ftp_connection_info(netrcfile):
     """Test unzipping of xml files using zipfile and tmpdir fixtures."""
     url, info = ftp_connection_info('ftp.example.com', netrcfile)
-    assert url == 'ftp://ftp.example.com'
+    assert url == 'ftp.example.com'
     assert 'ftp_user' in info
     assert info['ftp_user'] == 'test'
     assert 'ftp_password' in info
