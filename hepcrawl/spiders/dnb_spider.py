@@ -16,7 +16,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_mime_type, parse_domain
+from ..utils import get_mime_type, parse_domain, get_node
 
 
 class DNBSpider(XMLFeedSpider):
@@ -129,13 +129,13 @@ class DNBSpider(XMLFeedSpider):
         direct_links, splash_links = self.find_direct_links(urls_in_record)
         if not splash_links:
             response.meta["urls"] = urls_in_record
-            response.meta["node"] = node
+            response.meta["record"] = node.extract()
             return self.build_item(response)
 
         link = splash_links[0]  # Probably safe to use always the first (?)
         request = Request(link, callback=self.scrape_for_abstract)
         request.meta["urls"] = urls_in_record
-        request.meta["node"] = node
+        request.meta["record"] = node.extract()
         if direct_links:
             request.meta["direct_links"] = direct_links
         return request
@@ -181,7 +181,7 @@ class DNBSpider(XMLFeedSpider):
 
     def build_item(self, response):
         """Build the final record."""
-        node = response.meta.get("node")
+        node = get_node(response.meta["record"], self.namespaces)
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
 
         record.add_value('authors', self.get_authors(node))

@@ -18,7 +18,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_mime_type, parse_domain
+from ..utils import get_mime_type, parse_domain, get_node
 
 
 class BaseSpider(XMLFeedSpider):
@@ -89,7 +89,6 @@ class BaseSpider(XMLFeedSpider):
         element, it's impossible to detect unless it's explicitly declared
         as an author name.
         """
-
         authors = []
         if node.xpath('.//dc:creator'):
             for author in node.xpath('.//dc:creator/text()'):
@@ -167,17 +166,17 @@ class BaseSpider(XMLFeedSpider):
             link = urls_in_record[0]
             request = Request(link, callback=self.scrape_for_pdf)
             request.meta["urls"] = urls_in_record
-            request.meta["node"] = node
+            request.meta["record"] = node.extract()
             return request
         elif direct_link:
             response.meta["direct_link"] = direct_link
             response.meta["urls"] = urls_in_record
-            response.meta["node"] = node
+            response.meta["record"] = node.extract()
             return self.build_item(response)
 
     def build_item(self, response):
         """Build the final record."""
-        node = response.meta["node"]
+        node = get_node(response.meta["record"], self.namespaces)
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         record.add_value('file_urls', response.meta.get("direct_link"))
         record.add_value('urls', response.meta.get("urls"))
@@ -217,6 +216,5 @@ class BaseSpider(XMLFeedSpider):
                 pdf_links.append(urljoin(domain, link))
 
         response.meta["direct_link"] = pdf_links
-        response.meta["node"] = response.meta.get('node')
         response.meta["urls"] = response.meta.get('urls')
         return self.build_item(response)
