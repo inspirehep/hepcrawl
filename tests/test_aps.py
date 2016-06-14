@@ -114,8 +114,8 @@ def test_subjects(results):
     """Test extracting collaboration."""
     subjects = ["Quantum Information"]
     for record in results:
-        assert 'subject_terms' in record
-        assert record['subject_terms'] == subjects
+        assert 'field_categories' in record
+        assert record['field_categories'] == subjects
 
 
 def test_publication_info(results):
