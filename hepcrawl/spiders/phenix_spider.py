@@ -31,8 +31,10 @@ class PhenixSpider(XMLFeedSpider):
 
 
     Example usage:
-    scrapy crawl phenix
-    scrapy crawl phenix -a source_file=file://`pwd`/tests/responses/phenix/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
+
+        scrapy crawl phenix
+        scrapy crawl phenix -a source_file=file://`pwd`/tests/responses/phenix/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """

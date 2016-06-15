@@ -38,19 +38,20 @@ class BrownSpider(CrawlSpider):
 
 
     Example usage:
-    scrapy crawl brown -s "JSON_OUTPUT_DIR=tmp/"
-    scrapy crawl brown -a source_file=file://`pwd`/tests/responses/brown/test_1.json -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
 
-
-    TODO:
-    * Have to check how we should access the API. Right now behind the link is
-     a JSON file with 100 first results from a query to Physics dissertations
-     collection.
-    * On the splash page there is a link to MODS format XML metadata, could use
-      also this.
+        scrapy crawl brown -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl brown -a source_file=file://`pwd`/tests/responses/brown/test_1.json -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """
+
+    # TODO:
+    # * Have to check how we should access the API. Right now behind the link is
+    #   a JSON file with 100 first results from a query to Physics dissertations
+    #   collection.
+    # * On the splash page there is a link to MODS format XML metadata, could use
+    #   also this.
 
     name = 'brown'
     start_urls = ["https://repository.library.brown.edu/api/collections/355/"]

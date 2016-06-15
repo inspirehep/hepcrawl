@@ -38,14 +38,14 @@ class DNBSpider(XMLFeedSpider):
 
 
     Example usage:
-    scrapy crawl DNB -a source_file=file://`pwd`/tests/responses/dnb/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
 
-    TODO:
-    *OAI harvester should fetch also DDC 520 theses, not only 530.
-
+        scrapy crawl DNB -a source_file=file://`pwd`/tests/responses/dnb/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """
+
+    # TODO: OAI harvester should fetch also DDC 520 theses, not only 530.
 
     name = 'DNB'
     start_urls = []

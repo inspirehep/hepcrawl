@@ -32,18 +32,17 @@ class PhilSpider(CrawlSpider):
 
 
     Example usage:
-    scrapy crawl phil -s "JSON_OUTPUT_DIR=tmp/"
-    scrapy crawl phil -a source_file=file://`pwd`/tests/responses/phil/inspire_15-12-2015.json -s "JSON_OUTPUT_DIR=tmp/"
-    scrapy crawl phil -a source_file=file://`pwd`/tests/responses/phil/test_thesis.json -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
 
-    TODO:
-    *Have to check if new records are appended to the file or
-     if the file is just replaced with new information:
-     Actually some old records are removed while new ones are added?
-
+        scrapy crawl phil -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl phil -a source_file=file://`pwd`/tests/responses/phil/test_thesis.json -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """
+
+    # TODO: Have to check if new records are appended to the file or if the file
+    # is just replaced with new information. Actually some old records are
+    # removed while new ones are added?
 
     name = 'phil'
     start_urls = ["http://philpapers.org/philpapers/raw/export/inspire.json"]

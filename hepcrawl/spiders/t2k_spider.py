@@ -33,9 +33,11 @@ class T2kSpider(XMLFeedSpider):
     3. `build_item` will build the HEPRecord.
 
     Example usage:
-    scrapy crawl t2k
-    scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
-    scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
+
+        scrapy crawl t2k
+        scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
 
 
     Happy crawling!

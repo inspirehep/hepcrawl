@@ -52,11 +52,13 @@ class ElsevierSpider(XMLFeedSpider):
 
 
     Example usage:
+    .. code-block:: console
+
         scrapy crawl elsevier -a atom_feed=file://`pwd`/tests/responses/elsevier/test_feed.xml -s "JSON_OUTPUT_DIR=tmp/"
         scrapy crawl elsevier -a zip_file=file://`pwd`/tests/responses/elsevier/nima.zip -s "JSON_OUTPUT_DIR=tmp/"
         scrapy crawl elsevier -a xml_file=file://`pwd`/tests/responses/elsevier/sample_consyn_record.xml -s "JSON_OUTPUT_DIR=tmp/"
 
-        for logging, add -s "LOG_FILE=elsevier.log"
+    for logging, add -s "LOG_FILE=elsevier.log"
 
     * This is useful: https://www.elsevier.com/__data/assets/pdf_file/0006/58407/ja50_tagbytag5.pdf
 

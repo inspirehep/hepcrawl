@@ -25,10 +25,34 @@ Items
 Spiders
 -------
 
-World Scientific
-~~~~~~~~~~~~~~~~
+ALPHA
+~~~~~
 
-.. automodule:: hepcrawl.spiders.wsp_spider
+.. automodule:: hepcrawl.spiders.alpha_spider
+   :members:
+
+BASE
+~~~~
+
+.. automodule:: hepcrawl.spiders.base_spider
+   :members:
+
+Brown
+~~~~~
+
+.. automodule:: hepcrawl.spiders.brown_spider
+   :members:
+
+DNB
+~~~
+
+.. automodule:: hepcrawl.spiders.dnb_spider
+   :members:
+
+Elsevier
+~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.elsevier_spider
    :members:
 
 INFN
@@ -43,14 +67,44 @@ IOP
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
+MAGIC
+~~~~~
+
+.. automodule:: hepcrawl.spiders.magic_spider
+   :members:
+
 MIT
 ~~~
 
 .. automodule:: hepcrawl.spiders.mit_spider
    :members:
 
+PHENIX
+~~~~~~
+
+.. automodule:: hepcrawl.spiders.phenix_spider
+   :members:
+
+Philpapers.org
+~~~~~~~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.phil_spider
+   :members:
+
 Proceedings of Science
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.pos_spider
+   :members:
+
+T2K
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.t2k_spider
+   :members:
+
+World Scientific
+~~~~~~~~~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.wsp_spider
    :members:
