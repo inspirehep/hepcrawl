@@ -72,7 +72,7 @@ class POSSpider(Spider):
         node.remove_namespaces()
         record = HEPLoader(item=HEPRecord(), selector=node)
         record.add_xpath('title', '//metadata/pex-dc/title/text()')
-        record.add_xpath('subject_terms', '//metadata/pex-dc/subject/text()')
+        record.add_xpath('field_categories', '//metadata/pex-dc/subject/text()')
         record.add_xpath('source', '//metadata/pex-dc/publisher/text()')
 
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))

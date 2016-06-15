@@ -61,16 +61,19 @@ def selective_remove_tags(which_ones=(), keep=()):
 
 
 def parse_authors(value):
-    """Add missing information for an author:
-     `full_name` combination value and
-     `surname` + `given_names` values;
-     delete spaces from initials"""
+    """Add missing information for an author.
+
+    `full_name` combination value and `surname` + `given_names` values.
+    Delete spaces from initials.
+    """
     if "raw_name" in value and "surname" not in value:
         value['surname'], value['given_names'] = split_fullname(value['raw_name'])
     if 'given_names' in value and value['given_names']:
         value['given_names'] = collapse_initials(value['given_names'])
-        value['full_name'] = '{0}, {1}'.format(
-            value['surname'], value['given_names'], )
+        value['full_name'] = u'{0}, {1}'.format(
+            value['surname'],
+            value['given_names']
+        )
     else:
         value['full_name'] = value['surname']
 
@@ -89,7 +92,7 @@ def parse_thesis_supervisors(value):
 def add_author_full_name(value):
     """Add `full_name` combination value for an author, if required."""
     if "full_name" not in value:
-        value['full_name'] = '{0}, {1}'.format(
+        value['full_name'] = u'{0}, {1}'.format(
             value['surname'],
             collapse_initials(value['given_names']),
         ).title()

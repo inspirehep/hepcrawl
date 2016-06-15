@@ -91,7 +91,7 @@ def test_pdf_link(results):
 
 
 def test_urls(results):
-    urls = [{'url': 'http://alpha.web.cern.ch/node/276'}]
+    urls = [{'value': 'http://alpha.web.cern.ch/node/276'}]
     for record in results:
         assert 'urls' in record
         assert record['urls'] == urls

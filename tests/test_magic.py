@@ -135,7 +135,7 @@ def test_url(record):
     """Test pdf link(s)"""
     url = "file:///tests/responses/magic/test_splash.html"
     assert 'urls' in record
-    assert record['urls'][0]['url'] == url
+    assert record['urls'][0]['value'] == url
 
 def test_pdf_link(record):
     """Test pdf link(s)"""
@@ -219,5 +219,5 @@ def test_no_spash_page():
     assert isinstance(record, hepcrawl.items.HEPRecord)
     assert "urls" in record
     assert "title" in record
-    assert record["urls"][0]["url"] == "http://non_reachable_url/"
+    assert record["urls"][0]["value"] == "http://non_reachable_url/"
     assert record["title"] == "Limits to the violation of..."

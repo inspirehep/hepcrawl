@@ -92,7 +92,7 @@ class APSSpider(Spider):
             published_date = article.get('date', '')
             record.add_value('journal_year', published_date[:4])
             record.add_value('date_published', published_date)
-            record.add_value('subject_terms', [
+            record.add_value('field_categories', [
                 term.get('label')
                 for term in get_nested(article, 'classificationSchemes', 'subjectAreas')
             ])

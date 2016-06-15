@@ -103,7 +103,7 @@ def test_url(record):
     """Test pdf link(s)"""
     url = "file:///tests/responses/t2k/001"
     assert 'urls' in record
-    assert record['urls'][0]['url'] == url
+    assert record['urls'][0]['value'] == url
 
 
 def test_pdf_link(record):

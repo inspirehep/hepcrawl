@@ -65,15 +65,15 @@ def test_titles(inspire_record):
     assert inspire_record['titles'][0] == titles
 
 
-def test_subject_terms(inspire_record):
-    """Test extracting subject_terms."""
-    subject_terms = {
+def test_field_categories(inspire_record):
+    """Test extracting field_categories."""
+    field_categories = {
         'scheme': 'APS',
         'source': 'APS',
         'term': 'Quantum Information'
     }
-    assert 'subject_terms' in inspire_record
-    assert inspire_record['subject_terms'][0] == subject_terms
+    assert 'field_categories' in inspire_record
+    assert inspire_record['field_categories'][0] == field_categories
 
 
 def test_publication_info(inspire_record):

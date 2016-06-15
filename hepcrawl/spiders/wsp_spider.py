@@ -89,21 +89,24 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         if self.package_path:
             yield Request(self.package_path, callback=self.handle_package_file)
         else:
+            ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
             dummy, new_files = ftp_list_files(
                 self.ftp_folder,
                 self.target_folder,
-                server=self.ftp_host,
-                netrc_file=self.ftp_netrc
+                server=ftp_host,
+                user=ftp_params['ftp_user'],
+                password=ftp_params['ftp_password']
             )
-            base_url, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
             for remote_file in new_files:
+                # Cast to byte-string for scrapy compatibility
+                remote_file = str(remote_file)
                 ftp_params["ftp_local_filename"] = os.path.join(
                     self.target_folder,
                     os.path.basename(remote_file)
                 )
-                remote_url = "{0}/{1}".format(base_url, remote_file)
+                remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
                 yield Request(
-                    remote_url,
+                    str(remote_url),
                     meta=ftp_params,
                     callback=self.handle_package_ftp
                 )

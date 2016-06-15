@@ -67,12 +67,12 @@ def test_date_published(record):
 
 def test_subject(record):
     """Test extracting subject"""
-    subject_terms = ['Lattice Field Theory', ]
+    field_categories = ['Lattice Field Theory', ]
 
-    assert 'subject_terms' in record
-    for subject in record['subject_terms']:
-        assert subject in subject_terms
-        subject_terms.remove(subject)
+    assert 'field_categories' in record
+    for subject in record['field_categories']:
+        assert subject in field_categories
+        field_categories.remove(subject)
 
 
 def test_license(record):
