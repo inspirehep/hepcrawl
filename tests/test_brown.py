@@ -21,7 +21,10 @@ import hepcrawl
 
 from hepcrawl.spiders import brown_spider
 
-from .responses import fake_response_from_file, fake_response_from_string
+from .responses import (
+    fake_response_from_file,
+    fake_response_from_string,
+)
 
 
 @pytest.fixture
@@ -30,7 +33,6 @@ def record():
     spider = brown_spider.BrownSpider()
     response = fake_response_from_file('brown/test_1.json')
     jsonresponse = json.loads(response.body_as_unicode())
-
     jsonrecord = jsonresponse["items"]["docs"][0]
     jsonrecord["uri"] = "brown/test_splash.html"
 
@@ -43,11 +45,11 @@ def record():
 def parsed_node():
     """Return a parse call to a full record.
 
-    Return type should be a Scrapy Request object."""
+    Return type should be a Scrapy Request object.
+    """
     spider = brown_spider.BrownSpider()
     response = fake_response_from_file('brown/test_1.json')
     jsonresponse = json.loads(response.body_as_unicode())
-
     jsonrecord = jsonresponse["items"]["docs"][0]
     response.meta["jsonrecord"] = jsonrecord
 
@@ -55,7 +57,8 @@ def parsed_node():
 
 def test_files_constructed(parsed_node):
     """Test pdf link.
-    This link is constructed in the `parse`. Here parsed_node should be a
+
+    This link is constructed in `parse`. Here parsed_node should be a
     Scrapy Request object.
     """
     link = "https://repository.library.brown.edu/studio/item/bdr:11303/PDF/"
@@ -157,8 +160,8 @@ def test_urls(record):
 
 
 @pytest.fixture
-def parsed_node_nolink():
-    """Return a parse call to a record without url."""
+def parsed_node_no_splash():
+    """Return a parse call to a record without spalsh page url."""
     spider = brown_spider.BrownSpider()
     body = """
     {
@@ -180,11 +183,43 @@ def parsed_node_nolink():
 
     return spider.parse(response).next()
 
-def test_nolink(parsed_node_nolink):
-    """Test if parsing a record without url results directly in item building.
+def test_no_splash(parsed_node_no_splash):
+    """Test if parsing a record without splash url results directly in item building.
 
     Normally `parse` should result in a get request. Here parsed_node_nolink
     should be final HEPRecord.
     """
-    assert parsed_node_nolink
-    assert isinstance(parsed_node_nolink, hepcrawl.items.HEPRecord)
+    assert parsed_node_no_splash
+    assert isinstance(parsed_node_no_splash, hepcrawl.items.HEPRecord)
+
+@pytest.fixture
+def no_year_no_author():
+    """Test behaviour when no year given in thesis info line."""
+    spider = brown_spider.BrownSpider()
+    body = """
+    <html>
+        <div class="panel-body">
+            <dl class="">
+                <dt>Notes</dt>
+                <dd>Thesis (Ph.D. -- Brown University</dd>
+            </dl>
+        </div>
+    </html>
+    
+    """
+    return fake_response_from_string(body)
+
+
+def test_no_year_in_thesis(no_year_no_author):
+    """Test that there is no year."""
+    spider = brown_spider.BrownSpider()
+    year = spider._get_phd_year(no_year_no_author)
+
+    assert not year
+
+def test_no_author_in_thesis(no_year_no_author):
+    """Test that there are no authors."""
+    spider = brown_spider.BrownSpider()
+    authors = spider._get_authors(no_year_no_author)
+
+    assert not authors

@@ -43,9 +43,11 @@ class BrownSpider(CrawlSpider):
 
 
     TODO:
-    *Have to check how we should access the API. Right now behind the link is
+    * Have to check how we should access the API. Right now behind the link is
      a JSON file with 100 first results from a query to Physics dissertations
      collection.
+    * On the splash page there is a link to MODS format XML metadata, could use
+      also this.
 
     Happy crawling!
     """
@@ -117,23 +119,21 @@ class BrownSpider(CrawlSpider):
         """Get copyright date from the web page."""
         date_raw = response.xpath(
             "//div[@class='panel-body']/dl/dt[contains(text(), 'Copyright')]/following-sibling::dd[1]/text()").extract_first()
-
         # NOTE: apparently the only real data here is the year, all dates are
         # of the format "01-01-2016, 01-01-2012" etc.
 
         return date_raw
 
     @staticmethod
-    def _parse_notes(response):
-        """Get notes. Contain info about the thesis."""
-        phd_year = ''
+    def _get_phd_year(response):
+        """Parse notes and get the PhD year."""
+        phd_year = ""
         notes_raw = response.xpath(
             "//div[@class='panel-body']/dl/dt[contains(text(), 'Notes')]/following-sibling::dd[1]/text()").extract_first()
         if notes_raw:
             notes_raw = notes_raw.replace(".", "")
             pattern = re.compile(r'[\W_]+', re.UNICODE)
             notes = pattern.sub(' ', notes_raw).split()
-
             try:
                 phd_year = [notes.pop(ind) for ind, val in enumerate(notes) if val.isdigit()][0]
             except IndexError:
@@ -141,15 +141,13 @@ class BrownSpider(CrawlSpider):
 
         return phd_year
 
-    def _add_thesis_info(self, response):
+    def _get_thesis_info(self, response):
         """Create thesis info dictionary."""
-        date = self._parse_notes(response)
-        thesis = {
-            "date": date,
+        return {
+            "date": self._get_phd_year(response),
             "university": "Brown University",
             "degree_type": "PhD",
         }
-        return thesis
 
     @staticmethod
     def _get_page_num(response):
@@ -190,7 +188,7 @@ class BrownSpider(CrawlSpider):
 
         response.meta["authors"] = self._get_authors(response)
         response.meta["date"] = self._get_date(response)
-        response.meta["thesis"] = self._add_thesis_info(response)
+        response.meta["thesis"] = self._get_thesis_info(response)
         response.meta["pages"] = self._get_page_num(response)
 
         return self.build_item(response)

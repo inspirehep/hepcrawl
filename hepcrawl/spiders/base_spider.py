@@ -47,7 +47,7 @@ class BaseSpider(XMLFeedSpider):
 
 
     Example usage:
-    scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_record2.xml -s "JSON_OUTPUT_DIR=tmp/"
+    scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
 
     TODO:
     *With a test document of 1000 records only 974 returned.
