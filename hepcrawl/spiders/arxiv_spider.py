@@ -19,6 +19,13 @@ from ..loaders import HEPLoader
 
 
 class ArxivSpider(XMLFeedSpider):
+    """Spider for crawling arXiv.org OAI-PMH XML files.
+
+    .. code-block:: console
+
+        scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
+
+    """
 
     name = 'arXiv'
     iterator = 'xml'
@@ -58,9 +65,10 @@ class ArxivSpider(XMLFeedSpider):
 
         record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
 
-        record.add_value('arxiv_eprints', self._get_arxiv_eprint(node))
+        categories = node.xpath('//categories//text()').extract_first().split()
+        record.add_value('field_categories', categories)
+        record.add_value('arxiv_eprints', self._get_arxiv_eprint(node, categories))
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
-        # record.add_value('thesis', self._get_thesis(node))
 
         license_str, license_url = self._get_license(node)
         record.add_value('license', license_str)
@@ -107,21 +115,19 @@ class ArxivSpider(XMLFeedSpider):
         return pages, notes, doctype
 
     def _get_arxiv_report_numbers(self, node):
-        report_numbers = get_first(node.xpath('//report-no//text()').extract(), default='')
+        report_numbers = node.xpath('//report-no//text()').extract_first()
         if report_numbers:
             return [rn for rn in report_numbers.split(',')]
         return []
 
-    def _get_arxiv_eprint(self, node):
-        category_str = get_first(node.xpath('//categories//text()').extract(), default='')
-        id = get_first(node.xpath('//id//text()').extract(), default='')
+    def _get_arxiv_eprint(self, node, categories):
         return {
-            'value': id,
-            'categories': category_str.split()
+            'value': node.xpath('//id//text()').extract_first(),
+            'categories': categories
         }
 
     def _get_license(self, node):
-        license_url = get_first(node.xpath('//license//text()').extract(), default='')
+        license_url = node.xpath('//license//text()').extract_first()
         license_str = ''
         licenses = {  # TODO: more licenses here?
             'creativecommons.org/licenses/by/3.0': 'CC-BY-3.0',
@@ -137,5 +143,5 @@ class ArxivSpider(XMLFeedSpider):
     def _get_ext_systems_number(self, node):
         return {
             'institute': 'arXiv',
-            'value': get_first(node.xpath('//identifier//text()').extract(), default='')
+            'value': node.xpath('//identifier//text()').extract_first()
         }

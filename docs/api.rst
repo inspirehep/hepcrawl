@@ -25,11 +25,24 @@ Items
 Spiders
 -------
 
+.. contents::
+    :local:
+    :backlinks: none
+
+
 ALPHA
 ~~~~~
 
 .. automodule:: hepcrawl.spiders.alpha_spider
    :members:
+
+
+arXiv.org
+~~~~~~~~~
+
+.. automodule:: hepcrawl.spiders.arxiv_spider
+   :members:
+
 
 BASE
 ~~~~
@@ -53,7 +66,7 @@ Elsevier
 ~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.elsevier_spider
-   :members:
+
 
 INFN
 ~~~~
@@ -91,20 +104,24 @@ Philpapers.org
 .. automodule:: hepcrawl.spiders.phil_spider
    :members:
 
+
 Proceedings of Science
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.pos_spider
    :members:
 
+
 T2K
-~~~~~~~~~~~~~~~~~~~~~~
+~~~
 
 .. automodule:: hepcrawl.spiders.t2k_spider
    :members:
+
 
 World Scientific
 ~~~~~~~~~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.wsp_spider
    :members:
+
