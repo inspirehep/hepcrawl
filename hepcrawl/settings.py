@@ -99,8 +99,8 @@ FILES_RESULT_FIELD = 'files'
 
 # INSPIRE Push Pipeline settings
 # ==============================
-API_PIPELINE_URL = ""
-API_PIPELINE_TASK_ENDPOINT_DEFAULT = ""
+API_PIPELINE_URL = "http://localhost:5555/api/task/async-apply"
+API_PIPELINE_TASK_ENDPOINT_DEFAULT = "inspire_crawler.tasks.submit_results"
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
 # Celery
