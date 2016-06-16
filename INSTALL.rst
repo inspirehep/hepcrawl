@@ -19,6 +19,11 @@ Quick Installation
     pip install hepcrawl
 
 
+.. warning::
+
+    Beware that you may need to install additional system level packages like libffi, libssl, libxslt, libxml2 etc.
+
+
 Installation for developers
 ---------------------------
 
