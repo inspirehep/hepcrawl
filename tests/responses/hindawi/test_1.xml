@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mml="http://www.w3.org/1998/Math/MathML" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2016-06-16T07:55:30Z</responseDate>
+  <request verb="ListRecords" metadataPrefix="marc21" from="2015-01-01" set="HINDAWI.AA">http://www.hindawi.com/oai-pmh/oai.aspx</request>
+  <ListRecords>
+    <record>
+      <header>
+        <identifier>oai:hindawi.com:10.1155/2010/194946</identifier>
+        <datestamp>2015-01-05T12:38:38Z</datestamp>
+        <setSpec>HINDAWI.AA:2010</setSpec>
+      </header>
+      <metadata>
+        <marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+          <datafield tag="024" ind1="7" ind2=" ">
+            <subfield code="a">10.1155/2010/194946</subfield>
+            <subfield code="2">DOI</subfield>
+          </datafield>
+          <datafield tag="100" ind1=" " ind2=" ">
+            <subfield code="a">Ma&#x142;ek, Katarzyna</subfield>
+            <subfield code="u">Center for Theoretical Physics Polish Academy of Sciences</subfield>
+            <subfield code="j"/>
+          </datafield>
+          <datafield tag="245" ind1=" " ind2=" ">
+            <subfield code="a">&#x201C;Pi of the Sky&#x201D; Detector</subfield>
+          </datafield>
+          <datafield tag="260" ind1=" " ind2=" ">
+            <subfield code="b">Hindawi Publishing Corporation</subfield>
+            <subfield code="c">2010-01-26</subfield>
+          </datafield>
+          <datafield tag="300" ind1=" " ind2=" ">
+            <subfield code="a">9</subfield>
+          </datafield>
+          <datafield tag="520" ind1=" " ind2=" ">
+            <subfield code="a">&#x201C;Pi of the Sky&#x201D; experiment has been designed for continuous observations of
+a large part of the sky, in search for astrophysical phenomena characterized
+by short timescales, especially for prompt optical counterparts of Gamma
+Ray Bursts (GRBs). Other scientific goals include searching for novae and
+supernovae stars and monitoring of blasars and AGNs activity. &#x201C;Pi of the Sky&#x201D; is a fully autonomous, robotic detector, which can operate for long periods of time without a human supervision. A crucial element of the detector is
+an advanced software for real-time data analysis and identification of short
+optical transients. The most important result so far has been an independent
+detection and observation of the prompt optical emission of the &#x201C;naked-eye&#x201D; GRB080319B.</subfield>
+          </datafield>
+          <datafield tag="540" ind1=" " ind2=" ">
+            <subfield code="a">CC-BY-3.0</subfield>
+            <subfield code="u">http://creativecommons.org/licenses/by/3.0/</subfield>
+          </datafield>
+          <datafield tag="542" ind1=" " ind2=" ">
+            <subfield code="f">Copyright &#xA9; 2010 Katarzyna Ma&#x142;ek et al.</subfield>
+          </datafield>
+          <datafield tag="700" ind1=" " ind2=" ">
+            <subfield code="a">Batsch, Tadeusz</subfield>
+            <subfield code="u">The Andrzej Soltan Institute for Nuclear Studies</subfield>
+            <subfield code="j"/>
+          </datafield>
+          <datafield tag="773" ind1=" " ind2=" ">
+            <subfield code="p">Advances in Astronomy</subfield>
+            <subfield code="v">2010</subfield>
+            <subfield code="n">898351</subfield>
+            <subfield code="c">194946</subfield>
+            <subfield code="y">2010</subfield>
+          </datafield>
+          <datafield tag="980" ind1=" " ind2=" ">
+            <subfield code="a">SCOAP3</subfield>
+            <subfield code="b">Hindawi</subfield>
+          </datafield>
+          <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">http://downloads.hindawi.com/journals/aa/2010/194946.pdf</subfield>
+            <subfield code="f">.pdf</subfield>
+            <subfield code="n">fulltext</subfield>
+          </datafield>
+          <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">http://downloads.hindawi.com/journals/aa/2010/194946.xml</subfield>
+            <subfield code="f">.xml</subfield>
+            <subfield code="n">fulltext</subfield>
+          </datafield>
+          <datafield tag="856" ind1="4" ind2="0">
+            <subfield code="u">http://dx.doi.org/10.1155/2010/194946</subfield>
+            <subfield code="z">Full text URL</subfield>
+          </datafield>
+        </marc:record>
+      </metadata>
+    </record>
+  </ListRecords>
+</OAI-PMH>
