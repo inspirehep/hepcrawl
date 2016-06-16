@@ -94,7 +94,7 @@ class InspireAPIPushPipeline(object):
             'source': source,
         }]
         item['field_categories'] = [
-            {"term": term, "source": source, "scheme": source}
+            {"term": term, "source": "publisher", "scheme": source}
             for term in item.get('field_categories', [])
         ]
         item['abstracts'] = [{
