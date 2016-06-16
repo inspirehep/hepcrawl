@@ -113,7 +113,7 @@ def test_thesis_supervisor(record):
 
 def test_page_nr(record):
     """Test page numbers."""
-    assert record["page_nr"] == "124"
+    assert record["page_nr"] == ["124"]
 
 
 @pytest.fixture

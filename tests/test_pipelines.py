@@ -69,7 +69,7 @@ def test_field_categories(inspire_record):
     """Test extracting field_categories."""
     field_categories = {
         'scheme': 'APS',
-        'source': 'APS',
+        'source': 'publisher',
         'term': 'Quantum Information'
     }
     assert 'field_categories' in inspire_record

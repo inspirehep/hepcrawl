@@ -243,7 +243,7 @@ def test_scrape(splash):
         "Injektorsektionen des MYRRHA-Projektes durch den Einsatz von "
         "supraleitenden CH-Strukturen erfolgen."
     )
-    page_nr_gt = "133"
+    page_nr_gt = ["133"]
 
     assert splash["abstract"]
     assert splash["abstract"] == abstract_gt

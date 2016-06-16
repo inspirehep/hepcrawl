@@ -81,7 +81,9 @@ class InspireAPIPushPipeline(object):
         source = item.pop('source', spider.name)
         item['acquisition_source'] = {
             'source': source,
-            'method': 'hepcrawl',
+            # NOTE: Keeps method same as source to conform with INSPIRE
+            # submissions which add `submissions` to this field.
+            'method': source,
             'date': datetime.datetime.now().isoformat(),
             'submission_number': os.environ.get('SCRAPY_JOB'),
         }

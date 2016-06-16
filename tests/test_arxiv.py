@@ -59,7 +59,7 @@ def test_preprint_date(results):
 
 def test_page_nr(results):
     """Test extracting page_nr"""
-    page_nr = "6"
+    page_nr = ["6"]
     for record in results:
         assert 'page_nr' in record
         assert record['page_nr'] == page_nr

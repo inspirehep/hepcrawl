@@ -146,7 +146,7 @@ def test_files_scraped(record):
 def test_page_nr(record):
     """Test number of pages."""
     assert record["page_nr"]
-    assert record["page_nr"] == "129"
+    assert record["page_nr"] == ["129"]
 
 def test_thesis(record):
     """Test thesis year."""
@@ -205,7 +205,7 @@ def no_year_no_author():
             </dl>
         </div>
     </html>
-    
+
     """
     return fake_response_from_string(body)
 
