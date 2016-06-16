@@ -34,9 +34,10 @@ class AlphaSpider(CrawlSpider):
 
 
     Example usage:
-    scrapy crawl alpha -s "JSON_OUTPUT_DIR=tmp/"
-    scrapy crawl alpha -a source_file=file://`pwd`/tests/responses/alpha/test_10.htm -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
 
+        scrapy crawl alpha -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl alpha -a source_file=file://`pwd`/tests/responses/alpha/test_1.htm -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """

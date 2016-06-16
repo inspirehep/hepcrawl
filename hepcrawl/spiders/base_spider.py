@@ -26,9 +26,8 @@ class BaseSpider(XMLFeedSpider):
     """BASE crawler
     Scrapes BASE metadata XML files one at a time.
     The actual files should be retrieved from BASE viat its OAI interface. The
-    file can contain multiple records. This spider harvests only theses.
-
-    This spider takes one BASE metadata record which are stored in an XML file.
+    file can contain multiple records. This spider harvests only theses. It
+    takes one BASE metadata record which are stored in an XML file.
 
     1. First a request is sent to parse_node() to look through the XML file
        and determine if it has direct link(s) to a fulltext pdf. (Actually it
@@ -47,15 +46,15 @@ class BaseSpider(XMLFeedSpider):
 
 
     Example usage:
-    scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_record2.xml -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
 
-    TODO:
-    *With a test document of 1000 records only 974 returned.
-     Check SSL and internal errors.
-
+        scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
 
     Happy crawling!
     """
+
+    # TODO: With a test document of 1000 records only 974 returned. Check SSL
+    # and internal errors.
 
     name = 'BASE'
     start_urls = []

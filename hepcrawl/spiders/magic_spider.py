@@ -33,8 +33,10 @@ class MagicSpider(XMLFeedSpider):
     3. `build_item` will build the HEPRecord.
 
     Example usage:
-    scrapy crawl magic
-    scrapy crawl magic -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+    .. code-block:: console
+
+        scrapy crawl magic
+        scrapy crawl magic -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
 
 
     Happy crawling!
