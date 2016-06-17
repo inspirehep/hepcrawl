@@ -555,7 +555,7 @@ class ElsevierSpider(XMLFeedSpider):
 
     def _parse_references(self, ref, label):
         """Parse all the references."""
-        references = {}
+        reference = {}
         textref = ref.xpath(".//ce:textref//text()").extract()
         sublabel = ref.xpath(".//ce:label//text()").extract_first()
         if label:
@@ -563,10 +563,13 @@ class ElsevierSpider(XMLFeedSpider):
                 sublabel = sublabel.strip("[]")
                 if sublabel != label:
                     label = label + sublabel
-            references["label"] = label
+            try:
+                reference["number"] = int(label)
+            except (TypeError, ValueError):
+                pass
         if textref:
-            references["raw_reference"] = self._fix_node_text(textref)
-            return references
+            reference["raw_reference"] = [self._fix_node_text(textref)]
+            return reference
         doi = ref.xpath(".//ce:doi/text()").extract_first()
         fpage = ref.xpath(".//sb:first-page/text()").extract_first()
         lpage = ref.xpath(".//sb:last-page/text()").extract_first()
@@ -598,22 +601,22 @@ class ElsevierSpider(XMLFeedSpider):
         arxiv_id = self._format_arxiv_id(self._get_ref_links(ref))
 
         if arxiv_id:
-            references['arxiv_id'] = arxiv_id
+            reference['arxiv_id'] = arxiv_id
         if urls and "arxiv" not in urls[0].lower():
-            references['urls'] = urls
+            reference['url'] = urls
         if doi:
-            references['doi'] = "doi:" + doi
+            reference['doi'] = "doi:" + doi
         if fpage:
-            references['fpage'] = fpage
+            reference['fpage'] = fpage
         if lpage:
-            references['lpage'] = lpage
+            reference['lpage'] = lpage
         if publication:
             journal_title, section = self.get_journal_and_section(publication)
             if journal_title:
-                references['journal'] = journal_title
+                reference['journal'] = journal_title
                 if volume:
                     volume = section + volume
-                    references['volume'] = volume
+                    reference['volume'] = volume
                     # NOTE: will the pubstring handling happen here or later?
                     pubstring = u"{},{}".format(journal_title, volume)
                     if issue and fpage and lpage:
@@ -624,38 +627,39 @@ class ElsevierSpider(XMLFeedSpider):
                         pubstring += u"({})".format(issue)
                     elif fpage:
                         pubstring += "," + fpage
-                    references['journal_pubnote'] = pubstring.replace(". ", ".")
+                    reference['journal_pubnote'] = [pubstring.replace(". ", ".")]
         if book_title:
-            references['book_title'] = book_title
+            reference['book_title'] = book_title
         if title and title != book_title:
-            references['title'] = title
+            reference['title'] = title
         if issue:
-            references['issue'] = issue
+            reference['issue'] = issue
         if isbn:
-            references['isbn'] = isbn
+            reference['isbn'] = isbn
         # if issn:
-            # references['issn'] = issn
+            # reference['issn'] = issn
         if year:
-            references['year'] = year
+            reference['year'] = year
         if authors:
-            references['authors'] = authors
+            reference['authors'] = [authors]
         if editors:
-            references['editors'] = editors
+            reference['editors'] = [editors]
         # NOTE: Do we need series editors or only current issue editors:
         if series_editors:
-            references['series_editors'] = series_editors
+            reference['series_editors'] = [series_editors]
         if collaboration:
-            references["collaboration"] = collaboration
+            reference["collaboration"] = [collaboration]
         if publisher:
-            references["publisher"] = publisher
-        if comment and note:
-            references["misc"] = u"{}; {}".format(comment, note)
-        elif comment:
-            references["misc"] = comment
-        elif note:
-            references["misc"] = note
+            reference["publisher"] = publisher
 
-        return references
+        misc = []
+        if comment:
+            misc.append(comment)
+        if note:
+            misc.append(note)
+        if misc:
+            reference['misc'] = misc
+        return reference
 
     def get_references(self, node):
         """Get all the references for a paper."""
