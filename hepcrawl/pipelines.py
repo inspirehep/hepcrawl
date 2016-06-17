@@ -21,6 +21,23 @@ import requests
 from .utils import get_temporary_file
 
 
+def has_publication_info(item):
+    """If any publication info."""
+    return item.get('pubinfo_freetext') or item.get('journal_volume') or \
+        item.get('journal_title') or \
+        item.get('journal_year') or \
+        item.get('journal_issue') or \
+        item.get('journal_pages') or \
+        item.get('journal_artid') or \
+        item.get('journal_doctype')
+
+
+def filter_fields(item, keys):
+    """Filter away keys."""
+    for key in keys:
+        item.pop(key, None)
+
+
 class JsonWriterPipeline(object):
     """Pipeline for outputting items in JSON lines format."""
 
@@ -119,15 +136,29 @@ class InspireAPIPushPipeline(object):
             'statement': item.pop('copyright_statement', ''),
             'material': item.pop('copyright_material', ''),
         }]
-        item['publication_info'] = [{
-            'journal_title': item.pop('journal_title', ''),
-            'journal_volume': item.pop('journal_volume', ''),
-            'year': item.pop('journal_year', ''),
-            'journal_issue': item.pop('journal_issue', ''),
-            'page_artid': item.pop('journal_pages', '') if item.pop('journal_pages', '') else item.pop('journal_artid', ''),
-            'note': item.pop('journal_doctype', ''),
-            'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
-        }]
+        if not item.get('publication_info'):
+            if has_publication_info(item):
+                item['publication_info'] = [{
+                    'journal_title': item.pop('journal_title', ''),
+                    'journal_volume': item.pop('journal_volume', ''),
+                    'year': item.pop('journal_year', ''),
+                    'journal_issue': item.pop('journal_issue', ''),
+                    'page_artid': item.pop('journal_pages', '') if item.pop('journal_pages', '') else item.pop('journal_artid', ''),
+                    'note': item.pop('journal_doctype', ''),
+                    'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
+                }]
+
+        # Remove any fields
+        filter_fields(item, [
+            'journal_title',
+            'journal_volume',
+            'journal_year',
+            'journal_issue',
+            'journal_pages',
+            'journal_doctype',
+            'journal_artid',
+            'pubinfo_freetext',
+        ])
         return item
 
     def _prepare_payload(self, spider):
