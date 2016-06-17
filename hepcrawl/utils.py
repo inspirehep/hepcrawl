@@ -152,9 +152,7 @@ def get_mime_type(url):
     """Get mime type from url."""
     if not url:
         return ""
-    resp = requests.head(url)
-    if resp.is_redirect:
-        resp = requests.get(url)
+    resp = requests.head(url, allow_redirects=True)
     content_type = resp.headers.get("Content-Type")
     if content_type is None:
         raise Exception("No content-type found in URL {0}".format(url))
