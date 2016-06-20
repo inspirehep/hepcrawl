@@ -26,7 +26,6 @@ class ArxivSpider(XMLFeedSpider):
         scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
 
     """
-
     name = 'arXiv'
     iterator = 'xml'
     itertag = 'OAI-PMH:record'
@@ -61,7 +60,7 @@ class ArxivSpider(XMLFeedSpider):
         pages, notes, doctype = self._get_comments_info(node)
         record.add_value('page_nr', pages)
         record.add_value('public_notes', notes)
-        record.add_value('journal_doctype', doctype)
+        record.add_value('collections', ["HEP", doctype])
 
         record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
 

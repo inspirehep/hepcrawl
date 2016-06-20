@@ -34,6 +34,7 @@ from .outputs import (
     FreeKeywords,
     ClassificationNumbers,
     ListToValueDict,
+    Collections
 )
 
 from .mappings import MATHML_ELEMENTS
@@ -90,7 +91,7 @@ class HEPLoader(ItemLoader):
     )
     collaborations_out = ListToValueDict()
 
-    collections_out = ListToValueDict(key="primary")
+    collections_out = Collections()
 
     title_in = MapCompose(
         fix_title_capitalization,
