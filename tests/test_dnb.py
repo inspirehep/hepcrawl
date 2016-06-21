@@ -9,156 +9,105 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
+import os
+
+import pkg_resources
 import pytest
 
-from scrapy.selector import Selector
+from scrapy.http import HtmlResponse
 
 from hepcrawl.spiders import dnb_spider
+from hepcrawl.items import HEPRecord
 
-from .responses import fake_response_from_file
-
-
-@pytest.fixture
-def record():
-    """Return results generator from the DNB spider."""
-    spider = dnb_spider.DNBSpider()
-    response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-    response.meta["record"] = nodes[0].extract()
-    response.meta["direct_links"] = ["http://d-nb.info/1079912991/34"]
-    response.meta["urls"] = [
-        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
-        "http://d-nb.info/1079912991/34",
-        "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
-    ]
-    return spider.build_item(response)
+from .responses import (
+    fake_response_from_file,
+    fake_response_from_string,
+    get_node,
+)
 
 
 @pytest.fixture
-def authors():
-    spider = dnb_spider.DNBSpider()
-    response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-    return spider.get_authors(nodes[0])
+def scrape_pos_page_body():
+    return pkg_resources.resource_string(
+        __name__,
+        os.path.join(
+            'responses',
+            'dnb',
+            'test_splash.html'
+        )
+    )
 
 
 @pytest.fixture
-def urls():
+def record(scrape_pos_page_body):
+    """Return the results of the spider."""
     spider = dnb_spider.DNBSpider()
-    response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-    return spider.get_urls_in_record(nodes[0])
+    request = spider.parse(
+        fake_response_from_file('dnb/test_1.xml')
+    ).next()
+    response = HtmlResponse(
+        url=request.url,
+        request=request,
+        body=scrape_pos_page_body,
+        **{'encoding': 'utf-8'}
+    )
+    return request.callback(response)
 
-
-@pytest.fixture
-def direct_links():
-    spider = dnb_spider.DNBSpider()
-    urls = [
-        "http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
-        "http://d-nb.info/1079912991/34",
-        "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
-    ]
-    return spider.find_direct_links(urls)
-
-
-@pytest.fixture
-def affiliations():
-    spider = dnb_spider.DNBSpider()
-    response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-    return spider.get_affiliations(nodes[0])
-
-
-@pytest.fixture
-def parse_node_requests():
-    """Returns a fake request to the record file."""
-    spider = dnb_spider.DNBSpider()
-
-    orig_response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(orig_response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-
-    return spider.parse_node(orig_response, nodes[0])
-
-
-@pytest.fixture
-def splash():
-    """Returns a call to build_item(), and ultimately the HEPrecord"""
-    spider = dnb_spider.DNBSpider()
-
-    orig_response = fake_response_from_file("dnb/test_1.xml")
-    selector = Selector(orig_response, type="xml")
-    spider._register_namespaces(selector)
-    nodes = selector.xpath("//%s" % spider.itertag)
-
-    response = fake_response_from_file("dnb/test_splash.html", url="http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625")
-    response.meta["urls"] = ["http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
-                            "http://d-nb.info/1079912991/34",
-                            "http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"]
-    response.meta["record"] = nodes[0].extract()
-
-    return spider.scrape_for_abstract(response)
 
 def test_title(record):
     """Test title."""
     title = "Auslegung und Messungen einer supraleitenden 325 MHz CH-Struktur für Strahlbetrieb"
-    assert record["title"]
+    assert "title" in record
     assert record["title"] == title
 
 
 def test_date_published(record):
     """Test date_published."""
-    date_published = "2015"
-    assert record["date_published"]
-    assert record["date_published"] == date_published
+    assert "date_published" in record
+    assert record["date_published"] == "2015"
 
 
 def test_authors(record):
     """Test authors."""
     authors = ["Busch, Marco"]
-    assert record["authors"]
-    assert len(record["authors"]) == len(authors)
+    surnames = ["Busch"]
+    affiliations = ["Frankfurt am Main, Johann Wolfgang Goethe-Univ."]
+
+    assert 'authors' in record
+    astr = record['authors']
+    assert len(astr) == len(authors)
 
     # here we are making sure order is kept
-    for index, name in enumerate(authors):
-        assert record["authors"][index]["full_name"] == name
+    for index in range(len(authors)):
+        assert astr[index]['full_name'] == authors[index]
+        assert astr[index]['surname'] == surnames[index]
+        assert affiliations[index] in [
+            aff['value'] for aff in astr[index]['affiliations']
+        ]
 
 
 def test_supervisors(record):
     """Test thesis supervisors"""
-    supervisor = "Podlech, Holger"
-    assert record["thesis_supervisor"]
-    assert record["thesis_supervisor"][0]["full_name"] == supervisor
+    assert "thesis_supervisor" in record
+    assert record["thesis_supervisor"][0]["full_name"] == "Podlech, Holger"
 
 
 def test_source(record):
     """Test thesis source"""
-    source = 'Univ.-Bibliothek Frankfurt am Main'
-    assert record["source"]
-    assert record["source"] == source
+    assert "source" in record
+    assert record["source"] == 'Univ.-Bibliothek Frankfurt am Main'
 
 
 def test_language(record):
     """Test thesis language"""
-    language = [u'German']
-    assert record["language"]
-    assert record["language"] == language
+    assert "language" in record
+    assert record["language"][0] == u'German'
 
 
 def test_files(record):
     """Test files."""
-    files = ["http://d-nb.info/1079912991/34"]
     assert "file_urls" in record
-    assert record["file_urls"] == files
+    assert record["file_urls"][0] == "http://d-nb.info/1079912991/34"
 
 
 def test_urls(record):
@@ -180,25 +129,13 @@ def test_urls(record):
 
 def test_doctype(record):
     """Test doctype"""
-    doctype = "PhD"
-    assert record["thesis"]
-    assert record["thesis"][0]["degree_type"] == doctype
+    assert "thesis" in record
+    assert record["thesis"][0]["degree_type"] == "PhD"
 
 
-def test_parse_node(parse_node_requests):
-    """Test request metadata that has been defined in parse_node()."""
-    urls = [u'http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257',
-            u'http://d-nb.info/1079912991/34',
-            u'http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625']
-    assert parse_node_requests.meta["urls"]
-    assert parse_node_requests.meta["direct_links"]
-    assert parse_node_requests.meta["urls"] == urls
-    assert parse_node_requests.meta["direct_links"] == [u'http://d-nb.info/1079912991/34']
-
-
-def test_scrape(splash):
-    """Test data that has been fetched in scrape_for_abstract()."""
-    abstract_gt = (
+def test_abstract(record):
+    """Test that abstract has been fetched correctly."""
+    abstract = (
         "Die vorliegende Arbeit handelt von der Entwicklung, dem Bau, den "
         "Zwischenmessungen sowie den abschließenden Tests unter kryogenen "
         "Bedingungen einer neuartigen, supraleitenden CH-Struktur für "
@@ -243,47 +180,40 @@ def test_scrape(splash):
         "Injektorsektionen des MYRRHA-Projektes durch den Einsatz von "
         "supraleitenden CH-Strukturen erfolgen."
     )
-    page_nr_gt = ["133"]
 
-    assert splash["abstract"]
-    assert splash["abstract"] == abstract_gt
-    assert splash["page_nr"]
-    assert splash["page_nr"] == page_nr_gt
+    assert "abstract" in record
+    assert record["abstract"] == abstract
 
+def test_page_nr(record):
+    """Test that page range is correct."""
+    assert "page_nr" in record
+    assert record["page_nr"][0] == "133"
 
-def test_get_affiliations(affiliations):
-    """Test affiliation getting."""
-    assert affiliations == ["Frankfurt am Main, Johann Wolfgang Goethe-Univ."]
-
-
-def test_get_authors(authors):
-    """Test author getting."""
-    assert authors
-    assert authors == [
-        {
-            "affiliation": "Frankfurt am Main, Johann Wolfgang Goethe-Univ.",
-#            "surname": "Busch",
-#            "given_names": "Marco",
-#            "full_name": "Busch, Marco",
-            "raw_name": "Busch, Marco"
-        }
-    ]
-
-
-def test_get_urls(urls):
-    """Test url getting from the xml."""
-    assert urls == [
-        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
-        u"http://d-nb.info/1079912991/34",
-        u"http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
-    ]
+@pytest.fixture
+def parse_without_splash():
+    """Test parsing the XML without splash page links."""
+    spider = dnb_spider.DNBSpider()
+    body = """
+    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <ListRecords xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+        <record>
+        <metadata>
+            <slim:record xmlns:slim="http://www.loc.gov/MARC21/slim" type="Bibliographic">
+                <slim:datafield tag="856" ind1=" " ind2="0">
+                    <slim:subfield code="u">http://d-nb.info/1079912991/34</slim:subfield>
+                </slim:datafield>
+            </slim:record>
+        </metadata>
+        </record>
+    </ListRecords>
+    </OAI-PMH>
+    """
+    response = fake_response_from_string(body)
+    nodes = get_node(spider, "//" + spider.itertag, response)
+    return spider.parse_node(response, nodes[0])
 
 
-def test_find_direct_links(direct_links):
-    """Test direct and splash link recognizing."""
-    splash_links = direct_links[1]
-    assert direct_links[0] == ["http://d-nb.info/1079912991/34"]
-    assert splash_links == [
-        u"http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257",
-        u"http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625"
-    ]
+def test_parse_without_splash(parse_without_splash):
+    assert "abstract" not in parse_without_splash
+    assert "page_nr" not in parse_without_splash
+    assert isinstance(parse_without_splash, HEPRecord)

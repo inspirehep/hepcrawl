@@ -165,9 +165,9 @@ def test_files(record):
     pdf_filename = "test_143_3_336.pdf"
 
     assert "additional_files" in record
-    assert record["additional_files"][0]["access"] == 'INSPIRE-HIDDEN'
-    assert record["additional_files"][0]["type"] == 'Fulltext'
-    assert record["additional_files"][0]["url"] == test_pdf_dir + pdf_filename
+    assert record["additional_files"][1]["access"] == 'INSPIRE-HIDDEN'
+    assert record["additional_files"][1]["type"] == 'Fulltext'
+    assert record["additional_files"][1]["url"] == test_pdf_dir + pdf_filename
 
 
 @pytest.fixture
@@ -200,11 +200,11 @@ def test_files_erratum_open_access_record(erratum_open_access_record):
     pdf_filename = "test_143_3_336.pdf"
     assert "additional_files" in erratum_open_access_record
     assert erratum_open_access_record["additional_files"][
-        0]["access"] == 'INSPIRE-PUBLIC'
+        1]["access"] == 'INSPIRE-PUBLIC'
     assert erratum_open_access_record[
-        "additional_files"][0]["type"] == 'Erratum'
+        "additional_files"][1]["type"] == 'Erratum'
     assert erratum_open_access_record["additional_files"][
-        0]["url"] == test_pdf_dir + pdf_filename
+        1]["url"] == test_pdf_dir + pdf_filename
 
 
 @pytest.fixture

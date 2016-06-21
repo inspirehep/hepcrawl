@@ -161,13 +161,6 @@ class IOPSpider(XMLFeedSpider, NLM):
         volume = node.xpath(".//Journal/Volume/text()").extract_first()
         issue = node.xpath(".//Journal/Issue/text()").extract_first()
 
-        # FIXME: should we add this to 'additional_files':
-        # xml_file_path = response.url
-
-        # FIXME: how to use this information:
-        # replaces_article_with_this_doi = node.xpath(
-        #     "//Replaces[@IdType='doi']/text()")
-
         record.add_value("journal_pages", journal_pages)
         record.add_xpath('abstract', ".//Abstract")
         record.add_xpath("title", ".//ArticleTitle")
@@ -189,9 +182,14 @@ class IOPSpider(XMLFeedSpider, NLM):
         record.add_xpath(
             'free_keywords', "ObjectList/Object[@Type='keyword']/Param[@Name='value']/text()")
 
-        doctype = self.get_doctype(node)
+        record.add_xpath("related_article_doi", "//Replaces[@IdType='doi']/text()")
+        doctype = self.get_doctype(node)  # FIXME: should these be mapped?
+        record.add_value("journal_doctype", doctype)
         record.add_value('collections', self.get_collections(doctype))
 
+        xml_file_path = response.url
+        record.add_value("additional_files",
+                         self.add_fft_file(xml_file_path, "INSPIRE-HIDDEN", "Fulltext"))
         if self.pdf_files:
             pdf_file_path = self.get_pdf_path(volume, issue, fpage)
             if pdf_file_path:
