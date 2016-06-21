@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD Journal Publishing DTD v3.0 20080202//EN" "journalpublishing3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" article-type="research-article" xml:lang="en" dtd-version="3.0">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">aa</journal-id>
+      <journal-title-group>
+        <journal-title>Astronomy and Astrophysics</journal-title>
+        <abbrev-journal-title abbrev-type="publisher">A&amp;A</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="ppub">0004-6361</issn>
+      <issn pub-type="epub">1432-0746</issn>
+      <publisher>
+        <publisher-name>EDP Sciences</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1051/0004-6361/201014485</article-id>
+      <article-id pub-id-type="publisher-id">aa14485-10</article-id><article-id pub-id-type="other">2010A%26A...516A..97N</article-id>
+      <article-categories>
+        <subj-group xml:lang="en" subj-group-type="section">
+          <subject content-type="12">Atomic, molecular, and nuclear data</subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title xml:lang="en">Dielectronic recombination of argon-like ions</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Nikolić</surname>
+            <given-names>D.</given-names>
+          </name>
+          <xref ref-type="aff" rid="AFF1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Gorczyca</surname>
+            <given-names>T. W.</given-names>
+          </name>
+          <xref ref-type="aff" rid="AFF1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Korista</surname>
+            <given-names>K. T.</given-names>
+          </name>
+          <xref ref-type="aff" rid="AFF1">1</xref>
+        </contrib>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Badnell</surname>
+            <given-names>N. R.</given-names>
+          </name>
+          <xref ref-type="aff" rid="AFF2">2</xref>
+        </contrib>
+      </contrib-group>
+      <aff id="AFF1">
+        <label>1</label>
+        <addr-line>Department of Physics, Western Michigan University, Kalamazoo, MI 49008, USA e-mail: gorczyca@wmich.edu
+ </addr-line>
+      </aff>
+      <aff id="AFF2">
+        <label>2</label>
+        <addr-line>
+Department of Physics, University of Strathclyde, Glasgow G4 0NG, UK
+ </addr-line>
+      </aff><pub-date pub-type="final"><day>21</day><month>07</month><year>2010</year></pub-date><pub-date pub-type="epub"><day>21</day><month>07</month><year>2010</year></pub-date>
+      <pub-date pub-type="ppub">
+        <month>06</month>
+        <year>2010</year>
+      </pub-date>
+      <volume>516</volume><issue-id pub-id-type="publisher-id">aa/2010/08</issue-id>
+      <elocation-id>A97</elocation-id>
+      <history>
+        <date date-type="received">
+          <day>23</day>
+          <month>3</month>
+          <year>2010</year>
+        </date>
+        <date date-type="accepted">
+          <day>16</day>
+          <month>4</month>
+          <year>2010</year>
+        </date>
+      </history>
+      <permissions>
+        <copyright-statement>© ESO, 2010</copyright-statement>
+        <copyright-year>2010</copyright-year>
+        <copyright-holder>ESO</copyright-holder>
+      </permissions>
+      <abstract xml:lang="en">
+        <p><italic>Context. </italic>
+ We present a theoretical investigation of dielectronic recombination (DR) of Ar-like ions that sheds new light
+ on the behavior of the rate coefficient at low-temperatures where these ions form in photoionized plasmas.
+ </p>
+        <p><italic>Aims. </italic>
+ We provide results for the total and partial Maxwellian-averaged DR rate coefficients from the
+ initial ground level of K <sc>ii</sc>–Zn <sc>xiii</sc> ions. It is expected that these new results will
+ advance the accuracy of the ionization balance for Ar-like M-shell ions and pave the way towards a
+ detailed modeling of astrophysically relevant X-ray absorption features.
+ </p>
+        <p><italic>Methods. </italic>
+ We utilize the AUTOSTRUCTURE computer code to obtain the accurate core-excitation thresholds in target
+ ions and carry out multiconfiguration Breit-Pauli (MCBP) calculations of the DR cross section in the independent-processes,
+ isolated-resonance, distorted-wave (IPIRDW) approximation.
+ </p>
+        <p><italic>Results. </italic>
+ Our results mediate the complete absence of direct DR calculations for certain Ar-like ions and question
+ the reliability of the existing empirical rate formulas, often inferred from renormalized data within this
+ isoelectronic sequence.
+ </p>
+      </abstract>
+      <kwd-group xml:lang="en">
+        <kwd>atomic data </kwd>
+        <kwd>atomic processes </kwd>
+        <kwd>plasmas </kwd>
+        <kwd>scattering </kwd>
+      </kwd-group>
+      <counts><page-count count="12"/></counts><custom-meta-group>
+        <custom-meta>
+          <meta-name>article origin</meta-name>
+          <meta-value>xml_rich</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>idline</meta-name>
+          <meta-value>A&amp;A 516, A97 (2010)</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>cover_date</meta-name>
+          <meta-value>June-July 2010</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>first_month</meta-name>
+          <meta-value>06</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>last_month</meta-name>
+          <meta-value>07</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>first_year</meta-name>
+          <meta-value>2010</meta-value>
+        </custom-meta>
+        <custom-meta>
+          <meta-name>last_year</meta-name>
+          <meta-value>2010</meta-value>
+        </custom-meta>
+      </custom-meta-group>
+    </article-meta>
+  </front>
+</article>

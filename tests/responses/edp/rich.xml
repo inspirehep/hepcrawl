@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE EDPSArticle SYSTEM "/home/users/web/XML/DTD/EDPSArticle/EDPSArticle.prod-0.02.dtd">
+<EDPSArticle>
+<JournalID>
+  
+      <JournalTitle>Astronomy and Astrophysics Supplement Series</JournalTitle>
+  
+      <JournalShortTitle>Astron. Astrophys. Suppl. Ser.</JournalShortTitle>
+  
+      <JournalEDPSName>aas</JournalEDPSName>
+  
+      <PrintISSN>0365-0138</PrintISSN>
+  
+      <ElectronicISSN>1286-4846</ElectronicISSN>
+
+   </JournalID>
+<IssueID>
+  
+      <Volume>141</Volume>
+  
+      <Issue>1</Issue>
+  
+      <Year>2000</Year>
+  
+      <MonthNumber>01</MonthNumber>
+
+      <Month>January I</Month>
+
+   </IssueID>
+<ArticleID Type="Article">
+      <EDPSRef>ds1691</EDPSRef>
+<DOI>10.1051/aas:2000310</DOI>
+      <Language>en</Language>
+      <ArticleHistory><UnstructuredArticleHistory>Received February 16; accepted September 29, 1999</UnstructuredArticleHistory><StructuredArticleHistory/></ArticleHistory>
+      <FirstPage>65</FirstPage>
+      <LastPage>77</LastPage>
+      <Subject>
+         <Keyword>stars: emission-line, Be </Keyword>
+         <Keyword>infrared: stars</Keyword>
+      </Subject>
+      <Copyright>European Southern Observatory (ESO)</Copyright>
+   </ArticleID>
+<ArticleTitle>
+      <Title xml:lang="en">A representative sample of Be stars</Title>
+      <Subtitle>II. <Formula Notation="TeX"><![CDATA[$K$]]></Formula> band spectroscopy</Subtitle>
+   </ArticleTitle>
+<AuthorGroup>
+<Author Type="OtherAuthor">
+<AuthorName>
+<UnstructuredAuthorName>J.S. Clark</UnstructuredAuthorName>
+<StructuredAuthorName><FirstName>J.</FirstName><MiddleName>S.</MiddleName><LastName>Clark</LastName></StructuredAuthorName></AuthorName>
+<AffiliationID Label="1"/>
+</Author>
+<Author Type="OtherAuthor">
+<AuthorName>
+<UnstructuredAuthorName>I.A. Steele</UnstructuredAuthorName>
+<StructuredAuthorName><FirstName>I.</FirstName><MiddleName>A.</MiddleName><LastName>Steele</LastName></StructuredAuthorName></AuthorName>
+<AffiliationID Label="2"/>
+</Author>
+<Affiliation ID="1">
+<UnstructuredAffiliation>Astronomy Centre, CPES, University of Sussex, Brighton, BN1 9QH, 
+UK</UnstructuredAffiliation>
+</Affiliation>
+<Affiliation ID="2">
+<UnstructuredAffiliation>Astrophysics Research Institute, Liverpool John Moores
+University, Liverpool, L41 1LD, UK</UnstructuredAffiliation>
+</Affiliation>
+<Correspondence>J.S. Clark</Correspondence>
+</AuthorGroup>
+<Abstract xml:lang="en">
+We present 
+<Formula Notation="TeX"><![CDATA[$K$]]></Formula> band (2.05 <Formula Notation="TeX"><![CDATA[$\mu$]]></Formula>m - 2.22 <Formula Notation="TeX"><![CDATA[$\mu$]]></Formula>m) spectra of 66 isolated Be stars 
+of spectral types O9-B9 and luminosity classes III, IV &amp; V. 
+We find that objects with 
+He <Emphasis Type="SmallCaps">i</Emphasis> features either in emission or absorption are
+B3 or earlier. Objects with Mg <Emphasis Type="SmallCaps">ii</Emphasis> emission but no He <Emphasis Type="SmallCaps">i</Emphasis> are
+B2 to B4, while objects with Br<Formula Notation="TeX"><![CDATA[$\gamma$]]></Formula> emission but no evidence
+of He <Emphasis Type="SmallCaps">i</Emphasis> or Mg <Emphasis Type="SmallCaps">ii</Emphasis> are B5 or later.
+Na <Emphasis Type="SmallCaps">i</Emphasis>
+emission in the spectra of 4 objects appears to indicate that regions
+of the circumstellar envelopes of these stars must be shielded from
+direct stellar radiation. 
+Systematic trends in the line strength
+and profile of Br<Formula Notation="TeX"><![CDATA[$\gamma$]]></Formula> are seen from early to late spectral types which
+can be understood in terms of differences in the disc temperature
+and density. 
+30 per-cent of the stars do not currently show evidence for line
+emission. Compared to the emission line stars these objects have a 
+significantly lower mean rotational
+velocity and a distribution
+of spectral types that is significantly earlier. 
+This can be explained either as the
+original misidentification of these objects as Be stars (i.e. they
+never had line emission), or as evidence that stars with lower rotational
+velocities may be more prone to changes between the Be and B phases. 
+</Abstract>
+</EDPSArticle>
