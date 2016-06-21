@@ -138,6 +138,7 @@ class InspireAPIPushPipeline(object):
         }]
         if not item.get('publication_info'):
             if has_publication_info(item):
+                # NOTE: This will replace any existing value in item['publication_info']
                 item['publication_info'] = [{
                     'journal_title': item.pop('journal_title', ''),
                     'journal_volume': item.pop('journal_volume', ''),

@@ -11,7 +11,6 @@
 
 
 class FreeKeywords(object):
-
     """Build the appropriate free keywords structure."""
 
     def __init__(self, source="author"):
@@ -27,7 +26,6 @@ class FreeKeywords(object):
 
 
 class ClassificationNumbers(object):
-
     """Build the appropriate classification number structure."""
 
     def __init__(self, standard="PACS"):
@@ -43,7 +41,6 @@ class ClassificationNumbers(object):
 
 
 class ListToValueDict(object):
-
     """Build the appropriate {'value': value} structure from list of values."""
 
     def __init__(self, key="value"):
@@ -54,5 +51,19 @@ class ListToValueDict(object):
         """Return the appropriate classification number structure."""
         return [
             {self.key: val}
+            for val in values
+        ]
+
+
+class Collections(object):
+    """Build the appropriate {'primary': "HEP"} structure for collections."""
+
+    def __call__(self, values):
+        """Return the appropriate classification number structure."""
+        # Makes sure HEP collection is always added
+        if 'HEP' not in values:
+            values.append("HEP")
+        return [
+            {"primary": val}
             for val in values
         ]
