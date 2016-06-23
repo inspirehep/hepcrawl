@@ -52,5 +52,5 @@ You can then run xpath expressions in the shell:
 
 .. code-block:: python
 
-    response.selector.xpath("//abstract").extract()
+    response.selector.xpath(".//abstract").extract()
     ["...some abstract ..."]

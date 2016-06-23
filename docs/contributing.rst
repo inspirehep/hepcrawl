@@ -131,8 +131,8 @@ the ``add_xpath`` function, but you are not forced to do so:
 
 .. code-block:: python
 
-    fpage = node.xpath('//fpage/text()').extract()
-    lpage = node.xpath('//lpage/text()').extract()
+    fpage = node.xpath('.//fpage/text()').extract()
+    lpage = node.xpath('.//lpage/text()').extract()
     if fpage:
         record.add_value('journal_fpage', fpage)
     if lpage:

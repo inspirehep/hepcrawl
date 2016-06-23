@@ -181,13 +181,13 @@ class DNBSpider(XMLFeedSpider):
             abstract_raw = node.xpath(
                 "//div[@class='simple-item-view-abstract']/span/text()").extract()
         elif "hss.ulb.uni-bonn.de" in domain:
-            abstract_raw = node.xpath("//text()[contains(.,'Zusammenfassung')"
+            abstract_raw = node.xpath(".//text()[contains(.,'Zusammenfassung')"
                                       "or contains(., 'Abstract')]/ancestor::*[self::tr]/descendant::*[position() > 1]/text()").extract()
         elif "kups.ub.uni-koeln.de" in domain:
             abstract_raw = node.xpath(
                 "//div[@class='ep_summary_content_main']/h2/following-sibling::p/text()").extract()
         # if "something else" in domain:
-            # abstracts = node.xpath("//somewhere[@else]")
+            # abstracts = node.xpath(".//somewhere[@else]")
 
         if abstract_raw:
             response.meta["abstract"] = [
