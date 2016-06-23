@@ -94,6 +94,9 @@ class HEPLoader(ItemLoader):
 
     title_in = MapCompose(
         fix_title_capitalization,
+        clean_whitespace_characters,
+        convert_html_subscripts_to_latex,
+        remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
     )
