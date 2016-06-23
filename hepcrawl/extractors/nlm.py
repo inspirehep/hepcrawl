@@ -141,18 +141,12 @@ class NLM(object):
         fpage = node.xpath(".//FirstPage/text()").extract_first()
         lpage = node.xpath(".//LastPage/text()").extract_first()
         if fpage and lpage:
-            journal_pages = "{}-{}".format(fpage, lpage)
             page_nr = str(int(lpage) - int(fpage) + 1)
-        elif fpage:
-            journal_pages = fpage
-            page_nr = ""
         else:
-            fpage = ""
-            journal_pages = ""
-            page_nr = ""
+            page_nr = ''
 
         return (
             fpage,
-            journal_pages,
+            lpage,
             page_nr,
         )

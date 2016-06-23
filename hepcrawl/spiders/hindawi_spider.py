@@ -168,6 +168,16 @@ class HindawiSpider(XMLFeedSpider):
 
         return copyright_raw, cr_year
 
+    @staticmethod
+    def get_journal_pages(node):
+        """Get copyright fpage and lpage."""
+        journal_pages = node.xpath(
+            "./datafield[@tag='773']/subfield[@code='c']/text()").extract_first()
+        if '-' in journal_pages:
+            return journal_pages.split('-', 1)
+        else:
+            return journal_pages, ''
+
     def create_fft_file(self, file_path, file_access, file_type):
         """Create a structured dictionary to add to 'files' item."""
         file_dict = {
@@ -202,8 +212,10 @@ class HindawiSpider(XMLFeedSpider):
                          "./datafield[@tag='773']/subfield[@code='y']/text()")
         record.add_xpath('journal_issue',
                          "./datafield[@tag='773']/subfield[@code='n']/text()")
-        record.add_xpath('journal_pages',
-                         "./datafield[@tag='773']/subfield[@code='c']/text()")
+
+        fpage, lpage = self.get_journal_pages(node)
+        record.add_value('journal_fpage', fpage)
+        record.add_value('journal_lpage', lpage)
 
         cr_statement, cr_year = self.get_copyright(node)
         record.add_value('copyright_statement', cr_statement)

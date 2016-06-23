@@ -157,11 +157,12 @@ class IOPSpider(XMLFeedSpider, NLM):
         if pub_status in {"aheadofprint", "received"}:
             return None
 
-        fpage, journal_pages, page_nr = self.get_page_numbers(node)
+        fpage, lpage, page_nr = self.get_page_numbers(node)
         volume = node.xpath(".//Journal/Volume/text()").extract_first()
         issue = node.xpath(".//Journal/Issue/text()").extract_first()
 
-        record.add_value("journal_pages", journal_pages)
+        record.add_value("journal_fpage", fpage)
+        record.add_value("journal_lpage", lpage)
         record.add_xpath('abstract', ".//Abstract")
         record.add_xpath("title", ".//ArticleTitle")
         record.add_value('authors', self.get_authors(node))

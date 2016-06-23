@@ -83,7 +83,9 @@ def test_publication_info(inspire_record):
         'journal_title': 'Phys. Rev. E',
         'journal_volume': '92',
         'note': '',
-        'page_artid': '',
+        'artid': '',
+        'page_start': '',
+        'page_end': '',
         'pubinfo_freetext': '',
         'year': '2015'
     }
@@ -92,7 +94,8 @@ def test_publication_info(inspire_record):
     assert 'journal_volume' not in inspire_record
     assert 'journal_year' not in inspire_record
     assert 'journal_issue' not in inspire_record
-    assert 'journal_pages' not in inspire_record
+    assert 'journal_spage' not in inspire_record
+    assert 'journal_lpage' not in inspire_record
     assert 'journal_artid' not in inspire_record
     assert 'journal_doctype' not in inspire_record
     assert 'pubinfo_freetext' not in inspire_record
