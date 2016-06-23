@@ -173,10 +173,9 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('journal_volume', '//volume/text()')
         record.add_xpath('journal_artid', '//elocation-id/text()')
 
-        fpage = node.xpath('//fpage/text()').extract()
-        lpage = node.xpath('//lpage/text()').extract()
-        if fpage:
-            record.add_value('journal_pages', "-".join(fpage + lpage))
+        record.add_xpath('journal_fpage', '//fpage/text()')
+        record.add_xpath('journal_lpage', '//lpage/text()')
+
         published_date = self._get_published_date(node)
         record.add_value('journal_year', published_date[:4])
         record.add_value('date_published', published_date)

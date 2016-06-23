@@ -100,7 +100,7 @@ feasible, with some exceptions.
         title = scrapy.Field()
         abstract = scrapy.Field()
         page_nr = scrapy.Field()
-        journal_pages = scrapy.Field()
+        journal_artid = scrapy.Field()
         # etc..
 
 
@@ -134,7 +134,9 @@ the ``add_xpath`` function, but you are not forced to do so:
     fpage = node.xpath('//fpage/text()').extract()
     lpage = node.xpath('//lpage/text()').extract()
     if fpage:
-        record.add_value('journal_pages', "-".join(fpage + lpage))
+        record.add_value('journal_fpage', fpage)
+    if lpage:
+        record.add_value('journal_lpage', lpage)
 
 
 NOTE: The value added when using ``add_xpath`` usually resolves into a Python list of values.

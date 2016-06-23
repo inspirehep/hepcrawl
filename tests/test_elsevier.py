@@ -237,6 +237,7 @@ def test_get_publication_jid(item_info):
     #assert publication == 'Physics letters B'
     assert publication == 'PLB'
 
+
 def test_doi_date(item_info):
     _, _, date = item_info
     year, date_published = date
@@ -516,6 +517,7 @@ def ref_simple_journal():
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
 
+
 def test_ref_simple_journal(ref_simple_journal):
     assert ref_simple_journal
     assert ref_simple_journal == [{
@@ -531,7 +533,6 @@ def test_ref_simple_journal(ref_simple_journal):
         'issue': u'2',
         'journal_pubnote': [u'Cognition,37(2),635-647']
     }]
-
 
 
 @pytest.fixture
@@ -586,6 +587,7 @@ def ref_simple_journal_suppl():
     </doc>"""
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
+
 
 def test_ref_simple_journal_suppl(ref_simple_journal_suppl):
     assert ref_simple_journal_suppl
@@ -647,6 +649,7 @@ def ref_journal_issue():
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
 
+
 def test_ref_journal_issue(ref_journal_issue):
     assert ref_journal_issue
     assert ref_journal_issue == [{
@@ -659,7 +662,6 @@ def test_ref_journal_issue(ref_journal_issue):
         'issue': u'1012',
         'journal_pubnote': [u'Testing: concepts and research; American Psychologist,36(1012)']
     }]
-
 
 
 @pytest.fixture
@@ -725,7 +727,6 @@ def test_ref_translated_article(ref_translated_article):
         'year': u'1977',
         'journal_pubnote': [u'Pedagogische Studie\u0308n,54,130']
     }]
-
 
 
 @pytest.fixture
@@ -939,6 +940,7 @@ def ref_edited_book_article():
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
 
+
 def test_ref_edited_book_article(ref_edited_book_article):
     assert ref_edited_book_article
     assert ref_edited_book_article == [{
@@ -951,7 +953,6 @@ def test_ref_edited_book_article(ref_edited_book_article):
         'title': u'Family therapy outcome research: knowns and unknowns',
         'year': u'1981'
     }]
-
 
 
 @pytest.fixture
@@ -1027,6 +1028,7 @@ def ref_edited_book_article_repr():
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
 
+
 def test_ref_edited_book_article_repr(ref_edited_book_article_repr):
     assert ref_edited_book_article_repr
     assert ref_edited_book_article_repr == [{
@@ -1044,6 +1046,7 @@ def test_ref_edited_book_article_repr(ref_edited_book_article_repr):
         'volume': u'11',
         'year': u'1977, 1965'
     }]
+
 
 @pytest.fixture
 def ref_book_proceedings_article():
@@ -1149,6 +1152,7 @@ def ref_edited_book():
     node = get_node(spider, '/doc', text=body)
     return spider.get_references(node)
 
+
 def test_ref_edited_book(ref_edited_book):
     assert ref_edited_book
     assert ref_edited_book == [{
@@ -1158,6 +1162,7 @@ def test_ref_edited_book(ref_edited_book):
         'editors': [u'Letheridge, S. & Cannon, C.R.'],
         'number': 11
     }]
+
 
 @pytest.fixture
 def ref_multi_volume_edited():
@@ -1518,7 +1523,7 @@ def handled_feed():
         </entry>
     </feed>"""
     response = fake_response_from_string(body)
-    node = get_node(spider, '/doc', response)
+    get_node(spider, '/doc', response)
     return spider.handle_feed(response)
 
 
@@ -1551,8 +1556,7 @@ def test_handle_package(handled_package):
     """Check whether the response metadata is correct.
     Now testing with mock zip files without real copyrighted content.
     """
-    xml_files = []
-    astropart, nima  = handled_package
+    astropart, nima = handled_package
     for astro, nima in zip(astropart, nima):
         assert nima
         assert astro
@@ -1617,7 +1621,7 @@ def sciencedirect():
     response = fake_response_from_string(body)
     response.meta["keys_missing"] = set([
         "journal_title", "volume", "issue", "fpage", "lpage", "year",
-        "date_published", "dois", "journal_pages", "page_nr",
+        "date_published", "dois", "page_nr",
         ])
     response.meta["info"] = {}
     response.meta["node"] = get_node(spider, '/head', text=body)
@@ -1631,7 +1635,8 @@ def test_sciencedirect(sciencedirect):
     assert sciencedirect["dois"] == [{'value': u'10.1016/0370-2693(88)91603-6'}]
     assert sciencedirect["journal_volume"] == u'206'
     assert sciencedirect["journal_issue"] == u'3'
-    assert sciencedirect["journal_pages"] == u'421-426'
+    assert sciencedirect["journal_fpage"] == u'421'
+    assert sciencedirect["journal_lpage"] == u'426'
     assert sciencedirect["journal_year"] == 1988
 
 

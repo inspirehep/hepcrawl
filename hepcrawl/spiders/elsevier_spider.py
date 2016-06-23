@@ -326,8 +326,6 @@ class ElsevierSpider(XMLFeedSpider):
     def get_date(self, node):
         """Get the year, month, and day."""
         # NOTE: this uses dateutils.py
-        year = 0
-        date_published = u''
 
         cover_date = node.xpath("//prism:coverDate/text()").extract_first()
         cover_display_date = node.xpath(
@@ -770,7 +768,6 @@ class ElsevierSpider(XMLFeedSpider):
         if fpage and lpage:
             info["fpage"] = fpage
             info["lpage"] = lpage
-            info["journal_pages"] = fpage + "-" + lpage
             info["page_nr"] = int(lpage) - int(fpage) + 1
         elif fpage:
             info["fpage"] = fpage
@@ -786,7 +783,7 @@ class ElsevierSpider(XMLFeedSpider):
         # Test if need to scrape additional info:
         keys_wanted = set([
             "journal_title", "volume", "issue", "fpage", "lpage", "year",
-            "date_published", "dois", "journal_pages", "page_nr",
+            "date_published", "dois", "page_nr",
         ])
         keys_existing = set(info.keys())
         keys_missing = keys_wanted - keys_existing
@@ -963,8 +960,6 @@ class ElsevierSpider(XMLFeedSpider):
             info["lpage"] = nrs[-1]
         if "page_nr" in keys_missing and ("lpage" in info and "fpage" in info):
             info["page_nr"] = int(info["lpage"]) - int(info["fpage"]) + 1
-        if "journal_pages" in keys_missing and ("lpage" in info and "fpage" in info):
-            info["journal_pages"] = info["fpage"] + "-" + info["lpage"]
 
         response.meta["info"] = info
         return self.build_item(response)
@@ -1030,7 +1025,8 @@ class ElsevierSpider(XMLFeedSpider):
             record.add_value('journal_issn', info.get("issn"))
             record.add_value("dois", info.get("dois"))
             record.add_value('journal_doctype', doctype)
-            record.add_value('journal_pages', info.get("journal_pages"))
+            record.add_value('journal_fpage', info.get("fpage"))
+            record.add_value('journal_lpage', info.get("lpage"))
             record.add_value('page_nr', info.get("page_nr"))
             record.add_value('journal_year', info.get("year"))
         copyrights = self.get_copyright(node)

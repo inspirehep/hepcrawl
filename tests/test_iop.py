@@ -39,29 +39,8 @@ def record():
 
 def test_abstract(record):
     """Test extracting abstract."""
-    abstract = (
-        "Somatic BRAF mutation in colon cancer essentially excludes Lynch "
-        "syndrome. We compared BRAF V600E immunohistochemistry (IHC) with BRAF "
-        "mutation in core, biopsy, and whole-section slides to determine "
-        "whether IHC is similar and to assess the cost-benefit of IHC. "
-        "Resection cases (2009-2013) with absent MLH1 and PMS2 and prior BRAF "
-        "mutation polymerase chain reaction results were chosen (n = 57). To "
-        "mimic biopsy specimens, tissue microarrays (TMAs) were constructed. In "
-        "addition, available biopsies performed prior to the resection were "
-        "available in 15 cases. BRAF V600E IHC was performed and graded on "
-        "TMAs, available biopsy specimens, and whole-section slides. Mutation "
-        "status was compared with IHC, and cost-benefit analysis was performed. "
-        "BRAF V600E IHC was similar in TMAs, biopsy specimens, and whole- "
-        "section slides, with only four (7%) showing discordance between IHC "
-        "and mutation status. Using BRAF V600E IHC in our Lynch syndrome "
-        "screening algorithm, we found a 10% cost savings compared with "
-        "mutational analysis. BRAF V600E IHC was concordant between TMAs, "
-        "biopsy specimens, and whole-section slides, suggesting biopsy "
-        "specimens are as useful as whole sections. IHC remained cost "
-        "beneficial compared with mutational analysis, even though more "
-        "patients needed additional molecular testing to exclude Lynch "
-        "syndrome."
-    )
+    assert "abstract" in record
+    assert record["abstract"].startswith("Somatic BRAF mutation")
 
 
 def test_title(record):
@@ -79,8 +58,10 @@ def test_date_published(record):
 
 def test_page_nr(record):
     """Test extracting page_nr"""
-    assert "journal_pages" in record
-    assert record["journal_pages"] == '336-343'
+    assert "journal_fpage" in record
+    assert "journal_lpage" in record
+    assert record["journal_fpage"] == '336'
+    assert record["journal_lpage"] == '343'
 
 
 def test_free_keywords(record):

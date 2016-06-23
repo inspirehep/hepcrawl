@@ -27,7 +27,8 @@ def has_publication_info(item):
         item.get('journal_title') or \
         item.get('journal_year') or \
         item.get('journal_issue') or \
-        item.get('journal_pages') or \
+        item.get('journal_fpage') or \
+        item.get('journal_lpage') or \
         item.get('journal_artid') or \
         item.get('journal_doctype')
 
@@ -143,7 +144,9 @@ class InspireAPIPushPipeline(object):
                     'journal_volume': item.pop('journal_volume', ''),
                     'year': item.pop('journal_year', ''),
                     'journal_issue': item.pop('journal_issue', ''),
-                    'page_artid': item.pop('journal_pages', '') if item.pop('journal_pages', '') else item.pop('journal_artid', ''),
+                    'artid': item.pop('journal_artid', ''),
+                    'page_start': item.pop('journal_fpage', ''),
+                    'page_end': item.pop('journal_lpage', ''),
                     'note': item.pop('journal_doctype', ''),
                     'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
                 }]
@@ -154,7 +157,8 @@ class InspireAPIPushPipeline(object):
             'journal_volume',
             'journal_year',
             'journal_issue',
-            'journal_pages',
+            'journal_fpage',
+            'journal_lpage',
             'journal_doctype',
             'journal_artid',
             'pubinfo_freetext',
