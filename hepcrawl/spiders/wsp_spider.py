@@ -194,7 +194,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
     def _get_collections(self, node, article_type, current_journal_title):
         """Return this articles' collection."""
-        conference = node.xpath('//conference').extract()
+        conference = node.xpath('.//conference').extract()
         if conference or current_journal_title == "International Journal of Modern Physics: Conference Series":
             return ['HEP', 'ConferencePaper']
         elif article_type == "review-article":

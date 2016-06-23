@@ -154,7 +154,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Handle the feed and yield a request for every zip package found."""
         node = response.selector
         node.remove_namespaces()
-        entry = node.xpath("//entry")
+        entry = node.xpath(".//entry")
         for ent in entry:
             self.zip_file = ent.xpath("./link/@href").extract()[0]
             yield Request(self.zip_file, callback=self.handle_package)
@@ -181,36 +181,36 @@ class ElsevierSpider(XMLFeedSpider):
     @staticmethod
     def get_dois(node):
         """Get the dois."""
-        dois = node.xpath("//ja:item-info/ce:doi/text()")
+        dois = node.xpath(".//ja:item-info/ce:doi/text()")
         if not dois:
-            dois = node.xpath("//prism:doi/text()")
+            dois = node.xpath(".//prism:doi/text()")
         if dois:
             return dois.extract()
 
     def get_title(self, node):
         """Get article title."""
-        title = node.xpath("//ce:title/text()")
+        title = node.xpath(".//ce:title/text()")
         if not title:
-            title = node.xpath("//dct:title/text()")
+            title = node.xpath(".//dct:title/text()")
         if title:
             return self._fix_node_text(title.extract())
 
     @staticmethod
     def get_keywords(node):
         """Get article keywords."""
-        keywords = node.xpath("//ce:keyword/ce:text/text()")
+        keywords = node.xpath(".//ce:keyword/ce:text/text()")
         if not keywords:
-            keywords = node.xpath("//dct:subject//rdf:li/text()")
+            keywords = node.xpath(".//dct:subject//rdf:li/text()")
         if keywords:
             return keywords.extract()
 
     def get_copyright(self, node):
         """Get copyright information."""
-        cr_holder = node.xpath("//ce:copyright/text()")
-        cr_year = node.xpath("//ce:copyright/@year")
-        cr_statement = node.xpath("//ce:copyright/@type").extract()
+        cr_holder = node.xpath(".//ce:copyright/text()")
+        cr_year = node.xpath(".//ce:copyright/@year")
+        cr_statement = node.xpath(".//ce:copyright/@type").extract()
         if not (cr_statement or cr_holder) or "unknown" in " ".join(cr_statement).lower():
-            cr_statement = node.xpath("//prism:copyright/text()").extract()
+            cr_statement = node.xpath(".//prism:copyright/text()").extract()
             if len(cr_statement) > 1:
                 cr_statement = [
                     st for st in cr_statement if "unknown" not in st.lower()]
@@ -277,7 +277,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Get the authors."""
         authors = []
 
-        if node.xpath("//ce:author"):
+        if node.xpath(".//ce:author"):
             for author_group in node.xpath(".//ce:author-group"):
                 collaborations = author_group.xpath(
                     ".//ce:collaboration/ce:text/text()").extract()
@@ -303,8 +303,8 @@ class ElsevierSpider(XMLFeedSpider):
                     if collaborations:
                         auth_dict['collaborations'] = collaborations
                     authors.append(auth_dict)
-        elif node.xpath('//dct:creator'):
-            for author in node.xpath('//dct:creator/text()'):
+        elif node.xpath('.//dct:creator'):
+            for author in node.xpath('.//dct:creator/text()'):
                 authors.append({'raw_name': author.extract()})
 
         return authors
@@ -327,7 +327,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Get the year, month, and day."""
         # NOTE: this uses dateutils.py
 
-        cover_date = node.xpath("//prism:coverDate/text()").extract_first()
+        cover_date = node.xpath(".//prism:coverDate/text()").extract_first()
         cover_display_date = node.xpath(
             "//prism:coverDisplayDate/text()").extract_first()
         oa_effective = node.xpath(
@@ -350,20 +350,20 @@ class ElsevierSpider(XMLFeedSpider):
 
     def get_doctype(self, node):
         """Return a doctype mapped from abbreviation."""
-        abbrv_doctype = node.xpath("//@docsubtype").extract()
+        abbrv_doctype = node.xpath(".//@docsubtype").extract()
         doctype = ''
         if abbrv_doctype:
             doctype = self.DOCTYPE_MAPPING[get_first(abbrv_doctype)]
-        elif node.xpath("//ja:article"):
+        elif node.xpath(".//ja:article"):
             doctype = "article"
-        elif node.xpath("//ja:simple-article"):
+        elif node.xpath(".//ja:simple-article"):
             doctype = "article"
-        elif node.xpath("//ja:book-review"):
+        elif node.xpath(".//ja:book-review"):
             doctype = "book-review"
-        elif node.xpath("//ja:exam"):
+        elif node.xpath(".//ja:exam"):
             doctype = "exam"
         # A scientific article in a conference proceedings is not cnf.
-        if node.xpath("//conference-info"):
+        if node.xpath(".//conference-info"):
             doctype = "conference_paper"
         if doctype:
             return doctype
@@ -665,7 +665,7 @@ class ElsevierSpider(XMLFeedSpider):
         # ce:other-ref elements. In the original fulltext they can be weirdly
         # grouped/nested. See test record.
 
-        reference_groups = node.xpath("//ce:bib-reference")
+        reference_groups = node.xpath(".//ce:bib-reference")
         refs_out = []
         label = ""
         for ref_group in reference_groups:
@@ -713,7 +713,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Get publication (journal) title data."""
         publication = node.xpath(
             '//prism:publicationName/text()').extract_first()
-        jid = node.xpath('//ja:jid/text()').extract_first()
+        jid = node.xpath('.//ja:jid/text()').extract_first()
         if not publication and jid:
             # NOTE: JIDs should be mapped to standard journal names later
             publication = jid
@@ -745,15 +745,15 @@ class ElsevierSpider(XMLFeedSpider):
         info = {}
         xml_file = response.meta.get("xml_url")
         dois = self.get_dois(node)
-        fpage = node.xpath('//prism:startingPage/text()').extract_first()
-        lpage = node.xpath('//prism:endingPage/text()').extract_first()
-        issn = node.xpath('//prism:issn/text()').extract_first()
-        volume = node.xpath('//prism:volume/text()').extract_first()
-        issue = node.xpath('//prism:number/text()').extract_first()
+        fpage = node.xpath('.//prism:startingPage/text()').extract_first()
+        lpage = node.xpath('.//prism:endingPage/text()').extract_first()
+        issn = node.xpath('.//prism:issn/text()').extract_first()
+        volume = node.xpath('.//prism:volume/text()').extract_first()
+        issue = node.xpath('.//prism:number/text()').extract_first()
         journal_title, section = self.get_journal_and_section(
             self._get_publication(node))
         year, date_published = self.get_date(node)
-        conference = node.xpath("//conference-info").extract_first()
+        conference = node.xpath(".//conference-info").extract_first()
 
         if section and volume:
             volume = section + volume
@@ -859,7 +859,7 @@ class ElsevierSpider(XMLFeedSpider):
 
     def _get_dois_from_web(self, node):
         """Get DOIs from sciencedirect web page."""
-        dois = node.xpath("//meta[@name='citation_doi']/@content").extract()
+        dois = node.xpath(".//meta[@name='citation_doi']/@content").extract()
         if not dois:
             _, _, dois = self._parse_script(node)
 
@@ -939,7 +939,7 @@ class ElsevierSpider(XMLFeedSpider):
             if issue:
                 info["issue"] = issue
         if "journal_title" in keys_missing:
-            journal_title = node.xpath("//h1[@class='svTitle']").extract()
+            journal_title = node.xpath(".//h1[@class='svTitle']").extract()
             if not journal_title:
                 journal_title = node.xpath(
                     "//meta[@name='citation_journal_title']/@content"

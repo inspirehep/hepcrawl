@@ -147,10 +147,10 @@ class MagicSpider(XMLFeedSpider):
 
         node = response.selector
         if "title" not in response.meta:
-            response.meta["title"] = node.xpath("//div[@id='content']/h3/text()").extract()
+            response.meta["title"] = node.xpath(".//div[@id='content']/h3/text()").extract()
 
-        abstract = node.xpath("//div[@id='content']/p[@class='abstract']/text()").extract()
-        file_paths = node.xpath("//div[@id='content']/p[@class='url']/a/@href").extract()
+        abstract = node.xpath(".//div[@id='content']/p[@class='abstract']/text()").extract()
+        file_paths = node.xpath(".//div[@id='content']/p[@class='url']/a/@href").extract()
         file_paths = list(set(file_paths))
 
         response.meta["abstract"] = abstract

@@ -197,7 +197,7 @@ class MITSpider(XMLFeedSpider):
         if doc_type and "ph" not in doc_type.lower():
             return None
 
-        pdf_files = node.xpath("//table[@id='file-table']//td/a/@href").extract()
+        pdf_files = node.xpath(".//table[@id='file-table']//td/a/@href").extract()
         if pdf_files:
             record.add_value('additional_files', self.add_fft_file(
                 pdf_files, "HIDDEN", "Fulltext"))

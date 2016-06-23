@@ -33,7 +33,7 @@ def record():
     response = fake_response_from_file('base/test_1.xml')
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
-    nodes = selector.xpath('//%s' % spider.itertag)
+    nodes = selector.xpath('.//%s' % spider.itertag)
     response.meta["record"] = nodes[0].extract()
     response.meta["urls"] = ["http://hdl.handle.net/1885/10005"]
     return spider.build_item(response)
@@ -45,7 +45,7 @@ def urls():
     response = fake_response_from_file('base/test_1.xml')
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
-    nodes = selector.xpath('//%s' % spider.itertag)
+    nodes = selector.xpath('.//%s' % spider.itertag)
     return spider.get_urls_in_record(nodes[0])
 
 
@@ -152,7 +152,7 @@ def splash():
     response = fake_response_from_file('base/test_1.xml')
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
-    nodes = selector.xpath('//%s' % spider.itertag)
+    nodes = selector.xpath('.//%s' % spider.itertag)
     splash_response.meta["record"] = nodes[0].extract()
     return spider.scrape_for_pdf(splash_response)
 
