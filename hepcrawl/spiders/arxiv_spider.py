@@ -46,12 +46,12 @@ class ArxivSpider(XMLFeedSpider):
         """Parse an arXiv XML exported file into a HEP record."""
         node.remove_namespaces()
 
-        record = HEPLoader(item=HEPRecord(), selector=node, response=response)
-        record.add_xpath('title', '//title/text()')
-        record.add_xpath('abstract', '//abstract/text()')
-        record.add_xpath('preprint_date', '//created/text()')
-        record.add_xpath('dois', '//doi//text()')
-        record.add_xpath('pubinfo_freetext', '//journal-ref//text()')
+        record = HEPLoader(item=HEPRecord(), selector=node)
+        record.add_xpath('title', './/title/text()')
+        record.add_xpath('abstract', './/abstract/text()')
+        record.add_xpath('preprint_date', './/created/text()')
+        record.add_xpath('dois', './/doi//text()')
+        record.add_xpath('pubinfo_freetext', './/journal-ref//text()')
         record.add_value('source', 'arXiv')
 
         authors, collabs = self._get_authors_or_collaboration(node)
@@ -65,7 +65,7 @@ class ArxivSpider(XMLFeedSpider):
 
         record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
 
-        categories = node.xpath('//categories//text()').extract_first().split()
+        categories = node.xpath('.//categories//text()').extract_first().split()
         record.add_value('field_categories', categories)
         record.add_value('arxiv_eprints', self._get_arxiv_eprint(node, categories))
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
@@ -77,14 +77,14 @@ class ArxivSpider(XMLFeedSpider):
         return record.load_item()
 
     def _get_authors_or_collaboration(self, node):
-        author_selectors = node.xpath('//authors//author')
+        author_selectors = node.xpath('.//authors//author')
 
         authors = []
         collaboration = []
         for selector in author_selectors:
             author = Selector(text=selector.extract())
-            forenames = get_first(author.xpath('//forenames//text()').extract(), default='')
-            keyname = get_first(author.xpath('//keyname//text()').extract(), default='')
+            forenames = get_first(author.xpath('.//forenames//text()').extract(), default='')
+            keyname = get_first(author.xpath('.//keyname//text()').extract(), default='')
 
             # Check if keyname is a collaboration, else append to authors
             collab_phrases = ['consortium', 'collab', 'collaboration', 'team', 'group', 'for the']
@@ -100,7 +100,7 @@ class ArxivSpider(XMLFeedSpider):
         return authors, collaboration
 
     def _get_comments_info(self, node):
-        comments = get_first(node.xpath('//comments//text()').extract(), default='')
+        comments = get_first(node.xpath('.//comments//text()').extract(), default='')
         notes = {
             'source': 'arXiv',
             'value': comments
@@ -115,19 +115,19 @@ class ArxivSpider(XMLFeedSpider):
         return pages, notes, doctype
 
     def _get_arxiv_report_numbers(self, node):
-        report_numbers = node.xpath('//report-no//text()').extract_first()
+        report_numbers = node.xpath('.//report-no//text()').extract_first()
         if report_numbers:
             return [rn for rn in report_numbers.split(',')]
         return []
 
     def _get_arxiv_eprint(self, node, categories):
         return {
-            'value': node.xpath('//id//text()').extract_first(),
+            'value': node.xpath('.//id//text()').extract_first(),
             'categories': categories
         }
 
     def _get_license(self, node):
-        license_url = node.xpath('//license//text()').extract_first()
+        license_url = node.xpath('.//license//text()').extract_first()
         license_str = ''
         licenses = {  # TODO: more licenses here?
             'creativecommons.org/licenses/by/3.0': 'CC-BY-3.0',
@@ -143,5 +143,5 @@ class ArxivSpider(XMLFeedSpider):
     def _get_ext_systems_number(self, node):
         return {
             'institute': 'arXiv',
-            'value': node.xpath('//identifier//text()').extract_first()
+            'value': node.xpath('.//identifier//text()').extract_first()
         }
