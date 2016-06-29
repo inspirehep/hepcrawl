@@ -84,9 +84,9 @@ def test_files(record):
 
 def test_thesis(record):
     """Test thesis information."""
-    assert record["thesis"][0]["date"] == '2016-03-18'
+    assert record["thesis"]["date"] == '2016-03-18'
     # This is not wrong, it really says "Universit Di Trieste":
-    assert record["thesis"][0]["university"] == 'Universit Di Trieste'
+    assert record["thesis"]["institutions"][0]["name"] == 'Universit Di Trieste'
 
 
 def test_thesis_supervisor(record):

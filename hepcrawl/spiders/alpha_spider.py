@@ -76,7 +76,7 @@ class AlphaSpider(CrawlSpider):
         affiliation = ''
         for i in author_list:
             if "thesis" in i.lower():
-                thesis_type = i.strip()
+                thesis_type = re.sub(r"thesis|Thesis", "", i).strip()
             if "university" in i.lower():
                 affiliation = re.sub(r"[^A-Za-z\s]+", '', i).strip()
             if has_numbers(i):

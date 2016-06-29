@@ -146,7 +146,7 @@ class InfnSpider(XMLFeedSpider):
 
         thesis = {
             "date": format_date(self._fix_node_text(date_raw)),
-            "university": self._fix_node_text(university),
+            "institutions": [{"name": self._fix_node_text(university)}],
             "degree_type": "PhD",
         }
         return thesis

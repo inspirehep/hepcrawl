@@ -242,7 +242,7 @@ class HEPRecord(scrapy.Item):
         [{
             'date': '',
             'defense_date': '',
-            'university': '',
+            'institutions': [],
             'degree_type': '',
         }]
     """
