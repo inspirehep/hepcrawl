@@ -111,7 +111,7 @@ def test_urls(results):
 
 
 def test_thesis(results):
-    thesis = [{'degree_type': 'PhD Thesis'}]
+    thesis = {'degree_type': 'PhD'}
     for record in results:
         assert 'thesis' in record
-        assert record['thesis'][0]['degree_type'] == thesis[0]['degree_type']
+        assert record['thesis']['degree_type'] == thesis['degree_type']

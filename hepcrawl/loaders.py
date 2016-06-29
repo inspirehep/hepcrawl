@@ -149,6 +149,7 @@ class HEPLoader(ItemLoader):
     thesis_supervisor_in = MapCompose(
         parse_thesis_supervisors,
     )
+    thesis_out = TakeFirst()
 
     urls_in = MapCompose(
         canonicalize_url,

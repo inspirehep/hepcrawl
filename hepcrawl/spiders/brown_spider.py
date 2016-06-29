@@ -146,7 +146,7 @@ class BrownSpider(CrawlSpider):
         """Create thesis info dictionary."""
         return {
             "date": self._get_phd_year(response),
-            "university": "Brown University",
+            "institutions": [{"name": "Brown University"}],
             "degree_type": "PhD",
         }
 

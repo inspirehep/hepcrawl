@@ -139,12 +139,12 @@ class MITSpider(XMLFeedSpider):
         """Create thesis info dictionary."""
         date = node.xpath(
             "//td[contains(text(), 'dc.date.issued')]/following-sibling::td[1]/text()").extract_first()
-        university = node.xpath(
+        institution = node.xpath(
             "//td[contains(text(), 'dc.publisher')]/following-sibling::td[1]/text()").extract_first()
 
         thesis = {
             "date": date,
-            "university": university,
+            "institutions": [{'name': institution}],
             "degree_type": "PhD",
         }
         return thesis

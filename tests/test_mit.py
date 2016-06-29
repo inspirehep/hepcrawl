@@ -102,8 +102,8 @@ def test_files(record):
 
 def test_thesis(record):
     """Test thesis information."""
-    assert record["thesis"][0]["date"] == '2015'
-    assert record["thesis"][0]["university"] == 'Massachusetts Institute of Technology'
+    assert record["thesis"]["date"] == '2015'
+    assert record["thesis"]["institutions"][0]["name"] == 'Massachusetts Institute of Technology'
 
 
 def test_thesis_supervisor(record):

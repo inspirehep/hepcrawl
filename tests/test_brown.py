@@ -151,7 +151,7 @@ def test_page_nr(record):
 def test_thesis(record):
     """Test thesis year."""
     assert record["thesis"]
-    assert record["thesis"][0]["date"] == "2011"
+    assert record["thesis"]["date"] == "2011"
 
 def test_urls(record):
     """Test urls."""

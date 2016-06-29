@@ -130,7 +130,7 @@ def test_urls(record):
 def test_doctype(record):
     """Test doctype"""
     assert "thesis" in record
-    assert record["thesis"][0]["degree_type"] == "PhD"
+    assert record["thesis"]["degree_type"] == "PhD"
 
 
 def test_abstract(record):
