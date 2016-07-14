@@ -68,4 +68,16 @@ spider:
     scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
 
 
+Run the crawler with INSPIRE (assuming you already have a virtualenv with everything set up).
+
+The example below shows how to get all papers from the 24th June 2016 to the 26th June 2016 
+from arXiv where the subject area is hep-th (HEP Theory). We use the arXiv spider and assign the
+article workflow.
+
+.. code-block:: console
+    
+    workon inspire-next
+    
+    inspirehep oaiharvester harvest -m arXiv -u http://export.arxiv.org/oai2 -f 2016-06-24 -t 2016-06-26 -s 'physics:hep-th' -a 'spider=arXiv' -a 'workflow=article'
+    
 Thanks for contributing!
