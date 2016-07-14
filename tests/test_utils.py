@@ -261,3 +261,12 @@ def test_get_journal_and_section_invalid():
 
     assert journal_title == ''
     assert section == ''
+
+
+def test_format_arxiv_id():
+    """Test arXiv id formatting."""
+    arxiv_text1 = ["arXiv:hep-ph/0703285"]
+    arxiv_text2 = ["1106.5937"]
+
+    assert format_arxiv_id(arxiv_text1) == "hep-ph/0703285"
+    assert format_arxiv_id(arxiv_text2) == "arxiv:1106.5937"
