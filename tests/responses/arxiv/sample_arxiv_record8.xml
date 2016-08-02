@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-30T12:57:31Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1606.07538" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1606.07538</identifier>
+ <datestamp>2016-06-27</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+ <setSpec>physics:physics</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1606.07538</id><created>2016-06-23</created><authors><author><keyname>Collaboration</keyname><forenames>Super-Kamiokande</forenames><affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation><affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation></author><author><keyname>:</keyname><affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation><affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation></author><author><keyname>Abe</keyname><forenames>K.</forenames><affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation><affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation></author><author><keyname>Suzuki</keyname><forenames>Y.</forenames><affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation></author><author><keyname>Vagins</keyname><forenames>M. R.</forenames><affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation><affiliation>Department of Physics and Astronomy, University of California, Irvine</affiliation></author><author><keyname>Nantais</keyname><forenames>C. M.</forenames><affiliation>Department of Physics, University of Toronto</affiliation></author><author><keyname>Martin</keyname><forenames>J. F.</forenames><affiliation>Department of Physics, University of Toronto</affiliation></author><author><keyname>de Perio</keyname><forenames>P.</forenames><affiliation>Department of Physics, University of Toronto</affiliation></author></authors><title>Solar Neutrino Measurements in Super-Kamiokande-IV</title><categories>hep-ex physics.ins-det</categories><comments>Submitted to Physical Review D; 23 pages, 40 figures</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  Upgraded electronics, improved water system dynamics, better calibration and
+analysis techniques allowed Super-Kamiokande-IV to clearly observe very
+low-energy 8B solar neutrino interactions, with recoil electron kinetic
+energies as low as 3.49 MeV. Super-Kamiokande-IV data-taking began in September
+of 2008; this paper includes data until February 2014, a total livetime of 1664
+days. The measured solar neutrino flux is (2.308+-0.020(stat.) +
+0.039-0.040(syst.)) x 106/(cm2sec) assuming no oscillations. The observed
+recoil electron energy spectrum is consistent with no distortions due to
+neutrino oscillations. An extended maximum likelihood fit to the amplitude of
+the expected solar zenith angle variation of the neutrino-electron elastic
+scattering rate in SK-IV results in a day/night asymmetry of
+(-3.6+-1.6(stat.)+-0.6(syst.))%. The SK-IV solar neutrino data determine the
+solar mixing angle as sin2 theta_12 = 0.327+0.026-0.031, all SK solar data
+(SK-I, SK-II, SK III and SKIV) measures this angle to be sin2 theta_12 =
+0.334+0.027-0.023, the determined mass-squared splitting is Delta m2_21 =
+4.8+1.5-0.8 x10-5 eV2.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

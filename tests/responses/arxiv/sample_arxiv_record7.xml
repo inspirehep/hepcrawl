@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-29T13:20:59Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1606.07066" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1606.07066</identifier>
+ <datestamp>2016-06-24</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+ <setSpec>physics:gr-qc</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1606.07066</id><created>2016-06-22</created>
+ <authors>
+ <author>
+    <keyname>Saxton</keyname>
+    <keyname>Walton</keyname>
+    <forenames>Curtis J.</forenames>
+    <affiliation>Technion</affiliation>
+    <affiliation>DESY</affiliation>
+ </author>
+ <author>
+    <keyname>Younsi</keyname>
+    <forenames>Ziri</forenames>
+    <affiliation>U.Frankfurt</affiliation>
+  </author>
+  <author>
+    <keyname>Wu</keyname>
+    <forenames>Kinwah</forenames>
+  </author>
+</authors>
+<title>Dark matter concentrations in galactic nuclei according to polytropic
+  models</title><categories>astro-ph.GA astro-ph.CO astro-ph.HE gr-qc</categories><comments>MNRAS accepted, 24 pages, 12 figures</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We calculate the radial profiles of galaxies where the nuclear region is
+self-gravitating, consisting of self-interacting dark matter (SIDM) with $F$
+degrees of freedom. For sufficiently high density this dark matter becomes
+collisional, regardless of its behaviour on galaxy scales. Our calculations
+show a spike in the central density profile, with properties determined by the
+dark matter microphysics, and the densities can reach the `mean density' of a
+black hole (from dividing the black-hole mass by the volume enclosed by the
+Schwarzschild radius). For a galaxy halo of given compactness
+($\chi=2GM/Rc^2$), certain values for the dark matter entropy yield a dense
+central object lacking an event horizon. For some soft equations of state of
+the SIDM (e.g. $F\ge6$), there are multiple horizonless solutions at given
+compactness. Although light propagates around and through a sphere composed of
+dark matter, it is gravitationally lensed and redshifted. While some
+calculations give non-singular solutions, others yield solutions with a central
+singularity. In all cases the density transitions smoothly from the central
+body to the dark-matter envelope around it, and to the galaxy's dark matter
+halo. We propose that pulsar timing observations will be able to distinguish
+between systems with a centrally dense dark matter sphere (for different
+equations of state) and conventional galactic nuclei that harbour a
+supermassive black hole.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

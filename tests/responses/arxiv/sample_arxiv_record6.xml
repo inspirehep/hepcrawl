@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-29T14:28:24Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1606.06775" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1606.06775</identifier>
+ <datestamp>2016-06-23</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1606.06775</id><created>2016-06-21</created><authors><author><keyname>Bufanda</keyname><forenames>E.</forenames></author><author><keyname>Hollowood</keyname><forenames>D.</forenames></author>
+<author><keyname>Collaboration</keyname><forenames>for the DES</forenames></author></authors><title>The Evolution of Active Galactic Nuclei in Clusters of Galaxies from the
+  Dark Energy Survey</title><categories>astro-ph.HE astro-ph.GA</categories><comments>8 pages, 3 figures</comments><report-no>DES 2016-0158, FERMILAB PUB-16-231-AE</report-no><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  The correlation between active galactic nuclei (AGN) and environment provides
+important clues to AGN fueling and the relationship of black hole growth to
+galaxy evolution. In this paper, we analyze the fraction of galaxies in
+clusters hosting AGN as a function of redshift and cluster richness for X-ray
+detected AGN associated with clusters of galaxies in Dark Energy Survey (DES)
+Science Verification data. The present sample includes 33 AGN with L_X &gt; 10^43
+ergs s^-1 in non-central, host galaxies with luminosity greater than 0.5 L*
+from a total sample of 432 clusters in the redshift range of 0.1&lt;z&lt;0.95.
+Analysis of the present sample reveals that the AGN fraction in red-sequence
+cluster members has a strong positive correlation with redshift such that the
+AGN fraction increases by a factor of ~ 8 from low to high redshift, and the
+fraction of cluster galaxies hosting AGN at high redshifts is greater than the
+low-redshift fraction at 3.6 sigma. In particular, the AGN fraction increases
+steeply at the highest redshifts in our sample at z&gt;0.7. This result is in good
+agreement with previous work and parallels the increase in star formation in
+cluster galaxies over the same redshift range. However, the AGN fraction in
+clusters is observed to have no significant correlation with cluster mass.
+Future analyses with DES Year 1 and 2 data will be able to clarify whether AGN
+activity is correlated to cluster mass and will tightly constrain the
+relationship between cluster AGN populations and redshift.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>
