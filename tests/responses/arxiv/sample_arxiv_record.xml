@@ -1,50 +1,357 @@
-<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
-    <responseDate>2016-01-14T15:53:12Z</responseDate>
-    <request verb="GetRecord" identifier="oai:arXiv.org:1601.03238" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
-    <GetRecord>
-        <record>
-            <header>
-                <identifier>oai:arXiv.org:1601.03238</identifier>
-                <datestamp>2016-01-14</datestamp>
-                <setSpec>physics:gr-qc</setSpec>
-                <setSpec>physics:hep-th</setSpec>
-                <setSpec>physics:quant-ph</setSpec>
-            </header>
-            <metadata>
-                <arXiv xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
-                    <id>1601.03238</id>
-                    <created>2016-01-13</created>
-                    <authors>
-                        <author>
-                            <keyname>Planck Collaboration</keyname>
-                        </author>
-                        <author>
-                            <keyname>Wang</keyname>
-                            <forenames>Jieci</forenames>
-                        </author>
-                        <author>
-                            <keyname>Tian</keyname>
-                            <forenames>Zehua</forenames>
-                        </author>
-                        <author>
-                            <keyname>Jing</keyname>
-                            <forenames>Jiliang</forenames>
-                        </author>
-                        <author>
-                            <keyname>Fan</keyname>
-                            <forenames>Heng</forenames>
-                        </author>
-                    </authors>
-                    <title>Irreversible degradation of quantum coherence under relativistic motion</title>
-                    <categories>quant-ph gr-qc hep-th</categories>
-                    <comments>6 pages, 4 figures, conference paper</comments>
-                    <doi>10.1103/PhysRevD.93.016005</doi>
-                    <license>https://creativecommons.org/licenses/by/3.0/</license>
-                    <abstract>
-                        We study the dynamics of quantum coherence under Unruh thermal noise and seek under which condition the coherence can be frozen in a relativistic setting. We find that the quantum coherence can not be frozen for any acceleration due to the effect of Unruh thermal noise. We also find that quantum coherence is more robust than entanglement under the effect of Unruh thermal noise and therefore the coherence type quantum resources are more accessible for relativistic quantum information processing tasks. Besides, the dynamic of quantum coherence is found to be more sensitive than entanglement to the preparation of the detectors' initial state and the atom-field coupling strength, while it is less sensitive than entanglement to the acceleration of the detector.
-                    </abstract>
-                </arXiv>
-            </metadata>
-        </record>
-    </GetRecord>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2016-01-14T15:53:12Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1601.03238" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord><record><header><identifier>oai:arXiv.org:1601.03238</identifier>
+<datestamp>2016-01-14</datestamp>
+<setSpec>physics:gr-qc</setSpec>
+<setSpec>physics:hep-th</setSpec>
+<setSpec>physics:quant-ph</setSpec>
+</header>
+<metadata><arXiv xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1601.03238</id>
+<created>2016-01-13</created>
+<authors>
+<author>
+<keyname>Planck Collaboration</keyname>
+</author>
+<author>
+<keyname>Wang</keyname>
+<forenames>Jieci</forenames>
+</author>
+<author>
+<keyname>Tian</keyname>
+<forenames>Zehua</forenames>
+</author>
+<author>
+<keyname>Jing</keyname>
+<forenames>Jiliang</forenames>
+</author>
+<author>
+<keyname>Fan</keyname>
+<forenames>Heng</forenames>
+</author>
+</authors>
+<title>Irreversible degradation of quantum coherence under relativistic motion</title>
+<categories>quant-ph gr-qc hep-th</categories>
+<comments>6 pages, 4 figures, conference paper</comments>
+<doi>10.1103/PhysRevD.93.016005</doi>
+<license>https://creativecommons.org/licenses/by/3.0/</license>
+<abstract>We study the dynamics of quantum coherence under Unruh thermal noise and seek under which condition the coherence can be frozen in a relativistic setting. We find that the quantum coherence can not be frozen for any acceleration due to the effect of Unruh thermal noise. We also find that quantum coherence is more robust than entanglement under the effect of Unruh thermal noise and therefore the coherence type quantum resources are more accessible for relativistic quantum information processing tasks. Besides, the dynamic of quantum coherence is found to be more sensitive than entanglement to the preparation of the detectors' initial state and the atom-field coupling strength, while it is less sensitive than entanglement to the acceleration of the detector.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1512.07978</identifier>
+<datestamp>2015-12-29</datestamp>
+<setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1512.07978</id>
+<created>2015-12-25</created>
+<authors>
+<author>
+<keyname>Teresa Maria Montaruli for the IceCube Collaboration</keyname>
+</author>
+</authors>
+<title>Neutrino Physics and Astrophysics with IceCube</title>
+<categories>astro-ph.HE</categories>
+<comments>Proc. of CRIS2015, Gallipoli, Italy, 8 pages, 17 figures, to appearin Elsevier in Nuclear and Particle Physics Proceedings (2016)</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  In this contribution we summarize the selected highlights of IceCube in thedomain of high-energy astrophysics and particle physics. We discuss thehighest-energy neutrino detection and its interpretation after 4 years of data.The significance is such that the discovery of a non terrestrial component canbe claimed but its origin is not yet clarified. The high energy non-atmosphericcomponent is seen also in other analyses with smaller significance, forinstance when using muon neutrino induced events coming from the Northernhemisphere. Flavor mixing is probed along cosmic distances in an analysis usingalso cascade neutrino events. The results on the search for neutrino sources ispresented including the results of a joint analysis with Pierre Auger andTelescope Array which is sensitive to correlations between highest energyneutrinos and UHECRs measured by the three experiments. Moreover, recentresults on dark matter searches from the Sun are discussed. Finally, theresults on standard neutrino oscillations are presented.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1603.00997</identifier>
+<datestamp>2016-03-04</datestamp>
+<setSpec>physics:hep-lat</setSpec>
+<setSpec>physics:nucl-th</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1603.00997</id>
+<created>2016-03-03</created>
+<authors>
+<author>
+<keyname>Sinya for JLQCD Collaboration</keyname>
+</author>
+</authors>
+<title>Axial U(1) symmetry in the chiral symmetric phase of 2-flavor QCD atfinite temperature</title>
+<categories>hep-lat nucl-th</categories>
+<comments>10 pages, 5 figures, A talk given at &quot;The 8th International Workshopon Chiral Dynamics, CD2015&quot;, 29 June - 03 July, 2015, Pisa, Italy</comments>
+<report-no>YITP-2016-26</report-no>
+<journal-ref>PoS(CD15) (2015) 045</journal-ref>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  We discuss the fate of the axial U(1) symmetry in 2-flavor QCD at finitetemperature, where the non-singlet chiral symmetry is restored. We firstsummarize the previous theoretical investigation on the relation between theeigenvalue density of the Dirac operator and the axial U(1) symmetry. We showthat the eigenvalue density near the origin behaves as $\lambda^\gamma$ with$\gamma &gt; 2$ in the chirally symmetric phase, where $\lambda$ is an eigenvalue.This implies that the axial U(1) symmetry is partially restored, so that thelow energy symmetry of the theory becomes SU(2)$\otimes$ SU(2)$\otimes$ Z$_4$.Secondly, we report recent numerical investigations on this issue by latticeQCD simulations with lattice chiral fermions such as Overlap or improveddomain-wall fermions. Our preliminary results indicate that the eigenvaluedensity seems to have a gap at the origin just above $T_c$, the temperature ofthe chiral symmetry restoration, which implies the axial U(1) symmetry iseffectively restored at high temperature. We also point out an importance ofthe exact lattice chiral symmetry to obtain correct results on this issue.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1603.01251</identifier>
+<datestamp>2016-03-04</datestamp>
+<setSpec>physics:hep-ex</setSpec>
+<setSpec>physics:physics</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1603.01251</id>
+<created>2016-03-03</created>
+<authors>
+<author>
+<keyname>NuPRISM</keyname>
+<forenames>Mark Scott for the</forenames>
+</author>
+<author>
+<keyname>collaborations</keyname>
+<forenames>Hyper-K</forenames>
+</author>
+</authors>
+<title>An Intermediate Water Cherenkov Detector at J-PARC</title>
+<categories>physics.ins-det hep-ex</categories>
+<comments>11 pages, 15 figures, Proceedings of NuInt2015, Osaka, November 2015</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  Recent neutrino oscillation results have shown that the existing longbaseline experiments have some sensitivity to the effects of CP violation inthe neutrino sector. This sensitivity is currently statistically limited, butthe next generation of experiments, DUNE and Hyper-K, will provide an order ofmagnitude more events. To reach the full potential of these datasets we mustachieve a commensurate improvement in our understanding of the systematicuncertainties that beset them. This talk describes two proposed intermediatedetectors for the current and future long baseline oscillation experiments inJapan, TITUS and NuPRISM. These detectors are discussed in the context of thecurrent T2K oscillation analysis, highlighting the ways in which they couldreduce the systematic uncertainty on this measurement. The talk also describesthe short baseline oscillation sensitivity of NuPRISM along with the neutrinoscattering measurements the detector makes possible.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1603.05976</identifier>
+<datestamp>2016-03-22</datestamp>
+<setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1603.05976</id>
+<created>2016-03-18</created>
+<authors>
+<author>
+<keyname>Array</keyname>
+<forenames>Keck</forenames>
+</author>
+<author>
+<keyname>Collaborations</keyname>
+<forenames>BICEP2</forenames>
+</author>
+<author>
+<keyname>:</keyname>
+</author>
+<author>
+<keyname>Ade</keyname>
+<forenames>P.</forenames>
+</author>
+<author>
+<keyname>Ahmed</keyname>
+<forenames>Z.</forenames>
+</author>
+<author>
+<keyname>Aikin</keyname>
+<forenames>R. W.</forenames>
+</author>
+<author>
+<keyname>Alexander</keyname>
+<forenames>K. D.</forenames>
+</author>
+</authors>
+<title>BICEP2 / Keck Array VII: Matrix based E/B Separation applied to BICEP2and the Keck Array</title>
+<categories>astro-ph.IM astro-ph.CO</categories>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  A linear polarization field on the sphere can be uniquely decomposed into anE-mode and a B-mode component. These two components are analytically defined interms of spin-2 spherical harmonics. Maps that contain filtered modes on apartial sky can also be decomposed into E-mode and B-mode components. However,the lack of full sky information prevents orthogonally separating thesecomponents using spherical harmonics. In this paper, we present a technique fordecomposing an incomplete map into E and B-mode components using E and Beigenmodes of the pixel covariance in the observed map. This method is found toorthogonally define E and B in the presence of both partial sky coverage andspatial filtering. This method has been applied to the BICEP2 and the KeckArray maps and results in reducing E to B leakage from LCDM E-modes to a levelcorresponding to a tensor-to-scalar ratio of $r&lt;1\times10^{-4}$.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1604.05585</identifier>
+<datestamp>2016-04-20</datestamp>
+<setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1604.05585</id>
+<created>2016-04-19</created>
+<authors>
+<author>
+<keyname>Burigana</keyname>
+<forenames>Carlo</forenames>
+<affiliation>on behalf of Planck Collaboration</affiliation>
+</author>
+<author>
+<keyname>Trombetti</keyname>
+<forenames>Tiziana</forenames>
+<affiliation>on behalf of Planck Collaboration</affiliation>
+</author>
+<author>
+<keyname>Paoletti</keyname>
+<forenames>Daniela</forenames>
+<affiliation>on behalf of Planck Collaboration</affiliation>
+</author>
+<author>
+<keyname>Mandolesi</keyname>
+<forenames>Nazzareno</forenames>
+<affiliation>on behalf of Planck Collaboration</affiliation>
+</author>
+<author>
+<keyname>Natoli</keyname>
+<forenames>Paolo</forenames>
+<affiliation>on behalf of Planck Collaboration</affiliation>
+</author>
+</authors>
+<title>Astrophysical components from Planck maps</title>
+<categories>astro-ph.GA astro-ph.CO</categories>
+<comments>4 pages, 2 figures. It will appear on the Proceedings of the 17thLomonosov Conference on Elementary Particle Physics. Moscow State University,Moscow, 20-26 August, 2015. Invited talk</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  The Planck Collaboration has recently released maps of the microwave sky inboth temperature and polarization. Diffuse astrophysical components (includingGalactic emissions, cosmic far infrared (IR) background, y-maps of the thermalSunyaev-Zeldovich (SZ) effect) and catalogs of many thousands of Galactic andextragalactic radio and far-IR sources, and galaxy clusters detected throughthe SZ effect are the main astrophysical products of the mission. A conciseoverview of these results and of astrophysical studies based on Planck data ispresented.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1606.06775</identifier>
+<datestamp>2016-06-23</datestamp>
+<setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1606.06775</id>
+<created>2016-06-21</created>
+<authors>
+<author>
+<keyname>Bufanda</keyname>
+<forenames>E.</forenames>
+</author>
+<author>
+<keyname>Hollowood</keyname>
+<forenames>D.</forenames>
+</author>
+<author>
+<keyname>Collaboration</keyname>
+<forenames>for the DES</forenames>
+</author>
+</authors>
+<title>The Evolution of Active Galactic Nuclei in Clusters of Galaxies from theDark Energy Survey</title>
+<categories>astro-ph.HE astro-ph.GA</categories>
+<comments>8 pages, 3 figures</comments>
+<report-no>DES 2016-0158, FERMILAB PUB-16-231-AE</report-no>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  The correlation between active galactic nuclei (AGN) and environment providesimportant clues to AGN fueling and the relationship of black hole growth togalaxy evolution. In this paper, we analyze the fraction of galaxies inclusters hosting AGN as a function of redshift and cluster richness for X-raydetected AGN associated with clusters of galaxies in Dark Energy Survey (DES)Science Verification data. The present sample includes 33 AGN with L_X &gt; 10^43ergs s^-1 in non-central, host galaxies with luminosity greater than 0.5 L*from a total sample of 432 clusters in the redshift range of 0.1&lt;z&lt;0.95.Analysis of the present sample reveals that the AGN fraction in red-sequencecluster members has a strong positive correlation with redshift such that theAGN fraction increases by a factor of ~ 8 from low to high redshift, and thefraction of cluster galaxies hosting AGN at high redshifts is greater than thelow-redshift fraction at 3.6 sigma. In particular, the AGN fraction increasessteeply at the highest redshifts in our sample at z&gt;0.7. This result is in goodagreement with previous work and parallels the increase in star formation incluster galaxies over the same redshift range. However, the AGN fraction inclusters is observed to have no significant correlation with cluster mass.Future analyses with DES Year 1 and 2 data will be able to clarify whether AGNactivity is correlated to cluster mass and will tightly constrain therelationship between cluster AGN populations and redshift.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1606.07066</identifier>
+<datestamp>2016-06-24</datestamp>
+<setSpec>physics:astro-ph</setSpec>
+<setSpec>physics:gr-qc</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1606.07066</id>
+<created>2016-06-22</created>
+<authors>
+<author>
+<keyname>Saxton</keyname>
+<keyname>Walton</keyname>
+<forenames>Curtis J.</forenames>
+<affiliation>Technion</affiliation>
+<affiliation>DESY</affiliation>
+</author>
+<author>
+<keyname>Younsi</keyname>
+<forenames>Ziri</forenames>
+<affiliation>U.Frankfurt</affiliation>
+</author>
+<author>
+<keyname>Wu</keyname>
+<forenames>Kinwah</forenames>
+</author>
+</authors>
+<title>Dark matter concentrations in galactic nuclei according to polytropicmodels</title>
+<categories>astro-ph.GA astro-ph.CO astro-ph.HE gr-qc</categories>
+<comments>MNRAS accepted, 24 pages, 12 figures</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  We calculate the radial profiles of galaxies where the nuclear region isself-gravitating, consisting of self-interacting dark matter (SIDM) with $F$degrees of freedom. For sufficiently high density this dark matter becomescollisional, regardless of its behaviour on galaxy scales. Our calculationsshow a spike in the central density profile, with properties determined by thedark matter microphysics, and the densities can reach the `mean density' of ablack hole (from dividing the black-hole mass by the volume enclosed by theSchwarzschild radius). For a galaxy halo of given compactness($\chi=2GM/Rc^2$), certain values for the dark matter entropy yield a densecentral object lacking an event horizon. For some soft equations of state ofthe SIDM (e.g. $F\ge6$), there are multiple horizonless solutions at givencompactness. Although light propagates around and through a sphere composed ofdark matter, it is gravitationally lensed and redshifted. While somecalculations give non-singular solutions, others yield solutions with a centralsingularity. In all cases the density transitions smoothly from the centralbody to the dark-matter envelope around it, and to the galaxy's dark matterhalo. We propose that pulsar timing observations will be able to distinguishbetween systems with a centrally dense dark matter sphere (for differentequations of state) and conventional galactic nuclei that harbour asupermassive black hole.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1606.07538</identifier>
+<datestamp>2016-06-27</datestamp>
+<setSpec>physics:hep-ex</setSpec>
+<setSpec>physics:physics</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1606.07538</id>
+<created>2016-06-23</created>
+<authors>
+<author>
+<keyname>Collaboration</keyname>
+<forenames>Super-Kamiokande</forenames>
+<affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation>
+<affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation>
+</author>
+<author>
+<keyname>:</keyname>
+<affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation>
+<affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation>
+</author>
+<author>
+<keyname>Abe</keyname>
+<forenames>K.</forenames>
+<affiliation>Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo</affiliation>
+<affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation>
+</author>
+<author>
+<keyname>Suzuki</keyname>
+<forenames>Y.</forenames>
+<affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation>
+</author>
+<author>
+<keyname>Vagins</keyname>
+<forenames>M. R.</forenames>
+<affiliation>Kavli Institute for the Physics and Mathematics of the Universe</affiliation>
+<affiliation>Department of Physics and Astronomy, University of California, Irvine</affiliation>
+</author>
+<author>
+<keyname>Nantais</keyname>
+<forenames>C. M.</forenames>
+<affiliation>Department of Physics, University of Toronto</affiliation>
+</author>
+<author>
+<keyname>Martin</keyname>
+<forenames>J. F.</forenames>
+<affiliation>Department of Physics, University of Toronto</affiliation>
+</author>
+<author>
+<keyname>de Perio</keyname>
+<forenames>P.</forenames>
+<affiliation>Department of Physics, University of Toronto</affiliation>
+</author>
+</authors>
+<title>Solar Neutrino Measurements in Super-Kamiokande-IV</title>
+<categories>hep-ex physics.ins-det</categories>
+<comments>Submitted to Physical Review D; 23 pages, 40 figures</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  Upgraded electronics, improved water system dynamics, better calibration andanalysis techniques allowed Super-Kamiokande-IV to clearly observe verylow-energy 8B solar neutrino interactions, with recoil electron kineticenergies as low as 3.49 MeV. Super-Kamiokande-IV data-taking began in Septemberof 2008; this paper includes data until February 2014, a total livetime of 1664days. The measured solar neutrino flux is (2.308+-0.020(stat.) +0.039-0.040(syst.)) x 106/(cm2sec) assuming no oscillations. The observedrecoil electron energy spectrum is consistent with no distortions due toneutrino oscillations. An extended maximum likelihood fit to the amplitude ofthe expected solar zenith angle variation of the neutrino-electron elasticscattering rate in SK-IV results in a day/night asymmetry of(-3.6+-1.6(stat.)+-0.6(syst.))%. The SK-IV solar neutrino data determine thesolar mixing angle as sin2 theta_12 = 0.327+0.026-0.031, all SK solar data(SK-I, SK-II, SK III and SKIV) measures this angle to be sin2 theta_12 =0.334+0.027-0.023, the determined mass-squared splitting is Delta m2_21 =4.8+1.5-0.8 x10-5 eV2.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1607.00786</identifier>
+<datestamp>2016-07-05</datestamp>
+<setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1607.00786</id>
+<created>2016-07-04</created>
+<authors>
+<author>
+<keyname>Chudasama</keyname>
+<forenames>Ruchi</forenames>
+</author>
+<author>
+<keyname>Collaboration</keyname>
+<forenames>Dipanwita Dutta for the CMS</forenames>
+</author>
+</authors>
+<title>Exclusive Photoproduction of Upsilon in pPb collisions with the CMS</title>
+<categories>hep-ex</categories>
+<comments>To appear in the proceedings of the 7th International Conference onPhysics and Astrophysics of Quark Gluon Plasma (ICPAQGP 2015), Kolkata,India. February 2-6, 2015</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  Results of exclusive photoproduction of Upsilon states in Ultraperipheralcollisions (UPC) of protons and ions with the CMS experiment are presented,which provides a clean probe of the gluon distribution at small values ofparton fractional momenta $x \approx 10^{-2} 10^{4}$ at central rapidities (|y|$&lt; 2.5$). The three Upsilon states (1S, 2S, 3S) are measured in the dimuondecay channel along with the photon-photon decaying to dimuon QED continuum at$\sqrt{s_{NN}}=5.02$~TeV for integrated luminosity of $L_{int} = 35$ nb$^{-1}$.The total Upsilon photoproduction cross sections at different photon-protoncenter of mass energy $W_{\gamma p}$ and t-differential distributions arepresented and compared with other experimental results as well as theoreticalpredictions.</abstract>
+</arXiv>
+</metadata>
+</record>
+<record><header><identifier>oai:arXiv.org:1606.04259</identifier>
+<datestamp>2016-06-15</datestamp>
+<setSpec>physics:hep-th</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1606.04259</id>
+<created>2016-06-14</created>
+<authors>
+<author>
+<keyname>Battista</keyname>
+<forenames>Emmanuele</forenames>
+</author>
+</authors>
+<title>Extreme Regimes in Quantum Gravity</title>
+<categories>hep-th</categories>
+<comments>Phd thesis in Fundamental and Applied Physics presented at University&quot;Federico II&quot; (Naples, Italy) on 29th April 2016</comments>
+<license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license>
+<abstract>  The thesis is divided into two parts. In the first part the low-energy limitof quantum gravity is analysed, whereas in the second we deal with thehigh-energy domain. In the first part, by applying the effective field theorypoint of view to the quantization of general relativity, detectable, thoughtiny, quantum effects in the position of Newtonian Lagrangian points of theEarth-Moon system are found. In order to make more realistic the quantumcorrected model proposed, the full three-body problem where the Earth and theMoon interact with a generic massive body and the restricted four-body probleminvolving the perturbative effects produced by the gravitational presence ofthe Sun in the Earth-Moon system are also studied. After that, a new quantumtheory having general relativity as its classical counterpart is analysed. Byexploiting this framework, an innovative interesting prediction involving theposition of Lagrangian points within the context of general relativity isdescribed. Furthermore, the new pattern provides quantum corrections to therelativistic coordinates of Earth-Moon libration points of the order of fewmillimetres. The second part of the thesis deals with the Riemannian curvaturecharacterizing the boosted form assumed by the Schwarzschild-de Sitter metric.The analysis of the Kretschmann invariant and the geodesic equation shows thatthe spacetime possesses a &quot;scalar curvature singularity&quot; within a 3-sphere andthat it is possible to define what we here call &quot;boosted horizon&quot;, a sort ofelastic wall where all particles are surprisingly pushed away, suggesting thatsuch &quot;boosted geometries&quot; are ruled by a sort of &quot;antigravity effect&quot;.Eventually, the equivalence with the coordinate shift method is invoked inorder to demonstrate that all $\delta^2$ terms appearing in the Riemanncurvature tensor give vanishing contribution in distributional sense.</abstract>
+</arXiv>
+</metadata>
+</record>
+</GetRecord>
 </OAI-PMH>

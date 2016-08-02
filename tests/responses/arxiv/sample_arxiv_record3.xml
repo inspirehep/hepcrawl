@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-29T14:58:15Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1603.01251" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1603.01251</identifier>
+ <datestamp>2016-03-04</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+ <setSpec>physics:physics</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1603.01251</id><created>2016-03-03</created><authors><author><keyname>NuPRISM</keyname><forenames>Mark Scott for the</forenames></author><author><keyname>collaborations</keyname><forenames>Hyper-K</forenames></author></authors><title>An Intermediate Water Cherenkov Detector at J-PARC</title><categories>physics.ins-det hep-ex</categories><comments>11 pages, 15 figures, Proceedings of NuInt2015, Osaka, November 2015</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  Recent neutrino oscillation results have shown that the existing long
+baseline experiments have some sensitivity to the effects of CP violation in
+the neutrino sector. This sensitivity is currently statistically limited, but
+the next generation of experiments, DUNE and Hyper-K, will provide an order of
+magnitude more events. To reach the full potential of these datasets we must
+achieve a commensurate improvement in our understanding of the systematic
+uncertainties that beset them. This talk describes two proposed intermediate
+detectors for the current and future long baseline oscillation experiments in
+Japan, TITUS and NuPRISM. These detectors are discussed in the context of the
+current T2K oscillation analysis, highlighting the ways in which they could
+reduce the systematic uncertainty on this measurement. The talk also describes
+the short baseline oscillation sensitivity of NuPRISM along with the neutrino
+scattering measurements the detector makes possible.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

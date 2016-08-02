@@ -1,0 +1,44 @@
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2016-01-14T15:53:12Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1601.03238" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord><record><header><identifier>oai:arXiv.org:1601.03238</identifier>
+<datestamp>2016-01-14</datestamp>
+<setSpec>physics:gr-qc</setSpec>
+<setSpec>physics:hep-th</setSpec>
+<setSpec>physics:quant-ph</setSpec>
+</header>
+<metadata><arXiv xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd"><id>1601.03238</id>
+<created>2016-01-13</created>
+<authors>
+<author>
+<keyname>Planck Collaboration</keyname>
+</author>
+<author>
+<keyname>Wang</keyname>
+<forenames>Jieci</forenames>
+</author>
+<author>
+<keyname>Tian</keyname>
+<forenames>Zehua</forenames>
+</author>
+<author>
+<keyname>Jing</keyname>
+<forenames>Jiliang</forenames>
+</author>
+<author>
+<keyname>Fan</keyname>
+<forenames>Heng</forenames>
+</author>
+</authors>
+<title>Irreversible degradation of quantum coherence under relativistic motion</title>
+<categories>quant-ph gr-qc hep-th</categories>
+<comments>6 pages, 4 figures, conference paper</comments>
+<report-no>YITP-2016-26</report-no>
+<journal-ref>Phys.Rev. D93 (2015) 016005</journal-ref>
+<doi>10.1103/PhysRevD.93.016005</doi>
+<license>https://creativecommons.org/licenses/by/3.0/</license>
+<abstract>We study the dynamics of quantum coherence under Unruh thermal noise and seek under which condition the coherence can be frozen in a relativistic setting. We find that the quantum coherence can not be frozen for any acceleration due to the effect of Unruh thermal noise. We also find that quantum coherence is more robust than entanglement under the effect of Unruh thermal noise and therefore the coherence type quantum resources are more accessible for relativistic quantum information processing tasks. Besides, the dynamic of quantum coherence is found to be more sensitive than entanglement to the preparation of the detectors' initial state and the atom-field coupling strength, while it is less sensitive than entanglement to the acceleration of the detector.</abstract>
+</arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

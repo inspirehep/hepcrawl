@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-29T14:29:10Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1512.07978" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1512.07978</identifier>
+ <datestamp>2015-12-29</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1512.07978</id><created>2015-12-25</created>
+ <authors><author>
+ <keyname>Teresa Maria Montaruli for the IceCube Collaboration</keyname></author></authors><title>Neutrino Physics and Astrophysics with IceCube</title><categories>astro-ph.HE</categories><comments>Proc. of CRIS2015, Gallipoli, Italy, 8 pages, 17 figures, to appear
+  in Elsevier in Nuclear and Particle Physics Proceedings (2016)</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  In this contribution we summarize the selected highlights of IceCube in the
+domain of high-energy astrophysics and particle physics. We discuss the
+highest-energy neutrino detection and its interpretation after 4 years of data.
+The significance is such that the discovery of a non terrestrial component can
+be claimed but its origin is not yet clarified. The high energy non-atmospheric
+component is seen also in other analyses with smaller significance, for
+instance when using muon neutrino induced events coming from the Northern
+hemisphere. Flavor mixing is probed along cosmic distances in an analysis using
+also cascade neutrino events. The results on the search for neutrino sources is
+presented including the results of a joint analysis with Pierre Auger and
+Telescope Array which is sensitive to correlations between highest energy
+neutrinos and UHECRs measured by the three experiments. Moreover, recent
+results on dark matter searches from the Sun are discussed. Finally, the
+results on standard neutrino oscillations are presented.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>
