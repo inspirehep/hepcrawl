@@ -23,6 +23,9 @@ from urlparse import urlparse
 
 from scrapy import Selector
 
+RE_FOR_THE = re.compile(r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
+INST_PHRASES = ['for the development', ]
+
 
 def unzip_xml_files(filename, target_folder):
     """Unzip files (XML only) into target folder."""
@@ -199,18 +202,16 @@ def get_node(text, namespaces=None):
 def coll_cleanforthe(coll):
     """ Cleanup collaboration, try to find author """
     author = None
-    re_for_the = re.compile(r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
-    inst_phrases = ['for the development', ]
 
-    if any(phrase for phrase in inst_phrases if phrase in coll.lower()):
+    if any(phrase for phrase in INST_PHRASES if phrase in coll.lower()):
         # don't touch it, doesn't look like a collaboration
         return coll, author
 
     coll = coll.strip('.; ')
 
-    if re_for_the.search(coll):
+    if RE_FOR_THE.search(coll):
         # get strings leading and trailing 'for the'
-        (lead, trail) = re_for_the.split(coll, maxsplit=1)
+        (lead, trail) = RE_FOR_THE.split(coll, maxsplit=1)
         if re.search(r'\w', lead):
             author = lead.strip()
         if re.search(r'\w', trail):

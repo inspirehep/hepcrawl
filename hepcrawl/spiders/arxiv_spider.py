@@ -13,17 +13,16 @@ import re
 
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
-from ..mappings import CONFERENCE_WORDS
-from ..mappings import THESIS_WORDS
-from ..mappings import LICENSES
-from ..utils import split_fullname
-from ..utils import coll_cleanforthe
+from ..mappings import CONFERENCE_WORDS, THESIS_WORDS, LICENSES
+from ..utils import split_fullname, coll_cleanforthe
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 
-RE_CONFERENCE = re.compile(r'\b(%s)\b' % '|'.join(CONFERENCE_WORDS), re.I | re.U)
-RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(THESIS_WORDS), re.I | re.U)
+RE_CONFERENCE = re.compile(r'\b(%s)\b' % '|'.join(
+    [re.escape(word) for word in CONFERENCE_WORDS]), re.I | re.U)
+RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(
+    [re.escape(word) for word in THESIS_WORDS]), re.I | re.U)
 
 
 class ArxivSpider(XMLFeedSpider):

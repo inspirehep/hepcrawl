@@ -112,7 +112,7 @@ def test_authors(results):
         ['Sinya', ],
         ['Scott, Mark', ],
         ['Ade, P.', 'Ahmed, Z.', 'Aikin, R.W.', 'Alexander, K.D.'],
-        ['Burigana, Carlo', 'Trombetti, Tiziana', 'Paoletti, Daniela', 'Mandolesi, Nazzareno', 'Natoli, Paolo'],
+        ['Burigana, Günter', 'Trombetti, Tiziana', 'Paoletti, Daniela', 'Mandolesi, Nazzareno', 'Natoli, Paolo'],
         ['Bufanda, E.', 'Hollowood, D.'],
         ['Saxton Walton, Curtis J.', 'Younsi, Ziri', 'Wu, Kinwah'],
         ['Abe, K.', 'Suzuki, Y.', 'Vagins, M.R.', 'Nantais, C.M.', 'Martin, J.F.', 'de Perio, P.'],
@@ -150,5 +150,3 @@ def test_authors(results):
             record_affiliations.append([aff['value'] for aff in author['affiliations']])
         assert set(test_full_names) == set(record_full_names)  # assert that we have the same list of authors
         assert test_affiliations == record_affiliations  # assert that we have the same list of affiliations
-
-
