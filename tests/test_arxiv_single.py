@@ -17,11 +17,11 @@ from .responses import fake_response_from_file
 
 @pytest.fixture
 def results():
-    """Return results generator from the WSP spider."""
+    """Return results generator from the arxiv spider. All fields, one record."""
     from scrapy.http import TextResponse
 
     spider = arxiv_spider.ArxivSpider()
-    return spider.parse(fake_response_from_file('arxiv/sample_arxiv_record.xml', response_type=TextResponse))
+    return spider.parse(fake_response_from_file('arxiv/sample_arxiv_record0.xml', response_type=TextResponse))
 
 
 def test_abstract(results):
@@ -65,12 +65,13 @@ def test_page_nr(results):
         assert record['page_nr'] == page_nr
 
 
-def test_journal_doctype(results):
-    """Test journal type"""
-    doctype = 'ConferencePaper'
+def test_collections(results):
+    """Test collections"""
+    doctype = ['HEP', 'Citeable', 'arXiv', 'ConferencePaper']
     for record in results:
-        assert 'journal_doctype' in record
-        assert record['journal_doctype'] == doctype
+        assert 'collections' in record
+        assert set([collection['primary'] \
+            for collection in record['collections']]) == set(doctype)
         break
 
 
@@ -88,11 +89,11 @@ def test_notes(results):
 
 def test_license(results):
     """Test extracting license information."""
-    license = "CC-BY-3.0"
+    license_name = "CC-BY-3.0"
     license_url = "https://creativecommons.org/licenses/by/3.0/"
     for record in results:
         assert 'license' in record
-        assert record['license'] == license
+        assert record['license'] == license_name
         assert 'license_url' in record
         assert record['license_url'] == license_url
 
@@ -105,9 +106,25 @@ def test_dois(results):
         assert record['dois'][0]['value'] == dois
 
 
+def test_journal_ref(results):
+    """Test extracting journal_ref."""
+    jref = "Phys.Rev. D93 (2015) 016005"
+    for record in results:
+        assert 'pubinfo_freetext' in record
+        assert record['pubinfo_freetext'] == jref
+
+
+def test_repno(results):
+    """Test extracting repor numbers."""
+    repno = "YITP-2016-26"
+    for record in results:
+        assert 'report_numbers' in record
+        assert record['report_numbers'][0] == repno
+
+
 def test_collaborations(results):
     """Test extracting collaboration."""
-    collaborations = [{"value": "Planck Collaboration"}]
+    collaborations = [{"value": "Planck"}]
     for record in results:
         assert 'collaborations' in record
         assert record['collaborations'] == collaborations
@@ -120,7 +137,7 @@ def test_authors(results):
         assert 'authors' in record
         assert len(record['authors']) == 4
         record_full_names = [author['full_name'] for author in record['authors']]
-        assert set(author_full_names) == set(record_full_names)  # assert that we have the same list of authors
+        assert set(author_full_names) == set(record_full_names)
 
 
 def test_arxiv_eprints(results):

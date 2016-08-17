@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-30T12:57:57Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1604.05585" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1604.05585</identifier>
+ <datestamp>2016-04-20</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1604.05585</id><created>2016-04-19</created>
+<authors>
+<author><keyname>Burigana</keyname><forenames>Günter</forenames><affiliation>on behalf of Planck Collaboration</affiliation></author>
+<author><keyname>Trombetti</keyname><forenames>Tiziana</forenames><affiliation>on behalf of Planck Collaboration</affiliation></author>
+<author><keyname>Paoletti</keyname><forenames>Daniela</forenames><affiliation>on behalf of Planck Collaboration</affiliation></author>
+<author><keyname>Mandolesi</keyname><forenames>Nazzareno</forenames><affiliation>on behalf of Planck Collaboration</affiliation>
+</author><author><keyname>Natoli</keyname><forenames>Paolo</forenames><affiliation>on behalf of Planck Collaboration</affiliation></author>
+</authors>
+<title>Astrophysical components from Planck maps</title><categories>astro-ph.GA astro-ph.CO</categories><comments>4 pages, 2 figures. It will appear on the Proceedings of the 17th
+  Lomonosov Conference on Elementary Particle Physics. Moscow State University,
+  Moscow, 20-26 August, 2015. Invited talk</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  The Planck Collaboration has recently released maps of the microwave sky in
+both temperature and polarization. Diffuse astrophysical components (including
+Galactic emissions, cosmic far infrared (IR) background, y-maps of the thermal
+Sunyaev-Zeldovich (SZ) effect) and catalogs of many thousands of Galactic and
+extragalactic radio and far-IR sources, and galaxy clusters detected through
+the SZ effect are the main astrophysical products of the mission. A concise
+overview of these results and of astrophysical studies based on Planck data is
+presented.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

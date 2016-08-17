@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-07-14T11:58:39Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1606.04259" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1606.04259</identifier>
+ <datestamp>2016-06-15</datestamp>
+ <setSpec>physics:hep-th</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1606.04259</id><created>2016-06-14</created><authors><author><keyname>Battista</keyname><forenames>Emmanuele</forenames></author></authors><title>Extreme Regimes in Quantum Gravity</title><categories>hep-th</categories><comments>Phd thesis in Fundamental and Applied Physics presented at University
+  &quot;Federico II&quot; (Naples, Italy) on 29th April 2016</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  The thesis is divided into two parts. In the first part the low-energy limit
+of quantum gravity is analysed, whereas in the second we deal with the
+high-energy domain. In the first part, by applying the effective field theory
+point of view to the quantization of general relativity, detectable, though
+tiny, quantum effects in the position of Newtonian Lagrangian points of the
+Earth-Moon system are found. In order to make more realistic the quantum
+corrected model proposed, the full three-body problem where the Earth and the
+Moon interact with a generic massive body and the restricted four-body problem
+involving the perturbative effects produced by the gravitational presence of
+the Sun in the Earth-Moon system are also studied. After that, a new quantum
+theory having general relativity as its classical counterpart is analysed. By
+exploiting this framework, an innovative interesting prediction involving the
+position of Lagrangian points within the context of general relativity is
+described. Furthermore, the new pattern provides quantum corrections to the
+relativistic coordinates of Earth-Moon libration points of the order of few
+millimetres. The second part of the thesis deals with the Riemannian curvature
+characterizing the boosted form assumed by the Schwarzschild-de Sitter metric.
+The analysis of the Kretschmann invariant and the geodesic equation shows that
+the spacetime possesses a &quot;scalar curvature singularity&quot; within a 3-sphere and
+that it is possible to define what we here call &quot;boosted horizon&quot;, a sort of
+elastic wall where all particles are surprisingly pushed away, suggesting that
+such &quot;boosted geometries&quot; are ruled by a sort of &quot;antigravity effect&quot;.
+Eventually, the equivalence with the coordinate shift method is invoked in
+order to demonstrate that all $\delta^2$ terms appearing in the Riemann
+curvature tensor give vanishing contribution in distributional sense.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

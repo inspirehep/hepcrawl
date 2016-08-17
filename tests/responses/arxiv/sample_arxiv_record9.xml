@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-07-07T07:10:27Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1607.00786" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1607.00786</identifier>
+ <datestamp>2016-07-05</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1607.00786</id><created>2016-07-04</created><authors><author><keyname>Chudasama</keyname><forenames>Ruchi</forenames></author><author><keyname>Collaboration</keyname><forenames>Dipanwita Dutta for the CMS</forenames></author></authors><title>Exclusive Photoproduction of Upsilon in pPb collisions with the CMS</title><categories>hep-ex</categories><comments>To appear in the proceedings of the 7th International Conference on
+  Physics and Astrophysics of Quark Gluon Plasma (ICPAQGP 2015), Kolkata,
+  India. February 2-6, 2015</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  Results of exclusive photoproduction of Upsilon states in Ultraperipheral
+collisions (UPC) of protons and ions with the CMS experiment are presented,
+which provides a clean probe of the gluon distribution at small values of
+parton fractional momenta $x \approx 10^{-2} 10^{4}$ at central rapidities (|y|
+$&lt; 2.5$). The three Upsilon states (1S, 2S, 3S) are measured in the dimuon
+decay channel along with the photon-photon decaying to dimuon QED continuum at
+$\sqrt{s_{NN}}=5.02$~TeV for integrated luminosity of $L_{int} = 35$ nb$^{-1}$.
+The total Upsilon photoproduction cross sections at different photon-proton
+center of mass energy $W_{\gamma p}$ and t-differential distributions are
+presented and compared with other experimental results as well as theoretical
+predictions.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

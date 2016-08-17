@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2016-06-29T14:53:33Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1603.00997" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1603.00997</identifier>
+ <datestamp>2016-03-04</datestamp>
+ <setSpec>physics:hep-lat</setSpec>
+ <setSpec>physics:nucl-th</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1603.00997</id><created>2016-03-03</created><authors><author><keyname>Sinya for JLQCD Collaboration</keyname></author></authors><title>Axial U(1) symmetry in the chiral symmetric phase of 2-flavor QCD at
+  finite temperature</title><categories>hep-lat nucl-th</categories><comments>10 pages, 5 figures, A talk given at &quot;The 8th International Workshop
+  on Chiral Dynamics, CD2015&quot;, 29 June - 03 July, 2015, Pisa, Italy</comments><report-no>YITP-2016-26</report-no><journal-ref>PoS(CD15) (2015) 045</journal-ref><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We discuss the fate of the axial U(1) symmetry in 2-flavor QCD at finite
+temperature, where the non-singlet chiral symmetry is restored. We first
+summarize the previous theoretical investigation on the relation between the
+eigenvalue density of the Dirac operator and the axial U(1) symmetry. We show
+that the eigenvalue density near the origin behaves as $\lambda^\gamma$ with
+$\gamma &gt; 2$ in the chirally symmetric phase, where $\lambda$ is an eigenvalue.
+This implies that the axial U(1) symmetry is partially restored, so that the
+low energy symmetry of the theory becomes SU(2)$\otimes$ SU(2)$\otimes$ Z$_4$.
+Secondly, we report recent numerical investigations on this issue by lattice
+QCD simulations with lattice chiral fermions such as Overlap or improved
+domain-wall fermions. Our preliminary results indicate that the eigenvalue
+density seems to have a gap at the origin just above $T_c$, the temperature of
+the chiral symmetry restoration, which implies the axial U(1) symmetry is
+effectively restored at high temperature. We also point out an importance of
+the exact lattice chiral symmetry to obtain correct results on this issue.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

@@ -9,13 +9,20 @@
 
 """Spider for arXiv."""
 
+import re
+
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
-from ..mappings import CONFERENCE_PAPERS
-from ..utils import get_first
+from ..mappings import CONFERENCE_WORDS, THESIS_WORDS, LICENSES
+from ..utils import split_fullname, coll_cleanforthe
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+
+RE_CONFERENCE = re.compile(r'\b(%s)\b' % '|'.join(
+    [re.escape(word) for word in CONFERENCE_WORDS]), re.I | re.U)
+RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(
+    [re.escape(word) for word in THESIS_WORDS]), re.I | re.U)
 
 
 class ArxivSpider(XMLFeedSpider):
@@ -58,14 +65,20 @@ class ArxivSpider(XMLFeedSpider):
         record.add_value('authors', authors)
         record.add_value('collaborations', collabs)
 
-        pages, notes, doctype = self._get_comments_info(node)
-        record.add_value('page_nr', pages)
-        record.add_value('public_notes', notes)
-        record.add_value('journal_doctype', doctype)
+        collections = ['HEP', 'Citeable', 'arXiv']
+        comments = '; '.join(node.xpath('.//comments//text()').extract())
+        if comments:
+            pages, notes, doctype = self._parse_comments_info(comments)
+            record.add_value('public_notes', notes)
+            if pages:
+                record.add_value('page_nr', pages)
+            if doctype:
+                collections.append(doctype)
+        record.add_value('collections', collections)
 
         record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
 
-        categories = node.xpath('.//categories//text()').extract_first().split()
+        categories = ' '.join(node.xpath('.//categories//text()').extract()).split()
         record.add_value('field_categories', categories)
         record.add_value('arxiv_eprints', self._get_arxiv_eprint(node, categories))
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
@@ -77,45 +90,86 @@ class ArxivSpider(XMLFeedSpider):
         return record.load_item()
 
     def _get_authors_or_collaboration(self, node):
+        """Parse authors, affiliations; extract collaboration"""
         author_selectors = node.xpath('.//authors//author')
+
+        # take 'for the' out of the general phrases and dont use it in affiliations
+        collab_phrases = ['consortium', ' collab ', 'collaboration', ' team', 'group', ' on behalf of ', ' representing ']
+        inst_phrases = ['institute', 'university', 'department', 'center']
 
         authors = []
         collaboration = []
         for selector in author_selectors:
             author = Selector(text=selector.extract())
-            forenames = get_first(author.xpath('.//forenames//text()').extract(), default='')
-            keyname = get_first(author.xpath('.//keyname//text()').extract(), default='')
+            forenames = ' '.join(author.xpath('.//forenames//text()').extract())
+            keyname = ' '.join(author.xpath('.//keyname//text()').extract())
+            name_string = " %s %s " % (forenames, keyname)
+            affiliations = author.xpath('.//affiliation//text()').extract()
 
-            # Check if keyname is a collaboration, else append to authors
-            collab_phrases = ['consortium', 'collab', 'collaboration', 'team', 'group', 'for the']
-            collab_found = any(phrase for phrase in collab_phrases if phrase in keyname.lower())
+            # collaborations in affiliation field? Cautious with 'for the' in Inst names
+            collab_in_aff = []
+            for index, aff in enumerate(affiliations):
+                if any(phrase for phrase in collab_phrases if phrase in aff.lower()) \
+                        and not any(phrase for phrase in inst_phrases if phrase in aff.lower()):
+                    collab_in_aff.append(index)
+            collab_in_aff.reverse()
+            for index in collab_in_aff:
+                coll, author_name = coll_cleanforthe(affiliations.pop(index))
+                if coll and coll not in collaboration:
+                    collaboration.append(coll)
 
-            if collab_found:
-                collaboration.append(keyname)
+            # Check if name is a collaboration, else append to authors
+            collab_in_name = ' for the ' in name_string.lower() or \
+                any(phrase for phrase in collab_phrases if phrase in name_string.lower())
+            if collab_in_name:
+                coll, author_name = coll_cleanforthe(name_string)
+                if author_name:
+                    surname, given_names = split_fullname(author_name)
+                    authors.append({
+                        'surname': surname,
+                        'given_names': given_names,
+                        'affiliations': ''
+                    })
+                if coll and coll not in collaboration:
+                    collaboration.append(coll)
+            elif name_string.strip() == ':':
+                # everything up to now seems to be collaboration info
+                for author_info in authors:
+                    name_string = " %s %s " % \
+                        (author_info['given_names'], author_info['surname'])
+                    coll, author_name = coll_cleanforthe(name_string)
+                    if coll and coll not in collaboration:
+                        collaboration.append(coll)
+                authors = []
             else:
                 authors.append({
                     'surname': keyname,
                     'given_names': forenames,
+                    'affiliations': [{"value": aff} for aff in affiliations]
                 })
         return authors, collaboration
 
-    def _get_comments_info(self, node):
-        comments = get_first(node.xpath('.//comments//text()').extract(), default='')
-        notes = {
-            'source': 'arXiv',
-            'value': comments
-        }
+    def _parse_comments_info(self, comments):
+        """Parse comments; extract doctype for ConferencePaper and Thesis"""
+        notes = {}
+        pages = ''
+        doctype = ''
 
-        page_nr = get_first(comments.split(), default='')
-        pages = page_nr if 'pages' in comments and page_nr.isdigit() else ''
+        notes = {'source': 'arXiv', 'value': comments}
 
-        doctype = 'arXiv'  # TODO: check out what happens here
-        if any(paper for paper in CONFERENCE_PAPERS if paper in comments):
+        found_pages = re.search(r'(?i)(\d+)\s*pages?\b', comments)
+        if found_pages:
+            pages = found_pages.group(1)
+
+        if RE_THESIS.search(comments):
+            doctype = 'Thesis'
+        elif RE_CONFERENCE.search(comments):
             doctype = 'ConferencePaper'
+
         return pages, notes, doctype
 
     def _get_arxiv_report_numbers(self, node):
-        report_numbers = node.xpath('.//report-no//text()').extract_first()
+        report_numbers = ','.join(node.xpath('.//report-no//text()').extract())
         if report_numbers:
             return [rn for rn in report_numbers.split(',')]
         return []
@@ -129,14 +183,10 @@ class ArxivSpider(XMLFeedSpider):
     def _get_license(self, node):
         license_url = node.xpath('.//license//text()').extract_first()
         license_str = ''
-        licenses = {  # TODO: more licenses here?
-            'creativecommons.org/licenses/by/3.0': 'CC-BY-3.0',
-            'creativecommons.org/licenses/by-nc-sa/3.0': 'CC-BY-NC-SA-3.0'
-        }
 
-        for key in licenses.keys():
-            if key in license_url:
-                license_str = licenses[key]
+        for key in LICENSES.keys():
+            if key in license_url.lower():
+                license_str = re.sub('(?i)^.*%s' % key, LICENSES[key], license_url.strip('/'))
                 break
         return license_str, license_url
 

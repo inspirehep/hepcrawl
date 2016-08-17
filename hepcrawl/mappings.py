@@ -85,7 +85,7 @@ OA_LICENSES = [
     r'^Open Access$'
 ]
 
-CONFERENCE_PAPERS = [
+CONFERENCE_WORDS = [
     'colloquium',
     'colloquiums',
     'conf',
@@ -118,6 +118,30 @@ CONFERENCE_PAPERS = [
     'talks',
     'workshop',
     'workshops'
+]
+
+THESIS_WORDS = [
+    'diploma',
+    'diplomarbeit',
+    'diplome',
+    'dissertation',
+    'doctoraal',
+    'doctoral',
+    'doctorat',
+    'doctorate',
+    'doktorarbeit',
+    'dottorato',
+    'habilitationsschrift',
+    'hochschule',
+    'inauguraldissertation',
+    'memoire',
+    'phd',
+    'proefschrift',
+    'schlussbericht',
+    'staatsexamensarbeit',
+    'tesi',
+    'thesis',
+    'travail'
 ]
 
 MATHML_ELEMENTS = set([
@@ -168,4 +192,10 @@ LANGUAGES = {
     'heb': 'Hebrew',
     'hun': 'Hungarian',
     'kor': 'Korean'
+}
+
+LICENSES = {  # TODO: more licenses here?
+    'creativecommons.org/licenses/by/': 'CC-BY-',
+    'creativecommons.org/licenses/by-nc-sa/': 'CC-BY-NC-SA-',
+    'arxiv.org/licenses/nonexclusive-distrib/': 'arXiv-'
 }
