@@ -94,6 +94,9 @@ class HEPRecord(scrapy.Item):
     title = scrapy.Field()
     """Title of the record, e.g. 'Perturbative Renormalization of Neutron-Antineutron Operators'."""
 
+    translated_title = scrapy.Field()
+    """Title of the record translated to English, e.g. 'Perturbative Renormalization of Neutron-Antineutron Operators'."""
+
     titles = scrapy.Field()
     """List of title structures."""
 
