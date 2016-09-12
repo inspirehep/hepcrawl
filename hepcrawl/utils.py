@@ -9,17 +9,15 @@
 
 import os
 import re
-import requests
-
-import ftputil
-
 from operator import itemgetter
 from itertools import groupby
-
 from netrc import netrc
 from tempfile import mkstemp
 from zipfile import ZipFile
 from urlparse import urlparse
+
+import ftputil
+import requests
 
 from scrapy import Selector
 
@@ -222,3 +220,20 @@ def coll_cleanforthe(coll):
     coll = coll.strip()
 
     return coll, author
+
+
+def get_journal_and_section(publication):
+    """Take journal title string and try to extract possible section letter."""
+    section = ''
+    journal_title = ''
+    possible_sections = ["A", "B", "C", "D", "E"]
+    try:
+        split_pub = filter(None, re.split(r'(\W+)', publication))
+        if split_pub[-1] in possible_sections:
+            section = split_pub.pop(-1)
+        journal_title = "".join(
+            [word for word in split_pub if "section" not in word.lower()]).strip(", ")
+    except IndexError:
+        pass
+
+    return journal_title, section
