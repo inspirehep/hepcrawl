@@ -23,7 +23,8 @@ from scrapy import Selector
 
 from .mappings import LICENSES, LICENSE_TEXTS
 
-RE_FOR_THE = re.compile(r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
+RE_FOR_THE = re.compile(
+    r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
 INST_PHRASES = ['for the development', ]
 
 
@@ -284,7 +285,31 @@ def get_license_by_text(license_text):
         return []
 
     for key in LICENSE_TEXTS.keys():
-        if license_text.lower() in key.lower():
+        if (license_text.lower() in key.lower() or
+                key.lower() in license_text.lower()):
             license = get_license_by_url(license_url=LICENSE_TEXTS[key])
 
     return license
+
+
+def format_arxiv_id(arxiv_urls):
+    """Return an arxiv id with format "arxiv:1407.0275".
+
+    For old identifiers format is "hep-ex/9908047".
+    """
+    if arxiv_urls:
+        arxiv_id = arxiv_urls[0].split(":")[-1]
+        if arxiv_id and "." not in arxiv_id:
+            return arxiv_id.strip("/")
+        else:
+            return u"arxiv:{}".format(arxiv_id)
+
+
+def add_items_to_references(reference=None, **kwargs):
+    """Add key-value pairs to an existing (reference) dict."""
+    reference = {} if reference is None else reference
+    for field, value in kwargs.iteritems():
+        if value:
+            reference[field] = value
+
+    return reference
