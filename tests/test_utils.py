@@ -12,21 +12,24 @@ from __future__ import absolute_import, print_function, unicode_literals
 import os
 
 import pytest
-import six
 import responses
-import requests
+import six
 
 from hepcrawl.utils import (
-    unzip_xml_files,
+    build_dict,
+    coll_cleanforthe,
+    collapse_initials,
     ftp_connection_info,
     get_first,
-    get_nested,
-    build_dict,
-    split_fullname,
-    parse_domain,
+    get_journal_and_section,
     get_mime_type,
+    get_nested,
+    get_node,
     has_numbers,
+    parse_domain,
     range_as_string,
+    split_fullname,
+    unzip_xml_files,
 )
 
 
@@ -129,8 +132,8 @@ def test_split_fullname():
     assert split_fullname(author1) == ('Doe', 'John Magic')
     assert split_fullname(author2) == ('Doe Boe', 'John Magic')
     assert split_fullname(author3, switch_name_order=True) == ('Doe', 'Boe John Magic')
-    assert split_fullname(author4 ) == ('Doe', 'John Magic')
-    assert split_fullname(author5 ) == ('Boe', 'John Magic Doe')
+    assert split_fullname(author4) == ('Doe', 'John Magic')
+    assert split_fullname(author5) == ('Boe', 'John Magic Doe')
     assert split_fullname(author6, switch_name_order=True) == ('Doe Boe', 'John Magic')
     assert split_fullname(author7) == ('', '')
 
@@ -181,3 +184,80 @@ def test_range_as_string():
     assert range_as_string(years3) == "1981, 1989, 1995"
     assert range_as_string(years4) == "1981-1982, 1989, 2015-2016"
     assert range_as_string(years5) == "500-501, 600"
+
+
+def test_collapse_initials():
+    """Test removal of space from initials."""
+    author = "F. M. Lastname"
+    excpected = "F.M. Lastname"
+    result = collapse_initials(author)
+
+    assert result == excpected
+
+
+def test_get_node():
+    """Test getting node from XML string with namespaces."""
+    body = """
+    <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <ListRecords xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+    <record>
+        <metadata>
+            <slim:record xmlns:slim="http://www.loc.gov/MARC21/slim" type="Bibliographic">
+                <slim:datafield>This is the record.</slim:datafield>
+            </slim:record>
+        </metadata>
+    </record>
+    </ListRecords>
+    """
+    namespaces = [
+        ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/"),
+        ("slim", "http://www.loc.gov/MARC21/slim"),
+    ]
+    node = get_node(text=body, namespaces=namespaces)
+    record = node.xpath("//slim:record/slim:datafield/text()").extract_first()
+
+    assert node
+    assert record == "This is the record."
+
+
+def test_coll_cleanforthe():
+    """Test author and collaboration getting."""
+    forenames = "Jieci"
+    keyname = "Wang for the Planck Collaboration"
+
+    name_string = " %s %s " % (forenames, keyname)
+    collaboration, author = coll_cleanforthe(name_string)
+
+    assert collaboration == "Planck"
+    assert author == "Jieci Wang"
+
+
+def test_coll_cleanforthe_not_collaboration():
+    """Test author and collaboration getting when there is something that looks
+    like a collaboration, but it really isn't."""
+    forenames = "Jieci"
+    keyname = "Wang for the development of some thing"
+
+    name_string = " %s %s " % (forenames, keyname)
+    collaboration, author = coll_cleanforthe(name_string)
+
+    assert collaboration == name_string
+    assert author is None
+
+
+def test_get_journal_and_section():
+    """Test formatting journal name and extracting section."""
+    publication = "Physics Letters B"
+    journal_title, section = get_journal_and_section(publication)
+
+    assert journal_title == "Physics Letters"
+    assert section == "B"
+
+
+def test_get_journal_and_section_invalid():
+    """Test formatting journal name and extracting section when input is not valid."""
+    publication = ""
+    journal_title, section = get_journal_and_section(publication)
+
+    assert journal_title == ''
+    assert section == ''

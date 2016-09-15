@@ -93,9 +93,18 @@ class HEPLoader(ItemLoader):
     collections_out = ListToValueDict(key="primary")
 
     title_in = MapCompose(
-        fix_title_capitalization,
         clean_whitespace_characters,
         convert_html_subscripts_to_latex,
+        fix_title_capitalization,
+        remove_attributes_from_tags,
+        selective_remove_tags(keep=MATHML_ELEMENTS),
+        unicode.strip,
+    )
+
+    subtitle_in = MapCompose(
+        clean_whitespace_characters,
+        convert_html_subscripts_to_latex,
+        fix_title_capitalization,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
@@ -136,6 +145,7 @@ class HEPLoader(ItemLoader):
     copyright_material_out = TakeFirst()
 
     free_keywords_in = MapCompose(
+        clean_whitespace_characters,
         convert_html_subscripts_to_latex,
         selective_remove_tags(),
     )
