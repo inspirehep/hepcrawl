@@ -190,9 +190,9 @@ def range_as_string(data):
     return ", ".join(ranges)
 
 
-def get_node(text, namespaces=None):
+def get_node(text, namespaces=None, selector_type="xml"):
     """Get a scrapy selector for the given text node."""
-    node = Selector(text=text, type="xml")
+    node = Selector(text=text, type=selector_type)
     if namespaces:
         for ns in namespaces:
             node.register_namespace(ns[0], ns[1])
