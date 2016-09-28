@@ -17,6 +17,7 @@ readme = open('README.rst').read()
 history = open('CHANGES.rst').read()
 
 install_requires = [
+    'inspire-schemas~=0.1',
     'Scrapy>=1.1.0',
     'scrapyd>=1.1.0',
     'scrapyd-client>=1.0.1',
@@ -28,7 +29,7 @@ install_requires = [
     'LinkHeader>=0.4.3',
     'furl>=0.4.95',
     'ftputil>=3.3.1',
-    'python-dateutil>=2.4.2'
+    'python-dateutil>=2.4.2',
 ]
 
 tests_require = [
