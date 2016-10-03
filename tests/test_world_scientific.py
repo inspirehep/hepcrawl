@@ -20,7 +20,10 @@ from .responses import fake_response_from_file
 def results():
     """Return results generator from the WSP spider."""
     spider = wsp_spider.WorldScientificSpider()
-    return spider.parse(fake_response_from_file('world_scientific/sample_ws_record.xml'))
+    return (record['Publication'] for record in spider.parse(
+            fake_response_from_file('world_scientific/sample_ws_record.xml')
+        )
+    )
 
 
 def test_abstract(results):
