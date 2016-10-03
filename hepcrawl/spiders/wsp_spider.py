@@ -16,6 +16,7 @@ import urlparse
 
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
+from inspire_schemas.api import validate as validate_schema
 
 from ..extractors.jats import Jats
 from ..items import HEPRecord
@@ -190,7 +191,8 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('license_url', '//license/license-p/ext-link/@href')
 
         record.add_value('collections', self._get_collections(node, article_type, journal_title))
-        return record.load_item()
+        parsed_record = {'Publication': record.load_item()}
+        return validate_schema(parsed_record, 'hep')
 
     def _get_collections(self, node, article_type, current_journal_title):
         """Return this articles' collection."""
