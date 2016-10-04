@@ -73,7 +73,7 @@ DOWNLOADER_MIDDLEWARES = {
 EXTENSIONS = {
     'hepcrawl.extensions.ErrorHandler': 555,
 }
-SENTRY_DSN = os.environ.get('SENTRY_DSN')
+SENTRY_DSN = os.environ.get('APP_SENTRY_DSN')
 if SENTRY_DSN:
     EXTENSIONS = {
         'scrapy_sentry.extensions.Errors': 10,
@@ -91,7 +91,7 @@ ITEM_PIPELINES = {
 # Files Pipeline settings
 # =======================
 FILES_STORE = os.environ.get(
-    "FILES_STORE",
+    "APP_FILES_STORE",
     'files'
 )
 FILES_URLS_FIELD = 'file_urls'
@@ -106,10 +106,10 @@ API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 # Celery
 # ======
 BROKER_URL = os.environ.get(
-    "BROKER_URL",
+    "APP_BROKER_URL",
     "amqp://guest:guest@localhost:5672//")
 CELERY_RESULT_BACKEND = os.environ.get(
-    "CELERY_RESULT_BACKEND",
+    "APP_CELERY_RESULT_BACKEND",
     "amqp://guest:guest@localhost:5672//")
 CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 CELERY_TIMEZONE = 'Europe/Amsterdam'
