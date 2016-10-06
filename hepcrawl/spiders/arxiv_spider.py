@@ -132,7 +132,7 @@ class ArxivSpider(XMLFeedSpider):
                     authors.append({
                         'surname': surname,
                         'given_names': given_names,
-                        'affiliations': ''
+                        'affiliations': [],
                     })
                 if coll and coll not in collaboration:
                     collaboration.append(coll)
