@@ -146,11 +146,11 @@ To enable sentry you need to install some packages:
     pip install -e .[sentry]
 
 
-And then add to your environment the variable ``SENTRY_DSN`` with the connection information.
+And then add to your environment the variable ``APP_SENTRY_DSN`` with the connection information.
 
 .. code-block:: console
 
-    SENTRY_DSN="https://foo:bar@sentry.example.com/1" scrapyd
+    APP_SENTRY_DSN="https://foo:bar@sentry.example.com/1" scrapyd
 
 
 .. note::
