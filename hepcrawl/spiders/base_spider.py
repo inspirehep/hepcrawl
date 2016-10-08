@@ -92,8 +92,8 @@ class BaseSpider(XMLFeedSpider):
         if node.xpath('.//dc:creator'):
             for author in node.xpath('.//dc:creator/text()'):
                 authors.append({'raw_name': author.extract()})
-        if node.xpath(".//base_dc:contributor"):
-            for author in node.xpath(".//base_dc:contributor/text()"):
+        if node.xpath(".//dc:contributor"):
+            for author in node.xpath(".//dc:contributor/text()"):
                 if "author" in author.extract().lower():
                     cleaned_author = author.extract().replace('(Author)', '').strip()
                     authors.append({'raw_name': cleaned_author})
