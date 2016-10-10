@@ -24,6 +24,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
+    get_license,
     unzip_xml_files,
 )
 
@@ -186,13 +187,19 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('copyright_statement', '//copyright-statement/text()')
         record.add_value('copyright_material', 'Article')
 
-        record.add_xpath('license', '//license/license-p/ext-link/text()')
-        record.add_xpath('license_type', '//license/@license-type')
-        record.add_xpath('license_url', '//license/license-p/ext-link/@href')
+        license = get_license(
+            license_url=node.xpath(
+                '//license/license-p/ext-link/@href').extract_first(),
+            license_text=node.xpath(
+                '//license/license-p/ext-link/text()').extract_first(),
+        )
+        record.add_value('license', license)
 
         record.add_value('collections', self._get_collections(node, article_type, journal_title))
-        parsed_record = {'Publication': record.load_item()}
-        return validate_schema(parsed_record, 'hep')
+        parsed_record = dict(record.load_item())
+        validate_schema(data=parsed_record, schema_name='hep')
+
+        return parsed_record
 
     def _get_collections(self, node, article_type, current_journal_title):
         """Return this articles' collection."""
