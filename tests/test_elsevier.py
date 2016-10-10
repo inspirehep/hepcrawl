@@ -110,7 +110,7 @@ def test_dct_title(parsed_node):
 
 def test_rdf_keywords(parsed_node):
     keywords = ['Heavy quarkonia', 'Quark gluon plasma', 'Mott effect', 'X(3872)']
-    assert [dic["value"] for dic in parsed_node["free_keywords"]] == keywords
+    assert [dic["value"] for dic in parsed_node["keywords"]] == keywords
 
 
 def test_date_published_oa(parsed_node):
@@ -309,8 +309,8 @@ def test_doctype(record):
 def test_keywords(record):
     """Test that keywords are good."""
     keywords = ['Heavy quarkonia', 'Quark gluon plasma', 'Mott effect', 'X(3872)']
-    assert record["free_keywords"]
-    assert [dic["value"] for dic in record["free_keywords"]] == keywords
+    assert record["keywords"]
+    assert [dic["value"] for dic in record["keywords"]] == keywords
 
 
 def test_copyright(record):

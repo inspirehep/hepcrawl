@@ -100,8 +100,8 @@ class HEPRecord(scrapy.Item):
     subtitle = scrapy.Field()
     """Sub-title of the record, e.g. 'A treatese on the universe'."""
 
-    free_keywords = scrapy.Field()
-    """Free keywords
+    keywords = scrapy.Field()
+    """Keywords
 
     .. code-block:: python
 

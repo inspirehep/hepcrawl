@@ -271,7 +271,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_xpath('title', './/ArticleTitle/Title')
         record.add_xpath('subtitle', './/ArticleTitle/Subtitle')
         record.add_value('authors', self._get_authors_rich(node))
-        record.add_xpath('free_keywords', './/Subject/Keyword/text()')
+        record.add_xpath('keywords', './/Subject/Keyword/text()')
 
         record.add_value('journal_title', response.meta['journal_title'])
         record.add_xpath('journal_issue', './/Issue/text()')
@@ -327,8 +327,8 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_value('authors', self._get_authors_jats(node))
         record.add_xpath('collaborations', ".//contrib/collab/text()")
 
-        free_keywords, classification_numbers = self._get_keywords(node)
-        record.add_value('free_keywords', free_keywords)
+        keywords, classification_numbers = self._get_keywords(node)
+        record.add_value('keywords', keywords)
         record.add_value('classification_numbers', classification_numbers)
 
         record.add_value('journal_title', response.meta['journal_title'])

@@ -114,9 +114,9 @@ def test_abstract(record):
 def test_keywords(record):
     """Test keywords."""
     keywords_gt = ["nanopore", "electrostatic", "DNA", "translocation", "electrode", "integrated"]
-    assert record["free_keywords"]
 
-    for key_gt, key in zip(keywords_gt, record["free_keywords"]):
+    assert record["keywords"]
+    for key_gt, key in zip(keywords_gt, record["keywords"]):
         assert key_gt == key["value"]
 
 def test_title(record):

@@ -71,15 +71,15 @@ def test_page_nr(results):
         assert record['page_nr'] == page_nr
 
 
-def test_free_keywords(results):
+def test_keywords(results):
     """Test extracting free_keywords"""
-    free_keywords = ['Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$', 'solar cell', 'lithium']
+    keywords = ['Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$', 'solar cell', 'lithium']
     for record in results:
-        assert 'free_keywords' in record
-        for keyword in record['free_keywords']:
+        assert 'keywords' in record
+        for keyword in record['keywords']:
             assert keyword["source"] == "author"
-            assert keyword["value"] in free_keywords
-            free_keywords.remove(keyword['value'])
+            assert keyword["value"] in keywords
+            keywords.remove(keyword['value'])
 
 
 def test_license(results):
