@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/oai/xsl"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>2016-10-10T11:04:18Z</responseDate>
+  <request verb="GetRecord" metadataPrefix="xml-tei" identifier="oai:HAL:tel-01238742v1">https://api.archives-ouvertes.fr/oai/hal/</request>
+  <GetRecord xmlns:tei="http://www.tei-c.org/ns/1.0">
+    <record>
+      <header>
+  <identifier>oai:HAL:tel-01238742v1</identifier>
+  <datestamp>2015-12-08</datestamp>
+  <setSpec>type:THESE</setSpec>
+  <setSpec>subject:phys</setSpec>
+  <setSpec>collection:IN2P3</setSpec>
+  <setSpec>collection:CNRS</setSpec>
+  <setSpec>collection:UNIV-CAEN</setSpec>
+  <setSpec>collection:ENSI-CAEN</setSpec>
+  <setSpec>collection:LPC-CAEN</setSpec>
+  <setSpec>collection:COMUE-NORMANDIE</setSpec>
+  <setSpec>collection:INC-CNRS</setSpec>
+</header>
+      <metadata xmlns:tei="http://www.tei-c.org/ns/1.0">
+        <tei:TEI xmlns:hal="http://hal.archives-ouvertes.fr/">
+  <tei:teiHeader>
+    <tei:fileDesc>
+      <tei:titleStmt>
+        <tei:title>HAL TEI export of tel-01238742</tei:title>
+      </tei:titleStmt>
+      <tei:publicationStmt>
+        <tei:distributor>CCSD</tei:distributor>
+        <tei:availability status="restricted">
+          <tei:licence target="http://creativecommons.org/licenses/by/4.0/">Distributed under a Creative Commons Attribution 4.0 International License</tei:licence>
+        </tei:availability>
+        <tei:date when="2016-10-04T23:17:48+02:00"/>
+      </tei:publicationStmt>
+      <tei:sourceDesc>
+        <tei:p part="N">HAL API platform</tei:p>
+      </tei:sourceDesc>
+    </tei:fileDesc>
+  </tei:teiHeader>
+  <tei:text>
+    <tei:body>
+      <tei:listBibl>
+        <tei:biblFull>
+          <tei:titleStmt>
+            <tei:title xml:lang="en">Unconventional and intertwined orders of the low-dimensional Hubbard model</tei:title>
+            <tei:title xml:lang="fr">Ordres non conventionnels et entrelacés du modèle de Hubbard à basse dimensionnalité</tei:title>
+            <tei:author role="aut">
+              <tei:persName>
+                <tei:forename type="first">A.</tei:forename>
+                <tei:surname>Leprévost</tei:surname>
+              </tei:persName>
+              <tei:email/>
+              <tei:idno type="halauthor">1082727</tei:idno>
+              <tei:affiliation ref="#struct-2037"/>
+              <tei:affiliation ref="#struct-130"/>
+            </tei:author>
+            <tei:editor role="depositor">
+              <tei:persName>
+                <tei:forename>Sandrine</tei:forename>
+                <tei:surname>Guesnon</tei:surname>
+              </tei:persName>
+              <tei:email>guesnon@lpccaen.in2p3.fr</tei:email>
+            </tei:editor>
+          </tei:titleStmt>
+          <tei:editionStmt>
+            <tei:edition n="v1" type="current">
+              <tei:date type="whenSubmitted">2015-12-07 09:42:25</tei:date>
+              <tei:date type="whenModified">2015-12-08 16:21:57</tei:date>
+              <tei:date type="whenReleased">2015-12-07 11:06:24</tei:date>
+              <tei:date type="whenProduced">2015-11-20</tei:date>
+              <tei:date type="whenEndEmbargoed">2015-12-07</tei:date>
+              <tei:ref type="file" target="http://hal.in2p3.fr/tel-01238742/document">
+                <tei:date notBefore="2015-12-07"/>
+              </tei:ref>
+              <tei:ref type="file" n="1" target="http://hal.in2p3.fr/tel-01238742/file/Leprevost_Th%C3%A8se_rd_HAL.pdf">
+                <tei:date notBefore="2015-12-07"/>
+              </tei:ref>
+            </tei:edition>
+            <tei:respStmt>
+              <tei:resp>contributor</tei:resp>
+              <tei:name key="101407">
+                <tei:persName>
+                  <tei:forename>Sandrine</tei:forename>
+                  <tei:surname>Guesnon</tei:surname>
+                </tei:persName>
+                <tei:email>guesnon@lpccaen.in2p3.fr</tei:email>
+              </tei:name>
+            </tei:respStmt>
+          </tei:editionStmt>
+          <tei:publicationStmt>
+            <tei:distributor>CCSD</tei:distributor>
+            <tei:idno type="halId">tel-01238742</tei:idno>
+            <tei:idno type="halUri">http://hal.in2p3.fr/tel-01238742</tei:idno>
+            <tei:idno type="halBibtex">leprevost:tel-01238742</tei:idno>
+            <tei:idno type="halRefHtml">Matière Condensée [cond-mat]. Université de Caen, 2015. Français</tei:idno>
+            <tei:idno type="halRef">Matière Condensée [cond-mat]. Université de Caen, 2015. Français</tei:idno>
+          </tei:publicationStmt>
+          <tei:seriesStmt>
+            <tei:idno type="stamp" n="IN2P3">Institut National de Physique Nucléaire et de Physique des Particules</tei:idno>
+            <tei:idno type="stamp" n="CNRS">CNRS - Centre national de la recherche scientifique</tei:idno>
+            <tei:idno type="stamp" n="UNIV-CAEN">Université de Caen</tei:idno>
+            <tei:idno type="stamp" n="ENSI-CAEN">Ecole Nationale Supérieure d'Ingénieurs de Caen</tei:idno>
+            <tei:idno type="stamp" n="LPC-CAEN">Laboratoire de Physique Corpusculaire de Caen</tei:idno>
+            <tei:idno type="stamp" n="COMUE-NORMANDIE">Normandie Université</tei:idno>
+            <tei:idno type="stamp" n="INC-CNRS">Institut de Chimie du CNRS</tei:idno>
+          </tei:seriesStmt>
+          <tei:notesStmt/>
+          <tei:sourceDesc>
+            <tei:biblStruct>
+              <tei:analytic>
+                <tei:title xml:lang="en">Unconventional and intertwined orders of the low-dimensional Hubbard model</tei:title>
+                <tei:title xml:lang="fr">Ordres non conventionnels et entrelacés du modèle de Hubbard à basse dimensionnalité</tei:title>
+                <tei:author role="aut">
+                  <tei:persName>
+                    <tei:forename type="first">A.</tei:forename>
+                    <tei:surname>Leprévost</tei:surname>
+                  </tei:persName>
+                  <tei:idno type="halAuthorId">1082727</tei:idno>
+                  <tei:affiliation ref="#struct-2037"/>
+                  <tei:affiliation ref="#struct-130"/>
+                </tei:author>
+              </tei:analytic>
+              <tei:monogr>
+                <tei:idno type="localRef">LPCC T 15-01</tei:idno>
+                <tei:imprint>
+                  <tei:date type="dateDefended">2015-11-20</tei:date>
+                </tei:imprint>
+                <tei:authority type="institution">Université de Caen</tei:authority>
+                <tei:authority type="school">SIMEM</tei:authority>
+                <tei:authority type="supervisor">Juillet O.</tei:authority>
+                <tei:authority type="supervisor">Frésard R.</tei:authority>
+                <tei:authority type="jury">Gabay M.</tei:authority>
+                <tei:authority type="jury">Ledue D.</tei:authority>
+                <tei:authority type="jury">Oles A.M.</tei:authority>
+                <tei:authority type="jury">Tremblay A.M.</tei:authority>
+              </tei:monogr>
+            </tei:biblStruct>
+          </tei:sourceDesc>
+          <tei:profileDesc>
+            <tei:langUsage>
+              <tei:language ident="fr">French</tei:language>
+            </tei:langUsage>
+            <tei:textClass>
+              <tei:keywords scheme="author">
+                <tei:term xml:lang="en">Hubbard model</tei:term>
+                <tei:term xml:lang="en">Electron configuration</tei:term>
+                <tei:term xml:lang="en">Superconductivity</tei:term>
+                <tei:term xml:lang="en">Symmetry (Physics)</tei:term>
+                <tei:term xml:lang="en">Cold atoms</tei:term>
+                <tei:term xml:lang="en">Antiferromagnetism</tei:term>
+                <tei:term xml:lang="en">Variational methods</tei:term>
+                <tei:term xml:lang="en">Stripes</tei:term>
+                <tei:term xml:lang="fr">Symétrie (Physique)</tei:term>
+                <tei:term xml:lang="fr">Electrons – Corrélation</tei:term>
+                <tei:term xml:lang="fr">Supraconductivité</tei:term>
+                <tei:term xml:lang="fr">Modèle de</tei:term>
+                <tei:term xml:lang="fr">Hubbard</tei:term>
+                <tei:term xml:lang="fr">Atomes froids</tei:term>
+                <tei:term xml:lang="fr">Antiferromagnétisme</tei:term>
+                <tei:term xml:lang="fr">Méthodes variationnelles</tei:term>
+              </tei:keywords>
+              <tei:classCode scheme="halDomain" n="phys.cond">Physics [physics]/Condensed Matter [cond-mat]</tei:classCode>
+              <tei:classCode scheme="halDomain" n="phys.nucl">Physics [physics]/Nuclear Theory [nucl-th]</tei:classCode>
+              <tei:classCode scheme="halTypology" n="THESE">Theses</tei:classCode>
+            </tei:textClass>
+            <tei:abstract xml:lang="en">The understanding of superconductivity exhibited at high critical temperature by certain transition metal oxides remains a central issue in theoretical condensed matter physics. In this context, and since the historical proposal by P. W. Anderson, the repulsive Hubbard model in two dimensions became a paradigm in an attempt to capture the essential properties of non-conventional superconducting materials. However, the determination of the exact ground state encounters the exponential complexity of the quantum many-body problem. The main purpose of this thesis is to develop a variational scheme free of any hypothesis concerning magnetic, charge or superconducting orders likely to emerge from the Hamiltonian at low energy. The originality of the approach is found in the introduction of correlations by restoring, before variation, symmetries deliberately broken in a trial state given by a superposition of versatile wavefunctions of Hartree-Fock and Bogoliubov–de Gennes types. For small clusters of two and four sites, we show analytically that this symmetry entangled mean field method allows to find the exact ground state regardless of the strength of the on-site interaction. For larger hole-doped clusters and in the strongly correlated regime, we highlight an arrangement of magnetic moments in a spiral or in a spin density wave that is then accompanied by inhomogeneities in the form of regularly distributed stripes. Moreover, such orders are intertwined with long range d-wave pairing correlations, which, in the thermodynamic limit, sign superconductivity. These results are obtained through systematic simulations in a four-leg tube geometry that can be realized experimentally using cold atoms trapped in optical lattices.</tei:abstract>
+            <tei:abstract xml:lang="fr">La compréhension de la supraconductivité à haute température critique exhibée par certains oxydes de métaux de transition demeure une question centrale en physique théorique de la matière condensée. Dans ce contexte et depuis la proposition historique de P. W. Anderson, le modèle de Hubbard répulsif en géométrie bidimensionnelle est devenu un paradigme pour tenter de capturer les propriétés essentielles des matériaux supraconducteurs non conventionnels. Cependant, la détermination de son état fondamental exact se heurte à la complexité exponentielle du problème quantique à N-corps. Dans cette thèse, nous poursuivons l’objectif de développer un schéma variationnel d’approximation s’affranchissantde toute hypothèse concernant les ordres magnétiques, de charge ou supraconducteurs susceptibles d’émerger de l’Hamiltonien à basse énergie. L’approche trouve son originalité dans l’introduction de corrélations par la restauration, avant variation, de symétries délibérément brisées dans un état d’essai en forme d’une superposition de fonctions d’onde versatiles de type Hartree-Fock et Bogoliubov-de Gennes. Pour des petits amas à deux etquatre sites, nous montrons analytiquement que cette méthode de champ moyen enchevêtré par les symétries de l’Hamiltonien permet de retrouver l’état fondamental exact quelle que soit l’intensité des interactions. Pour de plus grands réseaux dopés en trous et dans les régimes fortement corrélés, nous mettons en exergue un arrangement des moments magnétiques en spirale ou suivant une onde de densité de spin qui est alors accompagnée d’inhomogénéités sous forme de rayures périodiquement réparties. De tels ordres sont de plus entrelacés avec des corrélations d’appariement en onde d à longue distance qui, à la limite thermodynamique, signent la supraconductivité. Ces résultats sont obtenus grâce à des simulations systématiques dans une géométrie de tubes de plaquettes pouvant être réalisée expérimentalement à l’aide d’atomes froids piégés dans des réseaux optiques.</tei:abstract>
+          </tei:profileDesc>
+        </tei:biblFull>
+      </tei:listBibl>
+    </tei:body>
+    <tei:back>
+      <tei:listOrg type="structures"><tei:org type="laboratory" xml:id="struct-2037" status="VALID">
+  <tei:orgName>Laboratoire de cristallographie et sciences des matériaux</tei:orgName>
+  <tei:orgName type="acronym">CRISMAT</tei:orgName>
+  <tei:desc>
+    <tei:address>
+      <tei:addrLine>6 Bvd du maréchal Juin 14050 CAEN CEDEX 4</tei:addrLine>
+      <tei:country key="FR"/>
+    </tei:address>
+    <tei:ref type="url">http://www-crismat.ensicaen.fr</tei:ref>
+  </tei:desc>
+  <tei:listRelation>
+    <tei:relation active="#struct-300266" type="direct"/>
+    <tei:relation active="#struct-300358" type="direct"/>
+    <tei:relation name="UMR6508" active="#struct-441569" type="direct"/>
+  </tei:listRelation>
+</tei:org>
+<tei:org type="laboratory" xml:id="struct-130" status="VALID">
+  <tei:idno type="IdRef">191800228</tei:idno>
+  <tei:idno type="RNSR">199612324T</tei:idno>
+  <tei:orgName>Laboratoire de Physique Corpusculaire de Caen</tei:orgName>
+  <tei:orgName type="acronym">LPCC</tei:orgName>
+  <tei:date type="start">1947</tei:date>
+  <tei:desc>
+    <tei:address>
+      <tei:addrLine>ENSICAEN - 6, boulevard du Marechal Juin 14050 Caen Cedex</tei:addrLine>
+      <tei:country key="FR"/>
+    </tei:address>
+    <tei:ref type="url">http://www.lpc-caen.in2p3.fr/</tei:ref>
+  </tei:desc>
+  <tei:listRelation>
+    <tei:relation active="#struct-300266" type="direct"/>
+    <tei:relation active="#struct-300046" type="direct"/>
+    <tei:relation name="UMR6534" active="#struct-441569" type="direct"/>
+    <tei:relation active="#struct-246955" type="direct"/>
+  </tei:listRelation>
+</tei:org>
+<tei:org type="institution" xml:id="struct-300266" status="INCOMING">
+  <tei:orgName>Université de Caen Basse-Normandie</tei:orgName>
+  <tei:desc>
+    <tei:address>
+      <tei:country key="FR"/>
+    </tei:address>
+  </tei:desc>
+</tei:org>
+<tei:org type="institution" xml:id="struct-300358" status="VALID">
+  <tei:orgName>Ecole Nationale Supérieure d'Ingénieurs de Caen</tei:orgName>
+  <tei:desc>
+    <tei:address>
+      <tei:country key="FR"/>
+    </tei:address>
+  </tei:desc>
+</tei:org>
+<tei:org type="institution" xml:id="struct-441569" status="VALID">
+  <tei:idno type="ISNI">0000000122597504</tei:idno>
+  <tei:idno type="IdRef">02636817X</tei:idno>
+  <tei:orgName>Centre National de la Recherche Scientifique</tei:orgName>
+  <tei:orgName type="acronym">CNRS</tei:orgName>
+  <tei:date type="start">1939-10-19</tei:date>
+  <tei:desc>
+    <tei:address>
+      <tei:country key="FR"/>
+    </tei:address>
+    <tei:ref type="url">http://www.cnrs.fr/</tei:ref>
+  </tei:desc>
+</tei:org>
+<tei:org type="institution" xml:id="struct-300046" status="VALID">
+  <tei:orgName>Institut Nationale de Physique Nucléaire et de Physique des Particules du CNRS</tei:orgName>
+  <tei:orgName type="acronym">IN2P3</tei:orgName>
+  <tei:desc>
+    <tei:address>
+      <tei:country key="FR"/>
+    </tei:address>
+  </tei:desc>
+</tei:org>
+<tei:org type="institution" xml:id="struct-246955" status="VALID">
+  <tei:orgName>Ecole Nationale Supérieure d'Ingénieurs de Caen et Centre de Recherche [Caen]</tei:orgName>
+  <tei:orgName type="acronym">ENSICAEN</tei:orgName>
+  <tei:desc>
+    <tei:address>
+      <tei:addrLine>6 Bd Maréchal Juin CS 45053 14050 CAEN cedex</tei:addrLine>
+      <tei:country key="FR"/>
+    </tei:address>
+    <tei:ref type="url">http://www.ensicaen.fr/</tei:ref>
+  </tei:desc>
+</tei:org>
+</tei:listOrg>
+    </tei:back>
+  </tei:text>
+</tei:TEI>
+      </metadata>
+    </record>
+  </GetRecord>
+</OAI-PMH>
