@@ -122,10 +122,13 @@ def test_journal_ref(results):
 
 def test_repno(results):
     """Test extracting repor numbers."""
-    repno = "YITP-2016-26"
+    expected_repno = [{
+        'value': 'YITP-2016-26',
+        'source': '',
+    }]
     for record in results:
         assert 'report_numbers' in record
-        assert record['report_numbers'][0] == repno
+        assert record['report_numbers'] == expected_repno
 
 
 def test_collaborations(results):
