@@ -175,7 +175,12 @@ class ArxivSpider(XMLFeedSpider):
     def _get_arxiv_report_numbers(self, node):
         report_numbers = ','.join(node.xpath('.//report-no//text()').extract())
         if report_numbers:
-            return [rn for rn in report_numbers.split(',')]
+            return [
+                {
+                    'source': '',
+                    'value': rn,
+                } for rn in report_numbers.split(',')
+            ]
         return []
 
     def _get_arxiv_eprint(self, node, categories):
