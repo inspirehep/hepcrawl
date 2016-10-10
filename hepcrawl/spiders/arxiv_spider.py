@@ -77,18 +77,27 @@ class ArxivSpider(XMLFeedSpider):
                 collections.append(doctype)
         record.add_value('collections', collections)
 
-        record.add_value('report_numbers', self._get_arxiv_report_numbers(node))
+        record.add_value(
+            'report_numbers',
+            self._get_arxiv_report_numbers(node)
+        )
 
         categories = ' '.join(node.xpath('.//categories//text()').extract()).split()
         record.add_value('field_categories', categories)
-        record.add_value('arxiv_eprints', self._get_arxiv_eprint(node, categories))
-        record.add_value('external_system_numbers', self._get_ext_systems_number(node))
+        record.add_value(
+            'arxiv_eprints',
+            self._get_arxiv_eprint(node, plain_categories)
+        )
+        record.add_value(
+            'external_system_numbers',
+            self._get_ext_systems_number(node)
+        )
 
         license_str, license_url = self._get_license(node)
         record.add_value('license', license_str)
         record.add_value('license_url', license_url)
 
-        parsed_record = {'Publication': record.load_item()}
+        parsed_record = dict(record.load_item())
         validate_schema(data=parsed_record, schema_name='hep')
 
         return parsed_record
@@ -97,24 +106,35 @@ class ArxivSpider(XMLFeedSpider):
         """Parse authors, affiliations; extract collaboration"""
         author_selectors = node.xpath('.//authors//author')
 
-        # take 'for the' out of the general phrases and dont use it in affiliations
-        collab_phrases = ['consortium', ' collab ', 'collaboration', ' team', 'group', ' on behalf of ', ' representing ']
+        # take 'for the' out of the general phrases and dont use it in
+        # affiliations
+        collab_phrases = [
+            'consortium', ' collab ', 'collaboration', ' team', 'group',
+            ' on behalf of ', ' representing ',
+        ]
         inst_phrases = ['institute', 'university', 'department', 'center']
 
         authors = []
         collaboration = []
         for selector in author_selectors:
             author = Selector(text=selector.extract())
-            forenames = ' '.join(author.xpath('.//forenames//text()').extract())
+            forenames = ' '.join(
+                author.xpath('.//forenames//text()').extract()
+            )
             keyname = ' '.join(author.xpath('.//keyname//text()').extract())
             name_string = " %s %s " % (forenames, keyname)
             affiliations = author.xpath('.//affiliation//text()').extract()
 
-            # collaborations in affiliation field? Cautious with 'for the' in Inst names
+            # collaborations in affiliation field? Cautious with 'for the' in
+            # Inst names
             collab_in_aff = []
             for index, aff in enumerate(affiliations):
-                if any(phrase for phrase in collab_phrases if phrase in aff.lower()) \
-                        and not any(phrase for phrase in inst_phrases if phrase in aff.lower()):
+                if any(
+                    phrase for phrase in collab_phrases
+                    if phrase in aff.lower()
+                ) and not any(
+                    phrase for phrase in inst_phrases if phrase in aff.lower()
+                ):
                     collab_in_aff.append(index)
             collab_in_aff.reverse()
             for index in collab_in_aff:
@@ -123,8 +143,10 @@ class ArxivSpider(XMLFeedSpider):
                     collaboration.append(coll)
 
             # Check if name is a collaboration, else append to authors
-            collab_in_name = ' for the ' in name_string.lower() or \
-                any(phrase for phrase in collab_phrases if phrase in name_string.lower())
+            collab_in_name = ' for the ' in name_string.lower() or any(
+                phrase for phrase in collab_phrases
+                if phrase in name_string.lower()
+            )
             if collab_in_name:
                 coll, author_name = coll_cleanforthe(name_string)
                 if author_name:
