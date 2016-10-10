@@ -77,16 +77,11 @@ def test_subject(record):
 
 def test_license(record):
     """Test extracting license information."""
-    license = "CC-BY-NC-SA-3.0"
-    license_url = "https://creativecommons.org/licenses/by-nc-sa/3.0"
-    license_type = "open-access"
-
-    assert 'license' in record
-    assert record['license'] == license
-    assert 'license_url' in record
-    assert record['license_url'] == license_url
-    assert 'license_type' in record
-    assert record['license_type'] == license_type
+    expected_license = [{
+        'license': 'CC-BY-NC-SA-3.0',
+        'url': 'https://creativecommons.org/licenses/by-nc-sa/3.0',
+    }]
+    assert record['license'] == expected_license
 
 
 def test_collections(record):

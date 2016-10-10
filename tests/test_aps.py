@@ -72,16 +72,13 @@ def test_free_keywords(results):
 
 def test_license(results):
     """Test extracting license information."""
-    # license = "Creative Commons Attribution (CC-BY) 4.0 License"
-    license_url = "http://creativecommons.org/licenses/by/3.0/"
-    # license_type = "open-access"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
     for record in results:
-        # assert 'license' in record
-        # assert record['license'] == license
-        assert 'license_url' in record
-        assert record['license_url'] == license_url
-        # assert 'license_type' in record
-        # assert record['license_type'] == license_type
+        assert 'license' in record
+        assert record['license'] == expected_license
 
 
 def test_dois(results):

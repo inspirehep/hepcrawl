@@ -228,13 +228,12 @@ def test_authors(record_jats):
 
 def test_license(record_jats):
     """Test OA-license."""
-    license = "Creative Commons Attribution License 4.0"
-    license_type = "open-access"
-    license_url = "http://creativecommons.org/licenses/by/4.0/"
+    expected_license = [{
+        'license': 'CC-BY-4.0',
+        'url': 'http://creativecommons.org/licenses/by/4.0/',
+    }]
 
-    assert record_jats['license'] == license
-    assert record_jats['license_type'] == license_type
-    assert record_jats['license_url'] == license_url
+    assert record_jats['license'] == expected_license
 
 
 def test_copyrights(record_jats):

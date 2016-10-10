@@ -15,8 +15,8 @@ from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 from inspire_schemas.api import validate as validate_schema
 
-from ..mappings import CONFERENCE_WORDS, THESIS_WORDS, LICENSES
-from ..utils import split_fullname, coll_cleanforthe
+from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
+from ..utils import coll_cleanforthe, get_license, split_fullname
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 
@@ -96,9 +96,10 @@ class ArxivSpider(XMLFeedSpider):
             self._get_ext_systems_number(node)
         )
 
-        license_str, license_url = self._get_license(node)
-        record.add_value('license', license_str)
-        record.add_value('license_url', license_url)
+        license = get_license(
+            license_url=node.xpath('.//license//text()').extract_first()
+        )
+        record.add_value('license', license)
 
         parsed_record = dict(record.load_item())
         validate_schema(data=parsed_record, schema_name='hep')
@@ -223,16 +224,6 @@ class ArxivSpider(XMLFeedSpider):
             'value': node.xpath('.//id//text()').extract_first(),
             'categories': categories
         }
-
-    def _get_license(self, node):
-        license_url = node.xpath('.//license//text()').extract_first()
-        license_str = ''
-
-        for key in LICENSES.keys():
-            if key in license_url.lower():
-                license_str = re.sub('(?i)^.*%s' % key, LICENSES[key], license_url.strip('/'))
-                break
-        return license_str, license_url
 
     def _get_ext_systems_number(self, node):
         return {

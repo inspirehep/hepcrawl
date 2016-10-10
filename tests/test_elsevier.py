@@ -90,9 +90,11 @@ def test_collection(parsed_node):
 
 
 def test_license_oa(parsed_node):
-    assert parsed_node["license"] == u'CC-BY-3.0'
-    assert parsed_node["license_type"] == 'Open access'
-    assert parsed_node["license_url"] == u'http://creativecommons.org/licenses/by/3.0/'
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
+    assert parsed_node["license"] == expected_license
 
 
 def test_prism_dois(parsed_node):

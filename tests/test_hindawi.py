@@ -138,13 +138,9 @@ def test_publication_info(record):
 
 def test_license(record):
     """Test extracting license information."""
-    license = "CC-BY-3.0"
-    license_url = "http://creativecommons.org/licenses/by/3.0/"
-    license_type = "open-access"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
 
-    assert 'license' in record
-    assert record['license'] == license
-    assert 'license_url' in record
-    assert record['license_url'] == license_url
-    assert 'license_type' in record
-    assert record['license_type'] == license_type
+    assert record['license'] == expected_license

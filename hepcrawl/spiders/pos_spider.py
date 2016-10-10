@@ -13,11 +13,10 @@ import re
 
 from scrapy import Request, Selector
 from scrapy.spiders import Spider
-from ..utils import get_first
+from ..utils import get_license, get_first
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..mappings import OA_LICENSES
 
 
 class POSSpider(Spider):
@@ -76,12 +75,13 @@ class POSSpider(Spider):
         record.add_xpath('source', '//metadata/pex-dc/publisher/text()')
 
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
-        pub_license, pub_license_url, openaccess = self._get_license(node)
-        if pub_license:
-            record.add_value('license', pub_license)
-            record.add_value('license_url', pub_license_url)
-            if openaccess:
-                record.add_value('license_type', "open-access")
+
+        license = get_license(
+            license_text=node.xpath(
+                ".//metadata/pex-dc/rights/text()"
+            ).extract_first(),
+        )
+        record.add_value('license', license)
 
         date, year = self._get_date(node)
         if date:
@@ -130,26 +130,6 @@ class POSSpider(Spider):
                 'value': node.xpath('.//identifier/text()').extract_first()
             },
         ]
-
-    def _get_license(self, node):
-        """Get article licence."""
-        licenses = \
-            {'Creative Commons Attribution-NonCommercial-ShareAlike':
-                ['CC-BY-NC-SA-3.0', 'https://creativecommons.org/licenses/by-nc-sa/3.0']}
-        license_text = node.xpath(".//metadata/pex-dc/rights/text()").extract_first()
-        license_str = ''
-        license_url = ''
-        for key in licenses.keys():
-            if license_text and key in license_text:
-                license_str = licenses[key][0]
-                license_url = licenses[key][1]
-                break
-        openaccess = False
-        for pattern in OA_LICENSES:
-            if re.search(pattern, license_text):
-                openaccess = True
-                break
-        return license_str, license_url, openaccess
 
     def _get_date(self, node):
         """Get article date."""

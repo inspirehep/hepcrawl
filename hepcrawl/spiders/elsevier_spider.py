@@ -26,10 +26,11 @@ from scrapy.spiders import XMLFeedSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
-    unzip_xml_files,
     get_first,
+    get_license,
     has_numbers,
     range_as_string,
+    unzip_xml_files,
 )
 
 from ..dateutils import format_year
@@ -964,18 +965,6 @@ class ElsevierSpider(XMLFeedSpider):
         response.meta["info"] = info
         return self.build_item(response)
 
-    @staticmethod
-    def get_license(node):
-        """Get the license."""
-        pub_license_url = node.xpath(
-            ".//oa:userLicense/text()").extract_first()
-        lic_text = 'http://creativecommons.org/licenses/by/3.0'
-        if pub_license_url and pub_license_url.startswith(lic_text):
-            pub_license = u'CC-BY-3.0'
-            return pub_license, pub_license_url
-        else:
-            return '', ''
-
     def add_fft_file(self, file_path, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
@@ -1005,11 +994,12 @@ class ElsevierSpider(XMLFeedSpider):
             if requests.head(sd_url).status_code == 200:  # Test if valid url
                 record.add_value("urls", sd_url)
 
-        pub_license, pub_license_url = self.get_license(node)
-        if pub_license:
-            record.add_value('license', pub_license)
-            record.add_value('license_url', pub_license_url)
-            record.add_value('license_type', "Open access")
+        license = get_license(
+            license_url=node.xpath(
+                ".//oa:userLicense/text()"
+            ).extract_first(),
+        )
+        record.add_value('license', license)
 
         record.add_value('abstract', self.get_abstract(node))
         record.add_value('title', self.get_title(node))

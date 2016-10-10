@@ -94,13 +94,13 @@ def test_notes(results):
 
 def test_license(results):
     """Test extracting license information."""
-    license_name = "CC-BY-3.0"
-    license_url = "https://creativecommons.org/licenses/by/3.0/"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'https://creativecommons.org/licenses/by/3.0/',
+    }]
     for record in results:
         assert 'license' in record
-        assert record['license'] == license_name
-        assert 'license_url' in record
-        assert record['license_url'] == license_url
+        assert record['license'] == expected_license
 
 
 def test_dois(results):
