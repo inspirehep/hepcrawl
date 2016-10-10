@@ -29,7 +29,9 @@ def record():
     response = fake_response_from_file('phenix/test_1.html')
     selector = Selector(response, type='html')
     nodes = selector.xpath('//%s' % spider.itertag)
-    return spider.parse_node(response, nodes[0])
+    parsed_record = spider.parse_node(response, nodes[0])
+    assert parsed_record
+    return parsed_record
 
 @pytest.fixture
 def non_thesis():

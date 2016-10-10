@@ -20,10 +20,11 @@ from .responses import fake_response_from_file
 def results():
     """Return results generator from the WSP spider."""
     spider = wsp_spider.WorldScientificSpider()
-    return (record['Publication'] for record in spider.parse(
-            fake_response_from_file('world_scientific/sample_ws_record.xml')
-        )
-    )
+    records = list(spider.parse(
+        fake_response_from_file('world_scientific/sample_ws_record.xml')
+    ))
+    assert records
+    return records
 
 
 def test_abstract(results):
@@ -83,16 +84,15 @@ def test_free_keywords(results):
 
 def test_license(results):
     """Test extracting license information."""
-    license = "Creative Commons Attribution (CC-BY) 4.0 License"
-    license_url = "https://creativecommons.org/licenses/by/4.0"
-    license_type = "open-access"
+    expected_license = [{
+        'license': 'CC-BY-4.0',
+        'url': 'https://creativecommons.org/licenses/by/4.0',
+    }]
+    results = list(results)
+
+    assert results
     for record in results:
-        assert 'license' in record
-        assert record['license'] == license
-        assert 'license_url' in record
-        assert record['license_url'] == license_url
-        assert 'license_type' in record
-        assert record['license_type'] == license_type
+        assert record['license'] == expected_license
 
 
 def test_dois(results):

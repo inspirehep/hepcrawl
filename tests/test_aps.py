@@ -21,7 +21,16 @@ def results():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    return spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
+    records = list(
+        spider.parse(
+            fake_response_from_file(
+                'aps/aps_single_response.json',
+                response_type=TextResponse,
+            )
+        )
+    )
+    assert records
+    return records
 
 
 def test_abstract(results):

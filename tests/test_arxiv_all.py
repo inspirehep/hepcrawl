@@ -21,12 +21,14 @@ def results():
     from scrapy.http import TextResponse
 
     spider = arxiv_spider.ArxivSpider()
-    return spider.parse(
+    records = list(spider.parse(
         fake_response_from_file(
             'arxiv/sample_arxiv_record0.xml',
             response_type=TextResponse
         )
-    )
+    ))
+    assert records
+    return records
 
 
 def test_page_nr(results):

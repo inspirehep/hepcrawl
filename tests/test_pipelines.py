@@ -22,7 +22,9 @@ def json_spider_record(tmpdir):
     from scrapy.http import TextResponse
     spider = aps_spider.APSSpider()
     items = spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
-    return spider, items.next()
+    parsed_record = items.next()
+    assert parsed_record
+    return spider, parsed_record
 
 
 @pytest.fixture
@@ -31,9 +33,16 @@ def inspire_record():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    items = spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
+    items = spider.parse(
+        fake_response_from_file(
+            'aps/aps_single_response.json',
+            response_type=TextResponse
+        )
+    )
+    parsed_record = items.next()
     pipeline = InspireAPIPushPipeline()
-    return pipeline.process_item(items.next(), spider)
+    assert parsed_record
+    return pipeline.process_item(parsed_record, spider)
 
 
 def test_json_output(tmpdir, json_spider_record):

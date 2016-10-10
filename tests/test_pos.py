@@ -46,6 +46,7 @@ def record(scrape_pos_page_body):
         body=scrape_pos_page_body,
         **{'encoding': 'utf-8'}
     )
+    assert response
     return request.callback(response)
 
 

@@ -15,8 +15,6 @@ import pytest
 
 import scrapy
 
-from scrapy import Request
-
 import hepcrawl
 
 from hepcrawl.spiders import brown_spider
@@ -39,7 +37,10 @@ def record():
 
     splash_response = fake_response_from_file('brown/test_splash.html')
     splash_response.meta["jsonrecord"] = jsonrecord
-    return spider.scrape_splash(splash_response)
+    parsed_record = spider.scrape_splash(splash_response)
+    assert parsed_record
+    return parsed_record
+
 
 @pytest.fixture
 def parsed_node():

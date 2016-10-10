@@ -11,13 +11,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
-from scrapy.selector import Selector
-
 from hepcrawl.spiders import hindawi_spider
 
 from .responses import (
     fake_response_from_file,
-    fake_response_from_string,
     get_node,
 )
 
@@ -29,7 +26,9 @@ def record():
     response = fake_response_from_file("hindawi/test_1.xml")
     nodes = get_node(spider, "//marc:record", response)
 
-    return spider.parse_node(response, nodes[0])
+    parsed_record = spider.parse_node(response, nodes[0])
+    assert parsed_record
+    return parsed_record
 
 
 def test_title(record):

@@ -32,7 +32,9 @@ def record():
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fanalysis.oxfordjournals.org%2Fcontent%2F66%2F3%2F194.full.pdf%2Bhtml%3Fframe%3Dsidebar",
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fbrogaardb.googlepages.com%2Ftensedrelationsoffprint.pdf"
     ]
-    return spider.build_item(response)
+    parsed_record = spider.build_item(response)
+    assert parsed_record
+    return parsed_record
 
 @pytest.fixture
 def journal():

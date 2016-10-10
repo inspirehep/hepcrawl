@@ -25,7 +25,9 @@ def record():
     """Return scraping results from the MIT spider."""
     spider = mit_spider.MITSpider()
     response = fake_response_from_file('mit/test_splash.html')
-    return spider.build_item(response)
+    parsed_record = spider.build_item(response)
+    assert parsed_record
+    return parsed_record
 
 
 @pytest.fixture

@@ -33,7 +33,9 @@ def record():
     response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
     tag = '//%s' % spider.itertag
     nodes = get_node(spider, tag, response)
-    return spider.parse_node(response, nodes)
+    parsed_record = spider.parse_node(response, nodes)
+    assert parsed_record
+    return parsed_record
 
 
 @pytest.fixture(scope="module")

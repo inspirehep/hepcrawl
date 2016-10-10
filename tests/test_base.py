@@ -36,7 +36,9 @@ def record():
     nodes = selector.xpath('.//%s' % spider.itertag)
     response.meta["record"] = nodes[0].extract()
     response.meta["urls"] = ["http://hdl.handle.net/1885/10005"]
-    return spider.build_item(response)
+    parsed_record = spider.build_item(response)
+    assert parsed_record
+    return parsed_record
 
 
 @pytest.fixture
