@@ -9,11 +9,12 @@
 
 import os
 
-from scrapy.http import Request, TextResponse
+from scrapy.http import HtmlResponse, Request, TextResponse
 from scrapy.selector import Selector
 
 
-def fake_response_from_file(file_name, url='http://www.example.com', response_type=TextResponse):
+def fake_response_from_file(file_name, url='http://www.example.com',
+                            response_type=TextResponse):
     """Create a Scrapy fake HTTP response from a HTML file
 
     :param file_name: The relative filename from the responses directory,
@@ -45,7 +46,8 @@ def fake_response_from_file(file_name, url='http://www.example.com', response_ty
     return response
 
 
-def fake_response_from_string(text, url='http://www.example.com', response_type=TextResponse):
+def fake_response_from_string(text, url='http://www.example.com',
+                              response_type=TextResponse):
     """Fake Scrapy response from a string."""
     meta = {}
     request = Request(url=url)
@@ -67,4 +69,27 @@ def get_node(spider, tag, response=None, text=None, rtype="xml"):
         selector = Selector(text=text, type=rtype)
     spider._register_namespaces(selector)
     node = selector.xpath(tag)
+
     return node
+
+
+def fake_callback_request(spider, response_from_file, callback_request_to_file):
+    """Return a mocked request for callback function.
+
+    :param response_from_file: the scraping starts from this file
+    :param callback_request_to_file: `parse` makes a request to this file
+
+    The use case is when we want to mock the request for scraping the splash
+    page in `parse`.
+    """
+    request = spider.parse(
+        fake_response_from_file(response_from_file)
+    ).next()  # NOTE: this won't work if parse() is not a generator
+    response = HtmlResponse(
+        url=request.url,
+        request=request,
+        body=callback_request_to_file,
+        encoding='utf-8',
+    )
+
+    return request.callback(response)
