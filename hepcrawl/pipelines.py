@@ -18,6 +18,8 @@ import datetime
 import json
 import requests
 
+from inspire_schemas.api import validate as validate_schema
+
 from .utils import get_temporary_file
 
 
@@ -111,25 +113,12 @@ class InspireAPIPushPipeline(object):
             'subtitle': item.pop('subtitle', ''),
             'source': source,
         }]
-        item['field_categories'] = [
-            {"term": term, "source": "publisher", "scheme": source}
-            for term in item.get('field_categories', [])
-        ]
         item['abstracts'] = [{
             'value': item.pop('abstract', ''),
             'source': source,
         }]
-        item['report_numbers'] = [
-            {"value": rn, "source": source}
-            for rn in item.get('report_numbers', [])
-        ]
         item['imprints'] = [{
             'date': item.pop('date_published', ''),
-        }]
-        item['license'] = [{
-            'license': item.pop('license', ''),
-            'url': item.pop('license_url', ''),
-            'material': item.pop('license_type', ''),
         }]
         item['copyright'] = [{
             'holder': item.pop('copyright_holder', ''),
@@ -163,6 +152,8 @@ class InspireAPIPushPipeline(object):
             'journal_artid',
             'pubinfo_freetext',
         ])
+
+        validate_schema(dict(item), 'hep')
         return item
 
     def _prepare_payload(self, spider):
