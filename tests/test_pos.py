@@ -102,7 +102,7 @@ def test_language(record):
 def test_publication_info(record):
     """Test extracting dois."""
     journal_title = "PoS"
-    journal_year = "2014"
+    journal_year = 2014
     journal_artid = "001"
     journal_volume = "LATTICE 2013"
 

@@ -96,7 +96,7 @@ def test_publication_info(inspire_record):
         'page_start': '',
         'page_end': '',
         'pubinfo_freetext': '',
-        'year': '2015'
+        'year': 2015
     }
     assert 'publication_info' in inspire_record
     assert 'journal_title' not in inspire_record

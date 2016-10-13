@@ -87,7 +87,7 @@ class POSSpider(Spider):
         if date:
             record.add_value('date_published', date)
         if year:
-            record.add_value('journal_year', year)
+            record.add_value('journal_year', int(year))
 
         identifier = node.xpath(".//metadata/pex-dc/identifier/text()").extract_first()
         record.add_value('urls', response.meta['pos_url'])

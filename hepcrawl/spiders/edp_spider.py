@@ -283,7 +283,9 @@ class EDPSpider(Jats, XMLFeedSpider):
         if fpage and lpage:
             record.add_value('page_nr', str(int(lpage) - int(fpage) + 1))
 
-        record.add_xpath('journal_year', './/IssueID/Year/text()')
+        journal_year = node.xpath('.//IssueID/Year/text()').extract()
+        if journal_year:
+            record.add_value('journal_year', int(journal_year[0]))
         record.add_value('date_published', response.meta['date_published'])
 
         record.add_xpath('copyright_holder', './/Copyright/text()')
@@ -340,7 +342,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_value('journal_lpage', lpage)
 
         date_published = response.meta['date_published']
-        record.add_value('journal_year', date_published[:4])
+        record.add_value('journal_year', int(date_published[:4]))
         record.add_value('date_published', date_published)
 
         record.add_xpath('copyright_holder', './/copyright-holder/text()')

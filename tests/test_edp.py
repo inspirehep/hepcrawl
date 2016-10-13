@@ -184,7 +184,7 @@ def test_publication_info(record_jats):
     assert 'journal_title' in record_jats
     assert record_jats['journal_title'] == "EPJ Web of Conferences"
     assert 'journal_year' in record_jats
-    assert record_jats['journal_year'] == "2015"
+    assert record_jats['journal_year'] == 2015
     assert 'journal_artid' in record_jats
     assert record_jats['journal_artid'] == "01001"
     assert 'journal_volume' in record_jats
@@ -296,7 +296,7 @@ def test_pages_rich(record_rich):
 def test_publication_info_rich(record_rich):
     """Test extracting dois."""
     journal_title = "Astronomy and Astrophysics Supplement Series"
-    journal_year = "2000"
+    journal_year = 2000
     journal_volume = "141"
 
     assert 'journal_title' in record_rich

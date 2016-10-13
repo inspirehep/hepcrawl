@@ -127,7 +127,7 @@ def test_subjects(results):
 def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "Phys. Rev. E"
-    journal_year = "2015"
+    journal_year = 2015
     # journal_artid = "1440001"
     journal_volume = "92"
     journal_issue = "5"

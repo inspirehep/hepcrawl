@@ -1018,7 +1018,7 @@ class ElsevierSpider(XMLFeedSpider):
             record.add_value('journal_fpage', info.get("fpage"))
             record.add_value('journal_lpage', info.get("lpage"))
             record.add_value('page_nr', info.get("page_nr"))
-            record.add_value('journal_year', info.get("year"))
+            record.add_value('journal_year', int(info.get("year")))
         copyrights = self.get_copyright(node)
         record.add_value('copyright_holder', copyrights.get("cr_holder"))
         record.add_value('copyright_year', copyrights.get("cr_year"))

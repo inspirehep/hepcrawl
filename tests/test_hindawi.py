@@ -125,7 +125,7 @@ def test_dois(record):
 def test_publication_info(record):
     """Test extracting journal data."""
     journal_title = "Advances in Astronomy"
-    journal_year = "2010"
+    journal_year = 2010
     journal_issue = "898351"
     assert "journal_title" in record
     assert record["journal_title"] == journal_title

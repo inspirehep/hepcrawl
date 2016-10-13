@@ -131,7 +131,7 @@ class InspireAPIPushPipeline(object):
                 item['publication_info'] = [{
                     'journal_title': item.pop('journal_title', ''),
                     'journal_volume': item.pop('journal_volume', ''),
-                    'year': item.pop('journal_year', ''),
+                    'year': int(item.pop('journal_year', 0)) or '',
                     'journal_issue': item.pop('journal_issue', ''),
                     'artid': item.pop('journal_artid', ''),
                     'page_start': item.pop('journal_fpage', ''),

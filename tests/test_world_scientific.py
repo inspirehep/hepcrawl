@@ -123,7 +123,7 @@ def test_collaborations(results):
 def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "NANO"
-    journal_year = "2014"
+    journal_year = 2014
     journal_artid = "1440001"
     journal_volume = "9"
     journal_issue = "05"

@@ -178,8 +178,12 @@ class HindawiSpider(XMLFeedSpider):
                          "./datafield[@tag='773']/subfield[@code='p']/text()")
         record.add_xpath('journal_volume',
                          "./datafield[@tag='773']/subfield[@code='a']/text()")
-        record.add_xpath('journal_year',
-                         "./datafield[@tag='773']/subfield[@code='y']/text()")
+        journal_year = node.xpath(
+            "./datafield[@tag='773']/subfield[@code='y']/text()"
+        ).extract()
+        if journal_year:
+            record.add_value('journal_year', int(journal_year[0]))
+
         record.add_xpath('journal_issue',
                          "./datafield[@tag='773']/subfield[@code='n']/text()")
 

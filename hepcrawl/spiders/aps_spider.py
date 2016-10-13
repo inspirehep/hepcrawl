@@ -92,7 +92,7 @@ class APSSpider(Spider):
             # record.add_value('journal_artid', )
 
             published_date = article.get('date', '')
-            record.add_value('journal_year', published_date[:4])
+            record.add_value('journal_year', int(published_date[:4]))
             record.add_value('date_published', published_date)
             record.add_value('field_categories', [
                 term.get('label')

@@ -94,7 +94,7 @@ def test_collections(record):
 def test_publication_info(record):
     """Test extracting dois."""
     journal_title = "Am J Clin Pathol"
-    journal_year = "2015"
+    journal_year = 2015
     journal_volume = "143"
     journal_issue = "3"
     journal_issn = "1943-7722"

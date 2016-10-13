@@ -179,7 +179,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('journal_lpage', '//lpage/text()')
 
         published_date = self._get_published_date(node)
-        record.add_value('journal_year', published_date[:4])
+        record.add_value('journal_year', int(published_date[:4]))
         record.add_value('date_published', published_date)
 
         record.add_xpath('copyright_holder', '//copyright-holder/text()')

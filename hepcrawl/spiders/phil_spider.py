@@ -153,6 +153,6 @@ class PhilSpider(CrawlSpider):
             if not jsonrecord.get('issue') == "0":
                 record.add_value('journal_issue', jsonrecord['issue'])
             if not jsonrecord.get('year') == "forthcoming":
-                record.add_value('journal_year', jsonrecord['year'])
+                record.add_value('journal_year', int(jsonrecord['year']))
 
         return record.load_item()
