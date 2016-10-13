@@ -105,7 +105,7 @@ class InspireAPIPushPipeline(object):
             # submissions which add `submissions` to this field.
             'method': source,
             'date': datetime.datetime.now().isoformat(),
-            'submission_number': os.environ.get('SCRAPY_JOB'),
+            'submission_number': os.environ.get('SCRAPY_JOB', ''),
         }
 
         item['titles'] = [{
