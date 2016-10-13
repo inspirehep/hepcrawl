@@ -16,8 +16,10 @@ from .responses import fake_response_from_file
 
 
 @pytest.fixture
-def results():
-    """Return results generator from the arxiv spider. Tricky fields, many records."""
+def one_result():
+    """Return results generator from the arxiv spider. Tricky fields, one
+    record.
+    """
     from scrapy.http import TextResponse
 
     spider = arxiv_spider.ArxivSpider()
@@ -31,7 +33,25 @@ def results():
     return records
 
 
-def test_page_nr(results):
+@pytest.fixture
+def many_results():
+    """Return results generator from the arxiv spider. Tricky fields, many
+    records.
+    """
+    from scrapy.http import TextResponse
+
+    spider = arxiv_spider.ArxivSpider()
+    records = list(spider.parse(
+        fake_response_from_file(
+            'arxiv/sample_arxiv_record.xml',
+            response_type=TextResponse
+        )
+    ))
+    assert records
+    return records
+
+
+def test_page_nr(many_results):
     """Test extracting page_nr"""
     page_nrs = [
         ["6"],
@@ -46,7 +66,7 @@ def test_page_nr(results):
         [],
         []
         ]
-    for num, record in enumerate(results):
+    for num, record in enumerate(many_results):
         page_nr = page_nrs[num]
         if page_nr:
             assert 'page_nr' in record
@@ -60,7 +80,7 @@ def test_page_nr(results):
 
 
 
-def test_collections(results):
+def test_collections(many_results):
     """Test journal type"""
     doctypes = [
         'ConferencePaper',
@@ -76,7 +96,7 @@ def test_collections(results):
         'Thesis'
     ]
 
-    for num, record in enumerate(results):
+    for num, record in enumerate(many_results):
         doctype = ['HEP', 'Citeable', 'arXiv']
         if doctypes[num]:
             doctype.append(doctypes[num])
@@ -85,7 +105,7 @@ def test_collections(results):
         assert set([collection['primary'] \
             for collection in record['collections']]) == set(doctype)
 
-def test_collaborations(results):
+def test_collaborations(many_results):
     """Test extracting collaboration."""
     collaborations = [
         ["Planck", ],
@@ -100,7 +120,7 @@ def test_collaborations(results):
         ['CMS'],
         [],
     ]
-    for num, record in enumerate(results):
+    for num, record in enumerate(many_results):
         collaboration = collaborations[num]
         if collaboration:
             record_collaboration = [coll['value'] \
@@ -111,7 +131,7 @@ def test_collaborations(results):
             assert 'collaborations' not in record
 
 
-def test_authors(results):
+def test_authors(many_results):
     """Test authors."""
     full_names = [
         ['Wang, Jieci', 'Tian, Zehua', 'Jing, Jiliang', 'Fan, Heng'],
@@ -146,7 +166,7 @@ def test_authors(results):
         [[], []],
         [[], ]
     ]
-    for num, record in enumerate(results):
+    for num, record in enumerate(many_results):
         test_full_names = full_names[num]
         test_affiliations = affiliations[num]
         assert 'authors' in record
@@ -157,3 +177,35 @@ def test_authors(results):
             record_affiliations.append([aff['value'] for aff in author['affiliations']])
         assert set(test_full_names) == set(record_full_names)  # assert that we have the same list of authors
         assert test_affiliations == record_affiliations  # assert that we have the same list of affiliations
+
+
+def test_repno(many_results):
+    """Test extracting repor numbers."""
+    expected_repnos = [
+        None,
+        None,
+        [{
+            'value': 'YITP-2016-26',
+            'source': '',
+        }],
+        None,
+        None,
+        None,
+        [
+            {'source': '', 'value': u'DES 2016-0158'},
+            {'source': '', 'value': u'FERMILAB PUB-16-231-AE'}
+        ],
+        None,
+        None,
+        None,
+        None,
+    ]
+    for index, (expected_repno, record) in enumerate(zip(expected_repnos, many_results)):
+        if record.get('arxiv_eprints', [{}])[0].get('external_system_numbers',
+                                               [{}])[0].get('value') == 'oai:arXiv.org:1606.06775':
+            import ipdb; ipdb.set_trace()
+        if expected_repno:
+            assert 'report_numbers' in record
+            assert record['report_numbers'] == expected_repno
+        else:
+            assert 'report_numbers' not in record

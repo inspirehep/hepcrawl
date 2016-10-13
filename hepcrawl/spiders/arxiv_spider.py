@@ -214,7 +214,7 @@ class ArxivSpider(XMLFeedSpider):
             return [
                 {
                     'source': '',
-                    'value': rn,
+                    'value': rn.strip(),
                 } for rn in report_numbers.split(',')
             ]
         return []
