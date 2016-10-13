@@ -35,14 +35,14 @@ class MagicSpider(XMLFeedSpider):
     Example usage:
     .. code-block:: console
 
-        scrapy crawl magic
-        scrapy crawl magic -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl MAGIC
+        scrapy crawl MAGIC -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
 
 
     Happy crawling!
     """
 
-    name = 'magic'
+    name = 'MAGIC'
     start_urls = ["https://magic.mpp.mpg.de/backend/publications/thesis"]
     domain = "https://magic.mpp.mpg.de/"
     iterator = "html"
@@ -65,25 +65,17 @@ class MagicSpider(XMLFeedSpider):
 
     @staticmethod
     def get_authors(node):
-        """Parses the line where there are data about the author(s)
-
-        Note that author surnames and given names are not comma separated, so
-        `split_fullname` might get a wrong surname.
-        """
+        """Parses the line where there are data about the author(s)"""
         authors_raw = node.xpath(
             "//div[@id='content']/p[@class='author']/text()").extract()
         affiliation = node.xpath(
             "//h2[contains(text(), 'School')]/following-sibling::p/strong/text()"
         ).extract_first()
-        if not affiliation:
-            affiliation = ''
 
         authors = []
         for author in authors_raw:
-            surname, given_names = split_fullname(author)
             authdict = {
-                'surname': surname,
-                'given_names': given_names,
+                'raw_name': author,
             }
             if affiliation:
                 authdict["affiliations"] = [{"value": affiliation}]
@@ -100,17 +92,15 @@ class MagicSpider(XMLFeedSpider):
 
         return out_links
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
-        """Create a structured dictionary and add to 'files' item."""
+    def create_fft_dict(self, pdf_files, file_access, file_type):
+        """Create structured dictionaries for 'additional_files' item."""
         file_dicts = []
         for link in pdf_files:
             link = urljoin(self.domain, link)
-            # NOTE: won't do a pdf check here, because
-            # a lot of links are to dropbox, these will be recognised not
-            # as pdf but as html. The rest have bit.ly links.
+            # Some of the links are to dropbox
             file_dict = {
                 "access": file_access,
-                "description": self.name.title(),
+                "description": self.name,
                 "url": link,
                 "type": file_type,
             }
@@ -118,8 +108,7 @@ class MagicSpider(XMLFeedSpider):
         return file_dicts
 
     def parse_node(self, response, node):
-        """Parse MAGIC web page into a HEP record."""
-
+        """Parse MAGIC web page."""
         urls = self.get_splash_links(node)
         title = node.xpath(".//a/text()").extract_first()
         author_date = node.xpath(".//br/following-sibling::text()").extract()
@@ -155,7 +144,9 @@ class MagicSpider(XMLFeedSpider):
 
         response.meta["abstract"] = abstract
         response.meta["authors"] = self.get_authors(node)
-        response.meta["files"] = self.add_fft_file(file_paths, "HIDDEN", "Fulltext")
+        response.meta["additional_files"] = self.create_fft_dict(
+            file_paths, "HIDDEN", "Fulltext"
+        )
         return self.build_item(response)
 
     def build_item(self, response):
@@ -170,7 +161,7 @@ class MagicSpider(XMLFeedSpider):
         record.add_value('title', response.meta.get("title"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_value("abstract", response.meta.get("abstract"))
-        record.add_value("additional_files", response.meta.get("files"))
+        record.add_value("additional_files", response.meta.get("additional_files"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
         yield record.load_item()

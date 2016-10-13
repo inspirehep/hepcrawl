@@ -25,7 +25,7 @@ from .responses import (
 @pytest.fixture
 def record():
     """Return results generator from the Alpha spider."""
-    spider = phenix_spider.PhenixSpider()
+    spider = phenix_spider.PHENIXSpider()
     response = fake_response_from_file('phenix/test_1.html')
     selector = Selector(response, type='html')
     nodes = selector.xpath('//%s' % spider.itertag)
@@ -37,7 +37,7 @@ def record():
 def non_thesis():
     """Return a heprecord for a Master's thesis (should be None as we don't
     want them)."""
-    spider = phenix_spider.PhenixSpider()
+    spider = phenix_spider.PHENIXSpider()
     body = """
     <ul>
     <li><b>M.Sc. Author</b>:
@@ -55,22 +55,25 @@ def test_non_thesis(non_thesis):
 
 def test_title(record):
     """Test extracting title."""
-    title = "MEASUREMENT OF THE DOUBLE HELICITY ASYMMETRY IN INCLUSIVE $\pi^{0}$ PRODUCTION IN POLARIZED PROTON-PROTON COLLISIONS AT $\sqrt{s}$ = 510 GeV"
+    title = (
+        'MEASUREMENT OF THE DOUBLE HELICITY ASYMMETRY IN INCLUSIVE '
+        '$\pi^{0}$ PRODUCTION IN POLARIZED PROTON-PROTON COLLISIONS AT '
+        '$\sqrt{s}$ = 510 GeV'
+    )
     assert 'title' in record
     assert record['title'] == title
 
 
 def test_date_published(record):
     """Test extracting date_published."""
-    date_published = "2015"
     assert 'date_published' in record
-    assert record['date_published'] == date_published
+    assert record['date_published'] == '2015'
 
 
 def test_authors(record):
     """Test authors."""
-    authors = ["Guragain, Hari"]
-    affiliation = "Georgia State University"
+    authors = ['Guragain, Hari']
+    affiliation = 'Georgia State University'
 
     assert 'authors' in record
     assert len(record['authors']) == len(authors)
@@ -84,6 +87,10 @@ def test_authors(record):
 
 def test_pdf_link(record):
     """Test pdf link(s)"""
-    files = "http://www.phenix.bnl.gov/phenix/WWW/talk/archive/theses/2015/Guragain_Hari-DISSERTATION.pdf"
+    files = (
+        'http://www.phenix.bnl.gov/phenix/WWW/talk/archive/theses/'
+        '2015/Guragain_Hari-DISSERTATION.pdf'
+    )
+
     assert 'additional_files' in record
     assert record['additional_files'][0]['url'] == files

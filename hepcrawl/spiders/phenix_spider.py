@@ -20,7 +20,7 @@ from ..items import HEPRecord
 from ..loaders import HEPLoader
 
 
-class PhenixSpider(XMLFeedSpider):
+class PHENIXSpider(XMLFeedSpider):
 
     """PHENIX crawler
     Scrapes theses metadata from PHENIX experiment web page.
@@ -33,21 +33,21 @@ class PhenixSpider(XMLFeedSpider):
     Example usage:
     .. code-block:: console
 
-        scrapy crawl phenix
-        scrapy crawl phenix -a source_file=file://`pwd`/tests/responses/phenix/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+        scrapy crawl PHENIX
+        scrapy crawl PHENIX -a source_file=file://`pwd`/tests/responses/phenix/test_list.html
 
     Happy crawling!
     """
 
-    name = 'phenix'
-    start_urls = ["http://www.phenix.bnl.gov/WWW/talk/theses.php"]
-    domain = "http://www.phenix.bnl.gov"
-    iterator = "html"
-    itertag = "//table//td/ul/li"
+    name = 'PHENIX'
+    start_urls = ['http://www.phenix.bnl.gov/WWW/talk/theses.php']
+    domain = 'http://www.phenix.bnl.gov'
+    iterator = 'html'
+    itertag = '//table//td/ul/li'
 
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct PHENIX spider"""
-        super(PhenixSpider, self).__init__(*args, **kwargs)
+        super(PHENIXSpider, self).__init__(*args, **kwargs)
         self.source_file = source_file
 
     def start_requests(self):
@@ -63,48 +63,49 @@ class PhenixSpider(XMLFeedSpider):
         """Get data out of the text block where there's
         title, affiliation and year
         """
-        datablock = node.xpath("./text()").extract()[0]
-        datalist = datablock.strip().split(",")
+        datablock = node.xpath('./text()').extract()[0]
+        datalist = datablock.strip().split(',')
 
         thesis_type = None
-        if "Ph.D." in datablock:
-            thesis_type = "PhD"
+        if 'Ph.D.' in datablock:
+            thesis_type = 'PhD'
 
         title = datablock.split('"')[1]
-        datalist = [el for el in datalist if "archive" not in el]
+        datalist = [el for el in datalist if 'archive' not in el]
         year = datalist.pop().strip()
         affline = datalist.pop().strip()
-        stop_words = {"Ph.D.", "Master", "thesis", "at"}
-        affiliation = " ".join(
+        stop_words = {'Ph.D.', 'Master', 'thesis', 'at'}
+        affiliation = ' '.join(
             [w for w in affline.split() if w not in stop_words])
 
         return title, year, affiliation, thesis_type
 
     def get_authors(self, node):
         """Return authors dictionary """
-        author = node.xpath("./b/text()").extract()
+        author = node.xpath('./b/text()').extract()
         authors = []
         _, _, affiliation, _ = self.parse_datablock(node)
 
         for aut in author:
             authors.append({
                 'raw_name': aut,
-                'affiliations': [{"value": affiliation}]
+                'affiliations': [{'value': affiliation}]
             })
 
         return authors
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
-        """Create a structured dictionary and add to 'files' item."""
+    def create_fft_dict(self, pdf_files, file_access, file_type):
+        """Create structured dictionaries for 'additional_files' item."""
         file_dicts = []
         for link in pdf_files:
             file_dict = {
-                "access": file_access,
-                "description": self.name.title(),
-                "url": urljoin(self.domain, link),
-                "type": file_type,
+                'access': file_access,
+                'description': self.name.title(),
+                'url': urljoin(self.domain, link),
+                'type': file_type,
             }
             file_dicts.append(file_dict)
+
         return file_dicts
 
     def parse_node(self, response, node):
@@ -115,8 +116,10 @@ class PhenixSpider(XMLFeedSpider):
         if not thesis_type:
             return None
 
-        pdf_files = node.xpath(".//a/@href").extract()
-        record.add_value('additional_files', self.add_fft_file(pdf_files, "HIDDEN", "Fulltext"))
+        pdf_files = node.xpath('.//a/@href').extract()
+        record.add_value('additional_files',
+                         self.create_fft_dict(pdf_files, 'HIDDEN', 'Fulltext')
+                         )
         record.add_value('authors', self.get_authors(node))
         record.add_value('date_published', year)
         record.add_value('thesis', {'degree_type': thesis_type})
