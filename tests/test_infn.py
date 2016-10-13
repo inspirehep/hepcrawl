@@ -9,8 +9,10 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
-import pytest
+import re
 
+import pytest
+import responses
 from scrapy.selector import Selector
 from scrapy import Request
 
@@ -35,31 +37,33 @@ def record():
 
 def test_title(record):
     """Test title."""
-    assert record[
-        "title"] == u'Simulations and experimental assessment of dosimetric evaluations for breast imaging studies with Synchrotron Radiation'
+    assert record['title'] == (
+        u'Simulations and experimental assessment of dosimetric evaluations '
+        'for breast imaging studies with Synchrotron Radiation'
+    )
 
 
 def test_abstract(record):
     """Test abstract."""
-    assert record["abstract"] == (
-        "The main aim of the PhD research is to develop methods for the "
-        "evaluation of the dose delivered to patients during the SR-BCT exams. "
-        "Due to the partial breast irradiation, no previous studies are "
-        "presented in the literature as in the clinical mammographic exams the "
-        "whole breast is always exposed. Thus, a suitable Monte Carlo code has "
-        "been developed for calculating the coefficients which allow the dose "
-        "to be evaluated. The toolkit GEANT4 is the MC software used in this "
-        "research. An upgrade of the dosimetric safety system present on the "
-        "SYRMEP beamline to meet the requirements of the SR-BCT exams is needed "
-        "(as the ionizing chambers, which allow the measurement of the air-"
-        "kerma during the exam, has to be calibrated to higher energy)."
+    assert record['abstract'] == (
+        'The main aim of the PhD research is to develop methods for the '
+        'evaluation of the dose delivered to patients during the SR-BCT exams. '
+        'Due to the partial breast irradiation, no previous studies are '
+        'presented in the literature as in the clinical mammographic exams the '
+        'whole breast is always exposed. Thus, a suitable Monte Carlo code has '
+        'been developed for calculating the coefficients which allow the dose '
+        'to be evaluated. The toolkit GEANT4 is the MC software used in this '
+        'research. An upgrade of the dosimetric safety system present on the '
+        'SYRMEP beamline to meet the requirements of the SR-BCT exams is needed '
+        '(as the ionizing chambers, which allow the measurement of the air-'
+        'kerma during the exam, has to be calibrated to higher energy).'
     )
 
 
 def test_authors(record):
     """Test authors."""
-    authors = ["Fedon, Christian"]
-    affiliation = "Universit Di Trieste"
+    authors = ['Fedon, Christian']
+    affiliation = 'Universit Di Trieste'
 
     assert 'authors' in record
     assert len(record['authors']) == len(authors)
@@ -73,31 +77,35 @@ def test_authors(record):
 
 
 def test_date_published(record):
-    """Test date published.
-    """
-    assert record["date_published"] == "2016-03-08"
+    """Test date published."""
+    assert record['date_published'] == '2016-03-08'
 
 
 def test_files(record):
     """Test pdf files."""
-    assert record["additional_files"][0][
-        "url"] == "http://www.infn.it/thesis/PDF/getfile.php?filename=10136-Fedon-dottorato.pdf"
+    assert record['additional_files'][0]['url'] == (
+        'http://www.infn.it/thesis/PDF/getfile.php?filename='
+        '10136-Fedon-dottorato.pdf'
+    )
 
 
 def test_thesis(record):
     """Test thesis information."""
-    assert record["thesis"]["date"] == '2016-03-18'
-    # This is not wrong, it really says "Universit Di Trieste":
-    assert record["thesis"]["institutions"][0]["name"] == 'Universit Di Trieste'
+    assert record['thesis']['date'] == '2016-03-18'
+    # This is not wrong, it really says 'Universit Di Trieste':
+    assert record['thesis']['institutions'][0]['name'] == 'Universit Di Trieste'
 
 
 def test_thesis_supervisor(record):
     """Test thesis supervisor.
-    NOTE: Not formatted very well. Nothing can be done really, because
+
+    Not formatted very well. Nothing can be done really, because
     the supervisor string can be anything.
     """
-    assert "thesis_supervisor" in record
-    assert record["thesis_supervisor"][0]["full_name"] == 'Tromba, Renata Longo Giuliana'
+    assert 'thesis_supervisor' in record
+    assert record['thesis_supervisor'][0]['full_name'] == (
+        'Tromba, Renata Longo Giuliana'
+    )
 
 
 def test_non_thesis():
@@ -132,16 +140,20 @@ def test_parse_node():
     nodes = selector.xpath('//%s' % spider.itertag)
     record = spider.parse_node(response, nodes[0]).next()
 
-    splash_link = "http://www.infn.it/thesis/thesis_dettaglio.php?tid=10136"
-    pdf_link = "http://www.infn.it/thesis/PDF/getfile.php?filename=10136-Fedon-dottorato.pdf"
+    splash_link = 'http://www.infn.it/thesis/thesis_dettaglio.php?tid=10136'
+    pdf_link = (
+        'http://www.infn.it/thesis/PDF/getfile.php?filename='
+        '10136-Fedon-dottorato.pdf'
+    )
 
     assert isinstance(record, Request)
-    assert record.meta["splash_link"] == splash_link
-    assert record.meta["pdf_links"][0] == pdf_link
+    assert record.meta['splash_link'] == splash_link
+    assert record.meta['pdf_links'][0] == pdf_link
 
 
 def test_parse_node_nolink():
     """Test parse_node function. This time there is no splash page link.
+
     The result should be a HEPRecord with minimal data.
     """
     spider = infn_spider.InfnSpider()
@@ -151,3 +163,17 @@ def test_parse_node_nolink():
     record = spider.parse_node(response, node).next()
 
     assert isinstance(record, hepcrawl.items.HEPRecord)
+
+
+@responses.activate
+def test_get_list_file():
+    """Test getting the hmtl file which is the starting point of scraping."""
+    spider = infn_spider.InfnSpider()
+    url = 'http://www.example.com/query_result_page'
+    body = '<html>Fake content</html>'
+    responses.add(responses.POST, url, body=body, status=200,
+                  content_type='text/html')
+    file_path = spider.get_list_file(url, '2015')
+
+    assert file_path
+    assert re.search(r'file://.*.html', file_path)

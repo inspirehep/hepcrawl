@@ -9,7 +9,10 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
+import re
+
 import pytest
+import responses
 
 from hepcrawl.spiders import mit_spider
 
@@ -36,7 +39,7 @@ def parsed_node():
     spider = mit_spider.MITSpider()
     response = fake_response_from_file('mit/test_list.html')
     tag = spider.itertag
-    node = get_node(spider, tag, response, rtype="html")
+    node = get_node(spider, tag, response, rtype='html')
     return spider.parse_node(response, node).next()
 
 
@@ -48,38 +51,40 @@ def test_url(parsed_node):
 
 def test_title(record):
     """Test title."""
-    assert record[
-        "title"] == u'Theoretical investigation of energy alignment at metal/semiconductor interfaces for solar photovoltaic applications'
+    assert record['title'] == (
+        u'Theoretical investigation of energy alignment at metal/semiconductor '
+        'interfaces for solar photovoltaic applications'
+    )
 
 
 def test_abstract(record):
     """Test abstract."""
-    assert record["abstract"] == (
-        "Our work was inspired by the need to improve the efficiency of new "
-        "types of solar cells. We mainly focus on metal-semiconductor "
-        "interfaces. In the CdSe study, we find that not all surface states "
-        "serve to pin the Fermi energy. In our organic-metal work, we explore "
-        "the complexity and challenges of modeling these systems. For example, "
-        "we confirm that aromatic compounds indeed have stronger interactions "
-        "with metal surfaces, but this may lead to the geometry changing as a "
-        "result of the interaction. We also find that molecules that are not "
-        "rigid are strongly affected by their neighboring molecules. Surface "
-        "roughness will have an effect on molecules that more strongly bind to "
-        "metal surfaces. This study of interfaces relates to one part of the "
-        "picture of efficiency, but we also look at trying to go beyond the "
-        "Shockley-Quiesser limit. We explore the idea of combining a direct and "
-        "indirect bandgap in a single material but find that, in quasi-"
-        "equilibrium, this does no better than just the direct gap material. "
-        "This thesis hopes to extend our understanding of metal-semiconductor "
-        "interface behavior and lead to improvements in photovoltaic efficiency "
-        "in the future."
+    assert record['abstract'] == (
+        'Our work was inspired by the need to improve the efficiency of new '
+        'types of solar cells. We mainly focus on metal-semiconductor '
+        'interfaces. In the CdSe study, we find that not all surface states '
+        'serve to pin the Fermi energy. In our organic-metal work, we explore '
+        'the complexity and challenges of modeling these systems. For example, '
+        'we confirm that aromatic compounds indeed have stronger interactions '
+        'with metal surfaces, but this may lead to the geometry changing as a '
+        'result of the interaction. We also find that molecules that are not '
+        'rigid are strongly affected by their neighboring molecules. Surface '
+        'roughness will have an effect on molecules that more strongly bind to '
+        'metal surfaces. This study of interfaces relates to one part of the '
+        'picture of efficiency, but we also look at trying to go beyond the '
+        'Shockley-Quiesser limit. We explore the idea of combining a direct and '
+        'indirect bandgap in a single material but find that, in quasi-'
+        'equilibrium, this does no better than just the direct gap material. '
+        'This thesis hopes to extend our understanding of metal-semiconductor '
+        'interface behavior and lead to improvements in photovoltaic efficiency '
+        'in the future.'
     )
 
 
 def test_authors(record):
     """Test authors."""
-    authors = ["Tomasik, Michelle Ruth"]
-    affiliation = "Massachusetts Institute of Technology. Department of Physics."
+    authors = ['Tomasik, Michelle Ruth']
+    affiliation = 'Massachusetts Institute of Technology. Department of Physics.'
 
     assert 'authors' in record
     assert len(record['authors']) == len(authors)
@@ -94,28 +99,31 @@ def test_authors(record):
 
 def test_date_published(record):
     """Test date published."""
-    assert record["date_published"] == "2015"
+    assert record['date_published'] == '2015'
 
 
 def test_files(record):
     """Test pdf files."""
-    assert record["additional_files"][0]["url"] == "http://dspace.mit.edu/bitstream/handle/1721.1/99287/922886248-MIT.pdf?sequence=1"
+    assert record['additional_files'][0]['url'] == (
+        'http://dspace.mit.edu/bitstream/handle/1721.1/99287/'
+        '922886248-MIT.pdf?sequence=1'
+    )
 
 
 def test_thesis(record):
     """Test thesis information."""
-    assert record["thesis"]["date"] == '2015'
-    assert record["thesis"]["institutions"][0]["name"] == 'Massachusetts Institute of Technology'
+    assert record['thesis']['date'] == '2015'
+    assert record['thesis']['institutions'][0]['name'] == 'Massachusetts Institute of Technology'
 
 
 def test_thesis_supervisor(record):
     """Test thesis supervisor."""
-    assert record["thesis_supervisor"][0]["full_name"] == u'Grossman, Jeffrey C.'
+    assert record['thesis_supervisor'][0]['full_name'] == u'Grossman, Jeffrey C.'
 
 
 def test_page_nr(record):
     """Test page numbers."""
-    assert record["page_nr"] == ["124"]
+    assert record['page_nr'] == ['124']
 
 
 @pytest.fixture
@@ -165,5 +173,19 @@ def supervisors():
 def test_two_supervisors(supervisors):
     """Test what happens when there are two supervisors."""
     assert supervisors
-    assert supervisors["thesis_supervisor"][0]["full_name"] == u'Lloyd, Seth'
-    assert supervisors["thesis_supervisor"][1]["full_name"] == u'Joannopoulos, J.D.'
+    assert supervisors['thesis_supervisor'][0]['full_name'] == u'Lloyd, Seth'
+    assert supervisors['thesis_supervisor'][1]['full_name'] == u'Joannopoulos, J.D.'
+
+
+@responses.activate
+def test_get_list_file():
+    """Test getting the hmtl file which is the starting point of scraping."""
+    spider = mit_spider.MITSpider()
+    url = 'http://www.example.com/query_result_page'
+    body = '<html>Fake content</html>'
+    responses.add(responses.POST, url, body=body, status=200,
+                  content_type='text/html')
+    file_path = spider.get_list_file(url, '2015')
+
+    assert file_path
+    assert re.search(r'file://.*.html', file_path)
