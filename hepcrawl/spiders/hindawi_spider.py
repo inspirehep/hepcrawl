@@ -196,7 +196,7 @@ class HindawiSpider(XMLFeedSpider):
         record.add_value('copyright_year', cr_year)
 
         license = get_license(
-            license_url = node.xpath(
+            license_url=node.xpath(
                 "./datafield[@tag='540']/subfield[@code='u']/text()"
             ).extract_first(),
             license_text=node.xpath(

@@ -241,7 +241,6 @@ def get_journal_and_section(publication):
     return journal_title, section
 
 
-
 def get_license(license_url='', license_text=''):
     """Get the license dictionary from the url or the text of the license.
 

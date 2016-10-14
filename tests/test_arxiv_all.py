@@ -201,9 +201,6 @@ def test_repno(many_results):
         None,
     ]
     for index, (expected_repno, record) in enumerate(zip(expected_repnos, many_results)):
-        if record.get('arxiv_eprints', [{}])[0].get('external_system_numbers',
-                                               [{}])[0].get('value') == 'oai:arXiv.org:1606.06775':
-            import ipdb; ipdb.set_trace()
         if expected_repno:
             assert 'report_numbers' in record
             assert record['report_numbers'] == expected_repno

@@ -118,7 +118,11 @@ def test_collaborations(results):
 
 def test_subjects(results):
     """Test extracting collaboration."""
-    subjects = ["Quantum Information"]
+    subjects = [{
+        'scheme': 'APS',
+        'source': '',
+        'term': 'Quantum Information',
+    }]
     for record in results:
         assert 'field_categories' in record
         assert record['field_categories'] == subjects
@@ -128,7 +132,6 @@ def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "Phys. Rev. E"
     journal_year = 2015
-    # journal_artid = "1440001"
     journal_volume = "92"
     journal_issue = "5"
     for record in results:
@@ -136,8 +139,6 @@ def test_publication_info(results):
         assert record['journal_title'] == journal_title
         assert 'journal_year' in record
         assert record['journal_year'] == journal_year
-        # assert 'journal_artid' in record
-        # assert record['journal_artid'] == journal_artid
         assert 'journal_volume' in record
         assert record['journal_volume'] == journal_volume
         assert 'journal_issue' in record

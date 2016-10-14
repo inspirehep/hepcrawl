@@ -352,8 +352,10 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_value('copyright_material', 'Article')
 
         license = get_license(
-            license_url=node.xpath('.//license/license-p/ext-link/@href'
-        ).extract_first())
+            license_url=node.xpath(
+                './/license/license-p/ext-link/@href'
+            ).extract_first()
+        )
         record.add_value('license', license)
 
         record.add_value('collections', self._get_collections(
