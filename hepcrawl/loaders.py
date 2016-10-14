@@ -19,6 +19,7 @@ from scrapy.utils.url import canonicalize_url
 
 from .inputs import (
     fix_title_capitalization,
+    format_thesis,
     selective_remove_tags,
     convert_html_subscripts_to_latex,
     parse_authors,
@@ -154,6 +155,10 @@ class HEPLoader(ItemLoader):
 
     thesis_supervisor_in = MapCompose(
         parse_thesis_supervisors,
+    )
+
+    thesis_in = MapCompose(
+        format_thesis,
     )
     thesis_out = TakeFirst()
 
