@@ -135,10 +135,6 @@ class HEPLoader(ItemLoader):
 
     related_article_doi_out = TakeFirst()
 
-    license_out = TakeFirst()
-    license_url_out = TakeFirst()
-    license_type_out = TakeFirst()
-
     copyright_holder_out = TakeFirst()
     copyright_year_out = TakeFirst()
     copyright_statement_out = TakeFirst()

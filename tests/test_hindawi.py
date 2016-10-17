@@ -11,13 +11,10 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
-from scrapy.selector import Selector
-
 from hepcrawl.spiders import hindawi_spider
 
 from .responses import (
     fake_response_from_file,
-    fake_response_from_string,
     get_node,
 )
 
@@ -29,7 +26,9 @@ def record():
     response = fake_response_from_file("hindawi/test_1.xml")
     nodes = get_node(spider, "//marc:record", response)
 
-    return spider.parse_node(response, nodes[0])
+    parsed_record = spider.parse_node(response, nodes[0])
+    assert parsed_record
+    return parsed_record
 
 
 def test_title(record):
@@ -126,7 +125,7 @@ def test_dois(record):
 def test_publication_info(record):
     """Test extracting journal data."""
     journal_title = "Advances in Astronomy"
-    journal_year = "2010"
+    journal_year = 2010
     journal_issue = "898351"
     assert "journal_title" in record
     assert record["journal_title"] == journal_title
@@ -138,13 +137,9 @@ def test_publication_info(record):
 
 def test_license(record):
     """Test extracting license information."""
-    license = "CC-BY-3.0"
-    license_url = "http://creativecommons.org/licenses/by/3.0/"
-    license_type = "open-access"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
 
-    assert 'license' in record
-    assert record['license'] == license
-    assert 'license_url' in record
-    assert record['license_url'] == license_url
-    assert 'license_type' in record
-    assert record['license_type'] == license_type
+    assert record['license'] == expected_license

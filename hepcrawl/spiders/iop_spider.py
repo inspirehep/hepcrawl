@@ -173,7 +173,11 @@ class IOPSpider(XMLFeedSpider, NLM):
         record.add_value("journal_volume", volume)
         record.add_xpath("journal_issn", ".//Journal/Issn/text()")
         record.add_value("dois", self.get_dois(node))
-        record.add_xpath("journal_year", ".//Journal/PubDate/Year/text()")
+
+        journal_year = node.xpath(".//Journal/PubDate/Year/text()").extract()
+        if journal_year:
+            record.add_value("journal_year", int(journal_year[0]))
+
         record.add_xpath("language", ".//Language/text()")
         record.add_value("page_nr", page_nr)
         record.add_value('date_published', self.get_date_published(node))

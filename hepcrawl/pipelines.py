@@ -18,6 +18,8 @@ import datetime
 import json
 import requests
 
+from inspire_schemas.api import validate as validate_schema
+
 from .utils import get_temporary_file
 
 
@@ -103,7 +105,7 @@ class InspireAPIPushPipeline(object):
             # submissions which add `submissions` to this field.
             'method': source,
             'date': datetime.datetime.now().isoformat(),
-            'submission_number': os.environ.get('SCRAPY_JOB'),
+            'submission_number': os.environ.get('SCRAPY_JOB', ''),
         }
 
         item['titles'] = [{
@@ -111,25 +113,12 @@ class InspireAPIPushPipeline(object):
             'subtitle': item.pop('subtitle', ''),
             'source': source,
         }]
-        item['field_categories'] = [
-            {"term": term, "source": "publisher", "scheme": source}
-            for term in item.get('field_categories', [])
-        ]
         item['abstracts'] = [{
             'value': item.pop('abstract', ''),
             'source': source,
         }]
-        item['report_numbers'] = [
-            {"value": rn, "source": source}
-            for rn in item.get('report_numbers', [])
-        ]
         item['imprints'] = [{
             'date': item.pop('date_published', ''),
-        }]
-        item['license'] = [{
-            'license': item.pop('license', ''),
-            'url': item.pop('license_url', ''),
-            'material': item.pop('license_type', ''),
         }]
         item['copyright'] = [{
             'holder': item.pop('copyright_holder', ''),
@@ -142,7 +131,7 @@ class InspireAPIPushPipeline(object):
                 item['publication_info'] = [{
                     'journal_title': item.pop('journal_title', ''),
                     'journal_volume': item.pop('journal_volume', ''),
-                    'year': item.pop('journal_year', ''),
+                    'year': int(item.pop('journal_year', 0)) or '',
                     'journal_issue': item.pop('journal_issue', ''),
                     'artid': item.pop('journal_artid', ''),
                     'page_start': item.pop('journal_fpage', ''),
@@ -163,6 +152,8 @@ class InspireAPIPushPipeline(object):
             'journal_artid',
             'pubinfo_freetext',
         ])
+
+        validate_schema(dict(item), 'hep')
         return item
 
     def _prepare_payload(self, spider):

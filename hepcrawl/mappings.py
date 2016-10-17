@@ -77,14 +77,6 @@ COMMON_ACRONYMS = [
     'GRB'
 ]
 
-OA_LICENSES = [
-    r'^CC-BY',
-    r'^https?://creativecommons.org/',
-    r'^Creative Commons Attribution',
-    r'^OA$',
-    r'^Open Access$'
-]
-
 CONFERENCE_WORDS = [
     'colloquium',
     'colloquiums',
@@ -198,4 +190,15 @@ LICENSES = {  # TODO: more licenses here?
     'creativecommons.org/licenses/by/': 'CC-BY-',
     'creativecommons.org/licenses/by-nc-sa/': 'CC-BY-NC-SA-',
     'arxiv.org/licenses/nonexclusive-distrib/': 'arXiv-'
+}
+
+LICENSE_TEXTS = {  # TODO: more licenses here?
+    'Creative Commons Attribution-NonCommercial-ShareAlike':
+        'https://creativecommons.org/licenses/by-nc-sa/3.0',
+    'Creative Commons Attribution 2.0':
+        'http://creativecommons.org/licenses/by/2.0/',
+    'Creative Commons Attribution 3.0':
+        'http://creativecommons.org/licenses/by/3.0/',
+    'Creative Commons Attribution 4.0':
+        'http://creativecommons.org/licenses/by/4.0/',
 }

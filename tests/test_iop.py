@@ -34,7 +34,9 @@ def record():
     response = fake_response_from_file('iop/xml/test_standard.xml')
     node = get_node(spider, "Article", response)
     spider.pdf_files = test_pdf_dir
-    return spider.parse_node(response, node)
+    parsed_record = spider.parse_node(response, node)
+    assert parsed_record
+    return parsed_record
 
 
 def test_abstract(record):
@@ -92,7 +94,7 @@ def test_collections(record):
 def test_publication_info(record):
     """Test extracting dois."""
     journal_title = "Am J Clin Pathol"
-    journal_year = "2015"
+    journal_year = 2015
     journal_volume = "143"
     journal_issue = "3"
     journal_issn = "1943-7722"
@@ -173,7 +175,10 @@ def erratum_open_access_record():
     node = get_node(spider, "Article", response)
     tests_dir = os.path.dirname(os.path.realpath(__file__))
     spider.pdf_files = os.path.join(tests_dir, "responses/iop/pdf/")
-    return spider.parse_node(response, node)
+    parsed_record = spider.parse_node(response, node)
+    assert parsed_record
+    return parsed_record
+
 
 
 def test_files_erratum_open_access_record(erratum_open_access_record):
@@ -188,9 +193,8 @@ def test_files_erratum_open_access_record(erratum_open_access_record):
         1]["url"] == test_pdf_dir + pdf_filename
 
 
-@pytest.fixture
-def not_published_record():
-    """Test that scraping not-published paper will not build a HEPRecord."""
+def test_not_published_record():
+    """Not-published paper should result in nothing."""
     spider = iop_spider.IOPSpider()
     body = """
     <ArticleSet>
@@ -208,12 +212,8 @@ def not_published_record():
     node = get_node(spider, "Article", response)
     tests_dir = os.path.dirname(os.path.realpath(__file__))
     spider.pdf_files = os.path.join(tests_dir, "responses/iop/pdf/")
-    return spider.parse_node(response, node)
-
-
-def test_not_published_record(not_published_record):
-    """Not-published paper should result in nothing."""
-    assert not_published_record is None
+    records = spider.parse_node(response, node)
+    assert records is None
 
 
 @pytest.fixture

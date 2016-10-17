@@ -21,7 +21,14 @@ def results():
     from scrapy.http import TextResponse
 
     spider = arxiv_spider.ArxivSpider()
-    return spider.parse(fake_response_from_file('arxiv/sample_arxiv_record0.xml', response_type=TextResponse))
+    records = list(spider.parse(
+        fake_response_from_file(
+            'arxiv/sample_arxiv_record0.xml',
+            response_type=TextResponse
+        )
+    ))
+    assert records
+    return records
 
 
 def test_abstract(results):
@@ -89,13 +96,13 @@ def test_notes(results):
 
 def test_license(results):
     """Test extracting license information."""
-    license_name = "CC-BY-3.0"
-    license_url = "https://creativecommons.org/licenses/by/3.0/"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'https://creativecommons.org/licenses/by/3.0/',
+    }]
     for record in results:
         assert 'license' in record
-        assert record['license'] == license_name
-        assert 'license_url' in record
-        assert record['license_url'] == license_url
+        assert record['license'] == expected_license
 
 
 def test_dois(results):
@@ -116,10 +123,13 @@ def test_journal_ref(results):
 
 def test_repno(results):
     """Test extracting repor numbers."""
-    repno = "YITP-2016-26"
+    expected_repno = [{
+        'value': 'YITP-2016-26',
+        'source': '',
+    }]
     for record in results:
         assert 'report_numbers' in record
-        assert record['report_numbers'][0] == repno
+        assert record['report_numbers'] == expected_repno
 
 
 def test_collaborations(results):

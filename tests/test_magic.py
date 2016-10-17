@@ -39,7 +39,9 @@ def record():
     splash_response.meta["date"] = parsed_node.meta["date"]
     splash_response.meta["urls"] = parsed_node.meta["urls"]
 
-    return spider.scrape_for_pdf(splash_response).next()
+    parsed_record = spider.scrape_for_pdf(splash_response).next()
+    assert parsed_record
+    return parsed_record
 
 
 def test_abstract(record):

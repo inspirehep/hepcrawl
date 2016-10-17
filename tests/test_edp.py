@@ -184,7 +184,7 @@ def test_publication_info(record_jats):
     assert 'journal_title' in record_jats
     assert record_jats['journal_title'] == "EPJ Web of Conferences"
     assert 'journal_year' in record_jats
-    assert record_jats['journal_year'] == "2015"
+    assert record_jats['journal_year'] == 2015
     assert 'journal_artid' in record_jats
     assert record_jats['journal_artid'] == "01001"
     assert 'journal_volume' in record_jats
@@ -228,13 +228,12 @@ def test_authors(record_jats):
 
 def test_license(record_jats):
     """Test OA-license."""
-    license = "Creative Commons Attribution License 4.0"
-    license_type = "open-access"
-    license_url = "http://creativecommons.org/licenses/by/4.0/"
+    expected_license = [{
+        'license': 'CC-BY-4.0',
+        'url': 'http://creativecommons.org/licenses/by/4.0/',
+    }]
 
-    assert record_jats['license'] == license
-    assert record_jats['license_type'] == license_type
-    assert record_jats['license_url'] == license_url
+    assert record_jats['license'] == expected_license
 
 
 def test_copyrights(record_jats):
@@ -297,7 +296,7 @@ def test_pages_rich(record_rich):
 def test_publication_info_rich(record_rich):
     """Test extracting dois."""
     journal_title = "Astronomy and Astrophysics Supplement Series"
-    journal_year = "2000"
+    journal_year = 2000
     journal_volume = "141"
 
     assert 'journal_title' in record_rich

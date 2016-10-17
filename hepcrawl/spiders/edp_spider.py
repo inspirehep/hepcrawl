@@ -26,6 +26,7 @@ from ..utils import (
     ftp_connection_info,
     get_first,
     get_journal_and_section,
+    get_license,
     get_node,
     parse_domain,
 )
@@ -282,7 +283,9 @@ class EDPSpider(Jats, XMLFeedSpider):
         if fpage and lpage:
             record.add_value('page_nr', str(int(lpage) - int(fpage) + 1))
 
-        record.add_xpath('journal_year', './/IssueID/Year/text()')
+        journal_year = node.xpath('.//IssueID/Year/text()').extract()
+        if journal_year:
+            record.add_value('journal_year', int(journal_year[0]))
         record.add_value('date_published', response.meta['date_published'])
 
         record.add_xpath('copyright_holder', './/Copyright/text()')
@@ -339,7 +342,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_value('journal_lpage', lpage)
 
         date_published = response.meta['date_published']
-        record.add_value('journal_year', date_published[:4])
+        record.add_value('journal_year', int(date_published[:4]))
         record.add_value('date_published', date_published)
 
         record.add_xpath('copyright_holder', './/copyright-holder/text()')
@@ -347,9 +350,13 @@ class EDPSpider(Jats, XMLFeedSpider):
         record.add_xpath('copyright_statement',
                          './/copyright-statement/text()')
         record.add_value('copyright_material', 'Article')
-        record.add_xpath('license', './/license/license-p/ext-link/text()')
-        record.add_xpath('license_type', './/license/@license-type')
-        record.add_xpath('license_url', './/license/license-p/ext-link/@href')
+
+        license = get_license(
+            license_url=node.xpath(
+                './/license/license-p/ext-link/@href'
+            ).extract_first()
+        )
+        record.add_value('license', license)
 
         record.add_value('collections', self._get_collections(
             node, article_type, response.meta['journal_title']))

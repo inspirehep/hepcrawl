@@ -20,7 +20,9 @@ from .responses import fake_response_from_file
 def results():
     """Return results generator from the Alpha spider."""
     spider = alpha_spider.AlphaSpider()
-    return spider.parse(fake_response_from_file('alpha/test_1.htm'))
+    records = list(spider.parse(fake_response_from_file('alpha/test_1.htm')))
+    assert records
+    return records
 
 
 def test_abstract(results):

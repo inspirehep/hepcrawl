@@ -57,3 +57,6 @@ logs
 
 # Local settings
 local_settings.py
+
+# vim temp files
+*.sw?

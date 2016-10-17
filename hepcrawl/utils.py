@@ -21,6 +21,8 @@ import requests
 
 from scrapy import Selector
 
+from .mappings import LICENSES, LICENSE_TEXTS
+
 RE_FOR_THE = re.compile(r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
 INST_PHRASES = ['for the development', ]
 
@@ -237,3 +239,52 @@ def get_journal_and_section(publication):
         pass
 
     return journal_title, section
+
+
+def get_license(license_url='', license_text=''):
+    """Get the license dictionary from the url or the text of the license.
+
+    :param license_url: Url of the license to generate.
+    :type license_url: str
+    :param license_text: Text with the description of the license (sometimes is
+    all we got...).
+    :type license_text: str
+    :return: license object to be added to the generated record, empty list if
+    no license could be extracted.
+    :rtype: list(dict)
+    """
+    license = []
+    if license_url:
+        license = get_license_by_url(license_url=license_url)
+
+    if not license and license_text:
+        license = get_license_by_text(license_text=license_text)
+
+    return license
+
+
+def get_license_by_url(license_url):
+    if not license_url:
+        return []
+
+    license_str = ''
+    for key in LICENSES.keys():
+        if key in license_url.lower():
+            license_str = re.sub(
+                '(?i)^.*%s' % key,
+                LICENSES[key],
+                license_url.strip('/'),
+            )
+            break
+    return [{'license': license_str, 'url': license_url}]
+
+
+def get_license_by_text(license_text):
+    if not license_text:
+        return []
+
+    for key in LICENSE_TEXTS.keys():
+        if license_text.lower() in key.lower():
+            license = get_license_by_url(license_url=LICENSE_TEXTS[key])
+
+    return license

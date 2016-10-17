@@ -22,7 +22,9 @@ def json_spider_record(tmpdir):
     from scrapy.http import TextResponse
     spider = aps_spider.APSSpider()
     items = spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
-    return spider, items.next()
+    parsed_record = items.next()
+    assert parsed_record
+    return spider, parsed_record
 
 
 @pytest.fixture
@@ -31,9 +33,16 @@ def inspire_record():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    items = spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
+    items = spider.parse(
+        fake_response_from_file(
+            'aps/aps_single_response.json',
+            response_type=TextResponse
+        )
+    )
+    parsed_record = items.next()
     pipeline = InspireAPIPushPipeline()
-    return pipeline.process_item(items.next(), spider)
+    assert parsed_record
+    return pipeline.process_item(parsed_record, spider)
 
 
 def test_json_output(tmpdir, json_spider_record):
@@ -51,52 +60,3 @@ def test_json_output(tmpdir, json_spider_record):
     json_pipeline.close_spider(spider)
 
     assert tmpfile.read()
-
-
-def test_titles(inspire_record):
-    """Test extracting titles."""
-    titles = {
-        'source': 'APS',
-        'subtitle': '',
-        'title': 'You can run, you can hide: The epidemiology and statistical mechanics of zombies'
-    }
-    assert 'titles' in inspire_record
-    assert 'title' not in inspire_record
-    assert inspire_record['titles'][0] == titles
-
-
-def test_field_categories(inspire_record):
-    """Test extracting field_categories."""
-    field_categories = {
-        'scheme': 'APS',
-        'source': 'publisher',
-        'term': 'Quantum Information'
-    }
-    assert 'field_categories' in inspire_record
-    assert inspire_record['field_categories'][0] == field_categories
-
-
-def test_publication_info(inspire_record):
-    """Test extracting publication_info."""
-    publication_info = {
-        'journal_issue': '5',
-        'journal_title': 'Phys. Rev. E',
-        'journal_volume': '92',
-        'note': '',
-        'artid': '',
-        'page_start': '',
-        'page_end': '',
-        'pubinfo_freetext': '',
-        'year': '2015'
-    }
-    assert 'publication_info' in inspire_record
-    assert 'journal_title' not in inspire_record
-    assert 'journal_volume' not in inspire_record
-    assert 'journal_year' not in inspire_record
-    assert 'journal_issue' not in inspire_record
-    assert 'journal_spage' not in inspire_record
-    assert 'journal_lpage' not in inspire_record
-    assert 'journal_artid' not in inspire_record
-    assert 'journal_doctype' not in inspire_record
-    assert 'pubinfo_freetext' not in inspire_record
-    assert inspire_record['publication_info'][0] == publication_info

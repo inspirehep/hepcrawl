@@ -33,7 +33,9 @@ def record():
     response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
     tag = '//%s' % spider.itertag
     nodes = get_node(spider, tag, response)
-    return spider.parse_node(response, nodes)
+    parsed_record = spider.parse_node(response, nodes)
+    assert parsed_record
+    return parsed_record
 
 
 @pytest.fixture(scope="module")
@@ -90,9 +92,11 @@ def test_collection(parsed_node):
 
 
 def test_license_oa(parsed_node):
-    assert parsed_node["license"] == u'CC-BY-3.0'
-    assert parsed_node["license_type"] == 'Open access'
-    assert parsed_node["license_url"] == u'http://creativecommons.org/licenses/by/3.0/'
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
+    assert parsed_node["license"] == expected_license
 
 
 def test_prism_dois(parsed_node):

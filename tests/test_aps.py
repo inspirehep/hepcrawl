@@ -21,7 +21,16 @@ def results():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    return spider.parse(fake_response_from_file('aps/aps_single_response.json', response_type=TextResponse))
+    records = list(
+        spider.parse(
+            fake_response_from_file(
+                'aps/aps_single_response.json',
+                response_type=TextResponse,
+            )
+        )
+    )
+    assert records
+    return records
 
 
 def test_abstract(results):
@@ -72,16 +81,13 @@ def test_free_keywords(results):
 
 def test_license(results):
     """Test extracting license information."""
-    # license = "Creative Commons Attribution (CC-BY) 4.0 License"
-    license_url = "http://creativecommons.org/licenses/by/3.0/"
-    # license_type = "open-access"
+    expected_license = [{
+        'license': 'CC-BY-3.0',
+        'url': 'http://creativecommons.org/licenses/by/3.0/',
+    }]
     for record in results:
-        # assert 'license' in record
-        # assert record['license'] == license
-        assert 'license_url' in record
-        assert record['license_url'] == license_url
-        # assert 'license_type' in record
-        # assert record['license_type'] == license_type
+        assert 'license' in record
+        assert record['license'] == expected_license
 
 
 def test_dois(results):
@@ -112,7 +118,11 @@ def test_collaborations(results):
 
 def test_subjects(results):
     """Test extracting collaboration."""
-    subjects = ["Quantum Information"]
+    subjects = [{
+        'scheme': 'APS',
+        'source': '',
+        'term': 'Quantum Information',
+    }]
     for record in results:
         assert 'field_categories' in record
         assert record['field_categories'] == subjects
@@ -121,8 +131,7 @@ def test_subjects(results):
 def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "Phys. Rev. E"
-    journal_year = "2015"
-    # journal_artid = "1440001"
+    journal_year = 2015
     journal_volume = "92"
     journal_issue = "5"
     for record in results:
@@ -130,8 +139,6 @@ def test_publication_info(results):
         assert record['journal_title'] == journal_title
         assert 'journal_year' in record
         assert record['journal_year'] == journal_year
-        # assert 'journal_artid' in record
-        # assert record['journal_artid'] == journal_artid
         assert 'journal_volume' in record
         assert record['journal_volume'] == journal_volume
         assert 'journal_issue' in record

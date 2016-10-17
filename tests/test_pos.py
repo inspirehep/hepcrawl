@@ -46,6 +46,7 @@ def record(scrape_pos_page_body):
         body=scrape_pos_page_body,
         **{'encoding': 'utf-8'}
     )
+    assert response
     return request.callback(response)
 
 
@@ -77,16 +78,11 @@ def test_subject(record):
 
 def test_license(record):
     """Test extracting license information."""
-    license = "CC-BY-NC-SA-3.0"
-    license_url = "https://creativecommons.org/licenses/by-nc-sa/3.0"
-    license_type = "open-access"
-
-    assert 'license' in record
-    assert record['license'] == license
-    assert 'license_url' in record
-    assert record['license_url'] == license_url
-    assert 'license_type' in record
-    assert record['license_type'] == license_type
+    expected_license = [{
+        'license': 'CC-BY-NC-SA-3.0',
+        'url': 'https://creativecommons.org/licenses/by-nc-sa/3.0',
+    }]
+    assert record['license'] == expected_license
 
 
 def test_collections(record):
@@ -106,7 +102,7 @@ def test_language(record):
 def test_publication_info(record):
     """Test extracting dois."""
     journal_title = "PoS"
-    journal_year = "2014"
+    journal_year = 2014
     journal_artid = "001"
     journal_volume = "LATTICE 2013"
 

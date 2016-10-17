@@ -28,7 +28,9 @@ def record():
     """Return scraping results from the INFN spider."""
     spider = infn_spider.InfnSpider()
     response = fake_response_from_file('infn/test_splash.html')
-    return spider.scrape_splash(response)
+    parsed_record = spider.scrape_splash(response)
+    assert parsed_record
+    return parsed_record
 
 
 def test_title(record):

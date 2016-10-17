@@ -11,14 +11,12 @@
 
 from __future__ import absolute_import, print_function
 
-import re
-
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..mappings import OA_LICENSES
+from ..utils import get_license
 
 
 class HindawiSpider(XMLFeedSpider):
@@ -132,34 +130,6 @@ class HindawiSpider(XMLFeedSpider):
         )
 
     @staticmethod
-    def _get_license(node):
-        """Get article licence."""
-        # FIXME: do we need all this?
-        openaccess = False
-        licenses = {
-            "CC-BY-3.0": {
-                "title": "Creative Commons Attribution 3.0",
-                "url": "http://creativecommons.org/licenses/by/3.0/"
-            }
-        }
-        license_str = node.xpath(
-            "./datafield[@tag='540']/subfield[@code='a']/text()").extract_first()
-        license_url = node.xpath(
-            "./datafield[@tag='540']/subfield[@code='u']/text()").extract_first()
-
-        for lic in licenses:
-            if license_str and license_str in lic or license_str in licenses[lic]["title"]:
-                license_str = lic
-                break
-
-        for pattern in OA_LICENSES:
-            if re.search(pattern, license_str):
-                openaccess = True
-                break
-
-        return license_str, license_url, openaccess
-
-    @staticmethod
     def get_copyright(node):
         """Get copyright year and statement."""
         copyright_raw = node.xpath(
@@ -208,8 +178,12 @@ class HindawiSpider(XMLFeedSpider):
                          "./datafield[@tag='773']/subfield[@code='p']/text()")
         record.add_xpath('journal_volume',
                          "./datafield[@tag='773']/subfield[@code='a']/text()")
-        record.add_xpath('journal_year',
-                         "./datafield[@tag='773']/subfield[@code='y']/text()")
+        journal_year = node.xpath(
+            "./datafield[@tag='773']/subfield[@code='y']/text()"
+        ).extract()
+        if journal_year:
+            record.add_value('journal_year', int(journal_year[0]))
+
         record.add_xpath('journal_issue',
                          "./datafield[@tag='773']/subfield[@code='n']/text()")
 
@@ -221,12 +195,15 @@ class HindawiSpider(XMLFeedSpider):
         record.add_value('copyright_statement', cr_statement)
         record.add_value('copyright_year', cr_year)
 
-        pub_license, pub_license_url, openaccess = self._get_license(node)
-        if pub_license:
-            record.add_value('license', pub_license)
-            record.add_value('license_url', pub_license_url)
-            if openaccess:
-                record.add_value('license_type', "open-access")
+        license = get_license(
+            license_url=node.xpath(
+                "./datafield[@tag='540']/subfield[@code='u']/text()"
+            ).extract_first(),
+            license_text=node.xpath(
+                "./datafield[@tag='540']/subfield[@code='a']/text()"
+            ).extract_first(),
+        )
+        record.add_value('license', license)
 
         pdf_links, xml_links, splash_links = self.get_urls_in_record(node)
         record.add_value('urls', splash_links)

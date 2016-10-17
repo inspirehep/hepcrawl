@@ -11,6 +11,8 @@
 
 from __future__ import absolute_import, print_function
 
+import re
+
 import json
 import link_header
 
@@ -20,7 +22,7 @@ from scrapy import Request, Spider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_nested, build_dict
+from ..utils import get_license, get_nested, build_dict
 
 
 class APSSpider(Spider):
@@ -90,20 +92,28 @@ class APSSpider(Spider):
             # record.add_value('journal_artid', )
 
             published_date = article.get('date', '')
-            record.add_value('journal_year', published_date[:4])
+            record.add_value('journal_year', int(published_date[:4]))
             record.add_value('date_published', published_date)
             record.add_value('field_categories', [
-                term.get('label')
-                for term in get_nested(article, 'classificationSchemes', 'subjectAreas')
+                {
+                    'term': term.get('label'),
+                    'scheme': 'APS',
+                    'source': '',
+                } for term in get_nested(
+                    article,
+                    'classificationSchemes',
+                    'subjectAreas'
+                )
             ])
             record.add_value('copyright_holder', get_nested(article, 'rights', 'copyrightHolders')[0]['name'])
             record.add_value('copyright_year', str(get_nested(article, 'rights', 'copyrightYear')))
             record.add_value('copyright_statement', get_nested(article, 'rights', 'rightsStatement'))
             record.add_value('copyright_material', 'Article')
 
-            # record.add_xpath('license', '//license/license-p/ext-link/text()')
-            # record.add_xpath('license_type', '//license/@license-type')
-            record.add_value('license_url', get_nested(article, 'rights', 'licenses')[0]['url'])
+            license = get_license(
+                license_url=get_nested(article, 'rights', 'licenses')[0]['url']
+            )
+            record.add_value('license', license)
 
             record.add_value('collections', ['HEP', 'Citeable', 'Published'])
             yield record.load_item()
