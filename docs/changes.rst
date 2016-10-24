@@ -6,4 +6,10 @@
     under the terms of the Revised BSD License; see LICENSE file for
     more details.
 
-.. include:: ../CHANGES.rst
+Changelog
+---------
+
+Here you can find the `full changelog for this version`_
+
+.. _full changelog for this version: _static/CHANGELOG.txt
+
