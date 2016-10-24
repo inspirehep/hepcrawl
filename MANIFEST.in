@@ -14,8 +14,6 @@ include *.txt
 include LICENSE
 include config
 include pytest.ini
-include scrapy.cfg
-include scrapyd.cfg
 
 recursive-include tests *.htm
 recursive-include tests *.html
