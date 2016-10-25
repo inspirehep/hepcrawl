@@ -18,13 +18,17 @@
 #
 # import os
 # import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+# sys.path.insert(0, os.path.abspath('..'))
 from __future__ import print_function
 
 import os
 
 import sphinx.environment
+from autosemver.packaging import (
+    get_current_version,
+    get_changelog,
+    get_authors,
+)
 
 _warn_node_old = sphinx.environment.BuildEnvironment.warn_node
 
@@ -33,6 +37,25 @@ def _warn_node(self, msg, *args, **kwargs):
     """Do not warn on external images."""
     if not msg.startswith('nonlocal image URI found:'):
         _warn_node_old(self, msg, *args, **kwargs)
+
+
+
+
+if not os.path.exists('_build/html/_static'):
+    os.makedirs('_build/html/_static')
+
+with open('_build/html/_static/CHANGELOG.txt', 'w') as changelog_fd:
+    changelog_fd.write(get_changelog(
+        project_dir='..',
+        bugtracker_url='https://github.com/inspirehep/inspire-schemas/issues/',
+    ).encode('utf-8'))
+
+with open('_build/html/_static/AUTHORS.txt', 'w') as changelog_fd:
+    changelog_fd.write(
+        '\n'.join(a.encode('utf-8') for a in get_authors(project_dir='..'))
+    )
+
+
 
 sphinx.environment.BuildEnvironment.warn_node = _warn_node
 
@@ -79,10 +102,11 @@ author = u'CERN'
 # The short X.Y version.
 
 # Get the version string. Cannot be done with import!
-g = {}
-with open(os.path.join('..', 'hepcrawl', 'version.py'), 'rt') as fp:
-    exec(fp.read(), g)
-    version = g['__version__']
+
+version = get_current_version(
+    project_name='hepcrawl',
+    project_dir=os.path.join(os.path.dirname(__file__), '..')
+)
 
 # The full version, including alpha/beta/rc tags.
 release = version

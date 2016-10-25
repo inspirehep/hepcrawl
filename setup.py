@@ -9,14 +9,12 @@
 
 """Scrapy project for feeds into INSPIRE-HEP (http://inspirehep.net)."""
 
-import os
-
 from setuptools import setup, find_packages
 
 readme = open('README.rst').read()
-history = open('CHANGES.rst').read()
 
 install_requires = [
+    'autosemver>=0.1.4',
     'inspire-schemas~=1.0',
     'Scrapy>=1.1.0',
     'scrapyd>=1.1.0',
@@ -55,6 +53,7 @@ extras_require = {
 }
 
 setup_requires = [
+    'autosemver>=0.1.4',
     'pytest-runner>=2.7.0',
 ]
 
@@ -62,25 +61,23 @@ extras_require['all'] = []
 for name, reqs in extras_require.items():
     extras_require['all'].extend(reqs)
 
-# Get the version string. Cannot be done with import!
-g = {}
-with open(os.path.join('hepcrawl', 'version.py'), 'rt') as fp:
-    exec(fp.read(), g)
-    version = g['__version__']
+
+URL = 'https://github.com/inspirehep/hepcrawl'
 
 setup(
     name='hepcrawl',
-    version=version,
     packages=find_packages(),
     description=__doc__,
-    long_description=readme + '\n\n' + history,
-    url='https://github.com/inspirehep/hepcrawl',
+    long_description=readme,
+    url=URL,
+    bugtracker_url=URL + '/issues/',
     author="CERN",
     author_email='admin@inspirehep.net',
     entry_points={'scrapy': ['settings = hepcrawl.settings']},
     zip_safe=False,
     include_package_data=True,
     platforms='any',
+    autosemver=True,
     setup_requires=setup_requires,
     install_requires=install_requires,
     tests_require=tests_require,
@@ -96,10 +93,8 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Programming Language :: Python',
         "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
     ],
 )

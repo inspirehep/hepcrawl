@@ -28,9 +28,10 @@ install:
   - "travis_retry pip install -e .[${EXTRAS}]"
 
 script:
+  - pip freeze
   - sphinx-build -qnNW docs docs/_build/html
-  - check-manifest --ignore "*.pyc"
   - python setup.py test
+  - python setup.py sdist && ls dist/*
 
 after_success:
   - coveralls
@@ -45,6 +46,6 @@ deploy:
     secure: JRlzmzXjqr0c8m8nWwvDwmbPVuA64SanUMX6hqqtCOqHW06LMyC51MQr4mkq0SFLxLQsh2aPNmVB7IAO1ZR44cQh+1ECZgM6+cRfwb5lEJFsnVhaGV+VVwUUBYRjrb/IOui05nOlxp+aIOOqhegTcMzt7dsBnVBQgI87t2j4BOe6d6j+qoMALmltXbPcaiLATFAjqJq/AFEJlHiLFozWAU5m2H1OTUkHv5FOV31VdQwNfhFAzTegO1anTSkKiGAz1E1ihsKoRGoa00cw7H9woqrSOEHnrzdziZQtbVutSoiHFBDqIpBmxhcMHUl12KnjQUSaCFrDryD2PbLoJ6EGKydJWBLPMNMQVvK6mkcoMIuJxNRYW7Y4PLqBf8neAYpW/Wvnov80vlkRLic/Kwz+iDgmW2UhQUqLjJIp5fNdhHbI4EI0MZ1tchLaXVeQpdAa6tk6yIFhRLrvf8+Wz4c5yH6GM95qHOlh9I+/6ubZbMWO1AhSV510eUsh8M0CvGTb3VeI7mSMHe+Jur5gv+M+Nlerszx19k6aPH0vYM2NXpjSTKqW3t7H+ebxCnXpbgiwPKaBKWscCdH8Ru9HEvug2CtfoPyS3A+TYs7CpsmmEETEL9RNH3dQmNAhStilWI21kISEznNgCkhZZ082+Z19/I9vXg5X/fgKl+nK+zcdScw=
   on:
     branch: master
-    tags: true
-    distributions: sdist bdist_wheel
+    python: 2.7
+    distributions: sdist
     repo: inspirehep/hepcrawl

@@ -7,4 +7,10 @@
     more details.
 
 
-.. include:: ../AUTHORS.rst
+Authors
+-------
+
+Here you can find the `list of authors`_
+
+.. _list of authors: _static/AUTHORS.txt
+
