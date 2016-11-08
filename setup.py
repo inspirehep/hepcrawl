@@ -17,7 +17,8 @@ install_requires = [
     'autosemver>=0.1.4',
     'inspire-schemas~=1.0',
     'Scrapy>=1.1.0',
-    'scrapyd>=1.1.0',
+    # TODO: unpin once they support wheel building again
+    'scrapyd==1.1.0',
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
     'requests>=2.8.1',
