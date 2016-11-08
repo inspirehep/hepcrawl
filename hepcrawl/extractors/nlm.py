@@ -29,7 +29,7 @@ class NLM(object):
                 surname = ""
             given_names = ""
             if firstname and middlename:
-                given_names = "{} {}".format(firstname, middlename)
+                given_names = u"{} {}".format(firstname, middlename)
             elif firstname:
                 given_names = firstname
 
