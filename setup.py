@@ -83,6 +83,9 @@ setup(
     install_requires=install_requires,
     tests_require=tests_require,
     extras_require=extras_require,
+    package_data={
+        'hepcrawl': ['*.cfg'],
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'Environment :: Console',

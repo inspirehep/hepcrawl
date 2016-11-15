@@ -11,6 +11,7 @@ include *.py
 include *.rst
 include *.sh
 include *.txt
+include hepcrawl/*.cfg
 include LICENSE
 include config
 include pytest.ini

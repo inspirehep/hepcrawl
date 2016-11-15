@@ -60,3 +60,6 @@ local_settings.py
 
 # vim temp files
 *.sw?
+
+AUTHORS
+CHANGELOG
