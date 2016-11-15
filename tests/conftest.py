@@ -18,7 +18,7 @@ def patch_datetime_now(monkeypatch):
     """Patch the datetime to always return the same date."""
     fake_time = datetime.datetime(1, 1, 1, 1, 1, 1)
 
-    class FakeTime:
+    class FakeTime(object):
         @classmethod
         def now(cls):
             return fake_time
@@ -34,8 +34,10 @@ def no_requests(monkeypatch):
     """
     monkeypatch.delattr("requests.sessions.Session.request")
 
-
-def get_final_record_after_pipeline(record, spider):
-    """Process the record in the pipeline."""
-    pipeline = InspireAPIPushPipeline()
-    return pipeline.process_item(record, spider)
+@pytest.fixture
+def process_pipeline():
+    """Get the final JSON record processed through the pipeline."""
+    def get_final_record(spider_record, spider):
+        pipeline = InspireAPIPushPipeline()
+        return pipeline.process_item(spider_record, spider)
+    return get_final_record
