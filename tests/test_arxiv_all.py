@@ -11,18 +11,27 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
+from scrapy.crawler import  Crawler
+
+from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
 from .responses import fake_response_from_file
 
 
 @pytest.fixture
-def one_result():
+def spider():
+    crawler = Crawler(spidercls=arxiv_spider.ArxivSpider)
+    spider = arxiv_spider.ArxivSpider.from_crawler(crawler)
+    return spider
+
+
+@pytest.fixture
+def one_result(spider):
     """Return results generator from the arxiv spider. Tricky fields, one
     record.
     """
     from scrapy.http import TextResponse
 
-    spider = arxiv_spider.ArxivSpider()
     records = list(spider.parse(
         fake_response_from_file(
             'arxiv/sample_arxiv_record0.xml',
@@ -30,17 +39,18 @@ def one_result():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+    return [pipeline.process_item(record, spider) for record in records]
 
 
 @pytest.fixture
-def many_results():
+def many_results(spider):
     """Return results generator from the arxiv spider. Tricky fields, many
     records.
     """
     from scrapy.http import TextResponse
 
-    spider = arxiv_spider.ArxivSpider()
     records = list(spider.parse(
         fake_response_from_file(
             'arxiv/sample_arxiv_record.xml',
@@ -48,7 +58,9 @@ def many_results():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+    return [pipeline.process_item(record, spider) for record in records]
 
 
 def test_page_nr(many_results):
@@ -79,7 +91,6 @@ def test_page_nr(many_results):
                 assert 'page_nr' not in record
 
 
-
 def test_collections(many_results):
     """Test journal type"""
     doctypes = [
@@ -102,8 +113,12 @@ def test_collections(many_results):
             doctype.append(doctypes[num])
 
         assert 'collections' in record
-        assert set([collection['primary'] \
-            for collection in record['collections']]) == set(doctype)
+        assert set(
+            [
+                collection['primary'] for collection in record['collections']
+            ]
+        ) == set(doctype)
+
 
 def test_collaborations(many_results):
     """Test extracting collaboration."""
@@ -123,8 +138,9 @@ def test_collaborations(many_results):
     for num, record in enumerate(many_results):
         collaboration = collaborations[num]
         if collaboration:
-            record_collaboration = [coll['value'] \
-                for coll in record['collaborations']]
+            record_collaboration = [
+                coll['value'] for coll in record['collaborations']
+            ]
             assert 'collaborations' in record
             assert record_collaboration == collaboration
         else:
@@ -139,10 +155,23 @@ def test_authors(many_results):
         ['Sinya', ],
         ['Scott, Mark', ],
         ['Ade, P.', 'Ahmed, Z.', 'Aikin, R.W.', 'Alexander, K.D.'],
-        ['Burigana, Günter', 'Trombetti, Tiziana', 'Paoletti, Daniela', 'Mandolesi, Nazzareno', 'Natoli, Paolo'],
+        [
+            'Burigana, Günter',
+            'Trombetti, Tiziana',
+            'Paoletti, Daniela',
+            'Mandolesi, Nazzareno',
+            'Natoli, Paolo',
+        ],
         ['Bufanda, E.', 'Hollowood, D.'],
         ['Saxton Walton, Curtis J.', 'Younsi, Ziri', 'Wu, Kinwah'],
-        ['Abe, K.', 'Suzuki, Y.', 'Vagins, M.R.', 'Nantais, C.M.', 'Martin, J.F.', 'de Perio, P.'],
+        [
+            'Abe, K.',
+            'Suzuki, Y.',
+            'Vagins, M.R.',
+            'Nantais, C.M.',
+            'Martin, J.F.',
+            'de Perio, P.',
+        ],
         ['Chudasama, Ruchi', 'Dutta, Dipanwita'],
         ['Battista, Emmanuele', ]
     ]
@@ -154,15 +183,33 @@ def test_authors(many_results):
         [[], [], [], []],
         [[], [], [], [], []],
         [[], []],
-        [['Technion', 'DESY'], ['U.Frankfurt',], []],
-        [['Kamioka Observatory, Institute for Cosmic Ray Research, University of Tokyo',
-         'Kavli Institute for the Physics and Mathematics of the Universe'],
-         ['Kavli Institute for the Physics and Mathematics of the Universe', ],
-         ['Kavli Institute for the Physics and Mathematics of the Universe',
-         'Department of Physics and Astronomy, University of California, Irvine'],
-         ['Department of Physics, University of Toronto', ],
-         ['Department of Physics, University of Toronto', ],
-         ['Department of Physics, University of Toronto', ]],
+        [['Technion', 'DESY'], ['U.Frankfurt'], []],
+        [
+            [
+                (
+                    'Kamioka Observatory, Institute for Cosmic Ray Research, '
+                    'University of Tokyo'
+                ),
+                (
+                    'Kavli Institute for the Physics and Mathematics of the '
+                    'Universe'
+                ),
+            ],
+            ['Kavli Institute for the Physics and Mathematics of the Universe'],
+            [
+                (
+                    'Kavli Institute for the Physics and Mathematics of the '
+                    'Universe'
+                ),
+                (
+                    'Department of Physics and Astronomy, University of '
+                    'California, Irvine'
+                ),
+            ],
+            ['Department of Physics, University of Toronto'],
+            ['Department of Physics, University of Toronto'],
+            ['Department of Physics, University of Toronto']
+        ],
         [[], []],
         [[], ]
     ]
@@ -171,12 +218,18 @@ def test_authors(many_results):
         test_affiliations = affiliations[num]
         assert 'authors' in record
         assert len(record['authors']) == len(test_full_names)
-        record_full_names = [author['full_name'] for author in record['authors']]
+        record_full_names = [
+            author['full_name'] for author in record['authors']
+        ]
         record_affiliations = []
         for author in record['authors']:
-            record_affiliations.append([aff['value'] for aff in author['affiliations']])
-        assert set(test_full_names) == set(record_full_names)  # assert that we have the same list of authors
-        assert test_affiliations == record_affiliations  # assert that we have the same list of affiliations
+            record_affiliations.append(
+                [aff['value'] for aff in author['affiliations']]
+            )
+        # assert that we have the same list of authors
+        assert set(test_full_names) == set(record_full_names)
+        # assert that we have the same list of affiliations
+        assert test_affiliations == record_affiliations
 
 
 def test_repno(many_results):
@@ -200,7 +253,9 @@ def test_repno(many_results):
         None,
         None,
     ]
-    for index, (expected_repno, record) in enumerate(zip(expected_repnos, many_results)):
+    for index, (expected_repno, record) in enumerate(
+        zip(expected_repnos, many_results)
+    ):
         if expected_repno:
             assert 'report_numbers' in record
             assert record['report_numbers'] == expected_repno

@@ -11,16 +11,21 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
+from scrapy.crawler import Crawler
+from scrapy.http import TextResponse
+
+from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
 from .responses import fake_response_from_file
 
 
 @pytest.fixture
 def results():
-    """Return results generator from the arxiv spider. All fields, one record."""
-    from scrapy.http import TextResponse
+    """Return results generator from the arxiv spider. All fields, one record.
+    """
 
-    spider = arxiv_spider.ArxivSpider()
+    crawler = Crawler(spidercls=arxiv_spider.ArxivSpider)
+    spider = arxiv_spider.ArxivSpider.from_crawler(crawler)
     records = list(spider.parse(
         fake_response_from_file(
             'arxiv/sample_arxiv_record0.xml',
@@ -28,32 +33,49 @@ def results():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+    return [pipeline.process_item(record, spider) for record in records]
 
 
-def test_abstract(results):
+def test_abstracts(results):
     """Test extracting abstract."""
-    abstract = (
-        "We study the dynamics of quantum coherence under Unruh thermal noise and seek under which condition the "
-        "coherence can be frozen in a relativistic setting. We find that the quantum coherence can not be frozen for "
-        "any acceleration due to the effect of Unruh thermal noise. We also find that quantum coherence is more robust "
-        "than entanglement under the effect of Unruh thermal noise and therefore the coherence type quantum resources "
-        "are more accessible for relativistic quantum information processing tasks. Besides, the dynamic of quantum "
-        "coherence is found to be more sensitive than entanglement to the preparation of the detectors' initial state "
-        "and the atom-field coupling strength, while it is less sensitive than entanglement to the acceleration of the "
-        "detector."
-    )
+    expected_abstracts = [{
+        'source': 'arXiv',
+        'value': (
+            "We study the dynamics of quantum coherence under Unruh thermal "
+            "noise and seek under which condition the coherence can be frozen "
+            "in a relativistic setting. We find that the quantum coherence can "
+            "not be frozen for any acceleration due to the effect of Unruh "
+            "thermal noise. We also find that quantum coherence is more robust "
+            "than entanglement under the effect of Unruh thermal noise and "
+            "therefore the coherence type quantum resources are more "
+            "accessible for relativistic quantum information processing tasks. "
+            "Besides, the dynamic of quantum coherence is found to be more "
+            "sensitive than entanglement to the preparation of the detectors' "
+            "initial state and the atom-field coupling strength, while it is "
+            "less sensitive than entanglement to the acceleration of the "
+            "detector."
+        )
+    }]
     for record in results:
-        assert 'abstract' in record
-        assert record['abstract'] == abstract
+        assert 'abstracts' in record
+        assert record['abstracts'] == expected_abstracts
 
 
-def test_title(results):
+def test_titles(results):
     """Test extracting title."""
-    title = "Irreversible degradation of quantum coherence under relativistic motion"
+    expected_titles = [{
+        'source': 'arXiv',
+        'subtitle': '',
+        'title': (
+            "Irreversible degradation of quantum coherence under relativistic "
+            "motion"
+        ),
+    }]
     for record in results:
-        assert 'title' in record
-        assert record['title'] == title
+        assert 'titles' in record
+        assert record['titles'] == expected_titles
 
 
 def test_preprint_date(results):
@@ -77,21 +99,22 @@ def test_collections(results):
     doctype = ['HEP', 'Citeable', 'arXiv', 'ConferencePaper']
     for record in results:
         assert 'collections' in record
-        assert set([collection['primary'] \
-            for collection in record['collections']]) == set(doctype)
+        assert set(
+            [
+                collection['primary'] for collection in record['collections']
+            ]
+        ) == set(doctype)
         break
 
 
 def test_notes(results):
-    notes = {
+    expected_notes = [{
         'source': 'arXiv',
         'value': u'6 pages, 4 figures, conference paper'
-    }
+    }]
     for record in results:
         assert 'public_notes' in record
-        rec_notes = record['public_notes'][0]
-        assert rec_notes['source'] == notes['source']
-        assert rec_notes['value'] == notes['value']
+        assert record['public_notes'] == expected_notes
 
 
 def test_license(results):
@@ -107,18 +130,30 @@ def test_license(results):
 
 def test_dois(results):
     """Test extracting dois."""
-    dois = "10.1103/PhysRevD.93.016005"
+    expected_dois = [{
+        'value': '10.1103/PhysRevD.93.016005',
+    }]
     for record in results:
         assert 'dois' in record
-        assert record['dois'][0]['value'] == dois
+        assert record['dois'] == expected_dois
 
 
-def test_journal_ref(results):
+def test_publication_info(results):
     """Test extracting journal_ref."""
-    jref = "Phys.Rev. D93 (2015) 016005"
+    #TODO: check a more complete example
+    expected_pub_info = [{
+        'artid': '',
+        'journal_issue': '',
+        'journal_title': '',
+        'journal_volume': '',
+        'note': '',
+        'page_end': '',
+        'page_start': '',
+        'pubinfo_freetext': 'Phys.Rev. D93 (2015) 016005',
+    }]
     for record in results:
-        assert 'pubinfo_freetext' in record
-        assert record['pubinfo_freetext'] == jref
+        assert 'publication_info' in record
+        assert record['publication_info'] == expected_pub_info
 
 
 def test_repno(results):
@@ -142,33 +177,36 @@ def test_collaborations(results):
 
 def test_authors(results):
     """Test authors."""
-    author_full_names = ['Wang, Jieci', 'Tian, Zehua', 'Jing, Jiliang', 'Fan, Heng']
+    author_full_names = [
+        'Wang, Jieci',
+        'Tian, Zehua',
+        'Jing, Jiliang',
+        'Fan, Heng',
+    ]
     for record in results:
         assert 'authors' in record
         assert len(record['authors']) == 4
-        record_full_names = [author['full_name'] for author in record['authors']]
+        record_full_names = [
+            author['full_name'] for author in record['authors']
+        ]
         assert set(author_full_names) == set(record_full_names)
 
 
 def test_arxiv_eprints(results):
-    eprints = {
+    expected_eprints = [{
         'categories': [u'quant-ph', u'gr-qc', u'hep-th'],
         'value': u'1601.03238'
-    }
+    }]
     for record in results:
         assert 'arxiv_eprints' in record
-        rec_eprints = record['arxiv_eprints'][0]
-        assert rec_eprints['value'] == eprints['value']
-        assert set(rec_eprints['categories']) == set(eprints['categories'])
+        assert record['arxiv_eprints'] == expected_eprints
 
 
 def test_external_system_numbers(results):
-    esn = {
+    expected_esns = [{
         'institute': 'arXiv',
         'value': u'oai:arXiv.org:1601.03238'
-    }
+    }]
     for record in results:
         assert 'external_system_numbers' in record
-        rec_esn = record['external_system_numbers'][0]
-        assert rec_esn['value'] == esn['value']
-        assert rec_esn['institute'] == esn['institute']
+        assert record['external_system_numbers'] == expected_esns
