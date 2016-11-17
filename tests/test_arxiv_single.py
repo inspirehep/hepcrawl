@@ -11,6 +11,9 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
+from scrapy.http import TextResponse
+
+from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
 from .responses import fake_response_from_file
 
@@ -18,8 +21,6 @@ from .responses import fake_response_from_file
 @pytest.fixture
 def results():
     """Return results generator from the arxiv spider. All fields, one record."""
-    from scrapy.http import TextResponse
-
     spider = arxiv_spider.ArxivSpider()
     records = list(spider.parse(
         fake_response_from_file(
@@ -28,7 +29,8 @@ def results():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    return [pipeline.process_item(record, spider) for record in records]
 
 
 def test_abstract(results):
@@ -44,16 +46,16 @@ def test_abstract(results):
         "detector."
     )
     for record in results:
-        assert 'abstract' in record
-        assert record['abstract'] == abstract
+        assert 'abstracts' in record
+        assert record['abstracts'][0]['value'] == abstract
 
 
 def test_title(results):
     """Test extracting title."""
     title = "Irreversible degradation of quantum coherence under relativistic motion"
     for record in results:
-        assert 'title' in record
-        assert record['title'] == title
+        assert 'titles' in record
+        assert record['titles'][0]['title'] == title
 
 
 def test_preprint_date(results):
@@ -117,8 +119,8 @@ def test_journal_ref(results):
     """Test extracting journal_ref."""
     jref = "Phys.Rev. D93 (2015) 016005"
     for record in results:
-        assert 'pubinfo_freetext' in record
-        assert record['pubinfo_freetext'] == jref
+        assert 'pubinfo_freetext' in record['publication_info'][0]
+        assert record['publication_info'][0]['pubinfo_freetext'] == jref
 
 
 def test_repno(results):
