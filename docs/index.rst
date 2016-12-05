@@ -60,6 +60,7 @@ interested.
    :maxdepth: 1
 
    changes
+   releasenotes
    license
    authors
 
