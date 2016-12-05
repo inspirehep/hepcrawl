@@ -82,14 +82,12 @@ class ArxivSpider(XMLFeedSpider):
             self._get_arxiv_report_numbers(node)
         )
 
-        plain_categories = ' '.join(
+        categories = ' '.join(
             node.xpath('.//categories//text()').extract()
         ).split()
-        categories = self._get_categories_object(plain_categories)
-        record.add_value('field_categories', categories)
         record.add_value(
             'arxiv_eprints',
-            self._get_arxiv_eprint(node, plain_categories)
+            self._get_arxiv_eprint(node, categories)
         )
         record.add_value(
             'external_system_numbers',
@@ -105,16 +103,6 @@ class ArxivSpider(XMLFeedSpider):
         validate_schema(data=parsed_record, schema_name='hep')
 
         return parsed_record
-
-    def _get_categories_object(self, plain_categories):
-        categories = []
-        for category in plain_categories:
-            categories.append({
-                'source': 'publisher',
-                'term': category,
-                'scheme': 'ARXIV',
-            })
-        return categories
 
     def _get_authors_or_collaboration(self, node):
         """Parse authors, affiliations; extract collaboration"""

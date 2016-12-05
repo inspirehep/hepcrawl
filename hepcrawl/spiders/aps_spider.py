@@ -94,17 +94,6 @@ class APSSpider(Spider):
             published_date = article.get('date', '')
             record.add_value('journal_year', int(published_date[:4]))
             record.add_value('date_published', published_date)
-            record.add_value('field_categories', [
-                {
-                    'term': term.get('label'),
-                    'scheme': 'APS',
-                    'source': '',
-                } for term in get_nested(
-                    article,
-                    'classificationSchemes',
-                    'subjectAreas'
-                )
-            ])
             record.add_value('copyright_holder', get_nested(article, 'rights', 'copyrightHolders')[0]['name'])
             record.add_value('copyright_year', str(get_nested(article, 'rights', 'copyrightYear')))
             record.add_value('copyright_statement', get_nested(article, 'rights', 'rightsStatement'))
