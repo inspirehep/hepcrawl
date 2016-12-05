@@ -25,12 +25,15 @@ import os
 
 import sphinx.environment
 from autosemver.packaging import (
-    get_current_version,
-    get_changelog,
     get_authors,
+    get_changelog,
+    get_current_version,
+    get_releasenotes,
 )
 
 _warn_node_old = sphinx.environment.BuildEnvironment.warn_node
+URL = 'http://github.com/inspirehep/hepcrawl'
+BUGTRACKER_URL = URL + '/issues/'
 
 
 def _warn_node(self, msg, *args, **kwargs):
@@ -44,16 +47,22 @@ def _warn_node(self, msg, *args, **kwargs):
 if not os.path.exists('_build/html/_static'):
     os.makedirs('_build/html/_static')
 
-with open('_build/html/_static/CHANGELOG.txt', 'w') as changelog_fd:
-    changelog_fd.write(get_changelog(
-        project_dir='..',
-        bugtracker_url='https://github.com/inspirehep/inspire-schemas/issues/',
-    ).encode('utf-8'))
-
 with open('_build/html/_static/AUTHORS.txt', 'w') as changelog_fd:
     changelog_fd.write(
         '\n'.join(a.encode('utf-8') for a in get_authors(project_dir='..'))
     )
+
+with open('_build/html/_static/RELEASE_NOTES.txt', 'w') as changelog_fd:
+    changelog_fd.write(get_releasenotes(
+        project_dir='..',
+        bugtracker_url=BUGTRACKER_URL,
+    ).encode('utf-8'))
+with open('_build/html/_static/CHANGELOG.txt', 'w') as changelog_fd:
+    changelog_fd.write(get_changelog(
+        project_dir='..',
+        bugtracker_url=BUGTRACKER_URL,
+    ).encode('utf-8'))
+
 
 
 
@@ -183,7 +192,7 @@ html_theme_options = {
     'github_banner': True,
     'show_powered_by': False,
     'extra_nav_links': {
-        'inspirehep@GitHub': 'http://github.com/inspirehep/hepcrawl',
+        'inspirehep@GitHub': URL,
         'inspirehep@PyPI': 'http://pypi.python.org/pypi/inspirehep/',
     }
 }

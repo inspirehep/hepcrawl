@@ -14,7 +14,7 @@ from setuptools import setup, find_packages
 readme = open('README.rst').read()
 
 install_requires = [
-    'autosemver>=0.1.4',
+    'autosemver~=0.2',
     'inspire-schemas~=1.0',
     'Scrapy>=1.1.0',
     # TODO: unpin once they support wheel building again
@@ -54,7 +54,7 @@ extras_require = {
 }
 
 setup_requires = [
-    'autosemver>=0.1.4',
+    'autosemver~=0.2',
     'pytest-runner>=2.7.0',
 ]
 
@@ -71,14 +71,15 @@ setup(
     description=__doc__,
     long_description=readme,
     url=URL,
-    bugtracker_url=URL + '/issues/',
     author="CERN",
     author_email='admin@inspirehep.net',
     entry_points={'scrapy': ['settings = hepcrawl.settings']},
     zip_safe=False,
     include_package_data=True,
     platforms='any',
-    autosemver=True,
+    autosemver={
+        'bugtracker_url': URL + '/issues/',
+    },
     setup_requires=setup_requires,
     install_requires=install_requires,
     tests_require=tests_require,
