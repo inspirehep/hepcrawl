@@ -221,14 +221,16 @@ class HEPRecord(scrapy.Item):
             'editors': [],
             'authors': [],
             'misc': [],
-            'number': 0,
+            'number': '',
             'isbn': '',
             'publisher': [],
             'maintitle': '',
             'report_number': [],
             'title': [],
             'url': [],
-            'journal_pubnote': [".*,.*,.*(,.*)?"],
+            'journal_pubnote': [".*,.*,.*(,.*)?"],  # FIXME: do we want to keep this?
+            'journal_volume': '',
+            'doctype: '',
             'raw_reference': [],
             'year': 2016,
         }, ..]

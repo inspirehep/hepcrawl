@@ -13,27 +13,27 @@ from __future__ import absolute_import, print_function
 
 import os
 import re
-
 from tempfile import mkdtemp
 
 import dateutil.parser as dparser
-
 import requests
-
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
+from inspire_schemas.api import validate as validate_schema
 
+from ..dateutils import format_year
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
+    add_items_to_references,
+    format_arxiv_id,
     get_first,
+    get_journal_and_section,
     get_license,
     has_numbers,
     range_as_string,
     unzip_xml_files,
 )
-
-from ..dateutils import format_year
 
 
 class ElsevierSpider(XMLFeedSpider):
@@ -436,20 +436,6 @@ class ElsevierSpider(XMLFeedSpider):
             if "arxiv" in url.lower():
                 return [url]
 
-    @staticmethod
-    def _format_arxiv_id(arxiv_urls):
-        """Return an arxiv id with format 'arxiv:1407.0275'.
-
-        For old identifiers format is 'hep-ex/9908047'. Input string may or
-        may not have an 'http://' in it.
-        """
-        if arxiv_urls:
-            arxiv_id = arxiv_urls[0].split(":")[-1]
-            if arxiv_id and '.' not in arxiv_id:
-                return arxiv_id.strip("/")
-            else:
-                return u"arxiv:{}".format(arxiv_id)
-
     def _get_ref_title(self, ref):
         """Return a references title (and possible translated title)."""
         title = self._fix_node_text(ref.xpath(
@@ -524,7 +510,6 @@ class ElsevierSpider(XMLFeedSpider):
         volumes = []
         for vol in volumes_raw:
             if "vols" in vol.lower():
-                # NOTE: scrapy doesn't handle (&ndash;) in the file properly?
                 vol_nums = [v for v in vol.split() if has_numbers(v)]
                 if vol_nums:
                     for vol_num in vol_nums:
@@ -555,20 +540,21 @@ class ElsevierSpider(XMLFeedSpider):
     def _parse_references(self, ref, label):
         """Parse all the references."""
         reference = {}
-        textref = ref.xpath(".//ce:textref//text()").extract()
+        # Minimun information are label and raw_reference:
         sublabel = ref.xpath(".//ce:label//text()").extract_first()
         if label:
             if sublabel:
                 sublabel = sublabel.strip("[]")
                 if sublabel != label:
-                    label = label + sublabel
-            try:
-                reference["number"] = int(label)
-            except (TypeError, ValueError):
-                pass
+                    label = label + sublabel  # NOTE: this can't be int
+            reference["number"] = label
+        textref = ref.xpath(".//ce:textref//text()").extract()
         if textref:
-            reference["raw_reference"] = [self._fix_node_text(textref)]
+            reference["raw_reference"] = [ref.extract(), self._fix_node_text(textref)]
             return reference
+        else:
+            reference["raw_reference"] = [ref.extract()]
+
         doi = ref.xpath(".//ce:doi/text()").extract_first()
         fpage = ref.xpath(".//sb:first-page/text()").extract_first()
         lpage = ref.xpath(".//sb:last-page/text()").extract_first()
@@ -593,30 +579,37 @@ class ElsevierSpider(XMLFeedSpider):
         publisher = self._get_ref_publisher(ref)
         note = self._fix_node_text(ref.xpath(
             "./following-sibling::ce:note//text()").extract())
-
         # NOTE: do we need conference info:
         # conference = ref.xpath(".//sb:conference/text()").extract_first()
         urls = self._get_ref_links(ref, only_arxiv=False)
-        arxiv_id = self._format_arxiv_id(self._get_ref_links(ref))
+        arxiv_id = format_arxiv_id(self._get_ref_links(ref))
 
-        if arxiv_id:
-            reference['arxiv_id'] = arxiv_id
+        # Add items to the reference dict
+        reference = add_items_to_references(
+            reference=reference,
+            arxiv_id=arxiv_id,
+            doi='doi:{}'.format(doi) if doi else None,
+            fpage=fpage,
+            lpage=lpage,
+            book_title=book_title,
+            title=title if title != book_title else None,
+            issue=issue,
+            isbn=isbn,
+            year=year,
+            publisher=publisher
+        )
+
+        # Some items require special handling:
         if urls and "arxiv" not in urls[0].lower():
             reference['url'] = urls
-        if doi:
-            reference['doi'] = "doi:" + doi
-        if fpage:
-            reference['fpage'] = fpage
-        if lpage:
-            reference['lpage'] = lpage
         if publication:
-            journal_title, section = self.get_journal_and_section(publication)
+            journal_title, section = get_journal_and_section(publication)
             if journal_title:
                 reference['journal'] = journal_title
                 if volume:
                     volume = section + volume
                     reference['volume'] = volume
-                    # NOTE: will the pubstring handling happen here or later?
+                    # NOTE: Should the pubstring handling happen here or later?
                     pubstring = u"{},{}".format(journal_title, volume)
                     if issue and fpage and lpage:
                         pubstring += u"({}),{}-{}".format(issue, fpage, lpage)
@@ -627,29 +620,17 @@ class ElsevierSpider(XMLFeedSpider):
                     elif fpage:
                         pubstring += "," + fpage
                     reference['journal_pubnote'] = [pubstring.replace(". ", ".")]
-        if book_title:
-            reference['book_title'] = book_title
-        if title and title != book_title:
-            reference['title'] = title
-        if issue:
-            reference['issue'] = issue
-        if isbn:
-            reference['isbn'] = isbn
-        # if issn:
-            # reference['issn'] = issn
-        if year:
-            reference['year'] = year
+
+        # FIXME: Right now these are special strings, do we want that
+        # or just lists of names:
         if authors:
             reference['authors'] = [authors]
         if editors:
             reference['editors'] = [editors]
-        # NOTE: Do we need series editors or only current issue editors:
         if series_editors:
             reference['series_editors'] = [series_editors]
         if collaboration:
             reference["collaboration"] = [collaboration]
-        if publisher:
-            reference["publisher"] = publisher
 
         misc = []
         if comment:
@@ -678,6 +659,7 @@ class ElsevierSpider(XMLFeedSpider):
                 inner_refs = ref_group.xpath("./ce:other-ref")
             if not inner_refs:
                 refs_out.append(self._parse_references(ref_group, label))
+                continue
             for in_ref in inner_refs:
                 refs_out.append(self._parse_references(in_ref, label))
 
@@ -722,25 +704,6 @@ class ElsevierSpider(XMLFeedSpider):
             publication = ''
         return publication
 
-    @staticmethod
-    def get_journal_and_section(publication):
-        """Take journal title data (with possible section) and try to fix it."""
-        section = ''
-        journal_title = ''
-        possible_sections = ["A", "B", "C", "D", "E"]
-
-        try:
-            # filter after re.split, which may return empty elements:
-            split_pub = filter(None, re.split(r'(\W+)', publication))
-            if split_pub[-1] in possible_sections:
-                section = split_pub.pop(-1)
-
-            journal_title = "".join([word for word in split_pub if "section" not in word.lower()]).strip(", ")
-        except IndexError:
-            pass
-
-        return journal_title, section
-
     def parse_node(self, response, node):
         """Get information about the journal."""
         info = {}
@@ -751,7 +714,7 @@ class ElsevierSpider(XMLFeedSpider):
         issn = node.xpath('.//prism:issn/text()').extract_first()
         volume = node.xpath('.//prism:volume/text()').extract_first()
         issue = node.xpath('.//prism:number/text()').extract_first()
-        journal_title, section = self.get_journal_and_section(
+        journal_title, section = get_journal_and_section(
             self._get_publication(node))
         year, date_published = self.get_date(node)
         conference = node.xpath(".//conference-info").extract_first()
@@ -769,7 +732,7 @@ class ElsevierSpider(XMLFeedSpider):
         if fpage and lpage:
             info["fpage"] = fpage
             info["lpage"] = lpage
-            info["page_nr"] = int(lpage) - int(fpage) + 1
+            info["page_nr"] = str(int(lpage) - int(fpage) + 1)
         elif fpage:
             info["fpage"] = fpage
         if year:
@@ -960,13 +923,13 @@ class ElsevierSpider(XMLFeedSpider):
         if "lpage" in keys_missing and nrs and len(nrs) == 2:
             info["lpage"] = nrs[-1]
         if "page_nr" in keys_missing and ("lpage" in info and "fpage" in info):
-            info["page_nr"] = int(info["lpage"]) - int(info["fpage"]) + 1
+            info["page_nr"] = str(int(info["lpage"]) - int(info["fpage"]) + 1)
 
         response.meta["info"] = info
         return self.build_item(response)
 
-    def add_fft_file(self, file_path, file_access, file_type):
-        """Create a structured dictionary and add to 'files' item."""
+    def create_fft_file(self, file_path, file_access, file_type):
+        """Create a structured dictionary and add to 'additional_files' item."""
         file_dict = {
             "access": file_access,
             "description": self.name.title(),
@@ -983,13 +946,14 @@ class ElsevierSpider(XMLFeedSpider):
         doctype = self.get_doctype(node)
         self.logger.info("Doc type is %s", doctype)
         if doctype in {'correction', 'addendum'}:
-            # NOTE: should test if this is working as intended.
             record.add_xpath(
                 'related_article_doi', "//related-article[@ext-link-type='doi']/@href")
 
         xml_file = response.meta.get("xml_url")
         if xml_file:
-            record.add_value('additional_files', self.add_fft_file(xml_file, "HIDDEN", "Fulltext"))
+            record.add_value(
+                'additional_files', self.create_fft_file(xml_file, "HIDDEN", "Fulltext")
+            )
             sd_url = self._get_sd_url(xml_file)
             if requests.head(sd_url).status_code == 200:  # Test if valid url
                 record.add_value("urls", sd_url)
@@ -1004,7 +968,6 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('abstract', self.get_abstract(node))
         record.add_value('title', self.get_title(node))
         record.add_value('authors', self.get_authors(node))
-        # record.add_xpath("urls", "//prism:url/text()")  # We don't want dx.doi urls
         record.add_value('free_keywords', self.get_keywords(node))
         info = response.meta.get("info")
         if info:
@@ -1029,4 +992,7 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('collections', self.get_collections(doctype))
         record.add_value('references', self.get_references(node))
 
-        return record.load_item()
+        parsed_record = record.load_item()
+        validate_schema(data=dict(parsed_record), schema_name='hep')
+
+        return parsed_record

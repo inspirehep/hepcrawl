@@ -117,19 +117,6 @@
             <slim:subfield code="4">oth</slim:subfield>
             <slim:subfield code="e">Gutachter</slim:subfield>
           </slim:datafield>
-          <slim:datafield tag="856" ind1="4" ind2="0">
-            <slim:subfield code="u">http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257</slim:subfield>
-            <slim:subfield code="x">Resolving-System</slim:subfield>
-          </slim:datafield>
-          <slim:datafield tag="856" ind1=" " ind2="0">
-            <slim:subfield code="u">http://d-nb.info/1079912991/34</slim:subfield>
-            <slim:subfield code="x">Langzeitarchivierung Nationalbibliothek</slim:subfield>
-          </slim:datafield>
-          <slim:datafield tag="856" ind1="4" ind2=" ">
-            <slim:subfield code="u">http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625</slim:subfield>
-            <slim:subfield code="x">Verlag</slim:subfield>
-            <slim:subfield code="z">kostenfrei</slim:subfield>
-          </slim:datafield>
           <slim:datafield tag="883" ind1="0" ind2=" ">
             <slim:subfield code="8">1\p</slim:subfield>
             <slim:subfield code="a">maschinell gebildet</slim:subfield>

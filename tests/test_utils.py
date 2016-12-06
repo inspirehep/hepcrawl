@@ -16,9 +16,11 @@ import responses
 import six
 
 from hepcrawl.utils import (
+    add_items_to_references,
     build_dict,
     coll_cleanforthe,
     collapse_initials,
+    format_arxiv_id,
     ftp_connection_info,
     get_first,
     get_journal_and_section,
@@ -259,5 +261,26 @@ def test_get_journal_and_section_invalid():
     publication = ""
     journal_title, section = get_journal_and_section(publication)
 
-    assert journal_title == ''
-    assert section == ''
+    assert journal_title == ""
+    assert section == ""
+
+
+def test_format_arxiv_id():
+    """Test arXiv id formatting."""
+    arxiv_text1 = ["arXiv:hep-ph/0703285"]
+    arxiv_text2 = ["1106.5937"]
+
+    assert format_arxiv_id(arxiv_text1) == "hep-ph/0703285"
+    assert format_arxiv_id(arxiv_text2) == "arxiv:1106.5937"
+
+
+def test_add_item_to_reference():
+    """Test adding items to an existing reference."""
+    reference = {"number": "1"}
+    reference = add_items_to_references(
+        reference=reference,
+        year="1999",
+        fpage="151"
+    )
+
+    assert reference == {u'number': u'1', 'fpage': u'151', 'year': u'1999'}

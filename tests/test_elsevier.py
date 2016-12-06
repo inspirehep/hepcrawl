@@ -27,7 +27,7 @@ from .responses import (
 
 @pytest.fixture(scope="module")
 def record():
-    """Return results generator from the Elsevier spider."""
+    """Return results from the Elsevier spider."""
     spider = elsevier_spider.ElsevierSpider()
     response = fake_response_from_file('elsevier/sample_consyn_record.xml')
     response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
@@ -40,8 +40,11 @@ def record():
 
 @pytest.fixture(scope="module")
 def parsed_node():
-    """Test data that have different values than in the sample record."""
-    # NOTE: this tries to make a GET request
+    """Test data that have different values than in the sample record.
+
+    This tests also `scrape_sciencedirect` when http response status is 404:
+    it should go straight to `build_item`.
+    """
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:oa="http://vtw.elsevier.com/data/ns/properties/OpenAccess-1/"
@@ -238,7 +241,6 @@ def test_copyright_holder(item_info):
 def test_get_publication_jid(item_info):
     _, publication, _ = item_info
     assert publication
-    #assert publication == 'Physics letters B'
     assert publication == 'PLB'
 
 
@@ -278,7 +280,8 @@ def test_date_published(record):
 def test_authors(record):
     """Test authors."""
     authors = ["Vafa, Cumrun"]
-    affiliation = u'Lyman Laboratory of Physics, Harvard University, Cambridge, MA 02138, USA'
+    affiliation = (u'Lyman Laboratory of Physics, Harvard University, '
+                    'Cambridge, MA 02138, USA')
     assert record['authors']
     assert len(record['authors']) == len(authors)
 
@@ -321,21 +324,13 @@ def test_copyright(record):
 
 
 @pytest.fixture
-def format_arxiv():
-    spider = elsevier_spider.ElsevierSpider()
-    return spider._format_arxiv_id([u'arxiv:1012.2314'])
-
-
-def test_format_arxiv(format_arxiv):
-    assert format_arxiv
-    assert format_arxiv == u'arxiv:1012.2314'
-
-
-@pytest.fixture
 def authors():
-    """Authors with different kinds of structures: affiliations,
-    group affiliations, collaborations, two different author groups, and
-    two alternative ways of writing affiliation info: ce:textfn or sa:affiliation."""
+    """Authors with different kinds of structures.
+
+    Tags: affiliations, group affiliations, collaborations, two different
+    author groups, and two alternative ways of writing affiliation
+    info: ce:textfn or sa:affiliation.
+    """
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
@@ -423,7 +418,7 @@ def test_get_authors(authors):
 
 @pytest.fixture
 def ref_textref():
-    """Raw textref string without inner structure."""
+    """Raw textref string without nested inner structure."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:ce="http://www.elsevier.com/xml/common/schema">
@@ -437,14 +432,18 @@ def ref_textref():
 
 def test_ref_textref(ref_textref):
     assert ref_textref
-    assert ref_textref == [{
-        'raw_reference': [u'D. Friedan and S. Shenker, unpublished.']
-    }]
+    raw_reference = (
+        """<ce:bib-reference xmlns:ce="http://www.elsevier.com/xml/common/schema" id="bib12">
+        <ce:textref>D. Friedan and S. Shenker, unpublished.</ce:textref>
+    </ce:bib-reference>"""
+    )
+
+    assert ref_textref[0]["raw_reference"][0] == raw_reference
 
 
 @pytest.fixture
 def ref_textref_sublabels():
-    """Raw textref strings with bad sublabels."""
+    """Raw textref strings with sublabels."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:ce="http://www.elsevier.com/xml/common/schema">
@@ -465,11 +464,25 @@ def ref_textref_sublabels():
 
 
 def test_ref_textref_sublabels(ref_textref_sublabels):
+    """Test labels like 1a, 1b, etc. Note that they are not integers."""
     assert ref_textref_sublabels
-    assert ref_textref_sublabels == [
-        {'raw_reference': [u'D. Kastor, E. Martinec and Z. Qiu, E. Fermi Institute preprint EFI-87-58.']},
-        {'raw_reference': [u'G. Moore and N. Seiberg, unpublished.']}
-    ]
+    raw_reference0 = (
+        """<ce:other-ref xmlns:ce="http://www.elsevier.com/xml/common/schema" id="CE0030">
+            <ce:label>a</ce:label>
+            <ce:textref>D. Kastor, E. Martinec and Z. Qiu, E. Fermi Institute preprint EFI-87-58.</ce:textref>
+        </ce:other-ref>"""
+    )
+    raw_reference1 = (
+        """<ce:other-ref xmlns:ce="http://www.elsevier.com/xml/common/schema" id="CE0035">
+            <ce:label>b</ce:label>
+            <ce:textref>G. Moore and N. Seiberg, unpublished.</ce:textref>
+        </ce:other-ref>"""
+    )
+
+    assert ref_textref_sublabels[0]['number'] == u'x3a'
+    assert ref_textref_sublabels[1]['number'] == u'x3b'
+    assert ref_textref_sublabels[0]['raw_reference'][0] == raw_reference0
+    assert ref_textref_sublabels[1]['raw_reference'][0] == raw_reference1
 
 
 @pytest.fixture
@@ -524,13 +537,15 @@ def ref_simple_journal():
 
 def test_ref_simple_journal(ref_simple_journal):
     assert ref_simple_journal
+    assert 'raw_reference' in ref_simple_journal[0]
+    ref_simple_journal[0].pop('raw_reference')
     assert ref_simple_journal == [{
         'volume': u'37',
         'doi': u'doi:[this is a doi number]',
         'title': u'Comparisons through the mind\u2019s eye',
         'journal': u'Cognition',
         'authors': [u'P\xe4ivi\xf6, A. & Becker, L.J. et al.'],
-        'number': 1,
+        'number': '1',
         'lpage': u'647',
         'fpage': u'635',
         'year': u'1975',
@@ -542,6 +557,7 @@ def test_ref_simple_journal(ref_simple_journal):
 @pytest.fixture
 def ref_simple_journal_suppl():
     """An article in a journal supplement, only first page given.
+
     One author is a collaboration.
     """
     spider = elsevier_spider.ElsevierSpider()
@@ -595,12 +611,14 @@ def ref_simple_journal_suppl():
 
 def test_ref_simple_journal_suppl(ref_simple_journal_suppl):
     assert ref_simple_journal_suppl
+    assert 'raw_reference' in ref_simple_journal_suppl[0]
+    ref_simple_journal_suppl[0].pop('raw_reference')
     assert ref_simple_journal_suppl == [{
         'title': u'A pilot study of the effect of ...',
         'collaboration': [u'The Collaboration'],
         'journal': u'Acta Psychiatrica Scandinavica',
         'authors': [u'Koczkas, S., Holmberg, G. & Wedin, L.'],
-        'number': 2,
+        'number': '2',
         'volume': u'63',
         'fpage': u'328',
         'year': u'1981',
@@ -611,9 +629,11 @@ def test_ref_simple_journal_suppl(ref_simple_journal_suppl):
 
 @pytest.fixture
 def ref_journal_issue():
-    """Entire issue of a journal. In addition to the sb:title in the sb:series
-    (the journal title), the issue of this example has a title and (guest) editors
-    of its own. The additional text ’(special issue)’ is tagged as a comment. Only
+    """Entire issue of a journal.
+
+    In addition to the sb:title in the sb:series (the journal title),
+    the issue of this example has a title and (guest) editors of its own.
+    The additional text ’(special issue)’ is tagged as a comment. Only
     author surnames given.
     """
     spider = elsevier_spider.ElsevierSpider()
@@ -656,21 +676,24 @@ def ref_journal_issue():
 
 def test_ref_journal_issue(ref_journal_issue):
     assert ref_journal_issue
+    assert 'raw_reference' in ref_journal_issue[0]
+    ref_journal_issue[0].pop('raw_reference')
     assert ref_journal_issue == [{
         'journal': u'Testing: concepts and research; American Psychologist',
         'misc': [u'special issue'],
         'editors': [u'Glaser & Bond'],
-        'number': 3,
+        'number': '3',
         'volume': u'36',
         'year': u'1981',
         'issue': u'1012',
-        'journal_pubnote': [u'Testing: concepts and research; American Psychologist,36(1012)']
+        'journal_pubnote': [u'Testing: concepts and research; '
+                            'American Psychologist,36(1012)']
     }]
 
 
 @pytest.fixture
 def ref_translated_article():
-    """ Non-English journal article, with an English sb:translated-title."""
+    """Non-English journal article, with an English sb:translated-title."""
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:ce="http://www.elsevier.com/xml/common/schema"
@@ -720,12 +743,15 @@ def ref_translated_article():
 
 def test_ref_translated_article(ref_translated_article):
     assert ref_translated_article
+    assert 'raw_reference' in ref_translated_article[0]
+    ref_translated_article[0].pop('raw_reference')
     assert ref_translated_article == [{
         'volume': u'54',
-        'title': u'Het aanleren van deelgeheel relaties (Teaching partwhole relations)',
+        'title': u'Het aanleren van deelgeheel relaties '
+                 '(Teaching partwhole relations)',
         'journal': u'Pedagogische Studie\u0308n',
         'authors': [u'Assink, E.M.H. & Verloop, N.'],
-        'number': 4,
+        'number': '4',
         'lpage': u'142',
         'fpage': u'130',
         'year': u'1977',
@@ -785,12 +811,16 @@ def ref_monograph():
 
 def test_ref_monograph(ref_monograph):
     assert ref_monograph
+    assert 'raw_reference' in ref_monograph[0]
+    ref_monograph[0].pop('raw_reference')
     assert ref_monograph == [{
         'publisher': u'New York: MacMillan',
         'book_title': u'The elements of style',
         'year': u'1979',
-        'number': 5,
-        'misc': [u'This reference discusses the basic concepts in a very thorough manner. Its literature list is a main entry point into the discipline.'],
+        'number': '5',
+        'misc': [u'This reference discusses the basic concepts in a very '
+                'thorough manner. Its literature list is a main entry point '
+                'into the discipline.'],
         'authors': [u'Strunk, W. & White, E.B.'],
         'isbn': u'0-02-418190-0'
     }]
@@ -827,17 +857,20 @@ def ref_book_no_authors():
 
 def test_ref_book_no_authors(ref_book_no_authors):
     assert ref_book_no_authors
+    assert 'raw_reference' in ref_book_no_authors[0]
+    ref_book_no_authors[0].pop('raw_reference')
     assert ref_book_no_authors == [
         {'publisher': u'Princeton, NJ: College Board Publications',
          'book_title': u'College bound seniors',
          'year': u'1979',
-         'number': 6}
+         'number': '6'}
     ]
 
 
 @pytest.fixture
 def ref_book_translated():
     """Book originally published in another language, with a translator.
+
     In this example the original title and the original language are not given.
     """
     spider = elsevier_spider.ElsevierSpider()
@@ -878,10 +911,12 @@ def ref_book_translated():
 
 def test_ref_book_translated(ref_book_translated):
     assert ref_book_translated
+    assert 'raw_reference' in ref_book_translated[0]
+    ref_book_translated[0].pop('raw_reference')
     assert ref_book_translated == [{
         'authors': [u'Luria, A.R.'],
         'book_title': u'The mind of a mnemonist',
-        'number': 7,
+        'number': '7',
         'misc': [u'L. Solotarof, Trans. Original work published 1965'],
         'publisher': u'New York: Avon books',
         'year': u'1969'
@@ -947,12 +982,14 @@ def ref_edited_book_article():
 
 def test_ref_edited_book_article(ref_edited_book_article):
     assert ref_edited_book_article
+    assert 'raw_reference' in ref_edited_book_article[0]
+    ref_edited_book_article[0].pop('raw_reference')
     assert ref_edited_book_article == [{
         'authors': [u'Gurman, A.S. & Kniskern, D.P.'],
         'book_title': u'Handbook of family therapy',
         'editors': [u'Editor1, G.F. & Editor2, X.S.'],
         'fpage': u'742',
-        'number': 8,
+        'number': '8',
         'publisher': u'New York: Brunner/Mazel',
         'title': u'Family therapy outcome research: knowns and unknowns',
         'year': u'1981'
@@ -1035,6 +1072,8 @@ def ref_edited_book_article_repr():
 
 def test_ref_edited_book_article_repr(ref_edited_book_article_repr):
     assert ref_edited_book_article_repr
+    assert 'raw_reference' in ref_edited_book_article_repr[0]
+    ref_edited_book_article_repr[0].pop('raw_reference')
     assert ref_edited_book_article_repr == [{
         'authors': [u'Sluzki, C.E. & Beavin, J.'],
         'book_title': u'The interactional view',
@@ -1042,7 +1081,7 @@ def test_ref_edited_book_article_repr(ref_edited_book_article_repr):
         'fpage': u'71',
         'journal': u'Acta Psiquiatrica y Psicologica de America Latina',
         'journal_pubnote': [u'Acta Psiquiatrica y Psicologica de America Latina,11,71'],
-        'number': 9,
+        'number': '9',
         'lpage': u'87',
         'misc': [u'Reprinted from'],
         'publisher': u'New York: Norton',
@@ -1105,12 +1144,15 @@ def ref_book_proceedings_article():
 
 def test_ref_book_proceedings_article(ref_book_proceedings_article):
     assert ref_book_proceedings_article
+    assert 'raw_reference' in ref_book_proceedings_article[0]
+    ref_book_proceedings_article[0].pop('raw_reference')
     assert ref_book_proceedings_article == [{
         'authors': [u'Chaddock, T.E.'],
-        'book_title': u'Proceedings of the Fourth International Symposium on Gastrointestinal Motility',
+        'book_title': u'Proceedings of the Fourth International Symposium on '
+                      'Gastrointestinal Motility',
         'editors': [u'Daniel, E.E.'],
         'fpage': u'83',
-        'number': 10,
+        'number': '10',
         'lpage': u'92',
         'publisher': u'Vancouver, British Columbia, Canada: Mitchell Press',
         'title': u'Gastric emptying of a nutritionally balanced diet',
@@ -1159,19 +1201,22 @@ def ref_edited_book():
 
 def test_ref_edited_book(ref_edited_book):
     assert ref_edited_book
+    assert 'raw_reference' in ref_edited_book[0]
+    ref_edited_book[0].pop('raw_reference')
     assert ref_edited_book == [{
         'publisher': u'New York: Praeger',
         'book_title': u'Bilingual education',
         'year': u'1980',
         'editors': [u'Letheridge, S. & Cannon, C.R.'],
-        'number': 11
+        'number': '11'
     }]
 
 
 @pytest.fixture
 def ref_multi_volume_edited():
-    """A volume in a multi-volume edited work. The volume may have its own
-    editors and title, as shown in this example.
+    """A volume in a multi-volume edited work.
+
+    The volume may have its own editors and title, as shown in this example.
     """
     spider = elsevier_spider.ElsevierSpider()
     body = """
@@ -1225,12 +1270,14 @@ def ref_multi_volume_edited():
 
 def test_ref_multi_volume_edited(ref_multi_volume_edited):
     assert ref_multi_volume_edited
+    assert 'raw_reference' in ref_multi_volume_edited[0]
+    ref_multi_volume_edited[0].pop('raw_reference')
     assert ref_multi_volume_edited == [{
         'book_title': u'Basic teratology',
         'editors': [u'Wilson, J.G.'],
         'journal': u'Handbook of teratology',
         'journal_pubnote': [u'Handbook of teratology,1'],
-        'number': 12,
+        'number': u'12',
         'publisher': u'New York: Plenum Press',
         'series_editors': [u'Wilson, J.G. & Fraser, F.C.'],
         'volume': u'1',
@@ -1296,11 +1343,14 @@ def ref_multi_volume():
 
 def test_ref_multi_volume(ref_multi_volume):
     assert ref_multi_volume
+    assert 'raw_reference' in ref_multi_volume[0]
+    ref_multi_volume[0].pop('raw_reference')
     assert ref_multi_volume == [{
         'authors': [u'Wilson, J.G.'],
         'book_title': u'Basic teratology',
         'journal': u'Handbook of teratology',
         'journal_pubnote': [u'Handbook of teratology,1-2'],
+        'number': u'12b',
         'publisher': u'New York: Plenum Press',
         'series_editors': [u'Wilson, J.G. & Fraser, F.C.'],
         'volume': u'1-2',
@@ -1310,7 +1360,9 @@ def test_ref_multi_volume(ref_multi_volume):
 
 @pytest.fixture
 def ref_ehost():
-    """An electronic host. In this example the sb:e-host contains the preprint,
+    """An electronic host.
+
+    In this example the sb:e-host contains the preprint,
     and the sb:issue contains the printed article. It also often occurs that
     the sb:e-host is the only host.
     """
@@ -1362,13 +1414,15 @@ def ref_ehost():
 
 def test_ref_ehost(ref_ehost):
     assert ref_ehost
+    assert 'raw_reference' in ref_ehost[0]
+    ref_ehost[0].pop('raw_reference')
     assert ref_ehost == [{
         'arxiv_id': u'hep-th/9112009',
         'authors': [u'Yu, F. & Wu, X.-S.'],
         'fpage': u'2996',
         'journal': u'Phys. Rev. Lett.',
         'journal_pubnote': [u'Phys.Rev.Lett.,68,2996'],
-        'number': 14,
+        'number': '14',
         'volume': u'68',
         'year': u'1992'
     }]
@@ -1418,23 +1472,28 @@ def ref_eproceedings_article():
 
 
 def test_ref_eproceedings_article(ref_eproceedings_article):
+    """Test reference which is an article in proceedings."""
     assert ref_eproceedings_article
+    assert 'raw_reference' in ref_eproceedings_article[0]
+    ref_eproceedings_article[0].pop('raw_reference')
     assert ref_eproceedings_article == [{
         'book_title': u'Proc. 1996 USENIX Technical Conference',
         'title': u'Tracking and viewing changes on the web',
         'year': u'1996',
-        'number': 15,
-        'url': [u'http://www.research.att.com/papers/aide.ps.gz', u'http://usenix.org/sd96.html'],
+        'number': '15',
+        'url': [u'http://www.research.att.com/papers/aide.ps.gz',
+                u'http://usenix.org/sd96.html'],
         'authors': [u'Douglis, F. & Ball, Th.']
     }]
 
 
 @pytest.fixture
 def ref_comment_and_note():
-    """Entire issue of a journal. In addition to the sb:title in the sb:series
-    (the journal title), the issue of this example has a title and (guest) editors
-    of its own. The additional text ’(special issue)’ is tagged as a comment. Only
-    author surnames given.
+    """Entire issue of a journal.
+
+    In addition to the sb:title in the sb:series (the journal title), the issue
+    of this example has a title and (guest) editors of its own. The additional
+    text ’(special issue)’ is tagged as a comment. Only author surnames given.
     """
     spider = elsevier_spider.ElsevierSpider()
     body = """
@@ -1558,19 +1617,28 @@ def handled_package(handled_feed):
 
 def test_handle_package(handled_package):
     """Check whether the response metadata is correct.
+
     Now testing with mock zip files without real copyrighted content.
     """
     astropart, nima = handled_package
     for astro, nima in zip(astropart, nima):
         assert nima
         assert astro
-        assert astro.meta["package_path"] == "tests/responses/elsevier/fake_astropart.zip"
-        url_to_match = u'file:///tmp/elsevier_fake_astropart_*/0927-6505/aip/S0927650515001656/S0927650515001656.xml'
-        assert astro.meta["xml_url"] == fnmatch.filter([astro.meta["xml_url"]], url_to_match)[0]
+        assert astro.meta["package_path"] == \
+            "tests/responses/elsevier/fake_astropart.zip"
+        url_to_match = (u'file:///tmp/elsevier_fake_astropart_*/'
+                        '0927-6505/aip/S0927650515001656/S0927650515001656.xml')
+        assert astro.meta["xml_url"] == fnmatch.filter(
+            [astro.meta["xml_url"]], url_to_match
+        )[0]
 
-        assert nima.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
-        url_to_match = u'file:///tmp/elsevier_fake_nima_*/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'
-        assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]
+        assert nima.meta["package_path"] == \
+            "tests/responses/elsevier/fake_nima.zip"
+        url_to_match = (u'file:///tmp/elsevier_fake_nima_*/0168-9002/'
+                        'S0168900215X00398/S0168900215015636/S0168900215015636.xml')
+        assert nima.meta["xml_url"] == fnmatch.filter(
+            [nima.meta["xml_url"]], url_to_match
+        )[0]
 
 
 @pytest.fixture
@@ -1578,7 +1646,8 @@ def conference():
     """Test conference doctype and collection detection.
 
     This also has simple-article element, but it should
-    be overridden by the conference doctype."""
+    be overridden by the conference doctype.
+    """
     spider = elsevier_spider.ElsevierSpider()
     body = """
     <doc xmlns:ja="http://www.elsevier.com/xml/ja/schema">
@@ -1626,7 +1695,7 @@ def sciencedirect():
     response.meta["keys_missing"] = set([
         "journal_title", "volume", "issue", "fpage", "lpage", "year",
         "date_published", "dois", "page_nr",
-        ])
+    ])
     response.meta["info"] = {}
     response.meta["node"] = get_node(spider, '/head', text=body)
     return spider.scrape_sciencedirect(response)
@@ -1646,8 +1715,10 @@ def test_sciencedirect(sciencedirect):
 
 @pytest.fixture
 def sciencedirect_proof():
-    """Scrape data from a minimal example web page. This hasn't been published
-    yet. There is only the online paper, i.e. this is a proof.
+    """Scrape data from a minimal example web page.
+
+    This hasn't been published yet. There is only the online paper,
+    i.e. this is a proof.
     """
     spider = elsevier_spider.ElsevierSpider()
     body = """
