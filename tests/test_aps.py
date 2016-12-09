@@ -116,18 +116,6 @@ def test_collaborations(results):
         assert record['collaborations'] == collaborations
 
 
-def test_subjects(results):
-    """Test extracting collaboration."""
-    subjects = [{
-        'scheme': 'APS',
-        'source': '',
-        'term': 'Quantum Information',
-    }]
-    for record in results:
-        assert 'field_categories' in record
-        assert record['field_categories'] == subjects
-
-
 def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "Phys. Rev. E"

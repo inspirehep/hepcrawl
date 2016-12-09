@@ -66,16 +66,6 @@ def test_date_published(record):
     assert record['date_published'] == date_published
 
 
-def test_subject(record):
-    """Test extracting subject"""
-    field_categories = ['Lattice Field Theory', ]
-
-    assert 'field_categories' in record
-    for subject in record['field_categories']:
-        assert subject in field_categories
-        field_categories.remove(subject)
-
-
 def test_license(record):
     """Test extracting license information."""
     expected_license = [{
