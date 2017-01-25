@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016 CERN.
+# Copyright (C) 2016, 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -13,6 +13,7 @@ import re
 
 from scrapy import Request, Selector
 from scrapy.spiders import Spider
+from urlparse import urljoin
 from ..utils import get_license, get_first
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
@@ -32,7 +33,7 @@ class POSSpider(Spider):
 
     """
     name = 'PoS'
-    pos_base_url = "http://pos.sissa.it/contribution?id="
+    pos_base_url = "https://pos.sissa.it/contribution?id="
 
     def __init__(self, source_file=None, **kwargs):
         """Construct POS spider."""
@@ -61,6 +62,7 @@ class POSSpider(Spider):
         response.meta["pos_pdf_url"] = response.selector.xpath(
             "//a[contains(text(),'pdf')]/@href"
         ).extract_first()
+        response.meta["pos_pdf_url"] = urljoin(self.pos_base_url, response.meta["pos_pdf_url"])
         response.meta["pos_url"] = response.url
         return self.build_item(response)
 
