@@ -1,0 +1,134 @@
+{
+    "errors": [], 
+    "results_uri": "scrapy_feed_uri", 
+    "log_file": "scrapy_log_file", 
+    "results_data": [
+        {
+            "page_nr": [
+                "11"
+            ], 
+            "acquisition_source": {
+                "date": "2017-02-07T23:18:39.078782", 
+                "source": "TestSpider", 
+                "method": "TestSpider", 
+                "submission_number": "scrapy_job"
+            }, 
+            "license": [
+                {
+                    "url": "http://creativecommons.org/licenses/by/3.0/", 
+                    "license": "CC-BY-3.0"
+                }
+            ], 
+            "collaborations": [
+                {
+                    "value": "OSQAR Collaboration"
+                }
+            ], 
+            "dois": [
+                {
+                    "value": "10.1103/PhysRevE.92.052801"
+                }
+            ], 
+            "titles": [
+                {
+                    "source": "TestSpider", 
+                    "subtitle": "", 
+                    "title": "You can run, you can hide: The epidemiology and statistical mechanics of zombies"
+                }
+            ], 
+            "collections": [
+                {
+                    "primary": "HEP"
+                }, 
+                {
+                    "primary": "Citeable"
+                }, 
+                {
+                    "primary": "Published"
+                }
+            ], 
+            "authors": [
+                {
+                    "raw_name": "Alexander A. Alemi", 
+                    "affiliations": [
+                        {
+                            "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                        }
+                    ], 
+                    "surname": "Alemi", 
+                    "given_names": "Alexander A.", 
+                    "full_name": "Alemi, Alexander A."
+                }, 
+                {
+                    "raw_name": "Matthew Bierbaum", 
+                    "affiliations": [
+                        {
+                            "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                        }
+                    ], 
+                    "surname": "Bierbaum", 
+                    "given_names": "Matthew", 
+                    "full_name": "Bierbaum, Matthew"
+                }, 
+                {
+                    "raw_name": "Christopher R. Myers", 
+                    "affiliations": [
+                        {
+                            "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                        }, 
+                        {
+                            "value": "Institute of Biotechnology, Cornell University, Ithaca, New York 14853, USA"
+                        }
+                    ], 
+                    "surname": "Myers", 
+                    "given_names": "Christopher R.", 
+                    "full_name": "Myers, Christopher R."
+                }, 
+                {
+                    "raw_name": "James P. Sethna", 
+                    "affiliations": [
+                        {
+                            "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                        }
+                    ], 
+                    "surname": "Sethna", 
+                    "given_names": "James P.", 
+                    "full_name": "Sethna, James P."
+                }
+            ], 
+            "publication_info": [
+                {
+                    "journal_volume": "92", 
+                    "note": "", 
+                    "page_end": "", 
+                    "artid": "", 
+                    "journal_title": "Phys. Rev. E", 
+                    "pubinfo_freetext": "", 
+                    "page_start": "", 
+                    "year": 2015, 
+                    "journal_issue": "5"
+                }
+            ], 
+            "copyright": [
+                {
+                    "material": "Article", 
+                    "holder": "authors", 
+                    "statement": "Published by the American Physical Society", 
+                    "year": "2015"
+                }
+            ], 
+            "abstracts": [
+                {
+                    "source": "TestSpider", 
+                    "value": "We use a popular fictional disease, zombies, in order to introduce techniques used in modern epidemiology modeling, and ideas and techniques used in the numerical study of critical phenomena. We consider variants of zombie models, from fully connected continuous time dynamics to a full scale exact stochastic dynamic simulation of a zombie outbreak on the continental United States. Along the way, we offer a closed form analytical expression for the fully connected differential equation, and demonstrate that the single person per site two dimensional square lattice version of zombies lies in the percolation universality class. We end with a quantitative study of the full scale US outbreak, including the average susceptibility of different geographical regions."
+                }
+            ], 
+            "imprints": [
+                {
+                    "date": "2015-11-02"
+                }
+            ]
+        }
+    ], 
+    "job_id": "scrapy_job"
+}

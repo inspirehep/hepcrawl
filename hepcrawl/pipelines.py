@@ -13,9 +13,10 @@ Don't forget to add pipelines to the ITEM_PIPELINES setting
 See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 """
 
-import os
 import datetime
 import json
+import os
+
 import requests
 
 from inspire_schemas.api import validate as validate_schema
@@ -92,6 +93,9 @@ class InspireAPIPushPipeline(object):
     def __init__(self):
         self.count = 0
 
+    def open_spider(self, spider):
+        self.results_data = []
+
     def process_item(self, item, spider):
         """Convert internal format to INSPIRE data model."""
         self.count += 1
@@ -154,6 +158,8 @@ class InspireAPIPushPipeline(object):
         ])
 
         validate_schema(dict(item), 'hep')
+        spider.logger.debug('Validated item.')
+        self.results_data.append(item)
         return item
 
     def _prepare_payload(self, spider):
@@ -161,6 +167,7 @@ class InspireAPIPushPipeline(object):
         payload = dict(
             job_id=os.environ['SCRAPY_JOB'],
             results_uri=os.environ['SCRAPY_FEED_URI'],
+            results_data=self.results_data,
             log_file=os.environ['SCRAPY_LOG_FILE'],
         )
         payload['errors'] = [
@@ -177,7 +184,8 @@ class InspireAPIPushPipeline(object):
 
     def close_spider(self, spider):
         """Post results to HTTP API."""
-        task_endpoint = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING'].get(
+        api_mapping = spider.settings['API_PIPELINE_TASK_ENDPOINT_MAPPING']
+        task_endpoint = api_mapping.get(
             spider.name, spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT']
         )
         api_url = os.path.join(
@@ -211,6 +219,7 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
             CELERY_TASK_SERIALIZER='json',
             CELERY_RESULT_SERIALIZER='json',
         ))
+        super(InspireCeleryPushPipeline, self).open_spider(spider=spider)
 
     def close_spider(self, spider):
         """Post results to BROKER API."""
