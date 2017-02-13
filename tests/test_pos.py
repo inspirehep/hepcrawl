@@ -10,13 +10,14 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import os
-
 import pkg_resources
+
 import pytest
-
-from hepcrawl.spiders import pos_spider
-
+from scrapy.crawler import Crawler
 from scrapy.http import HtmlResponse
+
+from hepcrawl.pipelines import InspireCeleryPushPipeline
+from hepcrawl.spiders import pos_spider
 
 from .responses import fake_response_from_file
 
@@ -36,7 +37,8 @@ def scrape_pos_page_body():
 @pytest.fixture
 def record(scrape_pos_page_body):
     """Return results generator from the PoS spider."""
-    spider = pos_spider.POSSpider()
+    crawler = Crawler(spidercls=pos_spider.POSSpider)
+    spider = pos_spider.POSSpider.from_crawler(crawler)
     request = spider.parse(
         fake_response_from_file('pos/sample_pos_record.xml')
     ).next()
@@ -47,23 +49,24 @@ def record(scrape_pos_page_body):
         **{'encoding': 'utf-8'}
     )
     assert response
-    return request.callback(response)
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+    record = request.callback(response)
+    return pipeline.process_item(record, spider)
 
 
-def test_title(record):
+def test_titles(record):
     """Test extracting title."""
-    title = "Heavy Flavour Physics Review"
+    expected_titles = [
+        {
+            'source': 'Sissa Medialab',
+            'subtitle': '',
+            'title': 'Heavy Flavour Physics Review',
+        }
+    ]
 
-    assert 'title' in record
-    assert record['title'] == title
-
-
-def test_date_published(record):
-    """Test extracting date_published."""
-    date_published = "2014-03-19"
-
-    assert 'date_published' in record
-    assert record['date_published'] == date_published
+    assert 'titles' in record
+    assert record['titles'] == expected_titles
 
 
 def test_license(record):
@@ -91,19 +94,22 @@ def test_language(record):
 
 def test_publication_info(record):
     """Test extracting dois."""
-    journal_title = "PoS"
-    journal_year = 2014
-    journal_artid = "001"
-    journal_volume = "LATTICE 2013"
+    expected_pub_info = [{
+        'artid': '001',
+        'journal_issue': '',
+        'journal_title': 'PoS',
+        'journal_volume': 'LATTICE 2013',
+        'note': '',
+        'page_end': '',
+        'page_start': '',
+        'pubinfo_freetext': '',
+        'year': 2014,
+    }]
 
-    assert 'journal_title' in record
-    assert record['journal_title'] == journal_title
-    assert 'journal_year' in record
-    assert record['journal_year'] == journal_year
-    assert 'journal_artid' in record
-    assert record['journal_artid'] == journal_artid
-    assert 'journal_volume' in record
-    assert record['journal_volume'] == journal_volume
+    assert 'publication_info' in record
+
+    pub_info = record['publication_info']
+    assert pub_info == expected_pub_info
 
 
 def test_authors(record):
