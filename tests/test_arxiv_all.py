@@ -11,6 +11,7 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
 
+from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
 from .responses import fake_response_from_file
 
@@ -30,7 +31,8 @@ def one_result():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    return [pipeline.process_item(record, spider) for record in records]
 
 
 @pytest.fixture
@@ -48,7 +50,8 @@ def many_results():
         )
     ))
     assert records
-    return records
+    pipeline = InspireCeleryPushPipeline()
+    return [pipeline.process_item(record, spider) for record in records]
 
 
 def test_page_nr(many_results):

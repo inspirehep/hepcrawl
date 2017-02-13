@@ -135,7 +135,6 @@ class InspireAPIPushPipeline(object):
                 item['publication_info'] = [{
                     'journal_title': item.pop('journal_title', ''),
                     'journal_volume': item.pop('journal_volume', ''),
-                    'year': int(item.pop('journal_year', 0)) or '',
                     'journal_issue': item.pop('journal_issue', ''),
                     'artid': item.pop('journal_artid', ''),
                     'page_start': item.pop('journal_fpage', ''),
@@ -143,6 +142,8 @@ class InspireAPIPushPipeline(object):
                     'note': item.pop('journal_doctype', ''),
                     'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
                 }]
+                if item.get('journal_year'):
+                    item['publication_info']['year'] = int(item.pop('journal_year', 0))
 
         # Remove any fields
         filter_fields(item, [
