@@ -31,7 +31,7 @@ from .inputs import (
 )
 
 from .outputs import (
-    FreeKeywords,
+    Keywords,
     ClassificationNumbers,
     ListToValueDict,
 )
@@ -140,12 +140,12 @@ class HEPLoader(ItemLoader):
     copyright_statement_out = TakeFirst()
     copyright_material_out = TakeFirst()
 
-    free_keywords_in = MapCompose(
+    keywords_in = MapCompose(
         clean_whitespace_characters,
         convert_html_subscripts_to_latex,
         selective_remove_tags(),
     )
-    free_keywords_out = FreeKeywords()
+    keywords_out = Keywords()
 
     classification_numbers_out = ClassificationNumbers()
 

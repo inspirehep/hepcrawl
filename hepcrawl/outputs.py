@@ -10,16 +10,16 @@
 """Define output processors here."""
 
 
-class FreeKeywords(object):
+class Keywords(object):
 
-    """Build the appropriate free keywords structure."""
+    """Build the appropriate keywords structure."""
 
     def __init__(self, source="author"):
-        """Initialize the Free keyword structure with a source."""
+        """Initialize the keyword structure with a source."""
         self.source = source
 
     def __call__(self, values):
-        """Return the appropriate free keywords structure."""
+        """Return the appropriate keywords structure."""
         return [
             {"source": self.source, "value": val}
             for val in values

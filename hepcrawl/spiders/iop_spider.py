@@ -185,7 +185,7 @@ class IOPSpider(XMLFeedSpider, NLM):
                          "./CopyrightInformation/text()")
         record.add_xpath('copyright_holder', "//Journal/PublisherName/text()")
         record.add_xpath(
-            'free_keywords', "ObjectList/Object[@Type='keyword']/Param[@Name='value']/text()")
+            'keywords', "ObjectList/Object[@Type='keyword']/Param[@Name='value']/text()")
 
         record.add_xpath("related_article_doi", "//Replaces[@IdType='doi']/text()")
         doctype = self.get_doctype(node)  # FIXME: should these be mapped?

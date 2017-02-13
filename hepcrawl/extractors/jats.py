@@ -57,7 +57,7 @@ class Jats(object):
 
     def _get_keywords(self, node):
         """Return tuple of keywords, PACS from node."""
-        free_keywords = []
+        keywords = []
         classification_numbers = []
         for group in node.xpath('.//kwd-group'):
             if "pacs" in group.xpath('@kwd-group-type').extract():
@@ -65,8 +65,8 @@ class Jats(object):
                     classification_numbers.append(keyword)
             else:
                 for keyword in group.xpath('kwd').extract():
-                    free_keywords.append(keyword)
-        return free_keywords, classification_numbers
+                    keywords.append(keyword)
+        return keywords, classification_numbers
 
     def _get_authors(self, node):
         authors = []

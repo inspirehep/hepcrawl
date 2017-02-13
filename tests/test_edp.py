@@ -201,8 +201,8 @@ def test_keywords(record_jats):
     """Test free keywords."""
     keywords = ["nuclear", "physics"]
 
-    assert 'free_keywords' in record_jats
-    for keyw in record_jats["free_keywords"]:
+    assert 'keywords' in record_jats
+    for keyw in record_jats["keywords"]:
         assert keyw["value"] in keywords
 
 

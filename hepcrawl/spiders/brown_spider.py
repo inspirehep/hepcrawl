@@ -202,7 +202,7 @@ class BrownSpider(CrawlSpider):
 
         record.add_value('title', jsonrecord.get('primary_title'))
         record.add_value('abstract', jsonrecord.get('abstract'))
-        record.add_value('free_keywords', jsonrecord.get('keyword'))
+        record.add_value('keywords', jsonrecord.get('keyword'))
         record.add_value('page_nr', response.meta.get("pages"))
         record.add_value('authors', response.meta.get("authors"))
         record.add_value('file_urls', response.meta.get("pdf_link"))

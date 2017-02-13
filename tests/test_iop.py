@@ -66,13 +66,13 @@ def test_page_nr(record):
     assert record["journal_lpage"] == '343'
 
 
-def test_free_keywords(record):
-    """Test extracting free_keywords"""
+def test_keywords(record):
+    """Test extracting keywords"""
     keywords = [u'BRAF', u'MLH1',
                 u'Immunohistochemistry', u'Cost-benefit analysis']
 
-    assert "free_keywords" in record
-    for keyword in record["free_keywords"]:
+    assert "keywords" in record
+    for keyword in record["keywords"]:
         assert keyword["source"] == "author"
         assert keyword["value"] in keywords
 

@@ -1005,7 +1005,7 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('title', self.get_title(node))
         record.add_value('authors', self.get_authors(node))
         # record.add_xpath("urls", "//prism:url/text()")  # We don't want dx.doi urls
-        record.add_value('free_keywords', self.get_keywords(node))
+        record.add_value('keywords', self.get_keywords(node))
         info = response.meta.get("info")
         if info:
             record.add_value('date_published', info.get("date_published"))
