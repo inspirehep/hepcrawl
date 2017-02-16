@@ -15,7 +15,7 @@ readme = open('README.rst').read()
 
 install_requires = [
     'autosemver~=0.2',
-    'inspire-schemas~=4.0',
+    'inspire-schemas~=25.1',
     'Scrapy>=1.1.0',
     # TODO: unpin once they support wheel building again
     'scrapyd==1.1.0',
@@ -40,6 +40,7 @@ tests_require = [
     'pytest-pep8>=1.0.6',
     'responses>=0.5.0',
     'pydocstyle>=1.0.0',
+    'PyYAML',
 ]
 
 extras_require = {
