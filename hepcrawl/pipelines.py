@@ -19,6 +19,7 @@ import os
 
 import requests
 
+from crawler2hep import crawler2hep
 
 from .utils import get_temporary_file
 
@@ -159,6 +160,7 @@ class InspireAPIPushPipeline(object):
             'pubinfo_freetext',
         ])
 
+        crawler2hep(dict(item))
         spider.logger.debug('Validated item.')
         self.results_data.append(item)
         return item
