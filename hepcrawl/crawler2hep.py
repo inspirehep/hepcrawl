@@ -134,6 +134,8 @@ def crawler2hep(crawler_record):
         'thesis',
     ]
 
+    added_doc_type = False
+
     for collection in crawler_record.get('collections', []):
         collection = collection['primary'].strip().lower()
 
@@ -152,15 +154,18 @@ def crawler2hep(crawler_record):
         elif collection in publication_types:
             builder.add_publication_type(collection)
         elif collection in special_collections:
-            builder.add_special_collections(collection)
+            builder.add_special_collection(collection.upper())
         elif collection == 'bookchapter':
+            added_doc_type = True
             builder.add_document_type('book chapter')
         elif collection == 'conferencepaper':
+            added_doc_type = True
             builder.add_document_type('conference paper')
         elif collection in document_types:
+            added_doc_type = True
             builder.add_document_type(collection)
 
-    if builder.record.get('document_type') is None:
+    if not added_doc_type:
         builder.add_document_type('article')
 
     builder.validate_record()
