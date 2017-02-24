@@ -68,6 +68,14 @@ class Jats(object):
                     free_keywords.append(keyword)
         return free_keywords, classification_numbers
 
+    def _clean_aff(self, aff):
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(aff.extract().encode('UTF-8"'))
+        for el in root:
+            if el.tag == 'label':
+                root.remove(el)
+        return ', '.join(root.itertext())
+
     def _get_authors(self, node):
         authors = []
         for contrib in node.xpath(".//contrib[@contrib-type='author']"):
@@ -80,12 +88,12 @@ class Jats(object):
                 affiliations += node.xpath(".//aff[@id='{0}']".format(
                     get_first(reffered_id))
                 )
+
             for aff in affiliations:
                 print(aff)
             affiliations = [
-                {'value': get_first(aff.re('<aff.*?>(.*)</aff>'))}
+                {'value': self._clean_aff(aff)}
                 for aff in affiliations
-                if aff.re('<aff.*?>(.*)</aff>')
             ]
 
             authors.append({
