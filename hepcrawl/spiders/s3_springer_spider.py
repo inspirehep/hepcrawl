@@ -102,13 +102,13 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
-    def __init__(self, package_path=None, ftp_folder="data/in", ftp_host=None, ftp_netrc=None, *args, **kwargs):
+    def __init__(self, package_path=None, ftp_folder="data/in/EPJC", ftp_host=None, ftp_netrc=None, *args, **kwargs):
         """Construct Elsevier spider."""
         super(S3SpringerSpider, self).__init__(*args, **kwargs)
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.target_folder = "/tmp/Springer"
+        self.target_folder = "/tmp/Springer/EPJC"
         self.package_path = package_path
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
@@ -119,29 +119,31 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
             yield Request(self.package_path, callback=self.handle_package_file)
         else:
             ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
-            for journal in ['EPJC','JHEP']:
-                new_files, missing_files = ftp_list_files(
-                    os.path.join(self.ftp_folder, journal),
+            #for journal in ['EPJC']:
+            new_files, missing_files = ftp_list_files(
+                    #os.path.join(self.ftp_folder, journal),
+                    self.ftp_folder,
                     self.target_folder,
                     server=ftp_host,
                     user=ftp_params['ftp_user'],
                     password=ftp_params['ftp_password']
                 )
-                ## TODO - add checking if the package was already downloaded
-                # Cast to byte-string for scrapy compatibility
-                for remote_file in missing_files:
-                    remote_file = str(remote_file).strip('/data/in/EPJC/')
-                    ftp_params["ftp_local_filename"] = os.path.join(
-                        self.target_folder,
-                        remote_file
-                    )
-                    print(remote_file)
-                    remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
-                    yield Request(
-                        str(remote_url),
-                        meta=ftp_params,
-                        callback=self.handle_package_ftp
-                    )
+            ## TODO - add checking if the package was already downloaded
+            # Cast to byte-string for scrapy compatibility
+            print(missing_files)
+            for remote_file in missing_files:
+                print(remote_file)
+                remote_file = str(remote_file).strip('/data/in/EPJC/')
+                ftp_params["ftp_local_filename"] = os.path.join(
+                    self.target_folder,
+                    remote_file
+                )
+                remote_url = "ftp://{0}/{1}".format(ftp_host, 'data/in/EPJC/'+remote_file)
+                print(remote_url)
+                yield Request(
+                    str(remote_url),
+                    meta=ftp_params,
+                    callback=self.handle_package_ftp)
 
     def handle_package_ftp(self, response):
         """Handle the zip package and yield a request for every XML found."""
@@ -150,6 +152,8 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         target_folder = mkdtemp(prefix=filename + "_", dir="/tmp/Springer/unpacked")
 
         zip_filepath = response.meta["ftp_local_filename"]
+        print("zip_filepath: %s" % (zip_filepath,))
+        print("target_folder: %s" % (target_folder,))
         files = unzip_files(zip_filepath, target_folder)
         # The xml files shouldn't be removed after processing; they will
         # be later uploaded to Inspire. So don't remove any tmp files here.
@@ -164,7 +168,6 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
                         )
             else:
                 pass
-
 
     def parse_node(self, response, node):
         """Parse a OUP XML file into a HEP record."""
