@@ -202,8 +202,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         # TODO: Special journal title handling
         # journal, volume = fix_journal_name(journal, self.journal_mappings)
         # volume += get_value_in_tag(self.document, 'volume')
-        journal_title = '//abbrev-journal-title/text()|//journal-title/text()'
-        record.add_xpath('journal_title', journal_title.replace('The ', ''))
+        record.add_xpath('journal_title', '//abbrev-journal-title/text()|//journal-title/text()')
         record.add_xpath('journal_issue', '//issue/text()')
         record.add_xpath('journal_volume', '//volume/text()')
         record.add_xpath('journal_artid', '//elocation-id/text()')
@@ -228,7 +227,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         )
         record.add_value('license', license)
 
-        record.add_value('collections', ['Progress of Theoretical and Experimental Physics'])
+        record.add_value('collections', ['European Physical Journal C'])
         parsed_record = dict(record.load_item())
         validate_schema(data=parsed_record, schema_name='hep')
 
