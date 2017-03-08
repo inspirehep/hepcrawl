@@ -1,0 +1,96 @@
+{
+    "refereed": true,
+    "document_type": [
+        "book",
+        "book chapter",
+        "conference paper"
+    ],
+    "citeable": true,
+    "license": [
+        {
+            "url": "http://creativecommons.org/licenses/by/3.0/",
+            "license": "CC-BY-3.0"
+        }
+    ],
+    "collaborations": [
+        {
+            "value": "OSQAR Collaboration"
+        }
+    ],
+    "authors": [
+        {
+            "affiliations": [
+                {
+                    "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                }
+            ],
+            "full_name": "Alemi,  Alexander A."
+        },
+        {
+            "affiliations": [
+                {
+                    "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                }
+            ],
+            "full_name": "Bierbaum,  Matthew"
+        },
+        {
+            "affiliations": [
+                {
+                    "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                },
+                {
+                    "value": "Institute of Biotechnology, Cornell University, Ithaca, New York 14853, USA"
+                }
+            ],
+            "full_name": "Myers,  Christopher R."
+        },
+        {
+            "affiliations": [
+                {
+                    "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
+                }
+            ],
+            "full_name": "Sethna,  James P."
+        }
+    ],
+    "titles": [
+        {
+            "source": "TestSpider",
+            "title": "You can run, you can hide: The epidemiology and statistical mechanics of zombies"
+        }
+    ],
+    "dois": [
+        {
+            "source": "hepcrawl",
+            "value": "10.1103/PhysRevE.92.052801"
+        }
+    ],
+    "copyright": [
+        {
+            "url": "article",
+            "holder": "authors",
+            "statement": "Published by the American Physical Society"
+        }
+    ],
+    "imprints": [
+        {
+            "date": "2015-11-02T00:00:00"
+        }
+    ],
+    "special_collections": [
+        "CDS",
+        "HEPHIDDEN"
+    ],
+    "publication_type": [
+        "introductory",
+        "review"
+    ],
+    "core": true,
+    "withdrawn": true,
+    "acquisition_source": {
+        "source": "hepcrawl",
+        "submission_number": "None",
+        "method": "hepcrawl"
+    }
+}

@@ -13,7 +13,6 @@ import re
 
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
-from inspire_schemas.api import validate as validate_schema
 
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
 from ..utils import coll_cleanforthe, get_license, split_fullname
@@ -100,8 +99,6 @@ class ArxivSpider(XMLFeedSpider):
         record.add_value('license', license)
 
         parsed_record = dict(record.load_item())
-        validate_schema(data=parsed_record, schema_name='hep')
-
         return parsed_record
 
     def _get_authors_or_collaboration(self, node):
