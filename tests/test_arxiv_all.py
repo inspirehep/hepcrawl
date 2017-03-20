@@ -66,58 +66,41 @@ def many_results(spider):
 def test_page_nr(many_results):
     """Test extracting page_nr"""
     page_nrs = [
-        ["6"],
-        ["8"],
-        ["10"],
-        ["11"],
-        [],
-        ["4"],
-        ["8"],
-        ["24"],
-        ["23"],
-        [],
-        []
-        ]
-    for num, record in enumerate(many_results):
-        page_nr = page_nrs[num]
-        if page_nr:
-            assert 'page_nr' in record
-            assert record['page_nr'] == page_nr
-        else:
-            # should there be an empty field or no field?
-            if 'page_nr' in record:
-                assert record['page_nr']
-            else:
-                assert 'page_nr' not in record
+        6,
+        8,
+        10,
+        11,
+        None,
+        4,
+        8,
+        24,
+        23,
+        None,
+        None,
+    ]
+    for page_nr, record in zip(page_nrs, many_results):
+        assert record.get('number_of_pages') == page_nr
 
 
 def test_collections(many_results):
     """Test journal type"""
     doctypes = [
-        'ConferencePaper',
-        'ConferencePaper',
-        'ConferencePaper',
-        'ConferencePaper',
-        '',
-        'ConferencePaper',
-        '',
-        '',
-        '',
-        'ConferencePaper',
-        'Thesis'
+        ['conference paper'],
+        ['conference paper'],
+        ['conference paper'],
+        ['conference paper'],
+        ['article'],
+        ['conference paper'],
+        ['article'],
+        ['article'],
+        ['article'],
+        ['conference paper'],
+        ['thesis'],
     ]
 
-    for num, record in enumerate(many_results):
-        doctype = ['HEP', 'Citeable', 'arXiv']
-        if doctypes[num]:
-            doctype.append(doctypes[num])
-
-        assert 'collections' in record
-        assert set(
-            [
-                collection['primary'] for collection in record['collections']
-            ]
-        ) == set(doctype)
+    for doctypes, record in zip(doctypes, many_results):
+        assert record.get('citeable')
+        assert record.get('document_type') == doctypes
 
 
 def test_collaborations(many_results):
@@ -239,14 +222,14 @@ def test_repno(many_results):
         None,
         [{
             'value': 'YITP-2016-26',
-            'source': '',
+            'source': 'hepcrawl',
         }],
         None,
         None,
         None,
         [
-            {'source': '', 'value': u'DES 2016-0158'},
-            {'source': '', 'value': u'FERMILAB PUB-16-231-AE'}
+            {'source': 'hepcrawl', 'value': u'DES 2016-0158'},
+            {'source': 'hepcrawl', 'value': u'FERMILAB PUB-16-231-AE'}
         ],
         None,
         None,

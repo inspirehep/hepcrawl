@@ -160,7 +160,7 @@ class InspireAPIPushPipeline(object):
             'pubinfo_freetext',
         ])
 
-        crawler2hep(dict(item))
+        item = crawler2hep(dict(item))
         spider.logger.debug('Validated item.')
         self.results_data.append(item)
         return item

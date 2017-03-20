@@ -60,7 +60,6 @@ def test_titles(record):
     expected_titles = [
         {
             'source': 'Sissa Medialab',
-            'subtitle': '',
             'title': 'Heavy Flavour Physics Review',
         }
     ]
@@ -80,11 +79,10 @@ def test_license(record):
 
 def test_collections(record):
     """Test extracting collections."""
-    collections = ["HEP", "ConferencePaper"]
+    expected_document_type = ['conference paper']
 
-    assert 'collections' in record
-    for coll in collections:
-        assert {"primary": coll} in record['collections']
+    assert record.get('citeable')
+    assert record.get('document_type') == expected_document_type
 
 
 def test_language(record):
@@ -96,13 +94,8 @@ def test_publication_info(record):
     """Test extracting dois."""
     expected_pub_info = [{
         'artid': '001',
-        'journal_issue': '',
         'journal_title': 'PoS',
         'journal_volume': 'LATTICE 2013',
-        'note': '',
-        'page_end': '',
-        'page_start': '',
-        'pubinfo_freetext': '',
         'year': 2014,
     }]
 
@@ -114,18 +107,23 @@ def test_publication_info(record):
 
 def test_authors(record):
     """Test authors."""
-    authors = ["El-Khadra, Aida", "MacDonald, M.T."]
-    surnames = ["El-Khadra", "MacDonald"]
-    affiliations = ["INFN and Universit\xe0 di Firenze", "U of Pecs"]
+    expected_authors = [
+        {
+            'full_name': 'El-Khadra, Aida',
+            'affiliations': [{'value': 'INFN and Universit\xe0 di Firenze'}],
+        },
+        {
+            'full_name': 'MacDonald, M.T.',
+            'affiliations': [{'value': 'U of Pecs'}],
+        }
+    ]
 
     assert 'authors' in record
-    astr = record['authors']
-    assert len(astr) == len(authors)
+
+    result_authors = record['authors']
+
+    assert len(result_authors) == len(expected_authors)
 
     # here we are making sure order is kept
-    for index in range(len(authors)):
-        assert astr[index]['full_name'] == authors[index]
-        assert astr[index]['surname'] == surnames[index]
-        assert affiliations[index] in [
-            aff['value'] for aff in astr[index]['affiliations']
-        ]
+    for author, expected_author in zip(result_authors, expected_authors):
+        assert author == expected_author

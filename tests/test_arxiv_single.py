@@ -13,6 +13,7 @@ import pytest
 
 from scrapy.crawler import Crawler
 from scrapy.http import TextResponse
+from inspire_schemas.api import validate
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
@@ -35,7 +36,14 @@ def results():
     assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    return [pipeline.process_item(record, spider) for record in records]
+    processed_records = []
+    for record in records:
+        processed_record = pipeline.process_item(record, spider)
+        validate(processed_record, 'hep')
+        processed_records.append(processed_record)
+
+    return processed_records
+
 
 
 def test_abstracts(results):
@@ -67,7 +75,6 @@ def test_titles(results):
     """Test extracting title."""
     expected_titles = [{
         'source': 'arXiv',
-        'subtitle': '',
         'title': (
             "Irreversible degradation of quantum coherence under relativistic "
             "motion"
@@ -80,7 +87,7 @@ def test_titles(results):
 
 def test_preprint_date(results):
     """Test extracting preprint_date."""
-    preprint_date = "2016-01-13"
+    preprint_date = "2016-01-13T00:00:00"
     for record in results:
         assert 'preprint_date' in record
         assert record['preprint_date'] == preprint_date
@@ -88,23 +95,19 @@ def test_preprint_date(results):
 
 def test_page_nr(results):
     """Test extracting page_nr"""
-    page_nr = ["6"]
+    page_nr = 6
     for record in results:
-        assert 'page_nr' in record
-        assert record['page_nr'] == page_nr
+        assert 'number_of_pages' in record
+        assert record['number_of_pages'] == page_nr
 
 
 def test_collections(results):
     """Test collections"""
-    doctype = ['HEP', 'Citeable', 'arXiv', 'ConferencePaper']
     for record in results:
-        assert 'collections' in record
-        assert set(
-            [
-                collection['primary'] for collection in record['collections']
-            ]
-        ) == set(doctype)
-        break
+        assert 'citeable' in record
+        assert record['citeable']
+        assert 'document_type' in record
+        assert record['document_type'] == ['conference paper']
 
 
 def test_notes(results):
@@ -130,9 +133,12 @@ def test_license(results):
 
 def test_dois(results):
     """Test extracting dois."""
-    expected_dois = [{
-        'value': '10.1103/PhysRevD.93.016005',
-    }]
+    expected_dois = [
+        {
+            'source': 'hepcrawl',
+            'value': '10.1103/PhysRevD.93.016005',
+        }
+    ]
     for record in results:
         assert 'dois' in record
         assert record['dois'] == expected_dois
@@ -141,16 +147,11 @@ def test_dois(results):
 def test_publication_info(results):
     """Test extracting journal_ref."""
     #TODO: check a more complete example
-    expected_pub_info = [{
-        'artid': '',
-        'journal_issue': '',
-        'journal_title': '',
-        'journal_volume': '',
-        'note': '',
-        'page_end': '',
-        'page_start': '',
-        'pubinfo_freetext': 'Phys.Rev. D93 (2015) 016005',
-    }]
+    expected_pub_info = [
+        {
+            'pubinfo_freetext': 'Phys.Rev. D93 (2015) 016005',
+        }
+    ]
     for record in results:
         assert 'publication_info' in record
         assert record['publication_info'] == expected_pub_info
@@ -160,7 +161,7 @@ def test_repno(results):
     """Test extracting repor numbers."""
     expected_repno = [{
         'value': 'YITP-2016-26',
-        'source': '',
+        'source': 'hepcrawl',
     }]
     for record in results:
         assert 'report_numbers' in record
@@ -200,13 +201,3 @@ def test_arxiv_eprints(results):
     for record in results:
         assert 'arxiv_eprints' in record
         assert record['arxiv_eprints'] == expected_eprints
-
-
-def test_external_system_numbers(results):
-    expected_esns = [{
-        'institute': 'arXiv',
-        'value': u'oai:arXiv.org:1601.03238'
-    }]
-    for record in results:
-        assert 'external_system_numbers' in record
-        assert record['external_system_numbers'] == expected_esns
