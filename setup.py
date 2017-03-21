@@ -29,6 +29,7 @@ install_requires = [
     'furl>=0.4.95',
     'ftputil>=3.3.1',
     'python-dateutil>=2.4.2',
+    'mechanize>=0.2.5',
 ]
 
 tests_require = [

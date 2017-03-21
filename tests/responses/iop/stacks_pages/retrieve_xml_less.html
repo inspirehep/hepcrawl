@@ -1,0 +1,172 @@
+
+    <html>
+      <head>
+        <title>Retrieve Latest Volume</title>
+	<meta name="keywords"
+	  content="secure, online, credit, debit, card, transaction, clearance"
+	/>
+	<meta name="description"
+	  content="Secure, On-Line Card Clearance System" />
+        <link href="http://ej.iop.org/style/stacks.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="http://ej.iop.org/style/supersleight/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="http://ej.iop.org/style/supersleight/cookiebanner.js"></script>
+      </head>
+      <body bgcolor="#FFFFFF">
+	<center>
+	  <!-- header -->
+	  <table border="0" width="600" cellspacing="0" cellpadding="0">
+            <tr>
+              <td colspan="2">
+                <div class="cookies-banner-wrap" id="cookieBanner"> <!-- To show cookie banner -->
+                  <div class="cookies-banner">
+                    This site uses cookies. By continuing to use this site you agree to our use of cookies.<br>
+                    To find out more, see our <a href="http://ioppublishing.org/privacyPolicy">Privacy and Cookies</a> policy.
+                    <div class="cookies-banner-close">
+                      <img id="cookieBannerClose" src="http://ej.iop.org/icons/Stacks/close-icon.png"/>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+	    <tr>
+	      <td colspan="2"><img
+		  src="http://ej.iop.org/icons/General/ioptop.gif"
+		  alt="IOP Publishing"
+		/><!-- imgtitle --><img
+		  src="http://ej.iop.org/icons/Stacks/stacks.gif"
+		  alt="Journals: STACKS"
+		/><!-- /imgtitle -->
+	      </td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><img
+	        src="http://ej.iop.org/icons/General/d3.gif" width="600" height="1"
+	      /></td>
+	    </tr>
+	    <tr>
+	      <td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="3">
+		  <tr>
+		    <td>
+		      <p><font size="-1" class="smltxt"
+		        ><a href="http://www.iop.org/">www.iop.org</a>
+		      |&nbsp;<a href="http://www.iop.org/find.html"
+		        >Search&nbsp;&amp;&nbsp;Index</a>
+		      |&nbsp;<a href="http://physics.iop.org/contact.html"
+		        >Contact&nbsp;us</a></font></p>
+		    </td>
+		    <!-- links --><!-- /links -->
+		  </tr>
+		</table>
+
+	      </td>
+	      <td align="right"><font size="-1" class="tnytxt">&nbsp;
+		&nbsp;</font></td>
+	    </tr>
+	    <tr>
+	      <td colspan="2"><img src="http://ej.iop.org/icons/d3.gif"
+	        width="600" height="1" /></td>
+	    </tr>
+	  </table><!-- /header -->
+	  <table border="0" width="600" cellspacing="0" cellpadding="0">
+	    <tr>
+	      <td valign=top>
+		<table align="center" width="100%" border="0"
+		    cellpadding="0" cellspacing="0">
+		  <!-- navigation -->
+		  <!-- /navigation -->
+		  <tr align=left valign=top><td>
+  <h2>Retrieve Latest Volume</h2>
+
+          To retrieve your data file, select the format, journal(s) and
+          volume/issue range(s).
+<!--         <form method="post" action="/Member/extract" enctype="multipart/form-data"> -->
+<!--             Here we are mocking the POST: -->
+            <form method="post" action="extract.pubmed" enctype="multipart/form-data">
+Data format:
+<select name="format" >
+<option value="XML2">New XML</option>
+<option value="XML">Old XML</option>
+<option value="CSV">CSV</option>
+<option selected="selected" value="PubMed">NLM Standard Publisher Data Format</option>
+</select>
+        <table>
+	  <tr>
+	    <th>&nbsp;</th>
+	    <th align="left" colspan="2">Journal</th>
+	    <th colspan="3">Volume/issue range</th>
+	  </tr>
+	  <tr>
+	    <td colspan="6"><hr /></td>
+	  </tr>
+
+<tr align="left" valign="center"><td><label><input type="checkbox" name="issn" value="1674-4527" /></label></td><td colspan="2">Research in Astronomy and Astrophysics</td><td align="right"><select name="1674-4527/from" >
+<option selected="selected" value="1674-4527/16/10">16/10</option>
+<option value="1674-4527/16/11">16/11</option>
+</select></td><td align="center">to</td><td align="left"><select name="1674-4527/to" >
+<option value="1674-4527/16/10">16/10</option>
+<option selected="selected" value="1674-4527/16/11">16/11</option>
+</select></td></tr>
+<tr align="left" valign="center"><td><label><input type="checkbox" name="issn" value="1943-7722" /></label></td><td colspan="2">American Journal of Clinical Pathology</td><td align="right"><select name="1943-7722/from" >
+<option selected="selected" value="1943-7722/143/1">143/1</option>
+<option value="1943-7722/143/2">143/2</option>
+<option value="1943-7722/143/3">143/3</option>
+</select></td><td align="center">to</td><td align="left"><select name="1943-7722/to" >
+<option selected="selected" value="1943-7722/143/3">143/1</option>
+<option value="1943-7722/143/3">143/2</option>
+<option value="1943-7722/143/3">143/3</option>
+</select></td></tr>
+</table>
+<p><input type="hidden" name="submit" value="1"  /><input type="submit" name="" value=" Retrieve archive " /></p>
+<div><input type="hidden" name=".cgifields" value="issn"  /></div></form><p><hr /><a href="/Member/">Main&nbsp;Menu</a>
+|&nbsp;<a href="/Member/help/-topic=extract/extract">Online&nbsp;Help</a>
+|&nbsp;<a href="http://ioppublishing.org/privacyPolicy">Privacy&nbsp;&amp;&nbsp;Cookies&nbsp;Policy</a>
+		    </td></tr></table>
+		  <!-- /content --></td>
+		</tr>
+	      </table>
+	    </td>
+	  </tr>
+	</table>
+	<table cellspacing="0" cellpadding="0" border="0" width="600">
+	  <tr>
+	    <td><br /><img src="http://ej.iop.org/icons/General/d3.gif"
+	      width="600" height="1" /></td>
+	  </tr>
+
+    <TR><TD>
+      <table border="0" cellspacing="2" cellpadding="0" width="100%">
+	<TR>
+	  <td colspan="2"><font size="-2" class=tnytxt>The Web site for physics
+	    and physicists from the Institute of Physics</font></td>
+        </TR>
+  <TR><TD><FONT size="-2" class=tnytxt>Sources</FONT></TD>
+<TD><FONT size="-2" class=tnytxt> <A HREF="http://www.iop.org/online.html"><FONT color="#ff0000">Online services</FONT></A>
+| <A HREF="/"><FONT color="#ff0000">Journals</FONT></A>
+| <A HREF="http://ioppublishing.org/publications/magazines"><FONT color="#ff0000">Magazines</FONT></A>
+| <A HREF="http://ioppublishing.org/publications/books"><FONT color="#ff0000">Books</FONT></A>
+| <A HREF="http://www.iop.org/events/"><FONT color="#ff0000">Events</FONT></A>
+</FONT></TD></TR>
+<TR><TD><FONT size="-2" class=tnytxt>Physics for...</FONT></TD>
+<TD><FONT size="-2" class=tnytxt> <A HREF="http://ioppublishing.org/researchers"><FONT color="#ff0000">Researchers</FONT></A>
+| <A HREF="http://www.iop.org/activity/university-student-network/index.html"><FONT color="#ff0000">Students</FONT></A>
+| <A HREF="http://www.iop.org/policy/index.html"><FONT color="#ff0000">Policy Makers</FONT></A>
+</FONT></TD></TR>
+<TR><TD><FONT size="-2" class=tnytxt></FONT></TD>
+<TD><FONT size="-2" class=tnytxt> <A HREF="http://www.iop.org"><FONT color="#ff0000">Institute of Physics</FONT></A>
+</FONT></TD></TR>
+
+      </TABLE>
+    </TD></TR>
+
+	  <tr>
+	    <td colspan="2"><br />
+	      <font size="-2" class="tnytxtg">STACKS<sup>TM</sup> 1.1.
+		Copyright &#169; IOP Publishing Ltd. 1998-2016.
+		All rights reserved.</font></td>
+	    </tr>
+	  </table>
+	</center>
+      </body>
+    </html>
+
