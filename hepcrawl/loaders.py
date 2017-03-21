@@ -38,7 +38,7 @@ from .outputs import (
 
 from .mappings import MATHML_ELEMENTS
 
-from .dateutils import format_date
+from .dateutils import format_date, parse_date
 
 
 class HEPLoader(ItemLoader):
@@ -123,6 +123,9 @@ class HEPLoader(ItemLoader):
     journal_doctype_out = TakeFirst()
     pubinfo_freetext_out = TakeFirst()
 
+    preprint_date_in = MapCompose(
+        parse_date,
+    )
     preprint_date_out = TakeFirst()
     date_published_in = MapCompose(
         format_date,
