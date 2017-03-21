@@ -18,6 +18,7 @@ from urlparse import urljoin
 
 from scrapy import Request
 from scrapy.spiders import CrawlSpider
+from inspire_schemas.api import validate as validate_schema
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -71,9 +72,7 @@ class BrownSpider(CrawlSpider):
 
     @staticmethod
     def _get_pdf_link(response):
-        """Scrape splash page for links to PDFs, author name, copyright date,
-        thesis info and page numbers.
-        """
+        """Get the fulltext PDF link from the web page."""
         pdf_links = []
         all_links = response.xpath(
             "//a[contains(@href, 'pdf') or contains(@href, 'PDF')]/@href").extract()
@@ -97,7 +96,9 @@ class BrownSpider(CrawlSpider):
         """Get author data from the web page."""
         authors = []
         raw_authors = response.xpath(
-            "//div[@class='panel-body']/dl/dt[contains(text(), 'Contributors')]/following-sibling::dd[contains(text(), 'creator') or contains(text(), 'Creator')]/text()"
+            "//div[@class='panel-body']/dl/dt[contains(text(), 'Contributors')]"
+            "/following-sibling::dd[contains(text(), 'creator') or "
+            "contains(text(), 'Creator')]/text()"
         ).extract()
         if not raw_authors:
             return authors
@@ -119,7 +120,9 @@ class BrownSpider(CrawlSpider):
     def _get_date(response):
         """Get copyright date from the web page."""
         date_raw = response.xpath(
-            "//div[@class='panel-body']/dl/dt[contains(text(), 'Copyright')]/following-sibling::dd[1]/text()").extract_first()
+            "//div[@class='panel-body']/dl/dt[contains(text(), 'Copyright')]"
+            "/following-sibling::dd[1]/text()"
+        ).extract_first()
         # NOTE: apparently the only real data here is the year, all dates are
         # of the format "01-01-2016, 01-01-2012" etc.
 
@@ -130,13 +133,16 @@ class BrownSpider(CrawlSpider):
         """Parse notes and get the PhD year."""
         phd_year = ""
         notes_raw = response.xpath(
-            "//div[@class='panel-body']/dl/dt[contains(text(), 'Notes')]/following-sibling::dd[1]/text()").extract_first()
+            "//div[@class='panel-body']/dl/dt[contains(text(), 'Notes')]"
+            "/following-sibling::dd[1]/text()"
+        ).extract_first()
         if notes_raw:
             notes_raw = notes_raw.replace(".", "")
             pattern = re.compile(r'[\W_]+', re.UNICODE)
             notes = pattern.sub(' ', notes_raw).split()
             try:
-                phd_year = [notes.pop(ind) for ind, val in enumerate(notes) if val.isdigit()][0]
+                phd_year = [notes.pop(ind) for ind, val in enumerate(
+                    notes) if val.isdigit()][0]
             except IndexError:
                 pass
 
@@ -154,15 +160,19 @@ class BrownSpider(CrawlSpider):
     def _get_page_num(response):
         """Get number of pages from the web page."""
         page_no_raw = response.xpath(
-            "//div[@class='panel-body']/dl/dt[contains(text(), 'Extent')]/following-sibling::dd[1]/text()").extract_first()
+            "//div[@class='panel-body']/dl/dt[contains(text(), 'Extent')]"
+            "/following-sibling::dd[1]/text()"
+        ).extract_first()
 
         if page_no_raw:
             page_no = [w for w in page_no_raw.split() if w.isdigit()]
             return page_no
 
     def parse(self, response):
-        """Go through every record in the JSON and. If link to splash page
-        exists, go scrape. If not, create a record with the available data.
+        """Go through every record in the JSON.
+
+        If link to splash page exists, go scrape. If not, create a record with
+        the available data.
         """
         jsonresponse = json.loads(response.body_as_unicode())
 
@@ -175,7 +185,6 @@ class BrownSpider(CrawlSpider):
                 if "pdf" in get_mime_type(pdf_link):
                     request.meta["pdf_link"] = pdf_link
                 yield request
-
             except (TypeError, ValueError, IOError):
                 response.meta["jsonrecord"] = jsonrecord
                 yield self.build_item(response)
@@ -211,4 +220,6 @@ class BrownSpider(CrawlSpider):
         record.add_value('thesis', response.meta.get("thesis"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
-        return record.load_item()
+        parsed_record = record.load_item()
+        validate_schema(data=dict(parsed_record), schema_name='hep')
+        return parsed_record

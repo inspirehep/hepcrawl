@@ -10,13 +10,13 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import json
+import os
 
+import pkg_resources
 import pytest
-
-import scrapy
+from scrapy.http import HtmlResponse
 
 import hepcrawl
-
 from hepcrawl.spiders import brown_spider
 
 from .responses import (
@@ -26,48 +26,140 @@ from .responses import (
 
 
 @pytest.fixture
-def record():
-    """Return results from the Brown spider."""
-    spider = brown_spider.BrownSpider()
-    response = fake_response_from_file('brown/test_1.json')
-    jsonresponse = json.loads(response.body_as_unicode())
-    jsonrecord = jsonresponse["items"]["docs"][0]
-    jsonrecord["uri"] = "brown/test_splash.html"
-
-
-    splash_response = fake_response_from_file('brown/test_splash.html')
-    splash_response.meta["jsonrecord"] = jsonrecord
-    parsed_record = spider.scrape_splash(splash_response)
-    assert parsed_record
-    return parsed_record
+def brown_splash_body():
+    return pkg_resources.resource_string(
+        __name__,
+        os.path.join(
+            'responses',
+            'brown',
+            'test_splash.html'
+        )
+    )
 
 
 @pytest.fixture
-def parsed_node():
-    """Return a parse call to a full record.
+def no_year_no_author_splash():
+    """Test behaviour when no year given in thesis info line."""
+    body = """
+    <html>
+        <div class="panel-body">
+            <dl class="">
+                <dt>Notes</dt>
+                <dd>Thesis (Ph.D. -- Brown University</dd>
+            </dl>
+        </div>
+    </html>
 
-    Return type should be a Scrapy Request object.
     """
+    return body
+
+@pytest.fixture
+def record(brown_splash_body, monkeypatch, patch_datetime_now, process_pipeline):
+    """Return results from the Brown spider."""
     spider = brown_spider.BrownSpider()
-    response = fake_response_from_file('brown/test_1.json')
+
+    def patch_get_mime_type(*args, **kwargs):
+        """Mock the mime type getting."""
+        return "patched application/pdf"
+
+    monkeypatch.setattr(
+        hepcrawl.spiders.brown_spider,
+        'get_mime_type',
+        patch_get_mime_type
+    )
+    request = spider.parse(
+        fake_response_from_file('brown/test_1.json')
+    ).next()
+    response = HtmlResponse(
+        url=request.url,
+        request=request,
+        body=brown_splash_body,
+        encoding='utf-8',
+    )
+
+    result = request.callback(response)
+    return process_pipeline(result, spider)
+
+
+@pytest.fixture
+def record_no_year_no_author(no_year_no_author_splash, monkeypatch, process_pipeline):
+    """Return results from the Brown spider."""
+    spider = brown_spider.BrownSpider()
+
+    def patch_get_mime_type(*args, **kwargs):
+        """Mock the mime type getting."""
+        return "patched application/pdf"
+
+    monkeypatch.setattr(
+        hepcrawl.spiders.brown_spider,
+        'get_mime_type',
+        patch_get_mime_type
+    )
+    request = spider.parse(
+        fake_response_from_file('brown/test_1.json')
+    ).next()
+    response = HtmlResponse(
+        url=request.url,
+        request=request,
+        body=no_year_no_author_splash,
+        encoding='utf-8',
+    )
+
+    result = request.callback(response)
+    return process_pipeline(result, spider)
+
+
+@pytest.fixture
+def record_without_splash(brown_splash_body, process_pipeline):
+    """Return a record without splash page url."""
+    spider = brown_spider.BrownSpider()
+    body = """
+    {
+    "items": {
+        "docs": [
+            {
+                "json_uri": "https://repository.library.brown.edu/api/pub/items/bdr:11303/"
+            }
+        ]
+    }
+    }
+    """
+
+    response = fake_response_from_string(body)
     jsonresponse = json.loads(response.body_as_unicode())
     jsonrecord = jsonresponse["items"]["docs"][0]
     response.meta["jsonrecord"] = jsonrecord
 
-    return spider.parse(response).next()
-
-def test_files_constructed(parsed_node):
-    """Test pdf link.
-
-    This link is constructed in `parse`. Here parsed_node should be a
-    Scrapy Request object.
-    """
-    link = "https://repository.library.brown.edu/studio/item/bdr:11303/PDF/"
-    assert parsed_node.meta["pdf_link"]
-    assert parsed_node.meta["pdf_link"] == link
-    assert isinstance(parsed_node, scrapy.http.request.Request)
+    result = spider.parse(response).next()
+    return process_pipeline(result, spider)
 
 
+@pytest.fixture
+def record_without_pdf(brown_splash_body, monkeypatch, process_pipeline):
+    """Return a record without a pdf link but with splash link."""
+    spider = brown_spider.BrownSpider()
+
+    def patch_get_mime_type(*args, **kwargs):
+        """Mock the mime type getting."""
+        return "text/html"
+
+    monkeypatch.setattr(
+        hepcrawl.spiders.brown_spider,
+        'get_mime_type',
+        patch_get_mime_type
+    )
+    request = spider.parse(
+        fake_response_from_file('brown/test_1.json')
+    ).next()
+    response = HtmlResponse(
+        url=request.url,
+        request=request,
+        body=brown_splash_body,
+        encoding='utf-8',
+    )
+
+    result = request.callback(response)
+    return process_pipeline(result, spider)
 
 
 def test_abstract(record):
@@ -108,21 +200,29 @@ def test_abstract(record):
         "capabilities of biological nanopores, and suggest new avenues for "
         "fundamental studies and technological applications."
     )
-    assert record["abstract"]
-    assert record["abstract"] == abstract
+    assert record["abstracts"]
+    assert record["abstracts"][0]["value"] == abstract
+
 
 def test_keywords(record):
     """Test keywords."""
-    keywords_gt = ["nanopore", "electrostatic", "DNA", "translocation", "electrode", "integrated"]
-    assert record["free_keywords"]
+    keywords = [
+        "nanopore", "electrostatic", "DNA", "translocation", "electrode",
+        "integrated"
+    ]
 
-    for key_gt, key in zip(keywords_gt, record["free_keywords"]):
-        assert key_gt == key["value"]
+    assert record["free_keywords"]
+    for keywords, key in zip(keywords, record["free_keywords"]):
+        assert keywords == key["value"]
+
 
 def test_title(record):
     """Test title."""
-    assert record["title"]
-    assert record["title"] == "The Electrostatic Field-Effect in Electrically Actuated Nanopores"
+    title = (
+        "The Electrostatic Field-Effect in Electrically Actuated Nanopores"
+    )
+    assert record["titles"]
+    assert record["titles"][0]["title"] == title
 
 
 def test_authors(record):
@@ -130,97 +230,61 @@ def test_authors(record):
     assert record["authors"]
     assert record["authors"][0]["full_name"] == 'Jiang, Zhijun'
 
+
 def test_date_published(record):
     """Test published date."""
-    assert record["date_published"]
-    assert record["date_published"] == "2011-01-01"
+    assert record["imprints"]
+    assert record["imprints"][0]["date"] == "2011-01-01"
 
-def test_files_scraped(record):
-    """Test pdf link.
 
-    This pdf link is scraped from the splash page.
-    The fake response has a domain www.example.com.
-    """
+def test_files(record):
+    """Test pdf link."""
+    file_url = (
+        "https://repository.library.brown.edu/studio/item/bdr:11303/PDF/"
+    )
     assert record["file_urls"]
-    assert record["file_urls"][0] == "http://www.example.com/studio/item/bdr:11303/PDF/"
+    assert record["file_urls"][0] == file_url
+
 
 def test_page_nr(record):
     """Test number of pages."""
     assert record["page_nr"]
     assert record["page_nr"] == ["129"]
 
+
 def test_thesis(record):
     """Test thesis year."""
     assert record["thesis"]
     assert record["thesis"]["date"] == "2011"
 
+
 def test_urls(record):
     """Test urls."""
+    url = (
+        "https://repository.library.brown.edu/studio/item/bdr:11303/"
+    )
     assert record["urls"]
-    assert record["urls"][0]["value"] == "brown/test_splash.html"
+    assert record["urls"][0]["value"] == url
 
 
-@pytest.fixture
-def parsed_node_no_splash():
-    """Return a parse call to a record without spalsh page url."""
-    spider = brown_spider.BrownSpider()
-    body = """
-    {
-    "items": {
-        "docs": [
-            {
-                "json_uri": "https://repository.library.brown.edu/api/pub/items/bdr:11303/"
-
-            }
-        ]
-    }
-    }
-    """
-
-    response = fake_response_from_string(body)
-    jsonresponse = json.loads(response.body_as_unicode())
-    jsonrecord = jsonresponse["items"]["docs"][0]
-    response.meta["jsonrecord"] = jsonrecord
-
-    return spider.parse(response).next()
-
-def test_no_splash(parsed_node_no_splash):
-    """Test if parsing a record without splash url results directly in item building.
-
-    Normally `parse` should result in a get request. Here parsed_node_nolink
-    should be final HEPRecord.
-    """
-    assert parsed_node_no_splash
-    assert isinstance(parsed_node_no_splash, hepcrawl.items.HEPRecord)
-
-@pytest.fixture
-def no_year_no_author():
-    """Test behaviour when no year given in thesis info line."""
-    spider = brown_spider.BrownSpider()
-    body = """
-    <html>
-        <div class="panel-body">
-            <dl class="">
-                <dt>Notes</dt>
-                <dd>Thesis (Ph.D. -- Brown University</dd>
-            </dl>
-        </div>
-    </html>
-
-    """
-    return fake_response_from_string(body)
+def test_no_splash(record_without_splash):
+    """Test if parsing a record without splash url results in a HEPRecord."""
+    assert record_without_splash
+    assert isinstance(record_without_splash, hepcrawl.items.HEPRecord)
+    assert "urls" not in record_without_splash
 
 
-def test_no_year_in_thesis(no_year_no_author):
+def test_no_pdf_in_metadata(record_without_pdf):
+    """Test scraping the pdf file."""
+    link = "https://repository.library.brown.edu/studio/item/bdr:11303/PDF/"
+
+    assert "file_urls" in record_without_pdf
+    assert record_without_pdf["file_urls"][0] == link
+
+
+def test_no_year_author_in_thesis(record_no_year_no_author):
     """Test that there is no year."""
-    spider = brown_spider.BrownSpider()
-    year = spider._get_phd_year(no_year_no_author)
+    assert record_no_year_no_author
+    assert "date" not in record_no_year_no_author["imprints"]
+    assert "authors" not in record_no_year_no_author
 
-    assert not year
-
-def test_no_author_in_thesis(no_year_no_author):
-    """Test that there are no authors."""
-    spider = brown_spider.BrownSpider()
-    authors = spider._get_authors(no_year_no_author)
-
-    assert not authors
