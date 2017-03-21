@@ -131,7 +131,7 @@ def clean_whitespace_characters(text):
 
 def translate_language(lang):
     """Translate language. Don't return English"""
-    english = ['en', 'eng', 'english']
+    english = ['en', 'eng', 'english', 'englisch']
 
     if lang.lower() not in english:
         if lang.lower() in LANGUAGES.keys():
