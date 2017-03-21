@@ -41,11 +41,11 @@ def crawler2hep(crawler_record):
 
     for abstract in crawler_record.get('abstracts', []):
         builder.add_abstract(
-            abstract=abstract.get('abstract'),
+            abstract=abstract.get('value'),
             source=abstract.get('source')
         )
 
-    for arxiv_eprint in crawler_record.get('arxiv_eprint', []):
+    for arxiv_eprint in crawler_record.get('arxiv_eprints', []):
         builder.add_arxiv_eprint(
             arxiv_id=arxiv_eprint.get('value'),
             arxiv_categories=arxiv_eprint.get('categories')
@@ -89,18 +89,19 @@ def crawler2hep(crawler_record):
         preprint_date=crawler_record.get('preprint_date')
     )
 
+    acquisition_source = crawler_record.get('acquisition_source', {})
     builder.add_acquisition_source(
         method='hepcrawl',
-        date=crawler_record.get('date'),
-        source=crawler_record.get('source'),
-        submission_number=crawler_record.get('submission_number')
+        date=acquisition_source.get('date'),
+        source=acquisition_source.get('source'),
+        submission_number=acquisition_source.get('submission_number')
     )
 
     try:
         builder.add_number_of_pages(
-            number_of_pages=int(crawler_record.get('page_nr'))
+            number_of_pages=int(crawler_record.get('page_nr', [])[0])
         )
-    except (TypeError, ValueError):
+    except (TypeError, ValueError, IndexError):
         pass
 
     publication_types = [
@@ -167,6 +168,24 @@ def crawler2hep(crawler_record):
 
     if not added_doc_type:
         builder.add_document_type('article')
+
+    _pub_info = crawler_record.get('publication_info', [{}])[0]
+    builder.add_publication_info(
+        year=_pub_info.get('year'),
+        artid=_pub_info.get('artid'),
+        page_end=_pub_info.get('page_end'),
+        page_start=_pub_info.get('page_start'),
+        journal_issue=_pub_info.get('journal_issue'),
+        journal_title=_pub_info.get('journal_title'),
+        journal_volume=_pub_info.get('journal_volume'),
+        pubinfo_freetext=_pub_info.get('pubinfo_freetext'),
+    )
+
+    for report_number in crawler_record.get('report_numbers', []):
+        builder.add_report_number(
+            report_number=report_number.get('value'),
+            source=report_number.get('source')
+        )
 
     builder.validate_record()
 

@@ -16,8 +16,9 @@ import os
 import pytest
 
 from scrapy.spider import Spider
+from inspire_schemas.api import validate
 
-from hepcrawl.spiders import aps_spider
+from hepcrawl.spiders import arxiv_spider
 from hepcrawl.pipelines import InspireAPIPushPipeline, JsonWriterPipeline
 
 from .responses import fake_response_from_file
@@ -34,10 +35,10 @@ def spider():
 @pytest.fixture
 def json_spider_record(tmpdir):
     from scrapy.http import TextResponse
-    spider = aps_spider.APSSpider()
+    spider = arxiv_spider.ArxivSpider()
     items = spider.parse(
         fake_response_from_file(
-            'aps/aps_single_response.json',
+            'arxiv/sample_arxiv_record10.xml',
             response_type=TextResponse,
         ),
     )
@@ -51,7 +52,7 @@ def expected_response():
     responses_dir = os.path.dirname(os.path.realpath(__file__))
     expected_path = os.path.join(
         responses_dir,
-        'responses/aps/aps_single_parsed.json',
+        'responses/arxiv/sample_arxiv_record10_parsed.json',
     )
     with open(expected_path, 'rb') as expected_fd:
         result = expected_fd.read()
@@ -93,7 +94,18 @@ def test_prepare_payload(
     result = pipeline._prepare_payload(spider)
 
     # acquisition_source has a timestamp
-    result['results_data'][0]['acquisition_source'].pop('date')
+    result['results_data'][0]['acquisition_source'].pop('datetime')
     expected_response['results_data'][0]['acquisition_source'].pop('date')
+
+    for record in result['results_data']:
+        validate(record, 'hep')
+
+    for res, exp in zip(
+        result['results_data'],
+        expected_response['results_data'],
+    ):
+        for key in res:
+            assert key in exp
+            assert res[key] == exp[key]
 
     assert result == expected_response
