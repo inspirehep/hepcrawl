@@ -67,7 +67,9 @@ def parse_authors(value):
     Delete spaces from initials.
     """
     if "raw_name" in value and "surname" not in value:
-        value['surname'], value['given_names'] = split_fullname(value['raw_name'])
+        value['surname'], value['given_names'] = split_fullname(
+            value['raw_name']
+        )
     if 'given_names' in value and value['given_names']:
         value['given_names'] = collapse_initials(value['given_names'])
         value['full_name'] = u'{0}, {1}'.format(
@@ -81,7 +83,7 @@ def parse_authors(value):
 
 
 def parse_thesis_supervisors(value):
-    """Do the same as with authors but preserve only full_name and affiliation."""
+    """Idem as authors but preserve only full_name and affiliation."""
     value = parse_authors(value)
     return {
         'full_name': value.get('full_name'),
@@ -103,11 +105,15 @@ def clean_tags_from_affiliations(value):
     """Clean the affiliaton string for an author."""
     for affiliation in value.get('affiliations', []):
         # Remove tag AND content of any prefix like <label><sup>1</sup></label>
-        affiliation['value'] = remove_tags_with_content(affiliation['value'], ('label',))
+        affiliation['value'] = remove_tags_with_content(
+            affiliation['value'], ('label',)
+        )
         # Now remove all tags but KEEP content
         affiliation['value'] = remove_tags(affiliation['value'])
         # Remove random whitespaces
-        affiliation['value'] = clean_whitespace_characters(affiliation['value'])
+        affiliation['value'] = clean_whitespace_characters(
+            affiliation['value']
+        )
     return value
 
 
@@ -138,7 +144,10 @@ def remove_attributes_from_tags(text):
     """Removes attributes from e.g. MathML tags"""
     if text:
         try:
-            cleaner = clean.Cleaner(safe_attrs_only=True, remove_unknown_tags=False)
+            cleaner = clean.Cleaner(
+                safe_attrs_only=True,
+                remove_unknown_tags=False,
+            )
             text = cleaner.clean_html(text)
         except lxml.etree.ParserError:
             return text
