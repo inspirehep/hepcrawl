@@ -87,7 +87,7 @@ def test_titles(results):
 
 def test_preprint_date(results):
     """Test extracting preprint_date."""
-    preprint_date = "2016-01-13T00:00:00"
+    preprint_date = "2016-01-13"
     for record in results:
         assert 'preprint_date' in record
         assert record['preprint_date'] == preprint_date

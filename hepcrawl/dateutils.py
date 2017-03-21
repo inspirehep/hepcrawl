@@ -165,6 +165,7 @@ def parse_date(raw_date):
     """
     if not raw_date:
         return raw_date
+
     if not isinstance(raw_date, str):
         raw_date = str(raw_date)
 
