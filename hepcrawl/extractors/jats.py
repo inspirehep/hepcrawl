@@ -68,6 +68,16 @@ class Jats(object):
                     free_keywords.append(keyword)
         return free_keywords, classification_numbers
 
+    def _get_public_notes(self, node):
+        """Return list of public notes from node."""
+        public_notes = []
+        for note in node.xpath('//notes[@notes-type]'):
+            for keyword in note.xpath('p/text()').extract():
+                public_notes.append({
+                    'value': keyword,
+                })
+        return public_notes
+
     def _get_authors(self, node):
         authors = []
         for contrib in node.xpath(".//contrib[@contrib-type='author']"):
