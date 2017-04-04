@@ -1513,14 +1513,14 @@ def handled_feed():
     <feed xmlns="http://www.w3.org/2005/Atom">
         <entry>
             <title>30378-00001-FULL-XML-ASTROPART PHYS (0927-6505) 1.7.ZIP</title>
-            <link href="file://tests/responses/elsevier/fake_astropart.zip"/>
+            <link href="file://tests/unit/responses/elsevier/fake_astropart.zip"/>
             <id>564321351</id>
             <updated>2015-10-31T10:29:32.774545Z</updated>
             <summary>ASTROPART PHYS (0927-6505)</summary>
         </entry>
         <entry>
             <title>9261-00001-FULL-XML-NIMA (0168-9002) 1.7.2014.ZIP</title>
-            <link href="file://tests/responses/elsevier/fake_nima.zip"/>
+            <link href="file://tests/unit/responses/elsevier/fake_nima.zip"/>
             <id>asdsdasda</id>
             <updated>2015-10-31T10:29:32.774545Z</updated>
             <summary>NIMA (0168-9002)</summary>
@@ -1538,8 +1538,8 @@ def test_hadle_feed(handled_feed):
         zip_files.append(feed.url)
     assert zip_files
     assert zip_files == [
-        'file://tests/responses/elsevier/fake_astropart.zip',
-        'file://tests/responses/elsevier/fake_nima.zip'
+        'file://tests/unit/responses/elsevier/fake_astropart.zip',
+        'file://tests/unit/responses/elsevier/fake_nima.zip'
     ]
 
 
@@ -1564,11 +1564,11 @@ def test_handle_package(handled_package):
     for astro, nima in zip(astropart, nima):
         assert nima
         assert astro
-        assert astro.meta["package_path"] == "tests/responses/elsevier/fake_astropart.zip"
+        assert astro.meta["package_path"] == "tests/unit/responses/elsevier/fake_astropart.zip"
         url_to_match = u'file:///tmp/elsevier_fake_astropart_*/0927-6505/aip/S0927650515001656/S0927650515001656.xml'
         assert astro.meta["xml_url"] == fnmatch.filter([astro.meta["xml_url"]], url_to_match)[0]
 
-        assert nima.meta["package_path"] == "tests/responses/elsevier/fake_nima.zip"
+        assert nima.meta["package_path"] == "tests/unit/responses/elsevier/fake_nima.zip"
         url_to_match = u'file:///tmp/elsevier_fake_nima_*/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'
         assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]
 
