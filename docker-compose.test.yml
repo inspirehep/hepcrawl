@@ -1,0 +1,80 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of hepcrawl.
+# Copyright (C) 2017 CERN.
+#
+# hepcrawl is a free software; you can redistribute it and/or modify it
+# under the terms of the Revised BSD License; see LICENSE file for
+# more details.
+
+version: '2'
+
+services:
+  functional_wsp:
+    image: hepcrawl_base  # hepcrawl_base image is build at pip service of docker-compose.deps.yml
+    environment: &env_variables
+      - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
+      - APP_CELERY_RESULT_BACKEND=amqp://guest:guest@rabbitmq:5672//
+      - APP_CRAWLER_HOST_URL=http://scrapyd:6800
+      - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=tests.functional.tasks.submit_results
+      - COVERAGE_PROCESS_START=/code/.coveragerc
+    command: py.test -vv tests/functional/WSP/test_wsp.py
+    volumes: &common_volumes
+      - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
+      - ${PWD}:/code/
+      - ${PWD}/tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
+    links:
+      - rabbitmq
+      - celery
+      - scrapyd
+      - ftp_server
+
+  unit:
+    image: hepcrawl_base
+    environment: *env_variables
+    command: bash -c "py.test tests/unit && sphinx-build -nNW docs docs/_build/html && python setup.py sdist && ls dist/*"
+    volumes: *common_volumes
+
+  doc:
+    image: hepcrawl_base
+    environment: *env_variables
+    command: bash -c "sphinx-build -qnNW docs docs/_build/html && exec python setup.py sdist && exec ls dist/*"
+    volumes: *common_volumes
+
+  celery:
+    image: hepcrawl_base
+    environment: *env_variables
+    command: celery worker --events --app tests.functional.tasks --loglevel=debug
+    volumes: *common_volumes
+    links:
+      - rabbitmq
+      - ftp_server
+
+  scrapyd:
+    image: hepcrawl_base
+    environment: *env_variables
+    command: bash -c "rm -f twistd.pid && exec scrapyd"
+    volumes: *common_volumes
+    links:
+      - celery
+      - ftp_server
+      - rabbitmq
+    depends_on:
+      - scrapyd_deploy
+
+  scrapyd_deploy:
+    image: hepcrawl_base
+    environment: *env_variables
+    command: bash -c "sleep 8 && scrapyd-deploy"  # make sure that the scrapyd is up
+    volumes: *common_volumes
+
+  ftp_server:
+    image: stilliard/pure-ftpd:hardened
+    environment:
+      - PUBLICHOST=localhost
+    volumes:
+      - ${PWD}/tests/functional/WSP/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
+      - ${PWD}/tests/functional/WSP/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
+
+  rabbitmq:
+    image: rabbitmq

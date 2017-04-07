@@ -91,6 +91,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
             yield Request(self.package_path, callback=self.handle_package_file)
         else:
             ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
+
             dummy, new_files = ftp_list_files(
                 self.ftp_folder,
                 self.target_folder,
@@ -98,6 +99,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
                 user=ftp_params['ftp_user'],
                 password=ftp_params['ftp_password']
             )
+
             for remote_file in new_files:
                 # Cast to byte-string for scrapy compatibility
                 remote_file = str(remote_file)

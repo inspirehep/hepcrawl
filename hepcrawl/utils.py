@@ -7,6 +7,8 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
+from __future__ import absolute_import, print_function
+
 import os
 import re
 from operator import itemgetter
@@ -17,6 +19,8 @@ from zipfile import ZipFile
 from urlparse import urlparse
 
 import ftputil
+import ftputil.session
+import ftplib
 import requests
 
 from scrapy import Selector
@@ -40,7 +44,7 @@ def unzip_xml_files(filename, target_folder):
     return xml_files
 
 
-def ftp_connection_info(ftp_host, netrc_file):
+def ftp_connection_info(ftp_host, netrc_file, passive_mode=False):
     """Return ftp connection info from netrc and optional host address."""
     if not ftp_host:
         ftp_host = netrc(netrc_file).hosts.keys()[0]
@@ -48,13 +52,20 @@ def ftp_connection_info(ftp_host, netrc_file):
     connection_params = {
         "ftp_user": logininfo[0],
         "ftp_password": logininfo[2],
+        "ftp_passive": passive_mode,
     }
     return ftp_host, connection_params
 
 
-def ftp_list_files(server_folder, target_folder, server, user, password):
+def ftp_list_files(server_folder, target_folder, server, user, password, passive_mode=False):
     """List files from given FTP's server folder to target folder."""
-    with ftputil.FTPHost(server, user, password) as host:
+    session_factory = ftputil.session.session_factory(
+        base_class=ftplib.FTP,
+        port=21,
+        use_passive_mode=passive_mode,
+        encrypt_data_channel=True)
+
+    with ftputil.FTPHost(server, user, password, session_factory=session_factory) as host:
         files = host.listdir(host.curdir + '/' + server_folder)
         missing_files = []
         all_files = []
