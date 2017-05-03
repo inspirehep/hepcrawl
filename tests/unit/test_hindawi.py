@@ -13,7 +13,7 @@ import pytest
 
 from hepcrawl.spiders import hindawi_spider
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     get_node,
 )

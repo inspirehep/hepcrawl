@@ -12,8 +12,8 @@ version: '2'
 services:
   pip:
     build:
-      context: ${PWD}/tests/functional
-      dockerfile: hepcrawl_base.dockerfile
+      context: ${PWD}/tests
+      dockerfile: Dockerfile.hepcrawl_base
     image: hepcrawl_base
     command: bash -c "pip install -e .[all] && pip freeze"
     volumes:

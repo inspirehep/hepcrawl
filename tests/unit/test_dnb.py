@@ -19,7 +19,7 @@ from scrapy.http import HtmlResponse
 from hepcrawl.spiders import dnb_spider
 from hepcrawl.items import HEPRecord
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
     get_node,

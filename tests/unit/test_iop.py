@@ -17,14 +17,14 @@ import pytest
 
 from hepcrawl.spiders import iop_spider
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
     get_node,
+    get_responses_path,
 )
 
-tests_dir = os.path.dirname(os.path.realpath(__file__))
-test_pdf_dir = os.path.join(tests_dir, "responses/iop/pdf/")
+TEST_PDF_DIR = get_responses_path('iop', 'pdf')
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def record():
     spider = iop_spider.IOPSpider()
     response = fake_response_from_file('iop/xml/test_standard.xml')
     node = get_node(spider, "Article", response)
-    spider.pdf_files = test_pdf_dir
+    spider.pdf_files = TEST_PDF_DIR
     parsed_record = spider.parse_node(response, node)
     assert parsed_record
     return parsed_record
@@ -150,7 +150,7 @@ def test_files(record):
     assert "additional_files" in record
     assert record["additional_files"][1]["access"] == 'INSPIRE-HIDDEN'
     assert record["additional_files"][1]["type"] == 'Fulltext'
-    assert record["additional_files"][1]["url"] == test_pdf_dir + pdf_filename
+    assert record["additional_files"][1]["url"] == os.path.join(TEST_PDF_DIR, pdf_filename)
 
 
 @pytest.fixture
@@ -173,8 +173,7 @@ def erratum_open_access_record():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "Article", response)
-    tests_dir = os.path.dirname(os.path.realpath(__file__))
-    spider.pdf_files = os.path.join(tests_dir, "responses/iop/pdf/")
+    spider.pdf_files = get_responses_path('iop', 'pdf')
     parsed_record = spider.parse_node(response, node)
     assert parsed_record
     return parsed_record
@@ -190,7 +189,7 @@ def test_files_erratum_open_access_record(erratum_open_access_record):
     assert erratum_open_access_record[
         "additional_files"][1]["type"] == 'Erratum'
     assert erratum_open_access_record["additional_files"][
-        1]["url"] == test_pdf_dir + pdf_filename
+        1]["url"] == os.path.join(TEST_PDF_DIR, pdf_filename)
 
 
 def test_not_published_record():
@@ -210,8 +209,7 @@ def test_not_published_record():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "Article", response)
-    tests_dir = os.path.dirname(os.path.realpath(__file__))
-    spider.pdf_files = os.path.join(tests_dir, "responses/iop/pdf/")
+    spider.pdf_files = get_responses_path('iop', 'pdf')
     records = spider.parse_node(response, node)
     assert records is None
 

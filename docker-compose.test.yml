@@ -16,7 +16,7 @@ services:
       - APP_BROKER_URL=amqp://guest:guest@rabbitmq:5672//
       - APP_CELERY_RESULT_BACKEND=amqp://guest:guest@rabbitmq:5672//
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
-      - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=tests.functional.tasks.submit_results
+      - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - COVERAGE_PROCESS_START=/code/.coveragerc
     command: py.test -vv tests/functional/WSP/test_wsp.py
     volumes: &common_volumes
@@ -44,7 +44,7 @@ services:
   celery:
     image: hepcrawl_base
     environment: *env_variables
-    command: celery worker --events --app tests.functional.tasks --loglevel=debug
+    command: celery worker --events --app hepcrawl.testlib.tasks --loglevel=debug
     volumes: *common_volumes
     links:
       - rabbitmq

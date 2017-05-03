@@ -13,14 +13,19 @@ import pytest
 
 from hepcrawl.spiders import alpha_spider
 
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture
 def results():
     """Return results generator from the Alpha spider."""
     spider = alpha_spider.AlphaSpider()
-    records = list(spider.parse(fake_response_from_file('alpha/test_1.htm')))
+    records = list(
+        spider.parse(
+            fake_response_from_file('alpha/test_1.htm')
+        )
+    )
+
     assert records
     return records
 
