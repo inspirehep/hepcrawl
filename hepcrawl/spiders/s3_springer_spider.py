@@ -7,7 +7,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Spider for SCOAP3 Elsevier."""
+"""Spider for SCOAP3 Springer."""
 
 from __future__ import absolute_import, print_function
 
