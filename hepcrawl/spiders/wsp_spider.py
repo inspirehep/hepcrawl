@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -23,6 +23,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
+    local_list_files,
     get_license,
     unzip_xml_files,
 )
@@ -88,11 +89,17 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
     def start_requests(self):
         """List selected folder on remote FTP and yield new zip files."""
         if self.package_path:
-            yield Request(self.package_path, callback=self.handle_package_file)
+            new_files_paths = local_list_files(
+                self.package_path,
+                self.target_folder
+            )
+
+            for file_path in new_files_paths:
+                yield Request("file://{0}".format(file_path), callback=self.handle_package_file)
         else:
             ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
 
-            dummy, new_files = ftp_list_files(
+            new_files_paths = ftp_list_files(
                 self.ftp_folder,
                 self.target_folder,
                 server=ftp_host,
@@ -100,7 +107,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
                 password=ftp_params['ftp_password']
             )
 
-            for remote_file in new_files:
+            for remote_file in new_files_paths:
                 # Cast to byte-string for scrapy compatibility
                 remote_file = str(remote_file)
                 ftp_params["ftp_local_filename"] = os.path.join(
@@ -116,7 +123,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
     def handle_package_ftp(self, response):
         """Handle a zip package and yield every XML found."""
-        self.log("Visited %s" % response.url)
+        self.log("Visited url %s" % response.url)
         zip_filepath = response.body
         zip_target_folder, dummy = os.path.splitext(zip_filepath)
         xml_files = unzip_xml_files(zip_filepath, zip_target_folder)
@@ -128,6 +135,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
     def handle_package_file(self, response):
         """Handle a local zip package and yield every XML."""
+        self.log("Visited file %s" % response.url)
         zip_filepath = urlparse.urlsplit(response.url).path
         zip_target_folder, dummy = os.path.splitext(zip_filepath)
         xml_files = unzip_xml_files(zip_filepath, zip_target_folder)
