@@ -26,11 +26,17 @@ RUN yum install -y epel-release && \
         python-virtualenv && \
     yum clean all
 
-RUN mkdir /code
+RUN mkdir /code /hepcrawl_venv
 
-ADD /docker_entrypoint.sh /docker_entrypoint.sh
-ENTRYPOINT ["/docker_entrypoint.sh"]
+RUN useradd test
+RUN chown -R test:test /code /hepcrawl_venv
 
+ADD ./docker_entrypoint.sh /docker_entrypoint.sh
+ADD ./fix_venv_tmp_rights /fix_venv_tmp_rights
+RUN chmod 4755 /fix_venv_tmp_rights
+
+USER test
 WORKDIR /code
 
+ENTRYPOINT ["/docker_entrypoint.sh"]
 CMD true
