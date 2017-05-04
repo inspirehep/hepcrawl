@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//Atypon//DTD Atypon JATS (Z39.96) Journal Archiving and Interchange DTD v1.0.4 20140502//EN" "Atypon-archivearticle1.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" article-type="research-article" xml:lang="en" dtd-version="1.0">
+    <front>
+        <journal-meta>
+            <journal-id journal-id-type="publisher-id">idaqp</journal-id>
+            <journal-title-group>
+                <journal-title>This is a journal title 2</journal-title>
+            </journal-title-group>
+            <issn pub-type="ppub">0219-0257</issn>
+            <issn pub-type="epub">1793-6306</issn>
+            <publisher>
+                <publisher-name>Publisher name</publisher-name>
+            </publisher>
+        </journal-meta>
+        <article-meta>
+            <article-id pub-id-type="doi">10.1142/S0219025717500060</article-id>
+            <article-categories>
+                <subj-group subj-group-type="AMSC">
+                <subject>60H10</subject>
+                <subject>60J75</subject>
+                <subject>60J60</subject>
+                </subj-group>
+            </article-categories>
+            <title-group>
+                <article-title>Article-title’s</article-title>
+                <alt-title alt-title-type="left-running-head">Name_1. Surname_1</alt-title>
+                <alt-title alt-title-type="right-running-head">Right running head’s</alt-title>
+            </title-group>
+            <contrib-group>
+                <contrib contrib-type="author">
+                    <string-name name-style="western"><given-names>author_name_1</given-names> <surname>author_surname_2</surname></string-name>
+                    <xref ref-type="aff" rid="S0219025717500060AF001"><sup>1</sup></xref>
+                </contrib>
+            </contrib-group>
+            <aff id="S0219025717500060AF001"><label><sup>1</sup></label>Department, University, City, City_code 123456, <country>C. R. Country_2</country></aff>
+            <aff id="S0219025717500060EM001"><email>name_1@domain.com</email></aff>
+            <pub-date pub-type="ppub">
+                <month>30</month>
+                <year>2017</year>
+                <string-date>March 2017</string-date>
+            </pub-date>
+            <volume>30</volume>
+            <issue>01</issue>
+            <elocation-id>1750006</elocation-id>
+            <history>
+                <date date-type="received">
+                    <day>30</day>
+                    <month>04</month>
+                    <year>2016</year>
+                    <string-date>Received: 30 April 2016</string-date>
+                </date>
+                <date date-type="accepted">
+                    <day>30</day>
+                    <month>11</month>
+                    <year>2016</year>
+                    <string-date>Accepted: 30 November 2016</string-date>
+                </date>
+                    <date date-type="published">
+                    <day>30</day>
+                    <month>03</month>
+                    <year>2017</year>
+                    <string-date>Published: 30 March 2017</string-date>
+                </date>
+            </history>
+            <permissions>
+                <copyright-year>2017</copyright-year>
+                <copyright-holder>Copyright Holder</copyright-holder>
+            </permissions>
+            <self-uri content-type="pdf" xlink:href="s0219025717500060.pdf"></self-uri>
+            <abstract>
+                <p>Abstract Lévy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa.</p>
+            </abstract>
+            <kwd-group>
+                <kwd>Bla blaa</kwd>
+                <kwd>blabla</kwd>
+                <kwd>Blaa bla bla <inline-formula><mml:math display="inline" overflow="scroll"><mml:mi>W</mml:mi><mml:mo class="MathClass-open" stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo class="MathClass-punc">;</mml:mo> <mml:mi>q</mml:mi><mml:mo class="MathClass-close" stretchy="false">)</mml:mo></mml:math></inline-formula></kwd>
+                <kwd>blq</kwd>
+            </kwd-group>
+            <counts>
+                <ref-count count="7"></ref-count>
+                <page-count count="6"></page-count>
+            </counts>
+        </article-meta>
+        <notes notes-type="communicated-by">
+            <p>Communicated by J. John</p>
+        </notes>
+    </front>
+</article>
