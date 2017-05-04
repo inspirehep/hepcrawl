@@ -10,7 +10,11 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import pytest
+import os
 
+from scrapy.crawler import Crawler
+
+from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import wsp_spider
 
 from .responses import fake_response_from_file
@@ -25,6 +29,42 @@ def results():
     ))
     assert records
     return records
+
+
+@pytest.fixture
+def spider():
+    crawler = Crawler(spidercls=wsp_spider.WorldScientificSpider)
+    return wsp_spider.WorldScientificSpider.from_crawler(crawler)
+
+
+@pytest.fixture
+def one_result(spider):
+    """Return results generator from the WSP spider. Tricky fields, one
+    record.
+    """
+    from scrapy.http import TextResponse
+    
+    # environmental variables needed for the pipelines payload
+    os.environ['SCRAPY_JOB'] = 'scrapy_job'
+    os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
+    os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
+
+    record = spider.parse(
+        fake_response_from_file(
+            'world_scientific/wsp_record.xml',
+            response_type=TextResponse
+        )
+    )
+
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+    return pipeline.process_item(record.next(), spider)
+
+
+def override_generated_fields(record):
+    record['acquisition_source']['datetime'] = '2017-05-04T17:49:07.975168'
+
+    return record
 
 
 @pytest.mark.xfail(reason='old schema')
@@ -188,3 +228,69 @@ def test_copyrights(results):
         assert 'copyright_statement' not in record
         assert 'copyright_material' in record
         assert record['copyright_material'] == copyright_material
+
+
+def test_pipeline_record(one_result):
+    expected = {
+        'abstracts': [
+            {
+                'source': 'WSP',
+                'value': u'Abstract L\xe9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa.',
+            },
+        ],
+        'acquisition_source': {
+            'datetime': '2017-05-04T17:49:07.975168',
+            'method': 'hepcrawl',
+            'source': 'WSP',
+            'submission_number': 'scrapy_job',
+        },
+        'authors': [
+            {
+                'affiliations': [
+                    {
+                        'value': u'Department, University, City, City_code 123456, C. R. Country_2',
+                    },
+                ],
+                'full_name': u'author_surname_2, author_name_1',
+            },
+        ],
+        'citeable': True,
+        'copyright': [
+            {
+                'holder': u'Copyright Holder',
+                'url': 'article',
+            },
+        ],
+        'document_type': [
+            'article',
+        ],
+        'dois': [
+            {
+                'source': 'hepcrawl', 'value': u'10.1142/S0219025717500060',
+            },
+        ],
+        'imprints': [
+            {
+                'date': '2017-03-30T00:00:00',
+            },
+        ],
+        'number_of_pages': 6,
+        'publication_info': [
+            {
+                'artid': u'1750006',
+                'journal_issue': u'01',
+                'journal_title': u'This is a journal title 2',
+                'journal_volume': u'30',
+                'year': 2017,
+            },
+        ],
+        'refereed': True,
+        'titles': [
+            {
+                'source': 'WSP',
+                'title': u'Article-title\u2019s',
+            },
+        ],
+    }
+
+    assert override_generated_fields(one_result) == expected
