@@ -7,7 +7,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, print_function
+from __future__ import absolute_import, division, print_function
 
 import os
 import re

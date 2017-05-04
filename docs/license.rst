@@ -3,7 +3,7 @@ License
 hepcrawl is free software; you can redistribute it and/or modify it
 under the terms of the Revised BSD License quoted below.
 
-Copyright (c) 2015, 2016 CERN.
+Copyright (c) 2015, 2016, 2017 CERN.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

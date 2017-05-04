@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # HEPCrawl documentation build configuration file, created by
-# sphinx-quickstart on Thu Jun  2 13:24:46 2016.
+# sphinx-quickstart on Thu Jun  2 13:24:46 2016 - 2017.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.

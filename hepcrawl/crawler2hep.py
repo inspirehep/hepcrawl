@@ -13,6 +13,8 @@ Don't forget to add pipelines to the ITEM_PIPELINES setting
 See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 """
 
+from __future__ import absolute_import, division, print_function
+
 from inspire_schemas.api import LiteratureBuilder
 
 

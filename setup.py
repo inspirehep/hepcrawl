@@ -9,6 +9,8 @@
 
 """Scrapy project for feeds into INSPIRE-HEP (http://inspirehep.net)."""
 
+from __future__ import absolute_import, division, print_function
+
 from setuptools import setup, find_packages
 
 readme = open('README.rst').read()
