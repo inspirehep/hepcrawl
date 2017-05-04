@@ -83,7 +83,6 @@ if SENTRY_DSN:
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    # 'hepcrawl.pipelines.JsonWriterPipeline': 300,
     'scrapy.pipelines.files.FilesPipeline': 1,
     'hepcrawl.pipelines.InspireCeleryPushPipeline': 300,
 }
