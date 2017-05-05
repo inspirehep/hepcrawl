@@ -67,7 +67,6 @@ def override_generated_fields(record):
     return record
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_abstract(results):
     """Test extracting abstract."""
     abstract = (
@@ -88,7 +87,6 @@ def test_abstract(results):
         assert record['abstract'] == abstract
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_title(results):
     """Test extracting title."""
     title = "High-efficient Solid-state Perovskite Solar Cell Without Lithium Salt in the Hole Transport Material"
@@ -97,7 +95,6 @@ def test_title(results):
         assert record['title'] == title
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_date_published(results):
     """Test extracting date_published."""
     date_published = "2014-06-05"
@@ -106,7 +103,6 @@ def test_date_published(results):
         assert record['date_published'] == date_published
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_page_nr(results):
     """Test extracting page_nr"""
     page_nr = ["7"]
@@ -115,7 +111,6 @@ def test_page_nr(results):
         assert record['page_nr'] == page_nr
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_free_keywords(results):
     """Test extracting free_keywords"""
     free_keywords = ['Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$', 'solar cell', 'lithium']
@@ -127,7 +122,6 @@ def test_free_keywords(results):
             free_keywords.remove(keyword['value'])
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_license(results):
     """Test extracting license information."""
     expected_license = [{
@@ -141,7 +135,6 @@ def test_license(results):
         assert record['license'] == expected_license
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_dois(results):
     """Test extracting dois."""
     dois = "10.1142/S1793292014400013"
@@ -150,7 +143,6 @@ def test_dois(results):
         assert record['dois'][0]['value'] == dois
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_collections(results):
     """Test extracting collections."""
     collections = ["HEP", "Published"]
@@ -160,7 +152,6 @@ def test_collections(results):
             assert {"primary": coll} in record['collections']
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_collaborations(results):
     """Test extracting collaboration."""
     collaborations = [{"value": "Belle Collaboration"}]
@@ -169,7 +160,6 @@ def test_collaborations(results):
         assert record['collaborations'] == collaborations
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_publication_info(results):
     """Test extracting dois."""
     journal_title = "NANO"
@@ -190,7 +180,6 @@ def test_publication_info(results):
         assert record['journal_issue'] == journal_issue
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_authors(results):
     """Test authors."""
     authors = ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"]
@@ -213,7 +202,6 @@ def test_authors(results):
                 ]
 
 
-@pytest.mark.xfail(reason='old schema')
 def test_copyrights(results):
     """Test extracting copyright."""
     copyright_holder = "World Scientific Publishing Company"
