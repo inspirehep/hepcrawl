@@ -19,7 +19,7 @@ from scrapy.spider import Spider
 from inspire_schemas.api import validate
 
 from hepcrawl.spiders import arxiv_spider
-from hepcrawl.pipelines import InspireAPIPushPipeline, JsonWriterPipeline
+from hepcrawl.pipelines import InspireAPIPushPipeline
 
 from .responses import fake_response_from_file
 
@@ -58,23 +58,6 @@ def expected_response():
         result = expected_fd.read()
 
     return json.loads(result)
-
-
-def test_json_output(tmpdir, json_spider_record):
-    """Test writing results to a file."""
-    tmpfile = tmpdir.mkdir("json").join("aps.json")
-
-    spider, json_record = json_spider_record
-
-    json_pipeline = JsonWriterPipeline(output_uri=tmpfile.strpath)
-
-    assert json_pipeline.output_uri
-
-    json_pipeline.open_spider(spider)
-    json_pipeline.process_item(json_record, spider)
-    json_pipeline.close_spider(spider)
-
-    assert tmpfile.read()
 
 
 def test_prepare_payload(

@@ -42,51 +42,6 @@ def filter_fields(item, keys):
         item.pop(key, None)
 
 
-class JsonWriterPipeline(object):
-    """Pipeline for outputting items in JSON lines format."""
-
-    def __init__(self, output_uri=None):
-        self.output_uri = output_uri
-        self.count = 0
-
-    @classmethod
-    def from_crawler(cls, crawler):
-        if crawler.spider is not None:
-            prefix = "{0}_".format(crawler.spider.name)
-        else:
-            prefix = "hepcrawl"
-
-        output_uri = get_temporary_file(
-            prefix=prefix,
-            suffix=".json",
-            directory=crawler.settings.get("JSON_OUTPUT_DIR")
-        )
-        return cls(
-            output_uri=output_uri,
-        )
-
-    def open_spider(self, spider):
-        self.file = open(self.output_uri, "wb")
-        self.file.write("[")
-
-    def close_spider(self, spider):
-        self.file.write("]\n")
-        self.file.close()
-        spider.logger.info("Wrote {0} records to {1}".format(
-            self.count,
-            self.output_uri,
-        ))
-
-    def process_item(self, item, spider):
-        line = ""
-        if self.count > 0:
-            line = "\n,"
-        line += json.dumps(dict(item), indent=4)
-        self.file.write(line)
-        self.count += 1
-        return item
-
-
 class InspireAPIPushPipeline(object):
     """Push to INSPIRE API via tasks API."""
 
