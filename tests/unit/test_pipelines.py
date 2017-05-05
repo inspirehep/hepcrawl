@@ -61,10 +61,13 @@ def expected_response():
 
 
 def test_prepare_payload(
-    tmpdir, json_spider_record, spider, expected_response, set_up_clean_up_env_vars,
+    tmpdir, json_spider_record, spider, expected_response,
 ):
     """Test that the generated payload is ok."""
     _, json_record = json_spider_record
+    os.environ['SCRAPY_JOB'] = 'scrapy_job'
+    os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
+    os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
     pipeline = InspireAPIPushPipeline()
 
