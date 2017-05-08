@@ -21,27 +21,14 @@ from .responses import fake_response_from_file
 
 
 @pytest.fixture
-def results():
-    """Return results generator from the WSP spider."""
-    spider = wsp_spider.WorldScientificSpider()
-    records = list(spider.parse(
-        fake_response_from_file('world_scientific/sample_ws_record.xml')
-    ))
-    assert records
-    return records
-
-
-@pytest.fixture
 def spider():
     crawler = Crawler(spidercls=wsp_spider.WorldScientificSpider)
     return wsp_spider.WorldScientificSpider.from_crawler(crawler)
 
 
 @pytest.fixture
-def one_result(spider):
-    """Return results generator from the WSP spider. Tricky fields, one
-    record.
-    """
+def all_results(request, spider):
+    """Return all results generator from the WSP spider via pipelines."""
     from scrapy.http import TextResponse
     
     # environmental variables needed for the pipelines payload
@@ -49,16 +36,24 @@ def one_result(spider):
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
     os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
-    record = spider.parse(
+    records = list(spider.parse(
         fake_response_from_file(
-            'world_scientific/wsp_record.xml',
+            file_name=request.param,
             response_type=TextResponse
         )
-    )
+    ))
 
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    return pipeline.process_item(record.next(), spider)
+
+    return [pipeline.process_item(record, spider) for record in records]
+
+
+@pytest.fixture
+def one_result(spider, all_results):
+    """Return result one record generator from the WSP spider via pipelines.
+    Fixture `all_results` must be parametrized with the response `file_name`."""
+    return all_results[0]
 
 
 def override_generated_fields(record):
@@ -67,7 +62,12 @@ def override_generated_fields(record):
     return record
 
 
-def test_abstract(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_abstract(all_results):
     """Test extracting abstract."""
     abstract = (
         "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have recently been used as light absorbers in hybrid"
@@ -82,111 +82,130 @@ def test_abstract(results):
         "comparable to the efficiency of 12.3% with the addition of 1.3 mM LiTFSI. An unsealed device without "
         "Li$^{+}$ shows interestingly a promising stability."
     )
-    for record in results:
-        assert 'abstract' in record
-        assert record['abstract'] == abstract
+    for record in all_results:
+        assert 'abstracts' in record
+        assert record['abstracts'][0]['value'] == abstract
 
 
-def test_title(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_title(all_results):
     """Test extracting title."""
     title = "High-efficient Solid-state Perovskite Solar Cell Without Lithium Salt in the Hole Transport Material"
-    for record in results:
-        assert 'title' in record
-        assert record['title'] == title
+    for record in all_results:
+        assert 'titles' in record
+        assert record['titles'][0]['title'] == title
 
 
-def test_date_published(results):
-    """Test extracting date_published."""
-    date_published = "2014-06-05"
-    for record in results:
-        assert 'date_published' in record
-        assert record['date_published'] == date_published
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_imprints(all_results):
+    """Test extracting imprint."""
+    imprint = "2014-06-05T00:00:00"
+    for record in all_results:
+        assert 'imprints' in record
+        assert record['imprints'][0]['date'] == imprint
 
 
-def test_page_nr(results):
-    """Test extracting page_nr"""
-    page_nr = ["7"]
-    for record in results:
-        assert 'page_nr' in record
-        assert record['page_nr'] == page_nr
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_number_of_pages(all_results):
+    """Test extracting number_of_pages"""
+    number_of_pages = 7
+    for record in all_results:
+        assert 'number_of_pages' in record
+        assert record['number_of_pages'] == number_of_pages
 
 
-def test_free_keywords(results):
-    """Test extracting free_keywords"""
-    free_keywords = ['Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$', 'solar cell', 'lithium']
-    for record in results:
-        assert 'free_keywords' in record
-        for keyword in record['free_keywords']:
-            assert keyword["source"] == "author"
-            assert keyword["value"] in free_keywords
-            free_keywords.remove(keyword['value'])
-
-
-def test_license(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_license(all_results):
     """Test extracting license information."""
     expected_license = [{
         'license': 'CC-BY-4.0',
         'url': 'https://creativecommons.org/licenses/by/4.0',
     }]
-    results = list(results)
+    results = list(all_results)
 
     assert results
-    for record in results:
+    for record in all_results:
         assert record['license'] == expected_license
 
 
-def test_dois(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_dois(all_results):
     """Test extracting dois."""
     dois = "10.1142/S1793292014400013"
-    for record in results:
+    for record in all_results:
         assert 'dois' in record
         assert record['dois'][0]['value'] == dois
 
 
-def test_collections(results):
-    """Test extracting collections."""
-    collections = ["HEP", "Published"]
-    for record in results:
-        assert 'collections' in record
-        for coll in collections:
-            assert {"primary": coll} in record['collections']
-
-
-def test_collaborations(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_collaborations(all_results):
     """Test extracting collaboration."""
     collaborations = [{"value": "Belle Collaboration"}]
-    for record in results:
+    for record in all_results:
         assert 'collaborations' in record
         assert record['collaborations'] == collaborations
 
 
-def test_publication_info(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_publication_info(all_results):
     """Test extracting dois."""
     journal_title = "NANO"
     journal_year = 2014
     journal_artid = "1440001"
     journal_volume = "9"
     journal_issue = "05"
-    for record in results:
-        assert 'journal_title' in record
-        assert record['journal_title'] == journal_title
-        assert 'journal_year' in record
-        assert record['journal_year'] == journal_year
-        assert 'journal_artid' in record
-        assert record['journal_artid'] == journal_artid
-        assert 'journal_volume' in record
-        assert record['journal_volume'] == journal_volume
-        assert 'journal_issue' in record
-        assert record['journal_issue'] == journal_issue
+    for record in all_results:
+        assert 'journal_title' in record['publication_info'][0]
+        assert record['publication_info'][0]['journal_title'] == journal_title
+        assert 'year' in record['publication_info'][0]
+        assert record['publication_info'][0]['year'] == journal_year
+        assert 'artid' in record['publication_info'][0]
+        assert record['publication_info'][0]['artid'] == journal_artid
+        assert 'journal_volume' in record['publication_info'][0]
+        assert record['publication_info'][0]['journal_volume'] == journal_volume
+        assert 'journal_issue' in record['publication_info'][0]
+        assert record['publication_info'][0]['journal_issue'] == journal_issue
 
 
-def test_authors(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_authors(all_results):
     """Test authors."""
     authors = ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"]
     affiliation = "Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, Sweden"
     xref_affiliation = "Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA"
-    collab = "Belle Collaboration"
-    for record in results:
+    for record in all_results:
         assert 'authors' in record
         assert len(record['authors']) == 3
 
@@ -202,22 +221,66 @@ def test_authors(results):
                 ]
 
 
-def test_copyrights(results):
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_copyrights(all_results):
     """Test extracting copyright."""
     copyright_holder = "World Scientific Publishing Company"
-    copyright_year = "2014"
-    copyright_statement = ""
-    copyright_material = "Article"
-    for record in results:
-        assert 'copyright_holder' in record
-        assert record['copyright_holder'] == copyright_holder
-        assert 'copyright_year' in record
-        assert record['copyright_year'] == copyright_year
-        assert 'copyright_statement' not in record
-        assert 'copyright_material' in record
-        assert record['copyright_material'] == copyright_material
+    copyright_url = "article"
+    for record in all_results:
+        assert 'holder' in record['copyright'][0]
+        assert record['copyright'][0]['holder'] == copyright_holder
+        assert 'url' in record['copyright'][0]
+        assert record['copyright'][0]['url'] == copyright_url
 
 
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_citeable(all_results):
+    """Test extracting citeable."""
+    citeable = True
+    for record in all_results:
+        assert 'citeable' in record
+        assert record['citeable'] == citeable
+
+
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_document_type(all_results):
+    """Test extracting document_type."""
+    document_type = 'article'
+    for record in all_results:
+        assert 'document_type' in record
+        assert record['document_type'][0] == document_type
+
+
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/sample_ws_record.xml'],
+    indirect=True
+)
+def test_refereed(all_results):
+    """Test extracting refereed."""
+    refereed = True
+    for record in all_results:
+        assert 'refereed' in record
+        assert record['refereed'] == refereed
+
+
+@pytest.mark.parametrize(
+    'all_results',
+    ['world_scientific/wsp_record.xml'],
+    indirect=True
+)
 def test_pipeline_record(one_result):
     expected = {
         'abstracts': [
