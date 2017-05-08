@@ -13,6 +13,7 @@ import pytest
 import os
 
 from scrapy.crawler import Crawler
+from scrapy.http import TextResponse
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import wsp_spider
@@ -20,45 +21,35 @@ from hepcrawl.spiders import wsp_spider
 from .responses import fake_response_from_file
 
 
-@pytest.fixture
-def results():
-    """Return results generator from the WSP spider."""
-    spider = wsp_spider.WorldScientificSpider()
-    records = list(spider.parse(
-        fake_response_from_file('world_scientific/sample_ws_record.xml')
-    ))
-    assert records
-    return records
-
-
-@pytest.fixture
-def spider():
+def create_spider():
     crawler = Crawler(spidercls=wsp_spider.WorldScientificSpider)
     return wsp_spider.WorldScientificSpider.from_crawler(crawler)
 
 
-@pytest.fixture
-def one_result(spider):
-    """Return results generator from the WSP spider. Tricky fields, one
-    record.
-    """
-    from scrapy.http import TextResponse
-    
+def get_records(response_file_name):
+    """Return all results generator from the WSP spider via pipelines."""
     # environmental variables needed for the pipelines payload
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
     os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
-    record = spider.parse(
+    spider = create_spider()
+    records = spider.parse(
         fake_response_from_file(
-            'world_scientific/wsp_record.xml',
+            file_name=response_file_name,
             response_type=TextResponse
         )
     )
 
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    return pipeline.process_item(record.next(), spider)
+
+    return (pipeline.process_item(record, spider) for record in records)
+
+
+def get_one_record(response_file_name):
+    results = get_records(response_file_name)
+    return results.next()
 
 
 def override_generated_fields(record):
@@ -67,158 +58,354 @@ def override_generated_fields(record):
     return record
 
 
-def test_abstract(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_abstract',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            (
+                "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have recently been used as light absorbers in hybrid"
+                " organic-inorganic solid-state solar cells, with efficiencies above 15%. To date, it is essential to"
+                " add Lithium bis(Trifluoromethanesulfonyl)Imide (LiTFSI) to the hole transport materials (HTM) to get"
+                " a higher conductivity. However, the detrimental effect of high LiTFSI concentration on the charge transport"
+                ", DOS in the conduction band of the TiO$_{2}$ substrate and device stability results in an overall "
+                "compromise for a satisfactory device. Using a higher mobility hole conductor to avoid lithium salt "
+                "is an interesting alternative. Herein, we successfully made an efficient perovskite solar cell by "
+                "applying a hole conductor PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in the absence of"
+                " LiTFSI. Under AM 1.5 illumination of 100 mW/cm$^{2}$, an efficiency of 10.9% was achieved, which is "
+                "comparable to the efficiency of 12.3% with the addition of 1.3 mM LiTFSI. An unsealed device without "
+                "Li$^{+}$ shows interestingly a promising stability."
+            ),
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_abstract(generated_record, expected_abstract):
     """Test extracting abstract."""
-    abstract = (
-        "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have recently been used as light absorbers in hybrid"
-        " organic-inorganic solid-state solar cells, with efficiencies above 15%. To date, it is essential to"
-        " add Lithium bis(Trifluoromethanesulfonyl)Imide (LiTFSI) to the hole transport materials (HTM) to get"
-        " a higher conductivity. However, the detrimental effect of high LiTFSI concentration on the charge transport"
-        ", DOS in the conduction band of the TiO$_{2}$ substrate and device stability results in an overall "
-        "compromise for a satisfactory device. Using a higher mobility hole conductor to avoid lithium salt "
-        "is an interesting alternative. Herein, we successfully made an efficient perovskite solar cell by "
-        "applying a hole conductor PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in the absence of"
-        " LiTFSI. Under AM 1.5 illumination of 100 mW/cm$^{2}$, an efficiency of 10.9% was achieved, which is "
-        "comparable to the efficiency of 12.3% with the addition of 1.3 mM LiTFSI. An unsealed device without "
-        "Li$^{+}$ shows interestingly a promising stability."
-    )
-    for record in results:
-        assert 'abstract' in record
-        assert record['abstract'] == abstract
+    assert 'abstracts' in generated_record
+    assert generated_record['abstracts'][0]['value'] == expected_abstract
 
 
-def test_title(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_title',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'source': 'WSP',
+                'title': 'High-efficient Solid-state Perovskite Solar Cell Without Lithium Salt in the Hole Transport Material',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_title(generated_record, expected_title):
     """Test extracting title."""
-    title = "High-efficient Solid-state Perovskite Solar Cell Without Lithium Salt in the Hole Transport Material"
-    for record in results:
-        assert 'title' in record
-        assert record['title'] == title
+    assert 'titles' in generated_record
+    assert generated_record['titles'] == expected_title
 
 
-def test_date_published(results):
-    """Test extracting date_published."""
-    date_published = "2014-06-05"
-    for record in results:
-        assert 'date_published' in record
-        assert record['date_published'] == date_published
+@pytest.mark.parametrize(
+    'generated_record, expected_imprint',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'date': '2014-06-05T00:00:00',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_imprints(generated_record, expected_imprint):
+    """Test extracting imprint."""
+    assert 'imprints' in generated_record
+    assert generated_record['imprints'] == expected_imprint
 
 
-def test_page_nr(results):
-    """Test extracting page_nr"""
-    page_nr = ["7"]
-    for record in results:
-        assert 'page_nr' in record
-        assert record['page_nr'] == page_nr
+@pytest.mark.parametrize(
+    'generated_record, expected_number_of_pages',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            7,
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_number_of_pages(generated_record, expected_number_of_pages):
+    """Test extracting number_of_pages"""
+    assert 'number_of_pages' in generated_record
+    assert generated_record['number_of_pages'] == expected_number_of_pages
 
 
-def test_free_keywords(results):
+@pytest.mark.xfail(reason='outdated field - integration on the 2nd round')
+@pytest.mark.parametrize(
+    'generated_record, expected_keywords',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [
+                'Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$',
+                'solar cell',
+                'lithium',
+            ],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_free_keywords(generated_record, expected_keywords):
     """Test extracting free_keywords"""
-    free_keywords = ['Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$', 'solar cell', 'lithium']
-    for record in results:
-        assert 'free_keywords' in record
-        for keyword in record['free_keywords']:
-            assert keyword["source"] == "author"
-            assert keyword["value"] in free_keywords
-            free_keywords.remove(keyword['value'])
+    assert 'free_keywords' in generated_record
+    for keyword in generated_record['free_keywords']:
+        assert keyword["source"] == "author"
+        assert keyword["value"] in expected_keywords
+        expected_keywords.remove(keyword['value'])
 
 
-def test_license(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_license',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'license': 'CC-BY-4.0',
+                'url': 'https://creativecommons.org/licenses/by/4.0',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_license(generated_record, expected_license):
     """Test extracting license information."""
-    expected_license = [{
-        'license': 'CC-BY-4.0',
-        'url': 'https://creativecommons.org/licenses/by/4.0',
-    }]
-    results = list(results)
-
-    assert results
-    for record in results:
-        assert record['license'] == expected_license
+    assert 'license' in generated_record
+    assert generated_record['license'] == expected_license
 
 
-def test_dois(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_dois',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'source': 'hepcrawl',
+                'value': '10.1142/S1793292014400013',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_dois(generated_record, expected_dois):
     """Test extracting dois."""
-    dois = "10.1142/S1793292014400013"
-    for record in results:
-        assert 'dois' in record
-        assert record['dois'][0]['value'] == dois
+    assert 'dois' in generated_record
+    assert generated_record['dois'] == expected_dois
 
 
-def test_collections(results):
+@pytest.mark.xfail(reason='outdated field - integration on the 2nd round')
+@pytest.mark.parametrize(
+    'generated_record, expected_collections',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [
+                'HEP',
+                'Published',
+            ],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_collections(generated_record, expected_collections):
     """Test extracting collections."""
-    collections = ["HEP", "Published"]
-    for record in results:
-        assert 'collections' in record
-        for coll in collections:
-            assert {"primary": coll} in record['collections']
+    assert 'collections' in generated_record
+    for coll in expected_collections:
+        assert {"primary": coll} in generated_record['collections']
 
 
-def test_collaborations(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_collaboration',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                "value": "Belle Collaboration"
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_collaborations(generated_record, expected_collaboration):
     """Test extracting collaboration."""
-    collaborations = [{"value": "Belle Collaboration"}]
-    for record in results:
-        assert 'collaborations' in record
-        assert record['collaborations'] == collaborations
+    assert 'collaborations' in generated_record
+    assert generated_record['collaborations'] == expected_collaboration
 
 
-def test_publication_info(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_publication_info',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'journal_title': 'NANO',
+                'year': 2014,
+                'artid': '1440001',
+                'journal_volume': '9',
+                'journal_issue': '05',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_publication_info(generated_record, expected_publication_info):
     """Test extracting dois."""
-    journal_title = "NANO"
-    journal_year = 2014
-    journal_artid = "1440001"
-    journal_volume = "9"
-    journal_issue = "05"
-    for record in results:
-        assert 'journal_title' in record
-        assert record['journal_title'] == journal_title
-        assert 'journal_year' in record
-        assert record['journal_year'] == journal_year
-        assert 'journal_artid' in record
-        assert record['journal_artid'] == journal_artid
-        assert 'journal_volume' in record
-        assert record['journal_volume'] == journal_volume
-        assert 'journal_issue' in record
-        assert record['journal_issue'] == journal_issue
+    assert 'publication_info' in generated_record
+    assert generated_record['publication_info'] == expected_publication_info
 
 
-def test_authors(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_authors',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            {
+                'authors': ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"],
+                'affiliation': (
+                    'Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, Sweden'
+                ),
+                'xref_affiliation': (
+                    'Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA'
+                ),
+            },
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_authors(generated_record, expected_authors):
     """Test authors."""
-    authors = ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"]
-    affiliation = "Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, Sweden"
-    xref_affiliation = "Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA"
-    collab = "Belle Collaboration"
-    for record in results:
-        assert 'authors' in record
-        assert len(record['authors']) == 3
+    assert 'authors' in generated_record
+    assert len(generated_record['authors']) == 3
 
-        # here we are making sure order is kept
-        for index, name in enumerate(authors):
-            assert record['authors'][index]['full_name'] == name
-            assert affiliation in [
-                aff['value'] for aff in record['authors'][index]['affiliations']
+    # here we are making sure order is kept
+    for index, name in enumerate(expected_authors['authors']):
+            assert generated_record['authors'][index]['full_name'] == name
+            assert expected_authors['affiliation'] in [
+                aff['value'] for aff in generated_record['authors'][index]['affiliations']
             ]
             if index == 1:
-                assert xref_affiliation in [
-                    aff['value'] for aff in record['authors'][index]['affiliations']
+                assert expected_authors['xref_affiliation'] in [
+                    aff['value'] for aff in generated_record['authors'][index]['affiliations']
                 ]
 
 
-def test_copyrights(results):
+@pytest.mark.parametrize(
+    'generated_record, expected_copyright',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [{
+                'holder': 'World Scientific Publishing Company',
+                'url': 'article',
+            }],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_copyrights(generated_record, expected_copyright):
     """Test extracting copyright."""
-    copyright_holder = "World Scientific Publishing Company"
-    copyright_year = "2014"
-    copyright_statement = ""
-    copyright_material = "Article"
-    for record in results:
-        assert 'copyright_holder' in record
-        assert record['copyright_holder'] == copyright_holder
-        assert 'copyright_year' in record
-        assert record['copyright_year'] == copyright_year
-        assert 'copyright_statement' not in record
-        assert 'copyright_material' in record
-        assert record['copyright_material'] == copyright_material
+    assert 'copyright' in generated_record
+    assert generated_record['copyright'] == expected_copyright
 
 
-def test_pipeline_record(one_result):
+@pytest.mark.parametrize(
+    'generated_record, expected_citeable',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            True,
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_citeable(generated_record, expected_citeable):
+    """Test extracting citeable."""
+    assert 'citeable' in generated_record
+    assert generated_record['citeable'] == expected_citeable
+
+
+@pytest.mark.parametrize(
+    'generated_record, expected_document_type',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            [
+                'article',
+            ],
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_document_type(generated_record, expected_document_type):
+    """Test extracting document_type."""
+    assert 'document_type' in generated_record
+    assert generated_record['document_type'] == expected_document_type
+
+
+@pytest.mark.parametrize(
+    'generated_record, expected_refereed',
+    [
+        [
+            get_one_record('world_scientific/sample_ws_record.xml'),
+            True,
+        ],
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_refereed(generated_record, expected_refereed):
+    """Test extracting refereed."""
+    assert 'refereed' in generated_record
+    assert generated_record['refereed'] == expected_refereed
+
+
+@pytest.mark.parametrize(
+    'generated_record',
+    [
+        get_one_record('world_scientific/wsp_record.xml'),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_pipeline_record(generated_record):
     expected = {
         'abstracts': [
             {
@@ -281,4 +468,4 @@ def test_pipeline_record(one_result):
         ],
     }
 
-    assert override_generated_fields(one_result) == expected
+    assert override_generated_fields(generated_record) == expected
