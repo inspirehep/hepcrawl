@@ -16,7 +16,6 @@ import urlparse
 
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
-from inspire_schemas.api import validate as validate_schema
 
 from ..extractors.jats import Jats
 from ..items import HEPRecord
@@ -197,7 +196,6 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
         record.add_value('collections', self._get_collections(node, article_type, journal_title))
         parsed_record = dict(record.load_item())
-        validate_schema(data=parsed_record, schema_name='hep')
 
         return parsed_record
 
