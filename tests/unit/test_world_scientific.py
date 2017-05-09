@@ -441,7 +441,8 @@ def test_pipeline_record(generated_record):
         ],
         'dois': [
             {
-                'source': 'hepcrawl', 'value': u'10.1142/S0219025717500060',
+                'source': 'hepcrawl',
+                'value': u'10.1142/S0219025717500060',
             },
         ],
         'imprints': [
