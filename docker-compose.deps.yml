@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+#
+# This file is part of hepcrawl.
+# Copyright (C) 2015, 2016, 2017 CERN.
+#
+# hepcrawl is a free software; you can redistribute it and/or modify it
+# under the terms of the Revised BSD License; see LICENSE file for
+# more details.
+
+version: '2'
+
+services:
+  pip:
+    build:
+      context: ${PWD}/tests/functional
+      dockerfile: hepcrawl_base.dockerfile
+    image: hepcrawl_base
+    command: bash -c "pip install -e .[all] && pip freeze"
+    volumes:
+      - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
+      - ${PWD}:/code/

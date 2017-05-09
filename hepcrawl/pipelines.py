@@ -183,6 +183,8 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
 
     def close_spider(self, spider):
         """Post results to BROKER API."""
+        from celery.utils.log import get_task_logger
+        logger = get_task_logger(__name__)
         if 'SCRAPY_JOB' in os.environ and self.count > 0:
             task_endpoint = spider.settings[
                 'API_PIPELINE_TASK_ENDPOINT_MAPPING'
@@ -190,6 +192,7 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
                 spider.name,
                 spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT'],
             )
+            logger.info('Triggering celery task: %s.' % task_endpoint)
             self.celery.send_task(
                 task_endpoint,
                 kwargs=self._prepare_payload(spider),

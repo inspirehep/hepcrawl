@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -29,6 +29,7 @@ install_requires = [
     'furl>=0.4.95',
     'ftputil>=3.3.1',
     'python-dateutil>=2.4.2',
+    'python-scrapyd-api>=2.0.1',
 ]
 
 tests_require = [

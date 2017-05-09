@@ -6,10 +6,3 @@
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
-
-[pytest]
-addopts = --pep8 --ignore=docs --cov-config .coveragerc --cov=hepcrawl --cov-report=term-missing
-pep8ignore =
-    tests/* ALL
-    *.py E501
-    settings.py E265

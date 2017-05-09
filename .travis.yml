@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -11,29 +11,42 @@ sudo: false
 
 language: python
 
-cache:
-  - pip
+services:
+  - docker
 
 python:
   - '2.7'
 
 env:
-  - EXTRAS=docs,tests
+  global:
+    - EXTRAS=docs,tests
+    - DOCKER_COMPOSE_VERSION=1.9.0
+    - DOCKER_DATA="$HOME/hepcrawl_docker_data"
+  matrix:
+    - SUITE=unit
+    - SUITE=functional_wsp
+
+matrix:
+  fast_finish: true
 
 before_install:
-  - "travis_retry pip install --upgrade pip setuptools py"
-  - "travis_retry pip install twine wheel coveralls check-manifest"
+  - travis_retry pip install twine wheel coveralls check-manifest
+  - sudo rm -f /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 install:
-  - "travis_retry pip install -e .[${EXTRAS}]"
+  - travis_retry docker-compose -f docker-compose.deps.yml run --rm pip
 
 script:
-  - pip freeze
-  - sphinx-build -qnNW docs docs/_build/html
-  - python setup.py test
-  - python setup.py sdist && ls dist/*
+  - travis_retry docker-compose -f docker-compose.test.yml run --rm ${SUITE}
 
 after_success:
+  - docker-compose -f docker-compose.test.yml kill -s SIGTERM
+  - docker-compose -f docker-compose.test.yml rm -f
+  - coverage combine
+  - sed -i 's@\"/code/@'"\"$(pwd)/"'@g' .coverage
   - coveralls
 
 notifications:

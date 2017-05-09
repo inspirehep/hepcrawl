@@ -99,17 +99,20 @@ FILES_RESULT_FIELD = 'files'
 # INSPIRE Push Pipeline settings
 # ==============================
 API_PIPELINE_URL = "http://localhost:5555/api/task/async-apply"
-API_PIPELINE_TASK_ENDPOINT_DEFAULT = "inspire_crawler.tasks.submit_results"
+API_PIPELINE_TASK_ENDPOINT_DEFAULT = os.environ.get(
+    "APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT",
+    "inspire_crawler.tasks.submit_results"
+)
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
 # Celery
 # ======
 BROKER_URL = os.environ.get(
     "APP_BROKER_URL",
-    "amqp://guest:guest@localhost:5672//")
+    "amqp://guest:guest@rabbitmq:5672//")
 CELERY_RESULT_BACKEND = os.environ.get(
     "APP_CELERY_RESULT_BACKEND",
-    "amqp://guest:guest@localhost:5672//")
+    "amqp://guest:guest@rabbitmq:5672//")
 CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
 CELERY_TIMEZONE = 'Europe/Amsterdam'
 CELERY_DISABLE_RATE_LIMITS = True

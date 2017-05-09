@@ -1,0 +1,92 @@
+[{
+	"refereed": true,
+	"acquisition_source": {
+		"source": "WSP",
+		"method": "hepcrawl",
+		"submission_number": "a5f2858a26a211e790b40242ac120005",
+		"datetime": "2017-04-21T14:56:10.981309"
+	},
+	"copyright": [{
+		"url": "article",
+		"holder": "Copyright Holder"
+	}],
+	"number_of_pages": 6,
+	"authors": [{
+		"affiliations": [{
+			"value": "Department, University, City, City_code 123456, C. R. Country_2"
+		}],
+		"full_name": "author_surname_2, author_name_1"
+	}],
+	"titles": [{
+		"source": "WSP",
+		"title": "Article-title\u2019s"
+	}],
+	"dois": [{
+		"source": "hepcrawl",
+		"value": "10.1142/S0219025717500060"
+	}],
+	"publication_info": [{
+		"journal_volume": "30",
+		"year": 2017,
+		"journal_issue": "01",
+		"artid": "1750006",
+		"journal_title": "This is a journal title 2"
+	}],
+	"document_type": ["article"],
+	"abstracts": [{
+		"source": "WSP",
+		"value": "Abstract L\u00e9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa."
+	}],
+	"imprints": [{
+		"date": "2017-03-30T00:00:00"
+	}],
+	"citeable": true
+}, {
+	"refereed": true,
+	"acquisition_source": {
+		"source": "WSP",
+		"method": "hepcrawl",
+		"submission_number": "a5f2858a26a211e790b40242ac120005",
+		"datetime": "2017-04-21T14:56:11.026428"
+	},
+	"copyright": [{
+		"url": "article",
+		"holder": "Copyright Holder"
+	}],
+	"number_of_pages": 21,
+	"authors": [{
+		"affiliations": [{
+			"value": "Department, University, City, City_code 123456, C. R. Country_1"
+		}],
+		"full_name": "author_surname_1, author_name_1"
+	}, {
+		"affiliations": [{
+			"value": "Department, University, City, City_code 123456, C. R. Country_1"
+		}],
+		"full_name": "author_surname_2, author_name_2"
+	}],
+	"titles": [{
+		"source": "WSP",
+		"title": "Article-title L\u00e9vy char"
+	}],
+	"dois": [{
+		"source": "hepcrawl",
+		"value": "10.1142/S0219025717500023"
+	}],
+	"publication_info": [{
+		"journal_volume": "20",
+		"year": 2017,
+		"journal_issue": "01",
+		"artid": "1750002",
+		"journal_title": "This is a journal title 1"
+	}],
+	"document_type": ["article"],
+	"abstracts": [{
+		"source": "WSP",
+		"value": "Abstract L\u00e9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa <math><msup><mrow><mi>L</mi></mrow><mrow><mn>2</mn></mrow></msup></math>-bla blaaa blaa, Bla\u2019s bla, bla blaaa blaa."
+	}],
+	"imprints": [{
+		"date": "2017-03-30T00:00:00"
+	}],
+	"citeable": true
+}]
