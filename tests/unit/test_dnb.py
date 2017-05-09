@@ -54,6 +54,7 @@ def record(scrape_pos_page_body):
     return request.callback(response)
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_title(record):
     """Test title."""
     title = "Auslegung und Messungen einer supraleitenden 325 MHz CH-Struktur für Strahlbetrieb"
@@ -61,12 +62,14 @@ def test_title(record):
     assert record["title"] == title
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_date_published(record):
     """Test date_published."""
     assert "date_published" in record
     assert record["date_published"] == "2015"
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_authors(record):
     """Test authors."""
     authors = ["Busch, Marco"]
@@ -86,30 +89,35 @@ def test_authors(record):
         ]
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_supervisors(record):
     """Test thesis supervisors"""
     assert "thesis_supervisor" in record
     assert record["thesis_supervisor"][0]["full_name"] == "Podlech, Holger"
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_source(record):
     """Test thesis source"""
     assert "source" in record
     assert record["source"] == 'Univ.-Bibliothek Frankfurt am Main'
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_language(record):
     """Test thesis language"""
     assert "language" in record
     assert record["language"][0] == u'German'
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_files(record):
     """Test files."""
     assert "file_urls" in record
     assert record["file_urls"][0] == "http://d-nb.info/1079912991/34"
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_urls(record):
     """Test url in record."""
     urls = [
@@ -127,12 +135,14 @@ def test_urls(record):
         seen_urls.add(url['value'])
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_doctype(record):
     """Test doctype"""
     assert "thesis" in record
     assert record["thesis"]["degree_type"] == "PhD"
 
 
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_abstract(record):
     """Test that abstract has been fetched correctly."""
     abstract = (
@@ -184,6 +194,8 @@ def test_abstract(record):
     assert "abstract" in record
     assert record["abstract"] == abstract
 
+
+@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_page_nr(record):
     """Test that page range is correct."""
     assert "page_nr" in record
