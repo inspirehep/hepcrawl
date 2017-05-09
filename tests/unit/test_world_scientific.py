@@ -450,6 +450,12 @@ def test_pipeline_record(generated_record):
             },
         ],
         'number_of_pages': 6,
+        'public_notes': [
+            {
+                'source': 'hepcrawl',
+                'value': u'Communicated by J. John'
+            }
+        ],
         'publication_info': [
             {
                 'artid': u'1750006',
