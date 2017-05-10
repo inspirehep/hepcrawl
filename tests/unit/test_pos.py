@@ -19,7 +19,7 @@ from scrapy.http import HtmlResponse
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import pos_spider
 
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture

@@ -21,7 +21,7 @@ from inspire_schemas.api import validate
 from hepcrawl.spiders import arxiv_spider
 from hepcrawl.pipelines import InspireAPIPushPipeline
 
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture

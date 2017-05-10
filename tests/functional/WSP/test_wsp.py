@@ -15,86 +15,11 @@ import pytest
 import json
 import os
 
-from itertools import islice
 from scrapyd_api import ScrapydAPI
 from time import sleep
 
-from tests.functional.tasks import app
-
-
-class CeleryMonitor(object):
-    def __init__(self, app, monitor_timeout=3, monitor_iter_limit=100):
-        self.results = []
-        self.recv = None
-        self.app = app
-        self.connection = None
-        self.monitor_timeout = monitor_timeout
-        self.monitor_iter_limit = monitor_iter_limit
-
-    def __enter__(self):
-        state = self.app.events.State()
-
-        def announce_succeeded_tasks(event):
-            state.event(event)
-            task = state.tasks.get(event['uuid'])
-            print('TASK SUCCEEDED: %s[%s] %s' % (task.name, task.uuid, task.info(),))
-            tasks = app.AsyncResult(task.id)
-            for task in tasks.result:
-                self.results.append(task)
-            self.recv.should_stop = True
-
-        def announce_failed_tasks(event):
-            state.event(event)
-            task = state.tasks.get(event['uuid'])
-            print('TASK FAILED: %s[%s] %s' % (task.name, task.uuid, task.info(),))
-            self.results.append(task.info())
-            self.recv.should_stop = True
-
-        self.app.control.enable_events()
-        self.connection = self.app.connection()
-        self.recv = self.app.events.Receiver(self.connection, handlers={
-            'task-succeeded': announce_succeeded_tasks,
-            'task-failed': announce_failed_tasks,
-        })
-
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        events_iter = self.recv.itercapture(limit=None, timeout=self.monitor_timeout, wakeup=True)
-        self._wait_for_results(events_iter)
-        self.connection.__exit__()
-
-    def _wait_for_results(self, events_iter):
-        any(islice(
-            events_iter,  # iterable
-            self.monitor_iter_limit  # stop
-        ))
-
-    @classmethod
-    def do_crawl(
-        cls,
-        app,
-        monitor_timeout,
-        monitor_iter_limit,
-        crawler_instance,
-        project='hepcrawl',
-        spider='WSP',
-        settings=None,
-        **crawler_arguments
-    ):
-
-        if settings is None:
-            settings = {}
-
-        with cls(app, monitor_timeout=monitor_timeout, monitor_iter_limit=monitor_iter_limit) as my_monitor:
-            crawler_instance.schedule(
-                project=project,
-                spider=spider,
-                settings=settings or {},
-                **crawler_arguments
-            )
-
-        return my_monitor.results
+from hepcrawl.testlib.tasks import app as celery_app
+from hepcrawl.testlib.celery_monitor import CeleryMonitor
 
 
 def get_crawler_instance(crawler_host, *args, **kwargs):
@@ -149,7 +74,7 @@ def test_wsp_normal_set_of_records(set_up_environment, expected_results):
     sleep(10)
 
     results = CeleryMonitor.do_crawl(
-        app=app,
+        app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
         crawler_instance=crawler,

@@ -17,7 +17,7 @@ from scrapy import Request
 import hepcrawl
 from hepcrawl.spiders import infn_spider
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
 )

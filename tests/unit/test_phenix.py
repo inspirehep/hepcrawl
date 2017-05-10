@@ -15,7 +15,7 @@ from scrapy.selector import Selector
 
 from hepcrawl.spiders import phenix_spider
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
     get_node,

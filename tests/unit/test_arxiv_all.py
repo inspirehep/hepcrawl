@@ -15,7 +15,7 @@ from scrapy.crawler import  Crawler
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture
@@ -32,12 +32,15 @@ def one_result(spider):
     """
     from scrapy.http import TextResponse
 
-    records = list(spider.parse(
-        fake_response_from_file(
-            'arxiv/sample_arxiv_record0.xml',
-            response_type=TextResponse
+    records = list(
+        spider.parse(
+            fake_response_from_file(
+                'arxiv/sample_arxiv_record0.xml',
+                response_type=TextResponse,
+            )
         )
-    ))
+    )
+
     assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
@@ -51,12 +54,15 @@ def many_results(spider):
     """
     from scrapy.http import TextResponse
 
-    records = list(spider.parse(
-        fake_response_from_file(
-            'arxiv/sample_arxiv_record.xml',
-            response_type=TextResponse
+    records = list(
+        spider.parse(
+            fake_response_from_file(
+                'arxiv/sample_arxiv_record.xml',
+                response_type=TextResponse,
+            )
         )
-    ))
+    )
+
     assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)

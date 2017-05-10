@@ -17,7 +17,7 @@ from scrapy.utils.project import get_project_settings
 from hepcrawl.extensions import ErrorHandler
 from hepcrawl.spiders.wsp_spider import WorldScientificSpider
 
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture

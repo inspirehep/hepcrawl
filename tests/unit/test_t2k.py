@@ -17,7 +17,7 @@ import hepcrawl
 
 from hepcrawl.spiders import t2k_spider
 
-from .responses import fake_response_from_file
+from hepcrawl.testlib.fixtures import fake_response_from_file
 
 
 @pytest.fixture

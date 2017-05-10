@@ -19,7 +19,7 @@ import scrapy
 import hepcrawl
 from hepcrawl.spiders import base_spider
 
-from .responses import (
+from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
     get_node,
@@ -31,6 +31,7 @@ def record():
     """Return built HEPRecord from the BASE spider."""
     spider = base_spider.BaseSpider()
     response = fake_response_from_file('base/test_1.xml')
+
     selector = Selector(response, type='xml')
     spider._register_namespaces(selector)
     nodes = selector.xpath('.//%s' % spider.itertag)
