@@ -7,7 +7,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-version: '2'
+version: '2.1'
 
 services:
   functional_wsp:
@@ -18,6 +18,9 @@ services:
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - COVERAGE_PROCESS_START=/code/.coveragerc
+      - BASE_USER_UID=${BASE_USER_UID:-1000}
+      - BASE_USER_GIT=${BASE_USER_GIT:-1000}
+    tty: true
     command: py.test -vv tests/functional/WSP/test_wsp.py
     volumes: &common_volumes
       - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
@@ -33,12 +36,14 @@ services:
   unit:
     image: hepcrawl_base
     environment: *env_variables
+    tty: true
     command: bash -c "py.test tests/unit -vv && sphinx-build -nNW docs docs/_build/html && python setup.py sdist && ls dist/*"
     volumes: *common_volumes
 
   celery:
     image: hepcrawl_base
     environment: *env_variables
+    tty: true
     command: celery worker --events --app hepcrawl.testlib.tasks --loglevel=debug
     volumes: *common_volumes
     links:
@@ -48,6 +53,7 @@ services:
   scrapyd:
     image: hepcrawl_base
     environment: *env_variables
+    tty: true
     command: bash -c "rm -f twistd.pid && exec scrapyd"
     volumes: *common_volumes
     links:
@@ -60,6 +66,7 @@ services:
   scrapyd_deploy:
     image: hepcrawl_base
     environment: *env_variables
+    tty: true
     command: bash -c "sleep 8 && scrapyd-deploy"  # make sure that the scrapyd is up
     volumes: *common_volumes
 

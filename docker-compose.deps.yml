@@ -7,7 +7,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-version: '2'
+version: '2.1'
 
 services:
   pip:
@@ -15,6 +15,10 @@ services:
       context: ${PWD}/tests
       dockerfile: Dockerfile.hepcrawl_base
     image: hepcrawl_base
+    tty: true
+    environment:
+      - BASE_USER_UID=${BASE_USER_UID:-1000}
+      - BASE_USER_GIT=${BASE_USER_GIT:-1000}
     command: bash -c "pip install -e .[all] && pip freeze"
     volumes:
       - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
