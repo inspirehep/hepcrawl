@@ -13,15 +13,14 @@ Don't forget to add pipelines to the ITEM_PIPELINES setting
 See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 """
 
+from __future__ import absolute_import, division, print_function
+
 import datetime
-import json
 import os
 
 import requests
 
-from crawler2hep import crawler2hep
-
-from .utils import get_temporary_file
+from .crawler2hep import crawler2hep
 
 
 def has_publication_info(item):

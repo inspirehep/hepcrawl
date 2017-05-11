@@ -9,6 +9,8 @@
 
 """Spider for POS."""
 
+from __future__ import absolute_import, division, print_function
+
 import re
 
 from scrapy import Request, Selector
