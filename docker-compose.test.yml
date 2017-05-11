@@ -36,12 +36,6 @@ services:
     command: bash -c "py.test tests/unit -vv && sphinx-build -nNW docs docs/_build/html && python setup.py sdist && ls dist/*"
     volumes: *common_volumes
 
-  doc:
-    image: hepcrawl_base
-    environment: *env_variables
-    command: bash -c "sphinx-build -qnNW docs docs/_build/html && exec python setup.py sdist && exec ls dist/*"
-    volumes: *common_volumes
-
   celery:
     image: hepcrawl_base
     environment: *env_variables
