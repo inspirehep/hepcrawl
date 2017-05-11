@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016 CERN.
+# Copyright (C) 2015, 2016, 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -66,16 +66,24 @@ def ftp_list_files(server_folder, target_folder, server, user, password, passive
         encrypt_data_channel=True)
 
     with ftputil.FTPHost(server, user, password, session_factory=session_factory) as host:
-        files = host.listdir(host.curdir + '/' + server_folder)
-        missing_files = []
-        all_files = []
-        for filename in files:
-            destination_file = os.path.join(target_folder, filename)
-            source_file = os.path.join(server_folder, filename)
-            if not os.path.exists(destination_file):
-                missing_files.append(source_file)
-            all_files.append(source_file)
-    return all_files, missing_files
+        file_names = host.listdir(os.path.join(host.curdir, '/', server_folder))
+        return list_missing_files(server_folder, target_folder, file_names)
+
+
+def local_list_files(local_folder, target_folder):
+    file_names = os.listdir(local_folder)
+    return list_missing_files(local_folder, target_folder, file_names)
+
+
+def list_missing_files(remote_folder, target_folder, file_names):
+    missing_files = []
+    for file_name in file_names:
+        destination_file = os.path.join(target_folder, file_name)
+        source_file = os.path.join(remote_folder, file_name)
+        if not os.path.exists(destination_file):
+            missing_files.append(source_file)
+
+    return missing_files
 
 
 def get_first(iterable, default=None):

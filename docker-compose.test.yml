@@ -23,6 +23,7 @@ services:
       - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
       - ${PWD}:/code/
       - ${PWD}/tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
+      - /tmp/WSP:/tmp/WSP  # the tmp folder that keeps the history of the crawled records
     links:
       - rabbitmq
       - celery
