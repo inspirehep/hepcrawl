@@ -9,19 +9,6 @@
 .. currentmodule:: hepcrawl
 
 
-API
-===
-
-.. automodule:: hepcrawl
-   :members:
-
-Items
------
-
-.. automodule:: hepcrawl.items
-   :members:
-
-
 Spiders
 -------
 
