@@ -266,10 +266,10 @@ def get_license(license_url='', license_text=''):
     :param license_url: Url of the license to generate.
     :type license_url: str
     :param license_text: Text with the description of the license (sometimes is
-    all we got...).
+        all we got...).
     :type license_text: str
     :return: license object to be added to the generated record, empty list if
-    no license could be extracted.
+        no license could be extracted.
     :rtype: list(dict)
     """
     license = []
