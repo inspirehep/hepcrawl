@@ -56,10 +56,19 @@ DNB
 .. automodule:: hepcrawl.spiders.dnb_spider
    :members:
 
+
+EDP
+~~~
+
+.. automodule:: hepcrawl.spiders.edp_spider
+   :members:
+
+
 Elsevier
 ~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.elsevier_spider
+   :members:
 
 
 INFN
