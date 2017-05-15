@@ -24,22 +24,25 @@ from ..utils import split_fullname
 class MagicSpider(XMLFeedSpider):
 
     """MAGIC crawler
-    Scrapes theses metadata from MAGIC telescope web page.
-    https://magic.mpp.mpg.de/backend/publications/thesis
 
-    1. `parse_node` will get thesis title, author and date from the listing.
-    2. If link to the splash page exists, `scrape_for_pdf` will try to fetch
+    Scrapes theses metadata from `MAGIC telescope web page`_.
+
+    1. ``MagicSpider.parse_node`` will get thesis title, author and date from the listing.
+    2. If link to the splash page exists, ``MagicSpider.scrape_for_pdf`` will try to fetch
        the pdf link, abstract, and authors.
-    3. `build_item` will build the HEPRecord.
+    3. ``MagicSpider.build_item`` will build the ``HEPRecord``.
 
-    Example usage:
-    .. code-block:: console
+    Examples:
+        ::
 
-        scrapy crawl magic
-        scrapy crawl magic -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl magic
 
+        Using source file::
 
-    Happy crawling!
+            $ scrapy crawl magic -a source_file=file://`pwd`/tests/responses/magic/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _MAGIC telescope web page:
+        https://magic.mpp.mpg.de/backend/publications/thesis
     """
 
     name = 'magic'
