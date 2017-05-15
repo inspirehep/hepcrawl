@@ -46,24 +46,29 @@ class ElsevierSpider(XMLFeedSpider):
        it will yield a request to unzip them. Then for every record in
        the zip files it will yield a request to scrape them. You can also run
        this spider on a zip file or a single record file.
-
     2. If needed, it will try to scrape Sciencedirect web page.
-
     3. HEPRecord will be built.
 
+    Examples:
+        Using ``atom_feed``::
 
-    Example usage:
-    .. code-block:: console
+            $ scrapy crawl elsevier -a atom_feed=file://`pwd`/tests/responses/elsevier/test_feed.xml -s "JSON_OUTPUT_DIR=tmp/"
 
-        scrapy crawl elsevier -a atom_feed=file://`pwd`/tests/responses/elsevier/test_feed.xml -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl elsevier -a zip_file=file://`pwd`/tests/responses/elsevier/nima.zip -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl elsevier -a xml_file=file://`pwd`/tests/responses/elsevier/sample_consyn_record.xml -s "JSON_OUTPUT_DIR=tmp/"
+        Using ``zip`` file::
 
-    for logging, add -s "LOG_FILE=elsevier.log"
+            $ scrapy crawl elsevier -a zip_file=file://`pwd`/tests/responses/elsevier/nima.zip -s "JSON_OUTPUT_DIR=tmp/"
 
-    * This is useful: https://www.elsevier.com/__data/assets/pdf_file/0006/58407/ja50_tagbytag5.pdf
+        Using ``xml`` file::
 
-    Happy crawling!
+            $ scrapy crawl elsevier -a xml_file=file://`pwd`/tests/responses/elsevier/sample_consyn_record.xml -s "JSON_OUTPUT_DIR=tmp/"
+
+        Using logger::
+
+            $ scrapy crawl elsevier -a {file} -s "LOG_FILE=elsevier.log"
+
+    .. note::
+
+        * This is useful: https://www.elsevier.com/__data/assets/pdf_file/0006/58407/ja50_tagbytag5.pdf
     """
 
     name = 'elsevier'
@@ -252,7 +257,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Return one author's affiliations.
 
         Will extract authors affiliation ids and call the
-        function _find_affiliations_by_id().
+        function ``ElsevierSpider._find_affiliations_by_id()``.
         """
         ref_ids = author.xpath(".//@refid").extract()
         group_affs = author_group.xpath(
@@ -314,8 +319,8 @@ class ElsevierSpider(XMLFeedSpider):
     def _get_year_from_doi(dois):
         """Extract year from DOI.
 
-        Works only with DOIs of the form 10.1016/j.nima.2016.01.020,
-        where 2016 is the year.
+        Works only with DOIs of the form ``10.1016/j.nima.2016.01.020``,
+        where ``2016`` is the year.
         """
         year = 0
         doi_pattern = re.compile(r'^\d+\.\d+\/.\.[a-z]+\.(\d{4})\.\d+\.\d+$')
@@ -440,8 +445,8 @@ class ElsevierSpider(XMLFeedSpider):
     def _format_arxiv_id(arxiv_urls):
         """Return an arxiv id with format 'arxiv:1407.0275'.
 
-        For old identifiers format is 'hep-ex/9908047'. Input string may or
-        may not have an 'http://' in it.
+        For old identifiers format is ``hep-ex/9908047``. Input string may or
+        may not have an ``http://`` in it.
         """
         if arxiv_urls:
             arxiv_id = arxiv_urls[0].split(":")[-1]
@@ -688,7 +693,7 @@ class ElsevierSpider(XMLFeedSpider):
         """Get the abstract and remove namespaces from it.
 
         This helps with MathML elements. The tag attributes like
-        <math altimg=\"si1.gif\" display=\"inline\" overflow=\"scroll\">
+        ``<math altimg=\"si1.gif\" display=\"inline\" overflow=\"scroll\">``
         can be removed in the loader.
         """
         abs_raw = node.xpath(".//ce:abstract-sec/ce:simple-para")
