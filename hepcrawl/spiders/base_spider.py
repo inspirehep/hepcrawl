@@ -24,33 +24,35 @@ from ..utils import get_mime_type, parse_domain, get_node
 class BaseSpider(XMLFeedSpider):
 
     """BASE crawler
+
     Scrapes BASE metadata XML files one at a time.
-    The actual files should be retrieved from BASE viat its OAI interface. The
+    The actual files should be retrieved from BASE via its OAI interface. The
     file can contain multiple records. This spider harvests only theses. It
     takes one BASE metadata record which are stored in an XML file.
 
-    1. First a request is sent to parse_node() to look through the XML file
-       and determine if it has direct link(s) to a fulltext pdf. (Actually it
-       doesn't recognize fulltexts; it's happy when it sees a pdf of some kind.)
-       calls: parse_node()
+    1.  First a request is sent to ``BaseSpider.parse_node()`` to look through the XML file
+        and determine if it has direct link(s) to a fulltext pdf. (Actually it
+        doesn't recognize fulltexts; it's happy when it sees a pdf of some kind.)
 
-    2a.If direct link exists, it will call build_item() to extract all desired
-       data from the XML file. Data will be put to a HEPrecord item and sent
-       to a pipeline for processing.
-       calls: build_item()
+        Calls: ``BaseSpider.parse_node()``.
 
-    2b.If no direct link exists, it will send a request to scrape_for_pdf() to
-       follow links and extract the pdf url. It will then call build_item() to
-       build HEPrecord.
-       calls: scrape_for_pdf(), then build_item()
+    2a. If direct link exists, it will call ``BaseSpider.build_item()`` to extract all desired
+        data from the XML file. Data will be put to a ``HEPrecord`` item and sent
+        to a pipeline for processing.
+
+        Calls: ``BaseSpider.build_item()``.
+
+    2b. If no direct link exists, it will send a request to ``BaseSpider.scrape_for_pdf()``
+        to follow links and extract the pdf url. It will then call ``BaseSpider.build_item()``
+        to build ``HEPrecord``.
+
+        Calls: ``BaseSpider.scrape_for_pdf()``, then ``BaseSpider.build_item()``.
 
 
-    Example usage:
-    .. code-block:: console
+    Example:
+        Using as source XML files::
 
-        scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
-
-    Happy crawling!
+            $ scrapy crawl BASE -a source_file=file://`pwd`/tests/responses/base/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
     """
 
     # TODO: With a test document of 1000 records only 974 returned. Check SSL
@@ -104,7 +106,7 @@ class BaseSpider(XMLFeedSpider):
         """Return all the different urls in the xml.
 
         Urls might be stored in identifier, relation, or link element. Beware
-        the strange "filename.jpg.pdf" urls.
+        the strange ``filename.jpg.pdf`` urls.
         """
         identifiers = [
             identifier for identifier in node.xpath(".//dc:identifier/text()").extract()
@@ -154,8 +156,8 @@ class BaseSpider(XMLFeedSpider):
         """Iterate through all the record nodes in the XML.
 
         With each node it checks if direct link exists, and sends
-        a request to scrape the direct link or calls build_item() to build
-        the HEPrecord.
+        a request to scrape the direct link or calls ``BaseSpider.build_item()`` to build
+        the ``HEPrecord``.
         """
         urls_in_record = self.get_urls_in_record(node)
         direct_link = self.find_direct_links(urls_in_record)
@@ -195,10 +197,10 @@ class BaseSpider(XMLFeedSpider):
     def scrape_for_pdf(self, response):
         """Scrape splash page for any links to PDFs.
 
-        If direct link didn't exists, parse_node() will yield a request
+        If direct link didn't exists, ``BaseSpider.parse_node()`` will yield a request
         here to scrape the urls. This will find a direct pdf link from a
-        splash page, if it exists. Then it will ask build_item to build the
-        HEPrecord.
+        splash page, if it exists. Then it will ask ``BaseSpider.build_item()`` to build the
+        ``HEPrecord``.
         """
         pdf_links = []
         all_links = response.xpath(
