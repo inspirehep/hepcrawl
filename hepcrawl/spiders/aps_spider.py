@@ -26,10 +26,16 @@ from ..utils import get_license, get_nested, build_dict
 class APSSpider(Spider):
     """APS crawler.
 
-    Uses the APS REST API v2. See documentation here:
-    http://harvest.aps.org/docs/harvest-api#endpoints
+    Uses the APS REST API v2.
+    `See documentation here`_.
 
-    scrapy crawl APS -a 'from_date=2016-05-01' -a 'until_date=2016-05-15' -a 'set=openaccess'
+    Example:
+        Using the APS spider::
+
+            $ scrapy crawl APS -a 'from_date=2016-05-01' -a 'until_date=2016-05-15' -a 'set=openaccess'
+
+    .. _See documentation here:
+        http://harvest.aps.org/docs/harvest-api#endpoints
     """
     name = 'APS'
     aps_base_url = "http://harvest.aps.org/v2/journals/articles"

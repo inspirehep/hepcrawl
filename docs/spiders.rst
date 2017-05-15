@@ -24,6 +24,13 @@ ALPHA
    :members:
 
 
+APS
+~~~
+
+.. automodule:: hepcrawl.spiders.aps_spider
+   :members:
+
+
 arXiv.org
 ~~~~~~~~~
 
