@@ -86,13 +86,16 @@ class NLM(object):
     def get_pub_status(node):
         """Publication status.
 
-        cases: "aheadofprint",
-                "ppublish",
-                "epublish",
-                "received",
-                "accepted",
-                "revised",
-                "ecollection"
+        .. note::
+            Cases of publication status:
+
+                * aheadofprint
+                * ppublish
+                * epublish
+                * received
+                * accepted
+                * revised
+                * ecollection
         """
         pubstatus = node.xpath(".//Journal/PubDate/@PubStatus").extract_first()
 
@@ -102,34 +105,37 @@ class NLM(object):
     def get_doctype(node):
         """Publication type.
 
-        cases : "Addresses",
-                "Bibliography",
-                "Case Reports",
-                "Classical Article",
-                "Clinical Conference",
-                "Clinical Trial",
-                "Congresses",
-                "Consensus Development Conference",
-                "Consensus Development Conference, NIH",
-                "Corrected and Republished Article",
-                "Editorial",
-                "Festschrift",
-                "Guideline",
-                "Interview",
-                "Journal Article",
-                "Lectures",
-                "Letter",
-                "Meta-Analysis",
-                "News",
-                "Newspaper Article",
-                "Observational Study",
-                "Patient Education Handout",
-                "Practice Guideline",
-                "Published Erratum",
-                "Retraction of Publication",
-                "Review",
-                "Video-Audio Media",
-                "Webcasts"
+        .. note::
+            Cases of publication type:
+
+                * Addresses
+                * Bibliography
+                * Case Reports
+                * Classical Article
+                * Clinical Conference
+                * Clinical Trial
+                * Congresses
+                * Consensus Development Conference
+                * Consensus Development Conference, NIH
+                * Corrected and Republished Article
+                * Editorial
+                * Festschrift
+                * Guideline
+                * Interview
+                * Journal Article
+                * Lectures
+                * etter
+                * Meta-Analysis
+                * News
+                * Newspaper Article
+                * Observational Study
+                * Patient Education Handout
+                * Practice Guideline
+                * Published Erratum
+                * Retraction of Publication
+                * Review
+                * Video-Audio Media
+                * Webcasts
         """
         pubtype = node.xpath(".//PublicationType/text()").extract_first()
         return pubtype
