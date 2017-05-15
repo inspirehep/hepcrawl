@@ -65,7 +65,7 @@ def selective_remove_tags(which_ones=(), keep=()):
 def parse_authors(value):
     """Add missing information for an author.
 
-    `full_name` combination value and `surname` + `given_names` values.
+    ``full_name`` combination value and ``surname`` + ``given_names`` values.
     Delete spaces from initials.
     """
     if "raw_name" in value and "surname" not in value:
@@ -143,7 +143,7 @@ def translate_language(lang):
 
 
 def remove_attributes_from_tags(text):
-    """Removes attributes from e.g. MathML tags"""
+    """Removes attributes from e.g. ``MathML`` tags"""
     if text:
         try:
             cleaner = clean.Cleaner(
