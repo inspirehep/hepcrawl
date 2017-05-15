@@ -50,22 +50,22 @@ class HEPLoader(ItemLoader):
 
     **Common input processors**
 
-    Every field suffixed by `_in`.
+    Every field suffixed by ``_in``.
 
     MapCompose receives a series of functions to apply to every element
     in the input value list. Typically used for "cleaning" data items.
 
     **Common output processors**
 
-    Every field suffixed by `_out`.
+    Every field suffixed by ``_out``.
 
     TakeFirst is used when only one item is expected to just take the first
-    item in the list. E.g. ['foo', 'bar'] becomes 'foo'.
+    item in the list. E.g. ``['foo', 'bar']`` becomes ``foo``.
 
     Join is used to join together all elements in a list to one string.
-    E.g. ['foo', 'bar'] becomes 'foo bar'.
+    E.g. ``['foo', 'bar']`` becomes ``foo bar``.
 
-    ListToValueDict is used to generate the appropriate nested dictionary
+    ``ListToValueDict`` is used to generate the appropriate nested dictionary
     structures required by the HEP data model.
     """
     source_out = TakeFirst()
