@@ -37,7 +37,7 @@ services:
     image: hepcrawl_base
     environment: *env_variables
     tty: true
-    command: bash -c "py.test tests/unit -vv && sphinx-build -nNW docs docs/_build/html && python setup.py sdist && ls dist/*"
+    command: bash -c "py.test tests/unit -vv && make -C docs html && python setup.py sdist && ls dist/*"
     volumes: *common_volumes
 
   celery:

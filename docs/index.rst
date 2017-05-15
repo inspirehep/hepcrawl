@@ -48,7 +48,8 @@ this part of the documentation is for you.
 .. toctree::
    :maxdepth: 2
 
-   api
+   _source/hepcrawl.rst
+   spiders
 
 Additional Notes
 ----------------

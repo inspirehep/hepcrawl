@@ -49,6 +49,7 @@ tests_require = [
 extras_require = {
     'docs': [
         'Sphinx>=1.4',
+        'sphinxcontrib-napoleon>=0.6.1',
     ],
     'tests': tests_require,
     'sentry': [

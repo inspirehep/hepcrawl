@@ -48,16 +48,14 @@ class HEPLoader(ItemLoader):
 
     The item values are typically lists from the `xpath.extract()` functions.
 
-    Common input processors
-    ~~~~~~~~~~~~~~~~~~~~~~~
+    **Common input processors**
 
     Every field suffixed by `_in`.
 
     MapCompose receives a series of functions to apply to every element
     in the input value list. Typically used for "cleaning" data items.
 
-    Common output processors
-    ~~~~~~~~~~~~~~~~~~~~~~~~
+    **Common output processors**
 
     Every field suffixed by `_out`.
 
