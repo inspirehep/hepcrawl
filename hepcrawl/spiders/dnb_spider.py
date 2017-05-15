@@ -22,31 +22,31 @@ from ..utils import get_mime_type, parse_domain, get_node
 class DNBSpider(XMLFeedSpider):
 
     """DNB crawler
+
     Scrapes Deutsche National Bibliotek metadata XML files one at a time.
-    The actual files should be retrieved from DNB viat its OAI interface. The
+    The actual files should be retrieved from DNB via its OAI interface. The
     file can contain multiple records. This spider harvests only theses.
 
     This spider takes DNB metadata records which are stored in an XML file.
 
     1. The spider will parse the local MARC21XML format file for record data
 
-    2. If a link to the original repository splash page exists, parse_node
+    2. If a link to the original repository splash page exists, ``DNBSpider.parse_node``
        will yield a request to scrape for abstract. This will only be done
        to a few selected repositories (at least for now).
 
-    3. Finally a HEPRecord will be created in `build_item`.
+    3. Finally a HEPRecord will be created in ``DNBSpider.build_item``.
 
 
-    Example usage:
-    .. code-block:: console
+    Example:
+        ::
 
-        scrapy crawl DNB -a source_file=file://`pwd`/tests/responses/dnb/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl DNB -a source_file=file://`pwd`/tests/responses/dnb/test_1.xml -s "JSON_OUTPUT_DIR=tmp/"
 
-    Happy crawling!
+    Todo:
+
+        * OAI harvester should fetch also DDC 520 theses, not only 530.
     """
-
-    # TODO: OAI harvester should fetch also DDC 520 theses, not only 530.
-
     name = 'DNB'
     start_urls = []
     iterator = 'xml'  # Needed for proper namespace handling
@@ -135,8 +135,8 @@ class DNBSpider(XMLFeedSpider):
         """Iterate through all the record nodes in the XML.
 
         With each node it checks if splash page link exists, and sends
-        a request to scrape the abstract or calls `build_item` to build
-        the HEPrecord.
+        a request to scrape the abstract or calls ``DNBSpider.build_item`` to build
+        the ``HEPrecord``.
         """
         urls_in_record = self.get_urls_in_record(node)
         direct_links, splash_links = self.find_direct_links(urls_in_record)
@@ -158,10 +158,10 @@ class DNBSpider(XMLFeedSpider):
     def scrape_for_abstract(self, response):
         """Scrape splash page for abstracts.
 
-        If splash page link exists, `parse_node` will yield a request
+        If splash page link exists, ``DNBSpider.parse_node`` will yield a request
         here to scrape the abstract (and page number). Note that all
-        the splash pages are different. Then it will ask `build_item`
-        to build the HEPrecord.
+        the splash pages are different. Then it will ask ``DNBSpider.build_item``
+        to build the ``HEPrecord``.
         """
         node = response.selector
         domain = parse_domain(response.url)
