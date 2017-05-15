@@ -80,7 +80,7 @@ def _findall(text, substr):
 
 
 def strftime(fmt, dt):
-    """A strftime(format, date object) that support dates before 1900."""
+    """A ``strftime(format, date object)`` that support dates before 1900."""
     if not isinstance(dt, real_date):
         dt = datetime(dt.tm_year, dt.tm_mon, dt.tm_mday, dt.tm_hour, dt.tm_min,
                       dt.tm_sec)
@@ -120,7 +120,7 @@ def strftime(fmt, dt):
 
 
 def strptime(date_string, fmt):
-    """A strptime(date string, format) that support dates before 1900."""
+    """A ``strptime(date string, format)`` that support dates before 1900."""
     return real_datetime(*(time.strptime(date_string, fmt)[:6]))
 
 
@@ -157,11 +157,12 @@ def create_valid_date(date, date_format_full="%Y-%m-%d",
 
 
 def parse_date(raw_date):
-    """Get the date in correct format using dateutil.parser.
+    """Get the date in correct format using ``dateutil.parser``.
 
-    Note that if no month or day can be found in the raw date string, they
-    will be set to 1 (e.g., "Mar 1999" -> "1999-03-01"). If the string cannot
-    be parsed, return the string.
+    .. note::
+        If no month or day can be found in the raw date string, they
+        will be set to 1 (e.g., ``Mar 1999`` -> ``1999-03-01``). If the string cannot
+        be parsed, return the string.
     """
     if not raw_date:
         return raw_date
@@ -183,7 +184,7 @@ def format_date(raw_date):
     """Get the ISO formatted year and date.
 
     Calls first the format preserving date creator function, if that fails
-    calls the function that uses dateutils.
+    calls the function that uses ``dateutils``.
     """
     date_published = create_valid_date(raw_date)
     if not date_published:
