@@ -26,20 +26,18 @@ from ..utils import has_numbers
 class AlphaSpider(CrawlSpider):
 
     """Alpha crawler
+
     Scrapes theses metadata from Alpha experiment web page.
     http://alpha.web.cern.ch/publications#thesis
 
-    1. parse() iterates through every record on the html page and yields
-       a HEPRecord.
+    Examples:
+        Using Alpha's web page::
 
+            $ scrapy crawl alpha -s "JSON_OUTPUT_DIR=tmp/"
 
-    Example usage:
-    .. code-block:: console
+        Using "offline" source file::
 
-        scrapy crawl alpha -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl alpha -a source_file=file://`pwd`/tests/responses/alpha/test_1.htm -s "JSON_OUTPUT_DIR=tmp/"
-
-    Happy crawling!
+            $ scrapy crawl alpha -a source_file=file://`pwd`/tests/responses/alpha/test_1.htm -s "JSON_OUTPUT_DIR=tmp/"
     """
 
     name = 'alpha'
@@ -109,7 +107,14 @@ class AlphaSpider(CrawlSpider):
         return title, urls
 
     def parse(self, response):
-        """Parse Alpha web page into a HEP record."""
+        """Parse Alpha web page into a HEP record.
+
+        Args:
+            response: The response from the Alpha web page.
+
+        Yields:
+            HEPRecord: Iterates through every record on the html page and yields a HEPRecord.
+        """
 
         # Random <br>'s will create problems
         response = response.replace(body=response.body.replace('<br />', ''))
