@@ -25,25 +25,30 @@ from ..utils import parse_domain, get_mime_type
 class PhilSpider(CrawlSpider):
 
     """Phil crawler
-    Scrapes theses metadata from Philpapers.org JSON file.
 
-    1. parse() iterates through every record on the JSON file and yields
-       a HEPRecord (or a request to scrape for the pdf file if link exists).
+    Scrapes theses metadata from `Philpapers.org`_ JSON file.
 
+    1. ``PhilSpider.parse()`` iterates through every record on the JSON file and yields
+       a ``HEPRecord`` (or a request to scrape for the pdf file if link exists).
 
-    Example usage:
-    .. code-block:: console
+    Examples:
+        Using output directory::
 
-        scrapy crawl phil -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl phil -a source_file=file://`pwd`/tests/responses/phil/test_thesis.json -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl phil -s "JSON_OUTPUT_DIR=tmp/"
 
-    Happy crawling!
+        Using source file and output directory::
+
+            $ scrapy crawl phil -a source_file=file://`pwd`/tests/responses/phil/test_thesis.json -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _Philpapers.org:
+        https://philpapers.org/
+
+    Todo:
+
+        Have to check if new records are appended to the file or if the file
+        is just replaced with new information. Actually some old records are
+        removed while new ones are added?
     """
-
-    # TODO: Have to check if new records are appended to the file or if the file
-    # is just replaced with new information. Actually some old records are
-    # removed while new ones are added?
-
     name = 'phil'
     start_urls = ["http://philpapers.org/philpapers/raw/export/inspire.json"]
 
@@ -70,7 +75,7 @@ class PhilSpider(CrawlSpider):
     def get_date(self, record):
         """Return a standard format date.
 
-        YYYY-MM-DD, YYYY-MM or YYYY.
+        ``YYYY-MM-DD``, ``YYYY-MM`` or ``YYYY``.
         """
         date_raw = record['year'].split("/")
         if len(date_raw) == 1:
@@ -83,7 +88,7 @@ class PhilSpider(CrawlSpider):
         return date_published
 
     def parse(self, response):
-        """Parse Philpapers JSON file into a HEP record."""
+        """Parse Philpapers JSON file into a ``HEPrecord``."""
 
         jsonresponse = json.loads(response.body_as_unicode())
         for jsonrecord in jsonresponse:
@@ -102,10 +107,10 @@ class PhilSpider(CrawlSpider):
     def scrape_for_pdf(self, response):
         """Scrape splash page for any links to PDFs.
 
-        If direct link didn't exists, parse_node() will yield a request
+        If direct link didn't exists, ``PhilSpider.parse_node()`` will yield a request
         here to scrape the urls. This will find a direct pdf link from a
-        splash page, if it exists. Then it will ask build_item to build the
-        HEPrecord.
+        splash page, if it exists. Then it will ask ``PhilSpider.build_item`` to build the
+        ``HEPrecord``.
         """
         pdf_links = []
         all_links = response.xpath(
