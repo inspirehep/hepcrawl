@@ -30,11 +30,12 @@ class HEPRecord(scrapy.Item):
     extra_data = scrapy.Field()
     """Extra data belonging to this item that will NOT be part of final record.
 
-    .. code-block:: python
+    Example:
+        ::
 
-        {
-            "foo": "bar"
-        }
+            {
+               "foo": "bar"
+            }
     """
 
     files = scrapy.Field()
@@ -46,12 +47,13 @@ class HEPRecord(scrapy.Item):
     additional_files = scrapy.Field()
     """Files (fulltexts, package) belonging to this item.
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            "type": "Fulltext",  # Fulltext, Supplemental, Data, Figure
-            "uri": "file:///path/to/file",  # can also be HTTP
-        }]
+            [{
+                "type": "Fulltext",  # Fulltext, Supplemental, Data, Figure
+                "uri": "file:///path/to/file",  # can also be HTTP
+            }]
     """
 
     authors = scrapy.Field()
@@ -60,104 +62,116 @@ class HEPRecord(scrapy.Item):
 
     List of authors of this form:
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            "surname": "Ellis",
-            "given_names": "Richard John",
-            "full_name": "", # if no surname/given_names
-            "affiliations": [{
-                value: "raw string", ..
-            }]
-        }, ..]
+            [{
+                "surname": "Ellis",
+                "given_names": "Richard John",
+                "full_name": "", # if no surname/given_names
+                "affiliations": [{
+                    value: "raw string", ..
+                }]
+            }, ..]
     """
     collaborations = scrapy.Field()
     """A list of the record collaborations, if any.
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [
-            'Planck Collaboration'
-        ]
+            [
+                'Planck Collaboration'
+            ]
     """
 
     source = scrapy.Field()
-    """Source of the record, e.g. 'World Scientific'. Used across many fields."""
+    """Source of the record, e.g.  ``World Scientific``. Used across many fields."""
 
     acquisition_source = scrapy.Field()
     """Source of the record in the acquisition_source format."""
 
     abstracts = scrapy.Field()
-    """Final structure of abstract information. DO NOT ADD DATA TO THIS FIELD."""
+    """Final structure of abstract information.
+
+    .. warning::
+
+        DO NOT ADD DATA TO THIS FIELD.
+    """
 
     abstract = scrapy.Field()
-    """Abstract of the record, e.g. 'We study the dynamics of quantum...'."""
+    """Abstract of the record, e.g. ``We study the dynamics of quantum...``."""
 
     title = scrapy.Field()
-    """Title of the record, e.g. 'Perturbative Renormalization of Neutron-Antineutron Operators'."""
+    """Title of the record, e.g. ``Perturbative Renormalization of Neutron-Antineutron Operators``.
+    """
 
     titles = scrapy.Field()
     """List of title structures."""
 
     subtitle = scrapy.Field()
-    """Sub-title of the record, e.g. 'A treatese on the universe'."""
+    """Sub-title of the record, e.g. ``A treatese on the universe``."""
 
     free_keywords = scrapy.Field()
     """Free keywords
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [
-            {
-                'value': 'Physics',
-                'source': 'author'
-            }, ...
-        ]
+            [
+                {
+                    'value': 'Physics',
+                    'source': 'author'
+                }, ...
+            ]
     """
-    classification_numbers = scrapy.Field()  # Like PACS numbers
-    """Classification numbers like PACS numbers.
+    classification_numbers = scrapy.Field()
+    """Classification numbers like ``PACS`` numbers.
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [
-            {
-                'classification_number': 'FOO',
-                'standard': 'PACS'
-            }, ...
-        ]
+            [
+                {
+                    'classification_number': 'FOO',
+                    'standard': 'PACS'
+                }, ...
+            ]
     """
 
     imprints = scrapy.Field()
     """Structure for imprint information."""
 
     report_numbers = scrapy.Field()
-    """Structure for report_numbers, e.g. ['CERN-001', 'DESY-002']."""
+    """Structure for report_numbers, e.g. ``['CERN-001', 'DESY-002']``."""
 
     date_published = scrapy.Field()
-    """Date of publication in string format, e.g. '2016-01-14'."""
+    """Date of publication in string format, e.g. ``2016-01-14``."""
 
     dois = scrapy.Field()
     """DOIs
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            'value': '10.1103/PhysRevD.93.016005'
-        }]
+            [{
+                'value': '10.1103/PhysRevD.93.016005'
+            }]
     """
 
     related_article_doi = scrapy.Field()
-    """DOI of Addendum/Erratum
+    """DOI of ``Addendum/Erratum``
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            'value': '10.1103/PhysRevD.93.016005'
-        }]
+            [{
+                'value': '10.1103/PhysRevD.93.016005'
+            }]
     """
 
     page_nr = scrapy.Field()
-    """Page number as string. E.g. '2'."""
+    """Page number as string. E.g. ``2``."""
 
     license = scrapy.Field()
     license_url = scrapy.Field()
@@ -180,7 +194,7 @@ class HEPRecord(scrapy.Item):
     journal_artid = scrapy.Field()
     journal_issn = scrapy.Field()
     journal_doctype = scrapy.Field()
-    """Special type of publication. E.g. "Erratum", "Addendum"."""
+    """Special type of publication. E.g. ``Erratum``, ``Addendum``."""
 
     pubinfo_freetext = scrapy.Field()
     """Raw journal reference string."""
@@ -194,92 +208,98 @@ class HEPRecord(scrapy.Item):
     public_notes = scrapy.Field()
     """Notes
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [
-            {
-                "source": "arXiv",
-                "value": "46 pages, 3 figures; v2 typos corrected, citations added"
-            }
-        ]
+            [
+                {
+                    "source": "arXiv",
+                    "value": "46 pages, 3 figures; v2 typos corrected, citations added"
+                }
+            ]
     """
 
     collections = scrapy.Field()
-    """List of collections article belongs to. E.g. ['CORE', 'THESIS']."""
+    """List of collections article belongs to. E.g. ``['CORE', 'THESIS']``."""
 
     references = scrapy.Field()
     """List of references in the following form:
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            'recid': '',
-            'texkey': '',
-            'doi': '',
-            'collaboration': [],
-            'editors': [],
-            'authors': [],
-            'misc': [],
-            'number': 0,
-            'isbn': '',
-            'publisher': [],
-            'maintitle': '',
-            'report_number': [],
-            'title': [],
-            'url': [],
-            'journal_pubnote': [".*,.*,.*(,.*)?"],
-            'raw_reference': [],
-            'year': 2016,
-        }, ..]
+            [{
+                'recid': '',
+                'texkey': '',
+                'doi': '',
+                'collaboration': [],
+                'editors': [],
+                'authors': [],
+                'misc': [],
+                'number': 0,
+                'isbn': '',
+                'publisher': [],
+                'maintitle': '',
+                'report_number': [],
+                'title': [],
+                'url': [],
+                'journal_pubnote': [".*,.*,.*(,.*)?"],
+                'raw_reference': [],
+                'year': 2016,
+            }, ..]
     """
 
     thesis = scrapy.Field()
     """Thesis information
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [{
-            'date': '',
-            'defense_date': '',
-            'institutions': [],
-            'degree_type': '',
-        }]
+            [{
+                'date': '',
+                'defense_date': '',
+                'institutions': [],
+                'degree_type': '',
+            }]
     """
 
     urls = scrapy.Field()
     """URLs to splash page.
 
-    .. code-block:: python
+    Example:
+        ::
 
-        ['http://hdl.handle.net/1885/10005']
+            ['http://hdl.handle.net/1885/10005']
     """
 
     external_system_numbers = scrapy.Field()
     """External System Numbers
 
-    .. code-block:: python
+    Example:
+        ::
 
-        [
-            {
-                "institute": "SPIRESTeX",
-                "value": "Mayrhofer:2012zy"
-            },
-            {
-                "institute": "arXiv",
-                "value": "oai:arXiv.org:1211.6742"
-            }
-        ]
+            [
+                {
+                    "institute": "SPIRESTeX",
+                    "value": "Mayrhofer:2012zy"
+                },
+                {
+                    "institute": "arXiv",
+                    "value": "oai:arXiv.org:1211.6742"
+                }
+            ]
     """
 
     arxiv_eprints = scrapy.Field()
     """ArXiv E-print information
 
-    .. code-block:: python
+    Example:
+        ::
 
-        {
-            "value": "1506.00647",
-            "categories": ['hep-ph', 'hep-lat', 'nucl-th']
-        }
+            {
+                "value": "1506.00647",
+                "categories": ['hep-ph', 'hep-lat', 'nucl-th']
+            }
     """
 
     thesis_supervisor = scrapy.Field()
