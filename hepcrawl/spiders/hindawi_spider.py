@@ -23,9 +23,8 @@ class HindawiSpider(XMLFeedSpider):
 
     """Hindawi crawler
 
-    OAI interface: http://www.hindawi.com/oai-pmh/
-    Example:
-    http://www.hindawi.com/oai-pmh/oai.aspx?verb=listrecords&set=HINDAWI.AA&metadataprefix=marc21&from=2015-01-01
+    * `OAI interface`_
+    * `Example Hindawi record`_
 
     Sets to use:
     HINDAWI.AA (Advances in Astronomy)
@@ -39,17 +38,20 @@ class HindawiSpider(XMLFeedSpider):
     The actual files should be retrieved from Hindawi via its OAI interface.
     The file can contain multiple records.
 
-    1. The spider will parse the local MARC21XML format file for record data
+    1. The spider will parse the local MARC21XML format file for record data.
+    2. Finally a ``HEPRecord`` will be created.
 
-    2. Finally a HEPRecord will be created.
+    Example:
+        ::
 
+            $ scrapy crawl hindawi -a source_file=file://`pwd`/tests/responses/hindawi/test_1.xml
 
-    Example usage:
-    .. code-block:: console
+    .. _OAI interface:
+        http://www.hindawi.com/oai-pmh/
 
-        scrapy crawl hindawi -a source_file=file://`pwd`/tests/responses/hindawi/test_1.xml
+    .. _Example Hindawi record:
+        http://www.hindawi.com/oai-pmh/oai.aspx?verb=listrecords&set=HINDAWI.AA&metadataprefix=marc21&from=2015-01-01
 
-    Happy crawling!
     """
 
     name = 'hindawi'
@@ -159,7 +161,7 @@ class HindawiSpider(XMLFeedSpider):
         return file_dict
 
     def parse_node(self, response, node):
-        """Iterate all the record nodes in the XML and build the HEPRecord."""
+        """Iterate all the record nodes in the XML and build the ``HEPRecord``."""
 
         node.remove_namespaces()
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)

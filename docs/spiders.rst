@@ -71,6 +71,13 @@ Elsevier
    :members:
 
 
+Hindawi
+~~~~~~~
+
+.. automodule:: hepcrawl.spiders.hindawi_spider
+   :members:
+
+
 INFN
 ~~~~
 
