@@ -95,7 +95,7 @@ def get_first(iterable, default=None):
 
 
 def collapse_initials(name):
-    """Remove the space between initials, eg T. A. --> T.A."""
+    """Remove the space between initials, eg ``T. A.`` --> ``T.A.``"""
     if len(name.split(".")) > 1:
         name = re.sub(r'([A-Z]\.)[\s\-]+(?=[A-Z]\.)', r'\1', name)
     return name
@@ -106,7 +106,7 @@ def split_fullname(author, switch_name_order=False):
 
     It accepts author strings with and without comma separation.
     As default surname is first in case of comma separation, otherwise last.
-    Note that multi-part surnames are incorrectly detected in strings without comma separation.
+    Multi-part surnames are incorrectly detected in strings without comma separation.
     """
     if not author:
         return "", ""
@@ -165,6 +165,7 @@ def get_nested(root, *keys):
 def build_dict(seq, key):
     """
     Creates a dictionary from a list, using the specified key.
+
     Used to make searching in a list of objects faster (get operations are O(1)).
     """
     return dict((d[key], dict(d, index=i)) for (i, d) in enumerate(seq))
@@ -195,7 +196,7 @@ def has_numbers(text):
 
 def range_as_string(data):
     """Detects integer ranges in a list and returns a string representing them.
-    E.g. ["1981", "1982", "1985"] -> "1981-1982, 1985"
+    E.g. ``["1981", "1982", "1985"]`` -> ``1981-1982, 1985``
     """
     data = [int(i) for i in data]
     ranges = []
@@ -263,14 +264,14 @@ def get_journal_and_section(publication):
 def get_license(license_url='', license_text=''):
     """Get the license dictionary from the url or the text of the license.
 
-    :param license_url: Url of the license to generate.
-    :type license_url: str
-    :param license_text: Text with the description of the license (sometimes is
-        all we got...).
-    :type license_text: str
-    :return: license object to be added to the generated record, empty list if
-        no license could be extracted.
-    :rtype: list(dict)
+    Args:
+        license_url(str): Url of the license to generate.
+        license_text(str): Text with the description of the license (sometimes is
+            all we got...).
+
+    Returns:
+        list(dict): license object to be added to the generated record, empty list
+            if no license could be extracted.
     """
     license = []
     if license_url:
