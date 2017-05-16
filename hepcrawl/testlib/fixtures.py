@@ -79,10 +79,10 @@ def get_responses_path(*path_chunks):
     :Example:
 
         >>> get_responses_path()
-        '/home/myuser/hepcrawl/tests/responses'
+        '/home/myuser/hepcrawl/tests/unit/responses'
 
         >>> get_responses_path('one', 'two')
-        '/home/myuser/hepcrawl/tests/responses/one/two'
+        '/home/myuser/hepcrawl/tests/unit/responses/one/two'
     """
     project_root_dir = os.path.abspath(
         os.path.join(
