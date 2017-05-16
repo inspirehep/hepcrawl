@@ -86,7 +86,7 @@ def clean_dir(path='/tmp/WSP/'):
     'expected_results',
     [
         expected_json_results_from_file(
-            'WSP',
+            'wsp',
             'fixtures',
             'wsp_smoke_records.json',
         ),
@@ -122,7 +122,7 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
     'expected_results',
     [
         expected_json_results_from_file(
-            'WSP',
+            'wsp',
             'fixtures',
             'wsp_smoke_records.json',
         ),

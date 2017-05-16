@@ -21,7 +21,7 @@ services:
       - BASE_USER_UID=${BASE_USER_UID:-1000}
       - BASE_USER_GIT=${BASE_USER_GIT:-1000}
     tty: true
-    command: py.test -vv tests/functional/WSP/test_wsp.py
+    command: py.test -vv tests/functional/wsp/test_wsp.py
     volumes: &common_volumes
       - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
       - ${PWD}:/code/
@@ -75,8 +75,8 @@ services:
     environment:
       - PUBLICHOST=localhost
     volumes:
-      - ${PWD}/tests/functional/WSP/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
-      - ${PWD}/tests/functional/WSP/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
+      - ${PWD}/tests/functional/wsp/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
+      - ${PWD}/tests/functional/wsp/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
 
   rabbitmq:
     image: rabbitmq
