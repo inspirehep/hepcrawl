@@ -12,7 +12,6 @@
 from __future__ import absolute_import, division, print_function
 
 import pytest
-import json
 import os
 import shutil
 
@@ -20,6 +19,7 @@ from time import sleep
 
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
+from hepcrawl.testlib.fixtures import expected_json_results_from_file
 from hepcrawl.testlib.utils import get_crawler_instance
 
 
@@ -28,18 +28,6 @@ def override_generated_fields(record):
     record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
 
     return record
-
-
-@pytest.fixture(scope="module")
-def expected_results():
-    file_name = 'fixtures/wsp_smoke_records.json'
-    responses_dir = os.path.dirname(os.path.realpath(__file__))
-    response_file = os.path.join(responses_dir, file_name)
-
-    with open(response_file) as fd:
-        expected_data = json.load(fd)
-
-    return expected_data
 
 
 @pytest.fixture(scope="function")
@@ -94,6 +82,19 @@ def clean_dir(path='/tmp/WSP/'):
     shutil.rmtree(path, ignore_errors=True)
 
 
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'WSP',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
 def test_wsp_ftp(set_up_ftp_environment, expected_results):
     crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
 
@@ -117,6 +118,19 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
     assert gotten_results == expected_results
 
 
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'WSP',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
 def test_wsp_local_package_path(set_up_local_environment, expected_results):
     crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
 

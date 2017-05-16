@@ -10,6 +10,7 @@
 from __future__ import absolute_import, division, print_function
 
 import os
+import json
 
 from scrapy.http import Request, TextResponse
 from scrapy.selector import Selector
@@ -109,3 +110,24 @@ def get_test_suite_path(*path_chunks, **kwargs):
         )
     )
     return os.path.join(project_root_dir, 'tests', test_suite, *path_chunks)
+
+
+def expected_json_results_from_file(*path_chunks, **kwargs):
+    """
+    Args:
+        *path_chunks: Optional extra path elements (strings) to suffix
+            the responses directory with.
+        **kwargs: Optional test suite name(str),
+            e.g. ``test_suite=unit``, ``test_suite=functional``.
+
+    Returns:
+         dict: The expected json results.
+    """
+    test_suite = kwargs.get('test_suite', 'functional')
+
+    response_file = get_test_suite_path(*path_chunks, test_suite=test_suite)
+
+    with open(response_file) as fd:
+        expected_data = json.load(fd)
+
+    return expected_data
