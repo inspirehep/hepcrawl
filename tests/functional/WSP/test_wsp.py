@@ -16,20 +16,11 @@ import json
 import os
 import shutil
 
-from scrapyd_api import ScrapydAPI
 from time import sleep
 
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-
-
-def get_crawler_instance(crawler_host, *args, **kwargs):
-    """Return current crawler instance."""
-    return ScrapydAPI(
-        crawler_host,
-        *args,
-        **kwargs
-    )
+from hepcrawl.testlib.utils import get_crawler_instance
 
 
 def override_generated_fields(record):
