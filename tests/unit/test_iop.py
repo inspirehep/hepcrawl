@@ -21,10 +21,14 @@ from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
     get_node,
-    get_responses_path,
+    get_test_suite_path,
 )
 
-TEST_PDF_DIR = get_responses_path('iop', 'pdf')
+TEST_PDF_DIR = get_test_suite_path(
+    'responses',
+    'iop',
+    'pdf',
+)
 
 
 @pytest.fixture
@@ -173,7 +177,11 @@ def erratum_open_access_record():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "Article", response)
-    spider.pdf_files = get_responses_path('iop', 'pdf')
+    spider.pdf_files = get_test_suite_path(
+        'responses',
+        'iop',
+        'pdf',
+    )
     parsed_record = spider.parse_node(response, node)
     assert parsed_record
     return parsed_record
@@ -209,7 +217,11 @@ def test_not_published_record():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "Article", response)
-    spider.pdf_files = get_responses_path('iop', 'pdf')
+    spider.pdf_files = get_test_suite_path(
+        'responses',
+        'iop',
+        'pdf',
+    )
     records = spider.parse_node(response, node)
     assert records is None
 
@@ -217,12 +229,11 @@ def test_not_published_record():
 @pytest.fixture
 def tarfile():
     """Return path to test tar.gz file."""
-    return os.path.join(
-        os.path.dirname(__file__),
+    return get_test_suite_path(
         'responses',
         'iop',
         'packages',
-        'test.tar.gz'
+        'test.tar.gz',
     )
 
 
