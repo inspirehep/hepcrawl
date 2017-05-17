@@ -17,9 +17,12 @@ import shutil
 
 from time import sleep
 
-from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-from hepcrawl.testlib.fixtures import expected_json_results_from_file
+from hepcrawl.testlib.fixtures import (
+    get_test_suite_path,
+    expected_json_results_from_file,
+)
+from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.utils import get_crawler_instance
 
 
@@ -32,9 +35,12 @@ def override_generated_fields(record):
 
 @pytest.fixture(scope="function")
 def set_up_ftp_environment():
-    netrc_location = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)),
-        os.path.join('fixtures', 'ftp_server', '.netrc')
+    netrc_location = get_test_suite_path(
+        'wsp',
+        'fixtures',
+        'ftp_server',
+        '.netrc',
+        test_suite='functional',
     )
 
     yield {
@@ -51,9 +57,12 @@ def set_up_ftp_environment():
 
 @pytest.fixture(scope="function")
 def set_up_local_environment():
-    package_location = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)),
-        os.path.join('fixtures', 'ftp_server', 'WSP')
+    package_location = get_test_suite_path(
+        'wsp',
+        'fixtures',
+        'ftp_server',
+        'WSP',
+        test_suite='functional',
     )
 
     yield {
