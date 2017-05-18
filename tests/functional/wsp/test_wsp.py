@@ -12,24 +12,18 @@
 from __future__ import absolute_import, division, print_function
 
 import pytest
-import json
 import os
 import shutil
 
-from scrapyd_api import ScrapydAPI
 from time import sleep
 
-from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-
-
-def get_crawler_instance(crawler_host, *args, **kwargs):
-    """Return current crawler instance."""
-    return ScrapydAPI(
-        crawler_host,
-        *args,
-        **kwargs
-    )
+from hepcrawl.testlib.fixtures import (
+    get_test_suite_path,
+    expected_json_results_from_file,
+)
+from hepcrawl.testlib.tasks import app as celery_app
+from hepcrawl.testlib.utils import get_crawler_instance
 
 
 def override_generated_fields(record):
@@ -39,24 +33,18 @@ def override_generated_fields(record):
     return record
 
 
-@pytest.fixture(scope="module")
-def expected_results():
-    file_name = 'fixtures/wsp_smoke_records.json'
-    responses_dir = os.path.dirname(os.path.realpath(__file__))
-    response_file = os.path.join(responses_dir, file_name)
-
-    with open(response_file) as fd:
-        expected_data = json.load(fd)
-
-    return expected_data
-
-
 @pytest.fixture(scope="function")
 def set_up_ftp_environment():
-    netrc_location = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)),
-        os.path.join('fixtures', 'ftp_server', '.netrc')
+    netrc_location = get_test_suite_path(
+        'wsp',
+        'fixtures',
+        'ftp_server',
+        '.netrc',
+        test_suite='functional',
     )
+
+    # The test must wait until the docker environment is up (takes about 10 seconds).
+    sleep(10)
 
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
@@ -72,9 +60,12 @@ def set_up_ftp_environment():
 
 @pytest.fixture(scope="function")
 def set_up_local_environment():
-    package_location = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)),
-        os.path.join('fixtures', 'ftp_server', 'WSP')
+    package_location = get_test_suite_path(
+        'wsp',
+        'fixtures',
+        'ftp_server',
+        'WSP',
+        test_suite='functional',
     )
 
     yield {
@@ -103,11 +94,21 @@ def clean_dir(path='/tmp/WSP/'):
     shutil.rmtree(path, ignore_errors=True)
 
 
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
 def test_wsp_ftp(set_up_ftp_environment, expected_results):
     crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
-
-    # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(10)
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -126,6 +127,19 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
     assert gotten_results == expected_results
 
 
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
 def test_wsp_local_package_path(set_up_local_environment, expected_results):
     crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
 

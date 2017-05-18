@@ -10,26 +10,35 @@
 from __future__ import absolute_import, division, print_function
 
 import os
+import json
 
 from scrapy.http import Request, TextResponse
 from scrapy.selector import Selector
 
 
-def fake_response_from_file(file_name, url='http://www.example.com', response_type=TextResponse):
+def fake_response_from_file(file_name, test_suite='unit', url='http://www.example.com', response_type=TextResponse):
     """Create a Scrapy fake HTTP response from a HTML file
 
-    :param file_name: The relative filename from the responses directory,
-                      but absolute paths are also accepted.
-    :param url: The URL of the response.
-    :param response_type: The type of the scrapy Response to be returned,
-                          depending on the Request (Response, TextResponse, etc)
+    Args:
+        file_name(str): The relative filename from the responses directory,
+            but absolute paths are also accepted.
+        test_suite(str): The test suite that the response file comes from,
+            e.g. ``unit``, ``functional``.
+        url(str): The URL of the response.
+        response_type: The type of the scrapy Response to be returned,
+            depending on the Request (Response, TextResponse, etc).
 
-    :returns: A scrapy HTTP response which can be used for unittesting.
+    Returns:
+        ``response_type``: A scrapy HTTP response which can be used for unit testing.
     """
     request = Request(url=url)
 
     if not file_name[0] == '/':
-        file_path = get_responses_path(file_name)
+        file_path = get_test_suite_path(
+            'responses',
+            file_name,
+            test_suite=test_suite
+        )
     else:
         file_path = file_name
 
@@ -70,20 +79,29 @@ def get_node(spider, tag, response=None, text=None, rtype="xml"):
     return node
 
 
-def get_responses_path(*path_chunks):
+def get_test_suite_path(*path_chunks, **kwargs):
     """
-    :param path_chunks: Optional extra path element to suffix the responses directory with.
-    :return: The absolute path to the responses and if path_chuncks provided the absolute
-     path to path chunks.
+    Args:
+        *path_chunks: Optional extra path element (strings) to suffix the responses directory with.
+        **kwargs: The test type folder name, default is the ``unit`` test suite,
+            e.g. ``test_suite='unit'``, ``test_suite='functional'``.
 
-    :Example:
+    Returns:
+        str: The absolute path to the test folder, if ``path_chuncks`` and ``kwargs``
+            provided the absolute path to path chunks.
 
-        >>> get_responses_path()
-        '/home/myuser/hepcrawl/tests/responses'
+    Examples:
+        Default::
 
-        >>> get_responses_path('one', 'two')
-        '/home/myuser/hepcrawl/tests/responses/one/two'
+            >>> get_test_suite_path()
+            '/home/myuser/hepcrawl/tests/unit'
+
+        Using ``path_chunks`` and ``kwargs``::
+
+            >>> get_test_suite_path('one', 'two', test_suite='functional')
+            '/home/myuser/hepcrawl/tests/functional/one/two'
     """
+    test_suite = kwargs.get('test_suite', 'unit')
     project_root_dir = os.path.abspath(
         os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
@@ -91,4 +109,25 @@ def get_responses_path(*path_chunks):
             '..',
         )
     )
-    return os.path.join(project_root_dir, 'tests', 'unit', 'responses', *path_chunks)
+    return os.path.join(project_root_dir, 'tests', test_suite, *path_chunks)
+
+
+def expected_json_results_from_file(*path_chunks, **kwargs):
+    """
+    Args:
+        *path_chunks: Optional extra path elements (strings) to suffix
+            the responses directory with.
+        **kwargs: Optional test suite name(str),
+            e.g. ``test_suite=unit``, ``test_suite=functional``.
+
+    Returns:
+         dict: The expected json results.
+    """
+    test_suite = kwargs.get('test_suite', 'functional')
+
+    response_file = get_test_suite_path(*path_chunks, test_suite=test_suite)
+
+    with open(response_file) as fd:
+        expected_data = json.load(fd)
+
+    return expected_data
