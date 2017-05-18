@@ -43,6 +43,9 @@ def set_up_ftp_environment():
         test_suite='functional',
     )
 
+    # The test must wait until the docker environment is up (takes about 10 seconds).
+    sleep(10)
+
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
@@ -106,9 +109,6 @@ def clean_dir(path='/tmp/WSP/'):
 )
 def test_wsp_ftp(set_up_ftp_environment, expected_results):
     crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
-
-    # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(10)
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
