@@ -56,12 +56,10 @@ class InspireAPIPushPipeline(object):
         if 'related_article_doi' in item:
             item['dois'] += item.pop('related_article_doi', [])
 
-        source = item.pop('source', spider.name)
+        source = spider.name
         item['acquisition_source'] = {
             'source': source,
-            # NOTE: Keeps method same as source to conform with INSPIRE
-            # submissions which add `submissions` to this field.
-            'method': source,
+            'method': 'hepcrawl',
             'date': datetime.datetime.now().isoformat(),
             'submission_number': os.environ.get('SCRAPY_JOB', ''),
         }
