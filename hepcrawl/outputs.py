@@ -11,22 +11,6 @@
 
 from __future__ import absolute_import, division, print_function
 
-class FreeKeywords(object):
-
-    """Build the appropriate free keywords structure."""
-
-    def __init__(self, source="author"):
-        """Initialize the Free keyword structure with a source."""
-        self.source = source
-
-    def __call__(self, values):
-        """Return the appropriate free keywords structure."""
-        return [
-            {"source": self.source, "value": val}
-            for val in values
-        ]
-
-
 class ClassificationNumbers(object):
 
     """Build the appropriate classification number structure."""
@@ -45,15 +29,20 @@ class ClassificationNumbers(object):
 
 class ListToValueDict(object):
 
-    """Build the appropriate {'value': value} structure from list of values."""
+    """Build a {'value': value} structure from list of values."""
 
-    def __init__(self, key="value"):
-        """Initialize the formatter with the desired keyname (defaults to "value")."""
+    def __init__(self, key="value", source=None):
+        """Initialize the dictionary structure with an optional source."""
         self.key = key
+        self.source = source
 
     def __call__(self, values):
-        """Return the appropriate classification number structure."""
-        return [
-            {self.key: val}
-            for val in values
-        ]
+        """Return the dictionary structure."""
+        value_dicts = []
+        for val in values:
+            val_dict = {}
+            val_dict[self.key] = val
+            if self.source is not None:  # Note that '' != None
+                val_dict["source"] = self.source
+            value_dicts.append(val_dict)
+        return value_dicts

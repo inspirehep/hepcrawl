@@ -33,7 +33,6 @@ from .inputs import (
 )
 
 from .outputs import (
-    FreeKeywords,
     ClassificationNumbers,
     ListToValueDict,
 )
@@ -136,8 +135,6 @@ class HEPLoader(ItemLoader):
         translate_language,
     )
 
-    related_article_doi_out = TakeFirst()
-
     copyright_holder_out = TakeFirst()
     copyright_year_out = TakeFirst()
     copyright_statement_out = TakeFirst()
@@ -148,11 +145,13 @@ class HEPLoader(ItemLoader):
         convert_html_subscripts_to_latex,
         selective_remove_tags(),
     )
-    free_keywords_out = FreeKeywords()
+    free_keywords_out = ListToValueDict(source="author")
 
     classification_numbers_out = ClassificationNumbers()
 
     dois_out = ListToValueDict()
+
+    related_article_doi_out = TakeFirst()
     related_article_doi_out = ListToValueDict()
 
     thesis_supervisor_in = MapCompose(
