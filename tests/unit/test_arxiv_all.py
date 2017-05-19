@@ -228,14 +228,14 @@ def test_repno(many_results):
         None,
         [{
             'value': 'YITP-2016-26',
-            'source': 'hepcrawl',
+            'source': 'arXiv',
         }],
         None,
         None,
         None,
         [
-            {'source': 'hepcrawl', 'value': u'DES 2016-0158'},
-            {'source': 'hepcrawl', 'value': u'FERMILAB PUB-16-231-AE'}
+            {'source': 'arXiv', 'value': u'DES 2016-0158'},
+            {'source': 'arXiv', 'value': u'FERMILAB PUB-16-231-AE'}
         ],
         None,
         None,
