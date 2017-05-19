@@ -27,7 +27,9 @@ def crawler2hep(crawler_record):
             if affilation.get('value')
         ]
 
-    builder = LiteratureBuilder('hepcrawl')
+    builder = LiteratureBuilder(
+        source=crawler_record['acquisition_source']['source']
+    )
 
     for author in crawler_record.get('authors', []):
         builder.add_author(builder.make_author(
@@ -93,10 +95,10 @@ def crawler2hep(crawler_record):
 
     acquisition_source = crawler_record.get('acquisition_source', {})
     builder.add_acquisition_source(
-        method='hepcrawl',
-        date=acquisition_source.get('date'),
-        source=acquisition_source.get('source'),
-        submission_number=acquisition_source.get('submission_number')
+        method=acquisition_source['method'],
+        date=acquisition_source['date'],
+        source=acquisition_source['source'],
+        submission_number=acquisition_source['submission_number'],
     )
 
     try:
