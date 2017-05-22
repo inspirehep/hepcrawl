@@ -26,13 +26,21 @@ class POSSpider(Spider):
     """POS/Sissa crawler.
 
     Extracts from metadata:
-    title, article-id, conf-acronym, authors, affiliations,
-    publication-date, publisher, license, language, link
+        * title
+        * article-id
+        * conf-acronym
+        * authors
+        * affiliations
+        * publication-date
+        * publisher
+        * license
+        * language
+        * link
 
-    .. code-block:: console
+    Example:
+        ::
 
-        scrapy crawl PoS -a source_file=file://`pwd`/tests/responses/pos/sample_pos_record.xml
-
+            $ scrapy crawl PoS -a source_file=file://`pwd`/tests/responses/pos/sample_pos_record.xml
     """
     name = 'PoS'
     pos_base_url = "https://pos.sissa.it/contribution?id="

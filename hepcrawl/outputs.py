@@ -48,7 +48,7 @@ class ListToValueDict(object):
     """Build the appropriate {'value': value} structure from list of values."""
 
     def __init__(self, key="value"):
-        """Initialize the formatter with the desired keyname (defaults to "value")."""
+        """Initialize the formatter with the desired keyname (defaults to ``value``)."""
         self.key = key
 
     def __call__(self, values):

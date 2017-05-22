@@ -39,22 +39,18 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
     1. First it connects to a FTP host and lists all the new ZIP files found
        on the remote server and downloads them to a designated local folder,
-       using `start_requests()`.
-
+       using ``WorldScientificSpider.start_requests()``.
     2. Then the ZIP file is unpacked and it lists all the XML files found
-       inside, via `handle_package()`. Note the callback from `start_requests()`
-
-    3. Finally, now each XML file is parsed via `parse_node()`.
-
-    To run a crawl, you need to pass FTP connection information via
-    `ftp_host` and `ftp_netrc`:``
-
-    .. code-block:: console
-
-        scrapy crawl WSP -a 'ftp_host=ftp.example.com' -a 'ftp_netrc=/path/to/netrc'
+       inside, via ``WorldScientificSpider.handle_package()``. Note the callback from
+       ``WorldScientificSpider.start_requests()``.
+    3. Finally, now each XML file is parsed via ``WorldScientificSpider.parse_node()``.
 
 
-    Happy crawling!
+    Example:
+        To run a crawl, you need to pass FTP connection information via
+        ``ftp_host`` and ``ftp_netrc``::
+
+            $ scrapy crawl WSP -a 'ftp_host=ftp.example.com' -a 'ftp_netrc=/path/to/netrc'
     """
 
     name = 'WSP'

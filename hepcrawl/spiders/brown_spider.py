@@ -27,32 +27,33 @@ from ..utils import split_fullname, parse_domain, get_mime_type
 class BrownSpider(CrawlSpider):
 
     """Brown crawler
-    Scrapes theses metadata from Brown Digital Repository JSON file
-    https://repository.library.brown.edu/api/collections/355/
 
-    Browse the dissertations:
-    https://repository.library.brown.edu/studio/collections/id_355/
+    Scrapes theses metadata from `Brown Digital Repository`_ JSON file. You can browse the
+    dissertations `here`_.
 
-    1. parse() iterates through every record on the JSON file and yields
-       a HEPRecord (or a request to scrape for the pdf file if link exists).
+    Examples:
+        Using JSON output directory::
 
+        $ scrapy crawl brown -s "JSON_OUTPUT_DIR=tmp/"
 
-    Example usage:
-    .. code-block:: console
+        Using source file and JSON output directory::
 
-        scrapy crawl brown -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl brown -a source_file=file://`pwd`/tests/responses/brown/test_1.json -s "JSON_OUTPUT_DIR=tmp/"
+        $ scrapy crawl brown -a source_file=file://`pwd`/tests/responses/brown/test_1.json -s "JSON_OUTPUT_DIR=tmp/"
 
-    Happy crawling!
+    Todo:
+
+        * Have to check how we should access the API. Right now behind the link is
+          a JSON file with 100 first results from a query to Physics dissertations
+          collection.
+        * On the splash page there is a link to MODS format XML metadata, could use
+          also this.
+
+    .. _Brown Digital Repository:
+        https://repository.library.brown.edu/api/collections/355/
+
+    .. _here:
+        https://repository.library.brown.edu/studio/collections/id_355/
     """
-
-    # TODO:
-    # * Have to check how we should access the API. Right now behind the link is
-    #   a JSON file with 100 first results from a query to Physics dissertations
-    #   collection.
-    # * On the splash page there is a link to MODS format XML metadata, could use
-    #   also this.
-
     name = 'brown'
     start_urls = ["https://repository.library.brown.edu/api/collections/355/"]
 
@@ -163,6 +164,13 @@ class BrownSpider(CrawlSpider):
     def parse(self, response):
         """Go through every record in the JSON and. If link to splash page
         exists, go scrape. If not, create a record with the available data.
+
+        Args:
+            response: The response from the Brown Digital Repository.
+
+        Yields:
+            HEPRecord: Iterates through every record on the JSON file and yields a ``HEPRecord``
+            or a request to scrape for the pdf file if link exists.
         """
         jsonresponse = json.loads(response.body_as_unicode())
 

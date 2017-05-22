@@ -23,20 +23,23 @@ from ..loaders import HEPLoader
 class PhenixSpider(XMLFeedSpider):
 
     """PHENIX crawler
-    Scrapes theses metadata from PHENIX experiment web page.
-    http://www.phenix.bnl.gov/WWW/talk/theses.php
 
-    1. parse() iterates through every record on the html page and yields
-       a HEPRecord.
+    Scrapes theses metadata from `PHENIX experiment web page`_.
 
+    1. ``PhenixSpider.parse()`` iterates through every record on the html page and yields
+       a ``HEPRecord``.
 
-    Example usage:
-    .. code-block:: console
+    Examples:
+        ::
 
-        scrapy crawl phenix
-        scrapy crawl phenix -a source_file=file://`pwd`/tests/responses/phenix/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl phenix
 
-    Happy crawling!
+        Using source file and output directory::
+
+            $ scrapy crawl phenix -a source_file=file://`pwd`/tests/responses/phenix/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _PHENIX experiment web page:
+        http://www.phenix.bnl.gov/WWW/talk/theses.php
     """
 
     name = 'phenix'
@@ -95,7 +98,7 @@ class PhenixSpider(XMLFeedSpider):
         return authors
 
     def add_fft_file(self, pdf_files, file_access, file_type):
-        """Create a structured dictionary and add to 'files' item."""
+        """Create a structured dictionary and add to ``files`` item."""
         file_dicts = []
         for link in pdf_files:
             file_dict = {
@@ -108,7 +111,7 @@ class PhenixSpider(XMLFeedSpider):
         return file_dicts
 
     def parse_node(self, response, node):
-        """Parse PHENIX web page into a HEP record."""
+        """Parse PHENIX web page into a ``HEPrecord``."""
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         title, year, _, thesis_type = self.parse_datablock(node)
 

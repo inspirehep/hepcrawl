@@ -24,6 +24,13 @@ ALPHA
    :members:
 
 
+APS
+~~~
+
+.. automodule:: hepcrawl.spiders.aps_spider
+   :members:
+
+
 arXiv.org
 ~~~~~~~~~
 
@@ -49,10 +56,26 @@ DNB
 .. automodule:: hepcrawl.spiders.dnb_spider
    :members:
 
+
+EDP
+~~~
+
+.. automodule:: hepcrawl.spiders.edp_spider
+   :members:
+
+
 Elsevier
 ~~~~~~~~
 
 .. automodule:: hepcrawl.spiders.elsevier_spider
+   :members:
+
+
+Hindawi
+~~~~~~~
+
+.. automodule:: hepcrawl.spiders.hindawi_spider
+   :members:
 
 
 INFN

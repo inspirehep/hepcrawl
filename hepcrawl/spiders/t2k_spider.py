@@ -24,23 +24,29 @@ from ..utils import split_fullname
 class T2kSpider(XMLFeedSpider):
 
     """T2K crawler
-    Scrapes theses metadata from T2K experiment web page.
-    http://www.t2k.org/docs/thesis
 
-    1. `parse_node` will get thesis title, author and date from the listing.
-    2. If link to the splash page exists, `scrape_for_pdf` will try to fetch
+    Scrapes theses metadata from `T2K experiment web page`_.
+
+    1. ``T2kSpider.parse_node`` will get thesis title, author and date from the listing.
+    2. If link to the splash page exists, ``T2kSpider.scrape_for_pdf`` will try to fetch
        the pdf link and possibly also the abstract.
-    3. `build_item` will build the HEPRecord.
+    3. ``T2kSpider.build_item`` will build the ``HEPRecord``.
 
-    Example usage:
-    .. code-block:: console
+    Examples:
+        ::
 
-        scrapy crawl t2k
-        scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl t2k
 
+        Using source file html with list and output directory::
 
-    Happy crawling!
+            $ scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_list.html -s "JSON_OUTPUT_DIR=tmp/"
+
+        Using source file html without list and output directory::
+
+            $ scrapy crawl t2k -a source_file=file://`pwd`/tests/responses/t2k/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _T2K experiment web page:
+        http://www.t2k.org/docs/thesis
     """
 
     name = 't2k'
@@ -67,7 +73,7 @@ class T2kSpider(XMLFeedSpider):
         """Parses the line where there are data about the author(s)
 
         Note that author surnames and given names are not comma separated, so
-        `split_fullname` might get a wrong surname.
+        ``T2kSpider.split_fullname`` might get a wrong surname.
         """
         author_line = node.xpath("./td[2]//a/span/text()").extract()
         authors = []
@@ -92,7 +98,7 @@ class T2kSpider(XMLFeedSpider):
         return out_links
 
     def add_fft_file(self, pdf_files, file_access, file_type):
-        """Create a structured dictionary and add to 'files' item."""
+        """Create a structured dictionary and add to ``files`` item."""
         # NOTE: should this be moved to utils?
         file_dicts = []
         for link in pdf_files:
@@ -106,7 +112,7 @@ class T2kSpider(XMLFeedSpider):
         return file_dicts
 
     def parse_node(self, response, node):
-        """Parse Alpha web page into a HEP record."""
+        """Parse Alpha web page into a ``HEPrecord``."""
         authors = self.get_authors(node)
         title = node.xpath("./td[3]/span/span/text()").extract()
         date = node.xpath("./td[4]/span/span/text()").extract()
@@ -144,7 +150,7 @@ class T2kSpider(XMLFeedSpider):
         return self.build_item(response)
 
     def build_item(self, response):
-        """Build the final HEPRecord """
+        """Build the final ``HEPRecord``."""
         node = response.meta.get("node")
         record = HEPLoader(
             item=HEPRecord(), selector=node, response=response)

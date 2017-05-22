@@ -29,28 +29,30 @@ from ..dateutils import format_date
 class InfnSpider(XMLFeedSpider):
 
     """INFN crawler
-    Scrapes theses metadata from INFN web page.
-    http://www.infn.it/thesis/index.php
 
-    1. If not local html file given, `get_list_file` gets one using POST
+    Scrapes theses metadata from `INFN`_ web page.
+
+    1. If not local html file given, ``InfnSpider.get_list_file`` gets one using POST
        requests. Year is given as a argument, default is current year.
-
-    2. parse_node() iterates through every record on the html page.
-
+    2. ``InfnSpider.parse_node()`` iterates through every record on the html page.
     3. If no pdf links are found, request to scrape the splash page is returned.
+    4. In the end, a ``HEPRecord`` is built.
 
-    4. In the end, a HEPRecord is built.
+    Examples:
+        ::
 
+            $ scrapy crawl infn
 
-    Example usage:
-    .. code-block:: console
+        Using source file::
 
-        scrapy crawl infn
-        scrapy crawl infn -a source_file=file://`pwd`/tests/responses/infn/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
-        scrapy crawl infn -a year=1999 -s "JSON_OUTPUT_DIR=tmp/"
+            $ scrapy crawl infn -a source_file=file://`pwd`/tests/responses/infn/test_1.html -s "JSON_OUTPUT_DIR=tmp/"
 
+        Using year::
 
-    Happy crawling!
+            $ scrapy crawl infn -a year=1999 -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _INFN:
+        http://www.infn.it/thesis/index.php
     """
 
     name = 'infn'

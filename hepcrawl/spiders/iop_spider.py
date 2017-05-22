@@ -28,35 +28,48 @@ from ..loaders import HEPLoader
 class IOPSpider(XMLFeedSpider, NLM):
     """IOPSpider crawler.
 
-    This spider should first be able to harvest files from IOP STACKS
-    (http://stacks.iop.org/Member/). Then it should scrape through the files
-    and get the things we want.
+    This spider should first be able to harvest files from `IOP STACKS`_.
+    Then it should scrape through the files and get the things we want.
 
-    XML files are in NLM PubMed format:
-    http://www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.XML_Tag_Descriptions
-    Examples:
-    http://www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.Example_of_a_Standard_XML
+    * XML files are in `NLM PubMed format`_
+    * Example `records`_:
 
     1. Fetch gzipped data packages from STACKS
-
     2. Scrape the XML files inside.
-
     3. Return valid JSON records.
 
     You can also call this spider directly on gzip package or an XML file. If called
     without arguments, it will attempt to fetch files from STACKS.
 
-    Example usage:
-    .. code-block:: console
+    Examples:
+        Using ``xml`` file::
 
-        scrapy crawl iop -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
-        scrapy crawl iop -a zip_file=file://`pwd`/tests/responses/iop/packages/test.tar.gz -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
-        scrapy crawl iop -a pdf_files=`pwd`/tests/responses/iop/pdf/ -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
+            $ scrapy crawl iop -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
 
-    for JSON output, add -s "JSON_OUTPUT_DIR=tmp/"
-    for logging, add -s "LOG_FILE=iop.log"
+        Using ``zip`` file::
 
-    Happy crawling!
+            $ scrapy crawl iop -a zip_file=file://`pwd`/tests/responses/iop/packages/test.tar.gz -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
+
+        Using ``pdf`` files and ``xml`` files::
+
+            $ scrapy crawl iop -a pdf_files=`pwd`/tests/responses/iop/pdf/ -a xml_file=file://`pwd`/tests/responses/iop/xml/test_standard.xml
+
+        Using JSON output::
+
+            $ scrapy crawl iop -a file_type={file_path} -s "JSON_OUTPUT_DIR=tmp/"
+
+        Using logger::
+
+            $ scrapy crawl iop -a file_type={file_path} -s "LOG_FILE=iop.log"
+
+    .. _IOP STACKS:
+        http://stacks.iop.org/Member/
+
+    .. _NLM PubMed format:
+        http://www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.XML_Tag_Descriptions
+
+    .. _records:
+        http://www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.Example_of_a_Standard_XML
     """
 
     name = 'iop'

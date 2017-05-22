@@ -30,9 +30,10 @@ RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(
 class ArxivSpider(XMLFeedSpider):
     """Spider for crawling arXiv.org OAI-PMH XML files.
 
-    .. code-block:: console
+    Example:
+        Using OAI-PMH XML files::
 
-        scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
+            $ scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
 
     """
 

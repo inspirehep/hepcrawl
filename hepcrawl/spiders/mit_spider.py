@@ -29,23 +29,26 @@ from ..utils import get_temporary_file, split_fullname
 class MITSpider(XMLFeedSpider):
 
     """MIT crawler
-    Scrapes theses metadata from DSpace@MIT (Dept. of Physics dissertations).
-    http://dspace.mit.edu/handle/1721.1/7608/browse
 
-    1. `get_list_file` makes post requests to get list of records as a html
+    Scrapes theses metadata from `MIT DSpace (Dept. of Physics dissertations)`_.
+
+    1. ``MITSpider.get_list_file`` makes post requests to get list of records as a html
        file. Defaults are to take the current year and 100 records per file.
-    2. `parse` iterates through every record on the html page and yields
+    2. ``MITSpider.parse`` iterates through every record on the html page and yields
        a request to scrape full metadata.
-    3. `build_item` builds the final HEPRecord.
+    3. ``MITSpider.build_item`` builds the final ``MITSpider.HEPRecord``.
 
+    Examples:
+        ::
 
-    Example usage:
-    .. code-block:: console
+            $ scrapy crawl MIT
 
-        scrapy crawl MIT
-        scrapy crawl MIT -a year=1999 -s "JSON_OUTPUT_DIR=tmp/"
+        Using year and output directory::
 
-    Happy crawling!
+            $ scrapy crawl MIT -a year=1999 -s "JSON_OUTPUT_DIR=tmp/"
+
+    .. _MIT DSpace (Dept. of Physics dissertations):
+        http://dspace.mit.edu/handle/1721.1/7608/browse
     """
 
     name = 'MIT'

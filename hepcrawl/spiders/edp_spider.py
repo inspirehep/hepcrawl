@@ -43,45 +43,57 @@ class EDPSpider(Jats, XMLFeedSpider):
 
     1. First it connects to a FTP host and lists all the new TAR files found
        on the remote server and downloads them to a designated local folder,
-       using `start_requests()`. The starting point of the crawl can also be a
-       local file. Packages contain XML files with different formats (gz package
-       is JATS, bz2 package has "rich" and "jp" format XML files, "jp" is JATS.)
+       using ``EDPSpider.start_requests()``. The starting point of the crawl can also be a
+       local file. Packages contain XML files with different formats (``gz`` package
+       is ``JATS``, ``bz2`` package has ``rich`` and ``jp`` format XML files, ``jp`` is ``JATS``.)
 
     2. Then the TAR file is unpacked and it lists all the XML files found
-       inside, via `handle_package()`. Note the callback from `start_requests()`
+       inside, via ``EDPSpider.handle_package()``. Note the callback from
+       ``EDPSpider.start_requests()``.
 
-    3. Each XML file is parsed via `parse_node()`.
+    3. Each XML file is parsed via ``EDPSpider.parse_node()``.
 
-    4. PDF file is fetched from the web page in `scrape_for_pdf()`.
+    4. PDF file is fetched from the web page in ``EDPSpider.scrape_for_pdf()``.
 
-    5. Finally, HEPRecord is created in `build_item()`.
+    5. Finally, ``HEPRecord`` is created in ``EDPSpider.build_item()``.
 
-    To run a crawl, you need to pass FTP connection information via
-    `ftp_netrc`:``
+    Examples:
+        To run an ``EDPSpider``, you need to pass FTP connection information via
+        ``ftp_netrc`` file::
 
-    .. code-block:: console
+            $ scrapy crawl EDP -a ftp_netrc=tmp/edps_netrc
 
-        scrapy crawl EDP -a ftp_netrc=tmp/edps_netrc
-        scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_rich.tar.bz2
-        scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_gz.tar.gz
+        To run an ``EDPSpider`` using ``rich`` format::
 
-    Happy crawling!
+            $ scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_rich.tar.bz2
+
+        To run an ``EDPSpider`` using ``gz`` format::
+
+            $ scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_gz.tar.gz
+
+    Todo:
+
+     Sometimes there are errors:
+
+        .. code-block:: python
+
+            Unhandled Error
+            self.f.seek(-size-self.SIZE_SIZE, os.SEEK_END)
+            exceptions.IOError: [Errno 22] Invalid argument
+
+        OR
+
+        .. code-block:: python
+
+            ConnectionLost: ('FTP connection lost',
+            <twisted.python.failure.Failure twisted.internet.error.ConnectionDone:
+            Connection was closed cleanly.>)
+
+        See old harvesting-kit:
+
+            * https://github.com/inspirehep/harvesting-kit/blob/master/harvestingkit/edpsciences_package.py
+            * https://github.com/inspirehep/inspire/blob/master/bibtasklets/bst_edpsciences_harvest.py
     """
-
-    # FIXME: Sometimes there are errors:
-    # Unhandled Error
-    # self.f.seek(-size-self.SIZE_SIZE, os.SEEK_END)
-    # exceptions.IOError: [Errno 22] Invalid argument
-    #
-    # OR:
-    # ConnectionLost: ('FTP connection lost',
-    # <twisted.python.failure.Failure twisted.internet.error.ConnectionDone:
-    # Connection was closed cleanly.>)
-
-    # NOTE: See old harvesting-kit:
-    # https://github.com/inspirehep/harvesting-kit/blob/master/harvestingkit/edpsciences_package.py
-    # https://github.com/inspirehep/inspire/blob/master/bibtasklets/bst_edpsciences_harvest.py
-
     name = 'EDP'
     custom_settings = {}
     start_urls = []
