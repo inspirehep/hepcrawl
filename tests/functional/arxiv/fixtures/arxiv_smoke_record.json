@@ -1,0 +1,59 @@
+[
+  {
+    "abstracts": [
+      {
+        "source": "arXiv",
+        "value": "In this contribution we summarize the selected highlights of IceCube in the domain of high-energy astrophysics and particle physics. We discuss the highest-energy neutrino detection and its interpretation after 4 years of data. The significance is such that the discovery of a non terrestrial component can be claimed but its origin is not yet clarified. The high energy non-atmospheric component is seen also in other analyses with smaller significance, for instance when using muon neutrino induced events coming from the Northern hemisphere. Flavor mixing is probed along cosmic distances in an analysis using also cascade neutrino events. The results on the search for neutrino sources is presented including the results of a joint analysis with Pierre Auger and Telescope Array which is sensitive to correlations between highest energy neutrinos and UHECRs measured by the three experiments. Moreover, recent results on dark matter searches from the Sun are discussed. Finally, the results on standard neutrino oscillations are presented."
+      }
+    ],
+    "acquisition_source": {
+      "datetime": "2017-04-03T10:26:40.365216",
+      "method": "hepcrawl",
+      "source": "arXiv",
+      "submission_number": "5652c7f6190f11e79e8000224dabeaad"
+    },
+    "arxiv_eprints": [
+      {
+        "categories": [
+          "astro-ph.HE"
+        ],
+        "value": "1512.07978"
+      }
+    ],
+    "authors": [
+      {
+        "affiliations": [],
+        "full_name": "Montaruli, Teresa Maria"
+      }
+    ],
+    "citeable": true,
+    "collaborations": [
+      {
+        "value": "IceCube"
+      }
+    ],
+    "document_type": [
+      "conference paper"
+    ],
+    "license": [
+      {
+        "license": "arXiv-1.0",
+        "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      }
+    ],
+    "number_of_pages": 8,
+    "preprint_date": "2015-12-25",
+    "public_notes": [
+      {
+        "source": "arXiv",
+        "value": "Proc. of CRIS2015, Gallipoli, Italy, 8 pages, 17 figures, to appear\n  in Elsevier in Nuclear and Particle Physics Proceedings (2016)"
+      }
+    ],
+    "titles": [
+      {
+        "source": "arXiv",
+        "title": "Neutrino Physics and Astrophysics with IceCube"
+      }
+    ]
+  }
+]
