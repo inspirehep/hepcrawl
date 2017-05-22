@@ -27,7 +27,7 @@ from hepcrawl.testlib.fixtures import fake_response_from_file
 @pytest.fixture
 def spider():
     mock_spider = mock.create_autospec(Spider)
-    mock_spider.name = 'TestSpider'
+    mock_spider.name = 'arXiv'
     mock_spider.state = {}
     return mock_spider
 
