@@ -200,7 +200,7 @@ def test_license(generated_record, expected_license):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                'source': 'hepcrawl',
+                'source': 'WSP',
                 'value': '10.1142/S1793292014400013',
             }],
         ],
@@ -441,7 +441,7 @@ def test_pipeline_record(generated_record):
         ],
         'dois': [
             {
-                'source': 'hepcrawl', 'value': u'10.1142/S0219025717500060',
+                'source': 'WSP', 'value': u'10.1142/S0219025717500060',
             },
         ],
         'imprints': [

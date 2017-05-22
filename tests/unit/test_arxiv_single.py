@@ -138,7 +138,7 @@ def test_dois(results):
     """Test extracting dois."""
     expected_dois = [
         {
-            'source': 'hepcrawl',
+            'source': 'arXiv',
             'value': '10.1103/PhysRevD.93.016005',
         }
     ]
@@ -164,7 +164,7 @@ def test_repno(results):
     """Test extracting repor numbers."""
     expected_repno = [{
         'value': 'YITP-2016-26',
-        'source': 'hepcrawl',
+        'source': 'arXiv',
     }]
     for record in results:
         assert 'report_numbers' in record

@@ -59,7 +59,7 @@ def test_titles(record):
     """Test extracting title."""
     expected_titles = [
         {
-            'source': 'Sissa Medialab',
+            'source': 'PoS',
             'title': 'Heavy Flavour Physics Review',
         }
     ]

@@ -201,7 +201,7 @@ class ArxivSpider(XMLFeedSpider):
         if report_numbers:
             return [
                 {
-                    'source': '',
+                    'source': self.name,
                     'value': rn.strip(),
                 } for rn in report_numbers.split(',')
             ]
