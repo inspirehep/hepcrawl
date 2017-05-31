@@ -115,7 +115,7 @@ def test_title(generated_record, expected_title):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                'date': '2014-06-05T00:00:00',
+                'date': '2014-06-05',
             }],
         ],
     ],
@@ -326,7 +326,7 @@ def test_authors(generated_record, expected_authors):
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
                 'holder': 'World Scientific Publishing Company',
-                'url': 'article',
+                'material': 'publication',
             }],
         ],
     ],
@@ -433,7 +433,7 @@ def test_pipeline_record(generated_record):
         'copyright': [
             {
                 'holder': u'Copyright Holder',
-                'url': 'article',
+                'material': 'publication',
             },
         ],
         'document_type': [
@@ -446,7 +446,7 @@ def test_pipeline_record(generated_record):
         ],
         'imprints': [
             {
-                'date': '2017-03-30T00:00:00',
+                'date': '2017-03-30',
             },
         ],
         'number_of_pages': 6,
