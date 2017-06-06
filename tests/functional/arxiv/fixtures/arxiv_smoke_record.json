@@ -35,6 +35,13 @@
     "document_type": [
       "conference paper"
     ],
+    "dois": [
+      {
+        "material": "publication",
+        "source": "arXiv",
+        "value": "10.1103/PhysRevD.93.016005"
+      }
+    ],
     "license": [
       {
         "license": "arXiv-1.0",
