@@ -155,7 +155,9 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
                             'addendum']:
             record.add_xpath('related_article_doi', "//related-article[@ext-link-type='doi']/@href")
             record.add_value('journal_doctype', article_type)
-        record.add_xpath('dois', "//article-id[@pub-id-type='doi']/text()")
+
+        dois = node.xpath("//article-id[@pub-id-type='doi']/text()").extract()
+        record.add_dois(dois_values=dois)
         record.add_xpath('page_nr', "//counts/page-count/@count")
 
         record.add_xpath('abstract', '//abstract[1]')

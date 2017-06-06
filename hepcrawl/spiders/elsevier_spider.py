@@ -1018,7 +1018,7 @@ class ElsevierSpider(XMLFeedSpider):
             record.add_value('journal_issue', info.get("issue"))
             record.add_value('journal_volume', info.get("volume"))
             record.add_value('journal_issn', info.get("issn"))
-            record.add_value("dois", info.get("dois"))
+            record.add_dois(dois_values=info.get("dois"))
             record.add_value('journal_doctype', doctype)
             record.add_value('journal_fpage', info.get("fpage"))
             record.add_value('journal_lpage', info.get("lpage"))
