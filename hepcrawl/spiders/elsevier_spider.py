@@ -27,7 +27,7 @@ from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
     get_first,
-    get_license,
+    get_licenses,
     has_numbers,
     range_as_string,
     unzip_xml_files,
@@ -999,7 +999,7 @@ class ElsevierSpider(XMLFeedSpider):
             if requests.head(sd_url).status_code == 200:  # Test if valid url
                 record.add_value("urls", sd_url)
 
-        license = get_license(
+        license = get_licenses(
             license_url=node.xpath(
                 ".//oa:userLicense/text()"
             ).extract_first(),

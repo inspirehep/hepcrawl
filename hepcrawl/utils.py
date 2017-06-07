@@ -261,7 +261,7 @@ def get_journal_and_section(publication):
     return journal_title, section
 
 
-def get_license(
+def get_licenses(
     license_url='',
     license_text='',
     license_material='',
@@ -275,12 +275,13 @@ def get_license(
         license_material(str): Material of the license.
 
     Returns:
-        list(dict): license object to be added to the generated record, empty list
+        list(dict): list of dictionaries that are licenses, empty list
             if no license could be extracted.
     """
     def _populate_license_material(license):
         if license_material:
             license['material'] = license_material
+
         return license
 
     def _get_license():

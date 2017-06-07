@@ -20,7 +20,7 @@ from scrapy import Request, Spider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_license, get_nested, build_dict
+from ..utils import get_licenses, get_nested, build_dict
 
 
 class APSSpider(Spider):
@@ -104,7 +104,7 @@ class APSSpider(Spider):
             record.add_value('copyright_statement', get_nested(article, 'rights', 'rightsStatement'))
             record.add_value('copyright_material', 'Article')
 
-            license = get_license(
+            license = get_licenses(
                 license_url=get_nested(article, 'rights', 'licenses')[0]['url']
             )
             record.add_value('license', license)

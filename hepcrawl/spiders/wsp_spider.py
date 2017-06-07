@@ -24,7 +24,7 @@ from ..utils import (
     ftp_list_files,
     ftp_connection_info,
     local_list_files,
-    get_license,
+    get_licenses,
     unzip_xml_files,
 )
 
@@ -194,7 +194,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('copyright_statement', '//copyright-statement/text()')
         record.add_value('copyright_material', 'publication')
 
-        license = get_license(
+        license = get_licenses(
             license_url=node.xpath(
                 '//license/license-p/ext-link/@href').extract_first(),
             license_text=node.xpath(

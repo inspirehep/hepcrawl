@@ -16,7 +16,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_license
+from ..utils import get_licenses
 
 
 class HindawiSpider(XMLFeedSpider):
@@ -200,7 +200,7 @@ class HindawiSpider(XMLFeedSpider):
         record.add_value('copyright_statement', cr_statement)
         record.add_value('copyright_year', cr_year)
 
-        license = get_license(
+        license = get_licenses(
             license_url=node.xpath(
                 "./datafield[@tag='540']/subfield[@code='u']/text()"
             ).extract_first(),
