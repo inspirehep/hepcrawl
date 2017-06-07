@@ -261,26 +261,38 @@ def get_journal_and_section(publication):
     return journal_title, section
 
 
-def get_license(license_url='', license_text=''):
+def get_license(
+    license_url='',
+    license_text='',
+    license_material='',
+):
     """Get the license dictionary from the url or the text of the license.
 
     Args:
         license_url(str): Url of the license to generate.
         license_text(str): Text with the description of the license (sometimes is
             all we got...).
+        license_material(str): Material of the license.
 
     Returns:
         list(dict): license object to be added to the generated record, empty list
             if no license could be extracted.
     """
-    license = []
-    if license_url:
+    def _populate_license_material(license):
+        if license_material:
+            license['material'] = license_material
+        return license
+
+    def _get_license():
         license = get_license_by_url(license_url=license_url)
+        if not license:
+            license = get_license_by_text(license_text=license_text)
 
-    if not license and license_text:
-        license = get_license_by_text(license_text=license_text)
+        return license
 
-    return license
+    license = _get_license()
+
+    return [_populate_license_material(license)] if license else []
 
 
 def get_license_by_url(license_url):
@@ -296,7 +308,7 @@ def get_license_by_url(license_url):
                 license_url.strip('/'),
             )
             break
-    return [{'license': license_str, 'url': license_url}]
+    return {'license': license_str, 'url': license_url}
 
 
 def get_license_by_text(license_text):
