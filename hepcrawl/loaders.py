@@ -122,6 +122,7 @@ class HEPLoader(ItemLoader):
     journal_issue_out = TakeFirst()
     journal_doctype_out = TakeFirst()
     pubinfo_freetext_out = TakeFirst()
+    pubinfo_material_out = TakeFirst()
 
     preprint_date_in = MapCompose(
         parse_date,

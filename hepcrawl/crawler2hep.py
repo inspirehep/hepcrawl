@@ -185,6 +185,7 @@ def crawler2hep(crawler_record):
         journal_title=_pub_info.get('journal_title'),
         journal_volume=_pub_info.get('journal_volume'),
         pubinfo_freetext=_pub_info.get('pubinfo_freetext'),
+        material=_pub_info.get('pubinfo_material'),
     )
 
     for report_number in crawler_record.get('report_numbers', []):
