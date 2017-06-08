@@ -45,6 +45,7 @@
     "license": [
       {
         "license": "arXiv-1.0",
+        "material": "preprint",
         "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
       }
     ],
