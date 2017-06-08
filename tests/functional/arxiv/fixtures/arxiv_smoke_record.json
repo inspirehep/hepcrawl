@@ -32,6 +32,11 @@
         "value": "IceCube"
       }
     ],
+    "copyright": [
+      {
+        "material": "preprint"
+      }
+    ],
     "document_type": [
       "conference paper"
     ],
