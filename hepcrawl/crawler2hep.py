@@ -70,7 +70,8 @@ def crawler2hep(crawler_record):
     for license in crawler_record.get('license', []):
         builder.add_license(
             url=license.get('url'),
-            license=license.get('license')
+            license=license.get('license'),
+            material=license.get('material'),
         )
 
     for collaboration in crawler_record.get('collaborations', []):
