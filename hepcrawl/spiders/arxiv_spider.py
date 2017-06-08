@@ -100,7 +100,8 @@ class ArxivSpider(XMLFeedSpider):
         )
 
         license = get_licenses(
-            license_url=node.xpath('.//license//text()').extract_first()
+            license_url=node.xpath('.//license//text()').extract_first(),
+            license_material='preprint',
         )
         record.add_value('license', license)
 
