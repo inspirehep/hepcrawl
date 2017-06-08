@@ -100,6 +100,10 @@ class ArxivSpider(XMLFeedSpider):
             license_url=node.xpath('.//license//text()').extract_first()
         )
         record.add_value('license', license)
+        record.add_value(
+            'copyright_material',
+            'preprint',
+        )
 
         parsed_record = dict(record.load_item())
         return parsed_record
