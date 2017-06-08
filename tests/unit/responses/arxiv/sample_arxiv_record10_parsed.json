@@ -40,7 +40,12 @@
             ], 
             "document_type": [
                 "thesis"
-            ], 
+            ],
+            "copyright": [
+                {
+                    "material": "preprint"
+                }
+            ],
             "abstracts": [
                 {
                     "source": "arXiv", 
