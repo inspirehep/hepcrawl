@@ -11,6 +11,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import pytest
 
+import requests_mock
 import responses
 
 from scrapy.selector import Selector
@@ -160,7 +161,15 @@ def splash():
     spider._register_namespaces(selector)
     nodes = selector.xpath('.//%s' % spider.itertag)
     splash_response.meta["record"] = nodes[0].extract()
-    return spider.scrape_for_pdf(splash_response)
+
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.example.com/bitstream/1885/10005/1/Butt_R.D._2003.pdf',
+            headers={
+                'Content-Type': 'text/html',
+            },
+        )
+        return spider.scrape_for_pdf(splash_response)
 
 
 def test_splash(splash):
@@ -221,7 +230,15 @@ def parsed_node_without_link():
     response = fake_response_from_string(text=body)
     node = get_node(spider, 'OAI-PMH:record', text=body)
     response.meta["record"] = node.extract()
-    return spider.parse_node(response, node)
+
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.example.com',
+            headers={
+                'Content-Type': 'text/html',
+            },
+        )
+        return spider.parse_node(response, node)
 
 
 def test_parsed_node_without_link(parsed_node_without_link):
@@ -249,7 +266,15 @@ def parsed_node_missing_scheme():
     response = fake_response_from_string(text=body)
     node = get_node(spider, 'OAI-PMH:record', text=body)
     response.meta["record"] = node.extract_first()
-    return spider.parse_node(response, node)
+
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.example.com',
+            headers={
+                'Content-Type': 'text/html',
+            },
+        )
+        return spider.parse_node(response, node)
 
 
 def test_parsed_node_missing_scheme(parsed_node_missing_scheme):
