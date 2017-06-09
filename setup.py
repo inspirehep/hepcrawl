@@ -42,6 +42,7 @@ tests_require = [
     'pytest-cov>=2.1.0',
     'pytest-pep8>=1.0.6',
     'responses>=0.5.0',
+    'requests-mock>=1.3.0',
     'pydocstyle>=1.0.0',
     'PyYAML',
 ]
