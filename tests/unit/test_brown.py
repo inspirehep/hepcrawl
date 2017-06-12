@@ -11,6 +11,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import json
 import pytest
+import requests_mock
 
 import scrapy
 
@@ -26,17 +27,24 @@ from hepcrawl.testlib.fixtures import (
 def record():
     """Return results from the Brown spider."""
     spider = brown_spider.BrownSpider()
-    response = fake_response_from_file('brown/test_1.json')
-    jsonresponse = json.loads(response.body_as_unicode())
-    jsonrecord = jsonresponse["items"]["docs"][0]
-    jsonrecord["uri"] = "brown/test_splash.html"
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.example.com/studio/item/bdr:11303/PDF/',
+            headers={
+                'Content-Type': 'text/html',
+            },
+        )
+        response = fake_response_from_file('brown/test_1.json')
+        jsonresponse = json.loads(response.body_as_unicode())
+        jsonrecord = jsonresponse["items"]["docs"][0]
+        jsonrecord["uri"] = "brown/test_splash.html"
 
+        splash_response = fake_response_from_file('brown/test_splash.html')
+        splash_response.meta["jsonrecord"] = jsonrecord
+        parsed_record = spider.scrape_splash(splash_response)
 
-    splash_response = fake_response_from_file('brown/test_splash.html')
-    splash_response.meta["jsonrecord"] = jsonrecord
-    parsed_record = spider.scrape_splash(splash_response)
-    assert parsed_record
-    return parsed_record
+        assert parsed_record
+        return parsed_record
 
 
 @pytest.fixture
@@ -51,7 +59,14 @@ def parsed_node():
     jsonrecord = jsonresponse["items"]["docs"][0]
     response.meta["jsonrecord"] = jsonrecord
 
-    return spider.parse(response).next()
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'https://repository.library.brown.edu/studio/item/bdr:11303/PDF/',
+            headers={
+                'Content-Type': 'application/pdf',
+            },
+        )
+        return spider.parse(response).next()
 
 
 def test_files_constructed(parsed_node):
