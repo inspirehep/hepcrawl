@@ -76,13 +76,20 @@ def parse_requests():
 def splash():
     """Returns a call to build_item(), and ultimately the HEPrecord"""
     spider = phil_spider.PhilSpider()
-    response = fake_response_from_file(
-        "phil/fake_splash.html",
-        url="http://philpapers.org/rec/SDFGSDFGDGSDF",
-    )
 
-    response.meta["urls"] = [u'http://philpapers.org/rec/SDFGSDFGDGSDF']
-    response.meta["jsonrecord"] = {
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://philpapers.org/www.example.com/file.pdf',
+            headers={
+                'Content-Type': 'code; charset=ISO-8859-1',
+            }
+        )
+        response = fake_response_from_file(
+            "phil/fake_splash.html",
+            url="http://philpapers.org/rec/SDFGSDFGDGSDF",
+        )
+        response.meta["urls"] = [u'http://philpapers.org/rec/SDFGSDFGDGSDF']
+        response.meta["jsonrecord"] = {
         u'publisher': u'',
         u'doi': None,
         u'links': [
@@ -216,7 +223,7 @@ def splash():
         ]
     }
 
-    return spider.scrape_for_pdf(response)
+        return spider.scrape_for_pdf(response)
 
 
 def test_scrape(splash):
