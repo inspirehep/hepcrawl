@@ -45,7 +45,7 @@ prepare_venv() {
     virtualenv "$VENV_PATH"
     source "$VENV_PATH"/bin/activate
     pip install --upgrade pip
-    pip install --upgrade setuptools wheel
+    pip install --upgrade 'setuptools<36' wheel
 }
 
 
