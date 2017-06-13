@@ -38,9 +38,27 @@ def input_generic_crawler_record():
     return load_file('in_generic_crawler_record.yaml')
 
 
+@pytest.fixture('module')
+def expected_no_document_type_record():
+    return load_file('out_no_document_type.yaml')
+
+
+@pytest.fixture('module')
+def input_no_document_type_record():
+    return load_file('in_no_document_type.yaml')
+
+
 def test_generic_crawler_record(
         input_generic_crawler_record,
         expected_generic_crawler_record
 ):
     produced_record = crawler2hep(input_generic_crawler_record)
     assert produced_record == expected_generic_crawler_record
+
+
+def test_no_document_type(
+        input_no_document_type_record,
+        expected_no_document_type_record
+):
+    produced_record = crawler2hep(input_no_document_type_record)
+    assert produced_record == expected_no_document_type_record
