@@ -190,7 +190,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_xpath('copyright_holder', '//copyright-holder/text()')
         record.add_xpath('copyright_year', '//copyright-year/text()')
         record.add_xpath('copyright_statement', '//copyright-statement/text()')
-        record.add_value('copyright_material', 'Article')
+        record.add_value('copyright_material', 'publication')
 
         license = get_license(
             license_url=node.xpath(

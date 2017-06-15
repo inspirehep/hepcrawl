@@ -7,7 +7,7 @@
 		"datetime": "2017-04-21T14:56:10.981309"
 	},
 	"copyright": [{
-		"url": "article",
+		"material": "publication",
 		"holder": "Copyright Holder"
 	}],
 	"number_of_pages": 6,
@@ -38,7 +38,7 @@
 		"value": "Abstract L\u00e9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa."
 	}],
 	"imprints": [{
-		"date": "2017-03-30T00:00:00"
+		"date": "2017-03-30"
 	}],
 	"citeable": true
 }, {
@@ -50,7 +50,7 @@
 		"datetime": "2017-04-21T14:56:11.026428"
 	},
 	"copyright": [{
-		"url": "article",
+		"material": "publication",
 		"holder": "Copyright Holder"
 	}],
 	"number_of_pages": 21,
@@ -86,7 +86,7 @@
 		"value": "Abstract L\u00e9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa <math><msup><mrow><mi>L</mi></mrow><mrow><mn>2</mn></mrow></msup></math>-bla blaaa blaa, Bla\u2019s bla, bla blaaa blaa."
 	}],
 	"imprints": [{
-		"date": "2017-03-30T00:00:00"
+		"date": "2017-03-30"
 	}],
 	"citeable": true
 }]
