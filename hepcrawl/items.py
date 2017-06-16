@@ -183,7 +183,7 @@ class HEPRecord(scrapy.Item):
     copyright_holder = scrapy.Field()
     copyright_year = scrapy.Field()
     copyright_statement = scrapy.Field()
-    copyright_material = scrapy.Field()  # E.g "Article"
+    copyright_material = scrapy.Field()  # E.g "preprint"
 
     journal_title = scrapy.Field()
     journal_volume = scrapy.Field()
