@@ -76,7 +76,8 @@ class APSSpider(Spider):
         for article in aps_response['data']:
             record = HEPLoader(item=HEPRecord(), response=response)
 
-            record.add_value('dois', get_nested(article, 'identifiers', 'doi'))
+            dois = [get_nested(article, 'identifiers', 'doi')]
+            record.add_dois(dois_values=dois)
             record.add_value('page_nr', str(article.get('numPages', '')))
 
             record.add_value('abstract', get_nested(article, 'abstract', 'value'))

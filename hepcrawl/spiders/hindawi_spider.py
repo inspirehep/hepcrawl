@@ -174,8 +174,11 @@ class HindawiSpider(XMLFeedSpider):
                          "./datafield[@tag='260']/subfield[@code='c']/text()")
         record.add_xpath('page_nr',
                          "./datafield[@tag='300']/subfield[@code='a']/text()")
-        record.add_xpath('dois',
-                         "./datafield[@tag='024'][subfield[@code='2'][contains(text(), 'DOI')]]/subfield[@code='a']/text()")
+        dois = node.xpath(
+            "./datafield[@tag='024'][subfield[@code='2'][contains(text(), 'DOI')]]"
+            "/subfield[@code='a']/text()"
+        ).extract()
+        record.add_dois(dois_values=dois)
         record.add_xpath('journal_title',
                          "./datafield[@tag='773']/subfield[@code='p']/text()")
         record.add_xpath('journal_volume',

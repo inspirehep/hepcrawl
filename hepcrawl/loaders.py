@@ -152,7 +152,6 @@ class HEPLoader(ItemLoader):
 
     classification_numbers_out = ClassificationNumbers()
 
-    dois_out = ListToValueDict()
     related_article_doi_out = ListToValueDict()
 
     thesis_supervisor_in = MapCompose(
@@ -164,6 +163,46 @@ class HEPLoader(ItemLoader):
         canonicalize_url,
     )
     urls_out = ListToValueDict()
+
+    def add_dois(self, dois_values=None, material=None):
+        """Adds `dois` field to `self`.
+
+        Args:
+            dois_values (list):The `dois` represented by a list of strings.
+            material (str):The `material` of the dois.
+
+        Examples:
+            Using `dois`::
+
+                >>> from hepcrawl.items import HEPRecord
+                >>> record = HEPLoader(item=HEPRecord(), selector=selector)
+                >>> record.add_dois(dois=dois_list_str)
+
+            Using `dois` and `material`::
+
+                >>> from hepcrawl.items import HEPRecord
+                >>> record = HEPLoader(item=HEPRecord(), selector=selector)
+                >>> record.add_dois(dois=dois_list_str, material='preprint')
+        """
+        def _build_doi(doi_value, material):
+            doi = {
+                'value': doi_value
+            }
+            if material:
+                doi['material'] = material
+
+            return doi
+
+        if not dois_values:
+            return
+
+        dois = [
+            _build_doi(doi_value, material)
+            for doi_value in dois_values
+        ]
+
+        self.add_value('dois', dois)
+
 
 # FIXME: if possible everything with open access should get a FFT
 # FIXME: check that every record has collection HEP

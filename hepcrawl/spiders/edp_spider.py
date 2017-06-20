@@ -279,7 +279,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         article_type = response.meta.get("article_type")
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
 
-        record.add_value('dois', response.meta.get("dois"))
+        record.add_dois(dois_values=response.meta.get("dois"))
         record.add_xpath('abstract', './/Abstract')
         record.add_xpath('title', './/ArticleTitle/Title')
         record.add_xpath('subtitle', './/ArticleTitle/Subtitle')
@@ -332,7 +332,7 @@ class EDPSpider(Jats, XMLFeedSpider):
                              './/related-article[@ext-link-type="doi"]/@href')
             record.add_value('journal_doctype', article_type)
 
-        record.add_value('dois', response.meta.get("dois"))
+        record.add_dois(dois_values=response.meta.get("dois"))
         record.add_xpath('page_nr', ".//counts/page-count/@count")
         record.add_xpath('abstract', './/abstract[1]')
         record.add_xpath('title', './/article-title/text()')

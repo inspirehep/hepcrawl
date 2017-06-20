@@ -140,6 +140,7 @@ def test_dois(results):
         {
             'source': 'arXiv',
             'value': '10.1103/PhysRevD.93.016005',
+            'material': 'publication',
         }
     ]
     for record in results:

@@ -60,7 +60,10 @@ class ArxivSpider(XMLFeedSpider):
         record.add_xpath('title', './/title/text()')
         record.add_xpath('abstract', './/abstract/text()')
         record.add_xpath('preprint_date', './/created/text()')
-        record.add_xpath('dois', './/doi//text()')
+        record.add_dois(
+            dois_values=self._get_dois(node=node),
+            material='publication',
+        )
         record.add_xpath('pubinfo_freetext', './/journal-ref//text()')
         record.add_value('source', 'arXiv')
 
@@ -218,3 +221,6 @@ class ArxivSpider(XMLFeedSpider):
             'institute': 'arXiv',
             'value': node.xpath('.//identifier//text()').extract_first()
         }
+
+    def _get_dois(self, node):
+        return node.xpath('.//doi//text()').extract()

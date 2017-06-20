@@ -139,7 +139,7 @@ class PhilSpider(CrawlSpider):
 
         record.add_value('title', jsonrecord['title'])
         record.add_value('abstract', jsonrecord['abstract'])
-        record.add_value('dois', jsonrecord['doi'])
+        record.add_dois(dois_values=jsonrecord['doi'])
         record.add_value('page_nr', jsonrecord['pages'])
         record.add_value('authors', self.get_authors(jsonrecord['authors']))
         record.add_value('file_urls', response.meta.get("direct_links"))

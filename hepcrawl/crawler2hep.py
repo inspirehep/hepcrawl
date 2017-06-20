@@ -57,7 +57,8 @@ def crawler2hep(crawler_record):
 
     for doi in crawler_record.get('dois', []):
         builder.add_doi(
-            doi=doi.get('value')
+            doi=doi.get('value'),
+            material=doi.get('material'),
         )
 
     for public_note in crawler_record.get('public_notes', []):
