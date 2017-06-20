@@ -47,9 +47,9 @@ def list_files(path, target_folder):
     for filename in files:
         destination_file = os.path.join(target_folder, filename)
         #source_file = os.path.join(path, filename)
-            if not os.path.exists(destination_file):
-                missing_files.append(filename)
-            all_files.append(os.path.join(path, filename))
+        if not os.path.exists(destination_file):
+            missing_files.append(filename)
+        all_files.append(os.path.join(path, filename))
     return all_files, missing_files
 
 def untar(filename, target_folder):
@@ -58,9 +58,9 @@ def untar(filename, target_folder):
         datasets = []
         tar_name = os.path.basename(tar.name).rstrip('.tar')
         for tarinfo in tar:
-            if tarinfo.name == "dataset.xml":
+            if "dataset.xml" in tarinfo.name:
                 datasets.append(os.path.join(target_folder,
-                                             tar_name,
+                                             #tar_name,
                                              tarinfo.name))
         if not os.path.exists(os.path.join(target_folder, tar_name)):
             tar.extractall(path=target_folder)
@@ -116,7 +116,7 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
-    def __init__(self, package_path=None, folder="/tmp/elsevier_mount", *args, **kwargs):
+    def __init__(self, package_path=None, folder="/mnt/elsevier-sftp", *args, **kwargs):
         """Construct Elsevier spider."""
         super(S3ElsevierSpider, self).__init__(*args, **kwargs)
         self.folder = folder
@@ -131,76 +131,86 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
             yield Request(self.package_path, callback=self.handle_package_file)
         else:
             #ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
-            params = []
+            params = {}
             new_files, missing_files = list_files(
                 self.folder,
                 self.target_folder,
-                server=ftp_host,
-                user=ftp_params['ftp_user'],
-                password=ftp_params['ftp_password']
             )
             ## TODO - add checking if the package was already downloaded
             # Cast to byte-string for scrapy compatibility
-            print(missing_files)
             for remote_file in missing_files:
-                print(remote_file)
-                remote_file = str(remote_file)
-                params["ftp_local_filename"] = os.path.join(
-                    self.target_folder,
-                    remote_file
-                )
-                remote_url = os.path.join(self.folder, remote_file)
-                print(remote_url)
-                yield Request(
-                    str(remote_url),
-                    meta=ftp_params,
-                    callback=self.handle_package_ftp)
+                ## TODO download only packages where _ready.xml exists
+                if '.tar' in remote_file:
+                    params["local_filename"] = os.path.join(
+                        self.target_folder,
+                        remote_file
+                    )
+                    remote_url = 'file://localhost' + os.path.join(self.folder, remote_file)
+                    yield Request(
+                        str(remote_url),
+                        meta=params,
+                        callback=self.handle_package)
 
     def handle_package(self, response):
         """Handle the zip package and yield a request for every XML found."""
-        filename = os.path.basename(response.url).rstrip(".zip")
+        with open(response.meta["local_filename"], 'w') as destination_file:
+                destination_file.write(response.body)
+        filename = os.path.basename(response.url).rstrip("A.tar")
         # TMP dir to extract zip packages:
-        target_folder = mkdtemp(prefix=filename + "_", dir="/tmp/Epringer/unpacked")
+        target_folder = mkdtemp(prefix=filename + "_", dir="/tmp/Elsevier/unpacked")
 
-        zip_filepath = response.meta["ftp_local_filename"]
+        zip_filepath = response.meta["local_filename"]
         print("zip_filepath: %s" % (zip_filepath,))
         print("target_folder: %s" % (target_folder,))
         files = untar(zip_filepath, target_folder)
         # The xml files shouldn't be removed after processing; they will
         # be later uploaded to Inspire. So don't remove any tmp files here.
+        print("Untared files: ")
+        print(files)
         for f in files:
             if 'dataset.xml' in f:
+                print("Reading dataset")
                 from scrapy.selector import Selector
                 with open(f, 'r') as dataset_file:
+                    print("Dataset opened")
                     dataset = Selector(text=dataset_file.read())
                     data = []
+                    print(dataset.xpath('//journal-issue'))
                     for i, issue in enumerate(dataset.xpath('//journal-issue')):
-                        data[i] = {}
-                        data[i]['volume'] = issue.xpath('//volume-issue-number/text()')
-                        data[i]['issue'] = issue.xpath('//issn/text()')
-                        data[i]['journal'] = issue.xpath('//collection-title/text()')
-                        issue_file = os.path.join(target_folder, issue.xpath('//files-info/ml/pathname'))
+                        tmp = {}
+                        tmp['volume'] = "%s %s" % (issue.xpath('//volume-issue-number/vol-first/text()')[0].extract(),  issue.xpath('//volume-issue-number/suppl/text()')[0].extract())
+                        tmp['issue'] = issue.xpath('//issn/text()')[0].extract()
+                        tmp['journal'] = issue.xpath('//collection-title/text()')[0].extract()
+                        issue_file = os.path.join(target_folder, filename, issue.xpath('files-info/ml/pathname/text()')[0].extract())
                         arts = {}
                         with open(issue_file, 'r') as issue_file:
                             iss = Selector(text=issue_file.read())
+                            iss.register_namespace("ce", "http://www.elsevier.com/xml/common/dtd")
                             for article in iss.xpath('//ce:include-item'):
-                                doi = article.xpath('//ce:doi/text()')
-                                first_page = int(article.xpath('//ce:first-page/text()'))
-                                last_page = int(article.xpath('//ce:last-page/text()'))
+                                doi = article.xpath('ce:doi/text()')[0].extract()
+                                first_page = int(article.xpath('ce:first-page/text()')[0].extract())
+                                last_page = int(article.xpath('ce:last-page/text()')[0].extract())
                                 arts[doi] = {'first-page': first_page, 'last-page': last_page}
-                        data[i]['articles'] = arts
+                        tmp['articles'] = arts
+                        data.append(tmp)
+                    #if not data:
+                    #        data.append({'articles':{}})
+                    print(data)
                     for article in dataset.xpath('//journal-item'):
-                        doi = article.xpath('//doi/text()')
+                        doi = article.xpath('journal-item-unique-ids/doi/text()')[0].extract()
+                        print(doi)
                         for i, issue in enumerate(data):
+                            print(issue)
                             if doi in data[i]['articles']:
-                                xml = os.path.join(target_folder,article.xpath('//ml/pathname/text()'))
-                                pdf = os.path.join(target_folder,article.xpath('//web-pdf/pathname/text()'))
+                                xml = os.path.join(target_folder,article.xpath('files-info/ml/pathname/text()'))
+                                pdf = os.path.join(target_folder,article.xpath('files-info/web-pdf/pathname/text()'))
                                 data[i]['articles'][doi]['files']['xml'] = xml
                                 data[i]['articles'][doi]['files']['pdf'] = pdf
                                 if 'vtex' in zip_filepath:
                                     pdfa = os.path.join(os.path.split(pdf)[0], 'main_a-2b.pdf')
                                     pdfa = os.path.join(target_folder,pdfa)
                                     data[i]['articles'][doi]['files']['pdfa'] = pdfa
+                                print(data[i]['articles'][doi])
                                 yield Request(
                                     xml,
                                     meta={"package_path": zip_filepath,
@@ -212,6 +222,8 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
 
     def parse_node(self, response, node):
         """Parse a OUP XML file into a HEP record."""
+        print("Parsing node")
+        print(response.meta['metadata'])
         node.remove_namespaces()
         article_type = node.xpath('@article-type').extract()
         self.log("Got article_type {0}".format(article_type))
