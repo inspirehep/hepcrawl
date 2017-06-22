@@ -14,13 +14,17 @@ set -me
 VENV_PATH=/hepcrawl_venv
 
 
-restore_venv_tmp_rights() {
+restore_venv_tmp_code_rights() {
     if [[ "$BASE_USER_UID" != "" ]]; then
         BASE_USER_GID="${BASE_USER_GID:-$BASE_USER_UID}"
-        echo "Restoring permissions of venv and tmp to $BASE_USER_UID:$BASE_USER_GID"
-        /fix_venv_tmp_rights "$BASE_USER_UID:$BASE_USER_GID"
+        echo "Restoring permissions of venv to $BASE_USER_UID:$BASE_USER_GID"
+        /fix_rights --virtualenv "$BASE_USER_UID:$BASE_USER_GID"
+        echo "Restoring permissions of codedir to $BASE_USER_UID:$BASE_USER_GID"
+        /fix_rights --codedir "$BASE_USER_UID:$BASE_USER_GID"
+        echo "Restoring permissions of tmpdir to $BASE_USER_UID:$BASE_USER_GID"
+        /fix_rights --tmpdir "$BASE_USER_UID:$BASE_USER_GID"
     else
-        echo "No BASE_USER_UID env var defined, skipping venv permission" \
+        echo "No BASE_USER_UID env var defined, skipping venv, codedir, tmpdir permission" \
             "restore."
     fi
 }
@@ -50,8 +54,10 @@ prepare_venv() {
 
 
 main() {
-    /fix_venv_tmp_rights 'test:test'
-    trap restore_venv_tmp_rights EXIT
+    /fix_rights --virtualenv 'test:test'
+    /fix_rights --codedir 'test:test'
+    /fix_rights --tmpdir 'test:test'
+    trap restore_venv_tmp_code_rights EXIT
 
     if ! [[ -f "$VENV_PATH/bin/activate" ]]; then
         prepare_venv

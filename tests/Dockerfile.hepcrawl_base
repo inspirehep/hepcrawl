@@ -32,8 +32,8 @@ RUN useradd test
 RUN chown -R test:test /code /hepcrawl_venv
 
 ADD ./docker_entrypoint.sh /docker_entrypoint.sh
-ADD ./fix_venv_tmp_rights /fix_venv_tmp_rights
-RUN chmod 4755 /fix_venv_tmp_rights
+ADD ./fix_rights /fix_rights
+RUN chmod 4755 /fix_rights
 
 USER test
 WORKDIR /code
