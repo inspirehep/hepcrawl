@@ -20,7 +20,7 @@ python:
 env:
   global:
     - EXTRAS=docs,tests
-    - DOCKER_COMPOSE_VERSION=1.9.0
+    - DOCKER_COMPOSE_VERSION=1.13.0
     - DOCKER_DATA=/tmp/hepcrawl_docker_data
   matrix:
     - SUITE=unit
