@@ -22,6 +22,8 @@ env:
     - EXTRAS=docs,tests
     - DOCKER_COMPOSE_VERSION=1.13.0
     - DOCKER_DATA=/tmp/hepcrawl_docker_data
+    - BASE_USER_UID=2000
+    - BASE_USER_GID=2000
   matrix:
     - SUITE=unit
     - SUITE=functional_wsp
