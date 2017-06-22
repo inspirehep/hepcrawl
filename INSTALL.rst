@@ -65,7 +65,7 @@ spider:
 .. code-block:: console
 
     cdvirtualenv src/hepcrawl
-    scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
+    scrapy crawl arXiv -a source_file=file://`pwd`/tests/unit/responses/arxiv/sample_arxiv_record.xml
 
 
 Run the crawler with INSPIRE (assuming you already have a virtualenv with everything set up).
