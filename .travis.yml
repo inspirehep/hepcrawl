@@ -20,9 +20,10 @@ python:
 env:
   global:
     - EXTRAS=docs,tests
-    - DOCKER_COMPOSE_VERSION=1.9.0
-    - DOCKER_VERSION=1.12.3-0~trusty
+    - DOCKER_COMPOSE_VERSION=1.13.0
     - DOCKER_DATA=/tmp/hepcrawl_docker_data
+    - BASE_USER_UID=2000
+    - BASE_USER_GID=2000
   matrix:
     - SUITE=unit
     - SUITE=functional_wsp
@@ -40,6 +41,7 @@ before_install:
 
 install:
   - travis_retry docker-compose -f docker-compose.deps.yml run --rm pip
+  - travis_retry docker-compose -f docker-compose.test.yml run --rm scrapyd_deploy
 
 script:
   - travis_retry docker-compose -f docker-compose.test.yml run --rm ${SUITE}
