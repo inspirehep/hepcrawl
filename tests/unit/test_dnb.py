@@ -13,6 +13,7 @@ import os
 
 import pkg_resources
 import pytest
+import requests_mock
 
 from scrapy.http import HtmlResponse
 
@@ -42,19 +43,38 @@ def scrape_pos_page_body():
 def record(scrape_pos_page_body):
     """Return the results of the spider."""
     spider = dnb_spider.DNBSpider()
-    request = spider.parse(
-        fake_response_from_file('dnb/test_1.xml')
-    ).next()
-    response = HtmlResponse(
-        url=request.url,
-        request=request,
-        body=scrape_pos_page_body,
-        **{'encoding': 'utf-8'}
-    )
-    return request.callback(response)
+
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://nbn-resolving.de/urn:nbn:de:hebis:30:3-386257',
+            headers={
+                'Content-Type': 'text/html',
+            }
+        )
+        mock.head(
+            'http://d-nb.info/1079912991/34',
+            headers={
+                'Content-Type': 'application/pdf;charset=base64',
+            }
+        )
+        mock.head(
+            'http://publikationen.ub.uni-frankfurt.de/frontdoor/index/index/docId/38625',
+            headers={
+                'Content-Type': 'text/html',
+            }
+        )
+        request = spider.parse(
+            fake_response_from_file('dnb/test_1.xml')
+        ).next()
+        response = HtmlResponse(
+            url=request.url,
+            request=request,
+            body=scrape_pos_page_body,
+            **{'encoding': 'utf-8'}
+        )
+        return request.callback(response)
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_title(record):
     """Test title."""
     title = "Auslegung und Messungen einer supraleitenden 325 MHz CH-Struktur für Strahlbetrieb"
@@ -62,14 +82,12 @@ def test_title(record):
     assert record["title"] == title
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_date_published(record):
     """Test date_published."""
     assert "date_published" in record
     assert record["date_published"] == "2015"
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_authors(record):
     """Test authors."""
     authors = ["Busch, Marco"]
@@ -89,35 +107,30 @@ def test_authors(record):
         ]
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_supervisors(record):
     """Test thesis supervisors"""
     assert "thesis_supervisor" in record
     assert record["thesis_supervisor"][0]["full_name"] == "Podlech, Holger"
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_source(record):
     """Test thesis source"""
     assert "source" in record
     assert record["source"] == 'Univ.-Bibliothek Frankfurt am Main'
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_language(record):
     """Test thesis language"""
     assert "language" in record
     assert record["language"][0] == u'German'
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_files(record):
     """Test files."""
     assert "file_urls" in record
     assert record["file_urls"][0] == "http://d-nb.info/1079912991/34"
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_urls(record):
     """Test url in record."""
     urls = [
@@ -135,14 +148,12 @@ def test_urls(record):
         seen_urls.add(url['value'])
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_doctype(record):
     """Test doctype"""
     assert "thesis" in record
     assert record["thesis"]["degree_type"] == "PhD"
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_abstract(record):
     """Test that abstract has been fetched correctly."""
     abstract = (
@@ -195,11 +206,11 @@ def test_abstract(record):
     assert record["abstract"] == abstract
 
 
-@pytest.mark.skip(reason='connecting to external source - Issue #120')
 def test_page_nr(record):
     """Test that page range is correct."""
     assert "page_nr" in record
     assert record["page_nr"][0] == "133"
+
 
 @pytest.fixture
 def parse_without_splash():
@@ -222,7 +233,15 @@ def parse_without_splash():
     """
     response = fake_response_from_string(body)
     nodes = get_node(spider, "//" + spider.itertag, response)
-    return spider.parse_node(response, nodes[0])
+
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://d-nb.info/1079912991/34',
+            headers={
+                'Content-Type': 'application/pdf;charset=base64',
+            }
+        )
+        return spider.parse_node(response, nodes[0])
 
 
 def test_parse_without_splash(parse_without_splash):

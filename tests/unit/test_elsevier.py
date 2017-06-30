@@ -12,6 +12,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import fnmatch
 
 import pytest
+import requests_mock
 
 from hepcrawl.spiders import elsevier_spider
 
@@ -29,60 +30,74 @@ from hepcrawl.testlib.fixtures import (
 def record():
     """Return results generator from the Elsevier spider."""
     spider = elsevier_spider.ElsevierSpider()
-    response = fake_response_from_file('elsevier/sample_consyn_record.xml')
-    response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
-    tag = '//%s' % spider.itertag
-    nodes = get_node(spider, tag, response)
-    parsed_record = spider.parse_node(response, nodes)
-    assert parsed_record
-    return parsed_record
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.sciencedirect.com/science/article/pii/sample_consyn_record',
+            headers={
+                'Content-Type': 'text/html',
+            }
+        )
+        response = fake_response_from_file('elsevier/sample_consyn_record.xml')
+        response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
+        tag = '//%s' % spider.itertag
+        nodes = get_node(spider, tag, response)
+        parsed_record = spider.parse_node(response, nodes)
+        assert parsed_record
+        return parsed_record
 
 
 @pytest.fixture(scope="module")
 def parsed_node():
     """Test data that have different values than in the sample record."""
     # NOTE: this tries to make a GET request
-    spider = elsevier_spider.ElsevierSpider()
-    body = """
-    <doc xmlns:oa="http://vtw.elsevier.com/data/ns/properties/OpenAccess-1/"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        xmlns:dct="http://purl.org/dc/terms/"
-        xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
-        <oa:openAccessInformation>
-            <oa:openAccessStatus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            http://vtw.elsevier.com/data/voc/oa/OpenAccessStatus#Full
-            </oa:openAccessStatus>
-            <oa:openAccessEffective xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2014-11-11T08:38:44Z</oa:openAccessEffective>
-            <oa:sponsor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <oa:sponsorName>SCOAP&#xB3; - Sponsoring Consortium for Open Access Publishing in Particle Physics</oa:sponsorName>
-            <oa:sponsorType>http://vtw.elsevier.com/data/voc/oa/SponsorType#FundingBody</oa:sponsorType>
-            </oa:sponsor>
-            <oa:userLicense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://creativecommons.org/licenses/by/3.0/</oa:userLicense>
-        </oa:openAccessInformation>
-        <rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
-            <dct:title>Toward classification of conformal theories</dct:title>
-            <prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
-            <prism:startingPage>421</prism:startingPage>
-            <prism:publicationName>Physics Letters, Section B</prism:publicationName>
-            <prism:volume>206</prism:volume>
-            <dct:creator>Cumrun Vafa</dct:creator>
-            <dct:subject>
-                <rdf:Bag>
-                    <rdf:li>Heavy quarkonia</rdf:li>
-                    <rdf:li>Quark gluon plasma</rdf:li>
-                    <rdf:li>Mott effect</rdf:li>
-                    <rdf:li>X(3872)</rdf:li>
-                </rdf:Bag>
-            </dct:subject>
-        </rdf:Description>
-    </doc>"""
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.sciencedirect.com/science/article/pii/sample_consyn_record',
+            headers={
+                'Content-Type': 'text/html',
+            }
+        )
+        spider = elsevier_spider.ElsevierSpider()
+        body = """
+        <doc xmlns:oa="http://vtw.elsevier.com/data/ns/properties/OpenAccess-1/"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/">
+            <oa:openAccessInformation>
+                <oa:openAccessStatus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                http://vtw.elsevier.com/data/voc/oa/OpenAccessStatus#Full
+                </oa:openAccessStatus>
+                <oa:openAccessEffective xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">2014-11-11T08:38:44Z</oa:openAccessEffective>
+                <oa:sponsor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <oa:sponsorName>SCOAP&#xB3; - Sponsoring Consortium for Open Access Publishing in Particle Physics</oa:sponsorName>
+                <oa:sponsorType>http://vtw.elsevier.com/data/voc/oa/SponsorType#FundingBody</oa:sponsorType>
+                </oa:sponsor>
+                <oa:userLicense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://creativecommons.org/licenses/by/3.0/</oa:userLicense>
+            </oa:openAccessInformation>
+            <rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
+                <dct:title>Toward classification of conformal theories</dct:title>
+                <prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
+                <prism:startingPage>421</prism:startingPage>
+                <prism:publicationName>Physics Letters, Section B</prism:publicationName>
+                <prism:volume>206</prism:volume>
+                <dct:creator>Cumrun Vafa</dct:creator>
+                <dct:subject>
+                    <rdf:Bag>
+                        <rdf:li>Heavy quarkonia</rdf:li>
+                        <rdf:li>Quark gluon plasma</rdf:li>
+                        <rdf:li>Mott effect</rdf:li>
+                        <rdf:li>X(3872)</rdf:li>
+                    </rdf:Bag>
+                </dct:subject>
+            </rdf:Description>
+        </doc>"""
 
-    response = fake_response_from_string(body)
-    node = get_node(spider, '/doc', response)
-    response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
-    parse_response = spider.parse_node(response, node)
-    parse_response.status = 404
-    return spider.scrape_sciencedirect(parse_response)
+        response = fake_response_from_string(body)
+        node = get_node(spider, '/doc', response)
+        response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
+        parse_response = spider.parse_node(response, node)
+        parse_response.status = 404
+        return spider.scrape_sciencedirect(parse_response)
 
 
 def test_collection(parsed_node):

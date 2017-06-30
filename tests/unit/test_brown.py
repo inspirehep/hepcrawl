@@ -10,15 +10,13 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import json
-
 import pytest
+import requests_mock
 
 import scrapy
 
 import hepcrawl
-
 from hepcrawl.spiders import brown_spider
-
 from hepcrawl.testlib.fixtures import (
     fake_response_from_file,
     fake_response_from_string,
@@ -29,17 +27,24 @@ from hepcrawl.testlib.fixtures import (
 def record():
     """Return results from the Brown spider."""
     spider = brown_spider.BrownSpider()
-    response = fake_response_from_file('brown/test_1.json')
-    jsonresponse = json.loads(response.body_as_unicode())
-    jsonrecord = jsonresponse["items"]["docs"][0]
-    jsonrecord["uri"] = "brown/test_splash.html"
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'http://www.example.com/studio/item/bdr:11303/PDF/',
+            headers={
+                'Content-Type': 'text/html',
+            },
+        )
+        response = fake_response_from_file('brown/test_1.json')
+        jsonresponse = json.loads(response.body_as_unicode())
+        jsonrecord = jsonresponse["items"]["docs"][0]
+        jsonrecord["uri"] = "brown/test_splash.html"
 
+        splash_response = fake_response_from_file('brown/test_splash.html')
+        splash_response.meta["jsonrecord"] = jsonrecord
+        parsed_record = spider.scrape_splash(splash_response)
 
-    splash_response = fake_response_from_file('brown/test_splash.html')
-    splash_response.meta["jsonrecord"] = jsonrecord
-    parsed_record = spider.scrape_splash(splash_response)
-    assert parsed_record
-    return parsed_record
+        assert parsed_record
+        return parsed_record
 
 
 @pytest.fixture
@@ -54,7 +59,15 @@ def parsed_node():
     jsonrecord = jsonresponse["items"]["docs"][0]
     response.meta["jsonrecord"] = jsonrecord
 
-    return spider.parse(response).next()
+    with requests_mock.Mocker() as mock:
+        mock.head(
+            'https://repository.library.brown.edu/studio/item/bdr:11303/PDF/',
+            headers={
+                'Content-Type': 'application/pdf',
+            },
+        )
+        return spider.parse(response).next()
+
 
 def test_files_constructed(parsed_node):
     """Test pdf link.
@@ -66,8 +79,6 @@ def test_files_constructed(parsed_node):
     assert parsed_node.meta["pdf_link"]
     assert parsed_node.meta["pdf_link"] == link
     assert isinstance(parsed_node, scrapy.http.request.Request)
-
-
 
 
 def test_abstract(record):
@@ -111,6 +122,7 @@ def test_abstract(record):
     assert record["abstract"]
     assert record["abstract"] == abstract
 
+
 def test_keywords(record):
     """Test keywords."""
     keywords_gt = ["nanopore", "electrostatic", "DNA", "translocation", "electrode", "integrated"]
@@ -118,6 +130,7 @@ def test_keywords(record):
 
     for key_gt, key in zip(keywords_gt, record["free_keywords"]):
         assert key_gt == key["value"]
+
 
 def test_title(record):
     """Test title."""
@@ -130,10 +143,12 @@ def test_authors(record):
     assert record["authors"]
     assert record["authors"][0]["full_name"] == 'Jiang, Zhijun'
 
+
 def test_date_published(record):
     """Test published date."""
     assert record["date_published"]
     assert record["date_published"] == "2011-01-01"
+
 
 def test_files_scraped(record):
     """Test pdf link.
@@ -144,15 +159,18 @@ def test_files_scraped(record):
     assert record["file_urls"]
     assert record["file_urls"][0] == "http://www.example.com/studio/item/bdr:11303/PDF/"
 
+
 def test_page_nr(record):
     """Test number of pages."""
     assert record["page_nr"]
     assert record["page_nr"] == ["129"]
 
+
 def test_thesis(record):
     """Test thesis year."""
     assert record["thesis"]
     assert record["thesis"]["date"] == "2011"
+
 
 def test_urls(record):
     """Test urls."""
@@ -184,6 +202,7 @@ def parsed_node_no_splash():
 
     return spider.parse(response).next()
 
+
 def test_no_splash(parsed_node_no_splash):
     """Test if parsing a record without splash url results directly in item building.
 
@@ -192,6 +211,7 @@ def test_no_splash(parsed_node_no_splash):
     """
     assert parsed_node_no_splash
     assert isinstance(parsed_node_no_splash, hepcrawl.items.HEPRecord)
+
 
 @pytest.fixture
 def no_year_no_author():
@@ -217,6 +237,7 @@ def test_no_year_in_thesis(no_year_no_author):
     year = spider._get_phd_year(no_year_no_author)
 
     assert not year
+
 
 def test_no_author_in_thesis(no_year_no_author):
     """Test that there are no authors."""
