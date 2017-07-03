@@ -16,7 +16,7 @@ import re
 from scrapy import Request, Selector
 from scrapy.spiders import Spider
 from urlparse import urljoin
-from ..utils import get_license, get_first
+from ..utils import get_licenses, get_first
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -87,7 +87,7 @@ class POSSpider(Spider):
 
         record.add_value('external_system_numbers', self._get_ext_systems_number(node))
 
-        license = get_license(
+        license = get_licenses(
             license_text=node.xpath(
                 ".//metadata/pex-dc/rights/text()"
             ).extract_first(),

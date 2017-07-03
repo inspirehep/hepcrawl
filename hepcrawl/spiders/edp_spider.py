@@ -27,7 +27,7 @@ from ..utils import (
     ftp_connection_info,
     get_first,
     get_journal_and_section,
-    get_license,
+    get_licenses,
     get_node,
     parse_domain,
 )
@@ -364,7 +364,7 @@ class EDPSpider(Jats, XMLFeedSpider):
                          './/copyright-statement/text()')
         record.add_value('copyright_material', 'Article')
 
-        license = get_license(
+        license = get_licenses(
             license_url=node.xpath(
                 './/license/license-p/ext-link/@href'
             ).extract_first()

@@ -174,8 +174,18 @@ class HEPRecord(scrapy.Item):
     """Page number as string. E.g. ``2``."""
 
     license = scrapy.Field()
-    license_url = scrapy.Field()
-    license_type = scrapy.Field()  # E.g. "open-access"
+    """License
+
+    Example:
+        ::
+            [
+                {
+                    'license': license_str,
+                    'url': license_url,
+                    'material': preprint
+                }
+            ]
+    """
 
     copyright = scrapy.Field()
     """Final structure for copyright information."""

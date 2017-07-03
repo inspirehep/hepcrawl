@@ -17,7 +17,7 @@ from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
-from ..utils import coll_cleanforthe, get_license, split_fullname
+from ..utils import coll_cleanforthe, get_licenses, split_fullname
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 
@@ -99,8 +99,9 @@ class ArxivSpider(XMLFeedSpider):
             self._get_ext_systems_number(node)
         )
 
-        license = get_license(
-            license_url=node.xpath('.//license//text()').extract_first()
+        license = get_licenses(
+            license_url=node.xpath('.//license//text()').extract_first(),
+            license_material='preprint',
         )
         record.add_value('license', license)
 

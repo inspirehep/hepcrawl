@@ -8,7 +8,8 @@
             "citeable": true, 
             "license": [
                 {
-                    "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                    "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+                    "material": "preprint",
                     "license": "arXiv-1.0"
                 }
             ], 
