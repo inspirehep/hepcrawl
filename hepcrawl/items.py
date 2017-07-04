@@ -178,6 +178,7 @@ class HEPRecord(scrapy.Item):
 
     Example:
         ::
+
             [
                 {
                     'license': license_str,
