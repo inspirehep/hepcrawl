@@ -64,7 +64,12 @@ class ArxivSpider(XMLFeedSpider):
             dois_values=self._get_dois(node=node),
             material='publication',
         )
-        record.add_xpath('pubinfo_freetext', './/journal-ref//text()')
+
+        pubinfo_freetext = node.xpath('.//journal-ref//text()').extract()
+        if pubinfo_freetext:
+            record.add_value('pubinfo_freetext', pubinfo_freetext)
+            record.add_value('pubinfo_material', 'publication')
+
         record.add_value('source', 'arXiv')
 
         authors, collabs = self._get_authors_or_collaboration(node)

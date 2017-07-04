@@ -178,6 +178,7 @@ class HEPRecord(scrapy.Item):
 
     Example:
         ::
+
             [
                 {
                     'license': license_str,
@@ -208,6 +209,9 @@ class HEPRecord(scrapy.Item):
 
     pubinfo_freetext = scrapy.Field()
     """Raw journal reference string."""
+
+    pubinfo_material = scrapy.Field()
+    """Material of publication information."""
 
     publication_info = scrapy.Field()
     """Structured publication information."""

@@ -154,6 +154,7 @@ def test_publication_info(results):
     #TODO: check a more complete example
     expected_pub_info = [
         {
+            'material': 'publication',
             'pubinfo_freetext': 'Phys.Rev. D93 (2015) 016005',
         }
     ]

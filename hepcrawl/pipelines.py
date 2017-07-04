@@ -93,6 +93,7 @@ class InspireAPIPushPipeline(object):
                     'page_end': item.pop('journal_lpage', ''),
                     'note': item.pop('journal_doctype', ''),
                     'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
+                    'pubinfo_material': item.pop('pubinfo_material', ''),
                 }]
                 if item.get('journal_year'):
                     item['publication_info'][0]['year'] = int(
@@ -110,6 +111,7 @@ class InspireAPIPushPipeline(object):
             'journal_doctype',
             'journal_artid',
             'pubinfo_freetext',
+            'pubinfo_material',
         ])
 
         item = crawler2hep(dict(item))
