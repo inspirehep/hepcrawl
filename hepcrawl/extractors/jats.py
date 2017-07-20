@@ -33,17 +33,17 @@ class Jats(object):
                 month=node.xpath(".//date[@date-type='published']/month/text()").extract(),
                 year=node.xpath(".//date[@date-type='published']/year/text()").extract(),
             )
-        elif node.xpath(".//pub-date[@pub-type='ppub']"):
-            return format_date(
-                day=node.xpath(".//pub-date[@pub-type='ppub']/day/text()").extract(),
-                month=node.xpath(".//pub-date[@pub-type='ppub']/month/text()").extract(),
-                year=node.xpath(".//pub-date[@pub-type='ppub']/year/text()").extract(),
-            )
         elif node.xpath(".//pub-date[@pub-type='epub']"):
             return format_date(
                 day=node.xpath(".//pub-date[@pub-type='epub']/day/text()").extract(),
                 month=node.xpath(".//pub-date[@pub-type='epub']/month/text()").extract(),
                 year=node.xpath(".//pub-date[@pub-type='epub']/year/text()").extract(),
+            )
+        elif node.xpath(".//pub-date[@pub-type='ppub']"):
+            return format_date(
+                day=node.xpath(".//pub-date[@pub-type='ppub']/day/text()").extract(),
+                month=node.xpath(".//pub-date[@pub-type='ppub']/month/text()").extract(),
+                year=node.xpath(".//pub-date[@pub-type='ppub']/year/text()").extract(),
             )
         elif node.xpath(".//pub-date"):
             return format_date(
@@ -68,11 +68,19 @@ class Jats(object):
                     free_keywords.append(keyword)
         return free_keywords, classification_numbers
 
+    def _clean_aff(self, aff):
+        import xml.etree.ElementTree as ET
+        root = ET.fromstring(aff.extract().encode('UTF-8"'))
+        for el in root:
+            if el.tag == 'label':
+                root.remove(el)
+        return ', '.join(root.itertext())
+
     def _get_authors(self, node):
         authors = []
         for contrib in node.xpath(".//contrib[@contrib-type='author']"):
-            surname = contrib.xpath("string-name/surname/text()").extract()
-            given_names = contrib.xpath("string-name/given-names/text()").extract()
+            surname = contrib.xpath("name/surname/text()").extract()
+            given_names = contrib.xpath("name/given-names/text()").extract()
             email = contrib.xpath("email/text()").extract()
             affiliations = contrib.xpath('aff')
             reffered_id = contrib.xpath("xref[@ref-type='aff']/@rid").extract()
@@ -80,10 +88,12 @@ class Jats(object):
                 affiliations += node.xpath(".//aff[@id='{0}']".format(
                     get_first(reffered_id))
                 )
+
+            for aff in affiliations:
+                print(aff)
             affiliations = [
-                {'value': get_first(aff.re('<aff.+?>(.*)</aff>'))}
+                {'value': self._clean_aff(aff)}
                 for aff in affiliations
-                if aff.re('<aff.+?>(.*)</aff>')
             ]
 
             authors.append({

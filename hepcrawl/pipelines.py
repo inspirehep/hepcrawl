@@ -75,6 +75,7 @@ class InspireAPIPushPipeline(object):
         }]
         item['imprints'] = [{
             'date': item.pop('date_published', ''),
+            'publisher': source,
         }]
         item['copyright'] = [{
             'holder': item.pop('copyright_holder', ''),

@@ -94,12 +94,29 @@ class HindawiSpider(XMLFeedSpider):
         authors_raw = authors_first + authors_others
         authors = []
         for author in authors_raw:
-            authors.append({
-                'raw_name': author.xpath("./subfield[@code='a']/text()").extract_first(),
-                'affiliations': self.get_affiliations(author)
-            })
+            orcid = author.xpath("./subfield[@code='j']/text()").extract_first()
+            if orcid:
+                if orcid.startswith("ORCID-"):
+                    orcid = orcid[6:]
+                authors.append({
+                    'raw_name': author.xpath("./subfield[@code='a']/text()").extract_first(),
+                    'affiliations': self.get_affiliations(author),
+                    'orcid': orcid,
+                })
 
         return authors
+
+    def get_arxivs(self, node):
+        """Gets the authors."""
+        arxivs_raw = node.xpath("./datafield[@tag='037'][subfield[@code='9'][contains(text(), 'arXiv')]]")
+        arxivs = []
+        for arxiv in arxivs_raw:
+            ar = arxiv.xpath("./subfield[@code='a']/text()").extract_first()
+            if ar:
+                arxivs.append({
+                    'value':ar
+                })
+        return arxivs
 
     def get_urls_in_record(self, node):
         """Return all the different urls in the xml."""
@@ -183,6 +200,10 @@ class HindawiSpider(XMLFeedSpider):
                          "./datafield[@tag='773']/subfield[@code='p']/text()")
         record.add_xpath('journal_volume',
                          "./datafield[@tag='773']/subfield[@code='a']/text()")
+
+        # record.add_xpath('arxiv_eprints',
+        #                  "./datafield[@tag='037'][subfield[@code='9'][contains(text(), 'arXiv')]]/subfield[@code='a']/text()")
+        record.add_value('arxiv_eprints', self.get_arxivs(node))
         journal_year = node.xpath(
             "./datafield[@tag='773']/subfield[@code='y']/text()"
         ).extract()
@@ -218,7 +239,7 @@ class HindawiSpider(XMLFeedSpider):
                              [self.create_fft_file(xml,
                                                    "INSPIRE-HIDDEN",
                                                    "Fulltext") for xml in xml_links])
-        record.add_value('collections', ['HEP', 'Citeable', 'Published'])
+        record.add_value('collections', ['Advances in High Energy Physics'])
         record.add_xpath('source',
                          "./datafield[@tag='260']/subfield[@code='b']/text()")
 
