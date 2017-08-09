@@ -34,13 +34,19 @@ class FftFilesPipeline(FilesPipeline):
 
     Note:
 
-         This pipeline only runs if the spider returns a ``ParsedItem`` that has a ``file_urls``
-         property.
+         This pipeline only runs if the spider returns a
+         :class:`hepcrawl.utils.ParsedItem` that has a ``file_urls`` property.
+         See the scrapy docs on it for more details.
+         https://doc.scrapy.org/en/latest/topics/media-pipeline.html?highlight=file_urls#using-the-files-pipeline
     """
 
     def __init__(self, store_uri, *args, **kwargs):
         store_uri = store_uri or FILES_STORE
-        super(FftFilesPipeline, self).__init__(*args, store_uri=store_uri, **kwargs)
+        super(FftFilesPipeline, self).__init__(
+            *args,
+            store_uri=store_uri,
+            **kwargs
+        )
 
     def get_media_requests(self, item, info):
         """Download FFT files using FTP."""
