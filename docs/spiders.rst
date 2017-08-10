@@ -50,6 +50,12 @@ Brown
 .. automodule:: hepcrawl.spiders.brown_spider
    :members:
 
+Desy
+~~~~
+
+.. automodule:: hepcrawl.spiders.desy_spider
+   :members:
+
 DNB
 ~~~
 

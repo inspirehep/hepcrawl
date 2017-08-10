@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim">
+    <record>
+        <controlfield tag="001">111111</controlfield>
+        <controlfield tag="005">20170705125610.0</controlfield>
+        <datafield tag="024" ind1="7" ind2=" ">
+            <subfield code="2">DOI</subfield>
+            <subfield code="a">10.18429/JACoW-IPAC2017-WEYB1</subfield>
+        </datafield>
+        <datafield tag="773" ind1=" " ind2=" ">
+            <subfield code="z">9783954501823</subfield>
+        </datafield>
+        <datafield tag="245" ind1=" " ind2=" ">
+            <subfield code="a">Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser
+                Acceleration (DLA) From the Source to Relativistic Electrons
+            </subfield>
+            <subfield code="9">JACoW</subfield>
+        </datafield>
+        <datafield tag="520" ind1=" " ind2=" ">
+            <subfield code="a">Dielectric laser acceleration of electrons has recently been
+                demonstrated with significantly higher accelerating gradients than other
+                structure-based linear accelerators. Towards the development of an integrated 1 MeV
+                electron accelerator based on dielectric laser accelerator technologies,
+                development in several relevant technologies is needed. In this work, recent
+                developments on electron sources, bunching, accelerating, focussing, deflecting and
+                laser coupling structures are reported. With an eye to the near future, components
+                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond
+                electron bunches are outlined.
+            </subfield>
+            <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+        </datafield>
+        <datafield tag="300" ind1=" " ind2=" ">
+            <subfield code="a">6</subfield>
+        </datafield>
+        <datafield tag="500" ind1=" " ind2=" ">
+            <subfield code="a">*Brief entry*</subfield>
+        </datafield>
+        <datafield tag="773" ind1=" " ind2=" ">
+            <subfield code="y">2017</subfield>
+            <subfield code="c">2520-2525</subfield>
+        </datafield>
+        <datafield tag="856" ind1="4" ind2=" ">
+            <subfield code="s">100176</subfield>
+            <subfield code="u">http://inspirehep.net/record/1608652/files/Towards a fully
+                integrated acc on a chip.pdf
+            </subfield>
+            <subfield code="y">Fulltext</subfield>
+        </datafield>
+        <datafield tag="909" ind1="C" ind2="O">
+            <subfield code="o">oai:inspirehep.net:1608652</subfield>
+            <subfield code="p">INSPIRE:HEP</subfield>
+        </datafield>
+        <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">FFT/test_fft_1.txt</subfield>
+            <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
+            <subfield code="f">.txt</subfield>
+            <subfield code="n">cNFW_rogue_curves</subfield>
+            <subfield code="r"/>
+            <subfield code="s">2017-06-27 09:43:17</subfield>
+            <subfield code="t">Main</subfield>
+            <subfield code="v">1</subfield>
+            <subfield code="z"/>
+        </datafield>
+        <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">FFT/test_fft_2.txt</subfield>
+            <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
+            <subfield code="f">.txt</subfield>
+            <subfield code="n">scalingRelations_DutBeh_DC14_all_Oh</subfield>
+            <subfield code="r"/>
+            <subfield code="s">2017-06-27 09:43:16</subfield>
+            <subfield code="t">Main</subfield>
+            <subfield code="v">1</subfield>
+            <subfield code="z"/>
+        </datafield>
+    </record>
+    <record>
+        <controlfield tag="001">222222</controlfield>
+        <controlfield tag="005">20170705125610.0</controlfield>
+        <datafield tag="024" ind1="7" ind2=" ">
+            <subfield code="2">DOI</subfield>
+            <subfield code="a">10.18429/JACoW-IPAC2017-WEYB1</subfield>
+        </datafield>
+        <datafield tag="773" ind1=" " ind2=" ">
+            <subfield code="z">9783954501823</subfield>
+        </datafield>
+        <datafield tag="245" ind1=" " ind2=" ">
+            <subfield code="a">Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser
+                Acceleration (DLA) From the Source to Relativistic Electrons
+            </subfield>
+            <subfield code="9">JACoW</subfield>
+        </datafield>
+        <datafield tag="520" ind1=" " ind2=" ">
+            <subfield code="a">Dielectric laser acceleration of electrons has recently been
+                demonstrated with significantly higher accelerating gradients than other
+                structure-based linear accelerators. Towards the development of an integrated 1 MeV
+                electron accelerator based on dielectric laser accelerator technologies,
+                development in several relevant technologies is needed. In this work, recent
+                developments on electron sources, bunching, accelerating, focussing, deflecting and
+                laser coupling structures are reported. With an eye to the near future, components
+                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond
+                electron bunches are outlined.
+            </subfield>
+            <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+        </datafield>
+        <datafield tag="300" ind1=" " ind2=" ">
+            <subfield code="a">6</subfield>
+        </datafield>
+        <datafield tag="500" ind1=" " ind2=" ">
+            <subfield code="a">*Brief entry*</subfield>
+        </datafield>
+        <datafield tag="773" ind1=" " ind2=" ">
+            <subfield code="y">2017</subfield>
+            <subfield code="c">2520-2525</subfield>
+        </datafield>
+        <datafield tag="856" ind1="4" ind2=" ">
+            <subfield code="s">100176</subfield>
+            <subfield code="u">http://inspirehep.net/record/1608652/files/Towards a fully
+                integrated acc on a chip.pdf
+            </subfield>
+            <subfield code="y">Fulltext</subfield>
+        </datafield>
+        <datafield tag="909" ind1="C" ind2="O">
+            <subfield code="o">oai:inspirehep.net:1608652</subfield>
+            <subfield code="p">INSPIRE:HEP</subfield>
+        </datafield>
+                <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">FFT/test_fft_1.txt</subfield>
+            <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
+            <subfield code="f">.txt</subfield>
+            <subfield code="n">cNFW_rogue_curves</subfield>
+            <subfield code="r"/>
+            <subfield code="s">2017-06-27 09:43:17</subfield>
+            <subfield code="t">Main</subfield>
+            <subfield code="v">1</subfield>
+            <subfield code="z"/>
+        </datafield>
+        <datafield tag="FFT" ind1=" " ind2=" ">
+            <subfield code="a">FFT/test_fft_2.txt</subfield>
+            <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
+            <subfield code="f">.txt</subfield>
+            <subfield code="n">scalingRelations_DutBeh_DC14_all_Oh</subfield>
+            <subfield code="r"/>
+            <subfield code="s">2017-06-27 09:43:16</subfield>
+            <subfield code="t">Main</subfield>
+            <subfield code="v">1</subfield>
+            <subfield code="z"/>
+        </datafield>
+    </record>
+</collection>

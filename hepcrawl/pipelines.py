@@ -15,30 +15,63 @@ See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from __future__ import absolute_import, division, print_function
 
-import datetime
 import os
 
 import requests
 
-from .crawler2hep import crawler2hep
+from scrapy import Request
+from scrapy.pipelines.files import FilesPipeline
+
+from inspire_schemas.utils import validate
+
+from hepcrawl.crawler2hep import item_to_hep
+from hepcrawl.settings import FILES_STORE
+from hepcrawl.utils import RecordFile
 
 
-def has_publication_info(item):
-    """If any publication info."""
-    return item.get('pubinfo_freetext') or item.get('journal_volume') or \
-        item.get('journal_title') or \
-        item.get('journal_year') or \
-        item.get('journal_issue') or \
-        item.get('journal_fpage') or \
-        item.get('journal_lpage') or \
-        item.get('journal_artid') or \
-        item.get('journal_doctype')
+class FftFilesPipeline(FilesPipeline):
+    """Download all the FFT files provided by record.
 
+    Note:
 
-def filter_fields(item, keys):
-    """Filter away keys."""
-    for key in keys:
-        item.pop(key, None)
+         This pipeline only runs if the spider returns a ``ParsedItem`` that has a ``file_urls``
+         property.
+    """
+
+    def __init__(self, store_uri, *args, **kwargs):
+        store_uri = store_uri or FILES_STORE
+        super(FftFilesPipeline, self).__init__(*args, store_uri=store_uri, **kwargs)
+
+    def get_media_requests(self, item, info):
+        """Download FFT files using FTP."""
+        if item.get('file_urls'):
+            for fft_url in item.file_urls:
+                yield Request(
+                    url=fft_url,
+                    meta=item.ftp_params,
+                )
+
+    def get_absolute_file_path(self, path):
+        return os.path.abspath(
+            os.path.join(
+                self.store.basedir,
+                path
+            )
+        )
+
+    def item_completed(self, results, item, info):
+        """Create a map that connects file names with downloaded files."""
+        record_files = [
+            RecordFile(
+                path=self.get_absolute_file_path(result_data['path']),
+                name=os.path.basename(result_data['url']),
+            )
+            for ok, result_data in results
+            if ok
+        ]
+        item.record_files = record_files
+
+        return item
 
 
 class InspireAPIPushPipeline(object):
@@ -50,74 +83,26 @@ class InspireAPIPushPipeline(object):
     def open_spider(self, spider):
         self.results_data = []
 
+    def _post_enhance_item(self, item, spider):
+        source = spider.name
+
+        return item_to_hep(
+            item=item,
+            source=source,
+        )
+
     def process_item(self, item, spider):
         """Convert internal format to INSPIRE data model."""
         self.count += 1
-        if 'related_article_doi' in item:
-            item['dois'] += item.pop('related_article_doi', [])
 
-        source = spider.name
-        item['acquisition_source'] = {
-            'source': source,
-            'method': 'hepcrawl',
-            'date': datetime.datetime.now().isoformat(),
-            'submission_number': os.environ.get('SCRAPY_JOB', ''),
-        }
+        hep_record = self._post_enhance_item(item, spider)
 
-        item['titles'] = [{
-            'title': item.pop('title', ''),
-            'subtitle': item.pop('subtitle', ''),
-            'source': source,
-        }]
-        item['abstracts'] = [{
-            'value': item.pop('abstract', ''),
-            'source': source,
-        }]
-        item['imprints'] = [{
-            'date': item.pop('date_published', ''),
-        }]
-        item['copyright'] = [{
-            'holder': item.pop('copyright_holder', ''),
-            'year': item.pop('copyright_year', ''),
-            'statement': item.pop('copyright_statement', ''),
-            'material': item.pop('copyright_material', ''),
-        }]
-        if not item.get('publication_info'):
-            if has_publication_info(item):
-                item['publication_info'] = [{
-                    'journal_title': item.pop('journal_title', ''),
-                    'journal_volume': item.pop('journal_volume', ''),
-                    'journal_issue': item.pop('journal_issue', ''),
-                    'artid': item.pop('journal_artid', ''),
-                    'page_start': item.pop('journal_fpage', ''),
-                    'page_end': item.pop('journal_lpage', ''),
-                    'note': item.pop('journal_doctype', ''),
-                    'pubinfo_freetext': item.pop('pubinfo_freetext', ''),
-                    'pubinfo_material': item.pop('pubinfo_material', ''),
-                }]
-                if item.get('journal_year'):
-                    item['publication_info'][0]['year'] = int(
-                        item.pop('journal_year')
-                    )
+        validate(hep_record, 'hep')
+        spider.logger.debug('Validated item by Inspire Schemas.')
 
-        # Remove any fields
-        filter_fields(item, [
-            'journal_title',
-            'journal_volume',
-            'journal_year',
-            'journal_issue',
-            'journal_fpage',
-            'journal_lpage',
-            'journal_doctype',
-            'journal_artid',
-            'pubinfo_freetext',
-            'pubinfo_material',
-        ])
+        self.results_data.append(hep_record)
 
-        item = crawler2hep(dict(item))
-        spider.logger.debug('Validated item.')
-        self.results_data.append(item)
-        return item
+        return hep_record
 
     def _prepare_payload(self, spider):
         """Return payload for push."""
