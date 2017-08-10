@@ -92,7 +92,7 @@ def _normalize_hepcrawl_record(item, source):
     item['titles'] = [{
         'title': item.pop('title', ''),
         'subtitle': item.pop('subtitle', ''),
-        'source': source,
+        'source': item.pop('source', source),
     }]
 
     item['abstracts'] = [{
@@ -242,7 +242,7 @@ def hepcrawl_to_hep(crawler_record):
 
     for author in crawler_record.get('authors', []):
         builder.add_author(builder.make_author(
-            author['full_name'],
+            full_name=author['full_name'],
             affiliations=_filter_affiliation(author['affiliations']),
         ))
 

@@ -32,108 +32,109 @@ class POSSpider(StatefulSpider):
     """POS/Sissa crawler.
 
     Extracts from metadata:
-        * title
-        * article-id
-        * conf-acronym
-        * authors
-        * affiliations
-        * publication-date
-        * publisher
-        * license
-        * language
-        * link
+        todo:: be added...
 
     Example:
         ::
 
-            $ scrapy crawl PoS -a source_file=file://`pwd`/tests/responses/pos/sample_pos_record.xml
+            $ scrapy crawl PoS \\
+            -a source_file=file://`pwd`/tests/unit/responses/pos/sample_pos_record.xml
     """
-    name = 'PoS'
-    pos_base_url = "https://pos.sissa.it/contribution?id="
+    name = 'pos'
 
-    def __init__(self, source_file=None, **kwargs):
+    def __init__(
+        self,
+        source_file=None,
+        base_conference_paper_url='https://pos.sissa.it/contribution?id=',
+        base_proceedings_url='https://pos.sissa.it/cgi-bin/reader/conf.cgi?confid=',
+        # TODO to be changed without question in the url
+        # TODO make valid CA certificate
+        **kwargs
+    ):
         """Construct POS spider."""
         super(POSSpider, self).__init__(**kwargs)
         self.source_file = source_file
+        self.BASE_CONFERENCE_PAPER_URL = base_conference_paper_url
+        self.BASE_PROCEEDINGS_URL = base_proceedings_url
 
     def start_requests(self):
         yield Request(self.source_file)
 
     def parse(self, response):
         """Get PDF information."""
+        self.log('Got record from: {response.url}'.format(**vars()))
+
         node = response.selector
         node.remove_namespaces()
         for record in node.xpath('.//record'):
             identifier = record.xpath('.//metadata/pex-dc/identifier/text()').extract_first()
             if identifier:
                 # Probably all links lead to same place, so take first
-                pos_url = "{0}{1}".format(self.pos_base_url, identifier)
-                request = Request(pos_url, callback=self.scrape_pos_page)
+                conference_paper_url = "{0}{1}".format(self.BASE_CONFERENCE_PAPER_URL, identifier)
+                request = Request(conference_paper_url, callback=self.scrape_conference_paper)
                 request.meta["url"] = response.url
                 request.meta["record"] = record.extract()
                 yield request
 
-    def scrape_pos_page(self, response):
+    def scrape_conference_paper(self, response):
         """Parse a page for PDF link."""
-        response.meta["pos_pdf_url"] = response.selector.xpath(
-            "//a[contains(text(),'pdf')]/@href"
-        ).extract_first()
-        response.meta["pos_pdf_url"] = urljoin(self.pos_base_url, response.meta["pos_pdf_url"])
         response.meta["pos_url"] = response.url
-        return self.build_item(response)
-
-    def build_item(self, response):
-        """Parse an PoS XML exported file into a HEP record."""
-        text = response.meta["record"]
-        node = Selector(text=text, type="xml")
-        node.remove_namespaces()
-        record = HEPLoader(item=HEPRecord(), selector=node)
-        record.add_xpath('title', '//metadata/pex-dc/title/text()')
-        record.add_xpath('source', '//metadata/pex-dc/publisher/text()')
-
-        record.add_value('external_system_numbers', self._get_ext_systems_number(node))
-
-        license = get_licenses(
-            license_text=node.xpath(
-                ".//metadata/pex-dc/rights/text()"
-            ).extract_first(),
+        response.meta["conference_paper_pdf_url"] = self._get_conference_paper_pdf_url(
+            response=response,
         )
-        record.add_value('license', license)
 
-        date, year = self._get_date(node)
-        if date:
-            record.add_value('date_published', date)
-        if year:
-            record.add_value('journal_year', int(year))
+        # TODO Yield request for Conference page
+        proceedings_identifier = response.selector.xpath("//a[contains(@href,'?confid')]/@href").extract_first()
+        proceedings_identifier = proceedings_identifier.split('=')[1]
+        pos_url = "{0}{1}".format(self.BASE_PROCEEDINGS_URL, proceedings_identifier)
+        self.log('===> scrape_conference_paper url::{pos_url}'.format(**vars()))
+        # yield Request(pos_url, callback=self.scrape_proceedings)
+
+        yield self.build_conference_paper_item(response)
+
+    def scrape_proceedings(self, response):
+        # TODO create proceedings record
+        # TODO document_type = proceeding
+        # TODO title = template(“Proceedings, <title>”)
+        # TODO subtitle = template(“<place>, <date>”)
+        # TODO publication_info.journal_title = “PoS”
+        # TODO publication_info.journal_volume = identifier
+
+        pass
+
+    def build_conference_paper_item(self, response):
+        """Parse an PoS XML exported file into a HEP record."""
+        meta = response.meta
+        xml_record = meta.get('record')
+        node = Selector(
+            text=xml_record,
+            type="xml"
+        )
+        node.remove_namespaces()
+        record = HEPLoader(
+            item=HEPRecord(),
+            selector=node
+        )
+
+        license_text = node.xpath('.//metadata/pex-dc/rights/text()').extract_first()
+        record.add_value('license', get_licenses(license_text=license_text))
+
+        date, year = self._get_date(node=node)
+        record.add_value('date_published', date)
+        record.add_value('journal_year', year)
 
         identifier = node.xpath(".//metadata/pex-dc/identifier/text()").extract_first()
-        record.add_value('urls', response.meta['pos_url'])
-        if response.meta['pos_pdf_url']:
-            record.add_value('additional_files', {'type': "Fulltext", "url": response.meta['pos_pdf_url']})
-        if identifier:
-            pbn = re.split('[()]', identifier)
-            if len(pbn) == 3:
-                conf_acronym = pbn[1]
-                article_id = pbn[2]
-                record.add_value('journal_title', pbn[0])
-                record.add_value('journal_volume', conf_acronym)
-                record.add_value('journal_artid', article_id)
-            else:
-                record.add_value('pubinfo_freetext', identifier)
+        record.add_value('journal_title', self._get_journal_title(identifier=identifier))
+        record.add_value('journal_volume', self._get_journal_volume(identifier=identifier))
+        record.add_value('journal_artid', self._get_journal_artid(identifier=identifier))
 
-        language = node.xpath(".//metadata/pex-dc/language/text()").extract_first()
-        if language:
-            record.add_value('language', language)
-
-        authors = self._get_authors(node)
-        if authors:
-            record.add_value('authors', authors)
-
-        extra_data = self._get_extra_data(node)
-        if extra_data:
-            record.add_value('extra_data', extra_data)
-
-        record.add_value('collections', ['HEP', 'ConferencePaper'])
+        record.add_xpath('title', '//metadata/pex-dc/title/text()')
+        record.add_xpath('source', '//metadata/pex-dc/publisher/text()')
+        record.add_value('external_system_numbers', self._get_ext_systems_number(node=node))
+        record.add_value('language', self._get_language(node=node))
+        record.add_value('authors', self._get_authors(node=node))
+        record.add_value('collections', ['conferencepaper'])
+        record.add_value('urls', meta.get('pos_url'))
 
         parsed_item = ParsedItem(
             record=record.load_item(),
@@ -142,50 +143,76 @@ class POSSpider(StatefulSpider):
 
         return parsed_item
 
-    def _get_ext_systems_number(self, node):
+    def _get_conference_paper_pdf_url(self, response):
+        conference_paper_pdf_url = response.selector.xpath(
+            "//a[contains(text(),'pdf')]/@href",
+        ).extract_first()
+
+        return urljoin(
+            self.BASE_CONFERENCE_PAPER_URL,
+            conference_paper_pdf_url,
+        )
+
+    @staticmethod
+    def _get_language(node):
+        language = node.xpath(".//metadata/pex-dc/language/text()").extract_first()
+        return language if language != 'en' else None
+
+    @staticmethod
+    def _get_journal_title(identifier):
+        return re.split('[()]', identifier)[0]
+
+    @staticmethod
+    def _get_journal_volume(identifier):
+        return re.split('[()]', identifier)[1]
+
+    @staticmethod
+    def _get_journal_artid(identifier):
+        return re.split('[()]', identifier)[2]
+
+    @staticmethod
+    def _get_ext_systems_number(node):
         return [
             {
-                'institute': 'PoS',
-                'value': node.xpath('.//metadata/pex-dc/identifier/text()').extract_first()
-            },
-            {
-                'institute': 'PoS',
+                'institute': 'pos',
                 'value': node.xpath('.//identifier/text()').extract_first()
             },
         ]
 
-    def _get_date(self, node):
-        """Get article date."""
-        date = ''
-        year = ''
+    @staticmethod
+    def _get_date(node):
         full_date = node.xpath(".//metadata/pex-dc/date/text()").extract_first()
         date = create_valid_date(full_date)
-        if date:
-            year = date[0:4]
+        year = int(date[0:4])
+
         return date, year
 
-    def _get_authors(self, node):
+    @staticmethod
+    def _get_authors(node):  # To be refactored
         """Get article authors."""
-        author_selectors = node.xpath('.//metadata/pex-dc/creator')
         authors = []
-        for selector in author_selectors:
+        creators = node.xpath('.//metadata/pex-dc/creator')
+        for creator in creators:
             auth_dict = {}
-            author = Selector(text=selector.extract())
-            auth_dict['raw_name'] = \
-                get_first(author.xpath('.//name//text()').extract(), default='')
+            author = Selector(text=creator.extract())
+            auth_dict['raw_name'] = get_first(
+                author.xpath('.//name//text()').extract(),
+                default='',
+            )
             for affiliation in author.xpath('.//affiliation//text()').extract():
                 if 'affiliations' in auth_dict:
-                    auth_dict['affiliations'].append({'value': affiliation})
+                    auth_dict['affiliations'].append(
+                        {
+                            'value': affiliation
+                        }
+                    )
+                    # Todo probably to remove
                 else:
-                    auth_dict['affiliations'] = [{'value': affiliation}, ]
+                    auth_dict['affiliations'] = [
+                        {
+                            'value': affiliation
+                        },
+                    ]
             if auth_dict:
                 authors.append(auth_dict)
         return authors
-
-    def _get_extra_data(self, node):
-        """Get info to help selection - not for INSPIRE record"""
-        extra_data = {}
-
-        section = node.xpath(".//metadata/pex-dc/description/text()").extract_first()
-        extra_data['section'] = section.split(';', 1)[-1].strip()
-        return extra_data
