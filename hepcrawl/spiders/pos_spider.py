@@ -41,6 +41,7 @@ class POSSpider(StatefulSpider):
             -a source_file=file://`pwd`/tests/unit/responses/pos/sample_pos_record.xml
     """
     name = 'pos'
+    # pos_proceedings_url = "https://pos.sissa.it/cgi-bin/reader/conf.cgi?confid="
 
     def __init__(
         self,
@@ -83,24 +84,18 @@ class POSSpider(StatefulSpider):
             response=response,
         )
 
-        # TODO Yield request for Conference page
-        proceedings_identifier = response.selector.xpath("//a[contains(@href,'?confid')]/@href").extract_first()
-        proceedings_identifier = proceedings_identifier.split('=')[1]
-        pos_url = "{0}{1}".format(self.BASE_PROCEEDINGS_URL, proceedings_identifier)
-        self.log('===> scrape_conference_paper url::{pos_url}'.format(**vars()))
+        # # Yield request for Conference page
+        # proceedings_identifier = response.selector.xpath("//a[contains(@href,'?confid')]/@href").extract_first()
+        # proceedings_identifier = proceedings_identifier.split('=')[1]
+        # pos_url = "{0}{1}".format(self.pos_proceedings_url, proceedings_identifier)
         # yield Request(pos_url, callback=self.scrape_proceedings)
 
-        yield self.build_conference_paper_item(response)
+        return self.build_conference_paper_item(response)
 
-    def scrape_proceedings(self, response):
-        # TODO create proceedings record
-        # TODO document_type = proceeding
-        # TODO title = template(“Proceedings, <title>”)
-        # TODO subtitle = template(“<place>, <date>”)
-        # TODO publication_info.journal_title = “PoS”
-        # TODO publication_info.journal_volume = identifier
-
-        pass
+    # def scrape_proceedings(self, response):
+    #     # create proceedings record
+    #     import pytest
+    #     pytest.set_trace()
 
     def build_conference_paper_item(self, response):
         """Parse an PoS XML exported file into a HEP record."""
@@ -174,7 +169,7 @@ class POSSpider(StatefulSpider):
     def _get_ext_systems_number(node):
         return [
             {
-                'institute': 'pos',
+                'institute': 'PoS',
                 'value': node.xpath('.//identifier/text()').extract_first()
             },
         ]
@@ -201,18 +196,10 @@ class POSSpider(StatefulSpider):
             )
             for affiliation in author.xpath('.//affiliation//text()').extract():
                 if 'affiliations' in auth_dict:
-                    auth_dict['affiliations'].append(
-                        {
-                            'value': affiliation
-                        }
-                    )
+                    auth_dict['affiliations'].append({'value': affiliation})
                     # Todo probably to remove
                 else:
-                    auth_dict['affiliations'] = [
-                        {
-                            'value': affiliation
-                        },
-                    ]
+                    auth_dict['affiliations'] = [{'value': affiliation}, ]
             if auth_dict:
                 authors.append(auth_dict)
         return authors

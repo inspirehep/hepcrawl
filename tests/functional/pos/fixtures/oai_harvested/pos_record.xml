@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2015-01-29T13:44:13Z</responseDate>
+<request verb="ListRecords" metadataPrefix="pos-ext_dc" set="conference:LATTICE 2013">
+https://pos.sissa.it/cgi-bin/oai/oai-script-spires-extended.cgi
+</request>
+<ListRecords>
+    <record>
+        <header>
+                <identifier>oai:pos.sissa.it:LATTICE 2013/001</identifier>
+                <datestamp>2014-04-28</datestamp>
+                <setSpec>conference:LATTICE 2013</setSpec>
+                <setSpec>group:9</setSpec>
+        </header>
+        <metadata>
+        <pos-ext_dc:pex-dc xmlns:pos-ext_dc="http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd" xmlns:pex-dc="http://pos.sissa.it/pos-ext_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pos.sissa.it/pos-ext_dc/ http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd">
+                <pex-dc:title>Heavy Flavour Physics Review</pex-dc:title>
+                <pex-dc:creator><pex-dc:name>Aida El-Khadra</pex-dc:name><pex-dc:affiliation>INFN and Università di Firenze</pex-dc:affiliation></pex-dc:creator>
+                <pex-dc:creator><pex-dc:name>M. T. MacDonald</pex-dc:name><pex-dc:affiliation>U of Pecs</pex-dc:affiliation></pex-dc:creator><pex-dc:subject>Lattice Field Theory</pex-dc:subject>
+                <pex-dc:description>31st International Symposium on Lattice Field Theory LATTICE 2013; Plenary sessions</pex-dc:description>
+                <pex-dc:publisher>Sissa Medialab</pex-dc:publisher>
+                <pex-dc:date>2014-03-19T21:09:30Z</pex-dc:date>
+                <pex-dc:type>Text</pex-dc:type>
+                <pex-dc:format>application/pdf</pex-dc:format>
+                <pex-dc:identifier>PoS(LATTICE 2013)001</pex-dc:identifier>
+                <pex-dc:language>en</pex-dc:language>
+                <pex-dc:relation>LATTICE 2013 (31st International Symposium on Lattice Field Theory LATTICE 2013) isPartOf</pex-dc:relation>
+                <pex-dc:rights>Creative Commons Attribution-NonCommercial-ShareAlike</pex-dc:rights>
+        </pos-ext_dc:pex-dc>
+        </metadata>
+    </record>
+</ListRecords>
+</OAI-PMH>
