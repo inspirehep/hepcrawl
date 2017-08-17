@@ -62,13 +62,18 @@ DUPEFILTER_CLASS = "scrapy.dupefilters.BaseDupeFilter"
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
     'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
+    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
 }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
+    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
 }
+
+CRAWL_ONCE_ENABLED = True
+CRAWL_ONCE_DEFAULT = True
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
