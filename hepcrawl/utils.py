@@ -31,6 +31,10 @@ RE_FOR_THE = re.compile(r'\b(?:for|on behalf of|representing)\b', re.IGNORECASE)
 INST_PHRASES = ['for the development', ]
 
 
+class PathDoesNotExist(IOError):
+    pass
+
+
 def unzip_xml_files(filename, target_folder):
     """Unzip files (XML only) into target folder."""
     z = ZipFile(filename)
@@ -57,17 +61,38 @@ def ftp_connection_info(ftp_host, netrc_file, passive_mode=False):
     return ftp_host, connection_params
 
 
-def ftp_list_files(server_folder, target_folder, server, user, password, passive_mode=False):
-    """List files from given FTP's server folder to target folder."""
+def ftp_list_files(
+    server_folder,
+    ftp_host,
+    user,
+    password,
+    destination_folder=None,
+    passive_mode=False,
+    only_missing_files=True,
+):
+    """List files from given FTP's ftp_host folder to target folder.
+
+    Params:
+
+    """
     session_factory = ftputil.session.session_factory(
         base_class=ftplib.FTP,
         port=21,
         use_passive_mode=passive_mode,
-        encrypt_data_channel=True)
+        encrypt_data_channel=True,
+    )
 
-    with ftputil.FTPHost(server, user, password, session_factory=session_factory) as host:
-        file_names = host.listdir(os.path.join(host.curdir, '/', server_folder))
-        return list_missing_files(server_folder, target_folder, file_names)
+    with ftputil.FTPHost(ftp_host, user, password, session_factory=session_factory) as host:
+        file_names = host.listdir(os.path.join(host.curdir, server_folder))
+        if only_missing_files:
+            return list_missing_files(server_folder, destination_folder, file_names)
+        else:
+            return [
+                os.path.join(
+                    server_folder,
+                    file_name
+                ) for file_name in file_names
+            ]
 
 
 def local_list_files(local_folder, target_folder):
@@ -321,3 +346,66 @@ def get_license_by_text(license_text):
             license = get_license_by_url(license_url=LICENSE_TEXTS[key])
 
     return license
+
+
+class RecordFile(object):
+    """Metadata of a file needed for a record.
+
+    Args:
+        path(str): local path to the file.
+        name(str): Optional, name of the file, if not passed, will use the name in the path.
+
+    Rises:
+        PathDoesNotExist:
+    """
+    def __init__(self, path, name=None):
+        self.path = path
+        if not os.path.exists(self.path):
+            raise PathDoesNotExist("The given record file path '%s' does not exist." % self.path)
+
+        if name is None:
+            name = os.path.basename(path)
+
+        self.name = name
+
+
+class ParsedItem(dict):
+    """Each of the individual items returned by the spider to the pipeline.
+
+    Args:
+        record(dict): Information about the crawled record, might be in different formats.
+        record_format(str): Format of the above record, for example ``"hep"`` or ``"hepcrawl"``.
+        file_urls(list(str)): URLs to the files to be downloaded by ``FftFilesPipeline``.
+        ftp_params(dict): Parameter for the ``FftFilesPipeline`` to be able to connect to the
+        ftp server, if any.
+        record_files(list(RecordFile)): files attached to the record, usually populated by
+        ``FftFilesPipeline`` from the ``file_urls`` parameter.
+    """
+    def __init__(
+            self,
+            record,
+            record_format,
+            file_urls=None,
+            ftp_params=None,
+            record_files=None,
+            **kwargs
+    ):
+        super(ParsedItem, self).__init__(
+            record=record,
+            record_format=record_format,
+            file_urls=file_urls,
+            ftp_params=ftp_params,
+            record_files=record_files,
+            **kwargs
+        )
+
+    def __getattr__(self, key):
+        if key not in self:
+            raise AttributeError(
+                "'%s' object has no attribute '%s'" % (self.__class__.__name__, key)
+            )
+
+        return self[key]
+
+    def __setattr__(self, key, value):
+        self[key] = value
