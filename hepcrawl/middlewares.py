@@ -11,8 +11,8 @@
 
 from __future__ import absolute_import, division, print_function
 
-class ErrorHandlingMiddleware(object):
 
+class ErrorHandlingMiddleware(object):
     """Log errors."""
 
     @classmethod
