@@ -11,6 +11,7 @@
 
 from __future__ import absolute_import, division, print_function
 
+import os
 from time import sleep
 import pytest
 
@@ -20,6 +21,7 @@ from hepcrawl.testlib.utils import get_crawler_instance
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
+    clean_dir,
 )
 
 
@@ -50,6 +52,8 @@ def set_up_local_environment():
             'source_file': 'file://' + package_location,
         }
     }
+
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
 
 @pytest.mark.parametrize(
