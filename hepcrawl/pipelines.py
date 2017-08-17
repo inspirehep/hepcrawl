@@ -24,7 +24,7 @@ from scrapy.pipelines.files import FilesPipeline
 
 from inspire_schemas.utils import validate
 
-from hepcrawl.crawler2hep import item_to_hep
+from hepcrawl.tohep import item_to_hep
 from hepcrawl.settings import FILES_STORE
 from hepcrawl.utils import RecordFile
 

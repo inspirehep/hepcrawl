@@ -12,14 +12,14 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import pytest
 import yaml
 
-from hepcrawl.crawler2hep import crawler2hep
+from hepcrawl.tohep import hepcrawl_to_hep
 from hepcrawl.testlib.fixtures import get_test_suite_path
 
 
 def load_file(file_name):
     path = get_test_suite_path(
         'responses',
-        'crawler2hep',
+        'tohep',
         file_name,
     )
     with open(path) as input_data:
@@ -52,7 +52,7 @@ def test_generic_crawler_record(
         input_generic_crawler_record,
         expected_generic_crawler_record
 ):
-    produced_record = crawler2hep(input_generic_crawler_record)
+    produced_record = hepcrawl_to_hep(input_generic_crawler_record)
     assert produced_record == expected_generic_crawler_record
 
 
@@ -60,5 +60,5 @@ def test_no_document_type(
         input_no_document_type_record,
         expected_no_document_type_record
 ):
-    produced_record = crawler2hep(input_no_document_type_record)
+    produced_record = hepcrawl_to_hep(input_no_document_type_record)
     assert produced_record == expected_no_document_type_record
