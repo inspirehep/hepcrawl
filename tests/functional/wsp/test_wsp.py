@@ -44,7 +44,7 @@ def set_up_ftp_environment():
     )
 
     # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(10)
+    sleep(7)
 
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
@@ -136,6 +136,54 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
         ),
     ],
     ids=[
+        'crawl_twice',
+    ]
+)
+def test_wsp_ftp_crawl_twice(set_up_ftp_environment, expected_results):
+    crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_ftp_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_ftp_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+    expected_results = [override_generated_fields(expected) for expected in expected_results]
+
+    assert gotten_results == expected_results
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_ftp_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_ftp_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+
+    assert gotten_results == []
+
+
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
         'smoke',
     ]
 )
@@ -158,3 +206,51 @@ def test_wsp_local_package_path(set_up_local_environment, expected_results):
     expected_results = [override_generated_fields(expected) for expected in expected_results]
 
     assert gotten_results == expected_results
+
+
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'crawl_twice',
+    ]
+)
+def test_wsp_local_package_path_crawl_twice(set_up_local_environment, expected_results):
+    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+    expected_results = [override_generated_fields(expected) for expected in expected_results]
+
+    assert gotten_results == expected_results
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+
+    assert gotten_results == []
