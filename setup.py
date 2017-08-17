@@ -20,6 +20,7 @@ install_requires = [
     'inspire-schemas~=46.0',
     'inspire-dojson~=46.0',
     'Scrapy>=1.1.0',
+    'scrapy-crawl-once>=0.1.1',
     # TODO: unpin once they support wheel building again
     'scrapyd==1.1.0',
     'scrapyd-client>=1.0.1',
