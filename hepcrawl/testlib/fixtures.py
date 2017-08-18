@@ -133,13 +133,13 @@ def expected_json_results_from_file(*path_chunks, **kwargs):
 
     return expected_data
 
-
-def clean_dir(path):
+def clean_dir(path=os.path.join(os.getcwd(), '.scrapy')):
     """
     Deletes all contained files of given target directory path.
 
     Args:
-        path: Absolute path of target directory to be cleaned.
+        path(str): path of directory to be deleted. Default path is the produced DB per spider that
+            stores the requested urls.
 
     Example:
 

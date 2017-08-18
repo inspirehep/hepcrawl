@@ -11,7 +11,6 @@
 
 from __future__ import absolute_import, division, print_function
 
-import os
 from time import sleep
 import pytest
 
@@ -53,7 +52,7 @@ def set_up_local_environment():
         }
     }
 
-    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    clean_dir()
 
 
 @pytest.mark.parametrize(

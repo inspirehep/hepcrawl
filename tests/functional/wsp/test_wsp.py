@@ -44,7 +44,7 @@ def set_up_ftp_environment():
     )
 
     # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(7)
+    sleep(10)
 
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
@@ -55,7 +55,7 @@ def set_up_ftp_environment():
         }
     }
 
-    clean_dir(path='/tmp/WSP/')
+    clean_dir()
     clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
 
@@ -81,7 +81,7 @@ def set_up_local_environment():
 
 
 def remove_generated_files(package_location):
-    clean_dir(path='/tmp/WSP/')
+    clean_dir()
     clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
     _, dirs, files = next(os.walk(package_location))
