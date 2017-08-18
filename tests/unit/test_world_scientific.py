@@ -18,7 +18,10 @@ from scrapy.http import TextResponse
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import wsp_spider
 
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 def create_spider():
@@ -44,7 +47,9 @@ def get_records(response_file_name):
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
-    return (pipeline.process_item(record, spider) for record in records)
+    yield (pipeline.process_item(record, spider) for record in records)
+
+    clean_dir()
 
 
 def get_one_record(response_file_name):

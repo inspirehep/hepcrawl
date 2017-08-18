@@ -21,7 +21,10 @@ from inspire_schemas.api import validate
 from hepcrawl.spiders import arxiv_spider
 from hepcrawl.pipelines import InspireAPIPushPipeline
 
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 @pytest.fixture
@@ -44,7 +47,9 @@ def json_spider_record(tmpdir):
     )
     parsed_record = items.next()
     assert parsed_record
-    return spider, parsed_record
+    yield spider, parsed_record
+
+    clean_dir()
 
 
 @pytest.fixture

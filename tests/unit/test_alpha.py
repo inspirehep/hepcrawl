@@ -13,8 +13,10 @@ import pytest
 
 from hepcrawl.spiders import alpha_spider
 
-from hepcrawl.testlib.fixtures import fake_response_from_file
-
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 @pytest.fixture
 def results():

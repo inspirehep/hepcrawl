@@ -19,7 +19,10 @@ from scrapy.http import HtmlResponse
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import pos_spider
 
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 @pytest.fixture
@@ -55,7 +58,9 @@ def record(scrape_pos_page_body):
     parsed_record = pipeline.process_item(parsed_item, spider)
     assert parsed_record
 
-    return parsed_record
+    yield parsed_record
+
+    clean_dir()
 
 
 def test_titles(record):
