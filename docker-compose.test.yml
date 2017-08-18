@@ -18,6 +18,7 @@ services:
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - APP_FILES_STORE=/tmp/file_urls
+      - APP_CRAWL_ONCE_PATH=/var/lib/scrapy/crawl_once/
       - COVERAGE_PROCESS_START=/code/.coveragerc
       - BASE_USER_UID=${BASE_USER_UID:-1000}
       - BASE_USER_GIT=${BASE_USER_GIT:-1000}
@@ -28,6 +29,7 @@ services:
       - ${PWD}/tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
       - /tmp/WSP:/tmp/WSP
       - /tmp/file_urls:/tmp/file_urls
+      - ${PWD}/.scrapy/crawl_once:/var/lib/scrapy/crawl_once
 
   functional_wsp:
     <<: *service_base

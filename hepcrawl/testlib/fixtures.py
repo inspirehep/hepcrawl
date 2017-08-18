@@ -15,6 +15,7 @@ import shutil
 
 from scrapy.http import Request, TextResponse
 from scrapy.selector import Selector
+from hepcrawl.settings import CRAWL_ONCE_PATH
 
 
 def fake_response_from_file(file_name, test_suite='unit', url='http://www.example.com', response_type=TextResponse):
@@ -133,7 +134,8 @@ def expected_json_results_from_file(*path_chunks, **kwargs):
 
     return expected_data
 
-def clean_dir(path=os.path.join(os.getcwd(), '.scrapy')):
+
+def clean_dir(path=CRAWL_ONCE_PATH):
     """
     Deletes all contained files of given target directory path.
 

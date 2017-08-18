@@ -23,6 +23,8 @@ restore_venv_tmp_code_rights() {
         /fix_rights --codedir "$BASE_USER_UID:$BASE_USER_GID"
         echo "Restoring permissions of tmpdir to $BASE_USER_UID:$BASE_USER_GID"
         /fix_rights --tmpdir "$BASE_USER_UID:$BASE_USER_GID"
+        echo "Restoring permissions of vardir to $BASE_USER_UID:$BASE_USER_GID"
+        /fix_rights --vardir "$BASE_USER_UID:$BASE_USER_GID"
     else
         echo "No BASE_USER_UID env var defined, skipping venv, codedir, tmpdir permission" \
             "restore."
@@ -57,6 +59,7 @@ main() {
     /fix_rights --virtualenv 'test:test'
     /fix_rights --codedir 'test:test'
     /fix_rights --tmpdir 'test:test'
+    /fix_rights --vardir 'test:test'
     trap restore_venv_tmp_code_rights EXIT
 
     if ! [[ -f "$VENV_PATH/bin/activate" ]]; then

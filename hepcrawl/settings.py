@@ -74,6 +74,10 @@ DOWNLOADER_MIDDLEWARES = {
 
 CRAWL_ONCE_ENABLED = True
 CRAWL_ONCE_DEFAULT = True
+CRAWL_ONCE_PATH = os.environ.get(
+    'APP_CRAWL_ONCE_PATH',
+    '/var/lib/scrapy/crawl_once/',
+)
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html

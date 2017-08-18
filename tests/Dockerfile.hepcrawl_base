@@ -26,10 +26,10 @@ RUN yum install -y epel-release && \
         python-virtualenv && \
     yum clean all
 
-RUN mkdir /code /hepcrawl_venv
+RUN mkdir /code /hepcrawl_venv /var/lib/scrapy
 
 RUN useradd test
-RUN chown -R test:test /code /hepcrawl_venv
+RUN chown -R test:test /code /hepcrawl_venv /var/lib/scrapy
 
 ADD ./docker_entrypoint.sh /docker_entrypoint.sh
 ADD ./fix_rights /fix_rights
