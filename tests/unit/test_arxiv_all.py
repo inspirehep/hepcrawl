@@ -44,6 +44,7 @@ def many_results(spider):
         )
     )
 
+    assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
