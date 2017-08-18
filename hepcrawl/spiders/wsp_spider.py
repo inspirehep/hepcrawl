@@ -13,6 +13,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import urlparse
+import tempfile
 
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
@@ -75,7 +76,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
     def __init__(
         self,
         package_path=None,
-        ftp_folder="/WSP",
+        ftp_folder="WSP",
         ftp_host=None,
         ftp_netrc=None,
         tmp_dir=None,
@@ -163,7 +164,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         if article_type in ['correction',
                             'addendum']:
-            record.add_xpath('related_article_doi', "//related-article[@ext-link-type='doi']/@href")
+            record.add_xpath(
+                'related_article_doi',
+                "//related-article[@ext-link-type='doi']/@href",
+            )
             record.add_value('journal_doctype', article_type)
 
         dois = node.xpath("//article-id[@pub-id-type='doi']/text()").extract()
@@ -221,10 +225,16 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
         return parsed_item
 
-    def _get_collections(self, node, article_type, current_journal_title):
+    @staticmethod
+    def _get_collections(node, article_type, current_journal_title):
         """Return this articles' collection."""
         conference = node.xpath('.//conference').extract()
-        if conference or current_journal_title == "International Journal of Modern Physics: Conference Series":
+        if (
+                conference
+                or current_journal_title == (
+                        "International Journal of Modern Physics: Conference Series"
+                )
+        ):
             return ['HEP', 'ConferencePaper']
         elif article_type == "review-article":
             return ['HEP', 'Review']
