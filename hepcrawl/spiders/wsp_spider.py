@@ -78,6 +78,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         ftp_folder="/WSP",
         ftp_host=None,
         ftp_netrc=None,
+        tmp_dir=None,
         *args,
         **kwargs
     ):
@@ -86,10 +87,8 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.target_folder = "/tmp/WSP"
+        self.tmp_dir = tmp_dir or tempfile.mkdtemp(suffix='_extracted_zip', prefix='wsp_')
         self.package_path = package_path
-        if not os.path.exists(self.target_folder):
-            os.makedirs(self.target_folder)
 
     def start_requests(self):
         """List selected folder on remote FTP and yield new zip files."""
@@ -116,9 +115,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
                 # Cast to byte-string for scrapy compatibility
                 remote_file = str(remote_file)
                 ftp_params["ftp_local_filename"] = os.path.join(
-                    self.target_folder,
+                    self.tmp_dir,
                     os.path.basename(remote_file)
                 )
+
                 remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
                 yield Request(
                     str(remote_url),
@@ -132,6 +132,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         zip_filepath = response.body
         zip_target_folder, dummy = os.path.splitext(zip_filepath)
         xml_files = unzip_xml_files(zip_filepath, zip_target_folder)
+
         for xml_file in xml_files:
             yield Request(
                 "file://{0}".format(xml_file),
@@ -142,8 +143,8 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         """Handle a local zip package and yield every XML."""
         self.log("Visited file %s" % response.url)
         zip_filepath = urlparse.urlsplit(response.url).path
-        zip_target_folder, dummy = os.path.splitext(zip_filepath)
-        xml_files = unzip_xml_files(zip_filepath, zip_target_folder)
+        xml_files = unzip_xml_files(zip_filepath, self.tmp_dir)
+
         for xml_file in xml_files:
             yield Request(
                 "file://{0}".format(xml_file),

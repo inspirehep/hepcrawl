@@ -16,6 +16,7 @@ See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from __future__ import absolute_import, division, print_function
 
 import os
+import shutil
 
 import requests
 
@@ -175,6 +176,10 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
         """Post results to BROKER API."""
         from celery.utils.log import get_task_logger
         logger = get_task_logger(__name__)
+
+        if hasattr(spider, 'tmp_dir'):
+            shutil.rmtree(path=spider.tmp_dir, ignore_errors=True)
+
         if 'SCRAPY_JOB' in os.environ and self.count > 0:
             task_endpoint = spider.settings[
                 'API_PIPELINE_TASK_ENDPOINT_MAPPING'
