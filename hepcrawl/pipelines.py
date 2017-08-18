@@ -125,7 +125,8 @@ class InspireAPIPushPipeline(object):
         ]
         return payload
 
-    def _cleanup(self, spider):
+    @staticmethod
+    def _cleanup(spider):
         """Run cleanup."""
         # Cleanup errors
         if 'errors' in spider.state:
