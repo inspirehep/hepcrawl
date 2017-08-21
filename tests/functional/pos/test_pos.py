@@ -50,6 +50,7 @@ def set_up_oai_environment():
         'CRAWLER_ARGUMENTS': {
             'source_file': 'file://' + package_location,
             'base_conference_paper_url': 'https://server.local/contribution?id=',
+            'base_proceedings_url': 'https://server.local/cgi-bin/reader/conf.cgi?confid=',
         }
     }
 
@@ -60,14 +61,14 @@ def set_up_oai_environment():
         expected_json_results_from_file(
             'pos',
             'fixtures',
-            'pos_records.json',
+            'pos_conference_proceedings_records.json',
         ),
     ],
     ids=[
-        'conference_paper_record_only',
+        'smoke',
     ]
 )
-def test_pos_conference_paper_record(
+def test_pos_conference_paper_record_and_proceedings_record(
         set_up_oai_environment,
         expected_results,
 ):

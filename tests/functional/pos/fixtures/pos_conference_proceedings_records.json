@@ -1,5 +1,28 @@
 [
  {
+    "publication_info": [
+      {
+        "journal_volume": "LATTICE 2013",
+        "journal_title": "PoS"
+      }
+    ],
+    "document_type": [
+      "article"
+    ],
+    "titles": [
+      {
+        "source": "pos",
+        "title": "31st International Symposium on Lattice Field Theory LATTICE 2013"
+      }
+    ],
+    "acquisition_source": {
+      "source": "pos",
+      "method": "hepcrawl",
+      "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+      "datetime": "2017-04-03T10:26:40.365216"
+    }
+  },
+  {
     "acquisition_source": {
       "source": "pos",
       "method": "hepcrawl",
