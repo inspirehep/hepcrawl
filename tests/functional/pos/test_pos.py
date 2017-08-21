@@ -32,7 +32,7 @@ def override_generated_fields(record):
 
 
 @pytest.fixture(scope="function")
-def set_up_oai_environment():
+def set_up_environment():
     package_location = get_test_suite_path(
         'pos',
         'fixtures',
@@ -69,10 +69,10 @@ def set_up_oai_environment():
     ]
 )
 def test_pos_conference_paper_record_and_proceedings_record(
-        set_up_oai_environment,
+        set_up_environment,
         expected_results,
 ):
-    crawler = get_crawler_instance(set_up_oai_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(set_up_environment.get('CRAWLER_HOST_URL'))
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -80,10 +80,10 @@ def test_pos_conference_paper_record_and_proceedings_record(
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=set_up_oai_environment.get('CRAWLER_PROJECT'),
+        project=set_up_environment.get('CRAWLER_PROJECT'),
         spider='pos',
         settings={},
-        **set_up_oai_environment.get('CRAWLER_ARGUMENTS')
+        **set_up_environment.get('CRAWLER_ARGUMENTS')
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
