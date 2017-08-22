@@ -51,8 +51,11 @@ def record(scrape_pos_page_body):
     assert response
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    record = request.callback(response)
-    return pipeline.process_item(record, spider)
+    parsed_item = request.callback(response)
+    parsed_record = pipeline.process_item(parsed_item, spider)
+    assert parsed_record
+
+    return parsed_record
 
 
 def test_titles(record):

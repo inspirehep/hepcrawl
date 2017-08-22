@@ -11,7 +11,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import pytest
 
-from scrapy.crawler import  Crawler
+from scrapy.crawler import Crawler
+from scrapy.http import TextResponse
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
@@ -26,35 +27,15 @@ def spider():
 
 
 @pytest.fixture
-def one_result(spider):
-    """Return results generator from the arxiv spider. Tricky fields, one
-    record.
-    """
-    from scrapy.http import TextResponse
-
-    records = list(
-        spider.parse(
-            fake_response_from_file(
-                'arxiv/sample_arxiv_record0.xml',
-                response_type=TextResponse,
-            )
-        )
-    )
-
-    assert records
-    pipeline = InspireCeleryPushPipeline()
-    pipeline.open_spider(spider)
-    return [pipeline.process_item(record, spider) for record in records]
-
-
-@pytest.fixture
 def many_results(spider):
     """Return results generator from the arxiv spider. Tricky fields, many
     records.
     """
-    from scrapy.http import TextResponse
+    def _get_processed_record(item, spider):
+        record = pipeline.process_item(item, spider)
+        return record
 
-    records = list(
+    parsed_items = list(
         spider.parse(
             fake_response_from_file(
                 'arxiv/sample_arxiv_record.xml',
@@ -63,10 +44,10 @@ def many_results(spider):
         )
     )
 
-    assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    return [pipeline.process_item(record, spider) for record in records]
+
+    return [_get_processed_record(parsed_item, spider) for parsed_item in parsed_items]
 
 
 def test_page_nr(many_results):

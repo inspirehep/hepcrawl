@@ -20,13 +20,15 @@ from hepcrawl.testlib.fixtures import fake_response_from_file
 def results():
     """Return results generator from the Alpha spider."""
     spider = alpha_spider.AlphaSpider()
-    records = list(
+    parsed_items = list(
         spider.parse(
             fake_response_from_file('alpha/test_1.htm')
         )
     )
 
+    records = [parsed_item.record for parsed_item in parsed_items]
     assert records
+
     return records
 
 

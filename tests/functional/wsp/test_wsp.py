@@ -13,7 +13,6 @@ from __future__ import absolute_import, division, print_function
 
 import pytest
 import os
-import shutil
 
 from time import sleep
 
@@ -21,6 +20,7 @@ from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
+    clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.utils import get_crawler_instance
@@ -90,10 +90,6 @@ def remove_generated_files(package_location):
             os.unlink(os.path.join(package_location, file_name))
 
 
-def clean_dir(path='/tmp/WSP/'):
-    shutil.rmtree(path, ignore_errors=True)
-
-
 @pytest.mark.parametrize(
     'expected_results',
     [
@@ -114,6 +110,7 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
+        events_limit=1,
         crawler_instance=crawler,
         project=set_up_ftp_environment.get('CRAWLER_PROJECT'),
         spider='WSP',
@@ -147,6 +144,7 @@ def test_wsp_local_package_path(set_up_local_environment, expected_results):
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
+        events_limit=1,
         crawler_instance=crawler,
         project=set_up_local_environment.get('CRAWLER_PROJECT'),
         spider='WSP',

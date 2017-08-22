@@ -41,10 +41,12 @@ def record():
 
         splash_response = fake_response_from_file('brown/test_splash.html')
         splash_response.meta["jsonrecord"] = jsonrecord
-        parsed_record = spider.scrape_splash(splash_response)
 
-        assert parsed_record
-        return parsed_record
+        parsed_item = spider.scrape_splash(splash_response)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 @pytest.fixture
@@ -200,7 +202,11 @@ def parsed_node_no_splash():
     jsonrecord = jsonresponse["items"]["docs"][0]
     response.meta["jsonrecord"] = jsonrecord
 
-    return spider.parse(response).next()
+    parsed_item = spider.parse(response).next()
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_no_splash(parsed_node_no_splash):

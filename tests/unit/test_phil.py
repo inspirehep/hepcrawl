@@ -33,9 +33,12 @@ def record():
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fanalysis.oxfordjournals.org%2Fcontent%2F66%2F3%2F194.full.pdf%2Bhtml%3Fframe%3Dsidebar",
         "http://philpapers.org/go.pl?id=BROBB&proxyId=none&u=http%3A%2F%2Fbrogaardb.googlepages.com%2Ftensedrelationsoffprint.pdf"
     ]
-    parsed_record = spider.build_item(response)
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.build_item(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 @pytest.fixture
@@ -48,7 +51,12 @@ def journal():
     response = fake_response_from_file('phil/test_journal.json')
     jsonrecord = json.loads(response.body_as_unicode())
     response.meta["jsonrecord"] = jsonrecord[0]
-    return spider.build_item(response)
+
+    parsed_item = spider.build_item(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 @pytest.fixture
@@ -223,7 +231,11 @@ def splash():
         ]
     }
 
-        return spider.scrape_for_pdf(response)
+        parsed_item = spider.scrape_for_pdf(response)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 def test_scrape(splash):

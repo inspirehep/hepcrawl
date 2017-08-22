@@ -41,9 +41,12 @@ def record():
         response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
         tag = '//%s' % spider.itertag
         nodes = get_node(spider, tag, response)
-        parsed_record = spider.parse_node(response, nodes)
-        assert parsed_record
-        return parsed_record
+
+        parsed_item = spider.parse_node(response, nodes)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 @pytest.fixture(scope="module")
@@ -97,7 +100,12 @@ def parsed_node():
         response.meta["xml_url"] = 'elsevier/sample_consyn_record.xml'
         parse_response = spider.parse_node(response, node)
         parse_response.status = 404
-        return spider.scrape_sciencedirect(parse_response)
+
+        parsed_item = spider.scrape_sciencedirect(parse_response)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 def test_collection(parsed_node):
@@ -164,7 +172,11 @@ def cover_display_date():
 
     node = get_node(spider, '/doc', text=body)
     response = fake_response_from_string(body)
-    return spider.parse_node(response, node)
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_cover_display_date(cover_display_date):
@@ -187,7 +199,11 @@ def cover_display_date_y_m():
     </doc>"""
     node = get_node(spider, '/doc', text=body)
     response = fake_response_from_string(body)
-    return spider.parse_node(response, node)
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_cover_display_date_y_m(cover_display_date_y_m):
@@ -210,7 +226,11 @@ def cover_display_date_y():
     </doc>"""
     node = get_node(spider, '/doc', text=body)
     response = fake_response_from_string(body)
-    return spider.parse_node(response, node)
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_cover_display_date_y(cover_display_date_y):
@@ -1579,11 +1599,11 @@ def test_handle_package(handled_package):
     for astro, nima in zip(astropart, nima):
         assert nima
         assert astro
-        assert astro.meta["package_path"] == "tests/unit/responses/elsevier/fake_astropart.zip"
+        assert astro.meta["source_folder"] == "tests/unit/responses/elsevier/fake_astropart.zip"
         url_to_match = u'file:///tmp/elsevier_fake_astropart_*/0927-6505/aip/S0927650515001656/S0927650515001656.xml'
         assert astro.meta["xml_url"] == fnmatch.filter([astro.meta["xml_url"]], url_to_match)[0]
 
-        assert nima.meta["package_path"] == "tests/unit/responses/elsevier/fake_nima.zip"
+        assert nima.meta["source_folder"] == "tests/unit/responses/elsevier/fake_nima.zip"
         url_to_match = u'file:///tmp/elsevier_fake_nima_*/0168-9002/S0168900215X00398/S0168900215015636/S0168900215015636.xml'
         assert nima.meta["xml_url"] == fnmatch.filter([nima.meta["xml_url"]], url_to_match)[0]
 
@@ -1644,7 +1664,12 @@ def sciencedirect():
         ])
     response.meta["info"] = {}
     response.meta["node"] = get_node(spider, '/head', text=body)
-    return spider.scrape_sciencedirect(response)
+
+    parsed_item = spider.scrape_sciencedirect(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_sciencedirect(sciencedirect):

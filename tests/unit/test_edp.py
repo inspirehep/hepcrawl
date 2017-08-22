@@ -40,6 +40,7 @@ def scrape_pos_page_body():
         )
     )
 
+
 @pytest.fixture
 def targzfile():
     """Path to test tar.gz file with JATS XML file."""
@@ -49,6 +50,7 @@ def targzfile():
         'edp',
         'test_gz.tar.gz'
     )
+
 
 @pytest.fixture
 def package_jats(targzfile):
@@ -75,7 +77,12 @@ def record_jats(package_jats, scrape_pos_page_body):
         body=scrape_pos_page_body,
         **{'encoding': 'utf-8'}
     )
-    return request.callback(response)
+
+    parsed_item = request.callback(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 @pytest.fixture
@@ -107,7 +114,11 @@ def record_rich(package_rich):
     fake_resp.meta["rich"] = True
     node = get_node(spider, "//EDPSArticle", fake_resp)[0]
 
-    return spider.parse_node(fake_resp, node)
+    parsed_item = spider.parse_node(fake_resp, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_title(record_jats):
@@ -145,6 +156,7 @@ def test_abstract(record_jats):
     assert 'abstract' in record_jats
     assert record_jats['abstract'] == abstract
 
+
 def test_date_published(record_jats):
     """Test extracting date_published."""
     date_published = "2015-01-01"
@@ -179,6 +191,7 @@ def test_doi(record_jats):
     assert 'dois' in record_jats
     assert record_jats['dois'][0]['value'] == doi
 
+
 def test_publication_info(record_jats):
     """Test extracting publication info."""
     assert 'journal_title' in record_jats
@@ -204,7 +217,6 @@ def test_keywords(record_jats):
     assert 'free_keywords' in record_jats
     for keyw in record_jats["free_keywords"]:
         assert keyw["value"] in keywords
-
 
 
 def test_authors(record_jats):
@@ -326,7 +338,6 @@ def test_authors_rich(record_rich):
         assert astr[index]["affiliations"][0]["value"] == affiliations[index]
 
 
-
 def test_tarfile(tarbzfile, tmpdir):
     """Test untarring a tar.bz package with a test XML file.
 
@@ -343,7 +354,6 @@ def test_tarfile(tarbzfile, tmpdir):
     assert "aas/xml_rich/2000/01" not in xml_files_flat[0]
 
 
-
 def test_handle_package_ftp(tarbzfile):
     """Test getting the target folder name for xml files."""
     spider = edp_spider.EDPSpider()
@@ -351,7 +361,8 @@ def test_handle_package_ftp(tarbzfile):
     request = spider.handle_package_ftp(response).next()
 
     assert isinstance(request, Request)
-    assert request.meta["package_path"] == tarbzfile
+    assert request.meta["source_folder"] == tarbzfile
+
 
 def test_no_dois_jats():
     """Test parsing when no DOI in record. JATS format."""
@@ -370,7 +381,11 @@ def test_no_dois_jats():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert "dois" not in record
     assert "additional_files" not in record
@@ -390,7 +405,11 @@ def test_no_dois_rich():
     response = fake_response_from_string(body)
     response.meta["rich"] = True
     node = get_node(spider, "//EDPSArticle", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert "dois" not in record
     assert "additional_files" not in record
@@ -416,7 +435,11 @@ def test_addendum_jats():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert "related_article_doi" in record
     assert record["related_article_doi"][0][
@@ -439,7 +462,11 @@ def test_author_with_email():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert 'email' in record['authors'][0]
     assert record['authors'][0]['email'] == "Fname.Sname@university.org"
@@ -472,15 +499,17 @@ def test_aff_with_email():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     affiliation = "Department of Physics, Western Michigan University, Kalamazoo, MI 49008, USA"
     assert 'affiliations' in record['authors'][0]
     assert record['authors'][0]['affiliations'][0]['value'] == affiliation
     assert "e-mail" not in record['authors'][0]['affiliations'][0]['value']
     assert record['authors'][0]['email'] is None
-
-
 
 
 def test_no_valid_article():
@@ -506,7 +535,11 @@ def test_collections_review():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    record = spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert "collections" in record
     assert record["collections"] == [{'primary': 'HEP'}, {'primary': 'Review'}]
@@ -533,7 +566,12 @@ def record_references_only():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, "//article", response)[0]
-    return spider.parse_node(response, node)
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_references(record_references_only):

@@ -23,6 +23,7 @@ from hepcrawl.testlib.fixtures import (
     get_node,
 )
 
+
 @pytest.fixture
 def record():
     """Return results from the MAGIC spider. First parse node, then scrape,
@@ -39,9 +40,11 @@ def record():
     splash_response.meta["date"] = parsed_node.meta["date"]
     splash_response.meta["urls"] = parsed_node.meta["urls"]
 
-    parsed_record = spider.scrape_for_pdf(splash_response).next()
-    assert parsed_record
-    return parsed_record
+    parsed_item = spider.scrape_for_pdf(splash_response).next()
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_abstract(record):
@@ -102,7 +105,6 @@ def test_abstract(record):
     assert record["abstract"] == abstract
 
 
-
 def test_title(record):
     """Test extracting title."""
     title = "Limits to the violation of Lorentz invariance using the emission of the CRAB pulsar at TeV energies, discovered with archival data from the MAGIC telescopes"
@@ -139,6 +141,7 @@ def test_url(record):
     assert 'urls' in record
     assert record['urls'][0]['value'] == url
 
+
 def test_pdf_link(record):
     """Test pdf link(s)"""
     files = "http://stlab.adobe.com/wiki/images/d/d3/Test.pdf"
@@ -164,7 +167,10 @@ def test_no_author_no_date_no_url():
     """
     response = fake_response_from_string(body)
     node = get_node(spider, spider.itertag, text=body)
-    record = spider.parse_node(response, node).next()
+    parsed_item = spider.parse_node(response, node).next()
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert isinstance(record, hepcrawl.items.HEPRecord)
     assert "date" not in record
@@ -184,7 +190,10 @@ def test_no_aff():
     </html>
     """
     response = fake_response_from_string(body)
-    record = spider.scrape_for_pdf(response).next()
+    parsed_item = spider.scrape_for_pdf(response).next()
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert isinstance(record, hepcrawl.items.HEPRecord)
     assert "date" not in record
@@ -216,7 +225,10 @@ def test_no_spash_page():
     response.status = 404
     response.meta["title"] = parsed_node.meta["title"]
     response.meta["urls"] = parsed_node.meta["urls"]
-    record = spider.scrape_for_pdf(response).next()
+    parsed_item = spider.scrape_for_pdf(response).next()
+    assert parsed_item
+    assert parsed_item.record
+    record = parsed_item.record
 
     assert isinstance(record, hepcrawl.items.HEPRecord)
     assert "urls" in record

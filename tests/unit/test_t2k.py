@@ -36,9 +36,11 @@ def record():
     splash_response.meta["urls"] = parsed_node.meta["urls"]
     splash_response.meta["authors"] = parsed_node.meta["authors"]
 
-    parsed_record = spider.scrape_for_pdf(splash_response).next()
-    assert parsed_record
-    return parsed_record
+    parsed_item = spider.scrape_for_pdf(splash_response).next()
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_abstact(record):
@@ -125,9 +127,11 @@ def non_url():
     selector = Selector(response, type='html')
     nodes = selector.xpath('//%s' % spider.itertag)
 
-    parsed_record = spider.parse_node(response, nodes[0]).next()
-    assert parsed_record
-    return parsed_record
+    parsed_item = spider.parse_node(response, nodes[0]).next()
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_non_url(non_url):

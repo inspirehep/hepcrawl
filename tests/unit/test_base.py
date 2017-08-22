@@ -38,9 +38,12 @@ def record():
     nodes = selector.xpath('.//%s' % spider.itertag)
     response.meta["record"] = nodes[0].extract()
     response.meta["urls"] = ["http://hdl.handle.net/1885/10005"]
-    parsed_record = spider.build_item(response)
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.build_item(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 @pytest.fixture
@@ -169,7 +172,12 @@ def splash():
                 'Content-Type': 'text/html',
             },
         )
-        return spider.scrape_for_pdf(splash_response)
+
+        parsed_item = spider.scrape_for_pdf(splash_response)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 def test_splash(splash):
@@ -201,7 +209,12 @@ def parsed_node():
     response = fake_response_from_string(text=body)
     node = get_node(spider, 'OAI-PMH:record', text=body)
     response.meta["record"] = node[0].extract()
-    return spider.parse_node(response, node[0])
+
+    parsed_item = spider.parse_node(response, node[0])
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_parsed_node(parsed_node):
