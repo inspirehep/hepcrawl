@@ -384,6 +384,12 @@ def hepcrawl_to_hep(crawler_record):
             source=report_number.get('source')
         )
 
+    for url in crawler_record.get('urls', []):
+        builder.add_url(url=url.get('value'))
+
+    if crawler_record.get('_fft'):
+        builder.record['_fft'] = crawler_record.get('_fft')
+
     builder.validate_record()
 
     return builder.record

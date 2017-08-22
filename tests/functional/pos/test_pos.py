@@ -32,7 +32,13 @@ def override_generated_fields(record):
 
 
 @pytest.fixture(scope="function")
-def set_up_environment():
+def wait_until_services_are_up(seconds=10):
+    # The test must wait until the docker environment is up (takes about 10 seconds).
+    sleep(seconds)
+
+
+@pytest.fixture(scope="function")
+def configuration():
     package_location = get_test_suite_path(
         'pos',
         'fixtures',
@@ -40,9 +46,6 @@ def set_up_environment():
         'pos_record.xml',
         test_suite='functional',
     )
-
-    # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(10)
 
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
@@ -69,10 +72,11 @@ def set_up_environment():
     ]
 )
 def test_pos_conference_paper_record_and_proceedings_record(
-        set_up_environment,
-        expected_results,
+    configuration,
+    wait_until_services_are_up,
+    expected_results,
 ):
-    crawler = get_crawler_instance(set_up_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(configuration.get('CRAWLER_HOST_URL'))
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -80,10 +84,10 @@ def test_pos_conference_paper_record_and_proceedings_record(
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=set_up_environment.get('CRAWLER_PROJECT'),
+        project=configuration.get('CRAWLER_PROJECT'),
         spider='pos',
         settings={},
-        **set_up_environment.get('CRAWLER_ARGUMENTS')
+        **configuration.get('CRAWLER_ARGUMENTS')
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
@@ -93,6 +97,8 @@ def test_pos_conference_paper_record_and_proceedings_record(
 
 
 # TODO create test that receives conference paper record AND proceedings record.
+# 'Crawl-once' plug-in needed.
 
 
 # TODO create test that receives proceedings record ONLY.
+# 'Crawl-once' plug-in needed.

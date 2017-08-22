@@ -41,6 +41,16 @@
         "title": "Heavy Flavour Physics Review"
       }
     ],
+    "_fft": [
+      {
+        "path": "https://server.local/187/001/pdf"
+      }
+    ],
+    "urls": [
+      {
+        "value": "https://server.local/PoS(LATTICE%202013)001.html"
+      }
+    ],
     "authors": [
       {
         "affiliations": [

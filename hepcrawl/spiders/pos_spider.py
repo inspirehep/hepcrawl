@@ -94,24 +94,26 @@ class POSSpider(StatefulSpider):
         self.log('Got record from: {response.url}'.format(**vars()))
 
         response.selector.remove_namespaces()
-        records = response.selector.xpath('.//record')
-        for record in records:
-            yield self.get_conference_paper_page_request(raw_xml=record)
+        record_xml_selectors = response.selector.xpath('.//record')
+        for record_xml_selector in record_xml_selectors:
+            yield self.get_conference_paper_page_request(
+                xml_selector=record_xml_selector,
+            )
 
-    def get_conference_paper_page_request(self, raw_xml, meta=None):
+    def get_conference_paper_page_request(self, xml_selector, meta=None):
         """Gets the conference paper html page, for the pdf link for the
         conference paper, and later the internal conference id.
         """
         meta = meta or {}
 
-        identifier = raw_xml.xpath(
+        identifier = xml_selector.xpath(
             './/metadata/pex-dc/identifier/text()'
         ).extract_first()
         conference_paper_url = "{0}{1}".format(
             self.base_conference_paper_url,
             identifier,
         )
-        meta['xml_record'] = raw_xml
+        meta['xml_record'] = xml_selector.extract()
 
         # the meta parameter will be passed over to the callback as a property
         # in the response parameter
@@ -137,11 +139,11 @@ class POSSpider(StatefulSpider):
 
         # prepare next callback step
         response.meta['html_record'] = response.body
-        yield self.get_conference_proceendings_page_request(
+        yield self.get_conference_proceedings_page_request(
             meta=response.meta,
         )
 
-    def get_conference_proceendings_page_request(self, meta):
+    def get_conference_proceedings_page_request(self, meta):
         """Gets the conference proceedings page, using the indernal conference
         id from the record html page retrieved before.
         """
@@ -155,9 +157,10 @@ class POSSpider(StatefulSpider):
         )
 
         page_selector = Selector(
-            text=meta.get('html_record'),
-            type='html',
+            text=meta.get('xml_record'),
+            type='xml',
         )
+        page_selector.remove_namespaces()
         pos_id = page_selector.xpath(
             ".//metadata/pex-dc/identifier/text()"
         ).extract_first()
@@ -220,15 +223,15 @@ class POSSpider(StatefulSpider):
         ).extract_first()
         record.add_value(
             'journal_title',
-            self._get_journal_title(identifier=identifier),
+            self._get_journal_title(pos_ext_identifier=identifier),
         )
         record.add_value(
             'journal_volume',
-            self._get_journal_volume(identifier=identifier),
+            self._get_journal_volume(pos_ext_identifier=identifier),
         )
         record.add_value(
             'journal_artid',
-            self._get_journal_artid(identifier=identifier),
+            self._get_journal_artid(pos_ext_identifier=identifier),
         )
 
         record.add_xpath('title', '//metadata/pex-dc/title/text()')
@@ -240,8 +243,13 @@ class POSSpider(StatefulSpider):
         record.add_value('language', self._get_language(selector=selector))
         record.add_value('authors', self._get_authors(selector=selector))
         record.add_value('collections', ['conferencepaper'])
-        record.add_value('urls', conference_paper_pdf_url)
-        record.add_value('_fulltext_url', self._get_conference_paper_pdf_url())
+        record.add_value('urls', [conference_paper_url])
+        record.add_value(
+            '_fft',
+            self._set_fft(
+                path=conference_paper_pdf_url,
+            ),
+        )
 
         parsed_item = ParsedItem(
             record=record.load_item(),
@@ -277,7 +285,7 @@ class POSSpider(StatefulSpider):
         record.add_value('journal_title', 'PoS')
         record.add_value(
             'journal_volume',
-            self._get_journal_volume(pos_id=pos_id),
+            self._get_journal_volume(pos_ext_identifier=pos_id),
         )
 
         parsed_proceeding = ParsedItem(
@@ -317,6 +325,14 @@ class POSSpider(StatefulSpider):
         return '{0}{1}'.format(self.BASE_PROCEEDINGS_URL, proceedings_identifier)
 
     @staticmethod
+    def _set_fft(path):
+        return [
+            {
+                'path': path,
+            },
+        ]
+
+    @staticmethod
     def _get_language(selector):
         language = selector.xpath(
             ".//metadata/pex-dc/language/text()"
@@ -324,16 +340,16 @@ class POSSpider(StatefulSpider):
         return language if language != 'en' else None
 
     @staticmethod
-    def _get_journal_title(pos_id):
-        return re.split('[()]', pos_id)[0]
+    def _get_journal_title(pos_ext_identifier):
+        return re.split('[()]', pos_ext_identifier)[0]
 
     @staticmethod
-    def _get_journal_volume(pos_id):
-        return re.split('[()]', pos_id)[1]
+    def _get_journal_volume(pos_ext_identifier):
+        return re.split('[()]', pos_ext_identifier)[1]
 
     @staticmethod
-    def _get_journal_artid(pos_id):
-        return re.split('[()]', pos_id)[2]
+    def _get_journal_artid(pos_ext_identifier):
+        return re.split('[()]', pos_ext_identifier)[2]
 
     @staticmethod
     def _get_ext_systems_number(selector):
