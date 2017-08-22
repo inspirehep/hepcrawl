@@ -22,7 +22,7 @@ from scrapy.spiders import Spider
 
 from inspire_dojson.hep import hep
 
-from hepcrawl.utils import (
+from ..utils import (
     ftp_list_files,
     ftp_connection_info,
     ParsedItem,

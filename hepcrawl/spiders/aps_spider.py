@@ -20,7 +20,12 @@ from scrapy import Request, Spider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_licenses, get_nested, build_dict
+from ..utils import (
+    get_licenses,
+    get_nested,
+    build_dict,
+    ParsedItem,
+)
 
 
 class APSSpider(Spider):
@@ -110,7 +115,13 @@ class APSSpider(Spider):
             record.add_value('license', license)
 
             record.add_value('collections', ['HEP', 'Citeable', 'Published'])
-            yield record.load_item()
+
+            parsed_item = ParsedItem(
+                record=record.load_item(),
+                record_format='hepcrawl',
+            )
+
+            yield parsed_item
 
         # Pagination support. Will yield until no more "next" pages are found
         if 'Link' in response.headers:

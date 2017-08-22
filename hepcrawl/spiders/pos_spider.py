@@ -13,13 +13,19 @@ from __future__ import absolute_import, division, print_function
 
 import re
 
+from urlparse import urljoin
+
 from scrapy import Request, Selector
 from scrapy.spiders import Spider
-from urlparse import urljoin
-from ..utils import get_licenses, get_first
+
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..utils import (
+    get_licenses,
+    get_first,
+    ParsedItem,
+)
 
 
 class POSSpider(Spider):
@@ -128,7 +134,13 @@ class POSSpider(Spider):
             record.add_value('extra_data', extra_data)
 
         record.add_value('collections', ['HEP', 'ConferencePaper'])
-        return record.load_item()
+
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item
 
     def _get_ext_systems_number(self, node):
         return [

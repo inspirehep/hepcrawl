@@ -31,6 +31,7 @@ from ..utils import (
     has_numbers,
     range_as_string,
     unzip_xml_files,
+    ParsedItem,
 )
 
 from ..dateutils import format_year
@@ -180,7 +181,7 @@ class ElsevierSpider(XMLFeedSpider):
             xml_url = u"file://{0}".format(os.path.abspath(xml_file))
             yield Request(
                 xml_url,
-                meta={"package_path": zip_filepath,
+                meta={"source_folder": zip_filepath,
                       "xml_url": xml_url},
             )
 
@@ -1034,4 +1035,9 @@ class ElsevierSpider(XMLFeedSpider):
         record.add_value('collections', self.get_collections(doctype))
         record.add_value('references', self.get_references(node))
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

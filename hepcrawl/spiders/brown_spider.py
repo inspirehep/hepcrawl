@@ -21,7 +21,12 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname, parse_domain, get_mime_type
+from ..utils import (
+    split_fullname,
+    parse_domain,
+    get_mime_type,
+    ParsedItem,
+)
 
 
 class BrownSpider(CrawlSpider):
@@ -219,4 +224,9 @@ class BrownSpider(CrawlSpider):
         record.add_value('thesis', response.meta.get("thesis"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

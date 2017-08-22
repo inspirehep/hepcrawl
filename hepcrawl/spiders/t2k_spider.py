@@ -18,7 +18,10 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import split_fullname
+from ..utils import (
+    split_fullname,
+    ParsedItem,
+)
 
 
 class T2kSpider(XMLFeedSpider):
@@ -164,4 +167,9 @@ class T2kSpider(XMLFeedSpider):
         record.add_value("additional_files", response.meta.get("additional_files"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
-        yield record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        yield parsed_item

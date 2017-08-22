@@ -11,6 +11,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import json
+import shutil
 
 from scrapy.http import Request, TextResponse
 from scrapy.selector import Selector
@@ -131,3 +132,18 @@ def expected_json_results_from_file(*path_chunks, **kwargs):
         expected_data = json.load(fd)
 
     return expected_data
+
+
+def clean_dir(path):
+    """
+    Deletes all contained files of given target directory path.
+
+    Args:
+        path: Absolute path of target directory to be cleaned.
+
+    Example:
+
+         >>> clean_dir('/dir_1/dir_11/')
+
+    """
+    shutil.rmtree(path, ignore_errors=True)
