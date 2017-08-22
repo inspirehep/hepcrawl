@@ -55,7 +55,7 @@ def set_up_ftp_environment():
         }
     }
 
-    clean_dir()
+    clean_dir(path='/tmp/WSP/')
 
 
 @pytest.fixture(scope="function")
@@ -80,7 +80,7 @@ def set_up_local_environment():
 
 
 def remove_generated_files(package_location):
-    clean_dir()
+    clean_dir(path='/tmp/WSP/')
 
     _, dirs, files = next(os.walk(package_location))
     for dir_name in dirs:
