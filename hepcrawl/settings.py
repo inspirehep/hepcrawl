@@ -123,6 +123,11 @@ CELERY_DISABLE_RATE_LIMITS = True
 # ====
 JOBDIR = "jobs"
 
+# Marc to HEP conversion settings (Desy)
+MARC_TO_HEP_SETTINGS = {
+    'LEGACY_BASE_URL': 'https://inspirehep.net',
+    'SERVER_NAME': 'https://labs.inspirehep.net',
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

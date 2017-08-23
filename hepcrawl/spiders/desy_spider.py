@@ -11,14 +11,13 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
-from lxml import etree
 from dojson.contrib.marc21.utils import create_record
-from six.moves import urllib
-
+from flask.app import Flask
+from inspire_dojson.hep import hep
+from lxml import etree
 from scrapy import Request
 from scrapy.spiders import Spider
-
-from inspire_dojson.hep import hep
+from six.moves import urllib
 
 from ..utils import (
     ftp_list_files,
@@ -71,8 +70,6 @@ class DesySpider(Spider):
             $ scrapy crawl desy -a 'source_folder=/path/to/package_dir'
      """
     name = 'desy'
-    custom_settings = {}
-    start_urls = []
 
     def __init__(
         self,
@@ -90,7 +87,10 @@ class DesySpider(Spider):
         self.ftp_netrc = ftp_netrc
         self.source_folder = source_folder
         self.destination_folder = destination_folder
-        self.ftp_enabled = True if self.ftp_host else False
+        self.ftp_enabled = False if self.source_folder else True
+
+        if self.ftp_enabled and not self.ftp_host:
+            raise Exception('You need to pass source_folder or ftp_host.')
 
         if not os.path.exists(self.destination_folder):
             os.makedirs(self.destination_folder)
@@ -169,10 +169,10 @@ class DesySpider(Spider):
     def start_requests(self):
         """List selected folder on remote FTP and yield files."""
 
-        if self.source_folder:
-            requests = self.crawl_local_directory()
-        else:
+        if self.ftp_enabled:
             requests = self.crawl_ftp_directory()
+        else:
+            requests = self.crawl_local_directory()
 
         for request in requests:
             yield request
@@ -240,11 +240,16 @@ class DesySpider(Spider):
 
         return [etree.tostring(item) for item in list_items]
 
-    @staticmethod
-    def _hep_records_from_marcxml(marcxml_records):
+    def _hep_records_from_marcxml(self, marcxml_records):
         def _create_json_record(xml_record):
             object_record = create_record(etree.XML(xml_record))
-            dojson_record = hep.do(object_record)
+            app = Flask('hepcrawl')
+            app.config.update(
+                self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
+            )
+            with app.app_context():
+                dojson_record = hep.do(object_record)
+
             return dojson_record
 
         hep_records = []
