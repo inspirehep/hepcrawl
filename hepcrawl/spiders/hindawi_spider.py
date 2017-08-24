@@ -101,6 +101,11 @@ class HindawiSpider(XMLFeedSpider):
                     'affiliations': self.get_affiliations(author),
                     'orcid': orcid,
                 })
+            else:
+                authors.append({
+                    'raw_name': author.xpath("./subfield[@code='a']/text()").extract_first(),
+                    'affiliations': self.get_affiliations(author),
+                })
 
         return authors
 
@@ -182,7 +187,7 @@ class HindawiSpider(XMLFeedSpider):
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
 
         record.add_value('authors', self.get_authors(node))
-        record.add_xpath('abstract', "./datafield[@tag='520']/subfield[@code='a']/text()")
+        record.add_xpath('abstract', "./datafield[@tag='520']/subfield[@code='a']")
         record.add_xpath('title',
                          "./datafield[@tag='245']/subfield[@code='a']/text()")
         record.add_xpath('date_published',
