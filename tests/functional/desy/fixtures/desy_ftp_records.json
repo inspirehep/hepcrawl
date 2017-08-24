@@ -34,7 +34,7 @@
     }
   ],
   "self": {
-    "$ref": "http://inspirehep.net/api/literature/111111"
+    "$ref": "https://labs.inspirehep.net/api/literature/111111"
   },
   "number_of_pages": 6,
   "titles": [
@@ -111,7 +111,7 @@
     }
   ],
   "self": {
-    "$ref": "http://inspirehep.net/api/literature/222222"
+    "$ref": "https://labs.inspirehep.net/api/literature/222222"
   },
   "number_of_pages": 6,
   "titles": [
@@ -188,7 +188,7 @@
     }
   ],
   "self": {
-    "$ref": "http://inspirehep.net/api/literature/333333"
+    "$ref": "https://labs.inspirehep.net/api/literature/333333"
   },
   "number_of_pages": 6,
   "titles": [
@@ -265,7 +265,7 @@
     }
   ],
   "self": {
-    "$ref": "http://inspirehep.net/api/literature/444444"
+    "$ref": "https://labs.inspirehep.net/api/literature/444444"
   },
   "number_of_pages": 6,
   "titles": [

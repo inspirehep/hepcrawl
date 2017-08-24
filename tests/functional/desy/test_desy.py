@@ -28,12 +28,14 @@ from hepcrawl.testlib.utils import get_crawler_instance
 
 def override_generated_fields(record):
     record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
-    record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
+    )
 
     return record
 
 
-def compare_two_files_using_md5(file_1, file_2):
+def assert_files_equal(file_1, file_2):
     """Compares two files calculating the md5 hash."""
     def _generate_md5_hash(file_path):
         hasher = hashlib.md5()
@@ -42,11 +44,13 @@ def compare_two_files_using_md5(file_1, file_2):
             hasher.update(buf)
             return hasher.hexdigest()
 
-    return _generate_md5_hash(file_1) == _generate_md5_hash(file_2)
+    file_1_hash = _generate_md5_hash(file_1)
+    file_2_hash = _generate_md5_hash(file_2)
+    assert file_1_hash == file_2_hash
 
 
 @pytest.fixture(scope="function")
-def get_fft_1_path():
+def fft_1_path():
     return get_test_suite_path(
         'desy',
         'fixtures',
@@ -59,7 +63,7 @@ def get_fft_1_path():
 
 
 @pytest.fixture(scope="function")
-def get_fft_2_path():
+def fft_2_path():
     return get_test_suite_path(
         'desy',
         'fixtures',
@@ -72,7 +76,7 @@ def get_fft_2_path():
 
 
 @pytest.fixture(scope="function")
-def set_up_ftp_environment():
+def ftp_environment():
     netrc_location = get_test_suite_path(
         'desy',
         'fixtures',
@@ -81,7 +85,8 @@ def set_up_ftp_environment():
         test_suite='functional',
     )
 
-    # The test must wait until the docker environment is up (takes about 10 seconds).
+    # The test must wait until the docker environment is up (takes about 10
+    # seconds).
     sleep(10)
 
     yield {
@@ -98,7 +103,7 @@ def set_up_ftp_environment():
 
 
 @pytest.fixture(scope="function")
-def set_up_local_environment():
+def local_environment():
     package_location = get_test_suite_path(
         'desy',
         'fixtures',
@@ -133,12 +138,14 @@ def set_up_local_environment():
     ]
 )
 def test_desy_ftp(
-        set_up_ftp_environment,
+        ftp_environment,
         expected_results,
-        get_fft_1_path,
-        get_fft_2_path,
+        fft_1_path,
+        fft_2_path,
 ):
-    crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(
+        ftp_environment.get('CRAWLER_HOST_URL')
+    )
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -146,14 +153,17 @@ def test_desy_ftp(
         monitor_iter_limit=100,
         events_limit=2,
         crawler_instance=crawler,
-        project=set_up_ftp_environment.get('CRAWLER_PROJECT'),
+        project=ftp_environment.get('CRAWLER_PROJECT'),
         spider='desy',
         settings={},
-        **set_up_ftp_environment.get('CRAWLER_ARGUMENTS')
+        **ftp_environment.get('CRAWLER_ARGUMENTS')
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected)
+        for expected in expected_results
+    ]
 
     assert sorted(gotten_results) == expected_results
 
@@ -161,8 +171,8 @@ def test_desy_ftp(
     for record in expected_results:
         fft_file_paths = sorted(record['_fft'])
 
-        assert compare_two_files_using_md5(fft_file_paths[0]['path'], get_fft_2_path)
-        assert compare_two_files_using_md5(fft_file_paths[1]['path'], get_fft_1_path)
+        assert_files_equal(fft_file_paths[0]['path'], fft_2_path)
+        assert_files_equal(fft_file_paths[1]['path'], fft_1_path)
 
 
 @pytest.mark.parametrize(
@@ -179,12 +189,12 @@ def test_desy_ftp(
     ]
 )
 def test_desy_local_package_path(
-        set_up_local_environment,
+        local_environment,
         expected_results,
-        get_fft_1_path,
-        get_fft_2_path,
+        fft_1_path,
+        fft_2_path,
 ):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(local_environment.get('CRAWLER_HOST_URL'))
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -192,14 +202,17 @@ def test_desy_local_package_path(
         monitor_iter_limit=100,
         events_limit=2,
         crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        project=local_environment.get('CRAWLER_PROJECT'),
         spider='desy',
         settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+        **local_environment.get('CRAWLER_ARGUMENTS')
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected)
+        for expected in expected_results
+    ]
 
     assert sorted(gotten_results) == expected_results
 
@@ -207,5 +220,5 @@ def test_desy_local_package_path(
     for record in expected_results:
         fft_file_paths = sorted(record['_fft'])
 
-        assert compare_two_files_using_md5(fft_file_paths[0]['path'], get_fft_2_path)
-        assert compare_two_files_using_md5(fft_file_paths[1]['path'], get_fft_1_path)
+        assert_files_equal(fft_file_paths[0]['path'], fft_2_path)
+        assert_files_equal(fft_file_paths[1]['path'], fft_1_path)
