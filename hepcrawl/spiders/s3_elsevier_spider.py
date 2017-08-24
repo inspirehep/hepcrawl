@@ -11,8 +11,10 @@
 
 from __future__ import absolute_import, print_function
 
+import datetime
 import os
 import re
+import sys
 
 from tempfile import mkdtemp
 
@@ -167,7 +169,8 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
         # be later uploaded to Inspire. So don't remove any tmp files here.
         print("Untared files: ")
         print(files)
-        for f in files:
+        try:
+          for f in files:
             if 'dataset.xml' in f:
                 print("Reading dataset")
                 from scrapy.selector import Selector
@@ -175,50 +178,68 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
                     print("Dataset opened")
                     dataset = Selector(text=dataset_file.read())
                     data = []
-                    print(dataset.xpath('//journal-issue'))
                     for i, issue in enumerate(dataset.xpath('//journal-issue')):
                         tmp = {}
                         tmp['volume'] = "%s %s" % (issue.xpath('//volume-issue-number/vol-first/text()')[0].extract(),  issue.xpath('//volume-issue-number/suppl/text()')[0].extract())
                         tmp['issue'] = issue.xpath('//issn/text()')[0].extract()
-                        tmp['journal'] = issue.xpath('//collection-title/text()')[0].extract()
-                        issue_file = os.path.join(target_folder, filename, issue.xpath('files-info/ml/pathname/text()')[0].extract())
+                        issue_file = os.path.join(target_folder, filename, issue.xpath('./files-info/ml/pathname/text()')[0].extract())
                         arts = {}
                         with open(issue_file, 'r') as issue_file:
                             iss = Selector(text=issue_file.read())
-                            iss.register_namespace("ce", "http://www.elsevier.com/xml/common/dtd")
-                            for article in iss.xpath('//ce:include-item'):
-                                doi = article.xpath('ce:doi/text()')[0].extract()
-                                first_page = int(article.xpath('ce:first-page/text()')[0].extract())
-                                last_page = int(article.xpath('ce:last-page/text()')[0].extract())
-                                arts[doi] = {'first-page': first_page, 'last-page': last_page}
+                            iss.remove_namespaces()
+                            for article in iss.xpath('//include-item'):
+                                doi = article.xpath('./doi/text()')[0].extract()
+                                first_page = article.xpath('./pages/first-page/text()')[0].extract()
+                                last_page = article.xpath('./pages/last-page/text()')[0].extract()
+                                arts[doi] = {'files':{'xml':None, 'pdf':None},
+                                             'first-page': first_page,
+                                             'last-page': last_page}
                         tmp['articles'] = arts
                         data.append(tmp)
-                    #if not data:
-                    #        data.append({'articles':{}})
-                    print(data)
+                    tmp_empty_data = 0
+                    if not data:
+                        tmp_empty_data = 1
+                        data.append({'volume':None, 'issue':None, 'articles': {}})
                     for article in dataset.xpath('//journal-item'):
-                        doi = article.xpath('journal-item-unique-ids/doi/text()')[0].extract()
-                        print(doi)
+                        doi = article.xpath('./journal-item-unique-ids/doi/text()')[0].extract()
+                        if article.xpath('./journal-item-properties/online-publication-date/text()'):
+                            publication_date = article.xpath('./journal-item-properties/online-publication-date/text()')[0].extract()[:18]
+                        else:
+                            publication_date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+                        journal = article.xpath('./journal-item-unique-ids/jid-aid/jid/text()')[0].extract()
+                        if journal == "PLB":
+                            journal = "Physics Letters B"
+                        if journal == "NUPHB":
+                            journal = "Nuclear Physics B"
+
+                        if tmp_empty_data:
+                            data[0]['articles'][doi] = {'files':{'xml':None, 'pdf':None}, 'first-page': None, 'last-page': None,}
+                        print(data)
                         for i, issue in enumerate(data):
-                            print(issue)
                             if doi in data[i]['articles']:
-                                xml = os.path.join(target_folder,article.xpath('files-info/ml/pathname/text()'))
-                                pdf = os.path.join(target_folder,article.xpath('files-info/web-pdf/pathname/text()'))
+                                data[i]['articles'][doi]['journal'] = journal
+                                data[i]['articles'][doi]['publication-date'] = publication_date
+                                xml = os.path.join(target_folder,filename,article.xpath('./files-info/ml/pathname/text()')[0].extract())
+                                pdf = os.path.join(target_folder,filename,article.xpath('./files-info/web-pdf/pathname/text()')[0].extract())
                                 data[i]['articles'][doi]['files']['xml'] = xml
                                 data[i]['articles'][doi]['files']['pdf'] = pdf
                                 if 'vtex' in zip_filepath:
                                     pdfa = os.path.join(os.path.split(pdf)[0], 'main_a-2b.pdf')
                                     pdfa = os.path.join(target_folder,pdfa)
                                     data[i]['articles'][doi]['files']['pdfa'] = pdfa
-                                print(data[i]['articles'][doi])
-                                yield Request(
-                                    xml,
-                                    meta={"package_path": zip_filepath,
-                                          "xml_url": xml_url,
-                                          "metadata": data
-                                          },
-                                )
-
+                                print(data[i]['articles'])
+                    for i, issue in enumerate(data):
+                        for doi in data[i]['articles']:
+                            yield Request(
+                                'file://localhost%s' % data[i]['articles'][doi]['files']['xml'],
+                                meta={"package_path": zip_filepath,
+                                      "metadata": data[i],
+                                      "doi":doi
+                                      },
+                            )
+        except:
+            import traceback
+            traceback.print_exc()
 
     def parse_node(self, response, node):
         """Parse a OUP XML file into a HEP record."""
@@ -227,20 +248,17 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
         node.remove_namespaces()
         article_type = node.xpath('@article-type').extract()
         self.log("Got article_type {0}".format(article_type))
-        if article_type is None or article_type[0] not in self.allowed_article_types:
-            # Filter out non-interesting article types
-            return None
 
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         if article_type in ['correction',
                             'addendum']:
             record.add_xpath('related_article_doi', "//related-article[@ext-link-type='doi']/@href")
             record.add_value('journal_doctype', article_type)
-        record.add_xpath('dois', "//article-id[@pub-id-type='doi']/text()")
+        record.add_value('dois', [response.meta['doi']])
         record.add_xpath('page_nr', "//counts/page-count/@count")
 
-        record.add_xpath('abstract', '//abstract[1]')
-        record.add_xpath('title', '//article-title/text()')
+        record.add_xpath('abstract', '//abstract[1]/abstract-sec')
+        record.add_xpath('title', '//title/text()')
         record.add_xpath('subtitle', '//subtitle/text()')
 
         record.add_value('authors', self._get_authors(node))
@@ -250,22 +268,18 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
         record.add_value('free_keywords', free_keywords)
         record.add_value('classification_numbers', classification_numbers)
 
-        record.add_value('date_published', self._get_published_date(node))
-
         # TODO: Special journal title handling
-        # journal, volume = fix_journal_name(journal, self.journal_mappings)
-        # volume += get_value_in_tag(self.document, 'volume')
-        record.add_xpath('journal_title', '//abbrev-journal-title/text()|//journal-title/text()')
-        record.add_xpath('journal_issue', '//issue/text()')
-        record.add_xpath('journal_volume', '//volume/text()')
-        record.add_xpath('journal_artid', '//elocation-id/text()')
+        record.add_value('journal_title', response.meta['metadata']['articles'][response.meta['doi']]['journal'])
+        record.add_value('journal_issue', response.meta['metadata']['issue'])
+        record.add_value('journal_volume', response.meta['metadata']['volume'])
+        record.add_xpath('journal_artid', '//item-info/aid/text()')
 
-        record.add_xpath('journal_fpage', '//fpage/text()')
-        record.add_xpath('journal_lpage', '//lpage/text()')
+        record.add_value('journal_fpage', response.meta['metadata']['articles'][response.meta['doi']]['first-page'])
+        record.add_value('journal_lpage', response.meta['metadata']['articles'][response.meta['doi']]['last-page'])
 
         published_date = self._get_published_date(node)
         record.add_value('journal_year', int(published_date[:4]))
-        record.add_value('date_published', published_date)
+        record.add_value('date_published', datetime.datetime.strptime(response.meta['metadata']['articles'][response.meta['doi']]['publication-date'], "%Y-%m-%dT%H:%M:%S").isoformat())
 
         record.add_xpath('copyright_holder', '//copyright-holder/text()')
         record.add_xpath('copyright_year', '//copyright-year/text()')
