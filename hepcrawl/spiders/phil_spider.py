@@ -19,7 +19,11 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import parse_domain, get_mime_type
+from ..utils import (
+    parse_domain,
+    get_mime_type,
+    ParsedItem,
+)
 
 
 class PhilSpider(CrawlSpider):
@@ -160,4 +164,9 @@ class PhilSpider(CrawlSpider):
             if not jsonrecord.get('year') == "forthcoming":
                 record.add_value('journal_year', int(jsonrecord['year']))
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

@@ -72,7 +72,12 @@ def record(scrape_pos_page_body):
             body=scrape_pos_page_body,
             **{'encoding': 'utf-8'}
         )
-        return request.callback(response)
+
+        parsed_item = request.callback(response)
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 def test_title(record):
@@ -241,7 +246,12 @@ def parse_without_splash():
                 'Content-Type': 'application/pdf;charset=base64',
             }
         )
-        return spider.parse_node(response, nodes[0])
+
+        parsed_item = spider.parse_node(response, nodes[0])
+        assert parsed_item
+        assert parsed_item.record
+
+        return parsed_item.record
 
 
 def test_parse_without_splash(parse_without_splash):

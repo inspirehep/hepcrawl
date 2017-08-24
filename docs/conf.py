@@ -85,6 +85,13 @@ extensions = [
     'sphinx.ext.todo',
 ]
 
+
+autodoc_default_flags = [
+    'members',
+    'private-members',
+    'show-inheritance',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

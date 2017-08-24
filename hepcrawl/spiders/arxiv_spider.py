@@ -16,10 +16,15 @@ import re
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 
-from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
-from ..utils import coll_cleanforthe, get_licenses, split_fullname
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
+from ..utils import (
+    coll_cleanforthe,
+    get_licenses,
+    split_fullname,
+    ParsedItem,
+)
 
 RE_CONFERENCE = re.compile(r'\b(%s)\b' % '|'.join(
     [re.escape(word) for word in CONFERENCE_WORDS]), re.I | re.U)
@@ -33,7 +38,9 @@ class ArxivSpider(XMLFeedSpider):
     Example:
         Using OAI-PMH XML files::
 
-            $ scrapy crawl arXiv -a source_file=file://`pwd`/tests/responses/arxiv/sample_arxiv_record.xml
+            $ scrapy crawl \\
+                arXiv \\
+                -a "source_file=file://$PWD/tests/responses/arxiv/sample_arxiv_record.xml"
 
     """
 
@@ -110,8 +117,12 @@ class ArxivSpider(XMLFeedSpider):
         )
         record.add_value('license', license)
 
-        parsed_record = dict(record.load_item())
-        return parsed_record
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item
 
     def _get_authors_or_collaboration(self, node):
         """Parse authors, affiliations; extract collaboration"""

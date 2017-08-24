@@ -23,6 +23,7 @@ from ..extractors.nlm import NLM
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..utils import ParsedItem
 
 
 class IOPSpider(XMLFeedSpider, NLM):
@@ -222,4 +223,9 @@ class IOPSpider(XMLFeedSpider, NLM):
                 record.add_value("additional_files",
                                  self.add_fft_file(pdf_file_path, file_access, file_type))
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

@@ -25,9 +25,12 @@ def record():
     """Return scraping results from the MIT spider."""
     spider = mit_spider.MITSpider()
     response = fake_response_from_file('mit/test_splash.html')
-    parsed_record = spider.build_item(response)
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.build_item(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 @pytest.fixture
@@ -37,7 +40,11 @@ def parsed_node():
     response = fake_response_from_file('mit/test_list.html')
     tag = spider.itertag
     node = get_node(spider, tag, response, rtype="html")
-    return spider.parse_node(response, node).next()
+
+    parsed_item = spider.parse_node(response, node).next()
+    assert parsed_item
+
+    return parsed_item
 
 
 def test_url(parsed_node):
@@ -159,7 +166,12 @@ def supervisors():
     <html>
     """
     response = fake_response_from_string(body)
-    return spider.build_item(response)
+
+    parsed_item = spider.build_item(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_two_supervisors(supervisors):

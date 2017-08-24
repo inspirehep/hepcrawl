@@ -17,6 +17,7 @@ services:
       - APP_CELERY_RESULT_BACKEND=amqp://guest:guest@rabbitmq:5672//
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
+      - APP_FILES_STORE=/tmp/file_urls
       - COVERAGE_PROCESS_START=/code/.coveragerc
       - BASE_USER_UID=${BASE_USER_UID:-1000}
       - BASE_USER_GIT=${BASE_USER_GIT:-1000}
@@ -26,10 +27,18 @@ services:
       - ${PWD}:/code/
       - ${PWD}/tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
       - /tmp/WSP:/tmp/WSP
+      - /tmp/file_urls:/tmp/file_urls
 
   functional_wsp:
     <<: *service_base
     command: py.test -vv tests/functional/wsp
+    links:
+      - scrapyd
+      - ftp_server
+
+  functional_desy:
+    <<: *service_base
+    command: py.test -vv tests/functional/desy
     links:
       - scrapyd
       - ftp_server
@@ -68,6 +77,8 @@ services:
     environment:
       - PUBLICHOST=localhost
     volumes:
+      - ${PWD}/tests/functional/desy/fixtures/ftp_server/FFT:/home/ftpusers/bob/FFT
+      - ${PWD}/tests/functional/desy/fixtures/ftp_server/DESY:/home/ftpusers/bob/DESY
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
 

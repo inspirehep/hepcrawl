@@ -1,11 +1,9 @@
-# Simple document that should fallback to 'article' document type upon hep
-# record generation.
 {
     "page_nr": [
         "11"
     ],
     "acquisition_source": {
-        "date": "2017-02-21T18:03:40.858985",
+        "datetime": "2017-02-21T18:03:40.858985",
         "source": "arXiv",
         "method": "hepcrawl",
         "submission_number": "scrapy_job"
@@ -48,6 +46,15 @@
         },
         {
             "primary": "Review"
+        },
+        {
+            "primary": "Book"
+        },
+        {
+            "primary": "Bookchapter"
+        },
+        {
+            "primary": "Conferencepaper"
         },
         {
             "primary": "Citeable"

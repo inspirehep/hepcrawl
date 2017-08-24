@@ -20,7 +20,10 @@ from scrapy.spiders import CrawlSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import has_numbers
+from ..utils import (
+    has_numbers,
+    ParsedItem,
+)
 
 
 class AlphaSpider(CrawlSpider):
@@ -145,4 +148,9 @@ class AlphaSpider(CrawlSpider):
             record.add_value('source', 'Alpha experiment')
             record.add_value('collections', ['HEP', 'THESIS'])
 
-            yield record.load_item()
+            parsed_item = ParsedItem(
+                record=record.load_item(),
+                record_format='hepcrawl',
+            )
+
+            yield parsed_item

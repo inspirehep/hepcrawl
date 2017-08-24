@@ -26,6 +26,7 @@ from ..utils import (
     local_list_files,
     get_licenses,
     unzip_xml_files,
+    ParsedItem,
 )
 
 
@@ -71,7 +72,15 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         'rapid-communications'
     ]
 
-    def __init__(self, package_path=None, ftp_folder="WSP", ftp_host=None, ftp_netrc=None, *args, **kwargs):
+    def __init__(
+        self,
+        package_path=None,
+        ftp_folder="/WSP",
+        ftp_host=None,
+        ftp_netrc=None,
+        *args,
+        **kwargs
+    ):
         """Construct WSP spider."""
         super(WorldScientificSpider, self).__init__(*args, **kwargs)
         self.ftp_folder = ftp_folder
@@ -97,8 +106,8 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
             new_files_paths = ftp_list_files(
                 self.ftp_folder,
-                self.target_folder,
-                server=ftp_host,
+                destination_folder=self.target_folder,
+                ftp_host=ftp_host,
                 user=ftp_params['ftp_user'],
                 password=ftp_params['ftp_password']
             )
@@ -126,7 +135,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         for xml_file in xml_files:
             yield Request(
                 "file://{0}".format(xml_file),
-                meta={"package_path": zip_filepath}
+                meta={"source_folder": zip_filepath}
             )
 
     def handle_package_file(self, response):
@@ -138,7 +147,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         for xml_file in xml_files:
             yield Request(
                 "file://{0}".format(xml_file),
-                meta={"package_path": zip_filepath}
+                meta={"source_folder": zip_filepath}
             )
 
     def parse_node(self, response, node):
@@ -148,7 +157,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         self.log("Got article_type {0}".format(article_type))
         if article_type is None or article_type[0] not in self.allowed_article_types:
             # Filter out non-interesting article types
-            return None
+            return
 
         record = HEPLoader(item=HEPRecord(), selector=node, response=response)
         if article_type in ['correction',
@@ -203,9 +212,13 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         record.add_value('license', license)
 
         record.add_value('collections', self._get_collections(node, article_type, journal_title))
-        parsed_record = dict(record.load_item())
 
-        return parsed_record
+        parsed_item = ParsedItem(
+            record=dict(record.load_item()),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item
 
     def _get_collections(self, node, article_type, current_journal_title):
         """Return this articles' collection."""

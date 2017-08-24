@@ -29,9 +29,13 @@ def record():
     response = fake_response_from_file('phenix/test_1.html')
     selector = Selector(response, type='html')
     nodes = selector.xpath('//%s' % spider.itertag)
-    parsed_record = spider.parse_node(response, nodes[0])
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.parse_node(response, nodes[0])
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
+
 
 @pytest.fixture
 def non_thesis():
@@ -49,9 +53,11 @@ def non_thesis():
     node = get_node(spider, '//li', text=body)
     return spider.parse_node(response, node)
 
+
 def test_non_thesis(non_thesis):
     """Test MSc thesis skipping."""
     assert non_thesis is None
+
 
 def test_title(record):
     """Test extracting title."""
@@ -81,6 +87,7 @@ def test_authors(record):
         assert affiliation in [
             aff['value'] for aff in record['authors'][index]['affiliations']
         ]
+
 
 def test_pdf_link(record):
     """Test pdf link(s)"""

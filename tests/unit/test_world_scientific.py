@@ -48,8 +48,11 @@ def get_records(response_file_name):
 
 
 def get_one_record(response_file_name):
-    results = get_records(response_file_name)
-    return results.next()
+    records = get_records(response_file_name)
+    record = records.next()
+    assert record
+
+    return record
 
 
 def override_generated_fields(record):

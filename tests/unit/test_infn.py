@@ -28,9 +28,12 @@ def record():
     """Return scraping results from the INFN spider."""
     spider = infn_spider.InfnSpider()
     response = fake_response_from_file('infn/test_splash.html')
-    parsed_record = spider.scrape_splash(response)
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.scrape_splash(response)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_title(record):
@@ -121,6 +124,7 @@ def test_non_thesis():
 
     assert record is None
 
+
 def test_parse_node():
     """Test parse_node function. This should be a scrapy Request object.
 
@@ -148,6 +152,8 @@ def test_parse_node_nolink():
     response = fake_response_from_file('infn/test_1_nolink.html')
     selector = Selector(response, type='html')
     node = selector.xpath('//%s' % spider.itertag)[0]
-    record = spider.parse_node(response, node).next()
+    parsed_item = spider.parse_node(response, node).next()
+    assert parsed_item
+    assert parsed_item.record
 
-    assert isinstance(record, hepcrawl.items.HEPRecord)
+    assert isinstance(parsed_item.record, hepcrawl.items.HEPRecord)

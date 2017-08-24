@@ -24,10 +24,15 @@ from hepcrawl.testlib.fixtures import fake_response_from_file
 def results():
     """Return results generator from the arxiv spider. All fields, one record.
     """
+    def _get_processed_item(item, spider):
+        record = pipeline.process_item(item, spider)
+        validate(record, 'hep')
+        assert record
+        return record
 
     crawler = Crawler(spidercls=arxiv_spider.ArxivSpider)
     spider = arxiv_spider.ArxivSpider.from_crawler(crawler)
-    records = list(
+    parsed_items = list(
         spider.parse(
             fake_response_from_file(
                 'arxiv/sample_arxiv_record0.xml',
@@ -36,16 +41,10 @@ def results():
         )
     )
 
-    assert records
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    processed_records = []
-    for record in records:
-        processed_record = pipeline.process_item(record, spider)
-        validate(processed_record, 'hep')
-        processed_records.append(processed_record)
 
-    return processed_records
+    return [_get_processed_item(parsed_item, spider) for parsed_item in parsed_items]
 
 
 

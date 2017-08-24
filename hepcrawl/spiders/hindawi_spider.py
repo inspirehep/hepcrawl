@@ -16,7 +16,10 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_licenses
+from ..utils import (
+    get_licenses,
+    ParsedItem,
+)
 
 
 class HindawiSpider(XMLFeedSpider):
@@ -222,4 +225,9 @@ class HindawiSpider(XMLFeedSpider):
         record.add_xpath('source',
                          "./datafield[@tag='260']/subfield[@code='b']/text()")
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

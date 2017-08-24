@@ -18,6 +18,7 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..utils import ParsedItem
 
 
 class PhenixSpider(XMLFeedSpider):
@@ -128,4 +129,9 @@ class PhenixSpider(XMLFeedSpider):
         record.add_value('source', 'PHENIX')
         record.add_value('collections', ['HEP', 'THESIS'])
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

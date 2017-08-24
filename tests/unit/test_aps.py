@@ -21,7 +21,7 @@ def results():
     from scrapy.http import TextResponse
 
     spider = aps_spider.APSSpider()
-    records = list(
+    parsed_items = list(
         spider.parse(
             fake_response_from_file(
                 'aps/aps_single_response.json',
@@ -29,6 +29,8 @@ def results():
             )
         )
     )
+
+    records = [parsed_item.record for parsed_item in parsed_items]
 
     assert records
     return records

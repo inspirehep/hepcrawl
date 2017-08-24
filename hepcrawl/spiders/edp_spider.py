@@ -30,6 +30,7 @@ from ..utils import (
     get_licenses,
     get_node,
     parse_domain,
+    ParsedItem,
 )
 
 
@@ -65,11 +66,11 @@ class EDPSpider(Jats, XMLFeedSpider):
 
         To run an ``EDPSpider`` using ``rich`` format::
 
-            $ scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_rich.tar.bz2
+            $ scrapy crawl EDP -a source_folder=file://`pwd`/tests/responses/edp/test_rich.tar.bz2
 
         To run an ``EDPSpider`` using ``gz`` format::
 
-            $ scrapy crawl EDP -a package_path=file://`pwd`/tests/responses/edp/test_gz.tar.gz
+            $ scrapy crawl EDP -a source_folder=file://`pwd`/tests/responses/edp/test_gz.tar.gz
 
     Todo:
 
@@ -144,9 +145,9 @@ class EDPSpider(Jats, XMLFeedSpider):
             ftp_host, ftp_params = ftp_connection_info(
                 self.ftp_host, self.ftp_netrc)
             _, new_files = ftp_list_files(
-                self.ftp_folder,
-                self.target_folder,
-                server=ftp_host,
+                server_folder=self.ftp_folder,
+                destination_folder=self.target_folder,
+                ftp_host=ftp_host,
                 user=ftp_params['ftp_user'],
                 password=ftp_params['ftp_password']
             )
@@ -175,7 +176,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         for xml_file in xml_files:
             yield Request(
                 "file://{0}".format(xml_file),
-                meta={"package_path": zip_filepath}
+                meta={"source_folder": zip_filepath}
             )
 
     def handle_package_file(self, response):
@@ -188,7 +189,7 @@ class EDPSpider(Jats, XMLFeedSpider):
         for xml_file in xml_files:
             request = Request(
                 "file://{0}".format(xml_file),
-                meta={"package_path": zip_filepath}
+                meta={"source_folder": zip_filepath}
             )
             if "xml_rich" in xml_file:
                 request.meta["rich"] = True
@@ -318,7 +319,12 @@ class EDPSpider(Jats, XMLFeedSpider):
             )
         record.add_value("urls", response.meta.get("urls"))
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item
 
     def build_item_jats(self, response):
         """Build the final HEPRecord with JATS-format XML ('jp')."""
@@ -388,7 +394,12 @@ class EDPSpider(Jats, XMLFeedSpider):
         references = self._get_references(node)
         record.add_value("references", references)
 
-        return record.load_item()
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item
 
     def _get_references(self, node):
         """Get the references."""

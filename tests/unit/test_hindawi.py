@@ -26,9 +26,11 @@ def record():
     response = fake_response_from_file("hindawi/test_1.xml")
     nodes = get_node(spider, "//marc:record", response)
 
-    parsed_record = spider.parse_node(response, nodes[0])
-    assert parsed_record
-    return parsed_record
+    parsed_item = spider.parse_node(response, nodes[0])
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_title(record):

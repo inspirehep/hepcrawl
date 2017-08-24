@@ -38,9 +38,12 @@ def record():
     response = fake_response_from_file('iop/xml/test_standard.xml')
     node = get_node(spider, "Article", response)
     spider.pdf_files = TEST_PDF_DIR
-    parsed_record = spider.parse_node(response, node)
-    assert parsed_record
-    return parsed_record
+
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_abstract(record):
@@ -182,10 +185,12 @@ def erratum_open_access_record():
         'iop',
         'pdf',
     )
-    parsed_record = spider.parse_node(response, node)
-    assert parsed_record
-    return parsed_record
 
+    parsed_item = spider.parse_node(response, node)
+    assert parsed_item
+    assert parsed_item.record
+
+    return parsed_item.record
 
 
 def test_files_erratum_open_access_record(erratum_open_access_record):

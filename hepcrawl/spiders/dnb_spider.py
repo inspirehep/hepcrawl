@@ -16,7 +16,12 @@ from scrapy.spiders import XMLFeedSpider
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import get_mime_type, parse_domain, get_node
+from ..utils import (
+    get_mime_type,
+    parse_domain,
+    get_node,
+    ParsedItem,
+)
 
 
 class DNBSpider(XMLFeedSpider):
@@ -219,4 +224,10 @@ class DNBSpider(XMLFeedSpider):
 
         record.add_value('thesis', {'degree_type': 'PhD'})
         record.add_value('collections', ['HEP', 'THESIS'])
-        return record.load_item()
+
+        parsed_item = ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
+
+        return parsed_item

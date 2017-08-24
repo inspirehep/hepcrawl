@@ -9,7 +9,12 @@
 
 """Celery monitor dealing with celery tasks for functional tests."""
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 
 from itertools import islice
 
@@ -19,13 +24,14 @@ LOGGER = logging.getLogger(__name__)
 
 
 class CeleryMonitor(object):
-    def __init__(self, app, monitor_timeout=3, monitor_iter_limit=100):
+    def __init__(self, app, monitor_timeout=3, monitor_iter_limit=100, events_limit=2):
         self.results = []
         self.recv = None
         self.app = app
         self.connection = None
         self.monitor_timeout = monitor_timeout
         self.monitor_iter_limit = monitor_iter_limit
+        self.events_limit = events_limit
 
     def __enter__(self):
         state = self.app.events.State()
@@ -61,10 +67,16 @@ class CeleryMonitor(object):
         self.connection.__exit__()
 
     def _wait_for_results(self, events_iter):
-        any(islice(
+        generator_events = islice(
             events_iter,  # iterable
             self.monitor_iter_limit  # stop
-        ))
+        )
+        counter = 0
+        for dummy in generator_events:
+            if dummy:
+                counter += 1
+            if counter == self.events_limit:
+                break
 
     @classmethod
     def do_crawl(
@@ -72,6 +84,7 @@ class CeleryMonitor(object):
         app,
         monitor_timeout,
         monitor_iter_limit,
+        events_limit,
         crawler_instance,
         project='hepcrawl',
         spider='WSP',
@@ -80,7 +93,12 @@ class CeleryMonitor(object):
     ):
         settings = settings or {}
 
-        with cls(app, monitor_timeout=monitor_timeout, monitor_iter_limit=monitor_iter_limit) as my_monitor:
+        with cls(
+            app,
+            monitor_timeout=monitor_timeout,
+            monitor_iter_limit=monitor_iter_limit,
+            events_limit=events_limit
+        ) as my_monitor:
             crawler_instance.schedule(
                 project=project,
                 spider=spider,

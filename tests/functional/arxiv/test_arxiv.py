@@ -72,6 +72,7 @@ def test_arxiv(set_up_local_environment, expected_results):
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
+        events_limit=1,
         crawler_instance=crawler,
         project=set_up_local_environment.get('CRAWLER_PROJECT'),
         spider='arXiv',

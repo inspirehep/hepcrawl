@@ -24,7 +24,7 @@ PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-SPHINXAPIDOC    = sphinx-apidoc -M -P -f -o $(SOURCEDIR) $(CODEDIR) -E $(CODEDIR)/spiders
+SPHINXAPIDOC    = sphinx-apidoc --module-first --private --force --separate --output-dir $(SOURCEDIR) $(CODEDIR) $(CODEDIR)/spiders
 
 .PHONY: help
 help:
