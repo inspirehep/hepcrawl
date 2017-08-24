@@ -5,9 +5,6 @@
     "submission_number": "5652c7f6190f11e79e8000224dabeaad",
     "datetime": "2017-04-03T10:26:40.365216"
   },
-  "_collections": [
-    "Literature"
-  ],
   "_fft": [
     {
       "version": 1,
@@ -43,12 +40,6 @@
       "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
     }
   ],
-  "urls": [
-    {
-      "description": "Fulltext",
-      "value": "http://inspirehep.net/record/1608652/files/Towards a fully\n                integrated acc on a chip.pdf\n            "
-    }
-  ],
   "dois": [
     {
       "value": "10.18429/JACoW-IPAC2017-WEYB1"
@@ -82,9 +73,6 @@
     "submission_number": "5652c7f6190f11e79e8000224dabeaad",
     "datetime": "2017-04-03T10:26:40.365216"
   },
-  "_collections": [
-    "Literature"
-  ],
   "_fft": [
     {
       "version": 1,
@@ -120,12 +108,6 @@
       "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
     }
   ],
-  "urls": [
-    {
-      "description": "Fulltext",
-      "value": "http://inspirehep.net/record/1608652/files/Towards a fully\n                integrated acc on a chip.pdf\n            "
-    }
-  ],
   "dois": [
     {
       "value": "10.18429/JACoW-IPAC2017-WEYB1"
@@ -159,9 +141,6 @@
     "submission_number": "5652c7f6190f11e79e8000224dabeaad",
     "datetime": "2017-04-03T10:26:40.365216"
   },
-  "_collections": [
-    "Literature"
-  ],
   "_fft": [
     {
       "version": 1,
@@ -197,12 +176,6 @@
       "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
     }
   ],
-  "urls": [
-    {
-      "description": "Fulltext",
-      "value": "http://inspirehep.net/record/1608652/files/Towards a fully\n                integrated acc on a chip.pdf\n            "
-    }
-  ],
   "dois": [
     {
       "value": "10.18429/JACoW-IPAC2017-WEYB1"
@@ -236,9 +209,6 @@
     "submission_number": "5652c7f6190f11e79e8000224dabeaad",
     "datetime": "2017-04-03T10:26:40.365216"
   },
-  "_collections": [
-    "Literature"
-  ],
   "_fft": [
     {
       "version": 1,
@@ -272,12 +242,6 @@
     {
       "source": "JACoW",
       "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
-    }
-  ],
-  "urls": [
-    {
-      "description": "Fulltext",
-      "value": "http://inspirehep.net/record/1608652/files/Towards a fully\n                integrated acc on a chip.pdf\n            "
     }
   ],
   "dois": [
