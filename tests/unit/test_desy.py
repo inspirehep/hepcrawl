@@ -88,9 +88,6 @@ def override_generated_fields(record):
 def test_pipeline_record(generated_record):
     expected = {
         '$schema': 'hep.json',
-        '_collections': [
-            'Literature'
-        ],
         '_fft': [
             {
                 'creation_datetime': '2017-06-27T09:43:17',
@@ -196,16 +193,6 @@ def test_pipeline_record(generated_record):
                     'From the Source to Relativistic Electrons\n            '
                 )
             }
-        ],
-        'urls': [
-            {
-                'description': 'Fulltext',
-                'value': (
-                    'http://inspirehep.net/record/1608652/files/Towards '
-                    'a fully\n                integrated acc on a chip.pdf'
-                    '\n            '
-                )
-            }
         ]
     }
 
@@ -229,9 +216,6 @@ def test_pipeline_collection_records(generated_records):
                 "submission_number": "5652c7f6190f11e79e8000224dabeaad",
                 "datetime": "2017-05-04T17:49:07.975168"
             },
-            "_collections": [
-                "Literature"
-            ],
             "_fft": [
                 {
                     'creation_datetime': '2017-06-27T09:43:17',
@@ -293,16 +277,6 @@ def test_pipeline_collection_records(generated_records):
                     )
                 }
             ],
-            "urls": [
-                {
-                    "description": "Fulltext",
-                    "value": (
-                        'http://inspirehep.net/record/1608652/files/'
-                        'Towards a fully\n                integrated acc on a '
-                        'chip.pdf\n            '
-                    )
-                }
-            ],
             "dois": [
                 {
                     "value": "10.18429/JACoW-IPAC2017-WEYB1"
@@ -354,9 +328,6 @@ def test_pipeline_collection_records(generated_records):
                 "submission_number": "5652c7f6190f11e79e8000224dabeaad",
                 "datetime": "2017-05-04T17:49:07.975168"
             },
-            "_collections": [
-                "Literature"
-            ],
             "_fft": [
                 {
                     'creation_datetime': '2017-06-27T09:43:17',
@@ -415,16 +386,6 @@ def test_pipeline_collection_records(generated_records):
                         "Dielectric Laser\n                Acceleration "
                         "(DLA) From the Source to Relativistic Electrons"
                         "\n            "
-                    )
-                }
-            ],
-            "urls": [
-                {
-                    "description": "Fulltext",
-                    "value": (
-                        "http://inspirehep.net/record/1608652/files/"
-                        "Towards a fully\n                integrated acc on a "
-                        "chip.pdf\n            "
                     )
                 }
             ],
