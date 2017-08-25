@@ -12,6 +12,22 @@
 Developers Guide
 ================
 
+Scrapy
+------
+
+Scrapy is the framework the the HEPcrawl is based. In order to get understand the HEPcrawl project
+first we have to understand in depth the scrapy project it self and it's `architecture
+<https://docs.scrapy.org/en/latest/topics/architecture.html>`_.
+
+In the following diagram we can have an important overview of Scrapy framework.
+
+.. image:: images/scrapy_architecture.png
+    :height: 380
+    :width: 700
+    :target: https://docs.scrapy.org/en/latest/topics/architecture.html
+    :alt: Scrapy Architecture
+
+
 Spiders in HEPcrawl
 -------------------
 

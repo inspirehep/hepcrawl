@@ -36,6 +36,7 @@ HEPCrawl.
    installation
    operations
    developers_guide
+   operations
    guide
 
 
