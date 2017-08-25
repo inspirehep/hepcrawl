@@ -1,0 +1,2168 @@
+[{
+  "acquisition_source": {
+    "source": "desy",
+    "method": "hepcrawl",
+    "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+    "datetime": "2017-04-03T10:26:40.365216"
+  },
+  "_fft": [
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:17", "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/809d9d2bebcea6eee5e400e3c49b31795a3acc3d.txt",
+      "type": "Main",
+      "filename": "test_fft_1"
+    },
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:16",
+      "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/1d4b0a4eebdd03b95f882fa7feb9d3f06681ec50.txt",
+      "type": "Main",
+      "filename": "test_fft_2"
+    }
+  ],
+  "control_number": 111111,
+  "public_notes": [
+    {
+      "value": "*Brief entry*"
+    }
+  ],
+  "self": {
+    "$ref": "https://labs.inspirehep.net/api/literature/111111"
+  },
+  "number_of_pages": 6,
+  "titles": [
+    {
+      "source": "JACoW",
+      "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+    }
+  ],
+  "dois": [
+    {
+      "value": "10.18429/JACoW-IPAC2017-WEYB1"
+    }
+  ],
+  "publication_info": [
+    {
+      "parent_isbn": "9783954501823"
+    },
+    {
+      "page_start": "2520",
+      "page_end": "2525",
+      "year": 2017
+    }
+  ],
+  "$schema": "hep.json",
+  "document_type": [
+    "article"
+  ],
+  "abstracts": [
+    {
+      "source": "Deutsches Elektronen-Synchrotron",
+      "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+    }
+  ]
+},
+{
+  "acquisition_source": {
+    "source": "desy",
+    "method": "hepcrawl",
+    "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+    "datetime": "2017-04-03T10:26:40.365216"
+  },
+  "_fft": [
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:17", "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/809d9d2bebcea6eee5e400e3c49b31795a3acc3d.txt",
+      "type": "Main",
+      "filename": "test_fft_1"
+    },
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:16",
+      "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/1d4b0a4eebdd03b95f882fa7feb9d3f06681ec50.txt",
+      "type": "Main",
+      "filename": "test_fft_2"
+    }
+  ],
+  "control_number": 222222,
+  "public_notes": [
+    {
+      "value": "*Brief entry*"
+    }
+  ],
+  "self": {
+    "$ref": "https://labs.inspirehep.net/api/literature/222222"
+  },
+  "number_of_pages": 6,
+  "titles": [
+    {
+      "source": "JACoW",
+      "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+    }
+  ],
+  "dois": [
+    {
+      "value": "10.18429/JACoW-IPAC2017-WEYB1"
+    }
+  ],
+  "publication_info": [
+    {
+      "parent_isbn": "9783954501823"
+    },
+    {
+      "page_start": "2520",
+      "page_end": "2525",
+      "year": 2017
+    }
+  ],
+  "$schema": "hep.json",
+  "document_type": [
+    "article"
+  ],
+  "abstracts": [
+    {
+      "source": "Deutsches Elektronen-Synchrotron",
+      "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+    }
+  ]
+},
+{
+  "acquisition_source": {
+    "source": "desy",
+    "method": "hepcrawl",
+    "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+    "datetime": "2017-04-03T10:26:40.365216"
+  },
+  "_fft": [
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:17", "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/809d9d2bebcea6eee5e400e3c49b31795a3acc3d.txt",
+      "type": "Main",
+      "filename": "test_fft_1"
+    },
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:16",
+      "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/1d4b0a4eebdd03b95f882fa7feb9d3f06681ec50.txt",
+      "type": "Main",
+      "filename": "test_fft_2"
+    }
+  ],
+  "control_number": 333333,
+  "public_notes": [
+    {
+      "value": "*Brief entry*"
+    }
+  ],
+  "self": {
+    "$ref": "https://labs.inspirehep.net/api/literature/333333"
+  },
+  "number_of_pages": 6,
+  "titles": [
+    {
+      "source": "JACoW",
+      "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+    }
+  ],
+  "dois": [
+    {
+      "value": "10.18429/JACoW-IPAC2017-WEYB1"
+    }
+  ],
+  "publication_info": [
+    {
+      "parent_isbn": "9783954501823"
+    },
+    {
+      "page_start": "2520",
+      "page_end": "2525",
+      "year": 2017
+    }
+  ],
+  "$schema": "hep.json",
+  "document_type": [
+    "article"
+  ],
+  "abstracts": [
+    {
+      "source": "Deutsches Elektronen-Synchrotron",
+      "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+    }
+  ]
+},
+{
+  "acquisition_source": {
+    "source": "desy",
+    "method": "hepcrawl",
+    "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+    "datetime": "2017-04-03T10:26:40.365216"
+  },
+  "_fft": [
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:17", "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/809d9d2bebcea6eee5e400e3c49b31795a3acc3d.txt",
+      "type": "Main",
+      "filename": "test_fft_1"
+    },
+    {
+      "version": 1,
+      "creation_datetime": "2017-06-27T09:43:16",
+      "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
+      "format": ".txt",
+      "path": "/tmp/file_urls/full/1d4b0a4eebdd03b95f882fa7feb9d3f06681ec50.txt",
+      "type": "Main",
+      "filename": "test_fft_2"
+    }
+  ],
+  "control_number": 444444,
+  "public_notes": [
+    {
+      "value": "*Brief entry*"
+    }
+  ],
+  "self": {
+    "$ref": "https://labs.inspirehep.net/api/literature/444444"
+  },
+  "number_of_pages": 6,
+  "titles": [
+    {
+      "source": "JACoW",
+      "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+    }
+  ],
+  "dois": [
+    {
+      "value": "10.18429/JACoW-IPAC2017-WEYB1"
+    }
+  ],
+  "publication_info": [
+    {
+      "parent_isbn": "9783954501823"
+    },
+    {
+      "page_start": "2520",
+      "page_end": "2525",
+      "year": 2017
+    }
+  ],
+  "$schema": "hep.json",
+  "document_type": [
+    "article"
+  ],
+  "abstracts": [
+    {
+      "source": "Deutsches Elektronen-Synchrotron",
+      "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+    }
+  ]
+},
+{
+    "acquisition_source": {
+        "source": "desy",
+        "method": "hepcrawl",
+        "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+        "datetime": "2017-05-04T17:49:07.975168"
+    },
+    "_collections": [
+        "Literature"
+    ],
+    "control_number": 1608652,
+    "public_notes": [
+        {
+            "value": "*Brief entry*"
+        }
+    ],
+    "self": {
+        "$ref": "https://labs.inspirehep.net/api/literature/1608652"
+    },
+    "number_of_pages": 6,
+    "inspire_categories": [
+        {
+            "source": "undefined",
+            "term": "Accelerators"
+        }
+    ],
+    "titles": [
+        {
+            "source": "JACoW",
+            "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser Acceleration (DLA) From the Source to Relativistic Electrons"
+        }
+    ],
+    "references": [
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1256037"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "86",
+                    "page_start": "1337",
+                    "page_end": "1389",
+                    "year": 2014,
+                    "journal_title": "Rev.Mod.Phys."
+                },
+                "title": {
+                    "title": "Dielectric laser accelerators"
+                },
+                "label": "1",
+                "authors": [
+                    {
+                        "full_name": "England, R.J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "Review of laser-driven photonic structure based particle acceleration"
+                },
+                "misc": [
+                    "J. Sel Top"
+                ],
+                "label": "2",
+                "imprint": {
+                    "publisher": "IEEE"
+                },
+                "authors": [
+                    {
+                        "full_name": "England, R.J."
+                    }
+                ],
+                "publication_info": {
+                    "journal_volume": "22",
+                    "year": 2016,
+                    "artid": "4401007",
+                    "journal_title": "Quant.Electron."
+                }
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "9",
+                    "page_start": "105",
+                    "page_end": "126",
+                    "year": 2016,
+                    "journal_title": "Sci.Technol."
+                },
+                "title": {
+                    "title": "Dielectric laser accelerators: designs, experiments, and applications"
+                },
+                "misc": [
+                    "Rev. Accel"
+                ],
+                "label": "3",
+                "authors": [
+                    {
+                        "full_name": "Wootton, K.P."
+                    },
+                    {
+                        "full_name": "McNeur, J."
+                    },
+                    {
+                        "full_name": "Leedle, K.J."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 1975
+                },
+                "label": "4",
+                "misc": [
+                    "Rutherford Laboratory, Chilton, Oxon, UK, Rep. RL-75-043, Sep"
+                ],
+                "title": {
+                    "title": "Laser Accelerators?"
+                },
+                "authors": [
+                    {
+                        "full_name": "Lawson, J.D."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1255743"
+            },
+            "reference": {
+                "isbn": "9783954501823",
+                "title": {
+                    "title": "Demonstration of electron acceleration in a laser-driven dielectric microstructure"
+                },
+                "misc": [
+                    "Proceedings of IPAC2017, Copenhagen, Denmark WEYB1 03 Novel Particle Sources and Acceleration Techniques A16 Advanced Concepts 2523 Copyright\u00a92017CC-BY-3.0andbytherespectiveauthors"
+                ],
+                "label": "5",
+                "authors": [
+                    {
+                        "full_name": "Peralta, E.A."
+                    }
+                ],
+                "publication_info": {
+                    "journal_volume": "503",
+                    "page_start": "91",
+                    "page_end": "94",
+                    "year": 2013,
+                    "journal_title": "Nature"
+                }
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1246412"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "111",
+                    "year": 2013,
+                    "artid": "134803",
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Laser-based acceleration of nonrelativistic electrons at a dielectric structure"
+                },
+                "label": "6",
+                "authors": [
+                    {
+                        "full_name": "Breuer, J."
+                    },
+                    {
+                        "full_name": "Hommelhoff, P."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "41",
+                    "page_start": "2696",
+                    "page_end": "2699",
+                    "year": 2016,
+                    "journal_title": "Opt.Lett."
+                },
+                "title": {
+                    "title": "Demonstration of acceleration of relativistic electrons at a dielectric microstructure using femtosecond laser pulses"
+                },
+                "label": "7",
+                "authors": [
+                    {
+                        "full_name": "Wootton, K.P."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "9",
+                    "page_start": "1",
+                    "page_end": "18",
+                    "year": 2016,
+                    "journal_title": "Sci.Technol."
+                },
+                "title": {
+                    "title": "Roadmap to the future"
+                },
+                "misc": [
+                    "Rev. Accel"
+                ],
+                "label": "8",
+                "authors": [
+                    {
+                        "full_name": "Colby, E.R."
+                    },
+                    {
+                        "full_name": "Len, L.K."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2015
+                },
+                "label": "9",
+                "misc": [
+                    "Optica, vol. 2, pp. 158-161"
+                ],
+                "title": {
+                    "title": "Laser acceleration and deflection of 96.3 keV electrons with a silicon dielectric structure"
+                },
+                "authors": [
+                    {
+                        "full_name": "Leedle, K.J."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "40",
+                    "page_start": "4344",
+                    "page_end": "4347",
+                    "year": 2015,
+                    "journal_title": "Opt.Lett."
+                },
+                "title": {
+                    "title": "Dielectric laser acceleration of sub-100 keV electrons with silicon dual-pillar grating structures"
+                },
+                "label": "10",
+                "authors": [
+                    {
+                        "full_name": "Leedle, K.J."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1316648"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "17",
+                    "year": 2014,
+                    "artid": "021301",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Dielectric laser acceleration of nonrelativistic electrons at a single fused silica grating structure: experimental part"
+                },
+                "label": "11",
+                "authors": [
+                    {
+                        "full_name": "Breuer, J."
+                    },
+                    {
+                        "full_name": "Graf, R."
+                    },
+                    {
+                        "full_name": "Apolonski, A."
+                    },
+                    {
+                        "full_name": "Hommellhoff, P."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1376182"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "115",
+                    "year": 2014,
+                    "artid": "094506",
+                    "journal_title": "J.Appl.Phys."
+                },
+                "title": {
+                    "title": "Tip-based source of femtosecond electron pulses at 30 keV"
+                },
+                "label": "12",
+                "authors": [
+                    {
+                        "full_name": "Hoffrogge, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "114",
+                    "year": 2015,
+                    "artid": "227601",
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Highly coherent electron beam from a laser-triggered tungsten needle tip"
+                },
+                "label": "13",
+                "authors": [
+                    {
+                        "full_name": "Ehberger, D."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "117",
+                    "year": 2016,
+                    "artid": "217601",
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Two-color coherent control of femtosecond above-threshold photoemission from a tungsten nanotip"
+                },
+                "label": "14",
+                "authors": [
+                    {
+                        "full_name": "F\u00f6rster, M."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "B49",
+                    "year": 2016,
+                    "artid": "034006",
+                    "journal_title": "J.Phys."
+                },
+                "title": {
+                    "title": "A miniaturized electron source based on dielectric laser accelerator operation at higher spatial harmonics and a nanotip photoemitter"
+                },
+                "label": "15",
+                "authors": [
+                    {
+                        "full_name": "McNeur, J."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1517002"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1812",
+                    "year": 2017,
+                    "artid": "060010",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Diamond field emitter array cathodes and possibilities of employing additive manufacturing for dielectric laser accelerating structures"
+                },
+                "label": "16",
+                "authors": [
+                    {
+                        "full_name": "Simakov, E.I."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2014
+                },
+                "label": "17",
+                "misc": [
+                    "in Proceedings of the 19th International Conference on Ultrafast Phenomena, Okinawa, Japan, Jul., paper 09.Wed.P3.37"
+                ],
+                "title": {
+                    "title": "Velocity map imaging of electrons strong-field photoemitted from Si-nanotip"
+                },
+                "authors": [
+                    {
+                        "full_name": "Ye, H."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1187896"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "15",
+                    "year": 2012,
+                    "artid": "090702",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Nanometer emittance ultralow charge beams from rf photoinjectors"
+                },
+                "label": "18",
+                "authors": [
+                    {
+                        "full_name": "Li, R.K."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1496062"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "118",
+                    "year": 2017,
+                    "artid": "154802",
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Direct measurement of sub-10 fs relativistic electron beams with ultralow emittance"
+                },
+                "label": "19",
+                "authors": [
+                    {
+                        "full_name": "Maxson, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "Flat electron beam sources for DLA accelerators"
+                },
+                "dois": [
+                    "10.1016/j.nima.2016.10.041"
+                ],
+                "misc": [
+                    "Nucl. Instrum. Methods Phys. Res., Sect. A DOI:"
+                ],
+                "label": "20",
+                "authors": [
+                    {
+                        "full_name": "Ody, A."
+                    }
+                ],
+                "publication_info": {
+                    "year": 2016
+                }
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/728235"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "9",
+                    "year": 2006,
+                    "artid": "111301",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Proposed few-optical cycle laser-driven particle accelerator structure"
+                },
+                "label": "21",
+                "authors": [
+                    {
+                        "full_name": "Plettner, T."
+                    },
+                    {
+                        "full_name": "Lu, P.P."
+                    },
+                    {
+                        "full_name": "Byer, R.L."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "58",
+                    "page_start": "1518",
+                    "page_end": "1528",
+                    "year": 2011,
+                    "journal_title": "J.Mod.Opt."
+                },
+                "title": {
+                    "title": "Electromagnetic forces in the vacuum region of laser-driven layered grating structures"
+                },
+                "label": "22",
+                "authors": [
+                    {
+                        "full_name": "Plettner, T."
+                    },
+                    {
+                        "full_name": "Byer, R.L."
+                    },
+                    {
+                        "full_name": "Montazeri, B."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1452597"
+            },
+            "reference": {
+                "title": {
+                    "title": "Elements of a dielectric laser accelerator"
+                },
+                "label": "23",
+                "arxiv_eprint": "1604.07684",
+                "authors": [
+                    {
+                        "full_name": "McNeur, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "41",
+                    "page_start": "3435",
+                    "page_end": "3438",
+                    "year": 2016,
+                    "journal_title": "Opt.Lett."
+                },
+                "title": {
+                    "title": "Transverse and longitudinal characterization of electron beams using interaction with optical nearfields"
+                },
+                "label": "24",
+                "authors": [
+                    {
+                        "full_name": "Koz\u00e1k, M."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "Dielectric laser acceleration of subrelativistic electrons by few-cycle laser pulses"
+                },
+                "dois": [
+                    "10.1016/j.nima.2016.12.051"
+                ],
+                "misc": [
+                    "Nucl. Instrum. Methods Phys. Res., Sect. A DOI:"
+                ],
+                "label": "25",
+                "authors": [
+                    {
+                        "full_name": "Koz\u00e1k, M."
+                    }
+                ],
+                "publication_info": {
+                    "year": 2016
+                }
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "26",
+                "misc": [
+                    "Nat. Commun., vol. 8, p. 14342"
+                ],
+                "title": {
+                    "title": "Optical gating and streaking of freeelectrons with sub-optical cycle precision"
+                },
+                "authors": [
+                    {
+                        "full_name": "Koz\u00e1k, M."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "82",
+                    "page_start": "3883",
+                    "page_end": "3886",
+                    "year": 1999,
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Short-pulse laser damage in transparent materials as a function of pulse duration"
+                },
+                "label": "27",
+                "authors": [
+                    {
+                        "full_name": "Tien, A.C."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1215391"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1507",
+                    "page_start": "511",
+                    "page_end": "515",
+                    "year": 2012,
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Laser damage threshold measurements of optical materials for direct laser accelerators"
+                },
+                "label": "28",
+                "authors": [
+                    {
+                        "full_name": "Soong, K."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "B47",
+                    "year": 2014,
+                    "artid": "234005",
+                    "journal_title": "J.Phys."
+                },
+                "title": {
+                    "title": "Parameter study of a laser-driven dielectric accelerator for radiobiology research"
+                },
+                "label": "29",
+                "authors": [
+                    {
+                        "full_name": "Koyama, K."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "21",
+                    "year": 2014,
+                    "artid": "023110",
+                    "journal_title": "Phys.Plasmas"
+                },
+                "title": {
+                    "title": "Numerically optimized structures for dielectric asymmetric dual-grating laser accelerators"
+                },
+                "label": "30",
+                "authors": [
+                    {
+                        "full_name": "Aimidula, A."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2013
+                },
+                "label": "31",
+                "misc": [
+                    "in Proc. 4th Int. Particle Accelerator Conference, Shanghai, China, paper TUPEA065, pp. 1283-1285, May"
+                ],
+                "title": {
+                    "title": "Design of a photonic crystal accelerator for basic radiation biology"
+                },
+                "authors": [
+                    {
+                        "full_name": "Aimidula, A."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2013
+                },
+                "label": "32",
+                "misc": [
+                    "in Proc. North American Particle Accelerator Conference, Pasadena, CA, USA, paper MOPAC033, pp. 141-143, Sep"
+                ],
+                "title": {
+                    "title": "Silica Rod Array for Laser Driven Particle Acceleration"
+                },
+                "authors": [
+                    {
+                        "full_name": "Wu, Z."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/787246"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "11",
+                    "year": 2008,
+                    "artid": "061301",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Production and characterization of attosecond electron bunch trains"
+                },
+                "label": "33",
+                "authors": [
+                    {
+                        "full_name": "Sears, C.M."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/805034"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "11",
+                    "year": 2008,
+                    "artid": "101301",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Phase stable net acceleration of electrons from a two-stage optical accelerator"
+                },
+                "label": "34",
+                "authors": [
+                    {
+                        "full_name": "Sears, C.M."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "35",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA006, this conference"
+                ],
+                "title": {
+                    "title": "A concept for phase-synchronous acceleration of microbunch trains in DLA structures at SINBAD"
+                },
+                "authors": [
+                    {
+                        "full_name": "Mayet, F."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "36",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA003, this conference"
+                ],
+                "title": {
+                    "title": "Designing a Dielectric Laser Accelerator on a Chip"
+                },
+                "authors": [
+                    {
+                        "full_name": "Niedermayer, U."
+                    },
+                    {
+                        "full_name": "Boine-Frankenheim, O."
+                    },
+                    {
+                        "full_name": "Egenolf, T."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1496772"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1777",
+                    "year": 2016,
+                    "artid": "060006",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Recent experimental results and future directions of the DLA single grating project"
+                },
+                "label": "37",
+                "authors": [
+                    {
+                        "full_name": "McNeur, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1441255"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "117",
+                    "year": 2016,
+                    "artid": "024801",
+                    "journal_title": "Phys.Rev.Lett."
+                },
+                "title": {
+                    "title": "Demonstration of Single-Shot Picosecond Time-Resolved MeV Electron Imaging Using a Compact Permanent Magnet Quadrupole Based Lens"
+                },
+                "label": "38",
+                "authors": [
+                    {
+                        "full_name": "Cesar, D."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1345992"
+            },
+            "reference": {
+                "isbn": "9783954501823",
+                "title": {
+                    "title": "High-gradient microelectromechanical system quadrupole electromagnets for particle beam focusing and steering"
+                },
+                "misc": [
+                    "WEYB1 Proceedings of IPAC2017, Copenhagen, Denmark 2524 Copyright\u00a92017CC-BY-3.0andbytherespectiveauthors 03 Novel Particle Sources and Acceleration Techniques A16 Advanced Concepts"
+                ],
+                "label": "39",
+                "authors": [
+                    {
+                        "full_name": "Harrison, J."
+                    }
+                ],
+                "publication_info": {
+                    "journal_volume": "18",
+                    "year": 2015,
+                    "artid": "023501",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                }
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1215390"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1507",
+                    "page_start": "516",
+                    "page_end": "520",
+                    "year": 2012,
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Grating-based deflecting, focusing, and diagnostic dielectric laser accelerator structures"
+                },
+                "label": "40",
+                "authors": [
+                    {
+                        "full_name": "Soong, K."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1516994"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1812",
+                    "year": 2017,
+                    "artid": "060001",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Dielectric laser acceleration and focusing using short-pulse lasers with an arbitrary laser phase distribution"
+                },
+                "label": "41",
+                "authors": [
+                    {
+                        "full_name": "Wootton, K.P."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "239",
+                    "page_start": "742",
+                    "page_end": "747",
+                    "year": 1988,
+                    "journal_title": "Science"
+                },
+                "title": {
+                    "title": "Diode Laser-Pumped Solid-State Lasers"
+                },
+                "label": "42",
+                "authors": [
+                    {
+                        "full_name": "Byer, R.L."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2007
+                },
+                "label": "43",
+                "misc": [
+                    "Optics & Laser Europe, vol. 154, pp. 26-27"
+                ],
+                "title": {
+                    "title": "Industrial markets beckon for high-power diode lasers"
+                },
+                "authors": [
+                    {
+                        "full_name": "Martinsen, R."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2016
+                },
+                "label": "44",
+                "misc": [
+                    "in Proceedings of Conference on Lasers and Electro-Optics, San Jose, CA, USA, Jun., paper SF1I.7"
+                ],
+                "title": {
+                    "title": "Compact ultrashort pulsed 2.05 \u03bcm all-PM fiber laser for dielectric laser acceleration of nonrelativistic electrons"
+                },
+                "authors": [
+                    {
+                        "full_name": "Hoogland, H."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2014
+                },
+                "label": "45",
+                "misc": [
+                    "US Patent 8,878,464, Nov. 04"
+                ],
+                "title": {
+                    "title": "Laser accelerator driven particle brachytherapy devices, systems and methods"
+                },
+                "authors": [
+                    {
+                        "full_name": "Clayton, J.E."
+                    },
+                    {
+                        "full_name": "Lovoi, P.A."
+                    },
+                    {
+                        "full_name": "Leemans, W."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2016
+                },
+                "label": "46",
+                "misc": [
+                    "Optica, vol. 3, pp. 816-822"
+                ],
+                "title": {
+                    "title": "Kagome-fiber-based pulse compression of mid-infrared picosecond pulses from a Ho:YLF amplifier"
+                },
+                "authors": [
+                    {
+                        "full_name": "Murari, K."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1496771"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1777",
+                    "year": 2016,
+                    "artid": "060005",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Novel fabrication of 3D woodpile accelerator by silicon membrane stacking"
+                },
+                "label": "47",
+                "authors": [
+                    {
+                        "full_name": "Lee, C."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/609165"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "49",
+                    "page_start": "2857",
+                    "page_end": "2867",
+                    "year": 2002,
+                    "journal_title": "IEEE Trans.Nucl.Sci."
+                },
+                "title": {
+                    "title": "Gamma radiation studies on optical materials"
+                },
+                "label": "48",
+                "authors": [
+                    {
+                        "full_name": "Colby, E."
+                    },
+                    {
+                        "full_name": "Lum, G."
+                    },
+                    {
+                        "full_name": "Plettner, T."
+                    },
+                    {
+                        "full_name": "Spencer, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1332591"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "17",
+                    "year": 2014,
+                    "artid": "081301",
+                    "journal_title": "Phys.Rev.ST Accel.Beams"
+                },
+                "title": {
+                    "title": "Coupling power into accelerating mode of a three-dimensional silicon woodpile photonic band-gap waveguide"
+                },
+                "label": "49",
+                "authors": [
+                    {
+                        "full_name": "Wu, Z."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2015
+                },
+                "label": "50",
+                "misc": [
+                    "in Proceedings of IPAC\u201915, Richmond, VA, USA, May, paper WEPJE013, p. 2702-2704"
+                ],
+                "title": {
+                    "title": "A new accelerating mode in a silicon woodpile laser accelerator and its high-efficiency power coupler design"
+                },
+                "authors": [
+                    {
+                        "full_name": "Wu, Z."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "A traveling-wave forward coupler design for a new accelerating mode in a silicon woodpile accelerator"
+                },
+                "misc": [
+                    "J. Sel Top"
+                ],
+                "label": "51",
+                "imprint": {
+                    "publisher": "IEEE"
+                },
+                "authors": [
+                    {
+                        "full_name": "Wu, Z."
+                    }
+                ],
+                "publication_info": {
+                    "journal_volume": "22",
+                    "year": 2016,
+                    "artid": "4400909",
+                    "journal_title": "Quant.Electron."
+                }
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "37",
+                    "page_start": "975",
+                    "page_end": "977",
+                    "year": 2012,
+                    "journal_title": "Opt.Lett."
+                },
+                "title": {
+                    "title": "Design of a subnanometer resolution beam position monitor for dielectric laser accelerators"
+                },
+                "label": "52",
+                "authors": [
+                    {
+                        "full_name": "Soong, K."
+                    },
+                    {
+                        "full_name": "Byer, R.L."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "39",
+                    "page_start": "4747",
+                    "page_end": "4750",
+                    "year": 2014,
+                    "journal_title": "Opt.Lett."
+                },
+                "title": {
+                    "title": "Electron beam position monitor for a dielectric microaccelerator"
+                },
+                "label": "53",
+                "authors": [
+                    {
+                        "full_name": "Soong, K."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2016
+                },
+                "label": "54",
+                "misc": [
+                    "Ph.D. thesis, Stanford University, Stanford, CA, USA"
+                ],
+                "title": {
+                    "title": "Laser acceleration and deflection of sub-100 keV electrons with silicon dielectric laser accelerator structures"
+                },
+                "authors": [
+                    {
+                        "full_name": "Leedle, K.J."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "55",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA002, this conference"
+                ],
+                "title": {
+                    "title": "Simulations of DLA Grating Structures in the Frequency Domain"
+                },
+                "authors": [
+                    {
+                        "full_name": "Egenolf, T."
+                    },
+                    {
+                        "full_name": "Niedermayer, U."
+                    },
+                    {
+                        "full_name": "Boine-Frankenheim, O."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1496779"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1777",
+                    "year": 2016,
+                    "artid": "060014",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Experimental results from the microaccelerator platform, a resonant slab-symmetric dielectric laser accelerator"
+                },
+                "label": "56",
+                "authors": [
+                    {
+                        "full_name": "McNeur, J."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1496777"
+            },
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "1777",
+                    "year": 2016,
+                    "artid": "060012",
+                    "journal_title": "AIP Conf.Proc."
+                },
+                "title": {
+                    "title": "Fabrication of optical scale dielectric laser accelerators: challenges, tolerances and other scary tales from the foundry"
+                },
+                "label": "57",
+                "authors": [
+                    {
+                        "full_name": "Travish, G."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "journal_volume": "55",
+                    "page_start": "2634",
+                    "page_end": "2638",
+                    "year": 2016,
+                    "journal_title": "Appl.Opt."
+                },
+                "title": {
+                    "title": "Guided mode resonance, resonant grating thickness and finite-size effects in dielectric laser acceleration structures"
+                },
+                "label": "58",
+                "authors": [
+                    {
+                        "full_name": "Szczepkowicz, A."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "Design of racetrack ring resonator based dielectric laser accelerators"
+                },
+                "label": "59",
+                "arxiv_eprint": "1701.08945",
+                "authors": [
+                    {
+                        "full_name": "Deng, H."
+                    }
+                ]
+            }
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/literature/1598515"
+            },
+            "reference": {
+                "title": {
+                    "title": "Method for computationally efficient design of dielectric laser accelerator structures"
+                },
+                "label": "60",
+                "arxiv_eprint": "1705.02392",
+                "authors": [
+                    {
+                        "full_name": "Hughes, T."
+                    }
+                ]
+            },
+            "curated_relation": false
+        },
+        {
+            "reference": {
+                "title": {
+                    "title": "Full-scale simulations of dielectric laser-driven accelerators"
+                },
+                "misc": [
+                    "in Proc. 14th Int. Conference on Numerical Simulation of Optoelectronic Devices, Palma de Mallorca, Spain Piscataway, NJ, USA), pp. 113-114, Sep"
+                ],
+                "label": "61",
+                "imprint": {
+                    "publisher": "IEEE"
+                },
+                "authors": [
+                    {
+                        "full_name": "Cowan, B.M."
+                    }
+                ],
+                "publication_info": {
+                    "year": 2014
+                }
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "62",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA020, this conference"
+                ],
+                "title": {
+                    "title": "Dielectric accelerators driven by pulse-fronttilted lasers"
+                },
+                "authors": [
+                    {
+                        "full_name": "Wei, Y."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "63",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA007, this conference"
+                ],
+                "title": {
+                    "title": "Simulations and plans for a dielectric laser acceleration experiment at SINBAD"
+                },
+                "authors": [
+                    {
+                        "full_name": "Mayet, F."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "publication_info": {
+                    "year": 2017
+                },
+                "label": "64",
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper THPAB013, this conference"
+                ],
+                "title": {
+                    "title": "A fast particle tracking tool for the simulation of dielectric laser accelerators"
+                },
+                "authors": [
+                    {
+                        "full_name": "Mayet, F."
+                    },
+                    {
+                        "full_name": "Kuropka, W."
+                    }
+                ]
+            }
+        },
+        {
+            "reference": {
+                "isbn": "9783954501823",
+                "title": {
+                    "title": "Simulation of Many Period Grating-Based Dielectric Laser Accelerators for Electrons"
+                },
+                "misc": [
+                    "presented at the 8th Int. Particle Accelerator Conf. (IPAC\u201917), Copenhagen, Denmark, May, paper WEPVA005, this conference. Proceedings of IPAC, Copenhagen, Denmark WEYB1 03 Novel Particle Sources and Acceleration Techniques A16 Advanced Concepts 2525 Copyright\u00a9CC-BY-3.0andbytherespectiveauthors"
+                ],
+                "label": "65",
+                "authors": [
+                    {
+                        "full_name": "Kuropka, W."
+                    },
+                    {
+                        "full_name": "Mayet, F."
+                    },
+                    {
+                        "full_name": "Assmann, J.R.W."
+                    },
+                    {
+                        "full_name": "Dorda, U."
+                    }
+                ],
+                "publication_info": {
+                    "year": 2017
+                }
+            }
+        }
+    ],
+    "_fft": [
+        {
+            "creation_datetime": "2017-07-05T11:18:46",
+            "description": "Fulltext",
+            "format": ".pdf",
+            "filename": "dummy",
+            "version": 1,
+            "path": "/tmp/file_urls/full/da046f27eec64082b97c2964877504ad94302667.pdf",
+            "type": "Main"
+        },
+        {
+            "creation_datetime": "2017-06-27T09:43:17",
+            "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
+            "format": ".txt",
+            "filename": "test_fft_1",
+            "version": 1,
+            "path": "/tmp/file_urls/full/809d9d2bebcea6eee5e400e3c49b31795a3acc3d.txt",
+            "type": "Main"
+        },
+        {
+            "creation_datetime": "2017-06-27T09:43:16",
+            "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
+            "format": ".txt",
+            "filename": "test_fft_2",
+            "version": 1,
+            "path": "/tmp/file_urls/full/1d4b0a4eebdd03b95f882fa7feb9d3f06681ec50.txt",
+            "type": "Main"
+        }
+    ],
+    "legacy_creation_date": "2017-07-05",
+    "authors": [
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/1284350"
+            },
+            "ids": [
+                {
+                    "value": "K.P.Wootton.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Wootton, Kent"
+        },
+        {
+            "raw_affiliations": [
+                {
+                    "value": "Deutsches Elektronen-Synchrotron"
+                }
+            ],
+            "curated_relation": true,
+            "ids": [
+                {
+                    "value": "INSPIRE-00331280",
+                    "schema": "INSPIRE ID"
+                }
+            ],
+            "full_name": "Assmann, Ralph",
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/1017955"
+            }
+        },
+        {
+            "ids": [
+                {
+                    "value": "D.Black.4",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Black, Dylan"
+        },
+        {
+            "ids": [
+                {
+                    "value": "R.L.Byer.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Byer, Robert"
+        },
+        {
+            "ids": [
+                {
+                    "value": "B.Cowan.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Cowan, Benjamin"
+        },
+        {
+            "ids": [
+                {
+                    "value": "H.Deng.3",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Deng, Huiyang"
+        },
+        {
+            "ids": [
+                {
+                    "value": "T.Egenolf.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Egenolf, Thilo"
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/1076749"
+            },
+            "ids": [
+                {
+                    "value": "R.J.England.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "England, Robert"
+        },
+        {
+            "ids": [
+                {
+                    "value": "S.Fan.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Fan, Shanhui"
+        },
+        {
+            "ids": [
+                {
+                    "value": "J.Harris.4",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Harris, James"
+        },
+        {
+            "raw_affiliations": [
+                {
+                    "value": "Deutsches Elektronen-Synchrotron"
+                }
+            ],
+            "ids": [
+                {
+                    "value": "I.Hartl.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Hartl, Ingmar"
+        },
+        {
+            "ids": [
+                {
+                    "value": "P.Hommelhoff.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Hommelhoff, Peter"
+        },
+        {
+            "ids": [
+                {
+                    "value": "T.Hughes.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Hughes, Tyler"
+        },
+        {
+            "ids": [
+                {
+                    "value": "J.Illmer.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Illmer, Johannes"
+        },
+        {
+            "ids": [
+                {
+                    "value": "R.Ischebeck.3",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Ischebeck, Rasmus"
+        },
+        {
+            "raw_affiliations": [
+                {
+                    "value": "Deutsches Elektronen-Synchrotron"
+                },
+                {
+                    "value": "Centre for Free-Electron Laser Science"
+                }
+            ],
+            "curated_relation": true,
+            "ids": [
+                {
+                    "value": "0000-0001-8829-5461",
+                    "schema": "ORCID"
+                },
+                {
+                    "value": "F.X.Kartner.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "K\u00e4rtner, Franz",
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/1040341"
+            }
+        },
+        {
+            "ids": [
+                {
+                    "value": "W.Kuropka.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Kuropka, Willi"
+        },
+        {
+            "ids": [
+                {
+                    "value": "Y.J.Lee.4",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Lee, Yun Jo"
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/1452755"
+            },
+            "ids": [
+                {
+                    "value": "Ang.Li.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Li, Ang"
+        },
+        {
+            "raw_affiliations": [
+                {
+                    "value": "Deutsches Elektronen-Synchrotron"
+                }
+            ],
+            "ids": [
+                {
+                    "value": "F.Mayet.2",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Mayet, Frank"
+        },
+        {
+            "ids": [
+                {
+                    "value": "J.C.Mcneur.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "McNeur, Josh"
+        },
+        {
+            "ids": [
+                {
+                    "value": "A.Mittelbach.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Mittelbach, Anna"
+        },
+        {
+            "ids": [
+                {
+                    "value": "P.Musumeci.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Musumeci, Pietro"
+        },
+        {
+            "ids": [
+                {
+                    "value": "U.Niedermayer.2",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Niedermayer, Uwe"
+        },
+        {
+            "ids": [
+                {
+                    "value": "M.Qi.2",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Qi, Minghao"
+        },
+        {
+            "record": {
+                "$ref": "https://labs.inspirehep.net/api/authors/991617"
+            },
+            "ids": [
+                {
+                    "value": "L.Z.Rivkin.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Rivkin, Leonid"
+        },
+        {
+            "raw_affiliations": [
+                {
+                    "value": "Deutsches Elektronen-Synchrotron"
+                }
+            ],
+            "ids": [
+                {
+                    "value": "A.Ruehl.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "R\u00fchl, Axel"
+        },
+        {
+            "ids": [
+                {
+                    "value": "N.Sapra.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Sapra, Neil"
+        },
+        {
+            "ids": [
+                {
+                    "value": "N.Schoenenberger.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Sch\u00f6nenberger, Norbert"
+        },
+        {
+            "ids": [
+                {
+                    "value": "O.Solgaard.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Solgaard, Olav"
+        },
+        {
+            "ids": [
+                {
+                    "value": "A.Tafel.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Tafel, Alex"
+        },
+        {
+            "ids": [
+                {
+                    "value": "S.G.Tantawi.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Tantawi, Sami"
+        },
+        {
+            "ids": [
+                {
+                    "value": "J.Vuckovic.1",
+                    "schema": "INSPIRE BAI"
+                }
+            ],
+            "full_name": "Vuckovic, Jelena"
+        }
+    ],
+    "texkeys": [
+        "Wootton:2017zzc"
+    ],
+    "publication_info": [
+        {
+            "parent_isbn": "9783954501823"
+        },
+        {
+            "page_start": "2520",
+            "page_end": "2525",
+            "year": 2017
+        }
+    ],
+    "dois": [
+        {
+            "value": "10.18429/JACoW-IPAC2017-WEYB1"
+        },
+        {
+            "source": "Deutsches Elektronen-Synchrotron",
+            "value": "10.3204/PUBDB-2017-05953"
+        }
+    ],
+    "document_type": [
+        "conference paper"
+    ],
+    "abstracts": [
+        {
+            "source": "Deutsches Elektronen-Synchrotron",
+            "value": "Dielectric laser acceleration of electrons has recently been demonstrated with significantly higher accelerating gradients than other structure-based linear accelerators. Towards the development of an integrated 1 MeV electron accelerator based on dielectric laser accelerator technologies, development in several relevant technologies is needed. In this work, recent developments on electron sources, bunching, accelerating, focussing, deflecting and laser coupling structures are reported. With an eye to the near future, components required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond electron bunches are outlined."
+        }
+    ],
+    "$schema": "hep.json",
+    "imprints": [
+        {
+            "date": "2017"
+        }
+    ]
+}]

@@ -54,7 +54,7 @@
             <subfield code="a">FFT/test_fft_1.txt</subfield>
             <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
             <subfield code="f">.txt</subfield>
-            <subfield code="n">cNFW_rogue_curves</subfield>
+            <subfield code="n">test_fft_1</subfield>
             <subfield code="r"/>
             <subfield code="s">2017-06-27 09:43:17</subfield>
             <subfield code="t">Main</subfield>
@@ -65,7 +65,7 @@
             <subfield code="a">FFT/test_fft_2.txt</subfield>
             <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
             <subfield code="f">.txt</subfield>
-            <subfield code="n">scalingRelations_DutBeh_DC14_all_Oh</subfield>
+            <subfield code="n">test_fft_2</subfield>
             <subfield code="r"/>
             <subfield code="s">2017-06-27 09:43:16</subfield>
             <subfield code="t">Main</subfield>
@@ -127,7 +127,7 @@
             <subfield code="a">FFT/test_fft_1.txt</subfield>
             <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
             <subfield code="f">.txt</subfield>
-            <subfield code="n">cNFW_rogue_curves</subfield>
+            <subfield code="n">test_fft_1</subfield>
             <subfield code="r"/>
             <subfield code="s">2017-06-27 09:43:17</subfield>
             <subfield code="t">Main</subfield>
@@ -138,7 +138,7 @@
             <subfield code="a">FFT/test_fft_2.txt</subfield>
             <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
             <subfield code="f">.txt</subfield>
-            <subfield code="n">scalingRelations_DutBeh_DC14_all_Oh</subfield>
+            <subfield code="n">test_fft_2</subfield>
             <subfield code="r"/>
             <subfield code="s">2017-06-27 09:43:16</subfield>
             <subfield code="t">Main</subfield>
