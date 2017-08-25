@@ -37,7 +37,7 @@ HEPCrawl.
    operations
    developers_guide
    operations
-   guide
+   tests
 
 
 API Reference
