@@ -9,10 +9,50 @@
 .. currentmodule:: hepcrawl
 
 
+Testing HEPcrawl
+================
+
+Writing tests for HEPcrawl
+--------------------------
+
+In HEPcrawl currently there are unit and some functional tests. In general, in unit tests we want to test some parts of
+the project and not all the project itself. In order to test our project end to end we write functional tests. A
+functional test simulates the whole environment that a ``spider`` runs.
+
+For example, let's have a spider that crawls from FTP server and creates a record that in the end pushes to `Inspire-next
+<https://github.com/inspirehep/inspire-next>`_ project. For the functional test we will need:
+
+1. An FTP server, which could be a docker container with mounted volumes.
+2. A celery worker, Hepcrawl docker container.
+3. A rabbitmq broker, rabbitmq docker container.
+4. A scrapyd service, Hepcrawl docker container.
+5. A Hepcrawl docker container to execute the test.
+
+We can easily combine the above docker containers with specific settings by using simply a ``docker-compose`` file.
+
+Once we have an idea on how our functional test should be we will use the
+``hepcrawl.testlib.celery_monitor.CeleryMonitor`` class in order to handle all the pushed records to ``Inspire-next``
+project, which should be mocked by using the ``hepcrawl.teslib.tasks.submit_results`` celery task. For further
+details about settings and example of functional test please refer to ``docker-compose.test.yml`` file.
+
+.. tip::
+
+    It is very important to write two kind of tests:
+
+        * the normal senario, it should contain normal/expected data,
+        * the extreme senario, it should contain invalid/damaged records, environment issues etc.
+
+    In this way we can cover more senarios and catch future issues that may be unable to catch later.
+
+.. tip::
+
+    Try to create some tests that run back to back in order to simulate real a situation.
+
+
 Useful tools
 ============
 
-Testing your spider
+Running your spider
 -------------------
 
 Thanks to the command line tools provided by Scrapy, we can easily test the
@@ -164,9 +204,24 @@ For example the above command's output is the following log:
     If we run the spider using the ``scrapyd`` application then this log file is stored in a
     directory like: ``~/path_to_repo/hepcrawl/logs/[project=hepcrawl]/[spider=desy]/[job_id].log``
 
-Inside the log file we can find further information about the execution of a ``spider`` and other
-details concerning the ``extensions``, ``pipelines``, spider and download ``middlewares``,
-statistics and other useful information.
+.. tip::
+
+    Try to set logging logic in the project.
+
+    If we need to add logs in a spider we just write:
+
+    .. code-block:: python
+
+        self.log('This is a log message from a spider: Try to crawl local file: {variable}'.format(**vars))
+
+
+    If we need to add logs in pipeline we have to use:
+
+    .. code-block:: python
+
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.log(logging.INFO, 'This is a log message from pipelines: {variable}'.format(**vars))
 
 
 Using debugger
