@@ -19,9 +19,9 @@ from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
 from . import StatefulSpider
-from ..extractors.jats import Jats
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..parsers import JatsParser
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
@@ -32,7 +32,7 @@ from ..utils import (
 )
 
 
-class WorldScientificSpider(StatefulSpider, Jats, XMLFeedSpider):
+class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
     """World Scientific Proceedings crawler.
 
     This spider connects to a given FTP hosts and downloads zip files with
@@ -191,95 +191,17 @@ class WorldScientificSpider(StatefulSpider, Jats, XMLFeedSpider):
 
     def parse_node(self, response, node):
         """Parse a WSP XML file into a HEP record."""
-        node.remove_namespaces()
-        article_type = node.xpath('@article-type').extract()
-        self.log("Got article_type {0}".format(article_type))
-        if (
-            article_type is None or
-            article_type[0] not in self.allowed_article_types
-        ):
+
+        record = JatsParser(node, source='WSP')
+        self.log("Got article_type {0}".format(record.article_type))
+
+        if record.article_type not in self.allowed_article_types:
             # Filter out non-interesting article types
             return
 
-        record = HEPLoader(item=HEPRecord(), selector=node, response=response)
-        if article_type in ['correction',
-                            'addendum']:
-            record.add_xpath(
-                'related_article_doi',
-                "//related-article[@ext-link-type='doi']/@href",
-            )
-            record.add_value('journal_doctype', article_type)
-
-        dois = node.xpath("//article-id[@pub-id-type='doi']/text()").extract()
-        record.add_dois(dois_values=dois)
-        record.add_xpath('page_nr', "//counts/page-count/@count")
-
-        record.add_xpath('abstract', '//abstract[1]')
-        record.add_xpath('title', '//article-title/text()')
-        record.add_xpath('subtitle', '//subtitle/text()')
-
-        record.add_value('authors', self._get_authors(node))
-        record.add_xpath('collaborations', "//contrib/collab/text()")
-
-        free_keywords, classification_numbers = self._get_keywords(node)
-        record.add_value('free_keywords', free_keywords)
-        record.add_value('classification_numbers', classification_numbers)
-
-        record.add_value('date_published', self._get_published_date(node))
-
-        # TODO: Special journal title handling
-        # journal, volume = fix_journal_name(journal, self.journal_mappings)
-        # volume += get_value_in_tag(self.document, 'volume')
-        journal_title = '//abbrev-journal-title/text()|//journal-title/text()'
-        record.add_xpath('journal_title', journal_title)
-        record.add_xpath('journal_issue', '//issue/text()')
-        record.add_xpath('journal_volume', '//volume/text()')
-        record.add_xpath('journal_artid', '//elocation-id/text()')
-
-        record.add_xpath('journal_fpage', '//fpage/text()')
-        record.add_xpath('journal_lpage', '//lpage/text()')
-
-        published_date = self._get_published_date(node)
-        record.add_value('journal_year', int(published_date[:4]))
-        record.add_value('date_published', published_date)
-
-        record.add_xpath('copyright_holder', '//copyright-holder/text()')
-        record.add_xpath('copyright_year', '//copyright-year/text()')
-        record.add_xpath('copyright_statement', '//copyright-statement/text()')
-        record.add_value('copyright_material', 'publication')
-
-        license = get_licenses(
-            license_url=node.xpath(
-                '//license/license-p/ext-link/@href').extract_first(),
-            license_text=node.xpath(
-                '//license/license-p/ext-link/text()').extract_first(),
-        )
-        record.add_value('license', license)
-
-        record.add_value(
-            'collections',
-            self._get_collections(node, article_type, journal_title),
-        )
-
         parsed_item = ParsedItem(
-            record=dict(record.load_item()),
-            record_format='hepcrawl',
+            record=record.parse(),
+            record_format='hep',
         )
 
         return parsed_item
-
-    @staticmethod
-    def _get_collections(node, article_type, current_journal_title):
-        """Return this articles' collection."""
-        conference = node.xpath('.//conference').extract()
-        if (
-            conference or
-            current_journal_title == (
-                "International Journal of Modern Physics: Conference Series"
-            )
-        ):
-            return ['HEP', 'ConferencePaper']
-        elif article_type == "review-article":
-            return ['HEP', 'Review']
-        else:
-            return ['HEP', 'Published']

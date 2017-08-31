@@ -1,0 +1,26 @@
+abstract: Almheiri, Dong, and Harlow [J. High Energy Phys.04 (2015) 163.] proposed a highly illuminating connection between the <math display="inline"><mrow><mi>AdS</mi><mo>/</mo><mi>CFT</mi></mrow></math> holographic correspondence and operator algebra quantum error correction (OAQEC). Here, we explore this connection further. We derive some general results about OAQEC, as well as results that apply specifically to quantum codes that admit a holographic interpretation. We introduce a new quantity called price, which characterizes the support of a protected logical system, and find constraints on the price and the distance for logical subalgebras of quantum codes. We show that holographic codes defined on bulk manifolds with asymptotically negative curvature exhibit uberholography, meaning that a bulk logical algebra can be supported on a boundary region with a fractal structure. We argue that, for holographic codes defined on bulk manifolds with asymptotically flat or positive curvature, the boundary physics must be highly nonlocal, an observation with potential implications for black holes and for quantum gravity in AdS space at distance scales that are small compared to the AdS curvature radius.
+artid: 021022
+date: 2017-04-01
+year: 2017
+issue: 2
+volume: 7
+publisher: American Physical Society
+journal_title: Physical Review X
+authors:
+- full_name: Pastawski, Fernando
+  raw_affiliations:
+  - source: American Physical Society
+    value: Dahlem Center for Complex Quantum Systems, Freie Universität Berlin, 14195 Berlin, Germany
+- full_name: Preskill, John
+  raw_affiliations:
+  - source: American Physical Society
+    value: Institute for Quantum Information and Matter, California Institute of Technology, Pasadena, California 91125, USA
+copyright_holder: authors
+copyright_statement: Published by the American Physical Society
+copyright_year: 2017
+document_type: article
+material: publication
+license_url: https://creativecommons.org/licenses/by/4.0/
+license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 4.0 International license. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI.
+article_type: research-article
+is_conference: false
