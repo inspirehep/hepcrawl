@@ -146,6 +146,28 @@ def get_first(iterable, default=None):
     return default
 
 
+def best_match(iterable, default=None):
+    """Get first truthy value from iterable, fall back to default.
+
+    This is useful to express a preference among several selectors,
+    independently from the position where the matches appear in the document.
+
+    Examples:
+
+        >>> from scrapy import Selector
+        >>> from hepcrawl.utils import best_match
+        >>> document = '<root><bar>first</bar><foo>second</foo></root>'
+        >>> selector = Selector(text=document)
+        >>> selector.xpath('string(//foo|//bar)').extract_first()
+        u'first'
+        >>> best_match([selector.xpath('string(//foo)'),
+        ...             selector.xpath('string(//bar)')]).extract_first()
+        u'second'
+    """
+    matches = (val for val in iterable if val)
+    return next(matches, default)
+
+
 def collapse_initials(name):
     """Remove the space between initials, eg ``T. A.`` --> ``T.A.``"""
     if len(name.split(".")) > 1:

@@ -1,0 +1,15 @@
+abstract: <p>Almheiri, Dong, and Harlow [<mixed-citation publication-type="journal"><source>J. High Energy Phys.</source><issue>04</issue> (<volume>2015</volume>) <page-range>163</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP04(2015)163</pub-id></mixed-citation>] proposed a highly illuminating connection between the <inline-formula><math display="inline"><mrow><mi>AdS</mi><mo>/</mo><mi>CFT</mi></mrow></math></inline-formula> holographic correspondence and operator algebra quantum error correction (OAQEC). Here, we explore this connection further. We derive some general results about OAQEC, as well as results that apply specifically to quantum codes that admit a holographic interpretation. We introduce a new quantity called price, which characterizes the support of a protected logical system, and find constraints on the price and the distance for logical subalgebras of quantum codes. We show that holographic codes defined on bulk manifolds with asymptotically negative curvature exhibit uberholography, meaning that a bulk logical algebra can be supported on a boundary region with a fractal structure. We argue that, for holographic codes defined on bulk manifolds with asymptotically flat or positive curvature, the boundary physics must be highly nonlocal, an observation with potential implications for black holes and for quantum gravity in AdS space at distance scales that are small compared to the AdS curvature radius.</p>
+issue: 2
+volume: 7
+publisher: American Physical Society
+journal_title: Physical Review X
+authors:
+- full_name: Pastawski, Fernando
+  raw_affiliations:
+  - source: American Physical Society
+    value: Dahlem Center for Complex Quantum Systems, Freie Universität Berlin, 14195 Berlin, Germany
+- full_name: Preskill, John
+  raw_affiliations:
+  - source: American Physical Society
+    value: Institute for Quantum Information and Matter, California Institute of Technology, Pasadena, California 91125, USA
+
