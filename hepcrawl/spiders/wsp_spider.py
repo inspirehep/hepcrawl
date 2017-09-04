@@ -43,22 +43,27 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
        on the remote server and downloads them to a designated local folder,
        using ``WorldScientificSpider.start_requests()``.
     2. Then the ZIP file is unpacked and it lists all the XML files found
-       inside, via ``WorldScientificSpider.handle_package()``. Note the callback from
-       ``WorldScientificSpider.start_requests()``.
-    3. Finally, now each XML file is parsed via ``WorldScientificSpider.parse_node()``.
+       inside, via ``WorldScientificSpider.handle_package()``. Note the
+       callback from ``WorldScientificSpider.start_requests()``.
+    3. Finally, now each XML file is parsed via
+       ``WorldScientificSpider.parse_node()``.
 
 
     Example:
         To run a crawl, you need to pass FTP connection information via
         ``ftp_host`` and ``ftp_netrc``::
 
-            $ scrapy crawl WSP -a 'ftp_host=ftp.example.com' -a 'ftp_netrc=/path/to/netrc'
+            $ scrapy crawl \\
+                WSP \\
+                -a 'ftp_host=ftp.example.com' \\
+                -a 'ftp_netrc=/path/to/netrc'
     """
 
     name = 'WSP'
     custom_settings = {}
     start_urls = []
-    iterator = 'iternodes'  # This is actually unnecessary, since it's the default value
+    # This is actually unnecessary, since it's the default value
+    iterator = 'iternodes'
     itertag = 'article'
 
     allowed_article_types = [
@@ -88,7 +93,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.tmp_dir = tmp_dir or tempfile.mkdtemp(suffix='_extracted_zip', prefix='wsp_')
+        self.tmp_dir = (
+            tmp_dir or
+            tempfile.mkdtemp(suffix='_extracted_zip', prefix='wsp_')
+        )
         self.package_path = package_path
 
     def start_requests(self):
@@ -100,9 +108,15 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
             )
 
             for file_path in new_files_paths:
-                yield Request("file://{0}".format(file_path), callback=self.handle_package_file)
+                yield Request(
+                    "file://{0}".format(file_path),
+                    callback=self.handle_package_file,
+                )
         else:
-            ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
+            ftp_host, ftp_params = ftp_connection_info(
+                self.ftp_host,
+                self.ftp_netrc,
+            )
 
             new_files_paths = ftp_list_files(
                 self.ftp_folder,
@@ -157,7 +171,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         node.remove_namespaces()
         article_type = node.xpath('@article-type').extract()
         self.log("Got article_type {0}".format(article_type))
-        if article_type is None or article_type[0] not in self.allowed_article_types:
+        if (
+            article_type is None or
+            article_type[0] not in self.allowed_article_types
+        ):
             # Filter out non-interesting article types
             return
 
@@ -216,7 +233,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         )
         record.add_value('license', license)
 
-        record.add_value('collections', self._get_collections(node, article_type, journal_title))
+        record.add_value(
+            'collections',
+            self._get_collections(node, article_type, journal_title),
+        )
 
         parsed_item = ParsedItem(
             record=dict(record.load_item()),
@@ -230,10 +250,10 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         """Return this articles' collection."""
         conference = node.xpath('.//conference').extract()
         if (
-                conference
-                or current_journal_title == (
-                        "International Journal of Modern Physics: Conference Series"
-                )
+            conference or
+            current_journal_title == (
+                "International Journal of Modern Physics: Conference Series"
+            )
         ):
             return ['HEP', 'ConferencePaper']
         elif article_type == "review-article":
