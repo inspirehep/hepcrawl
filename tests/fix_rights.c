@@ -11,7 +11,6 @@
 char *VENV_PATH = "/hepcrawl_venv/";
 char *CODE_PATH = "/code/";
 char *TMP_PATH = "/tmp/";
-char *VAR_PATH = "/var/";
 
 
 int main (int argc, char *argv[]) {
@@ -31,7 +30,7 @@ int main (int argc, char *argv[]) {
     if (argc != 3) {
         fprintf(
             stderr,
-            "Usage: %s --virtualenv|--codedir|--tmpdir|--var <user>:<group>\n",
+            "Usage: %s --virtualenv|--codedir|--tmpdir <user>:<group>\n",
             argv[0]
         );
         exit(EXIT_FAILURE);
@@ -49,14 +48,11 @@ int main (int argc, char *argv[]) {
     } else if (strcmp(argv[1], "--tmpdir") == 0) {
         // tmp dir permissions
         chown_argv[3] = TMP_PATH;
-    } else if (strcmp(argv[1], "--vardir") == 0) {
-        // var dir permissions
-        chown_argv[3] = VAR_PATH;
     } else {
         fprintf(stderr, "Bad option %s.", argv[1]);
         fprintf(
             stderr,
-            "Usage: %s --virtualenv|--codedir|--tmpdir|--vardir <user>:<group>\n",
+            "Usage: %s --virtualenv|--codedir|--tmpdir <user>:<group>\n",
             argv[0]
         );
         exit(EXIT_FAILURE);
