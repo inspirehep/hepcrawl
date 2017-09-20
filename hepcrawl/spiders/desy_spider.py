@@ -178,13 +178,18 @@ class DesySpider(Spider):
             yield request
 
     @staticmethod
-    def _get_full_uri(current_path, base_url, schema, hostname=''):
+    def _get_full_uri(current_path, base_url, schema, hostname=None):
+        hostname = hostname or ''
         if os.path.isabs(current_path):
             full_path = current_path
         else:
             full_path = os.path.join(base_url, current_path)
 
-        return '{schema}://{hostname}{full_path}'.format(**vars())
+        return '{schema}://{hostname}{full_path}'.format(
+            schema=schema,
+            hostname=hostname,
+            full_path=full_path,
+        )
 
     def parse(self, response):
         """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
@@ -208,8 +213,12 @@ class DesySpider(Spider):
             url_schema = 'file'
             hostname = None
 
+        self.log('Getting marc xml records...')
         marcxml_records = self._get_marcxml_records(response.body)
+        self.log('Got %d marc xml records' % len(marcxml_records))
+        self.log('Getting hep records...')
         hep_records = self._hep_records_from_marcxml(marcxml_records)
+        self.log('Got %d hep records' % len(hep_records))
 
         for hep_record in hep_records:
             list_file_urls = [
@@ -222,12 +231,14 @@ class DesySpider(Spider):
                 for fft_path in hep_record['_fft']
             ]
 
+            self.log('Got the following fft urls: %s' % list_file_urls)
             parsed_item = ParsedItem(
                 record=hep_record,
                 file_urls=list_file_urls,
                 ftp_params=ftp_params,
                 record_format='hep',
             )
+            self.log('Got item: %s' % parsed_item)
 
             yield parsed_item
 
