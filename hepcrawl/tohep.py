@@ -139,16 +139,6 @@ def _normalize_hepcrawl_record(item, source):
     return item
 
 
-def _generate_acquisition_source(source):
-    acquisition_source = {
-        'source': source,
-        'method': 'hepcrawl',
-        'datetime': datetime.datetime.now().isoformat(),
-        'submission_number': os.environ.get('SCRAPY_JOB', ''),
-    }
-    return acquisition_source
-
-
 def item_to_hep(
     item,
     source,
@@ -167,9 +157,18 @@ def item_to_hep(
     Raises:
         UnknownItemFormat: if the source item format is unknown.
     """
-    item.record['acquisition_source'] = _generate_acquisition_source(
+    builder = LiteratureBuilder(
         source=source
     )
+
+    builder.add_acquisition_source(
+        source=source,
+        method='hepcrawl',
+        date=datetime.datetime.now().isoformat(),
+        submission_number=os.environ.get('SCRAPY_JOB', ''),
+    )
+
+    item.record['acquisition_source'] = builder.record['acquisition_source']
 
     if item.record_format == 'hep':
         return hep_to_hep(
