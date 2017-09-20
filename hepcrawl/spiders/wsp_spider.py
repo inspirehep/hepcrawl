@@ -49,6 +49,19 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
        ``WorldScientificSpider.parse_node()``.
 
 
+    Args:
+        local_package_dir(str): path to the local directory holding the zip
+            files to parse and extract the records for, if set, will ignore all
+            the ftp options.
+        ftp_folder(str): remote folder in the ftp server to get the zip files
+            from.
+        ftp_host(str): host name of the ftp server to connect to.
+        ftp_netrc(str): path to the netrc file containing the authentication
+            settings for the ftp.
+        target_folder(str): path to the temporary local directory to download
+            the files to.
+
+
     Example:
         To run a crawl, you need to pass FTP connection information via
         ``ftp_host`` and ``ftp_netrc``::
@@ -80,11 +93,11 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
 
     def __init__(
         self,
-        package_path=None,
+        local_package_dir=None,
         ftp_folder="WSP",
         ftp_host=None,
         ftp_netrc=None,
-        tmp_dir=None,
+        target_folder=None,
         *args,
         **kwargs
     ):
@@ -93,53 +106,62 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.tmp_dir = (
-            tmp_dir or
+        self.target_folder = (
+            target_folder or
             tempfile.mkdtemp(suffix='_extracted_zip', prefix='wsp_')
         )
-        self.package_path = package_path
+        self.local_package_dir = local_package_dir
+
+    def _get_local_requests(self):
+        new_files_paths = local_list_files(
+            self.local_package_dir,
+            self.target_folder
+        )
+
+        for file_path in new_files_paths:
+            yield Request(
+                "file://{0}".format(file_path),
+                callback=self.handle_package_file,
+            )
+
+    def _get_remote_requests(self):
+        ftp_host, ftp_params = ftp_connection_info(
+            self.ftp_host,
+            self.ftp_netrc,
+        )
+
+        new_files_paths = ftp_list_files(
+            self.ftp_folder,
+            destination_folder=self.target_folder,
+            ftp_host=ftp_host,
+            user=ftp_params['ftp_user'],
+            password=ftp_params['ftp_password']
+        )
+
+        for remote_file in new_files_paths:
+            # Cast to byte-string for scrapy compatibility
+            remote_file = str(remote_file)
+            ftp_params["ftp_local_filename"] = os.path.join(
+                self.target_folder,
+                os.path.basename(remote_file)
+            )
+
+            remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
+            yield Request(
+                str(remote_url),
+                meta=ftp_params,
+                callback=self.handle_package_ftp
+            )
 
     def start_requests(self):
         """List selected folder on remote FTP and yield new zip files."""
-        if self.package_path:
-            new_files_paths = local_list_files(
-                self.package_path,
-                self.target_folder
-            )
-
-            for file_path in new_files_paths:
-                yield Request(
-                    "file://{0}".format(file_path),
-                    callback=self.handle_package_file,
-                )
+        if self.local_package_dir:
+            requests_iter = self._get_local_requests()
         else:
-            ftp_host, ftp_params = ftp_connection_info(
-                self.ftp_host,
-                self.ftp_netrc,
-            )
+            requests_iter = self._get_remote_requests()
 
-            new_files_paths = ftp_list_files(
-                self.ftp_folder,
-                destination_folder=self.target_folder,
-                ftp_host=ftp_host,
-                user=ftp_params['ftp_user'],
-                password=ftp_params['ftp_password']
-            )
-
-            for remote_file in new_files_paths:
-                # Cast to byte-string for scrapy compatibility
-                remote_file = str(remote_file)
-                ftp_params["ftp_local_filename"] = os.path.join(
-                    self.tmp_dir,
-                    os.path.basename(remote_file)
-                )
-
-                remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
-                yield Request(
-                    str(remote_url),
-                    meta=ftp_params,
-                    callback=self.handle_package_ftp
-                )
+        for request in requests_iter:
+            yield request
 
     def handle_package_ftp(self, response):
         """Handle a zip package and yield every XML found."""
@@ -158,7 +180,7 @@ class WorldScientificSpider(Jats, XMLFeedSpider):
         """Handle a local zip package and yield every XML."""
         self.log("Visited file %s" % response.url)
         zip_filepath = urlparse.urlsplit(response.url).path
-        xml_files = unzip_xml_files(zip_filepath, self.tmp_dir)
+        xml_files = unzip_xml_files(zip_filepath, self.target_folder)
 
         for xml_file in xml_files:
             yield Request(
