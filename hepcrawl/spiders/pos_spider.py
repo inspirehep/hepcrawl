@@ -273,7 +273,7 @@ class POSSpider(StatefulSpider):
             selector=selector
         )
 
-        record.add_value('collections', ['proceeding'])
+        record.add_value('collections', ['proceedings'])
         record.add_value(
             'title',
             self._get_proceedings_title(selector=selector),
@@ -405,7 +405,7 @@ class POSSpider(StatefulSpider):
 
     @staticmethod
     def _get_proceedings_title(selector):
-        return selector.xpath('//h1/text()').extract_first()
+        return 'Proceedings, ' + selector.xpath('//h1/text()').extract_first()
 
     @staticmethod
     def _get_proceedings_date_place(selector):

@@ -249,6 +249,7 @@ def hepcrawl_to_hep(crawler_record):
     for title in crawler_record.get('titles', []):
         builder.add_title(
             title=title.get('title'),
+            subtitle=title.get('subtitle'),
             source=title.get('source')
         )
 

@@ -7,12 +7,13 @@
       }
     ],
     "document_type": [
-      "article"
+      "proceedings"
     ],
     "titles": [
       {
         "source": "pos",
-        "title": "31st International Symposium on Lattice Field Theory LATTICE 2013"
+        "title": "Proceedings, 31st International Symposium on Lattice Field Theory LATTICE 2013",
+        "subtitle": "1-3 August 2002, Heidelberg, Germany"
       }
     ],
     "acquisition_source": {
@@ -43,12 +44,12 @@
     ],
     "_fft": [
       {
-        "path": "https://server.local/187/001/pdf"
+        "path": "https://http-server.local/187/001/pdf"
       }
     ],
     "urls": [
       {
-        "value": "https://server.local/PoS(LATTICE%202013)001.html"
+        "value": "https://http-server.local/PoS(LATTICE%202013)001.html"
       }
     ],
     "authors": [

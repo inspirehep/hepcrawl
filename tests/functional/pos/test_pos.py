@@ -11,34 +11,38 @@
 
 from __future__ import absolute_import, division, print_function
 
+import os
 import pytest
-
-from time import sleep
 
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
+    clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.utils import get_crawler_instance
 
 
+@pytest.fixture(scope='function', autouse=True)
+def cleanup():
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    yield
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+
+
 def override_generated_fields(record):
     record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
-    record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
+    )
 
     return record
 
 
-@pytest.fixture(scope="function")
-def wait_until_services_are_up(seconds=10):
-    # The test must wait until the docker environment is up (takes about 10 seconds).
-    sleep(seconds)
-
-
-@pytest.fixture(scope="function")
-def configuration():
+def get_configuration():
     package_location = get_test_suite_path(
         'pos',
         'fixtures',
@@ -47,24 +51,31 @@ def configuration():
         test_suite='functional',
     )
 
-    yield {
+    return {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
             'source_file': 'file://' + package_location,
-            'base_conference_paper_url': 'https://server.local/contribution?id=',
-            'base_proceedings_url': 'https://server.local/cgi-bin/reader/conf.cgi?confid=',
+            'base_conference_paper_url': (
+                'https://http-server.local/contribution?id='
+            ),
+            'base_proceedings_url': (
+                'https://http-server.local/cgi-bin/reader/conf.cgi?confid='
+            ),
         }
     }
 
 
 @pytest.mark.parametrize(
-    'expected_results',
+    'expected_results, config',
     [
-        expected_json_results_from_file(
-            'pos',
-            'fixtures',
-            'pos_conference_proceedings_records.json',
+        (
+            expected_json_results_from_file(
+                'pos',
+                'fixtures',
+                'pos_conference_proceedings_records.json',
+            ),
+            get_configuration(),
         ),
     ],
     ids=[
@@ -72,11 +83,10 @@ def configuration():
     ]
 )
 def test_pos_conference_paper_record_and_proceedings_record(
-    configuration,
-    wait_until_services_are_up,
     expected_results,
+    config,
 ):
-    crawler = get_crawler_instance(configuration.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -84,20 +94,22 @@ def test_pos_conference_paper_record_and_proceedings_record(
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=configuration.get('CRAWLER_PROJECT'),
+        project=config['CRAWLER_PROJECT'],
         spider='pos',
         settings={},
-        **configuration.get('CRAWLER_ARGUMENTS')
+        **config['CRAWLER_ARGUMENTS']
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
 
     assert sorted(gotten_results) == expected_results
 
 
-# TODO create test that receives conference paper record AND proceedings record.
-# 'Crawl-once' plug-in needed.
+# TODO create test that receives conference paper record AND proceedings
+# record. 'Crawl-once' plug-in needed.
 
 
 # TODO create test that receives proceedings record ONLY.
