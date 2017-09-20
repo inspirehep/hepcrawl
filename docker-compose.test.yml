@@ -66,10 +66,17 @@ services:
     command: bash -c "rm -f twistd.pid && exec scrapyd"
     links:
       - celery
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test:
+        - "CMD-SHELL"
+        - "curl http://localhost:6800/listprojects.json"
 
-  scrapyd_deploy:
+  scrapyd-deploy:
     <<: *service_base
-    command: bash -c "sleep 8 && scrapyd-deploy"  # make sure that the scrapyd is up
+    command: bash -c "scrapyd-deploy"
     links:
       - scrapyd
 
