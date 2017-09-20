@@ -13,6 +13,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import time
+import logging
 
 from ftplib import FTP
 from six.moves.urllib.parse import urlparse
@@ -21,6 +22,9 @@ from scrapy.exceptions import IgnoreRequest
 from scrapy_crawl_once.middlewares import CrawlOnceMiddleware
 
 from hepcrawl.utils import ftp_connection_info
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 class ErrorHandlingMiddleware(object):
@@ -88,14 +92,25 @@ class HepcrawlCrawlOnceMiddleware(CrawlOnceMiddleware):
     """
     def process_request(self, request, spider):
         if not request.meta.get('crawl_once', self.default):
+            if 'crawl_once' in request.meta:
+                LOGGER.info('Crawl-Once: skipping by explicit crawl_once meta')
+            else:
+                LOGGER.info('Crawl-Once: skipping by default crawl_once meta')
             return
 
-        request.meta['crawl_once_key'] = os.path.basename(request.url)
+        request.meta['crawl_once_key'] = self._get_key(request)
         request.meta['crawl_once_value'] = self._get_timestamp(request, spider)
 
         if not self._has_to_be_crawled(request, spider):
+            LOGGER.info(
+                'Crawl-Once: Skipping due to `has_to_be_crawled`, %s' % request
+            )
             self.stats.inc_value('crawl_once/ignored')
             raise IgnoreRequest()
+
+        LOGGER.info(
+            'Crawl-Once: Not skipping: %s' % request
+        )
 
     def _has_to_be_crawled(self, request, spider):
         request_db_key = self._get_key(request)
@@ -106,6 +121,16 @@ class HepcrawlCrawlOnceMiddleware(CrawlOnceMiddleware):
         new_file_timestamp = self._get_timestamp(request, spider)
         old_file_timestamp = self.db.get(key=request_db_key)
         return new_file_timestamp > old_file_timestamp
+
+    def _get_key(self, request):
+        parsed_url = urlparse(request.url)
+        fname = os.path.basename(parsed_url.path)
+        if parsed_url.scheme == 'file':
+            prefix = 'local'
+        else:
+            prefix = 'remote'
+
+        return prefix + '::' + fname
 
     @classmethod
     def _get_timestamp(cls, request, spider):
