@@ -17,6 +17,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import shutil
+import pprint
 
 import requests
 
@@ -93,10 +94,16 @@ class InspireAPIPushPipeline(object):
     def _post_enhance_item(self, item, spider):
         source = spider.name
 
-        return item_to_hep(
+        enhanced_record = item_to_hep(
             item=item,
             source=source,
         )
+        spider.logger.debug(
+            'Got post-enhanced hep record:\n%s' % pprint.pformat(
+                enhanced_record
+            )
+        )
+        return enhanced_record
 
     def process_item(self, item, spider):
         """Convert internal format to INSPIRE data model."""
