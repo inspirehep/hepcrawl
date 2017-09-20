@@ -7,7 +7,12 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 
 import pytest
 import os
@@ -18,7 +23,16 @@ from scrapy.http import TextResponse
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import wsp_spider
 
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
+
+
+@pytest.fixture(scope='function', autouse=True)
+def cleanup():
+    yield
+    clean_dir()
 
 
 def create_spider():
@@ -44,7 +58,10 @@ def get_records(response_file_name):
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
-    return (pipeline.process_item(record, spider) for record in records)
+    return (
+        pipeline.process_item(record, spider)
+        for record in records
+    )
 
 
 def get_one_record(response_file_name):
@@ -67,17 +84,25 @@ def override_generated_fields(record):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             (
-                "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have recently been used as light absorbers in hybrid"
-                " organic-inorganic solid-state solar cells, with efficiencies above 15%. To date, it is essential to"
-                " add Lithium bis(Trifluoromethanesulfonyl)Imide (LiTFSI) to the hole transport materials (HTM) to get"
-                " a higher conductivity. However, the detrimental effect of high LiTFSI concentration on the charge transport"
-                ", DOS in the conduction band of the TiO$_{2}$ substrate and device stability results in an overall "
-                "compromise for a satisfactory device. Using a higher mobility hole conductor to avoid lithium salt "
-                "is an interesting alternative. Herein, we successfully made an efficient perovskite solar cell by "
-                "applying a hole conductor PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in the absence of"
-                " LiTFSI. Under AM 1.5 illumination of 100 mW/cm$^{2}$, an efficiency of 10.9% was achieved, which is "
-                "comparable to the efficiency of 12.3% with the addition of 1.3 mM LiTFSI. An unsealed device without "
-                "Li$^{+}$ shows interestingly a promising stability."
+                "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have "
+                "recently been used as light absorbers in hybrid"
+                " organic-inorganic solid-state solar cells, with "
+                "efficiencies above 15%. To date, it is essential to add "
+                "Lithium bis(Trifluoromethanesulfonyl)Imide (LiTFSI) to the "
+                "hole transport materials (HTM) to get a higher conductivity. "
+                "However, the detrimental effect of high LiTFSI concentration "
+                "on the charge transport, DOS in the conduction band of the "
+                "TiO$_{2}$ substrate and device stability results in an "
+                "overall compromise for a satisfactory device. Using a higher "
+                "mobility hole conductor to avoid lithium salt is an "
+                "interesting alternative. Herein, we successfully made an "
+                "efficient perovskite solar cell by applying a hole conductor "
+                "PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in "
+                "the absence of LiTFSI. Under AM 1.5 illumination of 100 "
+                "mW/cm$^{2}$, an efficiency of 10.9% was achieved, which is "
+                "comparable to the efficiency of 12.3% with the addition of "
+                "1.3 mM LiTFSI. An unsealed device without Li$^{+}$ shows "
+                "interestingly a promising stability."
             ),
         ],
     ],
@@ -98,7 +123,10 @@ def test_abstract(generated_record, expected_abstract):
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
                 'source': 'WSP',
-                'title': 'High-efficient Solid-state Perovskite Solar Cell Without Lithium Salt in the Hole Transport Material',
+                'title': (
+                    'High-efficient Solid-state Perovskite Solar Cell Without '
+                    'Lithium Salt in the Hole Transport Material'
+                ),
             }],
         ],
     ],
@@ -291,12 +319,18 @@ def test_publication_info(generated_record, expected_publication_info):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             {
-                'authors': ["BI, DONGQIN", "BOSCHLOO, GERRIT", "HAGFELDT, ANDERS"],
+                'authors': [
+                    "BI, DONGQIN",
+                    "BOSCHLOO, GERRIT",
+                    "HAGFELDT, ANDERS",
+                ],
                 'affiliation': (
-                    'Department of Chemistry-Angstrom Laboratory, Uppsala University, Box 532, SE 751 20 Uppsala, Sweden'
+                    'Department of Chemistry-Angstrom Laboratory, Uppsala '
+                    'University, Box 532, SE 751 20 Uppsala, Sweden'
                 ),
                 'xref_affiliation': (
-                    'Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA'
+                    'Physics Department, Brookhaven National Laboratory, '
+                    'Upton, NY 11973, USA'
                 ),
             },
         ],
@@ -314,11 +348,14 @@ def test_authors(generated_record, expected_authors):
     for index, name in enumerate(expected_authors['authors']):
             assert generated_record['authors'][index]['full_name'] == name
             assert expected_authors['affiliation'] in [
-                aff['value'] for aff in generated_record['authors'][index]['affiliations']
+                aff['value']
+                for aff in generated_record['authors'][index]['affiliations']
             ]
             if index == 1:
                 assert expected_authors['xref_affiliation'] in [
-                    aff['value'] for aff in generated_record['authors'][index]['affiliations']
+                    aff['value']
+                    for aff
+                    in generated_record['authors'][index]['affiliations']
                 ]
 
 
@@ -413,7 +450,10 @@ def test_pipeline_record(generated_record):
         'abstracts': [
             {
                 'source': 'WSP',
-                'value': u'Abstract L\xe9vy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa.',
+                'value': (
+                    u'Abstract L\xe9vy bla-bla bla blaaa blaa bla blaaa blaa, '
+                    'bla blaaa blaa. Bla blaaa blaa.'
+                ),
             },
         ],
         'acquisition_source': {
@@ -426,7 +466,10 @@ def test_pipeline_record(generated_record):
             {
                 'affiliations': [
                     {
-                        'value': u'Department, University, City, City_code 123456, C. R. Country_2',
+                        'value': (
+                            u'Department, University, City, City_code 123456, '
+                            'C. R. Country_2'
+                        ),
                     },
                 ],
                 'full_name': u'author_surname_2, author_name_1',

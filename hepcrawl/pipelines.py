@@ -16,6 +16,8 @@ See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from __future__ import absolute_import, division, print_function
 
 import os
+import shutil
+import pprint
 
 import requests
 
@@ -92,10 +94,16 @@ class InspireAPIPushPipeline(object):
     def _post_enhance_item(self, item, spider):
         source = spider.name
 
-        return item_to_hep(
+        enhanced_record = item_to_hep(
             item=item,
             source=source,
         )
+        spider.logger.debug(
+            'Got post-enhanced hep record:\n%s' % pprint.pformat(
+                enhanced_record
+            )
+        )
+        return enhanced_record
 
     def process_item(self, item, spider):
         """Convert internal format to INSPIRE data model."""
@@ -124,7 +132,8 @@ class InspireAPIPushPipeline(object):
         ]
         return payload
 
-    def _cleanup(self, spider):
+    @staticmethod
+    def _cleanup(spider):
         """Run cleanup."""
         # Cleanup errors
         if 'errors' in spider.state:
@@ -175,6 +184,10 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
         """Post results to BROKER API."""
         from celery.utils.log import get_task_logger
         logger = get_task_logger(__name__)
+
+        if hasattr(spider, 'tmp_dir'):
+            shutil.rmtree(path=spider.tmp_dir, ignore_errors=True)
+
         if 'SCRAPY_JOB' in os.environ and self.count > 0:
             task_endpoint = spider.settings[
                 'API_PIPELINE_TASK_ENDPOINT_MAPPING'

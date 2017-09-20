@@ -13,6 +13,7 @@ from __future__ import absolute_import, division, print_function
 
 import copy
 import hashlib
+import os
 from time import sleep
 
 import pytest
@@ -76,6 +77,29 @@ def assert_files_equal(file_1, file_2):
     assert file_1_hash == file_2_hash
 
 
+def assert_ffts_content_matches_expected(record):
+    for fft_field in record.get('_fft', []):
+        assert_fft_content_matches_expected(fft_field)
+
+
+def assert_fft_content_matches_expected(fft_field):
+    expected_file_name = get_file_name_from_fft(fft_field)
+    assert_files_equal(expected_file_name, fft_field['path'])
+
+
+def get_file_name_from_fft(fft_field):
+    file_path = get_test_suite_path(
+        'desy',
+        'fixtures',
+        'ftp_server',
+        'DESY',
+        'FFT',
+        fft_field['filename'] + fft_field['format'],
+        test_suite='functional',
+    )
+    return file_path
+
+
 def get_ftp_settings():
     netrc_location = get_test_suite_path(
         'desy',
@@ -120,6 +144,7 @@ def cleanup():
     sleep(10)
     yield
 
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
     clean_dir('/tmp/file_urls')
     clean_dir('/tmp/DESY')
 
@@ -180,26 +205,3 @@ def test_desy(
 
     for record in gotten_results:
         assert_ffts_content_matches_expected(record)
-
-
-def assert_ffts_content_matches_expected(record):
-    for fft_field in record.get('_fft', []):
-        assert_fft_content_matches_expected(fft_field)
-
-
-def assert_fft_content_matches_expected(fft_field):
-    expected_file_name = get_file_name_from_fft(fft_field)
-    assert_files_equal(expected_file_name, fft_field['path'])
-
-
-def get_file_name_from_fft(fft_field):
-    file_path = get_test_suite_path(
-        'desy',
-        'fixtures',
-        'ftp_server',
-        'DESY',
-        'FFT',
-        fft_field['filename'] + fft_field['format'],
-        test_suite='functional',
-    )
-    return file_path

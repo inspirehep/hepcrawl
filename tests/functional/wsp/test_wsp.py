@@ -28,13 +28,15 @@ from hepcrawl.testlib.utils import get_crawler_instance
 
 def override_generated_fields(record):
     record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
-    record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
+    )
 
     return record
 
 
 @pytest.fixture(scope="function")
-def set_up_ftp_environment():
+def ftp_environment():
     netrc_location = get_test_suite_path(
         'wsp',
         'fixtures',
@@ -43,7 +45,8 @@ def set_up_ftp_environment():
         test_suite='functional',
     )
 
-    # The test must wait until the docker environment is up (takes about 10 seconds).
+    # The test must wait until the docker environment is up (takes about 10
+    # seconds).
     sleep(10)
 
     yield {
@@ -55,7 +58,8 @@ def set_up_ftp_environment():
         }
     }
 
-    clean_dir(path='/tmp/WSP/')
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
 
 @pytest.fixture(scope="function")
@@ -72,7 +76,7 @@ def set_up_local_environment():
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'package_path': package_location,
+            'local_package_dir': package_location,
         }
     }
 
@@ -80,7 +84,8 @@ def set_up_local_environment():
 
 
 def remove_generated_files(package_location):
-    clean_dir(path='/tmp/WSP/')
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
     _, dirs, files = next(os.walk(package_location))
     for dir_name in dirs:
@@ -103,8 +108,10 @@ def remove_generated_files(package_location):
         'smoke',
     ]
 )
-def test_wsp_ftp(set_up_ftp_environment, expected_results):
-    crawler = get_crawler_instance(set_up_ftp_environment.get('CRAWLER_HOST_URL'))
+def test_wsp_ftp(ftp_environment, expected_results):
+    crawler = get_crawler_instance(
+        ftp_environment.get('CRAWLER_HOST_URL'),
+    )
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -112,16 +119,76 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=set_up_ftp_environment.get('CRAWLER_PROJECT'),
+        project=ftp_environment.get('CRAWLER_PROJECT'),
         spider='WSP',
         settings={},
-        **set_up_ftp_environment.get('CRAWLER_ARGUMENTS')
+        **ftp_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [
+        override_generated_fields(result) for result in results
+    ]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
+
+    assert gotten_results == expected_results
+
+
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'crawl_twice',
+    ]
+)
+def test_wsp_ftp_crawl_twice(ftp_environment, expected_results):
+    crawler = get_crawler_instance(
+        ftp_environment.get('CRAWLER_HOST_URL'),
+    )
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        events_limit=2,
+        crawler_instance=crawler,
+        project=ftp_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **ftp_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [
+        override_generated_fields(result) for result in results
+    ]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
+
+    assert gotten_results == expected_results
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        events_limit=2,
+        crawler_instance=crawler,
+        project=ftp_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **ftp_environment.get('CRAWLER_ARGUMENTS')
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
 
-    assert gotten_results == expected_results
+    assert gotten_results == []
 
 
 @pytest.mark.parametrize(
@@ -138,7 +205,9 @@ def test_wsp_ftp(set_up_ftp_environment, expected_results):
     ]
 )
 def test_wsp_local_package_path(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(
+        set_up_local_environment.get('CRAWLER_HOST_URL')
+    )
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -153,6 +222,63 @@ def test_wsp_local_package_path(set_up_local_environment, expected_results):
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
 
     assert gotten_results == expected_results
+
+
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'wsp',
+            'fixtures',
+            'wsp_smoke_records.json',
+        ),
+    ],
+    ids=[
+        'crawl_twice',
+    ]
+)
+def test_wsp_local_package_path_crawl_twice(
+    set_up_local_environment,
+    expected_results,
+):
+    crawler = get_crawler_instance(
+        set_up_local_environment.get('CRAWLER_HOST_URL')
+    )
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
+
+    assert gotten_results == expected_results
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='WSP',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+
+    assert gotten_results == []

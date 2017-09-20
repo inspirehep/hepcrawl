@@ -24,7 +24,13 @@ LOGGER = logging.getLogger(__name__)
 
 
 class CeleryMonitor(object):
-    def __init__(self, app, monitor_timeout=3, monitor_iter_limit=100, events_limit=2):
+    def __init__(
+        self,
+        app,
+        monitor_timeout=3,
+        monitor_iter_limit=100,
+        events_limit=2,
+    ):
         self.results = []
         self.recv = None
         self.app = app
@@ -39,7 +45,13 @@ class CeleryMonitor(object):
         def announce_succeeded_tasks(event):
             state.event(event)
             task = state.tasks.get(event['uuid'])
-            LOGGER.info('TASK SUCCEEDED: %s[%s] %s' % (task.name, task.uuid, task.info(),))
+            LOGGER.info(
+                'TASK SUCCEEDED: %s[%s] %s' % (
+                    task.name,
+                    task.uuid,
+                    task.info(),
+                )
+            )
             tasks = self.app.AsyncResult(task.id)
             for task in tasks.result:
                 self.results.append(task)
@@ -48,7 +60,9 @@ class CeleryMonitor(object):
         def announce_failed_tasks(event):
             state.event(event)
             task = state.tasks.get(event['uuid'])
-            LOGGER.info('TASK FAILED: %s[%s] %s' % (task.name, task.uuid, task.info(),))
+            LOGGER.info(
+                'TASK FAILED: %s[%s] %s' % (task.name, task.uuid, task.info(),)
+            )
             self.results.append(task.info())
             self.recv.should_stop = True
 
@@ -62,7 +76,11 @@ class CeleryMonitor(object):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        events_iter = self.recv.itercapture(limit=None, timeout=self.monitor_timeout, wakeup=True)
+        events_iter = self.recv.itercapture(
+            limit=None,
+            timeout=self.monitor_timeout,
+            wakeup=True,
+        )
         self._wait_for_results(events_iter)
         self.connection.__exit__()
 
@@ -84,8 +102,8 @@ class CeleryMonitor(object):
         app,
         monitor_timeout,
         monitor_iter_limit,
-        events_limit,
         crawler_instance,
+        events_limit=2,
         project='hepcrawl',
         spider='WSP',
         settings=None,

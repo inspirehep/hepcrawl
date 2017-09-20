@@ -20,6 +20,7 @@ from hepcrawl.testlib.utils import get_crawler_instance
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
+    clean_dir,
 )
 
 
@@ -50,6 +51,8 @@ def set_up_local_environment():
             'source_file': 'file://' + package_location,
         }
     }
+
+    clean_dir()
 
 
 @pytest.mark.parametrize(
@@ -84,3 +87,52 @@ def test_arxiv(set_up_local_environment, expected_results):
     expected_results = [override_generated_fields(expected) for expected in expected_results]
 
     assert gotten_results == expected_results
+
+
+@pytest.mark.parametrize(
+    'expected_results',
+    [
+        expected_json_results_from_file(
+            'arxiv',
+            'fixtures',
+            'arxiv_smoke_record.json',
+        ),
+    ],
+    ids=[
+        'crawl_twice',
+    ]
+)
+def test_arxiv_crawl_twice(set_up_local_environment, expected_results):
+    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        events_limit=1,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='arXiv',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+    expected_results = [override_generated_fields(expected) for expected in expected_results]
+
+    assert gotten_results == expected_results
+
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=20,
+        crawler_instance=crawler,
+        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        spider='arXiv',
+        settings={},
+        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+    )
+
+    gotten_results = [override_generated_fields(result) for result in results]
+
+    assert gotten_results == []

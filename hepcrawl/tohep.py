@@ -25,8 +25,12 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import datetime
+import logging
 
 from inspire_schemas.api import LiteratureBuilder
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 class UnknownItemFormat(Exception):
@@ -195,10 +199,12 @@ def hep_to_hep(hep_record, record_files):
     hepcrawl one (normally, marc-ingesting spiders).
     """
     if record_files:
+        LOGGER.debug('Updating fft fields from: %s', hep_record['_fft'])
         hep_record['_fft'] = _get_updated_fft_fields(
             current_fft_fields=hep_record['_fft'],
             record_files=record_files,
         )
+        LOGGER.debug('Updated fft fields to: %s', hep_record['_fft'])
 
     return hep_record
 

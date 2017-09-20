@@ -18,6 +18,7 @@ services:
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - APP_FILES_STORE=/tmp/file_urls
+      - APP_CRAWL_ONCE_PATH=/code/.scrapy
       - COVERAGE_PROCESS_START=/code/.coveragerc
       - BASE_USER_UID=${BASE_USER_UID:-1000}
       - BASE_USER_GIT=${BASE_USER_GIT:-1000}
@@ -65,10 +66,17 @@ services:
     command: bash -c "rm -f twistd.pid && exec scrapyd"
     links:
       - celery
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test:
+        - "CMD-SHELL"
+        - "curl http://localhost:6800/listprojects.json"
 
-  scrapyd_deploy:
+  scrapyd-deploy:
     <<: *service_base
-    command: bash -c "sleep 8 && scrapyd-deploy"  # make sure that the scrapyd is up
+    command: bash -c "scrapyd-deploy"
     links:
       - scrapyd
 

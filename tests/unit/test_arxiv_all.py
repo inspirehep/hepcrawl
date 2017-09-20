@@ -7,7 +7,12 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 
 import pytest
 
@@ -16,7 +21,10 @@ from scrapy.http import TextResponse
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 @pytest.fixture
@@ -44,10 +52,16 @@ def many_results(spider):
         )
     )
 
+    assert parsed_items
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
-    return [_get_processed_record(parsed_item, spider) for parsed_item in parsed_items]
+    yield [
+        _get_processed_record(parsed_item, spider)
+        for parsed_item in parsed_items
+    ]
+
+    clean_dir()
 
 
 def test_page_nr(many_results):

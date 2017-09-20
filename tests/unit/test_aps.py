@@ -12,7 +12,10 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import pytest
 
 from hepcrawl.spiders import aps_spider
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 @pytest.fixture

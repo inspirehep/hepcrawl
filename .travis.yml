@@ -42,7 +42,7 @@ before_install:
 
 install:
   - travis_retry docker-compose -f docker-compose.deps.yml run --rm pip
-  - travis_retry docker-compose -f docker-compose.test.yml run --rm scrapyd_deploy
+  - travis_retry docker-compose -f docker-compose.test.yml run --rm scrapyd-deploy
 
 script:
   - travis_retry docker-compose -f docker-compose.test.yml run --rm ${SUITE}

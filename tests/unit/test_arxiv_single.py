@@ -17,7 +17,10 @@ from inspire_schemas.api import validate
 
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import arxiv_spider
-from hepcrawl.testlib.fixtures import fake_response_from_file
+from hepcrawl.testlib.fixtures import (
+    fake_response_from_file,
+    clean_dir,
+)
 
 
 @pytest.fixture
@@ -44,8 +47,9 @@ def results():
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
-    return [_get_processed_item(parsed_item, spider) for parsed_item in parsed_items]
+    yield [_get_processed_item(parsed_item, spider) for parsed_item in parsed_items]
 
+    clean_dir()
 
 
 def test_abstracts(results):

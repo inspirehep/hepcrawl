@@ -10,6 +10,7 @@
 from __future__ import absolute_import, division, print_function
 
 import os
+import pprint
 import re
 from operator import itemgetter
 from itertools import groupby
@@ -467,3 +468,6 @@ class ParsedItem(dict):
 
     def __setattr__(self, key, value):
         self[key] = value
+
+    def __str__(self):
+        return pprint.pformat(self)
