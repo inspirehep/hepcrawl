@@ -7,7 +7,12 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 
 import pytest
 
@@ -47,13 +52,17 @@ def many_results(spider):
         )
     )
 
-    assert records
+    assert parsed_items
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
-    yield [_get_processed_record(parsed_item, spider) for parsed_item in parsed_items]
+    yield [
+        _get_processed_record(parsed_item, spider)
+        for parsed_item in parsed_items
+    ]
 
     clean_dir()
+
 
 def test_page_nr(many_results):
     """Test extracting page_nr"""
