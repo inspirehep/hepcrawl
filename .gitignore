@@ -32,6 +32,8 @@ nosetests.xml
 coverage.xml
 twistd.pid
 .coverage.*
+tests/unit/responses/edp/test_gz
+tests/unit/responses/edp/test_rich
 
 # Translations
 *.mo
@@ -57,6 +59,8 @@ jobs
 dbs
 items
 logs
+.scrapy
+scrapy_feed_uri
 
 # Local settings
 local_settings.py
