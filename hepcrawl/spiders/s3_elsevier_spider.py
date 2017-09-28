@@ -118,11 +118,11 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
-    def __init__(self, package_path=None, folder="/mnt/elsevier-sftp", *args, **kwargs):
+    def __init__(self, package_path=None, folder=ELSEVIER_SOURCE_DIR, *args, **kwargs):
         """Construct Elsevier spider."""
         super(S3ElsevierSpider, self).__init__(*args, **kwargs)
         self.folder = folder
-        self.target_folder = "/tmp/Elsevier"
+        self.target_folder = ELSEVIER_DOWNLOAD_DIR
         self.package_path = package_path
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
@@ -159,7 +159,7 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
                 destination_file.write(response.body)
         filename = os.path.basename(response.url).rstrip("A.tar")
         # TMP dir to extract zip packages:
-        target_folder = mkdtemp(prefix=filename + "_", dir="/tmp/Elsevier/unpacked")
+        target_folder = mkdtemp(prefix=filename + "_", dir=os.path.join(self.target_folder,ELSEVIER_UNPACK_FOLDER))
 
         zip_filepath = response.meta["local_filename"]
         print("zip_filepath: %s" % (zip_filepath,))
