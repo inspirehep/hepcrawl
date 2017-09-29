@@ -41,6 +41,8 @@ from ..extractors.jats import Jats
 import tarfile
 from ..dateutils import format_year
 
+from ..settings import ELSEVIER_SOURCE_DIR, ELSEVIER_DOWNLOAD_DIR, ELSEVIER_UNPACK_FOLDER
+
 
 def list_files(path, target_folder):
     files = os.listdir(path)
@@ -122,8 +124,10 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
         """Construct Elsevier spider."""
         super(S3ElsevierSpider, self).__init__(*args, **kwargs)
         self.folder = folder
-        self.target_folder = ELSEVIER_DOWNLOAD_DIR
+        self.target_folder = ELSEVIER_DOWNLOAD_DIR,
         self.package_path = package_path
+        self.target_folder = self.target_folder[0]
+
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
 
@@ -147,11 +151,12 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
                         self.target_folder,
                         remote_file
                     )
-                    remote_url = 'file://localhost' + os.path.join(self.folder, remote_file)
+                    remote_url = 'file://' + os.path.join('localhost', '/mnt/elsevier-sftp', remote_file)
                     yield Request(
                         str(remote_url),
                         meta=params,
                         callback=self.handle_package)
+
 
     def handle_package(self, response):
         """Handle the zip package and yield a request for every XML found."""
@@ -159,7 +164,7 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
                 destination_file.write(response.body)
         filename = os.path.basename(response.url).rstrip("A.tar")
         # TMP dir to extract zip packages:
-        target_folder = mkdtemp(prefix=filename + "_", dir=os.path.join(self.target_folder,ELSEVIER_UNPACK_FOLDER))
+        target_folder = mkdtemp(prefix=filename + "_", dir=ELSEVIER_UNPACK_FOLDER)
 
         zip_filepath = response.meta["local_filename"]
         print("zip_filepath: %s" % (zip_filepath,))
@@ -180,7 +185,7 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
                     data = []
                     for i, issue in enumerate(dataset.xpath('//journal-issue')):
                         tmp = {}
-                        tmp['volume'] = "%s %s" % (issue.xpath('//volume-issue-number/vol-first/text()')[0].extract(),  issue.xpath('//volume-issue-number/suppl/text()')[0].extract())
+                        tmp['volume'] = "%s %s" % (issue.xpath('//volume-issue-number/vol-first/text()')[0].extract(), issue.xpath('//volume-issue-number/suppl/text()')[0].extract())
                         tmp['issue'] = issue.xpath('//issn/text()')[0].extract()
                         issue_file = os.path.join(target_folder, filename, issue.xpath('./files-info/ml/pathname/text()')[0].extract())
                         arts = {}
@@ -214,7 +219,6 @@ class S3ElsevierSpider(Jats, XMLFeedSpider):
 
                         if tmp_empty_data:
                             data[0]['articles'][doi] = {'files':{'xml':None, 'pdf':None}, 'first-page': None, 'last-page': None,}
-                        print(data)
                         for i, issue in enumerate(data):
                             if doi in data[i]['articles']:
                                 data[i]['articles'][doi]['journal'] = journal
