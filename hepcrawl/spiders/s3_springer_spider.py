@@ -40,6 +40,7 @@ from ..extractors.jats import Jats
 from zipfile import ZipFile
 from ..dateutils import format_year
 
+from ..settings import SPRINGER_DOWNLOAD_DIR, SPRINGER_UNPACK_FOLDER
 
 def unzip_files(filename, target_folder):
     """Unzip files (XML only) into target folder."""
@@ -108,12 +109,12 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.target_folder = "/tmp/Springer/EPJC"
+        self.target_folder = SPRINGER_DOWNLOAD_DIR
         self.package_path = package_path
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
 
-    def start_requests(self):
+def start_requests(self):
         """List selected folder on remote FTP and yield new zip files."""
         if self.package_path:
             yield Request(self.package_path, callback=self.handle_package_file)
@@ -123,7 +124,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
             new_files, missing_files = ftp_list_files(
                     #os.path.join(self.ftp_folder, journal),
                     self.ftp_folder,
-                    self.target_folder,
+                    os.path.join(self.target_folder,'EPJC'),
                     server=ftp_host,
                     user=ftp_params['ftp_user'],
                     password=ftp_params['ftp_password']
@@ -136,6 +137,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
                 remote_file = str(remote_file).strip('/data/in/EPJC/')
                 ftp_params["ftp_local_filename"] = os.path.join(
                     self.target_folder,
+                    'EPJC',
                     remote_file
                 )
                 remote_url = "ftp://{0}/{1}".format(ftp_host, 'data/in/EPJC/'+remote_file)
@@ -145,11 +147,13 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
                     meta=ftp_params,
                     callback=self.handle_package_ftp)
 
+
     def handle_package_ftp(self, response):
         """Handle the zip package and yield a request for every XML found."""
         filename = os.path.basename(response.url).rstrip(".zip")
         # TMP dir to extract zip packages:
-        target_folder = mkdtemp(prefix=filename + "_", dir="/tmp/Springer/unpacked")
+        target_folder = mkdtemp(prefix=filename + "_", dir=SPRINGER_UNPACK_FOLDER)
+
 
         zip_filepath = response.meta["ftp_local_filename"]
         print("zip_filepath: %s" % (zip_filepath,))
@@ -168,6 +172,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
                         )
             else:
                 pass
+
 
     def parse_node(self, response, node):
         """Parse a OUP XML file into a HEP record."""
