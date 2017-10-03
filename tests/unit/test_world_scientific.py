@@ -447,6 +447,7 @@ def test_refereed(generated_record, expected_refereed):
 )
 def test_pipeline_record(generated_record):
     expected = {
+        '_collections': ['Literature'],
         'abstracts': [
             {
                 'source': 'WSP',

@@ -4,6 +4,7 @@
     "log_file": "scrapy_log_file", 
     "results_data": [
         {
+            "_collections": ["Literature"],
             "preprint_date": "2016-06-14", 
             "curated": false,
             "citeable": true,

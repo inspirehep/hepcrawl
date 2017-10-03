@@ -1,4 +1,5 @@
 {
+    "_collections": ["Literature"],
     "refereed": true,
     "document_type": [
         "book",
@@ -87,10 +88,6 @@
         {
             "date": "2015-11-02"
         }
-    ],
-    "special_collections": [
-        "CDF-INTERNAL-NOTE",
-        "HEPHIDDEN"
     ],
     "publication_type": [
         "introductory",

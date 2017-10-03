@@ -223,12 +223,12 @@ class DesySpider(StatefulSpider):
         for hep_record in hep_records:
             list_file_urls = [
                 self._get_full_uri(
-                    current_path=fft_path['path'],
+                    current_path=document['url'],
                     base_url=base_url,
                     schema=url_schema,
                     hostname=hostname,
                 )
-                for fft_path in hep_record['_fft']
+                for document in hep_record.get('documents', [])
             ]
 
             self.log('Got the following fft urls: %s' % list_file_urls)
@@ -245,9 +245,12 @@ class DesySpider(StatefulSpider):
     @staticmethod
     def _get_marcxml_records(response_body):
         root = etree.fromstring(response_body)
-        list_items = root.findall('.//{http://www.loc.gov/MARC21/slim}record')
-        if not list_items:
-            list_items = root.findall('.//record')
+        if root.tag == 'record':
+            list_items = [root]
+        else:
+            list_items = root.findall('.//{http://www.loc.gov/MARC21/slim}record')
+            if not list_items:
+                list_items = root.findall('.//record')
 
         return [etree.tostring(item) for item in list_items]
 

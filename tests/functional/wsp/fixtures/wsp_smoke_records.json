@@ -1,4 +1,5 @@
 [{
+	"_collections": ["Literature"],
 	"refereed": true,
 	"acquisition_source": {
 		"source": "WSP",
@@ -43,6 +44,7 @@
 	"citeable": true,
 	"curated": false
 }, {
+	"_collections": ["Literature"],
 	"refereed": true,
 	"acquisition_source": {
 		"source": "WSP",

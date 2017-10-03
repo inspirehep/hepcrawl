@@ -1,132 +1,466 @@
 [
     {
-        "acquisition_source": {
-            "source": "desy",
-            "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-05-04T17:49:07.975168"
-        },
-        "curated": false,
-        "control_number": 111111,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/111111"
-        },
-        "number_of_pages": 6,
+        "core": true, 
+        "documents": [
+            {
+                "url": "http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf", 
+                "fulltext": true, 
+                "key": "document"
+            }
+        ], 
+        "thesis_info": {
+            "date": "2017", 
+            "degree_type": "phd", 
+            "institutions": [
+                {
+                    "name": "Hamburg U."
+                }
+            ]
+        }, 
+        "curated": false, 
+        "_collections": [
+            "Literature"
+        ], 
         "titles": [
             {
-                "source": "JACoW",
-                "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+                "source": "DESY", 
+                "title": "Search for contact interactions and finite quark radius using combined $e^{\\pm}p$ data at HERA"
             }
-        ],
-        "_fft": [
+        ], 
+        "authors": [
             {
-                "creation_datetime": "2017-06-27T09:43:17",
-                "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
-                "format": ".txt",
-                "filename": "cNFW_rogue_curves",
-                "version": 1,
-                "path": "FFT/test_fft_1.txt",
-                "type": "Main"
-            },
+                "raw_affiliations": [
+                    {
+                        "value": "Deutsches Elektronen-Synchrotron"
+                    }
+                ], 
+                "inspire_roles": [
+                    "supervisor"
+                ], 
+                "ids": [
+                    {
+                        "value": "0000-0001-5699-3046", 
+                        "schema": "ORCID"
+                    }
+                ], 
+                "full_name": "Foster, Brian"
+            }, 
             {
-                "creation_datetime": "2017-06-27T09:43:16",
-                "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
-                "format": ".txt",
-                "filename": "scalingRelations_DutBeh_DC14_all_Oh",
-                "version": 1,
-                "path": "FFT/test_fft_2.txt",
-                "type": "Main"
+                "raw_affiliations": [
+                    {
+                        "value": "Deutsches Elektronen-Synchrotron"
+                    }
+                ], 
+                "inspire_roles": [
+                    "supervisor"
+                ], 
+                "full_name": "Wichmann, Katarzyna"
+            }, 
+            {
+                "raw_affiliations": [
+                    {
+                        "value": "Deutsches Elektronen-Synchrotron"
+                    }
+                ], 
+                "affiliations": [
+                    {
+                        "value": "DESY"
+                    }
+                ], 
+                "ids": [
+                    {
+                        "value": "0000-0001-5352-7744", 
+                        "schema": "ORCID"
+                    }
+                ], 
+                "full_name": "Turkot, Oleksii"
             }
-        ],
+        ], 
+        "inspire_categories": [
+            {
+                "source": "undefined", 
+                "term": "Experiment-HEP"
+            }
+        ], 
+        "report_numbers": [
+            {
+                "value": "DESY-THESIS-2017-035"
+            }
+        ], 
         "dois": [
             {
-                "value": "10.18429/JACoW-IPAC2017-WEYB1"
+                "source": "Deutsches Elektronen-Synchrotron", 
+                "value": "10.3204/PUBDB-2017-09190"
             }
-        ],
+        ], 
+        "keywords": [
+            {
+                "value": "* Automatic Keywords *", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "parton: distribution function", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "beam: energy", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "p: beam", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "beam: polarization", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "electron: beam", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "mass: scale", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "higher-order: 1", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "new physics", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "quantum chromodynamics", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "contact interaction", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "DESY HERA Stor", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "ILC Coll", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "niobium", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "cavity", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "quark", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "deep inelastic scattering", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "superconductivity", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "ZEUS", 
+                "schema": "INSPIRE"
+            }
+        ], 
         "publication_info": [
             {
-                "parent_isbn": "9783954501823"
-            },
-            {
-                "page_start": "2520",
-                "page_end": "2525",
                 "year": 2017
             }
-        ],
-        "$schema": "hep.json",
+        ], 
+        "$schema": "hep.json", 
         "document_type": [
-            "article"
-        ],
+            "thesis"
+        ], 
         "abstracts": [
             {
-                "source": "Deutsches Elektronen-Synchrotron",
-                "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+                "source": "Deutsches Elektronen-Synchrotron", 
+                "value": "A combination is presented of all previously published deep inelastic neutral and charged current $e^{\\pm}p$ scattering measurements at HERA for zero beam polarisation.The ZEUS and H1 collaborations have collected data at electron beam energy of $27.5$ GeV and proton beam energies of $920$, $820$, $575$ and $460$ GeV.The combined data correspond to an integrated luminosity of about $1$ fb$^{-1}$ and cover a kinematic range in the negative four-momentum-transfer squared from $Q^{2} = 0.045$ GeV$^{2}$ to $Q^{2} = 50000$ GeV$^{2}$ and in Bjorken $x$ from $x_{\\rm Bj} = 6 \\times 10^{-7}$ to $x_{\\rm Bj} = 0.65$.The correlations of systematic uncertainties between different sets of data were taken into account, resulting in significantly improved precision.The combined $e^{\\pm}p$ cross sections were used in a QCD analysis at next-to-leading order, providing a set of parton distribution functions, called ZCIPDF.The combined measurements were also used in an analysis beyond the Standard Model using a new approach, performing simultaneous fits on large sets of Monte Carlo replicas of parton distribution functions, PDFs, together with the parameters of \"new physics\" processes.A simplified approach to reduce the calculation time was developed and extensively tested.It allowed the calculation time to be reduced by about a factor of 50.The resulting $95\\,\\%$ C.L. upper limit on the effective quark radius is $0.43 \\cdot 10^{-16}$ cm and the limits on the mass scales for different contact interaction scenarios extend up to $10$ TeV.The analyses have shown that taking into account the possible influence of processes beyond the Standard Model on the PDF parameters is necessary, since the limits that would be obtained using PDFs from QCD analysis within the Standard Model are too strong by about $10\\,\\%$.Studies of the surface quality of 28 Niobium superconducting radio frequency, SRF, cavities and development of a controllable cooling system for Niobium samples are also reported.The SRF cavities are the core of the accelerating technology for the future International Linear Collider, ILC; the reported studies are part of an ongoing research and development program."
             }
-        ]
-    },
+        ], 
+        "imprints": [
+            {
+                "date": "2017", 
+                "publisher": "Verlag Deutsches Elektronen-Synchrotron", 
+                "place": "Hamburg"
+            }, 
+            {
+                "date": "2017"
+            }
+        ], 
+        "acquisition_source": {
+            "source": "desy", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-05-04T17:49:07.975168"
+        }
+    }, 
     {
-        "acquisition_source": {
-            "source": "desy",
-            "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-05-04T17:49:07.975168"
-        },
-        "curated": false,
-        "control_number": 222222,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/222222"
-        },
-        "number_of_pages": 6,
+        "core": true, 
+        "documents": [
+            {
+                "url": "http://bib-pubdb1.desy.de/record/390068/files/desy-thesis-17-036.title.pdf", 
+                "fulltext": true, 
+                "key": "document"
+            }
+        ], 
+        "thesis_info": {
+            "date": "2017", 
+            "degree_type": "phd", 
+            "institutions": [
+                {
+                    "name": "Hamburg U."
+                }
+            ]
+        }, 
+        "curated": false, 
+        "_collections": [
+            "Literature"
+        ], 
         "titles": [
             {
-                "source": "JACoW",
-                "title": "Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser\n                Acceleration (DLA) From the Source to Relativistic Electrons\n            "
+                "source": "DESY", 
+                "title": "Aspects of Six-Dimensional Flux Compactifications"
             }
-        ],
-        "_fft": [
+        ], 
+        "number_of_pages": 141, 
+        "inspire_categories": [
             {
-                "creation_datetime": "2017-06-27T09:43:17",
-                "description": "00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \\textsc{core}NFW models. Colors and symbols are as in Figure \\ref{fig:dc14_fits}.",
-                "format": ".txt",
-                "filename": "cNFW_rogue_curves",
-                "version": 1,
-                "path": "FFT/test_fft_1.txt",
-                "type": "Main"
-            },
-            {
-                "creation_datetime": "2017-06-27T09:43:16",
-                "description": "00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \\cite{dutton14} (left) and the stellar mass-halo mass relation from \\cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\\sigma$ and 2$\\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \\cite{maccio08} and the stellar mass-halo mass relation from \\cite{behroozi13} are also shown as the black dashed lines.",
-                "format": ".txt",
-                "filename": "scalingRelations_DutBeh_DC14_all_Oh",
-                "version": 1,
-                "path": "FFT/test_fft_2.txt",
-                "type": "Main"
+                "source": "undefined", 
+                "term": "Theory-HEP"
             }
-        ],
+        ], 
+        "authors": [
+            {
+                "raw_affiliations": [
+                    {
+                        "value": "Deutsches Elektronen-Synchrotron"
+                    }
+                ], 
+                "inspire_roles": [
+                    "supervisor"
+                ], 
+                "full_name": "Buchmuller, Wilfried"
+            }, 
+            {
+                "inspire_roles": [
+                    "supervisor"
+                ], 
+                "ids": [
+                    {
+                        "value": "INSPIRE-00148215", 
+                        "schema": "INSPIRE ID"
+                    }
+                ], 
+                "full_name": "Louis, Jan"
+            }, 
+            {
+                "raw_affiliations": [
+                    {
+                        "value": "Deutsches Elektronen-Synchrotron"
+                    }
+                ], 
+                "affiliations": [
+                    {
+                        "value": "DESY"
+                    }
+                ], 
+                "ids": [
+                    {
+                        "value": "INSPIRE-00415111", 
+                        "schema": "INSPIRE ID"
+                    }, 
+                    {
+                        "value": "0000-0003-4361-6182", 
+                        "schema": "ORCID"
+                    }
+                ], 
+                "full_name": "Dierigl, Markus"
+            }
+        ], 
+        "report_numbers": [
+            {
+                "value": "DESY-THESIS-2017-036"
+            }
+        ], 
         "dois": [
             {
-                "value": "10.18429/JACoW-IPAC2017-WEYB1"
+                "source": "Deutsches Elektronen-Synchrotron", 
+                "value": "10.3204/PUBDB-2017-09253"
             }
-        ],
+        ], 
+        "keywords": [
+            {
+                "value": "* Automatic Keywords *", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "supergravity: 1", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "dimension: 4", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "supersymmetry: D-term", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "potential: D-term", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "compactification: flux", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "anomaly: Green-Schwarz", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "Goldstino: decoupling", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "oscillator: harmonic", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "correction: quantum", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "geometry: internal", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "Wilson loop", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "Goldstone particle", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "symmetry breaking", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "superpotential", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "gravitation", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "background", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "fractional", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "de Sitter", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "stability", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "orbifold", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "axion", 
+                "schema": "INSPIRE"
+            }, 
+            {
+                "source": "bibclassify", 
+                "value": "fermion: zero mode", 
+                "schema": "INSPIRE"
+            }
+        ], 
         "publication_info": [
             {
-                "parent_isbn": "9783954501823"
-            },
-            {
-                "page_start": "2520",
-                "page_end": "2525",
                 "year": 2017
             }
-        ],
-        "$schema": "hep.json",
+        ], 
+        "$schema": "hep.json", 
         "document_type": [
-            "article"
-        ],
+            "thesis"
+        ], 
         "abstracts": [
             {
-                "source": "Deutsches Elektronen-Synchrotron",
-                "value": "Dielectric laser acceleration of electrons has recently been\n                demonstrated with significantly higher accelerating gradients than other\n                structure-based linear accelerators. Towards the development of an integrated 1 MeV\n                electron accelerator based on dielectric laser accelerator technologies,\n                development in several relevant technologies is needed. In this work, recent\n                developments on electron sources, bunching, accelerating, focussing, deflecting and\n                laser coupling structures are reported. With an eye to the near future, components\n                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond\n                electron bunches are outlined.\n            "
+                "source": "Deutsches Elektronen-Synchrotron", 
+                "value": "In this thesis we investigate various aspects of ux compactications in six-dimensionalquantum eld theories. After introducing the internal geometries, i.e. the two-dimensionaltorus T2 and one of its orbifolds T2=Z2, we classify possible gauge backgroundsincluding continuous and discrete Wilson lines with emphasis on a non-vanishing uxdensity. An operator analogy with the quantum harmonic oscillator allows for an explicitderivation of the mode functions of charged elds and demonstrates the advantage of ourinterpretation of discrete Wilson lines in terms of localized fractional gauge uxes. Wethen derive a globally supersymmetric action which captures the D-term supersymmetrybreaking induced by the internal magnetic eld and reproduces the Landau level massspectrum of the charged four-dimensional degrees of freedom. In this context we showthat, even though supersymmetry is broken at the compactication scale, the inclusion ofthe whole tower of charged states leads to vanishing quantum corrections for the Wilsonline eective potential on T2. This result is supported by a symmetry breaking argumentin which the Wilson line appears as a Goldstone boson. After that, we additionallyinclude gravitational eects within a supergravity eective action of the lightest modesin four dimensions. The dynamics of the moduli elds arising after compactication canbe encoded in the setup of N = 1 supergravity augmented with anomaly cancellationby the Green-Schwarz mechanism. This leads to a non-trivial transformation behaviorfor two axion elds under gauge variations in the low-energy eective action. As anapplication, we discuss an SO(10) U(1) grand unied theory which uses the multiplicityof fermionic zero modes in the ux background to induce the number of mattergenerations. Finally, we investigate a novel mechanism for generating de Sitter vacuain N = 1 supergravity based on a ux-induced positive denite D-term potential. Theinclusion of a superpotential, leading to negative contributions in the energy density,allows a successful stabilization of all elds. Employing a general approach to decouplethe Goldstino from the rest of the fermions, we evaluate the masses of all light degreesof freedom explicitly."
             }
-        ]
+        ], 
+        "imprints": [
+            {
+                "date": "2017", 
+                "publisher": "Verlag Deutsches Elektronen-Synchrotron", 
+                "place": "Hamburg"
+            }, 
+            {
+                "date": "2017"
+            }
+        ], 
+        "acquisition_source": {
+            "source": "desy", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-05-04T17:49:07.975168"
+        }
     }
 ]

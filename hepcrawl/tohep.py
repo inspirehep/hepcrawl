@@ -320,23 +320,6 @@ def hepcrawl_to_hep(crawler_record):
         'review',
     ]
 
-    special_collections = [
-        'cdf-internal-note',
-        'cdf-note',
-        'cds',
-        'd0-internal-note',
-        'd0-preliminary-note',
-        'h1-internal-note',
-        'h1-preliminary-note',
-        'halhidden',
-        'hephidden',
-        'hermes-internal-note',
-        'larsoft-internal-note',
-        'larsoft-note',
-        'zeus-internal-note',
-        'zeus-preliminary-note',
-    ]
-
     document_types = [
         'book',
         'note',
@@ -364,8 +347,6 @@ def hepcrawl_to_hep(crawler_record):
             builder.set_withdrawn(True)
         elif collection in publication_types:
             builder.add_publication_type(collection)
-        elif collection in special_collections:
-            builder.add_special_collection(collection.upper())
         elif collection == 'bookchapter':
             added_doc_type = True
             builder.add_document_type('book chapter')

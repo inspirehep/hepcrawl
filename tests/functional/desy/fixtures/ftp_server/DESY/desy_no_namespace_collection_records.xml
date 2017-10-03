@@ -1,149 +1,363 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <collection>
-    <record>
-        <controlfield tag="001">333333</controlfield>
-        <controlfield tag="005">20170705125610.0</controlfield>
-        <datafield tag="024" ind1="7" ind2=" ">
-            <subfield code="2">DOI</subfield>
-            <subfield code="a">10.18429/JACoW-IPAC2017-WEYB1</subfield>
-        </datafield>
-        <datafield tag="773" ind1=" " ind2=" ">
-            <subfield code="z">9783954501823</subfield>
-        </datafield>
-        <datafield tag="245" ind1=" " ind2=" ">
-            <subfield code="a">Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser
-                Acceleration (DLA) From the Source to Relativistic Electrons
-            </subfield>
-            <subfield code="9">JACoW</subfield>
-        </datafield>
-        <datafield tag="520" ind1=" " ind2=" ">
-            <subfield code="a">Dielectric laser acceleration of electrons has recently been
-                demonstrated with significantly higher accelerating gradients than other
-                structure-based linear accelerators. Towards the development of an integrated 1 MeV
-                electron accelerator based on dielectric laser accelerator technologies,
-                development in several relevant technologies is needed. In this work, recent
-                developments on electron sources, bunching, accelerating, focussing, deflecting and
-                laser coupling structures are reported. With an eye to the near future, components
-                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond
-                electron bunches are outlined.
-            </subfield>
-            <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
-        </datafield>
-        <datafield tag="300" ind1=" " ind2=" ">
-            <subfield code="a">6</subfield>
-        </datafield>
-        <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">*Brief entry*</subfield>
-        </datafield>
-        <datafield tag="773" ind1=" " ind2=" ">
-            <subfield code="y">2017</subfield>
-            <subfield code="c">2520-2525</subfield>
-        </datafield>
-        <datafield tag="856" ind1="4" ind2=" ">
-            <subfield code="s">100176</subfield>
-            <subfield code="u">http://inspirehep.net/record/1608652/files/Towards a fully
-                integrated acc on a chip.pdf
-            </subfield>
-            <subfield code="y">Fulltext</subfield>
-        </datafield>
-        <datafield tag="909" ind1="C" ind2="O">
-            <subfield code="o">oai:inspirehep.net:1608652</subfield>
-            <subfield code="p">INSPIRE:HEP</subfield>
-        </datafield>
-        <datafield tag="FFT" ind1=" " ind2=" ">
-            <subfield code="a">FFT/test_fft_1.txt</subfield>
-            <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
-            <subfield code="f">.txt</subfield>
-            <subfield code="n">test_fft_1</subfield>
-            <subfield code="r"/>
-            <subfield code="s">2017-06-27 09:43:17</subfield>
-            <subfield code="t">Main</subfield>
-            <subfield code="v">1</subfield>
-            <subfield code="z"/>
-        </datafield>
-        <datafield tag="FFT" ind1=" " ind2=" ">
-            <subfield code="a">FFT/test_fft_2.txt</subfield>
-            <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
-            <subfield code="f">.txt</subfield>
-            <subfield code="n">test_fft_2</subfield>
-            <subfield code="r"/>
-            <subfield code="s">2017-06-27 09:43:16</subfield>
-            <subfield code="t">Main</subfield>
-            <subfield code="v">1</subfield>
-            <subfield code="z"/>
-        </datafield>
-    </record>
-    <record>
-        <controlfield tag="001">444444</controlfield>
-        <controlfield tag="005">20170705125610.0</controlfield>
-        <datafield tag="024" ind1="7" ind2=" ">
-            <subfield code="2">DOI</subfield>
-            <subfield code="a">10.18429/JACoW-IPAC2017-WEYB1</subfield>
-        </datafield>
-        <datafield tag="773" ind1=" " ind2=" ">
-            <subfield code="z">9783954501823</subfield>
-        </datafield>
-        <datafield tag="245" ind1=" " ind2=" ">
-            <subfield code="a">Towards a Fully Integrated Accelerator on a Chip: Dielectric Laser
-                Acceleration (DLA) From the Source to Relativistic Electrons
-            </subfield>
-            <subfield code="9">JACoW</subfield>
-        </datafield>
-        <datafield tag="520" ind1=" " ind2=" ">
-            <subfield code="a">Dielectric laser acceleration of electrons has recently been
-                demonstrated with significantly higher accelerating gradients than other
-                structure-based linear accelerators. Towards the development of an integrated 1 MeV
-                electron accelerator based on dielectric laser accelerator technologies,
-                development in several relevant technologies is needed. In this work, recent
-                developments on electron sources, bunching, accelerating, focussing, deflecting and
-                laser coupling structures are reported. With an eye to the near future, components
-                required for a 1 MeV kinetic energy tabletop accelerator producing sub-femtosecond
-                electron bunches are outlined.
-            </subfield>
-            <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
-        </datafield>
-        <datafield tag="300" ind1=" " ind2=" ">
-            <subfield code="a">6</subfield>
-        </datafield>
-        <datafield tag="500" ind1=" " ind2=" ">
-            <subfield code="a">*Brief entry*</subfield>
-        </datafield>
-        <datafield tag="773" ind1=" " ind2=" ">
-            <subfield code="y">2017</subfield>
-            <subfield code="c">2520-2525</subfield>
-        </datafield>
-        <datafield tag="856" ind1="4" ind2=" ">
-            <subfield code="s">100176</subfield>
-            <subfield code="u">http://inspirehep.net/record/1608652/files/Towards a fully
-                integrated acc on a chip.pdf
-            </subfield>
-            <subfield code="y">Fulltext</subfield>
-        </datafield>
-        <datafield tag="909" ind1="C" ind2="O">
-            <subfield code="o">oai:inspirehep.net:1608652</subfield>
-            <subfield code="p">INSPIRE:HEP</subfield>
-        </datafield>
-        <datafield tag="FFT" ind1=" " ind2=" ">
-            <subfield code="a">FFT/test_fft_1.txt</subfield>
-            <subfield code="d">00013 Decomposition of the problematic rotation curves in our sample according to the best-fit \textsc{core}NFW models. Colors and symbols are as in Figure \ref{fig:dc14_fits}.</subfield>
-            <subfield code="f">.txt</subfield>
-            <subfield code="n">test_fft_1</subfield>
-            <subfield code="r"/>
-            <subfield code="s">2017-06-27 09:43:17</subfield>
-            <subfield code="t">Main</subfield>
-            <subfield code="v">1</subfield>
-            <subfield code="z"/>
-        </datafield>
-        <datafield tag="FFT" ind1=" " ind2=" ">
-            <subfield code="a">FFT/test_fft_2.txt</subfield>
-            <subfield code="d">00005 Comparison of the parameters of the best-fit DC14 models to the cosmological halo mass-concentration relation from \cite{dutton14} (left) and the stellar mass-halo mass relation from \cite{behroozi13} (right). The error bars correspond to the extremal values of the multidimensional 68\% confidence region for each fit. The theoretical relations are shown as red lines and their 1$\sigma$ and 2$\sigma$ scatter are represented by the dark and light grey bands, respectively. The mass-concentration relation from \cite{maccio08} and the stellar mass-halo mass relation from \cite{behroozi13} are also shown as the black dashed lines.</subfield>
-            <subfield code="f">.txt</subfield>
-            <subfield code="n">test_fft_2</subfield>
-            <subfield code="r"/>
-            <subfield code="s">2017-06-27 09:43:16</subfield>
-            <subfield code="t">Main</subfield>
-            <subfield code="v">1</subfield>
-            <subfield code="z"/>
-        </datafield>
-    </record>
+<record>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Hamburg</subfield>
+    <subfield code="c">2017</subfield>
+    <subfield code="b">Verlag Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Search for contact interactions and finite quark radius using combined $e^{\pm}p$ data at HERA</subfield>
+    <subfield code="9">DESY</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Foster, Brian</subfield>
+    <subfield code="j">ORCID:0000-0001-5699-3046</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Wichmann, Katarzyna</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="502" ind1=" " ind2=" ">
+    <subfield code="b">PhD</subfield>
+    <subfield code="c">Hamburg U.</subfield>
+    <subfield code="d">2017</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">A combination is presented of all previously published deep inelastic neutral and charged current $e^{\pm}p$ scattering measurements at HERA for zero beam polarisation.The ZEUS and H1 collaborations have collected data at electron beam energy of $27.5$ GeV and proton beam energies of $920$, $820$, $575$ and $460$ GeV.The combined data correspond to an integrated luminosity of about $1$ fb$^{-1}$ and cover a kinematic range in the negative four-momentum-transfer squared from $Q^{2} = 0.045$ GeV$^{2}$ to $Q^{2} = 50000$ GeV$^{2}$ and in Bjorken $x$ from $x_{\rm Bj} = 6 \times 10^{-7}$ to $x_{\rm Bj} = 0.65$.The correlations of systematic uncertainties between different sets of data were taken into account, resulting in significantly improved precision.The combined $e^{\pm}p$ cross sections were used in a QCD analysis at next-to-leading order, providing a set of parton distribution functions, called ZCIPDF.The combined measurements were also used in an analysis beyond the Standard Model using a new approach, performing simultaneous fits on large sets of Monte Carlo replicas of parton distribution functions, PDFs, together with the parameters of "new physics" processes.A simplified approach to reduce the calculation time was developed and extensively tested.It allowed the calculation time to be reduced by about a factor of 50.The resulting $95\,\%$ C.L. upper limit on the effective quark radius is $0.43 \cdot 10^{-16}$ cm and the limits on the mass scales for different contact interaction scenarios extend up to $10$ TeV.The analyses have shown that taking into account the possible influence of processes beyond the Standard Model on the PDF parameters is necessary, since the limits that would be obtained using PDFs from QCD analysis within the Standard Model are too strong by about $10\,\%$.Studies of the surface quality of 28 Niobium superconducting radio frequency, SRF, cavities and development of a controllable cooling system for Niobium samples are also reported.The SRF cavities are the core of the accelerating technology for the future International Linear Collider, ILC; the reported studies are part of an ongoing research and development program.</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="541" ind1=" " ind2=" ">
+    <subfield code="a">DESY</subfield>
+    <subfield code="c">batchupload</subfield>
+  </datafield>
+  <datafield tag="773" ind1=" " ind2=" ">
+    <subfield code="y">2017</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CORE</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">HEP</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Thesis</subfield>
+  </datafield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="a">10.3204/PUBDB-2017-09190</subfield>
+    <subfield code="2">DOI</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">2017</subfield>
+    <subfield code="t">published</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">*Temporary record*</subfield>
+  </datafield>
+  <datafield tag="037" ind1=" " ind2=" ">
+    <subfield code="a">DESY-THESIS-2017-035</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">Turkot, Oleksii</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+    <subfield code="u">DESY</subfield>
+    <subfield code="j">ORCID:0000-0001-5352-7744</subfield>
+  </datafield>
+  <datafield tag="FFT" ind1=" " ind2=" ">
+    <subfield code="a">FFT/test_fft_1.txt</subfield>
+    <subfield code="d">Fulltext</subfield>
+    <subfield code="t">INSPIRE-PUBLIC</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="7">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Experiment-HEP</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">* Automatic Keywords *</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">parton: distribution function</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">beam: energy</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">p: beam</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">beam: polarization</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">electron: beam</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">mass: scale</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">higher-order: 1</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">new physics</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">quantum chromodynamics</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">contact interaction</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">DESY HERA Stor</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">ILC Coll</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">niobium</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">cavity</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">quark</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">deep inelastic scattering</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">superconductivity</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">ZEUS</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+</record><record>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Hamburg</subfield>
+    <subfield code="c">2017</subfield>
+    <subfield code="b">Verlag Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Aspects of Six-Dimensional Flux Compactifications</subfield>
+    <subfield code="9">DESY</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Buchmuller, Wilfried</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Louis, Jan</subfield>
+    <subfield code="i">INSPIRE-00148215</subfield>
+  </datafield>
+  <datafield tag="502" ind1=" " ind2=" ">
+    <subfield code="b">PhD</subfield>
+    <subfield code="c">Hamburg U.</subfield>
+    <subfield code="d">2017</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">In this thesis we investigate various aspects of ux compactications in six-dimensionalquantum eld theories. After introducing the internal geometries, i.e. the two-dimensionaltorus T2 and one of its orbifolds T2=Z2, we classify possible gauge backgroundsincluding continuous and discrete Wilson lines with emphasis on a non-vanishing uxdensity. An operator analogy with the quantum harmonic oscillator allows for an explicitderivation of the mode functions of charged elds and demonstrates the advantage of ourinterpretation of discrete Wilson lines in terms of localized fractional gauge uxes. Wethen derive a globally supersymmetric action which captures the D-term supersymmetrybreaking induced by the internal magnetic eld and reproduces the Landau level massspectrum of the charged four-dimensional degrees of freedom. In this context we showthat, even though supersymmetry is broken at the compactication scale, the inclusion ofthe whole tower of charged states leads to vanishing quantum corrections for the Wilsonline eective potential on T2. This result is supported by a symmetry breaking argumentin which the Wilson line appears as a Goldstone boson. After that, we additionallyinclude gravitational eects within a supergravity eective action of the lightest modesin four dimensions. The dynamics of the moduli elds arising after compactication canbe encoded in the setup of N = 1 supergravity augmented with anomaly cancellationby the Green-Schwarz mechanism. This leads to a non-trivial transformation behaviorfor two axion elds under gauge variations in the low-energy eective action. As anapplication, we discuss an SO(10) U(1) grand unied theory which uses the multiplicityof fermionic zero modes in the ux background to induce the number of mattergenerations. Finally, we investigate a novel mechanism for generating de Sitter vacuain N = 1 supergravity based on a ux-induced positive denite D-term potential. Theinclusion of a superpotential, leading to negative contributions in the energy density,allows a successful stabilization of all elds. Employing a general approach to decouplethe Goldstino from the rest of the fermions, we evaluate the masses of all light degreesof freedom explicitly.</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="541" ind1=" " ind2=" ">
+    <subfield code="a">DESY</subfield>
+    <subfield code="c">batchupload</subfield>
+  </datafield>
+  <datafield tag="773" ind1=" " ind2=" ">
+    <subfield code="y">2017</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CORE</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">HEP</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Thesis</subfield>
+  </datafield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="a">10.3204/PUBDB-2017-09253</subfield>
+    <subfield code="2">DOI</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="300" ind1=" " ind2=" ">
+    <subfield code="a">141</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">*Temporary record*</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">2017</subfield>
+    <subfield code="t">published</subfield>
+  </datafield>
+  <datafield tag="037" ind1=" " ind2=" ">
+    <subfield code="a">DESY-THESIS-2017-036</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">Dierigl, Markus</subfield>
+    <subfield code="i">INSPIRE-00415111</subfield>
+    <subfield code="j">ORCID:0000-0003-4361-6182</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+    <subfield code="u">DESY</subfield>
+  </datafield>
+  <datafield tag="FFT" ind1=" " ind2=" ">
+    <subfield code="a">FFT/test_fft_2.txt</subfield>
+    <subfield code="d">Fulltext</subfield>
+    <subfield code="t">INSPIRE-PUBLIC</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="7">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Theory-HEP</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">* Automatic Keywords *</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">supergravity: 1</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">dimension: 4</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">supersymmetry: D-term</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">potential: D-term</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">compactification: flux</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">anomaly: Green-Schwarz</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Goldstino: decoupling</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">oscillator: harmonic</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">correction: quantum</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">geometry: internal</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Wilson loop</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Goldstone particle</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">symmetry breaking</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">superpotential</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">gravitation</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">background</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">fractional</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">de Sitter</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">stability</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">orbifold</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">axion</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">fermion: zero mode</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+</record>
 </collection>
