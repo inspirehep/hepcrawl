@@ -40,7 +40,8 @@
 	"imprints": [{
 		"date": "2017-03-30"
 	}],
-	"citeable": true
+	"citeable": true,
+	"curated": false
 }, {
 	"refereed": true,
 	"acquisition_source": {
@@ -88,5 +89,6 @@
 	"imprints": [{
 		"date": "2017-03-30"
 	}],
-	"citeable": true
+	"citeable": true,
+	"curated": false
 }]

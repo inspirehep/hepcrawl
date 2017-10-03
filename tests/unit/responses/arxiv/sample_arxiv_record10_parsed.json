@@ -5,6 +5,7 @@
     "results_data": [
         {
             "preprint_date": "2016-06-14", 
+            "curated": false,
             "citeable": true,
             "license": [
                 {
@@ -21,7 +22,6 @@
             ], 
             "authors": [
                 {
-                    "affiliations": [], 
                     "full_name": "Battista, Emmanuele"
                 }
             ], 

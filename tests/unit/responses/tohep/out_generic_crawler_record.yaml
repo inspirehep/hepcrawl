@@ -5,6 +5,7 @@
         "book chapter",
         "conference paper"
     ],
+    "curated": false,
     "citeable": true,
     "license": [
         {

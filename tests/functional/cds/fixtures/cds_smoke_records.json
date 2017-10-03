@@ -103,6 +103,7 @@
             "submission_number": "None"
         }, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -173,6 +174,7 @@
             "submission_number": "None"
         }, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -231,6 +233,7 @@
         "corporate_author": [
             "European Committee for Future Accelerators. Geneva. Electron Proton Working Group"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -288,6 +291,7 @@
         "corporate_author": [
             "CERN. Geneva"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -360,6 +364,7 @@
         "corporate_author": [
             "CERN. Geneva"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -420,6 +425,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -487,6 +493,7 @@
         "corporate_author": [
             "Brookhaven National Laboratory. Upton"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -593,6 +600,7 @@
         "corporate_author": [
             "CERN. Geneva. Accelerator Division"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -667,6 +675,7 @@
         "corporate_author": [
             "DESY. Hamburg"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -725,6 +734,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -870,6 +880,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -958,6 +969,7 @@
         "corporate_author": [
             "CERN. Geneva"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1023,6 +1035,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1113,6 +1126,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1168,6 +1182,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1318,6 +1333,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1386,6 +1402,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1460,6 +1477,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1525,6 +1543,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1586,6 +1605,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1634,6 +1654,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1687,6 +1708,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1741,6 +1763,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1822,6 +1845,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -1969,6 +1993,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2043,6 +2068,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2148,6 +2174,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -2205,6 +2232,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2281,6 +2309,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2399,6 +2428,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -2468,6 +2498,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2533,6 +2564,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2599,6 +2631,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2663,6 +2696,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2734,6 +2768,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2806,6 +2841,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2872,6 +2908,7 @@
         "corporate_author": [
             "The LHC Study Group"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -2981,6 +3018,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -3027,6 +3065,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -3093,6 +3132,7 @@
         "corporate_author": [
             "CERN. Geneva. LHC Experiments Committee"
         ], 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -3176,6 +3216,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -12116,6 +12157,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -12213,6 +12255,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -29298,6 +29341,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -29393,6 +29437,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -29481,6 +29526,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -29880,6 +29926,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -29936,6 +29983,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30032,6 +30080,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30140,6 +30189,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30253,6 +30303,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30350,6 +30401,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30439,6 +30491,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -30544,6 +30597,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -30600,6 +30654,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30667,6 +30722,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "article"
         ], 
@@ -30737,6 +30793,7 @@
         ], 
         "citeable": true, 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 
@@ -30816,6 +30873,7 @@
             }
         ], 
         "core": true, 
+        "curated": true,
         "document_type": [
             "conference paper"
         ], 

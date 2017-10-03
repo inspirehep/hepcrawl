@@ -475,6 +475,7 @@ def test_pipeline_record(generated_record):
                 'full_name': u'author_surname_2, author_name_1',
             },
         ],
+        'curated': False,
         'citeable': True,
         'copyright': [
             {

@@ -24,12 +24,8 @@
       "filename": "test_fft_2"
     }
   ],
+  "curated": false,
   "control_number": 111111,
-  "public_notes": [
-    {
-      "value": "*Brief entry*"
-    }
-  ],
   "self": {
     "$ref": "https://labs.inspirehep.net/api/literature/111111"
   },
@@ -92,12 +88,8 @@
       "filename": "test_fft_2"
     }
   ],
+  "curated": false,
   "control_number": 222222,
-  "public_notes": [
-    {
-      "value": "*Brief entry*"
-    }
-  ],
   "self": {
     "$ref": "https://labs.inspirehep.net/api/literature/222222"
   },
@@ -160,12 +152,8 @@
       "filename": "test_fft_2"
     }
   ],
+  "curated": false,
   "control_number": 333333,
-  "public_notes": [
-    {
-      "value": "*Brief entry*"
-    }
-  ],
   "self": {
     "$ref": "https://labs.inspirehep.net/api/literature/333333"
   },
@@ -228,12 +216,8 @@
       "filename": "test_fft_2"
     }
   ],
+  "curated": false,
   "control_number": 444444,
-  "public_notes": [
-    {
-      "value": "*Brief entry*"
-    }
-  ],
   "self": {
     "$ref": "https://labs.inspirehep.net/api/literature/444444"
   },
@@ -280,12 +264,8 @@
     "_collections": [
         "Literature"
     ],
+    "curated": false,
     "control_number": 1608652,
-    "public_notes": [
-        {
-            "value": "*Brief entry*"
-        }
-    ],
     "self": {
         "$ref": "https://labs.inspirehep.net/api/literature/1608652"
     },

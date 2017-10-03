@@ -22,7 +22,6 @@
     ],
     "authors": [
       {
-        "affiliations": [],
         "full_name": "Montaruli, Teresa Maria"
       }
     ],
@@ -32,6 +31,7 @@
         "value": "IceCube"
       }
     ],
+    "curated": false,
     "document_type": [
       "conference paper"
     ],

@@ -8,12 +8,8 @@
     "_collections": [
         "Literature"
     ],
+    "curated": false,
     "control_number": 1608652,
-    "public_notes": [
-        {
-            "value": "*Brief entry*"
-        }
-    ],
     "self": {
         "$ref": "https://labs.inspirehep.net/api/literature/1608652"
     },
