@@ -20,6 +20,21 @@ from inspire_dojson.hep import hep
 from ..utils import ParsedItem
 
 class CDSSpider(XMLFeedSpider):
+    """Spider for crawling the CERN Document Server OAI-PMH XML files.
+
+    Example:
+        Using OAI-PMH XML files::
+
+            $ scrapy crawl \\
+                cds \\
+                -a "source_file=file://$PWD/tests/functional/cds/fixtures/oai_harvested/cds_smoke_records.xml"
+
+    It uses `HarvestingKit <https://pypi.python.org/pypi/HarvestingKit>`_ to translate from CDS's
+    MARCXML into INSPIRE Legacy's MARCXML flavor. It then employs
+    `inspire-dojson <https://pypi.python.org/pypi/inspire-dojson>`_ to transform the legacy
+    INSPIRE MARCXML into the new INSPIRE Schema.
+    """
+
     name = 'CDS'
     iterator = 'xml'
     itertag = 'OAI-PMH:record'
