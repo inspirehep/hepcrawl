@@ -29,6 +29,7 @@ env:
     - SUITE=functional_wsp
     - SUITE=functional_arxiv
     - SUITE=functional_desy
+    - SUITE=functional_cds
 
 matrix:
   fast_finish: true
