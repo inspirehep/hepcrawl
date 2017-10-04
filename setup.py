@@ -34,6 +34,7 @@ install_requires = [
     'ftputil>=3.3.1',
     'python-dateutil>=2.4.2',
     'python-scrapyd-api>=2.0.1',
+    'harvestingkit>=0.6.12',
 ]
 
 tests_require = [

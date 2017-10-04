@@ -43,6 +43,9 @@ tests/unit/responses/edp/test_rich
 .project
 .pydevproject
 
+# Visual Studio
+.vscode/
+
 # Rope
 .ropeproject
 
