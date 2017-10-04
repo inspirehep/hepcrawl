@@ -40,7 +40,7 @@ class ArxivSpider(XMLFeedSpider):
 
             $ scrapy crawl \\
                 arXiv \\
-                -a "source_file=file://$PWD/tests/responses/arxiv/sample_arxiv_record.xml"
+                -a "source_file=file://$PWD/tests/functional/arxiv/fixtures/oai_harvested/arxiv_smoke_record.xml"
 
     """
 
