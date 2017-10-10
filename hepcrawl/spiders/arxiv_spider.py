@@ -46,7 +46,7 @@ class ArxivSpider(StatefulSpider, XMLFeedSpider):
     """
 
     name = 'arXiv'
-    iterator = 'xml'
+    iterator = 'iternodes'
     itertag = 'OAI-PMH:record'
     namespaces = [
         ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/")

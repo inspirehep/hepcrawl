@@ -37,6 +37,7 @@ install_requires = [
     'python-dateutil>=2.4.2',
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
+    'Sickle~=0.6,>=0.6.2',
 ]
 
 tests_require = [

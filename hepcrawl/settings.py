@@ -19,6 +19,8 @@ http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
 from __future__ import absolute_import, division, print_function
 
+from scrapy.settings import default_settings
+
 import os
 
 
@@ -70,6 +72,12 @@ SPIDER_MIDDLEWARES = {
     'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
     'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
 }
+
+DOWNLOAD_HANDLERS_BASE = dict(default_settings.DOWNLOAD_HANDLERS_BASE)
+DOWNLOAD_HANDLERS_BASE.update({
+    'oaipmh+http': 'hepcrawl.downloaders.DummyDownloadHandler',
+    'oaipmh+https': 'hepcrawl.downloaders.DummyDownloadHandler',
+})
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
