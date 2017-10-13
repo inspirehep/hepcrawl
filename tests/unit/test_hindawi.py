@@ -141,6 +141,7 @@ def test_license(record):
     """Test extracting license information."""
     expected_license = [{
         'license': 'CC-BY-3.0',
+        'material': None,
         'url': 'http://creativecommons.org/licenses/by/3.0/',
     }]
 

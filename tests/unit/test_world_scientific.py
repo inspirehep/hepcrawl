@@ -210,7 +210,7 @@ def test_free_keywords(generated_record, expected_keywords):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                'license': 'CC-BY-4.0',
+                'license': 'CC BY 4.0',
                 'url': 'https://creativecommons.org/licenses/by/4.0',
             }],
         ],
@@ -275,7 +275,7 @@ def test_collections(generated_record, expected_collections):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                "value": "Belle Collaboration"
+                "value": "Belle"
             }],
         ],
     ],

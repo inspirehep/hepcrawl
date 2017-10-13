@@ -12,7 +12,7 @@
                 {
                     "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
                     "material": "preprint",
-                    "license": "arXiv-1.0"
+                    "license": "arXiv nonexclusive-distrib 1.0"
                 }
             ], 
             "public_notes": [

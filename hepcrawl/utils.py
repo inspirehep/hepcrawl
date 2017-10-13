@@ -26,8 +26,6 @@ import requests
 
 from scrapy import Selector
 
-from .mappings import LICENSES, LICENSE_TEXTS
-
 RE_FOR_THE = re.compile(
     r'\b(?:for|on behalf of|representing)\b',
     re.IGNORECASE,
@@ -324,9 +322,9 @@ def get_journal_and_section(publication):
 
 
 def get_licenses(
-    license_url='',
-    license_text='',
-    license_material='',
+    license_url=None,
+    license_text=None,
+    license_material=None,
 ):
     """Get the license dictionary from the url or the text of the license.
 
@@ -342,47 +340,14 @@ def get_licenses(
         list(dict): list of dictionaries that are licenses, empty list
             if no license could be extracted.
     """
-    def _populate_license_material(license):
-        if license_material:
-            license['material'] = license_material
-
-        return license
-
-    def _get_license():
-        license = get_license_by_url(license_url=license_url)
-        if not license:
-            license = get_license_by_text(license_text=license_text)
-
-        return license
-
-    license = _get_license()
-
-    return [_populate_license_material(license)] if license else []
-
-
-def get_license_by_url(license_url):
-    if not license_url:
-        return []
-
-    license_str = ''
-    for key in LICENSES.keys():
-        if key in license_url.lower():
-            license_str = re.sub(
-                '(?i)^.*%s' % key,
-                LICENSES[key],
-                license_url.strip('/'),
-            )
-            break
-    return {'license': license_str, 'url': license_url}
-
-
-def get_license_by_text(license_text):
-    if not license_text:
-        return []
-
-    for key in LICENSE_TEXTS.keys():
-        if license_text.lower() in key.lower():
-            license = get_license_by_url(license_url=LICENSE_TEXTS[key])
+    if license_url or license_text:
+        license = [{
+            'license': license_text,
+            'url': license_url,
+            'material': license_material,
+        }]
+    else:
+        license = []
 
     return license
 

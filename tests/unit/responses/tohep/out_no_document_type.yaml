@@ -8,13 +8,13 @@
     "license": [
         {
             "url": "http://creativecommons.org/licenses/by/3.0/",
-            "license": "CC-BY-3.0"
+            "license": "CC BY 3.0"
         }
     ],
     "curated": false,
     "collaborations": [
         {
-            "value": "OSQAR Collaboration"
+            "value": "OSQAR"
         }
     ],
     "authors": [
