@@ -124,8 +124,8 @@ def test_abstract(generated_record, expected_abstract):
             [{
                 'source': 'WSP',
                 'title': (
-                    'High-efficient Solid-state Perovskite Solar Cell Without '
-                    'Lithium Salt in the Hole Transport Material'
+                    'HIGH-EFFICIENT SOLID-STATE PEROVSKITE SOLAR CELL WITHOUT '
+                    'LITHIUM SALT IN THE HOLE TRANSPORT MATERIAL'
                 ),
             }],
         ],
