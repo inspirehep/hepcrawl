@@ -16,6 +16,7 @@ from urlparse import urljoin
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -26,7 +27,7 @@ from ..utils import (
 )
 
 
-class BaseSpider(XMLFeedSpider):
+class BaseSpider(StatefulSpider, XMLFeedSpider):
 
     """BASE crawler
 

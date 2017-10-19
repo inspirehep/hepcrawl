@@ -130,7 +130,7 @@ CELERY_DISABLE_RATE_LIMITS = True
 
 # Jobs
 # ====
-JOBDIR = "jobs"
+#JOBDIR = "jobs"
 
 # Marc to HEP conversion settings (Desy)
 MARC_TO_HEP_SETTINGS = {

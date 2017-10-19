@@ -19,6 +19,7 @@ from tempfile import mkdtemp
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..extractors.jats import Jats
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -34,7 +35,7 @@ from ..utils import (
 )
 
 
-class EDPSpider(Jats, XMLFeedSpider):
+class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
     """EDP Sciences crawler.
 
     This spider connects to a given FTP hosts and downloads zip files with
@@ -44,9 +45,10 @@ class EDPSpider(Jats, XMLFeedSpider):
 
     1. First it connects to a FTP host and lists all the new TAR files found
        on the remote server and downloads them to a designated local folder,
-       using ``EDPSpider.start_requests()``. The starting point of the crawl can also be a
-       local file. Packages contain XML files with different formats (``gz`` package
-       is ``JATS``, ``bz2`` package has ``rich`` and ``jp`` format XML files, ``jp`` is ``JATS``.)
+       using ``EDPSpider.start_requests()``. The starting point of the crawl
+       can also be a local file. Packages contain XML files with different
+       formats (``gz`` package is ``JATS``, ``bz2`` package has ``rich`` and
+       ``jp`` format XML files, ``jp`` is ``JATS``.)
 
     2. Then the TAR file is unpacked and it lists all the XML files found
        inside, via ``EDPSpider.handle_package()``. Note the callback from
@@ -59,8 +61,8 @@ class EDPSpider(Jats, XMLFeedSpider):
     5. Finally, ``HEPRecord`` is created in ``EDPSpider.build_item()``.
 
     Examples:
-        To run an ``EDPSpider``, you need to pass FTP connection information via
-        ``ftp_netrc`` file::
+        To run an ``EDPSpider``, you need to pass FTP connection information
+        via ``ftp_netrc`` file::
 
             $ scrapy crawl EDP -a ftp_netrc=tmp/edps_netrc
 

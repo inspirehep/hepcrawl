@@ -16,6 +16,7 @@ import re
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
@@ -32,7 +33,7 @@ RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(
     [re.escape(word) for word in THESIS_WORDS]), re.I | re.U)
 
 
-class ArxivSpider(XMLFeedSpider):
+class ArxivSpider(StatefulSpider, XMLFeedSpider):
     """Spider for crawling arXiv.org OAI-PMH XML files.
 
     Example:

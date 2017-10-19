@@ -18,6 +18,7 @@ import tempfile
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..extractors.jats import Jats
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -31,7 +32,7 @@ from ..utils import (
 )
 
 
-class WorldScientificSpider(Jats, XMLFeedSpider):
+class WorldScientificSpider(StatefulSpider, Jats, XMLFeedSpider):
     """World Scientific Proceedings crawler.
 
     This spider connects to a given FTP hosts and downloads zip files with

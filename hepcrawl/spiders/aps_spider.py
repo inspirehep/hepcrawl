@@ -16,8 +16,9 @@ import link_header
 
 from furl import furl
 
-from scrapy import Request, Spider
+from scrapy import Request
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -28,7 +29,7 @@ from ..utils import (
 )
 
 
-class APSSpider(Spider):
+class APSSpider(StatefulSpider):
     """APS crawler.
 
     Uses the APS REST API v2.

@@ -16,9 +16,9 @@ from flask.app import Flask
 from inspire_dojson.hep import hep
 from lxml import etree
 from scrapy import Request
-from scrapy.spiders import Spider
 from six.moves import urllib
 
+from . import StatefulSpider
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
@@ -26,7 +26,7 @@ from ..utils import (
 )
 
 
-class DesySpider(Spider):
+class DesySpider(StatefulSpider):
     """This spider parses files in XML MARC format (collections or single
     records).
 

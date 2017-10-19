@@ -12,21 +12,20 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-
 import tarfile
-
 from tempfile import mkdtemp
 
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
-from ..extractors.nlm import NLM
 
+from . import StatefulSpider
+from ..extractors.nlm import NLM
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import ParsedItem
 
 
-class IOPSpider(XMLFeedSpider, NLM):
+class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
     """IOPSpider crawler.
 
     This spider should first be able to harvest files from `IOP STACKS`_.

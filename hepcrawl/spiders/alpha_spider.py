@@ -18,6 +18,7 @@ from urlparse import urljoin
 from scrapy import Request
 from scrapy.spiders import CrawlSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -26,7 +27,7 @@ from ..utils import (
 )
 
 
-class AlphaSpider(CrawlSpider):
+class AlphaSpider(StatefulSpider, CrawlSpider):
 
     """Alpha crawler
 

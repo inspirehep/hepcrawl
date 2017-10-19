@@ -19,6 +19,7 @@ import requests
 from scrapy.http import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -28,7 +29,7 @@ from ..utils import (
 from ..dateutils import format_date
 
 
-class InfnSpider(XMLFeedSpider):
+class InfnSpider(StatefulSpider, XMLFeedSpider):
 
     """INFN crawler
 
