@@ -17,6 +17,7 @@ from urlparse import urljoin
 from scrapy import Request
 from scrapy.spiders import CrawlSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -26,7 +27,7 @@ from ..utils import (
 )
 
 
-class PhilSpider(CrawlSpider):
+class PhilSpider(StatefulSpider, CrawlSpider):
 
     """Phil crawler
 

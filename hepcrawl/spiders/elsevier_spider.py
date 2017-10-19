@@ -23,6 +23,7 @@ import requests
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -33,11 +34,10 @@ from ..utils import (
     unzip_xml_files,
     ParsedItem,
 )
-
 from ..dateutils import format_year
 
 
-class ElsevierSpider(XMLFeedSpider):
+class ElsevierSpider(StatefulSpider, XMLFeedSpider):
     """Elsevier crawler.
 
     This spider can scrape either an ATOM feed (default), zip file

@@ -16,6 +16,7 @@ from urlparse import urljoin
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -24,7 +25,7 @@ from ..utils import (
 )
 
 
-class MagicSpider(XMLFeedSpider):
+class MagicSpider(StatefulSpider, XMLFeedSpider):
 
     """MAGIC crawler
 

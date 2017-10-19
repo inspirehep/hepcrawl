@@ -16,8 +16,8 @@ import re
 from urlparse import urljoin
 
 from scrapy import Request, Selector
-from scrapy.spiders import Spider
 
+from . import StatefulSpider
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -28,7 +28,7 @@ from ..utils import (
 )
 
 
-class POSSpider(Spider):
+class POSSpider(StatefulSpider):
     """POS/Sissa crawler.
 
     Extracts from metadata:

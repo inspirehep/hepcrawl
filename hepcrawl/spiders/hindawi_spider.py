@@ -14,6 +14,7 @@ from __future__ import absolute_import, division, print_function
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
@@ -22,7 +23,7 @@ from ..utils import (
 )
 
 
-class HindawiSpider(XMLFeedSpider):
+class HindawiSpider(StatefulSpider, XMLFeedSpider):
 
     """Hindawi crawler
 

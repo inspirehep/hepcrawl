@@ -9,17 +9,21 @@
 
 """Spider for the CERN Document Server OAI-PMH interface"""
 
-from lxml import etree
 from scrapy.spider import XMLFeedSpider
 from scrapy import Request
 from harvestingkit.inspire_cds_package.from_cds import CDS2Inspire
-from harvestingkit.bibrecord import create_record as create_bibrec, record_xml_output
+from harvestingkit.bibrecord import (
+    create_record as create_bibrec,
+    record_xml_output,
+)
 from dojson.contrib.marc21.utils import create_record
 from inspire_dojson.hep import hep
 
+from . import StatefulSpider
 from ..utils import ParsedItem
 
-class CDSSpider(XMLFeedSpider):
+
+class CDSSpider(StatefulSpider, XMLFeedSpider):
     """Spider for crawling the CERN Document Server OAI-PMH XML files.
 
     Example:
@@ -29,10 +33,10 @@ class CDSSpider(XMLFeedSpider):
                 cds \\
                 -a "source_file=file://$PWD/tests/functional/cds/fixtures/oai_harvested/cds_smoke_records.xml"
 
-    It uses `HarvestingKit <https://pypi.python.org/pypi/HarvestingKit>`_ to translate from CDS's
-    MARCXML into INSPIRE Legacy's MARCXML flavor. It then employs
-    `inspire-dojson <https://pypi.python.org/pypi/inspire-dojson>`_ to transform the legacy
-    INSPIRE MARCXML into the new INSPIRE Schema.
+    It uses `HarvestingKit <https://pypi.python.org/pypi/HarvestingKit>`_ to
+    translate from CDS's MARCXML into INSPIRE Legacy's MARCXML flavor. It then
+    employs `inspire-dojson <https://pypi.python.org/pypi/inspire-dojson>`_ to
+    transform the legacy INSPIRE MARCXML into the new INSPIRE Schema.
     """
 
     name = 'CDS'
@@ -50,10 +54,11 @@ class CDSSpider(XMLFeedSpider):
     def start_requests(self):
         yield Request(self.source_file)
 
-
     def parse_node(self, response, node):
         node.remove_namespaces()
-        cds_bibrec, ok, errs = create_bibrec(node.xpath('.//record').extract()[0])
+        cds_bibrec, ok, errs = create_bibrec(
+            node.xpath('.//record').extract()[0]
+        )
         if not ok:
             raise RuntimeError("Cannot parse record %s: %s", node, errs)
         self.logger.info("Here's the record: %s" % cds_bibrec)
@@ -66,4 +71,3 @@ class CDSSpider(XMLFeedSpider):
                 record_format='hep',
             )
         return parsed_item
-
