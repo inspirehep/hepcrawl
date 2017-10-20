@@ -88,7 +88,8 @@ def test_free_keywords(results):
 def test_license(results):
     """Test extracting license information."""
     expected_license = [{
-        'license': 'CC-BY-3.0',
+        'license': None,
+        'material': None,
         'url': 'http://creativecommons.org/licenses/by/3.0/',
     }]
     for record in results:

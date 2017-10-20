@@ -129,7 +129,7 @@ def test_notes(results):
 def test_license(results):
     """Test extracting license information."""
     expected_license = [{
-        'license': 'CC-BY-3.0',
+        'license': 'CC BY 3.0',
         'material': 'preprint',
         'url': 'https://creativecommons.org/licenses/by/3.0/',
     }]

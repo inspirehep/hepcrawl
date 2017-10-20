@@ -99,7 +99,7 @@ class PhenixSpider(StatefulSpider, XMLFeedSpider):
 
         return authors
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
+    def add_file(self, pdf_files, file_access, file_type):
         """Create a structured dictionary and add to ``files`` item."""
         file_dicts = []
         for link in pdf_files:
@@ -121,7 +121,7 @@ class PhenixSpider(StatefulSpider, XMLFeedSpider):
             return None
 
         pdf_files = node.xpath(".//a/@href").extract()
-        record.add_value('additional_files', self.add_fft_file(pdf_files, "HIDDEN", "Fulltext"))
+        record.add_value('additional_files', self.add_file(pdf_files, "HIDDEN", "Fulltext"))
         record.add_value('authors', self.get_authors(node))
         record.add_value('date_published', year)
         record.add_value('thesis', {'degree_type': thesis_type})

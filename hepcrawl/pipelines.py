@@ -18,6 +18,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import shutil
 import pprint
+import logging
 
 import requests
 
@@ -31,8 +32,11 @@ from .settings import FILES_STORE
 from .utils import RecordFile
 
 
-class FftFilesPipeline(FilesPipeline):
-    """Download all the FFT files provided by record.
+LOGGER = logging.getLogger(name=__name__)
+
+
+class DocumentsPipeline(FilesPipeline):
+    """Download all the documents provided by record.
 
     Note:
 
@@ -44,18 +48,23 @@ class FftFilesPipeline(FilesPipeline):
 
     def __init__(self, store_uri, *args, **kwargs):
         store_uri = store_uri or FILES_STORE
-        super(FftFilesPipeline, self).__init__(
+        super(DocumentsPipeline, self).__init__(
             *args,
             store_uri=store_uri,
             **kwargs
         )
 
     def get_media_requests(self, item, info):
-        """Download FFT files using FTP."""
+        """Download documents using FTP."""
         if item.get('file_urls'):
-            for fft_url in item.file_urls:
+            logging.info(
+                'Got the following files to download:\n%s' % pprint.pformat(
+                    item['file_urls']
+                )
+            )
+            for document_url in item.file_urls:
                 yield Request(
-                    url=fft_url,
+                    url=document_url,
                     meta=item.ftp_params,
                 )
 

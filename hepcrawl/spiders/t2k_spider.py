@@ -101,7 +101,7 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
 
         return out_links
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
+    def add_file(self, pdf_files, file_access, file_type):
         """Create a structured dictionary and add to ``files`` item."""
         # NOTE: should this be moved to utils?
         file_dicts = []
@@ -149,7 +149,7 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
             "//a[@class='contenttype-file state-internal url']/@href").extract()
 
         response.meta["abstract"] = abstract
-        response.meta["additional_files"] = self.add_fft_file(file_paths, "HIDDEN", "Fulltext")
+        response.meta["additional_files"] = self.add_file(file_paths, "HIDDEN", "Fulltext")
 
         return self.build_item(response)
 

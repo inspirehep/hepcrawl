@@ -25,7 +25,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
 
 
 def override_dynamic_fields_on_records(records):
@@ -156,7 +156,7 @@ def cleanup():
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_ftp_records_expected.json',
+                'desy_records_ftp_expected.json',
             ),
             get_ftp_settings(),
         ),
@@ -164,7 +164,7 @@ def cleanup():
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_local_records_expected.json',
+                'desy_records_local_expected.json',
             ),
             get_local_settings(),
         )
@@ -196,10 +196,21 @@ def test_desy(
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    results = sorted(results, key=lambda x: x['control_number'])
-
     gotten_results = override_dynamic_fields_on_records(results)
     expected_results = override_dynamic_fields_on_records(expected_results)
+
+    gotten_results = deep_sort(
+        sorted(
+            gotten_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+    expected_results = deep_sort(
+        sorted(
+            expected_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
 
     assert gotten_results == expected_results
 

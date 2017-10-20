@@ -1,5 +1,6 @@
 [
   {
+    "_collections": ["Literature"],
     "abstracts": [
       {
         "source": "arXiv",
@@ -22,7 +23,6 @@
     ],
     "authors": [
       {
-        "affiliations": [],
         "full_name": "Montaruli, Teresa Maria"
       }
     ],
@@ -32,6 +32,7 @@
         "value": "IceCube"
       }
     ],
+    "curated": false,
     "document_type": [
       "conference paper"
     ],
@@ -44,7 +45,7 @@
     ],
     "license": [
       {
-        "license": "arXiv-1.0",
+        "license": "arXiv nonexclusive-distrib 1.0",
         "material": "preprint",
         "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/"
       }

@@ -208,7 +208,7 @@ def test_authors(many_results):
         record_affiliations = []
         for author in record['authors']:
             record_affiliations.append(
-                [aff['value'] for aff in author['affiliations']]
+                [aff['value'] for aff in author.get('affiliations', [])]
             )
         # assert that we have the same list of authors
         assert set(test_full_names) == set(record_full_names)

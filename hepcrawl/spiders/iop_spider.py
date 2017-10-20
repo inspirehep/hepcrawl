@@ -152,7 +152,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
             if pattern in pdf_path:
                 return os.path.join(self.pdf_files, pdf_path)
 
-    def add_fft_file(self, file_path, file_access, file_type):
+    def add_file(self, file_path, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
             "access": file_access,
@@ -207,7 +207,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
 
         xml_file_path = response.url
         record.add_value("additional_files",
-                         self.add_fft_file(xml_file_path, "INSPIRE-HIDDEN", "Fulltext"))
+                         self.add_file(xml_file_path, "INSPIRE-HIDDEN", "Fulltext"))
         if self.pdf_files:
             pdf_file_path = self.get_pdf_path(volume, issue, fpage)
             if pdf_file_path:
@@ -220,7 +220,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
                 else:
                     file_access = "INSPIRE-HIDDEN"
                 record.add_value("additional_files",
-                                 self.add_fft_file(pdf_file_path, file_access, file_type))
+                                 self.add_file(pdf_file_path, file_access, file_type))
 
         parsed_item = ParsedItem(
             record=record.load_item(),

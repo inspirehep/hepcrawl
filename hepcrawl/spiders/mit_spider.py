@@ -129,7 +129,7 @@ class MITSpider(StatefulSpider, XMLFeedSpider):
 
         return authors
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
+    def add_file(self, pdf_files, file_access, file_type):
         """Create a structured dictionary to add to 'files' item."""
         file_dicts = []
         for link in pdf_files:
@@ -207,7 +207,7 @@ class MITSpider(StatefulSpider, XMLFeedSpider):
 
         pdf_files = node.xpath(".//table[@id='file-table']//td/a/@href").extract()
         if pdf_files:
-            record.add_value('additional_files', self.add_fft_file(
+            record.add_value('additional_files', self.add_file(
                 pdf_files, "HIDDEN", "Fulltext"))
         record.add_value('authors', self.get_authors(node))
         record.add_xpath('date_published',

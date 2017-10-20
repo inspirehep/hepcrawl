@@ -3,7 +3,7 @@
         "core": true, 
         "documents": [
             {
-                "url": "http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf", 
+                "url": "/tmp/file_urls/full/4467212407c5a5972dc563110d1975e30b8c4450.pdf", 
                 "fulltext": true, 
                 "key": "document"
             }
@@ -225,7 +225,7 @@
         "core": true, 
         "documents": [
             {
-                "url": "http://bib-pubdb1.desy.de/record/390068/files/desy-thesis-17-036.title.pdf", 
+                "url": "/tmp/file_urls/full/85f78f549bd45b34999bc72353d982127043c341.pdf", 
                 "fulltext": true, 
                 "key": "document"
             }

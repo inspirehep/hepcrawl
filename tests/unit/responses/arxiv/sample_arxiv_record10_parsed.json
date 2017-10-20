@@ -4,13 +4,15 @@
     "log_file": "scrapy_log_file", 
     "results_data": [
         {
+            "_collections": ["Literature"],
             "preprint_date": "2016-06-14", 
+            "curated": false,
             "citeable": true,
             "license": [
                 {
                     "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
                     "material": "preprint",
-                    "license": "arXiv-1.0"
+                    "license": "arXiv nonexclusive-distrib 1.0"
                 }
             ], 
             "public_notes": [
@@ -21,7 +23,6 @@
             ], 
             "authors": [
                 {
-                    "affiliations": [], 
                     "full_name": "Battista, Emmanuele"
                 }
             ], 

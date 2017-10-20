@@ -129,7 +129,7 @@ class InfnSpider(StatefulSpider, XMLFeedSpider):
 
         return authors
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
+    def add_file(self, pdf_files, file_access, file_type):
         """Create a structured dictionary to add to 'files' item."""
         file_dicts = []
         for link in pdf_files:
@@ -232,7 +232,7 @@ class InfnSpider(StatefulSpider, XMLFeedSpider):
 
         pdf_files = response.meta.get("pdf_links")
         if pdf_files:
-            record.add_value('additional_files', self.add_fft_file(pdf_files, "HIDDEN", "Fulltext"))
+            record.add_value('additional_files', self.add_file(pdf_files, "HIDDEN", "Fulltext"))
         record.add_value('authors', response.meta.get("authors"))
         record.add_value('date_published', response.meta.get("date_published"))
         record.add_value('thesis', response.meta.get("thesis_info"))

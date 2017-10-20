@@ -210,7 +210,7 @@ def test_free_keywords(generated_record, expected_keywords):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                'license': 'CC-BY-4.0',
+                'license': 'CC BY 4.0',
                 'url': 'https://creativecommons.org/licenses/by/4.0',
             }],
         ],
@@ -275,7 +275,7 @@ def test_collections(generated_record, expected_collections):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
-                "value": "Belle Collaboration"
+                "value": "Belle"
             }],
         ],
     ],
@@ -447,6 +447,7 @@ def test_refereed(generated_record, expected_refereed):
 )
 def test_pipeline_record(generated_record):
     expected = {
+        '_collections': ['Literature'],
         'abstracts': [
             {
                 'source': 'WSP',
@@ -475,6 +476,7 @@ def test_pipeline_record(generated_record):
                 'full_name': u'author_surname_2, author_name_1',
             },
         ],
+        'curated': False,
         'citeable': True,
         'copyright': [
             {

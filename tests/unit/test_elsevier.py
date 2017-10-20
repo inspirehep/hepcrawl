@@ -116,7 +116,8 @@ def test_collection(parsed_node):
 
 def test_license_oa(parsed_node):
     expected_license = [{
-        'license': 'CC-BY-3.0',
+        'license': None,
+        'material': None,
         'url': 'http://creativecommons.org/licenses/by/3.0/',
     }]
     assert parsed_node["license"] == expected_license

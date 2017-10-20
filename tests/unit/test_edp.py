@@ -241,7 +241,8 @@ def test_authors(record_jats):
 def test_license(record_jats):
     """Test OA-license."""
     expected_license = [{
-        'license': 'CC-BY-4.0',
+        'license': None,
+        'material': None,
         'url': 'http://creativecommons.org/licenses/by/4.0/',
     }]
 

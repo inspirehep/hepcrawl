@@ -971,7 +971,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
         response.meta["info"] = info
         return self.build_item(response)
 
-    def add_fft_file(self, file_path, file_access, file_type):
+    def add_file(self, file_path, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
             "access": file_access,
@@ -995,7 +995,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
 
         xml_file = response.meta.get("xml_url")
         if xml_file:
-            record.add_value('additional_files', self.add_fft_file(xml_file, "HIDDEN", "Fulltext"))
+            record.add_value('additional_files', self.add_file(xml_file, "HIDDEN", "Fulltext"))
             sd_url = self._get_sd_url(xml_file)
             if requests.head(sd_url).status_code == 200:  # Test if valid url
                 record.add_value("urls", sd_url)

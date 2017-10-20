@@ -178,8 +178,15 @@ class DesySpider(StatefulSpider):
             yield request
 
     @staticmethod
-    def _get_full_uri(current_path, base_url, schema, hostname=None):
+    def _get_full_uri(current_url, base_url, schema, hostname=None):
         hostname = hostname or ''
+
+        parsed_url = urllib.parse.urlparse(current_url)
+
+        if parsed_url.scheme and parsed_url.scheme not in ['ftp', 'file']:
+            return current_url
+
+        current_path = parsed_url.path
         if os.path.isabs(current_path):
             full_path = current_path
         else:
@@ -223,15 +230,17 @@ class DesySpider(StatefulSpider):
         for hep_record in hep_records:
             list_file_urls = [
                 self._get_full_uri(
-                    current_path=fft_path['path'],
+                    current_url=document['url'],
                     base_url=base_url,
                     schema=url_schema,
                     hostname=hostname,
                 )
-                for fft_path in hep_record['_fft']
+                for document in hep_record.get('documents', [])
             ]
 
-            self.log('Got the following fft urls: %s' % list_file_urls)
+            self.log(
+                'Got the following attached documents: %s' % list_file_urls
+            )
             parsed_item = ParsedItem(
                 record=hep_record,
                 file_urls=list_file_urls,
@@ -245,9 +254,14 @@ class DesySpider(StatefulSpider):
     @staticmethod
     def _get_marcxml_records(response_body):
         root = etree.fromstring(response_body)
-        list_items = root.findall('.//{http://www.loc.gov/MARC21/slim}record')
-        if not list_items:
-            list_items = root.findall('.//record')
+        if root.tag == 'record':
+            list_items = [root]
+        else:
+            list_items = root.findall(
+                './/{http://www.loc.gov/MARC21/slim}record'
+            )
+            if not list_items:
+                list_items = root.findall('.//record')
 
         return [etree.tostring(item) for item in list_items]
 
