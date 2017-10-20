@@ -26,3 +26,25 @@ def get_crawler_instance(crawler_host, *args, **kwargs):
         *args,
         **kwargs
     )
+
+
+def deep_sort(element):
+    """Dummy deep-sort json dicts (lists, dicts, stirngs, bools and integers).
+    """
+    if isinstance(element, str):
+        return element
+
+    if isinstance(element, dict):
+        for key, value in element.items():
+            element[key] = deep_sort(value)
+
+        return element
+
+    if isinstance(element, list):
+        new_element = []
+        for item in sorted(element):
+            new_element.append(deep_sort(item))
+
+        return new_element
+
+    return element

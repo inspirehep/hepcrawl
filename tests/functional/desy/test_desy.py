@@ -25,7 +25,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
 
 
 def override_dynamic_fields_on_records(records):
@@ -199,13 +199,17 @@ def test_desy(
     gotten_results = override_dynamic_fields_on_records(results)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    gotten_results = sorted(
-        gotten_results,
-        key=lambda result: result['titles'][0]['title'],
+    gotten_results = deep_sort(
+        sorted(
+            gotten_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
     )
-    expected_results = sorted(
-        expected_results,
-        key=lambda result: result['titles'][0]['title'],
+    expected_results = deep_sort(
+        sorted(
+            expected_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
     )
 
     assert gotten_results == expected_results

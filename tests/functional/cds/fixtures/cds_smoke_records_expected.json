@@ -35,12 +35,12 @@
         ], 
         "external_system_identifiers": [
             {
-                "schema": "ADMADM", 
-                "value": "0003711"
-            }, 
-            {
                 "schema": "Inspire", 
                 "value": "1614043"
+            }, 
+            {
+                "schema": "ADMADM", 
+                "value": "0003711"
             }, 
             {
                 "schema": "CDS", 

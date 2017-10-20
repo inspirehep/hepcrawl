@@ -11,12 +11,11 @@
 
 from __future__ import absolute_import, division, print_function
 
-from time import sleep
 import pytest
 
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
@@ -26,7 +25,9 @@ from hepcrawl.testlib.fixtures import (
 
 def override_generated_fields(record):
     record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
-    record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
+    )
 
     return record
 
@@ -40,9 +41,6 @@ def set_up_local_environment():
         'cds_smoke_records.xml',
         test_suite='functional',
     )
-
-    # The test must wait until the docker environment is up (takes about 5 seconds).
-    sleep(5)
 
     yield {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
@@ -69,7 +67,9 @@ def set_up_local_environment():
     ]
 )
 def test_cds(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(
+        set_up_local_environment.get('CRAWLER_HOST_URL')
+    )
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -83,8 +83,23 @@ def test_cds(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
+    results = deep_sort(
+        sorted(
+            results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+    expected_results = deep_sort(
+        sorted(
+            expected_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
 
     assert gotten_results == expected_results
 
@@ -103,7 +118,9 @@ def test_cds(set_up_local_environment, expected_results):
     ]
 )
 def test_cds_crawl_twice(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+    crawler = get_crawler_instance(
+        set_up_local_environment.get('CRAWLER_HOST_URL')
+    )
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -117,8 +134,23 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
+    results = deep_sort(
+        sorted(
+            results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+    expected_results = deep_sort(
+        sorted(
+            expected_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
 
     assert gotten_results == expected_results
 
