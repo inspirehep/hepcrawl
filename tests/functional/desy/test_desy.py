@@ -77,24 +77,24 @@ def assert_files_equal(file_1, file_2):
     assert file_1_hash == file_2_hash
 
 
-def assert_ffts_content_matches_expected(record):
-    for fft_field in record.get('_fft', []):
-        assert_fft_content_matches_expected(fft_field)
+def assert_documents_content_matches_expected(record):
+    for documents_field in record.get('documents', []):
+        assert_document_content_matches_expected(documents_field)
 
 
-def assert_fft_content_matches_expected(fft_field):
-    expected_file_name = get_file_name_from_fft(fft_field)
-    assert_files_equal(expected_file_name, fft_field['path'])
+def assert_document_content_matches_expected(documents_field):
+    expected_file_name = get_file_name_from_documents(documents_field)
+    assert_files_equal(expected_file_name, documents_field['path'])
 
 
-def get_file_name_from_fft(fft_field):
+def get_file_name_from_documents(documents_field):
     file_path = get_test_suite_path(
         'desy',
         'fixtures',
         'ftp_server',
         'DESY',
         'FFT',
-        fft_field['filename'] + fft_field['format'],
+        documents_field['filename'] + documents_field['format'],
         test_suite='functional',
     )
     return file_path
@@ -215,4 +215,4 @@ def test_desy(
     assert gotten_results == expected_results
 
     for record in gotten_results:
-        assert_ffts_content_matches_expected(record)
+        assert_documents_content_matches_expected(record)
