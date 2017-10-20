@@ -318,7 +318,3 @@ class HEPRecord(scrapy.Item):
 
     thesis_supervisor = scrapy.Field()
     language = scrapy.Field()
-
-    _fft = scrapy.Field()
-    """Used to communicate with legacy about files (to be) attached to the
-        record."""
