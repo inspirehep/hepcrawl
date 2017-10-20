@@ -1,0 +1,155 @@
+[
+    {
+        "$schema": "hep.json", 
+        "_collections": [
+            "Literature"
+        ], 
+        "accelerator_experiments": [
+            {
+                "legacy_name": "CERN-SPS---"
+            }
+        ], 
+        "acquisition_source": {
+            "datetime": "2017-10-04T14:07:59.746165", 
+            "method": "hepcrawl", 
+            "source": "CDS", 
+            "submission_number": "None"
+        }, 
+        "core": true, 
+        "curated": true,
+        "corporate_author": [
+            "European Organization for Nuclear Research"
+        ], 
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/21099/files/CM-P00077286-e.pdf", 
+                "key": "document"
+            }, 
+            {
+                "url": "http://cds.cern.ch/record/21099/files/CM-P00078235-f.pdf", 
+                "key": "1_document"
+            }
+        ],
+        "document_type": [
+            "article"
+        ], 
+        "external_system_identifiers": [
+            {
+                "schema": "ADMADM", 
+                "value": "0003711"
+            }, 
+            {
+                "schema": "Inspire", 
+                "value": "1614043"
+            }, 
+            {
+                "schema": "CDS", 
+                "value": "21099"
+            }
+        ], 
+        "inspire_categories": [
+            {
+                "source": "undefined", 
+                "term": "Accelerators"
+            }
+        ], 
+        "languages": [
+            "fr"
+        ], 
+        "preprint_date": "1967-05-30", 
+        "report_numbers": [
+            {
+                "value": "CERN/0702"
+            }, 
+            {
+                "value": "CM-P00077286-e"
+            }, 
+            {
+                "value": "CM-P00078235-f"
+            }
+        ], 
+        "titles": [
+            {
+                "title": "Addendum to the Report on the Design Study of a 300 GeV Proton Synchrotron (CERN/563) (AR/Int. SG/64-15)"
+            }, 
+            {
+                "title": "Suppl\u00e9ment au Rapport sur le projet du synchrotron \u00e0 prontons de 300 GeV (CERN/563) (Ar/Int. SG/64-15)"
+            }
+        ]
+    }, 
+    {
+        "$schema": "hep.json", 
+        "_collections": [
+            "Literature"
+        ], 
+        "accelerator_experiments": [
+            {
+                "legacy_name": "CERN-LEP---"
+            }
+        ], 
+        "acquisition_source": {
+            "datetime": "2017-10-04T14:07:59.783028", 
+            "method": "hepcrawl", 
+            "source": "CDS", 
+            "submission_number": "None"
+        }, 
+        "core": true, 
+        "curated": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/60936/files/CM-P00098683-f.pdf", 
+                "key": "document"
+            }, 
+            {
+                "url": "http://cds.cern.ch/record/60936/files/CERN-SPC-426.pdf", 
+                "key": "1_document"
+            }
+        ],
+        "document_type": [
+            "article"
+        ], 
+        "external_system_identifiers": [
+            {
+                "schema": "ADMADM", 
+                "value": "0009846"
+            }, 
+            {
+                "schema": "Inspire", 
+                "value": "1614044"
+            }, 
+            {
+                "schema": "CDS", 
+                "value": "60936"
+            }
+        ], 
+        "inspire_categories": [
+            {
+                "source": "undefined", 
+                "term": "Accelerators"
+            }
+        ], 
+        "languages": [
+            "fr"
+        ], 
+        "preprint_date": "1978-10-06", 
+        "report_numbers": [
+            {
+                "value": "CERN/SPC/0426"
+            }, 
+            {
+                "value": "CM-P00095369-e"
+            }, 
+            {
+                "value": "CM-P00098683-f"
+            }
+        ], 
+        "titles": [
+            {
+                "title": "LEP Studies 1979 to 1981"
+            }, 
+            {
+                "title": "Les Etudes sur le LEP de 1979 -1981"
+            }
+        ]
+    } 
+]

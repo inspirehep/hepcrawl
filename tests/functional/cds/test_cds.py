@@ -61,7 +61,7 @@ def set_up_local_environment():
         expected_json_results_from_file(
             'cds',
             'fixtures',
-            'cds_smoke_records.json',
+            'cds_smoke_records_expected.json',
         ),
     ],
     ids=[
@@ -95,7 +95,7 @@ def test_cds(set_up_local_environment, expected_results):
         expected_json_results_from_file(
             'cds',
             'fixtures',
-            'cds_smoke_records.json',
+            'cds_smoke_records_expected.json',
         ),
     ],
     ids=[
