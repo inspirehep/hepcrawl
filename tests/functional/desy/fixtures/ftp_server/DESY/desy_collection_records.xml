@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<collection xmlns="http://www.loc.gov/MARC21/slim">
+<collection>
 <record>
   <datafield tag="260" ind1=" " ind2=" ">
     <subfield code="a">Hamburg</subfield>
@@ -66,7 +66,7 @@
     <subfield code="j">ORCID:0000-0001-5352-7744</subfield>
   </datafield>
   <datafield tag="FFT" ind1=" " ind2=" ">
-    <subfield code="a">FFT/test_fft_1.txt</subfield>
+    <subfield code="a">FFT/desy-thesis-17-035.title.pdf</subfield>
     <subfield code="d">Fulltext</subfield>
     <subfield code="t">INSPIRE-PUBLIC</subfield>
   </datafield>
@@ -237,7 +237,7 @@
     <subfield code="u">DESY</subfield>
   </datafield>
   <datafield tag="FFT" ind1=" " ind2=" ">
-    <subfield code="a">FFT/test_fft_2.txt</subfield>
+    <subfield code="a">FFT/desy-thesis-17-036.title.pdf</subfield>
     <subfield code="d">Fulltext</subfield>
     <subfield code="t">INSPIRE-PUBLIC</subfield>
   </datafield>
@@ -359,5 +359,4 @@
     <subfield code="a">fermion: zero mode</subfield>
     <subfield code="9">bibclassify</subfield>
   </datafield>
-</record>
-</collection>
+</record></collection>

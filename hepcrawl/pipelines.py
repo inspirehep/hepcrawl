@@ -18,6 +18,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import shutil
 import pprint
+import logging
 
 import requests
 
@@ -29,6 +30,9 @@ from inspire_schemas.utils import validate
 from .tohep import item_to_hep
 from .settings import FILES_STORE
 from .utils import RecordFile
+
+
+LOGGER = logging.getLogger(name=__name__)
 
 
 class DocumentsPipeline(FilesPipeline):
@@ -53,6 +57,11 @@ class DocumentsPipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         """Download documents using FTP."""
         if item.get('file_urls'):
+            logging.info(
+                'Got the following files to download:\n%s' % pprint.pformat(
+                    item['file_urls']
+                )
+            )
             for document_url in item.file_urls:
                 yield Request(
                     url=document_url,
