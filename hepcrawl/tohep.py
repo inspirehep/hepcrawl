@@ -37,29 +37,29 @@ class UnknownItemFormat(Exception):
     pass
 
 
-def _get_updated_fft_fields(current_fft_fields, record_files):
+def _get_updated_documents(current_documents, record_files):
     """
 
     Args:
-        current_fft_fields(list(dict)): record current fft fields as generated
-            by ``dojson``. We expect each of then to have, at least, a key
-            named ``path``.
+        current_documents(list(dict)): current documents as generated
+            by ``dojson``. We expect each of them to have, at least, a key
+            named ``url``.
 
         record_files(list(RecordFile)): files attached to the record as
-            populated by :class:`hepcrawl.pipelines.FftFilesPipeline`.
+            populated by :class:`hepcrawl.pipelines.DocumentsPipeline`.
     """
     record_files_index = {
         record_file.name: record_file.path
         for record_file in record_files
     }
-    new_fft_fields = []
-    for fft_field in current_fft_fields:
-        file_name = os.path.basename(fft_field['path'])
+    new_documents = []
+    for document in current_documents:
+        file_name = os.path.basename(document['url'])
         if file_name in record_files_index:
-            fft_field['path'] = record_files_index[file_name]
-            new_fft_fields.append(fft_field)
+            document['url'] = record_files_index[file_name]
+            new_documents.append(document)
 
-    return new_fft_fields
+    return new_documents
 
 
 def _has_publication_info(item):
@@ -192,19 +192,19 @@ def item_to_hep(
 
 
 def hep_to_hep(hep_record, record_files):
-    """This is needed to be able to patch the ``_fft`` field in the record.
+    """This is needed to be able to patch the ``documents`` in the record.
 
     As earlier in the process we don't really have all the files yet. It should
     be used by any spiders that generate hep format instead of the internal
     hepcrawl one (normally, marc-ingesting spiders).
     """
     if record_files:
-        LOGGER.debug('Updating fft fields from: %s', hep_record['_fft'])
-        hep_record['_fft'] = _get_updated_fft_fields(
-            current_fft_fields=hep_record['_fft'],
+        LOGGER.debug('Updating documents from: %s', hep_record['documents'])
+        hep_record['documents'] = _get_updated_documents(
+            current_documents=hep_record['documents'],
             record_files=record_files,
         )
-        LOGGER.debug('Updated fft fields to: %s', hep_record['_fft'])
+        LOGGER.debug('Updated documents to: %s', hep_record['documents'])
 
     return hep_record
 

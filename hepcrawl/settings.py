@@ -94,7 +94,7 @@ if SENTRY_DSN:
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'hepcrawl.pipelines.FftFilesPipeline': 1,
+    'hepcrawl.pipelines.DocumentsPipeline': 1,
     'hepcrawl.pipelines.InspireCeleryPushPipeline': 300,
 }
 

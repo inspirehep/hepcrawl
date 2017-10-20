@@ -231,7 +231,9 @@ class DesySpider(StatefulSpider):
                 for document in hep_record.get('documents', [])
             ]
 
-            self.log('Got the following fft urls: %s' % list_file_urls)
+            self.log(
+                'Got the following attached documents: %s' % list_file_urls
+            )
             parsed_item = ParsedItem(
                 record=hep_record,
                 file_urls=list_file_urls,
@@ -248,7 +250,9 @@ class DesySpider(StatefulSpider):
         if root.tag == 'record':
             list_items = [root]
         else:
-            list_items = root.findall('.//{http://www.loc.gov/MARC21/slim}record')
+            list_items = root.findall(
+                './/{http://www.loc.gov/MARC21/slim}record'
+            )
             if not list_items:
                 list_items = root.findall('.//record')
 

@@ -107,7 +107,7 @@ class MagicSpider(StatefulSpider, XMLFeedSpider):
 
         return out_links
 
-    def add_fft_file(self, pdf_files, file_access, file_type):
+    def add_file(self, pdf_files, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dicts = []
         for link in pdf_files:
@@ -162,7 +162,7 @@ class MagicSpider(StatefulSpider, XMLFeedSpider):
 
         response.meta["abstract"] = abstract
         response.meta["authors"] = self.get_authors(node)
-        response.meta["files"] = self.add_fft_file(file_paths, "HIDDEN", "Fulltext")
+        response.meta["files"] = self.add_file(file_paths, "HIDDEN", "Fulltext")
         return self.build_item(response)
 
     def build_item(self, response):

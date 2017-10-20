@@ -154,7 +154,7 @@ class HindawiSpider(StatefulSpider, XMLFeedSpider):
         else:
             return journal_pages, ''
 
-    def create_fft_file(self, file_path, file_access, file_type):
+    def create_file(self, file_path, file_access, file_type):
         """Create a structured dictionary to add to 'files' item."""
         file_dict = {
             "access": file_access,
@@ -218,10 +218,13 @@ class HindawiSpider(StatefulSpider, XMLFeedSpider):
         record.add_value('urls', splash_links)
         record.add_value('file_urls', pdf_links)
         if xml_links:
-            record.add_value('additional_files',
-                             [self.create_fft_file(xml,
-                                                   "INSPIRE-HIDDEN",
-                                                   "Fulltext") for xml in xml_links])
+            record.add_value(
+                'additional_files',
+                [
+                    self.create_file(xml, "INSPIRE-HIDDEN", "Fulltext")
+                    for xml in xml_links
+                ]
+            )
         record.add_value('collections', ['HEP', 'Citeable', 'Published'])
         record.add_xpath('source',
                          "./datafield[@tag='260']/subfield[@code='b']/text()")

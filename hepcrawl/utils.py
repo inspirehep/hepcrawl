@@ -388,14 +388,14 @@ class ParsedItem(dict):
             or ``"hepcrawl"``.
 
         file_urls(list(str)): URLs to the files to be downloaded by
-            ``FftFilesPipeline``.
+            ``DocumentsPipeline``.
 
         ftp_params(dict): Parameter for the
-            :class:`hepcrawl.pipelines.FftFilesPipeline` to be able to connect
+            :class:`hepcrawl.pipelines.DocumentsPipeline` to be able to connect
             to the ftp server, if any.
 
         record_files(list(RecordFile)): files attached to the record, usually
-            populated by :class:`hepcrawl.pipelines.FftFilesPipeline` from the
+            populated by :class:`hepcrawl.pipelines.DocumentsPipeline` from the
             ``file_urls`` parameter.
 
     Attributes:

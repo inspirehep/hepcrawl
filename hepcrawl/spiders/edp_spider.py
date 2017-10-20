@@ -313,7 +313,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
             # are not open access.
             record.add_value(
                 "additional_files",
-                self._create_fft_file(
+                self._create_file(
                     get_first(response.meta["pdf_links"]),
                     "INSPIRE-PUBLIC",
                     "Fulltext"
@@ -385,7 +385,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
         if "pdf_links" in response.meta:
             record.add_value(
                 "additional_files",
-                self._create_fft_file(
+                self._create_file(
                     get_first(response.meta["pdf_links"]),
                     "INSPIRE-PUBLIC",
                     "Fulltext"
@@ -610,7 +610,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
 
         return authors
 
-    def _create_fft_file(self, file_path, file_access, file_type):
+    def _create_file(self, file_path, file_access, file_type):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
             "access": file_access,
