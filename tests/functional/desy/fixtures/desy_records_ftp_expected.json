@@ -225,7 +225,7 @@
         "core": true, 
         "documents": [
             {
-                "url": "/tmp/file_urls/full/85f78f549bd45b34999bc72353d982127043c341.pdf", 
+                "url": "http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf", 
                 "fulltext": true, 
                 "key": "document"
             }

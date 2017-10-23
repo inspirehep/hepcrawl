@@ -376,6 +376,16 @@ class RecordFile(object):
 
         self.name = name
 
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return '%s(path="%s", name="%s")' % (
+            self.__class__.__name__,
+            self.name,
+            self.path,
+        )
+
 
 class ParsedItem(dict):
     """Each of the individual items returned by the spider to the pipeline.

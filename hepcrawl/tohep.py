@@ -43,21 +43,25 @@ def _get_updated_documents(current_documents, record_files):
     Args:
         current_documents(list(dict)): current documents as generated
             by ``dojson``. We expect each of them to have, at least, a key
-            named ``url``.
+            named ``old_url``.
 
         record_files(list(RecordFile)): files attached to the record as
             populated by :class:`hepcrawl.pipelines.DocumentsPipeline`.
     """
     record_files_index = {
-        record_file.name: record_file.path
+        os.path.basename(record_file.name): record_file.path
         for record_file in record_files
     }
     new_documents = []
     for document in current_documents:
-        file_name = os.path.basename(document['url'])
-        if file_name in record_files_index:
-            document['url'] = record_files_index[file_name]
-            new_documents.append(document)
+        url = document.get('old_url', document.get('url', ''))
+        full_file_name = os.path.basename(url)
+        if url and full_file_name in record_files_index:
+            document['url'] = record_files_index[full_file_name]
+        elif url:
+            document['url'] = document['old_url']
+
+        new_documents.append(document)
 
     return new_documents
 
@@ -200,6 +204,7 @@ def hep_to_hep(hep_record, record_files):
     """
     if record_files:
         LOGGER.debug('Updating documents from: %s', hep_record['documents'])
+        LOGGER.debug('With record_files: %s', record_files)
         hep_record['documents'] = _get_updated_documents(
             current_documents=hep_record['documents'],
             record_files=record_files,
