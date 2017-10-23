@@ -178,13 +178,18 @@ class DesySpider(StatefulSpider):
             yield request
 
     @staticmethod
-    def _get_full_uri(current_url, base_url, schema, hostname=None):
+    def _has_to_be_downloaded(current_url):
+        def _is_local_path(url):
+            parsed_url = urllib.parse.urlparse(url)
+            return not parsed_url.scheme
+
+        return _is_local_path(current_url)
+
+    @staticmethod
+    def _get_full_uri(current_url, base_url, schema='ftp', hostname=None):
         hostname = hostname or ''
 
         parsed_url = urllib.parse.urlparse(current_url)
-
-        if parsed_url.scheme and parsed_url.scheme not in ['ftp', 'file']:
-            return current_url
 
         current_path = parsed_url.path
         if os.path.isabs(current_path):
@@ -228,7 +233,7 @@ class DesySpider(StatefulSpider):
         self.log('Got %d hep records' % len(hep_records))
 
         for hep_record in hep_records:
-            list_file_urls = [
+            files_to_download = [
                 self._get_full_uri(
                     current_url=document['url'],
                     base_url=base_url,
@@ -236,14 +241,16 @@ class DesySpider(StatefulSpider):
                     hostname=hostname,
                 )
                 for document in hep_record.get('documents', [])
+                if self._has_to_be_downloaded(document['url'])
             ]
 
             self.log(
-                'Got the following attached documents: %s' % list_file_urls
+                'Got the following attached documents to download: %s'
+                % files_to_download
             )
             parsed_item = ParsedItem(
                 record=hep_record,
-                file_urls=list_file_urls,
+                file_urls=files_to_download,
                 ftp_params=ftp_params,
                 record_format='hep',
             )

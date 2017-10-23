@@ -36,7 +36,7 @@ LOGGER = logging.getLogger(name=__name__)
 
 
 class DocumentsPipeline(FilesPipeline):
-    """Download all the documents provided by record.
+    """Download all the documents the record passed to download.
 
     Note:
 
@@ -55,7 +55,6 @@ class DocumentsPipeline(FilesPipeline):
         )
 
     def get_media_requests(self, item, info):
-        """Download documents using FTP."""
         if item.get('file_urls'):
             logging.info(
                 'Got the following files to download:\n%s' % pprint.pformat(
@@ -70,10 +69,7 @@ class DocumentsPipeline(FilesPipeline):
 
     def get_absolute_file_path(self, path):
         return os.path.abspath(
-            os.path.join(
-                self.store.basedir,
-                path
-            )
+            os.path.join(self.store.basedir, path)
         )
 
     def item_completed(self, results, item, info):
