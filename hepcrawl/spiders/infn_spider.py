@@ -232,7 +232,10 @@ class InfnSpider(StatefulSpider, XMLFeedSpider):
 
         pdf_files = response.meta.get("pdf_links")
         if pdf_files:
-            record.add_value('additional_files', self.add_file(pdf_files, "HIDDEN", "Fulltext"))
+            record.add_value(
+                'documents',
+                self.add_file(pdf_files, "HIDDEN", "Fulltext"),
+            )
         record.add_value('authors', response.meta.get("authors"))
         record.add_value('date_published', response.meta.get("date_published"))
         record.add_value('thesis', response.meta.get("thesis_info"))

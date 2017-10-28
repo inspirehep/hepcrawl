@@ -121,7 +121,10 @@ class PhenixSpider(StatefulSpider, XMLFeedSpider):
             return None
 
         pdf_files = node.xpath(".//a/@href").extract()
-        record.add_value('additional_files', self.add_file(pdf_files, "HIDDEN", "Fulltext"))
+        record.add_value(
+            'documents',
+            self.add_file(pdf_files, "HIDDEN", "Fulltext"),
+        )
         record.add_value('authors', self.get_authors(node))
         record.add_value('date_published', year)
         record.add_value('thesis', {'degree_type': thesis_type})

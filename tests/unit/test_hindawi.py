@@ -96,9 +96,9 @@ def test_urls(record):
 def test_additional_files(record):
     """Test additional files."""
     url = "http://downloads.hindawi.com/journals/aa/2010/194946.xml"
-    assert "additional_files" in record
-    assert record["additional_files"][0]["url"] == url
-    assert record["additional_files"][0]["access"] == "INSPIRE-HIDDEN"
+    assert "documents" in record
+    assert record["documents"][0]["url"] == url
+    assert record["documents"][0]["hidden"]
 
 
 def test_collections(record):

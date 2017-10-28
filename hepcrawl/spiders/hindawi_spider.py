@@ -154,13 +154,13 @@ class HindawiSpider(StatefulSpider, XMLFeedSpider):
         else:
             return journal_pages, ''
 
-    def create_file(self, file_path, file_access, file_type):
-        """Create a structured dictionary to add to 'files' item."""
+    def create_document(self, file_path):
+        """Create a structured dictionary to add to 'documents' item."""
         file_dict = {
-            "access": file_access,
+            "hidden": True,
             "description": self.name.upper(),
             "url": file_path,
-            "type": file_type,
+            "fulltext": True,
         }
         return file_dict
 
@@ -219,9 +219,9 @@ class HindawiSpider(StatefulSpider, XMLFeedSpider):
         record.add_value('file_urls', pdf_links)
         if xml_links:
             record.add_value(
-                'additional_files',
+                'documents',
                 [
-                    self.create_file(xml, "INSPIRE-HIDDEN", "Fulltext")
+                    self.create_document(xml)
                     for xml in xml_links
                 ]
             )

@@ -62,7 +62,7 @@ class POSSpider(StatefulSpider):
 
     To do that and because each needs the information of the previous, the
     spider must use the callbacks system provided by scrapy through the
-    :ref:`scrapy.html.response.Response` callback parameter, and chain the
+    :class:`scrapy.html.response.Response` callback parameter, and chain the
     parser functions.
 
     The deduplication of the conference proceedings papers is left for the

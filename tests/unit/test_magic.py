@@ -145,8 +145,8 @@ def test_url(record):
 def test_pdf_link(record):
     """Test pdf link(s)"""
     files = "http://stlab.adobe.com/wiki/images/d/d3/Test.pdf"
-    assert 'additional_files' in record
-    assert record['additional_files'][1]['url'] == files
+    assert 'documents' in record
+    assert record['documents'][1]['url'] == files
 
 
 def test_no_author_no_date_no_url():

@@ -389,7 +389,6 @@ def test_no_dois_jats():
     record = parsed_item.record
 
     assert "dois" not in record
-    assert "additional_files" not in record
     assert isinstance(record, HEPRecord)
 
 
@@ -413,7 +412,6 @@ def test_no_dois_rich():
     record = parsed_item.record
 
     assert "dois" not in record
-    assert "additional_files" not in record
     assert isinstance(record, HEPRecord)
 
 

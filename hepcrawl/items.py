@@ -49,6 +49,7 @@ class HEPRecord(scrapy.Item):
 
     Example:
         ::
+
             [{
                 "fulltext": true,
                 "url": "file:///path/to/file",
