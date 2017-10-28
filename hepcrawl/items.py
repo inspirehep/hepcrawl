@@ -44,15 +44,16 @@ class HEPRecord(scrapy.Item):
     file_urls = scrapy.Field()
     """List of files to be downloaded with FilesPipeline and added to files."""
 
-    additional_files = scrapy.Field()
+    documents = scrapy.Field()
     """Files (fulltexts, package) belonging to this item.
 
     Example:
         ::
-
             [{
-                "type": "Fulltext",  # Fulltext, Supplemental, Data, Figure
-                "uri": "file:///path/to/file",  # can also be HTTP
+                "fulltext": true,
+                "url": "file:///path/to/file",
+                "description": "some fancy stuff",
+                "key": "usually_a_file_name.pdf",
             }]
     """
 

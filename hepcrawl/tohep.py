@@ -388,6 +388,17 @@ def hepcrawl_to_hep(crawler_record):
     for url in crawler_record.get('urls', []):
         builder.add_url(url=url.get('value'))
 
+    for document in crawler_record.get('documents', []):
+        builder.add_document(
+            description=document.get('description'),
+            fulltext=document.get('fulltext'),
+            hidden=document.get('hidden'),
+            key=document['key'],
+            material=document.get('material'),
+            original_url=document.get('original_url'),
+            url=document['url'],
+        )
+
     builder.validate_record()
 
     return builder.record

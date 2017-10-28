@@ -61,7 +61,7 @@ def generated_conference_paper(scrape_pos_conference_paper_page_body):
     response = HtmlResponse(
         url=request.url,
         request=request,
-        body=scrape_pos_page_body,
+        body=scrape_pos_conference_paper_page_body,
         **{'encoding': 'utf-8'}
     )
     assert response
@@ -154,6 +154,8 @@ def test_authors(generated_conference_paper):
 
 def test_pipeline_conference_paper(generated_conference_paper):
     expected = {
+        '_collections': ['Literature'],
+        'curated': False,
         'acquisition_source': {
             'datetime': '2017-08-10T16:03:59.091110',
             'method': 'hepcrawl',
@@ -189,8 +191,7 @@ def test_pipeline_conference_paper(generated_conference_paper):
         ],
         'license': [
             {
-                'license': 'CC-BY-NC-SA-3.0',
-                'url': 'https://creativecommons.org/licenses/by-nc-sa/3.0'
+                'license': 'Creative Commons Attribution-NonCommercial-ShareAlike',
             }
         ],
         'publication_info': [
@@ -207,9 +208,14 @@ def test_pipeline_conference_paper(generated_conference_paper):
                 'title': u'Heavy Flavour Physics Review'
             }
         ],
-        '_fft': [
+        'documents': [
             {
-                'path': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE 2013_001.pdf'
+                'key': 'LATTICE 2013_001.pdf',
+                'fulltext': True,
+                'hidden': True,
+                'url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE 2013_001.pdf',
+                'original_url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE 2013_001.pdf',
+                'source': 'pos',
             }
         ],
         'urls': [

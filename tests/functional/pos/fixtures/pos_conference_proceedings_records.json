@@ -1,5 +1,7 @@
 [
   {
+    "_collections": [ "Literature" ],
+    "curated": false,
     "publication_info": [
       {
         "journal_volume": "LATTICE 2013",
@@ -13,7 +15,7 @@
       {
         "source": "pos",
         "title": "Proceedings, 31st International Symposium on Lattice Field Theory LATTICE 2013",
-        "subtitle": "1-3 August 2002, Heidelberg, Germany"
+        "subtitle": "29 July \u2013 3 August, 2013 Mainz, Germany"
       }
     ],
     "acquisition_source": {
@@ -24,6 +26,8 @@
     }
   },
   {
+    "_collections": [ "Literature" ],
+    "curated": false,
     "acquisition_source": {
       "source": "pos",
       "method": "hepcrawl",
@@ -32,8 +36,7 @@
     },
     "license": [
       {
-        "url": "https://creativecommons.org/licenses/by-nc-sa/3.0",
-        "license": "CC-BY-NC-SA-3.0"
+        "license": "Creative Commons Attribution-NonCommercial-ShareAlike"
       }
     ],
     "titles": [
@@ -42,9 +45,14 @@
         "title": "Heavy Flavour Physics Review"
       }
     ],
-    "_fft": [
+    "documents": [
       {
-        "path": "https://http-server.local/187/001/pdf"
+        "fulltext": true,
+        "hidden": true,
+        "url": "https://http-server.local/187/001/pdf",
+        "original_url": "https://http-server.local/187/001/pdf",
+        "key": "pdf",
+        "source": "pos"
       }
     ],
     "urls": [

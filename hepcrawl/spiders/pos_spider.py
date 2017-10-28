@@ -12,7 +12,7 @@
 from __future__ import absolute_import, division, print_function
 
 import re
-
+import os
 from urlparse import urljoin
 
 from scrapy import Request, Selector
@@ -84,8 +84,8 @@ class POSSpider(StatefulSpider):
     ):
         super(POSSpider, self).__init__(**kwargs)
         self.source_file = source_file
-        self.BASE_CONFERENCE_PAPER_URL = base_conference_paper_url
-        self.BASE_PROCEEDINGS_URL = base_proceedings_url
+        self.base_conference_paper_url = base_conference_paper_url
+        self.base_proceedings_url = base_proceedings_url
 
     def start_requests(self):
         yield Request(self.source_file)
@@ -124,6 +124,9 @@ class POSSpider(StatefulSpider):
         )
 
     def parse_conference_paper(self, response):
+        self.log(
+            'Parsing conference paper from: {response.url}'.format(**vars())
+        )
         xml_record = response.meta.get('xml_record')
         conference_paper_url = response.url
         conference_paper_pdf_url = self._get_conference_paper_pdf_url(
@@ -245,8 +248,8 @@ class POSSpider(StatefulSpider):
         record.add_value('collections', ['conferencepaper'])
         record.add_value('urls', [conference_paper_url])
         record.add_value(
-            '_fft',
-            self._set_fft(
+            'documents',
+            self.get_documents(
                 path=conference_paper_pdf_url,
             ),
         )
@@ -322,13 +325,20 @@ class POSSpider(StatefulSpider):
             "//a[not(contains(text(),'pdf'))]/@href",
         ).extract_first()
         proceedings_identifier = internal_url.split('/')[1]
-        return '{0}{1}'.format(self.BASE_PROCEEDINGS_URL, proceedings_identifier)
+        return '{0}{1}'.format(
+            self.base_proceedings_url,
+            proceedings_identifier,
+        )
 
     @staticmethod
-    def _set_fft(path):
+    def get_documents(path):
         return [
             {
-                'path': path,
+                'key': os.path.basename(path),
+                'url': path,
+                'original_url': path,
+                'hidden': True,
+                'fulltext': True,
             },
         ]
 

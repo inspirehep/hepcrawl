@@ -92,7 +92,7 @@ def test_pos_conference_paper_record_and_proceedings_record(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
-        events_limit=1,
+        events_limit=2,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
         spider='pos',
@@ -105,7 +105,16 @@ def test_pos_conference_paper_record_and_proceedings_record(
         override_generated_fields(expected) for expected in expected_results
     ]
 
-    assert sorted(gotten_results) == expected_results
+    gotten_results = sorted(
+        gotten_results,
+        key=lambda x: x['document_type']
+    )
+    expected_results = sorted(
+        expected_results,
+        key=lambda x: x['document_type']
+    )
+
+    assert gotten_results == expected_results
 
 
 # TODO create test that receives conference paper record AND proceedings
