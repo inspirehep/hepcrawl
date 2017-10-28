@@ -63,30 +63,6 @@ def override_dynamic_fields_on_record(record):
     return clean_record
 
 
-def assert_files_equal(file_1, file_2):
-    """Compares two files calculating the md5 hash."""
-    def _generate_md5_hash(file_path):
-        hasher = hashlib.md5()
-        with open(str(file_path), 'rb') as fd:
-            buf = fd.read()
-            hasher.update(buf)
-            return hasher.hexdigest()
-
-    file_1_hash = _generate_md5_hash(file_1)
-    file_2_hash = _generate_md5_hash(file_2)
-    assert file_1_hash == file_2_hash
-
-
-def assert_documents_content_matches_expected(record):
-    for documents_field in record.get('documents', []):
-        assert_document_content_matches_expected(documents_field)
-
-
-def assert_document_content_matches_expected(documents_field):
-    expected_file_name = get_file_name_from_documents(documents_field)
-    assert_files_equal(expected_file_name, documents_field['path'])
-
-
 def get_file_name_from_documents(documents_field):
     file_path = get_test_suite_path(
         'desy',
@@ -94,7 +70,7 @@ def get_file_name_from_documents(documents_field):
         'ftp_server',
         'DESY',
         'FFT',
-        documents_field['filename'] + documents_field['format'],
+        documents_field['key'],
         test_suite='functional',
     )
     return file_path
@@ -213,6 +189,3 @@ def test_desy(
     )
 
     assert gotten_results == expected_results
-
-    for record in gotten_results:
-        assert_documents_content_matches_expected(record)
