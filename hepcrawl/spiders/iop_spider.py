@@ -152,13 +152,13 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
             if pattern in pdf_path:
                 return os.path.join(self.pdf_files, pdf_path)
 
-    def add_file(self, file_path, file_access, file_type):
+    def add_document(self, file_path, hidden, fulltext):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
-            "access": file_access,
+            "hidden": hidden,
+            "fulltext": fulltext,
             "description": self.name.upper(),
             "url": file_path,
-            "type": file_type,
         }
         return file_dict
 
@@ -206,21 +206,25 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
         record.add_value('collections', self.get_collections(doctype))
 
         xml_file_path = response.url
-        record.add_value("additional_files",
-                         self.add_file(xml_file_path, "INSPIRE-HIDDEN", "Fulltext"))
+        record.add_value(
+            "documents",
+            self.add_document(xml_file_path, hidden=True, fulltext=True),
+        )
         if self.pdf_files:
             pdf_file_path = self.get_pdf_path(volume, issue, fpage)
             if pdf_file_path:
                 if doctype and "erratum" in doctype.lower():
-                    file_type = "Erratum"
+                    fulltext = False
                 else:
-                    file_type = "Fulltext"
+                    fulltext = True
                 if journal_title in self.OPEN_ACCESS_JOURNALS:
-                    file_access = "INSPIRE-PUBLIC"  # FIXME: right?
+                    hidden = False
                 else:
-                    file_access = "INSPIRE-HIDDEN"
-                record.add_value("additional_files",
-                                 self.add_file(pdf_file_path, file_access, file_type))
+                    hidden = True
+                record.add_value(
+                    "documents",
+                    self.add_document(pdf_file_path, hidden=hidden, fulltext=fulltext),
+                )
 
         parsed_item = ParsedItem(
             record=record.load_item(),

@@ -92,7 +92,7 @@ def _normalize_hepcrawl_record(item, source):
     item['titles'] = [{
         'title': item.pop('title', ''),
         'subtitle': item.pop('subtitle', ''),
-        'source': source,
+        'source': item.pop('source', source),
     }]
 
     item['abstracts'] = [{
@@ -242,13 +242,14 @@ def hepcrawl_to_hep(crawler_record):
 
     for author in crawler_record.get('authors', []):
         builder.add_author(builder.make_author(
-            author['full_name'],
+            full_name=author['full_name'],
             affiliations=_filter_affiliation(author['affiliations']),
         ))
 
     for title in crawler_record.get('titles', []):
         builder.add_title(
             title=title.get('title'),
+            subtitle=title.get('subtitle'),
             source=title.get('source')
         )
 
@@ -382,6 +383,20 @@ def hepcrawl_to_hep(crawler_record):
         builder.add_report_number(
             report_number=report_number.get('value'),
             source=report_number.get('source')
+        )
+
+    for url in crawler_record.get('urls', []):
+        builder.add_url(url=url.get('value'))
+
+    for document in crawler_record.get('documents', []):
+        builder.add_document(
+            description=document.get('description'),
+            fulltext=document.get('fulltext'),
+            hidden=document.get('hidden'),
+            key=document['key'],
+            material=document.get('material'),
+            original_url=document.get('original_url'),
+            url=document['url'],
         )
 
     builder.validate_record()

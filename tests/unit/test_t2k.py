@@ -113,8 +113,8 @@ def test_url(record):
 def test_pdf_link(record):
     """Test pdf link(s)"""
     files = "http://www.t2k.org/docs/thesis/001/IJT-THESIS"
-    assert 'additional_files' in record
-    assert record['additional_files'][0]['url'] == files
+    assert 'documents' in record
+    assert record['documents'][0]['url'] == files
 
 
 @pytest.fixture

@@ -207,8 +207,10 @@ class MITSpider(StatefulSpider, XMLFeedSpider):
 
         pdf_files = node.xpath(".//table[@id='file-table']//td/a/@href").extract()
         if pdf_files:
-            record.add_value('additional_files', self.add_file(
-                pdf_files, "HIDDEN", "Fulltext"))
+            record.add_value(
+                'documents',
+                self.add_file(pdf_files, "HIDDEN", "Fulltext"),
+            )
         record.add_value('authors', self.get_authors(node))
         record.add_xpath('date_published',
                          "//td[contains(text(), 'dc.date.issued')]/following-sibling::td[1]/text()")

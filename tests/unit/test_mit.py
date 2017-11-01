@@ -106,7 +106,10 @@ def test_date_published(record):
 
 def test_files(record):
     """Test pdf files."""
-    assert record["additional_files"][0]["url"] == "http://dspace.mit.edu/bitstream/handle/1721.1/99287/922886248-MIT.pdf?sequence=1"
+    assert record["documents"][0]["url"] == (
+        "http://dspace.mit.edu/bitstream/handle/1721.1/99287/"
+        "922886248-MIT.pdf?sequence=1"
+    )
 
 
 def test_thesis(record):

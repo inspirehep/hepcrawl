@@ -154,10 +154,10 @@ def test_files(record):
     """Test files dictionary."""
     pdf_filename = "test_143_3_336.pdf"
 
-    assert "additional_files" in record
-    assert record["additional_files"][1]["access"] == 'INSPIRE-HIDDEN'
-    assert record["additional_files"][1]["type"] == 'Fulltext'
-    assert record["additional_files"][1]["url"] == os.path.join(TEST_PDF_DIR, pdf_filename)
+    assert "documents" in record
+    assert record["documents"][1]["hidden"]
+    assert record["documents"][1]["fulltext"]
+    assert record["documents"][1]["url"] == os.path.join(TEST_PDF_DIR, pdf_filename)
 
 
 @pytest.fixture
@@ -196,13 +196,12 @@ def erratum_open_access_record():
 def test_files_erratum_open_access_record(erratum_open_access_record):
     """Test files dict with open access journal with erratum article."""
     pdf_filename = "test_143_3_336.pdf"
-    assert "additional_files" in erratum_open_access_record
-    assert erratum_open_access_record["additional_files"][
-        1]["access"] == 'INSPIRE-PUBLIC'
-    assert erratum_open_access_record[
-        "additional_files"][1]["type"] == 'Erratum'
-    assert erratum_open_access_record["additional_files"][
-        1]["url"] == os.path.join(TEST_PDF_DIR, pdf_filename)
+    assert "documents" in erratum_open_access_record
+    assert not erratum_open_access_record["documents"][1]["hidden"]
+    assert not erratum_open_access_record["documents"][1]["fulltext"]
+    assert erratum_open_access_record["documents"][1]["url"] == (
+        os.path.join(TEST_PDF_DIR, pdf_filename)
+    )
 
 
 def test_not_published_record():

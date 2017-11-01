@@ -101,16 +101,16 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
 
         return out_links
 
-    def add_file(self, pdf_files, file_access, file_type):
+    def add_document(self, pdf_files):
         """Create a structured dictionary and add to ``files`` item."""
         # NOTE: should this be moved to utils?
         file_dicts = []
         for link in pdf_files:
             file_dict = {
-                "access": file_access,
+                "hidden": True,
+                "fulltext": True,
                 "description": self.name.title(),
                 "url": urljoin(self.domain, link),
-                "type": file_type,
             }
             file_dicts.append(file_dict)
         return file_dicts
@@ -149,7 +149,7 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
             "//a[@class='contenttype-file state-internal url']/@href").extract()
 
         response.meta["abstract"] = abstract
-        response.meta["additional_files"] = self.add_file(file_paths, "HIDDEN", "Fulltext")
+        response.meta["documents"] = self.add_document(file_paths)
 
         return self.build_item(response)
 
@@ -165,7 +165,7 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
         record.add_value('title', response.meta.get("title"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_value("abstract", response.meta.get("abstract"))
-        record.add_value("additional_files", response.meta.get("additional_files"))
+        record.add_value("documents", response.meta.get("documents"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
         parsed_item = ParsedItem(

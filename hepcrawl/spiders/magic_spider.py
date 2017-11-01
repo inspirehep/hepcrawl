@@ -177,7 +177,7 @@ class MagicSpider(StatefulSpider, XMLFeedSpider):
         record.add_value('title', response.meta.get("title"))
         record.add_value('urls', response.meta.get("urls"))
         record.add_value("abstract", response.meta.get("abstract"))
-        record.add_value("additional_files", response.meta.get("files"))
+        record.add_value("documents", response.meta.get("files"))
         record.add_value('collections', ['HEP', 'THESIS'])
 
         parsed_item = ParsedItem(

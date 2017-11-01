@@ -326,8 +326,8 @@ def test_authors(record):
 
 def test_files(record):
     """Test file urls."""
-    assert record["additional_files"]
-    assert record["additional_files"][0]['url'] == "elsevier/sample_consyn_record.xml"
+    assert record["documents"]
+    assert record["documents"][0]['url'] == "elsevier/sample_consyn_record.xml"
 
 
 def test_dois(record):

@@ -312,7 +312,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
             # NOTE: maybe this should be removed as the 'rich' format records
             # are not open access.
             record.add_value(
-                "additional_files",
+                "documents",
                 self._create_file(
                     get_first(response.meta["pdf_links"]),
                     "INSPIRE-PUBLIC",
@@ -384,7 +384,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
 
         if "pdf_links" in response.meta:
             record.add_value(
-                "additional_files",
+                "documents",
                 self._create_file(
                     get_first(response.meta["pdf_links"]),
                     "INSPIRE-PUBLIC",

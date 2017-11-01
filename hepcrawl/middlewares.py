@@ -116,10 +116,23 @@ class HepcrawlCrawlOnceMiddleware(CrawlOnceMiddleware):
         request_db_key = self._get_key(request)
 
         if request_db_key not in self.db:
+            LOGGER.debug(
+                'Crawl-Once: key %s for request %s not found in the db, '
+                'should be crawled.' % (request_db_key, request)
+            )
             return True
 
         new_file_timestamp = self._get_timestamp(request, spider)
         old_file_timestamp = self.db.get(key=request_db_key)
+        LOGGER.debug(
+            'Crawl-Once: key %s for request %s found in the db, '
+            'considering timestamps new(%s) and old(%s).' % (
+                request_db_key,
+                request,
+                new_file_timestamp,
+                old_file_timestamp,
+            )
+        )
         return new_file_timestamp > old_file_timestamp
 
     def _get_key(self, request):

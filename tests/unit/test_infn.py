@@ -83,8 +83,10 @@ def test_date_published(record):
 
 def test_files(record):
     """Test pdf files."""
-    assert record["additional_files"][0][
-        "url"] == "http://www.infn.it/thesis/PDF/getfile.php?filename=10136-Fedon-dottorato.pdf"
+    assert record["documents"][0]["url"] == (
+        "http://www.infn.it/thesis/PDF/getfile.php"
+        "?filename=10136-Fedon-dottorato.pdf"
+    )
 
 
 def test_thesis(record):

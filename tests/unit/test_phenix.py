@@ -91,6 +91,9 @@ def test_authors(record):
 
 def test_pdf_link(record):
     """Test pdf link(s)"""
-    files = "http://www.phenix.bnl.gov/phenix/WWW/talk/archive/theses/2015/Guragain_Hari-DISSERTATION.pdf"
-    assert 'additional_files' in record
-    assert record['additional_files'][0]['url'] == files
+    files = (
+        "http://www.phenix.bnl.gov/phenix/WWW/talk/archive/theses/2015/"
+        "Guragain_Hari-DISSERTATION.pdf"
+    )
+    assert 'documents' in record
+    assert record['documents'][0]['url'] == files
