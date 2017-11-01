@@ -119,6 +119,17 @@ CELERY_DISABLE_RATE_LIMITS = True
 # ====
 JOBDIR = "jobs"
 
+ELSEVIER_SOURCE_DIR = "/mnt/elsevier-sftp"
+ELSEVIER_DOWNLOAD_DIR = "/eos/project/s/scoap3repo/BETA/harvesting/Elsevier/download"
+ELSEVIER_UNPACK_FOLDER = "/eos/project/s/scoap3repo/BETA/harvesting/Elsevier/unpacked"
+
+OXFORD_DOWNLOAD_DIR = "/eos/project/s/scoap3repo/BETA/harvesting/OUP/download"
+OXFORD_UNPACK_FOLDER = "/eos/project/s/scoap3repo/BETA/harvesting/OUP/unpacked"
+
+SPRINGER_DOWNLOAD_DIR = "/eos/project/s/scoap3repo/BETA/harvesting/Springer/download"
+SPRINGER_UNPACK_FOLDER = "/eos/project/s/scoap3repo/BETA/harvesting/Springer/unpacked"
+
+
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
