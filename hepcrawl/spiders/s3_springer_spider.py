@@ -114,7 +114,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
 
-def start_requests(self):
+    def start_requests(self):
         """List selected folder on remote FTP and yield new zip files."""
         if self.package_path:
             yield Request(self.package_path, callback=self.handle_package_file)

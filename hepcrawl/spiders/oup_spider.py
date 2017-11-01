@@ -31,6 +31,8 @@ from ..utils import (
     get_license
 )
 
+from ..settings import OXFORD_DOWNLOAD_DIR, OXFORD_UNPACK_FOLDER
+
 
 def unzip_files(filename, target_folder, type=".xml"):
     """Unzip files (XML only) into target folder."""
@@ -111,7 +113,7 @@ class OxfordUniversityPressSpider(Jats, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.target_folder = "/tmp/OUP"
+        self.target_folder = OXFORD_DOWNLOAD_DIR
         self.package_path = package_path
         if not os.path.exists(self.target_folder):
             os.makedirs(self.target_folder)
