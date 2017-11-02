@@ -93,9 +93,20 @@ class HepcrawlCrawlOnceMiddleware(CrawlOnceMiddleware):
     def process_request(self, request, spider):
         if not request.meta.get('crawl_once', self.default):
             if 'crawl_once' in request.meta:
-                LOGGER.info('Crawl-Once: skipping by explicit crawl_once meta')
+                LOGGER.info(
+                    'Crawl-Once: downloading by explicit crawl_once meta'
+                )
             else:
-                LOGGER.info('Crawl-Once: skipping by default crawl_once meta')
+                LOGGER.info(
+                    'Crawl-Once: downloading by default crawl_once meta'
+                )
+            return
+
+        if not spider.settings.get('CRAWL_ONCE_ENABLED', True):
+            LOGGER.info(
+                'Crawl-Once: downloading by explicit CRAWL_ONCE_ENABLED '
+                'in spider settings.'
+            )
             return
 
         request.meta['crawl_once_key'] = self._get_key(request)
