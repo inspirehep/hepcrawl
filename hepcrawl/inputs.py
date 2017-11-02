@@ -30,6 +30,8 @@ from .utils import (
     split_fullname,
 )
 
+from .dateutils import format_date
+
 
 def fix_title_capitalization(title):
     """Try to capitalize properly a title string."""
@@ -126,8 +128,7 @@ def clean_collaborations(value):
 
 def clean_whitespace_characters(text):
     """Remove unwanted special characters from text."""
-    text = " ".join(text.split())
-    return text
+    return " ".join(text.split())
 
 
 def translate_language(lang):
@@ -154,3 +155,10 @@ def remove_attributes_from_tags(text):
         except lxml.etree.ParserError:
             return text
     return text
+
+
+def format_thesis(value):
+    """Format the date in thesis info dictionary."""
+    if 'date' in value:
+        value['date'] = format_date(value['date'])
+    return value
