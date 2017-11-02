@@ -180,16 +180,16 @@ class S3ElsevierSpider(Jats, Spider):
         """Get the authors."""
         authors = []
 
-        if node.xpath(".//ce:author"):
-            for author_group in node.xpath(".//ce:author-group"):
+        if node.xpath(".//author"):
+            for author_group in node.xpath(".//author-group"):
                 collaborations = author_group.xpath(
-                    ".//ce:collaboration/ce:text/text()").extract()
-                for author in author_group.xpath("./ce:author"):
-                    surname = author.xpath("./ce:surname/text()")
-                    given_names = author.xpath("./ce:given-name/text()")
+                    ".//collaboration/text/text()").extract()
+                for author in author_group.xpath("./author"):
+                    surname = author.xpath("./surname/text()")
+                    given_names = author.xpath("./given-name/text()")
                     affiliations = self._get_affiliations(author_group, author)
                     orcid = self._get_orcid(author)
-                    emails = author.xpath("./ce:e-address/text()")
+                    emails = author.xpath("./e-address/text()")
 
                     auth_dict = {}
                     if surname:
@@ -206,8 +206,8 @@ class S3ElsevierSpider(Jats, Spider):
                     if collaborations:
                         auth_dict['collaborations'] = collaborations
                     authors.append(auth_dict)
-        elif node.xpath('.//dct:creator'):
-            for author in node.xpath('.//dct:creator/text()'):
+        elif node.xpath('.//creator'):
+            for author in node.xpath('.//creator/text()'):
                 authors.append({'raw_name': author.extract()})
 
         return authors
@@ -228,14 +228,14 @@ class S3ElsevierSpider(Jats, Spider):
         affiliations_by_id = []
         for aff_id in ref_ids:
             ce_affiliation = author_group.xpath(
-                "//ce:affiliation[@id='" + aff_id + "']")
-            if ce_affiliation.xpath(".//sa:affiliation"):
+                "//affiliation[@id='" + aff_id + "']")
+            if ce_affiliation.xpath(".//affiliation"):
                 aff = ce_affiliation.xpath(
-                    ".//*[self::sa:organization or self::sa:city or self::sa:country]/text()")
+                    ".//*[self::organization or self::city or self::country]/text()")
                 affiliations_by_id.append(", ".join(aff.extract()))
             elif ce_affiliation:
                 aff = ce_affiliation.xpath(
-                    "./ce:textfn/text()").extract_first()
+                    "./textfn/text()").extract_first()
                 aff = re.sub(r'^(\d+\ ?)', "", aff)
                 affiliations_by_id.append(aff)
 
@@ -249,7 +249,7 @@ class S3ElsevierSpider(Jats, Spider):
         """
         ref_ids = author.xpath(".//@refid").extract()
         group_affs = author_group.xpath(
-            ".//ce:affiliation[not(@*)]/ce:textfn/text()")
+            ".//affiliation[not(@*)]/textfn/text()")
         # Don't take correspondence (cor1) or deceased (fn1):
         ref_ids = [refid for refid in ref_ids if "aff" in refid]
         affiliations = []
@@ -430,7 +430,7 @@ class S3ElsevierSpider(Jats, Spider):
         )
         record.add_value('license', license)
 
-        record.add_value('collections', ['European Physical Journal C'])
+        record.add_value('collections', [meta['articles'][doi]['journal']])
         parsed_record = dict(record.load_item())
         validate_schema(data=parsed_record, schema_name='hep')
 
