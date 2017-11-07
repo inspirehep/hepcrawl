@@ -298,11 +298,9 @@ def test_publication_info(generated_record, expected_publication_info):
             get_one_record('world_scientific/sample_ws_record.xml'),
             [
                 {
-                    'emails': [u'anders.hagfeldt@kemi.uu.se'],
                     'full_name': u'BI, DONGQIN',
                 },
                 {
-                    'emails': [u'anders.hagfeldt@kemi.uu.se'],
                     'full_name': u'BOSCHLOO, GERRIT',
                     'raw_affiliations': [{
                         'source': 'WSP',
@@ -412,19 +410,6 @@ def test_pipeline_record(generated_record):
             'source': 'WSP',
             'submission_number': 'scrapy_job',
         },
-        'authors': [
-            {
-                'affiliations': [
-                    {
-                        'value': (
-                            u'Department, University, City, City_code 123456, '
-                            'C. R. Country_2'
-                        ),
-                    },
-                ],
-                'full_name': u'author_surname_2, author_name_1',
-            },
-        ],
         'authors': [
             {
                 'emails': ['name_1@domain.com'],

@@ -314,9 +314,24 @@ class JatsParser(object):
                 no match.
         """
         affiliation_node = self.root.xpath('//aff[@id=$id_]', id_=id_)[0]
-        affiliation = remove_tags(affiliation_node, strip='self::label').strip()
+        affiliation = remove_tags(
+            affiliation_node,
+            strip='self::label | self::email'
+        ).strip()
 
         return affiliation
+
+    def get_emails_from_refs(self, id_):
+        """Get the emails from the node with the specified id.
+
+        Args:
+            id_(str): the value of the ``id`` attribute of the node.
+
+        Returns:
+            List[str]: the emails from the node with that id or [] if none found.
+        """
+        email_nodes = self.root.xpath('//aff[@id=$id_]/email/text()', id_=id_)
+        return email_nodes.extract()
 
     @property
     def year(self):
@@ -344,11 +359,12 @@ class JatsParser(object):
 
         return affiliations
 
-    @staticmethod
-    def get_author_emails(author_node):
+    def get_author_emails(self, author_node):
         """Extract an author's email addresses."""
-        emails = author_node.xpath('//email/text()').extract()
-
+        emails = author_node.xpath('.//email/text()').extract()
+        referred_ids = author_node.xpath('.//xref[@ref-type="aff"]/@rid').extract()
+        referred_emails = (self.get_emails_from_refs(rid) for rid in referred_ids)
+        emails.extend(itertools.chain(*referred_emails))
         return emails
 
     @staticmethod
