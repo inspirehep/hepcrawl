@@ -1,0 +1,1311 @@
+abstract: The study of non-Abelian Majorana zero modes advances our understanding of
+  the fundamental physics in quantum matter and pushes the potential applications
+  of such exotic states to topological quantum computation. It has been shown that
+  in two-dimensional (2D) and 1D chiral superconductors, the isolated Majorana fermions
+  obey non-Abelian statistics. However, Majorana modes in a <math display="inline"><msub><mi>Z</mi><mn>2</mn></msub></math>
+  time-reversal-invariant (TRI) topological superconductor come in pairs due to
+  Kramers’s theorem. Therefore, braiding operations in TRI superconductors always
+  exchange two pairs of Majoranas. In this work, we show interestingly that, due
+  to the protection of time-reversal symmetry, non-Abelian statistics can be obtained
+  in 1D TRI topological superconductors and may have advantages in applications
+  to topological quantum computation. Furthermore, we unveil an intriguing phenomenon
+  in the Josephson effect, that the periodicity of Josephson currents depends on
+  the fermion parity of the superconducting state. This effect provides direct measurements
+  of the topological qubit states in such 1D TRI superconductors.
+artid: 021018
+publication_date: 2014-04-01
+year: 2014
+title: Non-Abelian Majorana Doublets in Time-Reversal-Invariant Topological Superconductors
+journal_issue: "2"
+journal_volume: "4"
+publisher: American Physical Society
+journal_title: Physical Review X
+dois:
+- doi: 10.1103/PhysRevX.4.021018
+  material: publication
+authors:
+- raw_affiliations:
+  - source: American Physical Society
+    value: Department of Physics, Hong Kong University of Science and Technology,
+      Clear Water Bay, Hong Kong, China
+  - source: American Physical Society
+    value: Institute for Advanced Study, Hong Kong University of Science and
+      Technology, Clear Water Bay, Hong Kong, China
+  full_name: Liu, Xiong-Jun
+- raw_affiliations:
+  - source: American Physical Society
+    value: Department of Physics, Hong Kong University of Science and Technology,
+      Clear Water Bay, Hong Kong, China
+  full_name: Wong, Chris L. M.
+- raw_affiliations:
+  - source: American Physical Society
+    value: Department of Physics, Hong Kong University of Science and Technology,
+      Clear Water Bay, Hong Kong, China
+  full_name: Law, K.T.
+copyright_holder: authors
+copyright_statement: Published by the American Physical Society
+copyright_year: 2014
+number_of_pages: 16
+document_type: article
+material: publication
+license_url: http://creativecommons.org/licenses/by/3.0/
+license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 3.0 License. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI.
+article_type: research-article
+is_conference_paper: false
+references:
+- reference:
+    publication_info:
+      journal_volume: B360
+      page_start: '362'
+      year: 1991
+      artid: '362'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Moore, G.
+    - inspire_role: author
+      full_name: Read, N.
+    title:
+      title: Nonabelions in the Fractional Quantum Hall Effect
+    label: '1'
+    dois:
+    - 10.1016/0550-3213(91)90407-O
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c1"><label>[1]</label><mixed-citation publication-type="journal"><object-id>1</object-id><person-group
+      person-group-type="author"><string-name>G. Moore</string-name> and <string-name>N.
+      Read</string-name></person-group>, <article-title>Nonabelions in the Fractional
+      Quantum Hall Effect</article-title>, <source>Nucl. Phys.</source> <volume>B360</volume>,
+      <page-range>362</page-range> (<year>1991</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(91)90407-O</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '61'
+      year: 2000
+      artid: '10267'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Read, N.
+    - inspire_role: author
+      full_name: Green, D.
+    title:
+      title: Paired States of Fermions in Two Dimensions with Breaking of Parity and
+        Time-Reversal Symmetries and the Fractional Quantum Hall Effect
+    label: '2'
+    dois:
+    - 10.1103/PhysRevB.61.10267
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c2"><label>[2]</label><mixed-citation publication-type="journal"><object-id>2</object-id><person-group
+      person-group-type="author"><string-name>N. Read</string-name> and <string-name>D.
+      Green</string-name></person-group>, <article-title>Paired States of Fermions
+      in Two Dimensions with Breaking of Parity and Time-Reversal Symmetries and the
+      Fractional Quantum Hall Effect</article-title>, <source>Phys. Rev. B</source>
+      <volume>61</volume>, <page-range>10267</page-range> (<year>2000</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>0163-1829</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.61.10267</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '86'
+      page_start: '268'
+      year: 2001
+      artid: '268'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Ivanov, D.A.
+    title:
+      title: Non-Abelian Statistics of Half-Quantum Vortices in p-Wave Superconductors
+    label: '3'
+    dois:
+    - 10.1103/PhysRevLett.86.268
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c3"><label>[3]</label><mixed-citation publication-type="journal"><object-id>3</object-id><person-group
+      person-group-type="author"><string-name>D. A. Ivanov</string-name></person-group>,
+      <article-title>Non-Abelian Statistics of Half-Quantum Vortices in p-Wave Superconductors</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>86</volume>, <page-range>268</page-range>
+      (<year>2001</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.86.268</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '44'
+      page_start: '131'
+      year: 2001
+      artid: '131'
+      journal_title: Phys. Usp.
+    authors:
+    - inspire_role: author
+      full_name: Kitaev, A.Y.
+    title:
+      title: Unpaired Majorana Fermions in Quantum Wires
+    label: '4'
+    dois:
+    - 10.1070/1063-7869/44/10S/S29
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c4"><label>[4]</label><mixed-citation publication-type="journal"><object-id>4</object-id><person-group
+      person-group-type="author"><string-name>A. Y. Kitaev</string-name></person-group>,
+      <article-title>Unpaired Majorana Fermions in Quantum Wires</article-title>,
+      <source>Phys. Usp.</source> <volume>44</volume>, <page-range>131</page-range>
+      (<year>2001</year>).<pub-id pub-id-type="coden">PHUSEY</pub-id><issn>1063-7869</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1070/1063-7869/44/10S/S29</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '303'
+      page_start: '2'
+      year: 2003
+      artid: '2'
+      journal_title: Ann. Phys. (Amsterdam)
+    authors:
+    - inspire_role: author
+      full_name: Kitaev, A.
+    title:
+      title: Fault-Tolerant Quantum Computation by Anyons
+    label: '5'
+    dois:
+    - 10.1016/S0003-4916(02)00018-0
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c5"><label>[5]</label><mixed-citation publication-type="journal"><object-id>5</object-id><person-group
+      person-group-type="author"><string-name>A. Kitaev</string-name></person-group>,
+      <article-title>Fault-Tolerant Quantum Computation by Anyons</article-title>,
+      <source>Ann. Phys. (Amsterdam)</source> <volume>303</volume>, <page-range>2</page-range>
+      (<year>2003</year>).<pub-id pub-id-type="coden">APNYA6</pub-id><issn>0003-4916</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/S0003-4916(02)00018-0</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '94'
+      year: 2005
+      artid: '166802'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Sarma, S. Das
+    - inspire_role: author
+      full_name: Freedman, M.
+    - inspire_role: author
+      full_name: Nayak, C.
+    title:
+      title: Topologically Protected Qubits from a Possible Non-Abelian Fractional
+        Quantum Hall State
+    label: '6'
+    dois:
+    - 10.1103/PhysRevLett.94.166802
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c6"><label>[6]</label><mixed-citation publication-type="journal"><object-id>6</object-id><person-group
+      person-group-type="author"><string-name>S. Das Sarma</string-name>, <string-name>M.
+      Freedman</string-name>, and <string-name>C. Nayak</string-name></person-group>,
+      <article-title>Topologically Protected Qubits from a Possible Non-Abelian Fractional
+      Quantum Hall State</article-title>, <source>Phys. Rev. Lett.</source> <volume>94</volume>,
+      <page-range>166802</page-range> (<year>2005</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.94.166802</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '80'
+      page_start: '1083'
+      year: 2008
+      artid: '1083'
+      journal_title: Rev. Mod. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Nayak, C.
+    - inspire_role: author
+      full_name: Simon, S.H.
+    - inspire_role: author
+      full_name: Stern, A.
+    - inspire_role: author
+      full_name: Freedman, M.
+    - inspire_role: author
+      full_name: Sarma, S. Das
+    title:
+      title: Non-Abelian Anyons and Topological Quantum Computation
+    label: '7'
+    dois:
+    - 10.1103/RevModPhys.80.1083
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c7"><label>[7]</label><mixed-citation publication-type="journal"><object-id>7</object-id><person-group
+      person-group-type="author"><string-name>C. Nayak</string-name>, <string-name>S. H.
+      Simon</string-name>, <string-name>A. Stern</string-name>, <string-name>M. Freedman</string-name>,
+      and <string-name>S. Das Sarma</string-name></person-group>, <article-title>Non-Abelian
+      Anyons and Topological Quantum Computation</article-title>, <source>Rev. Mod.
+      Phys.</source> <volume>80</volume>, <page-range>1083</page-range> (<year>2008</year>).<pub-id
+      pub-id-type="coden">RMPHAT</pub-id><issn>0034-6861</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/RevModPhys.80.1083</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '100'
+      year: 2008
+      artid: 096407
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Fu, L.
+    - inspire_role: author
+      full_name: Kane, C.L.
+    title:
+      title: Superconducting Proximity Effect and Majorana Fermions at the Surface
+        of a Topological Insulator
+    label: '8'
+    dois:
+    - 10.1103/PhysRevLett.100.096407
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c8"><label>[8]</label><mixed-citation publication-type="journal"><object-id>8</object-id><person-group
+      person-group-type="author"><string-name>L. Fu</string-name> and <string-name>C. L.
+      Kane</string-name></person-group>, <article-title>Superconducting Proximity
+      Effect and Majorana Fermions at the Surface of a Topological Insulator</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>100</volume>, <page-range>096407</page-range>
+      (<year>2008</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.100.096407</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '5'
+      page_start: '614'
+      year: 2009
+      artid: '614'
+      journal_title: Nat. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Wilczek, F.
+    title:
+      title: Majorana Returns
+    label: '9'
+    dois:
+    - 10.1038/nphys1380
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c9"><label>[9]</label><mixed-citation publication-type="journal"><object-id>9</object-id><person-group
+      person-group-type="author"><string-name>F. Wilczek</string-name></person-group>,
+      <article-title>Majorana Returns</article-title>, <source>Nat. Phys.</source>
+      <volume>5</volume>, <page-range>614</page-range> (<year>2009</year>).<pub-id
+      pub-id-type="coden">NPAHAX</pub-id><issn>1745-2473</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1038/nphys1380</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '104'
+      year: 2010
+      artid: '040502'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Sau, J.D.
+    - inspire_role: author
+      full_name: Lutchyn, R.M.
+    - inspire_role: author
+      full_name: Tewari, S.
+    - inspire_role: author
+      full_name: Sarma, S. Das
+    title:
+      title: Generic New Platform for Topological Quantum Computation Using Semiconductor
+        Heterostructures
+    label: '10'
+    dois:
+    - 10.1103/PhysRevLett.104.040502
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c10"><label>[10]</label><mixed-citation publication-type="journal"><object-id>10</object-id><person-group
+      person-group-type="author"><string-name>J. D. Sau</string-name>, <string-name>R. M.
+      Lutchyn</string-name>, <string-name>S. Tewari</string-name>, and <string-name>S.
+      Das Sarma</string-name></person-group>, <article-title>Generic New Platform
+      for Topological Quantum Computation Using Semiconductor Heterostructures</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>104</volume>, <page-range>040502</page-range>
+      (<year>2010</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.104.040502</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '81'
+      year: 2010
+      artid: '125318'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Alicea, J.
+    title:
+      title: Majorana Fermions in a Tunable Semiconductor Device
+    label: '11'
+    dois:
+    - 10.1103/PhysRevB.81.125318
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c11"><label>[11]</label><mixed-citation publication-type="journal"><object-id>11</object-id><person-group
+      person-group-type="author"><string-name>J. Alicea</string-name></person-group>,
+      <article-title>Majorana Fermions in a Tunable Semiconductor Device</article-title>,
+      <source>Phys. Rev. B</source> <volume>81</volume>, <page-range>125318</page-range>
+      (<year>2010</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.81.125318</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '105'
+      year: 2010
+      artid: '077001'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Lutchyn, R.M.
+    - inspire_role: author
+      full_name: Sau, J.D.
+    - inspire_role: author
+      full_name: Sarma, S. Das
+    title:
+      title: Majorana Fermions and a Topological Phase Transition in Semiconductor-Superconductor
+        Heterostructures
+    label: '12'
+    dois:
+    - 10.1103/PhysRevLett.105.077001
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c12"><label>[12]</label><mixed-citation publication-type="journal"><object-id>12</object-id><person-group
+      person-group-type="author"><string-name>R. M. Lutchyn</string-name>, <string-name>J. D.
+      Sau</string-name>, and <string-name>S. Das Sarma</string-name></person-group>,
+      <article-title>Majorana Fermions and a Topological Phase Transition in Semiconductor-Superconductor
+      Heterostructures</article-title>, <source>Phys. Rev. Lett.</source> <volume>105</volume>,
+      <page-range>077001</page-range> (<year>2010</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.105.077001</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '105'
+      year: 2010
+      artid: '177002'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Oreg, Y.
+    - inspire_role: author
+      full_name: Refael, G.
+    - inspire_role: author
+      full_name: von Oppen, F.
+    title:
+      title: Helical Liquids and Majorana Bound States in Quantum Wires
+    label: '13'
+    dois:
+    - 10.1103/PhysRevLett.105.177002
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c13"><label>[13]</label><mixed-citation publication-type="journal"><object-id>13</object-id><person-group
+      person-group-type="author"><string-name>Y. Oreg</string-name>, <string-name>G.
+      Refael</string-name>, and <string-name>F. von Oppen</string-name></person-group>,
+      <article-title>Helical Liquids and Majorana Bound States in Quantum Wires</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>105</volume>, <page-range>177002</page-range>
+      (<year>2010</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.105.177002</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '105'
+      year: 2010
+      artid: '227003'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Potter, A.C.
+    - inspire_role: author
+      full_name: Lee, P.A.
+    title:
+      title: Multichannel Generalization of Kitaev’s Majorana End States and a Practical
+        Route to Realize Them in Thin Films
+    label: '14'
+    dois:
+    - 10.1103/PhysRevLett.105.227003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c14"><label>[14]</label><mixed-citation publication-type="journal"><object-id>14</object-id><person-group
+      person-group-type="author"><string-name>A. C. Potter</string-name> and <string-name>P. A.
+      Lee</string-name></person-group>, <article-title>Multichannel Generalization
+      of Kitaev’s Majorana End States and a Practical Route to Realize Them in Thin
+      Films</article-title>, <source>Phys. Rev. Lett.</source> <volume>105</volume>,
+      <page-range>227003</page-range> (<year>2010</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.105.227003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '7'
+      page_start: '412'
+      year: 2011
+      artid: '412'
+      journal_title: Nat. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Alicea, J.
+    - inspire_role: author
+      full_name: Oreg, Y.
+    - inspire_role: author
+      full_name: Refael, G.
+    - inspire_role: author
+      full_name: von Oppen, F.
+    - inspire_role: author
+      full_name: Fisher, M.P. A.
+    title:
+      title: Non-Abelian Statistics and Topological Quantum Information Processing
+        in 1D Wire Networks
+    label: '15'
+    dois:
+    - 10.1038/nphys1915
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c15"><label>[15]</label><mixed-citation publication-type="journal"><object-id>15</object-id><person-group
+      person-group-type="author"><string-name>J. Alicea</string-name>, <string-name>Y.
+      Oreg</string-name>, <string-name>G. Refael</string-name>, <string-name>F. von
+      Oppen</string-name>, and <string-name>M. P. A. Fisher</string-name></person-group>,
+      <article-title>Non-Abelian Statistics and Topological Quantum Information Processing
+      in 1D Wire Networks</article-title>, <source>Nat. Phys.</source> <volume>7</volume>,
+      <page-range>412</page-range> (<year>2011</year>).<pub-id pub-id-type="coden">NPAHAX</pub-id><issn>1745-2473</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1038/nphys1915</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '84'
+      year: 2011
+      artid: 201105(R)
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Cook, A.
+    - inspire_role: author
+      full_name: Franz, M.
+    title:
+      title: Majorana Fermions in a Topological-Insulator Nanowire Proximity-Coupled
+        to an s-Wave Superconductor
+    label: '16'
+    dois:
+    - 10.1103/PhysRevB.84.201105
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c16"><label>[16]</label><mixed-citation publication-type="journal"><object-id>16</object-id><person-group
+      person-group-type="author"><string-name>A. Cook</string-name> and <string-name>M.
+      Franz</string-name></person-group>, <article-title>Majorana Fermions in a Topological-Insulator
+      Nanowire Proximity-Coupled to an s-Wave Superconductor</article-title>, <source>Phys.
+      Rev. B</source> <volume>84</volume>, <page-range>201105(R)</page-range> (<year>2011</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.84.201105</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '103'
+      year: 2009
+      artid: '237001'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Law, K.T.
+    - inspire_role: author
+      full_name: Lee, P.A.
+    - inspire_role: author
+      full_name: Ng, T.K.
+    title:
+      title: Majorana Fermion Induced Resonant Andreev Reflection
+    label: '17'
+    dois:
+    - 10.1103/PhysRevLett.103.237001
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c17"><label>[17]</label><mixed-citation publication-type="journal"><object-id>17</object-id><person-group
+      person-group-type="author"><string-name>K. T. Law</string-name>, <string-name>P. A.
+      Lee</string-name>, and <string-name>T. K. Ng</string-name></person-group>, <article-title>Majorana
+      Fermion Induced Resonant Andreev Reflection</article-title>, <source>Phys. Rev.
+      Lett.</source> <volume>103</volume>, <page-range>237001</page-range> (<year>2009</year>).<pub-id
+      pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevLett.103.237001</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '82'
+      year: 2010
+      artid: '180516'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Flensberg, K.
+    title:
+      title: Tunneling Characteristics of a Chain of Majorana Bound States
+    label: '18'
+    dois:
+    - 10.1103/PhysRevB.82.180516
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c18"><label>[18]</label><mixed-citation publication-type="journal"><object-id>18</object-id><person-group
+      person-group-type="author"><string-name>K. Flensberg</string-name></person-group>,
+      <article-title>Tunneling Characteristics of a Chain of Majorana Bound States</article-title>,
+      <source>Phys. Rev. B</source> <volume>82</volume>, <page-range>180516</page-range>
+      (<year>2010</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.82.180516</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '109'
+      year: 2012
+      artid: '106404'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Liu, X.-J.
+    title:
+      title: Andreev Bound States in a One-Dimensional Topological Superconductor
+    label: '19'
+    dois:
+    - 10.1103/PhysRevLett.109.106404
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c19"><label>[19]</label><mixed-citation publication-type="journal"><object-id>19</object-id><person-group
+      person-group-type="author"><string-name>X.-J. Liu</string-name></person-group>,
+      <article-title>Andreev Bound States in a One-Dimensional Topological Superconductor</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>109</volume>, <page-range>106404</page-range>
+      (<year>2012</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.109.106404</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '336'
+      page_start: '1003'
+      year: 2012
+      artid: '1003'
+      journal_title: Science
+    authors:
+    - inspire_role: author
+      full_name: Mourik, V.
+    - inspire_role: author
+      full_name: Zuo, K.
+    - inspire_role: author
+      full_name: Frolov, S.M.
+    - inspire_role: author
+      full_name: Plissard, S.R.
+    - inspire_role: author
+      full_name: Bakkers, E.P. A. M.
+    - inspire_role: author
+      full_name: Kouwenhoven, L.P.
+    title:
+      title: Signatures of Majorana Fermions in Hybrid Superconductor-Semiconductor
+        Nanowire Devices
+    label: '20'
+    dois:
+    - 10.1126/science.1222360
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c20"><label>[20]</label><mixed-citation publication-type="journal"><object-id>20</object-id><person-group
+      person-group-type="author"><string-name>V. Mourik</string-name>, <string-name>K.
+      Zuo</string-name>, <string-name>S. M. Frolov</string-name>, <string-name>S. R.
+      Plissard</string-name>, <string-name>E. P. A. M. Bakkers</string-name>, and
+      <string-name>L. P. Kouwenhoven</string-name></person-group> <article-title>Signatures
+      of Majorana Fermions in Hybrid Superconductor-Semiconductor Nanowire Devices</article-title>,
+      <source>Science</source> <volume>336</volume>, <page-range>1003</page-range>
+      (<year>2012</year>).<pub-id pub-id-type="coden">SCIEAS</pub-id><issn>0036-8075</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1126/science.1222360</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '12'
+      page_start: '6414'
+      year: 2012
+      artid: '6414'
+      journal_title: Nano Lett.
+    authors:
+    - inspire_role: author
+      full_name: Deng, M.T.
+    - inspire_role: author
+      full_name: Yu, C.L.
+    - inspire_role: author
+      full_name: Huang, G.Y.
+    - inspire_role: author
+      full_name: Larsson, M.
+    - inspire_role: author
+      full_name: Caroff, P.
+    - inspire_role: author
+      full_name: Xu, H.Q.
+    title:
+      title: Observation of Majorana Fermions in a Nb-InSb Nanowire-Nb Hybrid Quantum
+        Device
+    label: '21'
+    dois:
+    - 10.1021/nl303758w
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c21"><label>[21]</label><mixed-citation publication-type="journal"><object-id>21</object-id><person-group
+      person-group-type="author"><string-name>M. T. Deng</string-name>, <string-name>C. L.
+      Yu</string-name>, <string-name>G. Y. Huang</string-name>, <string-name>M. Larsson</string-name>,
+      <string-name>P. Caroff</string-name>, and <string-name>H. Q. Xu</string-name></person-group>,
+      <article-title>Observation of Majorana Fermions in a Nb-InSb Nanowire-Nb Hybrid
+      Quantum Device</article-title>, <source>Nano Lett.</source> <volume>12</volume>,
+      <page-range>6414</page-range> (<year>2012</year>).<pub-id pub-id-type="coden">NALEFD</pub-id><issn>1530-6984</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1021/nl303758w</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '8'
+      page_start: '887'
+      year: 2012
+      artid: '887'
+      journal_title: Nat. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Das, A.
+    - inspire_role: author
+      full_name: Ronen, Y.
+    - inspire_role: author
+      full_name: Most, Y.
+    - inspire_role: author
+      full_name: Oreg, Y.
+    - inspire_role: author
+      full_name: Heiblum, M.
+    - inspire_role: author
+      full_name: Shtrikman, H.
+    title:
+      title: Zero-Bias Peaks and Splitting in an Al-InAs Nanowire Topological Superconductor
+        as a Signature of Majorana Fermions
+    label: '22'
+    dois:
+    - 10.1038/nphys2479
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c22"><label>[22]</label><mixed-citation publication-type="journal"><object-id>22</object-id><person-group
+      person-group-type="author"><string-name>A. Das</string-name>, <string-name>Y.
+      Ronen</string-name>, <string-name>Y. Most</string-name>, <string-name>Y. Oreg</string-name>,
+      <string-name>M. Heiblum</string-name>, and <string-name>H. Shtrikman</string-name></person-group>,
+      <article-title>Zero-Bias Peaks and Splitting in an Al-InAs Nanowire Topological
+      Superconductor as a Signature of Majorana Fermions</article-title>, <source>Nat.
+      Phys.</source> <volume>8</volume>, <page-range>887</page-range> (<year>2012</year>).<pub-id
+      pub-id-type="coden">NPAHAX</pub-id><issn>1745-2473</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1038/nphys2479</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '78'
+      year: 2008
+      artid: '195125'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Schnyder, A.P.
+    - inspire_role: author
+      full_name: Ryu, S.
+    - inspire_role: author
+      full_name: Furusaki, A.
+    - inspire_role: author
+      full_name: Ludwig, A.W. W.
+    title:
+      title: 'Topological Insulators and Superconductors: Ten-fold Way and Dimensional
+        Hierarchy'
+    label: '23'
+    dois:
+    - 10.1103/PhysRevB.78.195125
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c23"><label>[23]</label><mixed-citation publication-type="journal"><object-id>23</object-id><person-group
+      person-group-type="author"><string-name>A. P. Schnyder</string-name>, <string-name>S.
+      Ryu</string-name>, <string-name>A. Furusaki</string-name>, and <string-name>A. W. W.
+      Ludwig</string-name></person-group>, <article-title>Topological Insulators and
+      Superconductors: Ten-fold Way and Dimensional Hierarchy</article-title>, <source>Phys.
+      Rev. B</source> <volume>78</volume>, <page-range>195125</page-range> (<year>2008</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.78.195125</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '102'
+      year: 2009
+      artid: '187001'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Qi, X.-L.
+    - inspire_role: author
+      full_name: Hughes, T.L.
+    - inspire_role: author
+      full_name: Raghu, S.
+    - inspire_role: author
+      full_name: Zhang, S.-C.
+    title:
+      title: Time-Reversal-Invariant Topological Superconductors and Superfluids in
+        Two and Three Dimensions
+    label: '24'
+    dois:
+    - 10.1103/PhysRevLett.102.187001
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c24"><label>[24]</label><mixed-citation publication-type="journal"><object-id>24</object-id><person-group
+      person-group-type="author"><string-name>X.-L. Qi</string-name>, <string-name>T. L.
+      Hughes</string-name>, <string-name>S. Raghu</string-name>, and <string-name>S.-C.
+      Zhang</string-name></person-group>, <article-title>Time-Reversal-Invariant Topological
+      Superconductors and Superfluids in Two and Three Dimensions</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>102</volume>, <page-range>187001</page-range>
+      (<year>2009</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.102.187001</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '82'
+      year: 2010
+      artid: '115120'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Teo, J.C. Y.
+    - inspire_role: author
+      full_name: Kane, C.L.
+    title:
+      title: Topological Defects and Gapless Modes in Insulators and Superconductors
+    label: '25'
+    dois:
+    - 10.1103/PhysRevB.82.115120
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c25"><label>[25]</label><mixed-citation publication-type="journal"><object-id>25</object-id><person-group
+      person-group-type="author"><string-name>J. C. Y. Teo</string-name> and <string-name>C. L.
+      Kane</string-name></person-group>, <article-title>Topological Defects and Gapless
+      Modes in Insulators and Superconductors</article-title>, <source>Phys. Rev.
+      B</source> <volume>82</volume>, <page-range>115120</page-range> (<year>2010</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.82.115120</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '82'
+      year: 2010
+      artid: '184508'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Schnyder, A.P.
+    - inspire_role: author
+      full_name: Brydon, P.M. R.
+    - inspire_role: author
+      full_name: Manske, D.
+    - inspire_role: author
+      full_name: Timm, C.
+    title:
+      title: Andreev Spectroscopy and Surface Density of States for a Three-Dimensional
+        Time-Reversal Invariant Topological Superconductor
+    label: '26'
+    dois:
+    - 10.1103/PhysRevB.82.184508
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c26"><label>[26]</label><mixed-citation publication-type="journal"><object-id>26</object-id><person-group
+      person-group-type="author"><string-name>A. P. Schnyder</string-name>, <string-name>P. M. R.
+      Brydon</string-name>, <string-name>D. Manske</string-name>, and <string-name>C.
+      Timm</string-name></person-group>, <article-title>Andreev Spectroscopy and Surface
+      Density of States for a Three-Dimensional Time-Reversal Invariant Topological
+      Superconductor</article-title>, <source>Phys. Rev. B</source> <volume>82</volume>,
+      <page-range>184508</page-range> (<year>2010</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.82.184508</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '83'
+      year: 2011
+      artid: 085413
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Beenakker, C.W. J.
+    - inspire_role: author
+      full_name: Dahlhaus, J.P.
+    - inspire_role: author
+      full_name: Wimmer, M.
+    - inspire_role: author
+      full_name: Akhmerov, A.R.
+    title:
+      title: Random-Matrix Theory of Andreev Reflection from a Topological Superconductor
+    label: '27'
+    dois:
+    - 10.1103/PhysRevB.83.085413
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c27"><label>[27]</label><mixed-citation publication-type="journal"><object-id>27</object-id><person-group
+      person-group-type="author"><string-name>C. W. J. Beenakker</string-name>, <string-name>J. P.
+      Dahlhaus</string-name>, <string-name>M. Wimmer</string-name>, and <string-name>A. R.
+      Akhmerov</string-name></person-group>, <article-title>Random-Matrix Theory of
+      Andreev Reflection from a Topological Superconductor</article-title>, <source>Phys.
+      Rev. B</source> <volume>83</volume>, <page-range>085413</page-range> (<year>2011</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.83.085413</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '108'
+      year: 2012
+      artid: 036803
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Deng, S.
+    - inspire_role: author
+      full_name: Viola, L.
+    - inspire_role: author
+      full_name: Ortiz, G.
+    title:
+      title: Majorana Modes in Time-Reversal Invariant s-Wave Topological Superconductors
+    label: '28'
+    dois:
+    - 10.1103/PhysRevLett.108.036803
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c28"><label>[28]</label><mixed-citation publication-type="journal"><object-id>28</object-id><person-group
+      person-group-type="author"><string-name>S. Deng</string-name>, <string-name>L.
+      Viola</string-name>, and <string-name>G. Ortiz</string-name></person-group>,
+      <article-title>Majorana Modes in Time-Reversal Invariant s-Wave Topological
+      Superconductors</article-title>, <source>Phys. Rev. Lett.</source> <volume>108</volume>,
+      <page-range>036803</page-range> (<year>2012</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.108.036803</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '108'
+      year: 2012
+      artid: '147003'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Nakosai, S.
+    - inspire_role: author
+      full_name: Tanaka, Y.
+    - inspire_role: author
+      full_name: Nagaosa, N.
+    title:
+      title: Topological Superconductivity in Bilayer Rashba System
+    label: '29'
+    dois:
+    - 10.1103/PhysRevLett.108.147003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c29"><label>[29]</label><mixed-citation publication-type="journal"><object-id>29</object-id><person-group
+      person-group-type="author"><string-name>S. Nakosai</string-name>, <string-name>Y.
+      Tanaka</string-name>, and <string-name>N. Nagaosa</string-name></person-group>,
+      <article-title>Topological Superconductivity in Bilayer Rashba System</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>108</volume>, <page-range>147003</page-range>
+      (<year>2012</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.108.147003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '86'
+      year: 2012
+      artid: '184516'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Wong, C.L. M.
+    - inspire_role: author
+      full_name: Law, K.T.
+    title:
+      title: 'Realizing DIII Class Topological Superconductors Using '
+    label: '30'
+    dois:
+    - 10.1103/PhysRevB.86.184516
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c30"><label>[30]</label><mixed-citation publication-type="journal"><object-id>30</object-id><person-group
+      person-group-type="author"><string-name>C. L. M. Wong</string-name> and <string-name>K. T.
+      Law</string-name></person-group>, <article-title>Realizing DIII Class Topological
+      Superconductors Using <inline-formula><math display="inline"><msub><mi>d</mi><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>−</mo><msup><mi>y</mi><mn>2</mn></msup></mrow></msub></math></inline-formula>-Wave
+      Superconductors</article-title>, <source>Phys. Rev. B</source> <volume>86</volume>,
+      <page-range>184516</page-range> (<year>2012</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.86.184516</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '111'
+      year: 2013
+      artid: '056402'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Zhang, F.
+    - inspire_role: author
+      full_name: Kane, C.L.
+    - inspire_role: author
+      full_name: Mele, E.J.
+    title:
+      title: Time Reversal Invariant Topological Superconductivity and Majorana Kramers
+        Pairs
+    label: '31'
+    dois:
+    - 10.1103/PhysRevLett.111.056402
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c31"><label>[31]</label><mixed-citation publication-type="journal"><object-id>31</object-id><person-group
+      person-group-type="author"><string-name>F. Zhang</string-name>, <string-name>C. L.
+      Kane</string-name>, and <string-name>E. J. Mele</string-name></person-group>,
+      <article-title>Time Reversal Invariant Topological Superconductivity and Majorana
+      Kramers Pairs</article-title>, <source>Phys. Rev. Lett.</source> <volume>111</volume>,
+      <page-range>056402</page-range> (<year>2013</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.111.056402</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '110'
+      year: 2013
+      artid: '117002'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Nakosai, S.
+    - inspire_role: author
+      full_name: Budich, J.C.
+    - inspire_role: author
+      full_name: Tanaka, Y.
+    - inspire_role: author
+      full_name: Trauzettel, B.
+    - inspire_role: author
+      full_name: Nagaosa, N.
+    title:
+      title: Majorana Bound States and Non-local Spin Correlations in a Quantum Wire
+        on an Unconventional Superconductor
+    label: '32'
+    dois:
+    - 10.1103/PhysRevLett.110.117002
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c32"><label>[32]</label><mixed-citation publication-type="journal"><object-id>32</object-id><person-group
+      person-group-type="author"><string-name>S. Nakosai</string-name>, <string-name>J. C.
+      Budich</string-name>, <string-name>Y. Tanaka</string-name>, <string-name>B.
+      Trauzettel</string-name>, and <string-name>N. Nagaosa</string-name></person-group>,
+      <article-title>Majorana Bound States and Non-local Spin Correlations in a Quantum
+      Wire on an Unconventional Superconductor</article-title>, <source>Phys. Rev.
+      Lett.</source> <volume>110</volume>, <page-range>117002</page-range> (<year>2013</year>).<pub-id
+      pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevLett.110.117002</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '111'
+      year: 2013
+      artid: '116402'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Keselman, A.
+    - inspire_role: author
+      full_name: Fu, L.
+    - inspire_role: author
+      full_name: Stern, A.
+    - inspire_role: author
+      full_name: Berg, E.
+    title:
+      title: Inducing Time Reversal Invariant Topological Superconductivity and Fermion
+        Parity Pumping in Quantum Wires
+    label: '33'
+    dois:
+    - 10.1103/PhysRevLett.111.116402
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c33"><label>[33]</label><mixed-citation publication-type="journal"><object-id>33</object-id><person-group
+      person-group-type="author"><string-name>A. Keselman</string-name>, <string-name>L.
+      Fu</string-name>, <string-name>A. Stern</string-name>, and <string-name>E. Berg</string-name></person-group>,
+      <article-title>Inducing Time Reversal Invariant Topological Superconductivity
+      and Fermion Parity Pumping in Quantum Wires</article-title>, <source>Phys. Rev.
+      Lett.</source> <volume>111</volume>, <page-range>116402</page-range> (<year>2013</year>).<pub-id
+      pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevLett.111.116402</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '112'
+      year: 2014
+      artid: '126402'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Gaidamauskas, E.
+    - inspire_role: author
+      full_name: Paaske, J.
+    - inspire_role: author
+      full_name: Flensberg, K.
+    title:
+      title: Majorana Bound States in Two-Channel Time-Reversal-Symmetric Nanowire
+        Systems
+    label: '34'
+    dois:
+    - 10.1103/PhysRevLett.112.126402
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c34"><label>[34]</label><mixed-citation publication-type="journal"><object-id>34</object-id><person-group
+      person-group-type="author"><string-name>E. Gaidamauskas</string-name>, <string-name>J.
+      Paaske</string-name>, and <string-name>K. Flensberg</string-name></person-group>,
+      <article-title>Majorana Bound States in Two-Channel Time-Reversal-Symmetric
+      Nanowire Systems</article-title>, <source>Phys. Rev. Lett.</source> <volume>112</volume>,
+      <page-range>126402</page-range> (<year>2014</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.112.126402</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Haim, A.
+    - inspire_role: author
+      full_name: Keselman, A.
+    - inspire_role: author
+      full_name: Berg, E.
+    - inspire_role: author
+      full_name: Oreg, Y.
+    title:
+      title: Time-Reversal Invariant Topological Superconductivity Induced by Repulsive
+        Interactions in Quantum Wires
+    label: '35'
+    arxiv_eprint: '1310.4525'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c35"><label>[35]</label><mixed-citation publication-type="eprint"><object-id>35</object-id><person-group
+      person-group-type="author"><string-name>A. Haim</string-name>, <string-name>A.
+      Keselman</string-name>, <string-name>E. Berg</string-name>, and <string-name>Y.
+      Oreg</string-name></person-group>, <article-title>Time-Reversal Invariant Topological
+      Superconductivity Induced by Repulsive Interactions in Quantum Wires</article-title>,
+      <pub-id pub-id-type="arxiv">arXiv:1310.4525</pub-id>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Zhang, F.
+    - inspire_role: author
+      full_name: Kane, C.L.
+    title:
+      title: Anomalous Topological Pumps and Fractional Josephson Effects
+    label: '36'
+    arxiv_eprint: '1310.5281'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c36"><label>[36]</label><mixed-citation publication-type="eprint"><object-id>36</object-id><person-group
+      person-group-type="author"><string-name>F. Zhang</string-name> and <string-name>C. L.
+      Kane</string-name></person-group>, <article-title>Anomalous Topological Pumps
+      and Fractional Josephson Effects</article-title>, <pub-id pub-id-type="arxiv">arXiv:1310.5281</pub-id>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Dumitrescu, E.
+    - inspire_role: author
+      full_name: Sau, J.D.
+    - inspire_role: author
+      full_name: Tewari, S.
+    title:
+      title: Magnetic Field Response and Chiral Symmetry of Time Reversal Invariant
+        Topological Superconductors
+    label: '37'
+    arxiv_eprint: '1310.7938'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c37"><label>[37]</label><mixed-citation publication-type="eprint"><object-id>37</object-id><person-group
+      person-group-type="author"><string-name>E. Dumitrescu</string-name>, <string-name>J. D.
+      Sau</string-name>, and <string-name>S. Tewari</string-name></person-group>,
+      <article-title>Magnetic Field Response and Chiral Symmetry of Time Reversal
+      Invariant Topological Superconductors</article-title>, <pub-id pub-id-type="arxiv">arXiv:1310.7938</pub-id>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Klinovaja, J.
+    - inspire_role: author
+      full_name: Loss, D.
+    title:
+      title: Time-Reversal Invariant Parafermions in Interacting Rashba Nanowires
+    label: '38'
+    arxiv_eprint: '1312.1998'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c38"><label>[38]</label><mixed-citation publication-type="eprint"><object-id>38</object-id><person-group
+      person-group-type="author"><string-name>J. Klinovaja</string-name> and <string-name>D.
+      Loss</string-name></person-group>, <article-title>Time-Reversal Invariant Parafermions
+      in Interacting Rashba Nanowires</article-title>, <pub-id pub-id-type="arxiv">arXiv:1312.1998</pub-id>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '92'
+      year: 2004
+      artid: '027003'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Bauer, E.
+    - inspire_role: author
+      full_name: Hilscher, G.
+    - inspire_role: author
+      full_name: Michor, H.
+    - inspire_role: author
+      full_name: Paul, Ch.
+    - inspire_role: author
+      full_name: Scheidt, E.
+    - inspire_role: author
+      full_name: Gribanov, A.
+    - inspire_role: author
+      full_name: Seropegin, Yu.
+    - inspire_role: author
+      full_name: Noël, H.
+    - inspire_role: author
+      full_name: Sigrist, M.
+    - inspire_role: author
+      full_name: Rogl, P.
+    title:
+      title: 'Heavy Fermion Superconductivity and Magnetic Order in Noncentrosymmetric '
+    label: '39'
+    dois:
+    - 10.1103/PhysRevLett.92.027003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c39"><label>[39]</label><mixed-citation publication-type="journal"><object-id>39</object-id><person-group
+      person-group-type="author"><string-name>E. Bauer</string-name>, <string-name>G.
+      Hilscher</string-name>, <string-name>H. Michor</string-name>, <string-name>Ch.
+      Paul</string-name>, <string-name>E. Scheidt</string-name>, <string-name>A. Gribanov</string-name>,
+      <string-name>Yu. Seropegin</string-name>, <string-name>H. Noël</string-name>,
+      <string-name>M. Sigrist</string-name>, and <string-name>P. Rogl</string-name></person-group>
+      <article-title>Heavy Fermion Superconductivity and Magnetic Order in Noncentrosymmetric
+      <inline-formula><math display="inline"><mrow><msub><mrow><mi>CePt</mi></mrow><mrow><mn>3</mn></mrow></msub><mi>Si</mi></mrow></math></inline-formula></article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>92</volume>, <page-range>027003</page-range>
+      (<year>2004</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.92.027003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '79'
+      year: 2009
+      artid: 094504
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Sato, M.
+    - inspire_role: author
+      full_name: Fujimoto, S.
+    title:
+      title: 'Topological Phases of Noncentrosymmetric Superconductors: Edge States,
+        Majorana Fermions, and Non-Abelian Statistics'
+    label: '40'
+    dois:
+    - 10.1103/PhysRevB.79.094504
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c40"><label>[40]</label><mixed-citation publication-type="journal"><object-id>40</object-id><person-group
+      person-group-type="author"><string-name>M. Sato</string-name> and <string-name>S.
+      Fujimoto</string-name></person-group>, <article-title>Topological Phases of
+      Noncentrosymmetric Superconductors: Edge States, Majorana Fermions, and Non-Abelian
+      Statistics</article-title>, <source>Phys. Rev. B</source> <volume>79</volume>,
+      <page-range>094504</page-range> (<year>2009</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.79.094504</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      year: 1997
+      parent_title: Electronic Structure of Disordered Alloys, Surfaces and Interfaces
+    imprint:
+      publisher: Kluwer
+    authors:
+    - inspire_role: author
+      full_name: Turek, I.
+    - inspire_role: author
+      full_name: Drchal, V.
+    - inspire_role: author
+      full_name: Kudrnovsky, J.
+    - inspire_role: author
+      full_name: Sob, M.
+    - inspire_role: author
+      full_name: Weinberger, P.
+    label: '41'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c41"><label>[41]</label><mixed-citation publication-type="book"><object-id>41</object-id><person-group
+      person-group-type="author"><string-name>I. Turek</string-name>, <string-name>V.
+      Drchal</string-name>, <string-name>J. Kudrnovsky</string-name>, <string-name>M.
+      Sob</string-name>, and <string-name>P. Weinberger</string-name></person-group>,
+      <source>Electronic Structure of Disordered Alloys, Surfaces and Interfaces</source>
+      (<publisher-name>Kluwer</publisher-name>, Boston, <year>1997</year>).</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '85'
+      year: 2012
+      artid: '174533'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Rainis, D.
+    - inspire_role: author
+      full_name: Loss, D.
+    title:
+      title: Majorana Qubit Decoherence by Quasiparticle Poisoning
+    label: '42'
+    dois:
+    - 10.1103/PhysRevB.85.174533
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c42"><label>[42]</label><mixed-citation publication-type="journal"><object-id>42</object-id><person-group
+      person-group-type="author"><string-name>D. Rainis</string-name> and <string-name>D.
+      Loss</string-name></person-group>, <article-title>Majorana Qubit Decoherence
+      by Quasiparticle Poisoning</article-title>, <source>Phys. Rev. B</source> <volume>85</volume>,
+      <page-range>174533</page-range> (<year>2012</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.85.174533</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    label: '43'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c43"><label>[43]</label><mixed-citation publication-type="supplemental-material"><object-id>43</object-id>See
+      Supplemental Material at <ext-link ext-link-type="uri" href="http://link.aps.org/supplemental/10.1103/PhysRevX.4.021018">http://link.aps.org/supplemental/10.1103/PhysRevX.4.021018</ext-link>
+      for more details of the braiding statistics.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '87'
+      year: 2013
+      artid: 060504(R)
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Liu, X.-J.
+    - inspire_role: author
+      full_name: Lobos, A.M.
+    title:
+      title: Manipulating Majorana Fermions in Quantum Nanowires with Broken Inversion
+        Symmetry
+    label: '44'
+    dois:
+    - 10.1103/PhysRevB.87.060504
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c44"><label>[44]</label><mixed-citation publication-type="journal"><object-id>44</object-id><person-group
+      person-group-type="author"><string-name>X.-J. Liu</string-name> and <string-name>A. M.
+      Lobos</string-name></person-group>, <article-title>Manipulating Majorana Fermions
+      in Quantum Nanowires with Broken Inversion Symmetry</article-title>, <source>Phys.
+      Rev. B</source> <volume>87</volume>, <page-range>060504(R)</page-range> (<year>2013</year>).<pub-id
+      pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevB.87.060504</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '87'
+      year: 2013
+      artid: '104509'
+      journal_title: Phys. Rev. B
+    authors:
+    - inspire_role: author
+      full_name: Sticlet, D.
+    - inspire_role: author
+      full_name: Bena, C.
+    - inspire_role: author
+      full_name: Simon, P.
+    title:
+      title: Josephson Effect in Superconducting Wires Supporting Multiple Majorana
+        Edge States
+    label: '45'
+    dois:
+    - 10.1103/PhysRevB.87.104509
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c45"><label>[45]</label><mixed-citation publication-type="journal"><object-id>45</object-id><person-group
+      person-group-type="author"><string-name>D. Sticlet</string-name>, <string-name>C.
+      Bena</string-name>, and <string-name>P. Simon</string-name></person-group>,
+      <article-title>Josephson Effect in Superconducting Wires Supporting Multiple
+      Majorana Edge States</article-title>, <source>Phys. Rev. B</source> <volume>87</volume>,
+      <page-range>104509</page-range> (<year>2013</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.87.104509</pub-id></mixed-citation></ref>
+    schema: JATS
