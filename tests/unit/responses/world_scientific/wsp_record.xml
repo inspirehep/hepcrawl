@@ -72,10 +72,10 @@
                 <p>Abstract Lévy bla-bla bla blaaa blaa bla blaaa blaa, bla blaaa blaa. Bla blaaa blaa.</p>
             </abstract>
             <kwd-group>
-                <kwd>Bla blaa</kwd>
-                <kwd>blabla</kwd>
-                <kwd>Blaa bla bla <inline-formula><mml:math display="inline" overflow="scroll"><mml:mi>W</mml:mi><mml:mo class="MathClass-open" stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo class="MathClass-punc">;</mml:mo> <mml:mi>q</mml:mi><mml:mo class="MathClass-close" stretchy="false">)</mml:mo></mml:math></inline-formula></kwd>
-                <kwd>blq</kwd>
+                <kwd>keyword 1</kwd>
+                <kwd>keyword 2</kwd>
+                <kwd>KeyWord 3<inline-formula><mml:math display="inline" overflow="scroll"><mml:mi>W</mml:mi><mml:mo class="MathClass-open" stretchy="false">(</mml:mo><mml:mi>x</mml:mi><mml:mo class="MathClass-punc">;</mml:mo> <mml:mi>q</mml:mi><mml:mo class="MathClass-close" stretchy="false">)</mml:mo></mml:math></inline-formula></kwd>
+                <kwd>keÏWÕrd 4</kwd>
             </kwd-group>
             <counts>
                 <ref-count count="7"></ref-count>

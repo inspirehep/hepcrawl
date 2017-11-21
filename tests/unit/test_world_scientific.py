@@ -462,10 +462,10 @@ def test_pipeline_record(generated_record):
             },
         ],
         'keywords': [
-            {'source': 'WSP', 'value': u'Bla blaa'},
-            {'source': 'WSP', 'value': u'blabla'},
-            {'source': 'WSP', 'value': u'Blaa bla bla W(x; q)'},
-            {'source': 'WSP', 'value': u'blq'},
+            {'source': 'WSP', 'value': u'keyword 1'},
+            {'source': 'WSP', 'value': u'keyword 2'},
+            {'source': 'WSP', 'value': u'KeyWord 3W(x; q)'},
+            {'source': 'WSP', 'value': u'keÏWÕrd 4'},
         ],
         'number_of_pages': 6,
         'publication_info': [
