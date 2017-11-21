@@ -7,30 +7,31 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import (
+    absolute_import,
+    division,
+    print_function,
+    unicode_literals,
+)
 
 import pytest
 import yaml
-
-from inspire_utils.date import PartialDate
 
 from hepcrawl.testlib.fixtures import get_test_suite_path
 from hepcrawl.parsers.jats import JatsParser
 
 
-@pytest.fixture
-def aps_parsed(scope='module'):
+def aps_expected():
     """A dictionary holding the parsed elements of the record."""
     path = get_test_suite_path('responses', 'aps',
-                               'PhysRevX.7.021022_parsed.yml')
+                               'PhysRevX.7.021022_expected.yml')
     with open(path) as f:
-        aps_parsed = yaml.load(f)
+        aps_expected_dict = yaml.load(f)
 
-    return aps_parsed
+    return aps_expected_dict
 
 
-@pytest.fixture
-def aps_jats(scope='module'):
+def aps_jats():
     """A JatsParser instanciated on an APS article."""
     path = get_test_suite_path('responses', 'aps', 'PhysRevX.7.021022.xml')
     with open(path) as f:
@@ -39,125 +40,75 @@ def aps_jats(scope='module'):
     return JatsParser(aps_jats)
 
 
-def test_abstract(aps_jats, aps_parsed):
-    result = aps_jats.abstract
-    expected = aps_parsed['abstract']
+RAW_JATS_RECORD = aps_jats()
+EXPECTED_JATS_RECORD = aps_expected()
+FIELDS_TO_CHECK = [
+    'abstract',
+    'copyright_holder',
+    'copyright_statement',
+    'copyright_year',
+    'document_type',
+    'license_url',
+    'license_statement',
+    'article_type',
+    'journal_title',
+    'material',
+    'publisher',
+    'year',
+    'authors',
+    'artid',
+]
+FIELDS_TO_CHECK_SEPARATEDLY = [
+    'volume',
+    'issue',
+    'date',
+    'is_conference',
+]
+
+
+@pytest.mark.parametrize(
+    'field_name',
+    [field for field in EXPECTED_JATS_RECORD],
+    ids=EXPECTED_JATS_RECORD.keys(),
+)
+def test_field(field_name):
+    if field_name not in FIELDS_TO_CHECK:
+        if field_name in FIELDS_TO_CHECK_SEPARATEDLY:
+            pytest.skip('Field %s tested separatedly.' % field_name)
+
+    result = getattr(RAW_JATS_RECORD, field_name)
+    expected = EXPECTED_JATS_RECORD[field_name]
 
     assert result == expected
 
 
-def test_copyright_holder(aps_jats, aps_parsed):
-    result = aps_jats.copyright_holder
-    expected = aps_parsed['copyright_holder']
+def test_field_issue():
+    result = RAW_JATS_RECORD.journal_issue
+    expected = EXPECTED_JATS_RECORD['issue']
 
     assert result == expected
 
 
-def test_copyright_statement(aps_jats, aps_parsed):
-    result = aps_jats.copyright_statement
-    expected = aps_parsed['copyright_statement']
+def test_field_volume():
+    result = RAW_JATS_RECORD.journal_volume
+    expected = EXPECTED_JATS_RECORD['volume']
 
     assert result == expected
 
 
-def test_copyright_year(aps_jats, aps_parsed):
-    result = aps_jats.copyright_year
-    expected = aps_parsed['copyright_year']
+def test_field_date():
+    result = RAW_JATS_RECORD.publication_date.dumps()
+    expected = EXPECTED_JATS_RECORD['date'].isoformat()
 
     assert result == expected
 
 
-def test_document_type(aps_jats, aps_parsed):
-    result = aps_jats.document_type
-    expected = aps_parsed['document_type']
+def test_field_is_conference():
+    result = RAW_JATS_RECORD.is_conference_paper
+    expected = EXPECTED_JATS_RECORD['is_conference']
 
     assert result == expected
 
 
-def test_license_url(aps_jats, aps_parsed):
-    result = aps_jats.license_url
-    expected = aps_parsed['license_url']
-
-    assert result == expected
-
-
-def test_license_statement(aps_jats, aps_parsed):
-    result = aps_jats.license_statement
-    expected = aps_parsed['license_statement']
-
-    assert result == expected
-
-
-def test_article_type(aps_jats, aps_parsed):
-    result = aps_jats.article_type
-    expected = aps_parsed['article_type']
-
-    assert result == expected
-
-
-def test_journal_issue(aps_jats, aps_parsed):
-    result = aps_jats.journal_issue
-    expected = str(aps_parsed['issue'])
-
-    assert result == expected
-
-
-def test_journal_title(aps_jats, aps_parsed):
-    result = aps_jats.journal_title
-    expected = aps_parsed['journal_title']
-
-    assert result == expected
-
-
-def test_journal_volume(aps_jats, aps_parsed):
-    result = aps_jats.journal_volume
-    expected = str(aps_parsed['volume'])
-
-    assert result == expected
-
-
-def test_material(aps_jats, aps_parsed):
-    result = aps_jats.material
-    expected = str(aps_parsed['material'])
-
-    assert result == expected
-
-
-def test_publication_date(aps_jats, aps_parsed):
-    result = aps_jats.publication_date.dumps()
-    expected = aps_parsed['date'].isoformat()
-
-    assert result == expected
-
-
-def test_publisher(aps_jats, aps_parsed):
-    result = aps_jats.publisher
-    expected = aps_parsed['publisher']
-
-    assert result == expected
-
-
-def test_year(aps_jats, aps_parsed):
-    result = aps_jats.year
-    expected = aps_parsed['year']
-
-    assert result == expected
-
-
-def test_authors(aps_jats, aps_parsed):
-    result = aps_jats.authors
-    expected = aps_parsed['authors']
-
-    assert result == expected
-
-
-@pytest.mark.skip(reason='No collaboration in input')
-def test_collaborations(aps_jats, aps_parsed):
-    result = aps_jats.collaborations
-    expected = aps_parsed['collaborations']
-
-    assert result == expected
-
-
-def test_parse(aps_jats):
-    aps_jats.parse()
+def test_parse():
+    RAW_JATS_RECORD.parse()
