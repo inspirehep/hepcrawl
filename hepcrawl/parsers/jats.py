@@ -34,9 +34,6 @@ class JatsParser(object):
         jats_record (Union[str, scrapy.selector.Selector]): the record in JATS format to parse.
         source (Optional[str]): if provided, sets the ``source`` everywhere in
             the record. Otherwise, the source is extracted from the JATS metadata.
-
-    Returns:
-        object: the same record in the Inspire Literature schema.
     """
     def __init__(self, jats_record, source=None):
         self.root = self.get_root_node(jats_record)
@@ -46,6 +43,9 @@ class JatsParser(object):
 
     def parse(self):
         """Extract a JATS record into an Inspire HEP record.
+
+        Returns:
+            dict: the same record in the Inspire Literature schema.
 
         """
         self.builder.add_abstract(self.abstract)
@@ -399,7 +399,6 @@ class JatsParser(object):
         keyword_dicts = ({'keyword': keyword, 'schema': schema} for keyword in keywords)
 
         return keyword_dicts
-
 
     @staticmethod
     def get_root_node(jats_record):
