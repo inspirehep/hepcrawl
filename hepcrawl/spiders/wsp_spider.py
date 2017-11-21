@@ -19,14 +19,11 @@ from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
 from . import StatefulSpider
-from ..items import HEPRecord
-from ..loaders import HEPLoader
 from ..parsers import JatsParser
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,
     local_list_files,
-    get_licenses,
     unzip_xml_files,
     ParsedItem,
 )
@@ -116,6 +113,26 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         if not os.path.exists(self.destination_folder):
             os.makedirs(self.destination_folder)
 
+        self.logger.info(
+            'Running WSP spider with params:\n'
+            '    ftp_host=%s\n'
+            '    ftp_folder=%s\n'
+            '    ftp_netrc=%s\n'
+            '    local_package_dir=%s\n'
+            '    destination_folder=%s\n'
+            '    args=%s\n'
+            '    kwargs=%s\n'
+            % (
+                ftp_host,
+                ftp_folder,
+                ftp_netrc,
+                local_package_dir,
+                destination_folder,
+                args,
+                kwargs,
+            )
+        )
+
     def _get_local_requests(self):
         new_files_paths = local_list_files(
             self.local_package_dir,
@@ -123,7 +140,10 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
             glob_expression='*.zip',
         )
 
+        self.logger.info('Got local files:\n%s', new_files_paths)
+
         for file_path in new_files_paths:
+            self.logger.info('Creating file request for %s', file_path)
             yield Request(
                 "file://{0}".format(file_path),
                 callback=self.handle_package_file,
@@ -143,6 +163,8 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
             password=ftp_params['ftp_password']
         )
 
+        self.logger.info('Got remote files:\n%s', new_files_paths)
+
         for remote_file in new_files_paths:
             # Cast to byte-string for scrapy compatibility
             remote_file = str(remote_file)
@@ -152,6 +174,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
             )
 
             remote_url = "ftp://{0}/{1}".format(ftp_host, remote_file)
+            self.logger.info('Creating ftp request for %s', remote_url)
             yield Request(
                 str(remote_url),
                 meta=ftp_params,
@@ -170,12 +193,15 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
 
     def handle_package_ftp(self, response):
         """Handle a zip package and yield every XML found."""
-        self.log("Visited url %s" % response.url)
+        self.logger.info("Visited url %s" % response.url)
         zip_filepath = response.body
         zip_target_folder, dummy = os.path.splitext(zip_filepath)
         xml_files = unzip_xml_files(zip_filepath, zip_target_folder)
 
         for xml_file in xml_files:
+            self.logger.info(
+                "Creating file request from ftp zip for %s" % xml_file
+            )
             yield Request(
                 "file://{0}".format(xml_file),
                 meta={"source_folder": zip_filepath}
@@ -183,11 +209,14 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
 
     def handle_package_file(self, response):
         """Handle a local zip package and yield every XML."""
-        self.log("Visited file %s" % response.url)
+        self.logger.info("Visited file %s" % response.url)
         zip_filepath = urlparse.urlsplit(response.url).path
         xml_files = unzip_xml_files(zip_filepath, self.destination_folder)
 
         for xml_file in xml_files:
+            self.logger.info(
+                "Creating file request from local zip for %s" % xml_file
+            )
             yield Request(
                 "file://{0}".format(xml_file),
                 meta={"source_folder": zip_filepath}
@@ -197,12 +226,19 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         """Parse a WSP XML file into a HEP record."""
 
         record = JatsParser(node, source='WSP')
-        self.log("Got article_type {0}".format(record.article_type))
-
         if record.article_type not in self.allowed_article_types:
             # Filter out non-interesting article types
+            self.logger.info(
+                (
+                    "Ignoring record because article type is not in %s, "
+                    "record:\n%s"
+                ),
+                self.allowed_article_types,
+                record,
+            )
             return
 
+        self.logger.info('Parsing record:\n%s', record)
         parsed_item = ParsedItem(
             record=record.parse(),
             record_format='hep',
