@@ -27,7 +27,7 @@ from ..utils import get_first, get_node
 class JatsParser(object):
     """Parser for the JATS format.
 
-    It can be used directly by invoking the :ref:`parse` method, or be
+    It can be used directly by invoking the :func:`JatsParser.parse` method, or be
     subclassed to customize its behavior.
 
     Args:
