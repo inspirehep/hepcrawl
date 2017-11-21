@@ -59,8 +59,8 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         ftp_host(str): host name of the ftp server to connect to.
         ftp_netrc(str): path to the netrc file containing the authentication
             settings for the ftp.
-        target_folder(str): path to the temporary local directory to download
-            the files to.
+        destination_folder(str): path to the temporary local directory to
+            download the files to, if empty will autogenerate one.
 
 
     Example:
@@ -98,7 +98,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         ftp_folder="WSP",
         ftp_host=None,
         ftp_netrc=None,
-        target_folder=None,
+        destination_folder='/tmp/WSP',
         *args,
         **kwargs
     ):
@@ -107,16 +107,19 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         self.ftp_folder = ftp_folder
         self.ftp_host = ftp_host
         self.ftp_netrc = ftp_netrc
-        self.target_folder = (
-            target_folder or
+        self.destination_folder = (
+            destination_folder or
             tempfile.mkdtemp(suffix='_extracted_zip', prefix='wsp_')
         )
         self.local_package_dir = local_package_dir
 
+        if not os.path.exists(self.destination_folder):
+            os.makedirs(self.destination_folder)
+
     def _get_local_requests(self):
         new_files_paths = local_list_files(
             self.local_package_dir,
-            self.target_folder,
+            self.destination_folder,
             glob_expression='*.zip',
         )
 
@@ -134,7 +137,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
 
         new_files_paths = ftp_list_files(
             self.ftp_folder,
-            destination_folder=self.target_folder,
+            destination_folder=self.destination_folder,
             ftp_host=ftp_host,
             user=ftp_params['ftp_user'],
             password=ftp_params['ftp_password']
@@ -144,7 +147,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
             # Cast to byte-string for scrapy compatibility
             remote_file = str(remote_file)
             ftp_params["ftp_local_filename"] = os.path.join(
-                self.target_folder,
+                self.destination_folder,
                 os.path.basename(remote_file)
             )
 
@@ -182,7 +185,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         """Handle a local zip package and yield every XML."""
         self.log("Visited file %s" % response.url)
         zip_filepath = urlparse.urlsplit(response.url).path
-        xml_files = unzip_xml_files(zip_filepath, self.target_folder)
+        xml_files = unzip_xml_files(zip_filepath, self.destination_folder)
 
         for xml_file in xml_files:
             yield Request(
