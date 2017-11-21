@@ -9,6 +9,7 @@
 
 from __future__ import absolute_import, division, print_function
 
+import fnmatch
 import os
 import pprint
 import re
@@ -120,8 +121,15 @@ def ftp_list_files(
             ]
 
 
-def local_list_files(local_folder, target_folder):
-    file_names = os.listdir(local_folder)
+def local_list_files(local_folder, target_folder, glob_expression='*'):
+    file_names = [
+        file_name
+        for file_name in os.listdir(local_folder)
+        if (
+            os.path.isfile(os.path.join(local_folder, file_name)) and
+            fnmatch.fnmatch(file_name, glob_expression)
+        )
+    ]
     return list_missing_files(local_folder, target_folder, file_names)
 
 
@@ -142,6 +150,28 @@ def get_first(iterable, default=None):
         for item in iterable:
             return item
     return default
+
+
+def get_first(iterable, default=None):
+    """Get first truthy value from iterable, fall back to default.
+
+    This is useful to express a preference among several selectors,
+    independently from the position where the matches appear in the document.
+
+    Examples:
+
+        >>> from scrapy import Selector
+        >>> from hepcrawl.utils import get_first
+        >>> document = '<root><bar>first</bar><foo>second</foo></root>'
+        >>> selector = Selector(text=document)
+        >>> selector.xpath('string(//foo|//bar)').extract_first()
+        u'first'
+        >>> get_first([selector.xpath('string(//foo)'),
+        ...           selector.xpath('string(//bar)')]).extract_first()
+        u'second'
+    """
+    matches = (val for val in iterable if val)
+    return next(matches, default)
 
 
 def collapse_initials(name):

@@ -84,7 +84,7 @@ def override_generated_fields(record):
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             (
-                "CH$_{3}$NH$_{3}$PbX(X = Br, I, Cl) perovskites have "
+                "CH<sub>3</sub>NH<sub>3</sub>PbX(X = Br, I, Cl) perovskites have "
                 "recently been used as light absorbers in hybrid"
                 " organic-inorganic solid-state solar cells, with "
                 "efficiencies above 15%. To date, it is essential to add "
@@ -92,16 +92,16 @@ def override_generated_fields(record):
                 "hole transport materials (HTM) to get a higher conductivity. "
                 "However, the detrimental effect of high LiTFSI concentration "
                 "on the charge transport, DOS in the conduction band of the "
-                "TiO$_{2}$ substrate and device stability results in an "
+                "TiO<sub>2</sub> substrate and device stability results in an "
                 "overall compromise for a satisfactory device. Using a higher "
                 "mobility hole conductor to avoid lithium salt is an "
                 "interesting alternative. Herein, we successfully made an "
                 "efficient perovskite solar cell by applying a hole conductor "
                 "PTAA (Poly[bis(4-phenyl) (2,4,6-trimethylphenyl)-amine]) in "
                 "the absence of LiTFSI. Under AM 1.5 illumination of 100 "
-                "mW/cm$^{2}$, an efficiency of 10.9% was achieved, which is "
+                "mW/cm<sup>2</sup>, an efficiency of 10.9% was achieved, which is "
                 "comparable to the efficiency of 12.3% with the addition of "
-                "1.3 mM LiTFSI. An unsealed device without Li$^{+}$ shows "
+                "1.3 mM LiTFSI. An unsealed device without Li<sup>+</sup> shows "
                 "interestingly a promising stability."
             ),
         ],
@@ -124,8 +124,8 @@ def test_abstract(generated_record, expected_abstract):
             [{
                 'source': 'WSP',
                 'title': (
-                    'High-efficient Solid-state Perovskite Solar Cell Without '
-                    'Lithium Salt in the Hole Transport Material'
+                    'HIGH-EFFICIENT SOLID-STATE PEROVSKITE SOLAR CELL WITHOUT '
+                    'LITHIUM SALT IN THE HOLE TRANSPORT MATERIAL'
                 ),
             }],
         ],
@@ -178,14 +178,13 @@ def test_number_of_pages(generated_record, expected_number_of_pages):
     assert generated_record['number_of_pages'] == expected_number_of_pages
 
 
-@pytest.mark.xfail(reason='outdated field - integration on the 2nd round')
 @pytest.mark.parametrize(
     'generated_record, expected_keywords',
     [
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
             [
-                'Perovskite CH$_{3}$NH$_{3}$PbI$_{3}$',
+                'Perovskite CH3NH3PbI3',
                 'solar cell',
                 'lithium',
             ],
@@ -195,11 +194,10 @@ def test_number_of_pages(generated_record, expected_number_of_pages):
         'smoke',
     ]
 )
-def test_free_keywords(generated_record, expected_keywords):
+def test_keywords(generated_record, expected_keywords):
     """Test extracting free_keywords"""
-    assert 'free_keywords' in generated_record
-    for keyword in generated_record['free_keywords']:
-        assert keyword["source"] == "author"
+    assert 'keywords' in generated_record
+    for keyword in generated_record['keywords']:
         assert keyword["value"] in expected_keywords
         expected_keywords.remove(keyword['value'])
 
@@ -211,6 +209,7 @@ def test_free_keywords(generated_record, expected_keywords):
             get_one_record('world_scientific/sample_ws_record.xml'),
             [{
                 'license': 'CC BY 4.0',
+                'material': 'publication',
                 'url': 'https://creativecommons.org/licenses/by/4.0',
             }],
         ],
@@ -233,6 +232,7 @@ def test_license(generated_record, expected_license):
             [{
                 'source': 'WSP',
                 'value': '10.1142/S1793292014400013',
+                'material': 'publication',
             }],
         ],
     ],
@@ -244,29 +244,6 @@ def test_dois(generated_record, expected_dois):
     """Test extracting dois."""
     assert 'dois' in generated_record
     assert generated_record['dois'] == expected_dois
-
-
-@pytest.mark.xfail(reason='outdated field - integration on the 2nd round')
-@pytest.mark.parametrize(
-    'generated_record, expected_collections',
-    [
-        [
-            get_one_record('world_scientific/sample_ws_record.xml'),
-            [
-                'HEP',
-                'Published',
-            ],
-        ],
-    ],
-    ids=[
-        'smoke',
-    ]
-)
-def test_collections(generated_record, expected_collections):
-    """Test extracting collections."""
-    assert 'collections' in generated_record
-    for coll in expected_collections:
-        assert {"primary": coll} in generated_record['collections']
 
 
 @pytest.mark.parametrize(
@@ -300,6 +277,7 @@ def test_collaborations(generated_record, expected_collaboration):
                 'artid': '1440001',
                 'journal_volume': '9',
                 'journal_issue': '05',
+                'material': 'publication',
             }],
         ],
     ],
@@ -318,21 +296,23 @@ def test_publication_info(generated_record, expected_publication_info):
     [
         [
             get_one_record('world_scientific/sample_ws_record.xml'),
-            {
-                'authors': [
-                    "BI, DONGQIN",
-                    "BOSCHLOO, GERRIT",
-                    "HAGFELDT, ANDERS",
-                ],
-                'affiliation': (
-                    'Department of Chemistry-Angstrom Laboratory, Uppsala '
-                    'University, Box 532, SE 751 20 Uppsala, Sweden'
-                ),
-                'xref_affiliation': (
-                    'Physics Department, Brookhaven National Laboratory, '
-                    'Upton, NY 11973, USA'
-                ),
-            },
+            [
+                {
+                    'emails': [u'anders.hagfeldt@kemi.uu.se'],
+                    'full_name': u'BI, DONGQIN',
+                },
+                {
+                    'emails': [u'anders.hagfeldt@kemi.uu.se'],
+                    'full_name': u'BOSCHLOO, GERRIT',
+                    'raw_affiliations': [{
+                        'source': 'WSP',
+                        'value': u'Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA'
+                    }],
+                },
+                {
+                    'emails': [u'anders.hagfeldt@kemi.uu.se'],
+                    'full_name': u'HAGFELDT, ANDERS',
+                }],
         ],
     ],
     ids=[
@@ -342,21 +322,7 @@ def test_publication_info(generated_record, expected_publication_info):
 def test_authors(generated_record, expected_authors):
     """Test authors."""
     assert 'authors' in generated_record
-    assert len(generated_record['authors']) == 3
-
-    # here we are making sure order is kept
-    for index, name in enumerate(expected_authors['authors']):
-            assert generated_record['authors'][index]['full_name'] == name
-            assert expected_authors['affiliation'] in [
-                aff['value']
-                for aff in generated_record['authors'][index]['affiliations']
-            ]
-            if index == 1:
-                assert expected_authors['xref_affiliation'] in [
-                    aff['value']
-                    for aff
-                    in generated_record['authors'][index]['affiliations']
-                ]
+    assert generated_record['authors'] == expected_authors
 
 
 @pytest.mark.parametrize(
@@ -367,6 +333,7 @@ def test_authors(generated_record, expected_authors):
             [{
                 'holder': 'World Scientific Publishing Company',
                 'material': 'publication',
+                'year': 2014,
             }],
         ],
     ],
@@ -419,24 +386,6 @@ def test_document_type(generated_record, expected_document_type):
 
 
 @pytest.mark.parametrize(
-    'generated_record, expected_refereed',
-    [
-        [
-            get_one_record('world_scientific/sample_ws_record.xml'),
-            True,
-        ],
-    ],
-    ids=[
-        'smoke',
-    ]
-)
-def test_refereed(generated_record, expected_refereed):
-    """Test extracting refereed."""
-    assert 'refereed' in generated_record
-    assert generated_record['refereed'] == expected_refereed
-
-
-@pytest.mark.parametrize(
     'generated_record',
     [
         get_one_record('world_scientific/wsp_record.xml'),
@@ -476,12 +425,25 @@ def test_pipeline_record(generated_record):
                 'full_name': u'author_surname_2, author_name_1',
             },
         ],
+        'authors': [
+            {
+                'emails': ['name_1@domain.com'],
+                'full_name': 'author_surname_2, author_name_1',
+                'raw_affiliations': [
+                    {
+                        'source': 'WSP',
+                        'value': 'Department, University, City, City_code 123456, C. R. Country_2'
+                    }
+                ]
+            }
+        ],
         'curated': False,
         'citeable': True,
         'copyright': [
             {
                 'holder': u'Copyright Holder',
                 'material': 'publication',
+                'year': 2017
             },
         ],
         'document_type': [
@@ -489,13 +451,21 @@ def test_pipeline_record(generated_record):
         ],
         'dois': [
             {
-                'source': 'WSP', 'value': u'10.1142/S0219025717500060',
+                'source': 'WSP',
+                'value': u'10.1142/S0219025717500060',
+                'material': 'publication',
             },
         ],
         'imprints': [
             {
                 'date': '2017-03-30',
             },
+        ],
+        'keywords': [
+            {'source': 'WSP', 'value': u'keyword 1'},
+            {'source': 'WSP', 'value': u'keyword 2'},
+            {'source': 'WSP', 'value': u'KeyWord 3W(x; q)'},
+            {'source': 'WSP', 'value': u'keÏWÕrd 4'},
         ],
         'number_of_pages': 6,
         'publication_info': [
@@ -504,10 +474,10 @@ def test_pipeline_record(generated_record):
                 'journal_issue': u'01',
                 'journal_title': u'This is a journal title 2',
                 'journal_volume': u'30',
+                'material': 'publication',
                 'year': 2017,
             },
         ],
-        'refereed': True,
         'titles': [
             {
                 'source': 'WSP',

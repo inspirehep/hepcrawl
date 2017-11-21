@@ -20,7 +20,6 @@ from scrapy.loader.processors import Join, MapCompose, TakeFirst
 from scrapy.utils.url import canonicalize_url
 
 from .inputs import (
-    fix_title_capitalization,
     selective_remove_tags,
     convert_html_subscripts_to_latex,
     parse_authors,
@@ -95,7 +94,6 @@ class HEPLoader(ItemLoader):
     title_in = MapCompose(
         clean_whitespace_characters,
         convert_html_subscripts_to_latex,
-        fix_title_capitalization,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
@@ -104,7 +102,6 @@ class HEPLoader(ItemLoader):
     subtitle_in = MapCompose(
         clean_whitespace_characters,
         convert_html_subscripts_to_latex,
-        fix_title_capitalization,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
         unicode.strip,
