@@ -21,7 +21,7 @@ from inspire_utils.helpers import maybe_int, remove_tags
 
 from lxml import etree  # needed until a new release of parsel is made
 
-from ..utils import best_match, get_node
+from ..utils import get_first, get_node
 
 
 class JatsParser(object):
@@ -385,7 +385,7 @@ class JatsParser(object):
         except ValueError:
             parsed_date = None
 
-        date = best_match([iso_date, date_from_parts, parsed_date])
+        date = get_first([iso_date, date_from_parts, parsed_date])
         return date
 
     @staticmethod

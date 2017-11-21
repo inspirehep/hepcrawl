@@ -64,7 +64,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
 
 
     Example:
-        To run a crawl, you need to pass FTP connection information via
+        To run a crawl locally, you need to pass FTP connection information via
         ``ftp_host`` and ``ftp_netrc``::
 
             $ scrapy crawl \\

@@ -144,7 +144,7 @@ def get_first(iterable, default=None):
     return default
 
 
-def best_match(iterable, default=None):
+def get_first(iterable, default=None):
     """Get first truthy value from iterable, fall back to default.
 
     This is useful to express a preference among several selectors,
@@ -153,13 +153,13 @@ def best_match(iterable, default=None):
     Examples:
 
         >>> from scrapy import Selector
-        >>> from hepcrawl.utils import best_match
+        >>> from hepcrawl.utils import get_first
         >>> document = '<root><bar>first</bar><foo>second</foo></root>'
         >>> selector = Selector(text=document)
         >>> selector.xpath('string(//foo|//bar)').extract_first()
         u'first'
-        >>> best_match([selector.xpath('string(//foo)'),
-        ...             selector.xpath('string(//bar)')]).extract_first()
+        >>> get_first([selector.xpath('string(//foo)'),
+        ...           selector.xpath('string(//bar)')]).extract_first()
         u'second'
     """
     matches = (val for val in iterable if val)
