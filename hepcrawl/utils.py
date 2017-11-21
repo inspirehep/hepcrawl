@@ -9,6 +9,7 @@
 
 from __future__ import absolute_import, division, print_function
 
+import fnmatch
 import os
 import pprint
 import re
@@ -120,8 +121,15 @@ def ftp_list_files(
             ]
 
 
-def local_list_files(local_folder, target_folder):
-    file_names = os.listdir(local_folder)
+def local_list_files(local_folder, target_folder, glob_expression='*'):
+    file_names = [
+        file_name
+        for file_name in os.listdir(local_folder)
+        if (
+            os.path.isfile(os.path.join(local_folder, file_name)) and
+            fnmatch.fnmatch(file_name, glob_expression)
+        )
+    ]
     return list_missing_files(local_folder, target_folder, file_names)
 
 

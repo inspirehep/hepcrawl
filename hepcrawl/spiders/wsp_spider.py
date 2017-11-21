@@ -116,7 +116,8 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
     def _get_local_requests(self):
         new_files_paths = local_list_files(
             self.local_package_dir,
-            self.target_folder
+            self.target_folder,
+            glob_expression='*.zip',
         )
 
         for file_path in new_files_paths:
