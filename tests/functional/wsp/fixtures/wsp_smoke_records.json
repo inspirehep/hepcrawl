@@ -58,7 +58,7 @@
         },
         {
             "source": "WSP",
-            "value": "Blaa bla bla W(x; q)"
+            "value": "Blaa bla bla W(x;q)"
         },
         {
             "source": "WSP",
@@ -85,10 +85,7 @@
                 "source": "WSP",
                 "value": "Department, University, City, City_code 123456, C. R. Country_1"
             }],
-            "emails": [
-                "name_1@domain.com",
-                "name_2@domain.com"
-            ],
+            "emails": ["name_1@domain.com"],
             "full_name": "author_surname_1, author_name_1"
         },
         {
@@ -96,10 +93,7 @@
                 "source": "WSP",
                 "value": "Department, University, City, City_code 123456, C. R. Country_1"
             }],
-            "emails": [
-                "name_1@domain.com",
-                "name_2@domain.com"
-            ],
+            "emails": ["name_2@domain.com"],
             "full_name": "author_surname_2, author_name_2"
         }
     ],

@@ -15,7 +15,8 @@ import itertools
 
 import six
 
-from inspire_schemas.api import LiteratureBuilder
+from inspire_schemas.api import LiteratureBuilder, ReferenceBuilder
+from inspire_schemas.utils import split_page_artid
 from inspire_utils.date import PartialDate
 from inspire_utils.helpers import maybe_int, remove_tags
 
@@ -46,7 +47,6 @@ class JatsParser(object):
 
         Returns:
             dict: the same record in the Inspire Literature schema.
-
         """
         self.builder.add_abstract(self.abstract)
         self.builder.add_title(self.title, subtitle=self.subtitle)
@@ -64,8 +64,21 @@ class JatsParser(object):
         for keyword in self.keywords:
             self.builder.add_keyword(**keyword)
         self.builder.add_imprint_date(self.publication_date.dumps())
+        for reference in self.references:
+            self.builder.add_reference(reference)
 
         return self.builder.record
+
+    @property
+    def references(self):
+        """Extract a JATS record into an Inspire HEP references record.
+
+        Returns:
+            List[dict]: an array of reference schema records, representing
+                the references in the record
+        """
+        ref_nodes = self.root.xpath('./back/ref-list/ref')
+        return [self.get_reference(node) for node in ref_nodes]
 
     remove_tags_config_abstract = {
         'allowed_tags': ['sup', 'sub'],
@@ -145,14 +158,16 @@ class JatsParser(object):
     @property
     def dois(self):
         doi_values = self.root.xpath('./front/article-meta//article-id[@pub-id-type="doi"]/text()').extract()
-        dois = ({'doi': value, 'material': self.material} for value in doi_values)
+        dois = [
+            {'doi': value, 'material': self.material} for value in doi_values
+        ]
 
         if self.material != 'publication':
             doi_values = self.root.xpath(
                 './front/article-meta//related-article[@ext-link-type="doi"]/@href'
             ).extract()
             related_dois = ({'doi': value} for value in doi_values)
-            dois = itertools.chain(dois, related_dois)
+            dois.extend(related_dois)
 
         return dois
 
@@ -314,9 +329,24 @@ class JatsParser(object):
                 no match.
         """
         affiliation_node = self.root.xpath('//aff[@id=$id_]', id_=id_)[0]
-        affiliation = remove_tags(affiliation_node, strip='self::label').strip()
+        affiliation = remove_tags(
+            affiliation_node,
+            strip='self::label | self::email'
+        ).strip()
 
         return affiliation
+
+    def get_emails_from_refs(self, id_):
+        """Get the emails from the node with the specified id.
+
+        Args:
+            id_(str): the value of the ``id`` attribute of the node.
+
+        Returns:
+            List[str]: the emails from the node with that id or [] if none found.
+        """
+        email_nodes = self.root.xpath('//aff[@id=$id_]/email/text()', id_=id_)
+        return email_nodes.extract()
 
     @property
     def year(self):
@@ -339,15 +369,22 @@ class JatsParser(object):
 
     def get_author_affiliations(self, author_node):
         """Extract an author's affiliations."""
-        referred_ids = author_node.xpath('.//xref[@ref-type="aff"]/@rid').extract()
+        raw_referred_ids = author_node.xpath('.//xref[@ref-type="aff"]/@rid').extract()
+        # Sometimes the rid might have more than one ID (e.g. rid="id0 id1")
+        referred_ids = set()
+        for raw_referred_id in raw_referred_ids:
+            referred_ids.update(set(raw_referred_id.split(' ')))
+
         affiliations = [self.get_affiliation(rid) for rid in referred_ids]
 
         return affiliations
 
-    @staticmethod
-    def get_author_emails(author_node):
+    def get_author_emails(self, author_node):
         """Extract an author's email addresses."""
-        emails = author_node.xpath('//email/text()').extract()
+        emails = author_node.xpath('.//email/text()').extract()
+        referred_ids = author_node.xpath('.//xref[@ref-type="aff"]/@rid').extract()
+        for referred_id in referred_ids:
+            emails.extend(self.get_emails_from_refs(referred_id))
 
         return emails
 
@@ -438,3 +475,82 @@ class JatsParser(object):
         affiliations = self.get_author_affiliations(author_node)
 
         return self.builder.make_author(author_name, raw_affiliations=affiliations, emails=emails)
+
+    @staticmethod
+    def get_reference_authors(ref_node, role):
+        """Extract authors of `role` from a reference node.
+
+        Args:
+            ref_node(scrapy.selector.Selector): a selector on a single reference.
+            role(str): author role
+
+        Returns:
+            List[str]: list of names
+        """
+        return ref_node.xpath(
+            './person-group[@person-group-type=$role]/string-name/text()',
+            role=role
+        ).extract()
+
+
+    def get_reference(self, ref_node):
+        """Extract one reference.
+
+        Args:
+            ref_node(scrapy.selector.Selector): a selector on a single
+                reference, i.e. ``<ref>``.
+
+        Returns:
+            dict: the parsed reference, as generated by
+                :class:`inspire_schemas.api.ReferenceBuilder`
+        """
+
+        builder = ReferenceBuilder()
+
+        citation_node = ref_node.xpath('./mixed-citation')
+
+        builder.add_raw_reference(
+            ref_node.extract().strip(),
+            source=self.builder.source,
+            ref_format='JATS'
+        )
+
+        fields = [
+            (
+                (
+                    'self::node()[@publication-type="journal" '
+                    'or @publication-type="eprint"]/source/text()'
+                ),
+                builder.set_journal_title,
+            ),
+            (
+                'self::node()[@publication-type="book"]/source/text()',
+                builder.add_parent_title,
+            ),
+            ('./publisher-name/text()', builder.set_publisher),
+            ('./volume/text()', builder.set_journal_volume),
+            ('./issue/text()', builder.set_journal_issue),
+            ('./year/text()', builder.set_year),
+            ('./pub-id[@pub-id-type="arxiv"]/text()', builder.add_uid),
+            ('./pub-id[@pub-id-type="doi"]/text()', builder.add_uid),
+            ('./article-title/text()', builder.add_title),
+            ('../label/text()', lambda x: builder.set_label(x.strip('[].')))
+        ]
+
+        for xpath, field_handler in fields:
+            value = citation_node.xpath(xpath).extract_first()
+            if value:
+                field_handler(value)
+
+        for editor in self.get_reference_authors(citation_node, 'editor'):
+            builder.add_author(editor, 'editor')
+
+        for author in self.get_reference_authors(citation_node, 'author'):
+            builder.add_author(author, 'author')
+
+        page_range = citation_node.xpath('./page-range/text()').extract_first()
+        if page_range:
+            page_artid = split_page_artid(page_range)
+            builder.set_page_artid(*page_artid)
+
+        return builder.obj

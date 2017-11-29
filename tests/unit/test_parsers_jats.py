@@ -17,31 +17,40 @@ from __future__ import (
 import pytest
 import yaml
 
+from inspire_schemas.utils import validate
 from hepcrawl.testlib.fixtures import get_test_suite_path
 from hepcrawl.parsers.jats import JatsParser
 
 
-def aps_expected():
+def get_parsed_from_file(filename):
     """A dictionary holding the parsed elements of the record."""
-    path = get_test_suite_path('responses', 'aps',
-                               'PhysRevX.7.021022_expected.yml')
+    path = get_test_suite_path('responses', 'aps', filename)
     with open(path) as f:
         aps_expected_dict = yaml.load(f)
 
     return aps_expected_dict
 
 
-def aps_jats():
+def get_parser_by_file(filename):
     """A JatsParser instanciated on an APS article."""
-    path = get_test_suite_path('responses', 'aps', 'PhysRevX.7.021022.xml')
+    path = get_test_suite_path('responses', 'aps', filename)
     with open(path) as f:
         aps_jats = f.read()
 
     return JatsParser(aps_jats)
 
 
-RAW_JATS_RECORD = aps_jats()
-EXPECTED_JATS_RECORD = aps_expected()
+@pytest.fixture(scope='module', params=[
+    ('PhysRevX.7.021022.xml', 'PhysRevX.7.021022_expected.yml'),
+    ('PhysRevX.4.021018.xml', 'PhysRevX.4.021018_expected.yml')
+])
+def records(request):
+    return {
+        'jats': get_parser_by_file(request.param[0]),
+        'expected': get_parsed_from_file(request.param[1])
+    }
+
+
 FIELDS_TO_CHECK = [
     'abstract',
     'copyright_holder',
@@ -57,58 +66,51 @@ FIELDS_TO_CHECK = [
     'year',
     'authors',
     'artid',
+    'title',
+    'number_of_pages',
+    'dois',
+    'references',
+    'journal_volume',
+    'journal_issue',
+    'is_conference_paper',
 ]
-FIELDS_TO_CHECK_SEPARATEDLY = [
-    'volume',
-    'issue',
-    'date',
-    'is_conference',
+FIELDS_TO_CHECK_SEPARATELY = [
+    'publication_date',
 ]
+
+
+def test_data_completeness(records):
+    tested_fields = FIELDS_TO_CHECK + FIELDS_TO_CHECK_SEPARATELY
+    for field in records['expected'].keys():
+        assert field in tested_fields
 
 
 @pytest.mark.parametrize(
     'field_name',
-    [field for field in EXPECTED_JATS_RECORD],
-    ids=EXPECTED_JATS_RECORD.keys(),
+    FIELDS_TO_CHECK
 )
-def test_field(field_name):
-    if field_name not in FIELDS_TO_CHECK:
-        if field_name in FIELDS_TO_CHECK_SEPARATEDLY:
-            pytest.skip('Field %s tested separatedly.' % field_name)
-
-    result = getattr(RAW_JATS_RECORD, field_name)
-    expected = EXPECTED_JATS_RECORD[field_name]
+def test_field(field_name, records):
+    result = getattr(records['jats'], field_name)
+    expected = records['expected'][field_name]
 
     assert result == expected
 
 
-def test_field_issue():
-    result = RAW_JATS_RECORD.journal_issue
-    expected = EXPECTED_JATS_RECORD['issue']
+def test_publication_date(records):
+    result = records['jats'].publication_date.dumps()
+    expected = records['expected']['publication_date'].isoformat()
 
     assert result == expected
 
 
-def test_field_volume():
-    result = RAW_JATS_RECORD.journal_volume
-    expected = EXPECTED_JATS_RECORD['volume']
+@pytest.mark.skip(reason='No collaboration in input')
+def test_collaborations(records):
+    result = records['jats'].collaborations
+    expected = records['expected']['collaborations']
 
     assert result == expected
 
 
-def test_field_date():
-    result = RAW_JATS_RECORD.publication_date.dumps()
-    expected = EXPECTED_JATS_RECORD['date'].isoformat()
-
-    assert result == expected
-
-
-def test_field_is_conference():
-    result = RAW_JATS_RECORD.is_conference_paper
-    expected = EXPECTED_JATS_RECORD['is_conference']
-
-    assert result == expected
-
-
-def test_parse():
-    RAW_JATS_RECORD.parse()
+def test_parse(records):
+    record = records['jats'].parse()
+    assert validate(record, 'hep') == None
