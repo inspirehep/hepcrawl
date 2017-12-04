@@ -33,7 +33,11 @@ def results():
         )
     )
 
-    records = [parsed_item.record for parsed_item in parsed_items]
+    class MockFailure:
+        def __init__(self):
+            self.request = parsed_items[0]
+
+    records = [spider._parse_json_on_failure(MockFailure()).record]
 
     assert records
     return records
@@ -159,7 +163,7 @@ def test_copyrights(results):
     copyright_holder = "authors"
     copyright_year = "2015"
     copyright_statement = "Published by the American Physical Society"
-    copyright_material = "Article"
+    copyright_material = "publication"
     for record in results:
         assert 'copyright_holder' in record
         assert record['copyright_holder'] == copyright_holder
