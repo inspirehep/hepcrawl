@@ -107,6 +107,11 @@ class APSSpider(StatefulSpider):
     def _parse_jats(self, response):
         """Parse an XML JATS response."""
         parser = JatsParser(response.selector, source=self.name)
+
+        url = response.url
+        file_name = "{}.xml".find(url[url.rfind('/') + 1:])
+        parser.attach_fulltext_document(file_name, url)
+
         yield ParsedItem(
             record=parser.parse(),
             record_format='hep',

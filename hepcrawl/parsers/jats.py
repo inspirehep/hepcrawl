@@ -581,3 +581,7 @@ class JatsParser(object):
                 builder.set_page_artid(*page_artid)
 
             yield builder.obj
+
+
+    def attach_fulltext_document(self, file_name, url):
+        self.builder.add_document(file_name, url, fulltext=True, hidden=True)

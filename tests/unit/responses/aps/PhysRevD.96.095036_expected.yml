@@ -44,6 +44,12 @@ journal_volume: '96'
 journal_issue: '9'
 is_conference_paper: false
 publication_date: 2017-11-01
+documents:
+- key: PhysRevD.96.095036.xml
+  url: http://example.org/PhysRevD.96.095036.xml
+  source: American Physical Society
+  fulltext: true
+  hidden: true
 references:
 - reference:
     publication_info:

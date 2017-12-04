@@ -52,6 +52,12 @@ license_url: http://creativecommons.org/licenses/by/3.0/
 license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 3.0 License. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI.
 article_type: research-article
 is_conference_paper: false
+documents:
+- key: PhysRevX.4.021018.xml
+  url: http://example.org/PhysRevX.4.021018.xml
+  source: American Physical Society
+  fulltext: true
+  hidden: true
 references:
 - reference:
     publication_info:
