@@ -1194,11 +1194,11 @@ references:
       pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.79.094504</pub-id></mixed-citation></ref>'
     schema: JATS
 - reference:
+    imprint:
+      publisher: Kluwer
     publication_info:
       year: 1997
       parent_title: Electronic Structure of Disordered Alloys, Surfaces and Interfaces
-    imprint:
-      publisher: Kluwer
     authors:
     - inspire_role: author
       full_name: Turek, I.
@@ -1210,6 +1210,8 @@ references:
       full_name: Sob, M.
     - inspire_role: author
       full_name: Weinberger, P.
+    misc:
+    - (, Boston, )
     label: '41'
   raw_refs:
   - source: American Physical Society
@@ -1246,6 +1248,9 @@ references:
       pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.85.174533</pub-id></mixed-citation></ref>
     schema: JATS
 - reference:
+    misc:
+    - See Supplemental Material at http://link.aps.org/supplemental/10.1103/PhysRevX.4.021018
+      for more details of the braiding statistics
     label: '43'
   raw_refs:
   - source: American Physical Society

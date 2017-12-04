@@ -878,8 +878,11 @@ references:
       \   </ref>"
     schema: JATS
 - reference:
-    publication_info:
-      journal_title: Phys. Rev. Lett.
+    title:
+      title: Quantum Source-Channel Codes
+    misc:
+    - '[ (to be published)]'
+    label: '31'
     authors:
     - inspire_role: author
       full_name: Pastawski, F.
@@ -887,9 +890,8 @@ references:
       full_name: Eisert, J.
     - inspire_role: author
       full_name: Wilming, H.
-    title:
-      title: Quantum Source-Channel Codes
-    label: '31'
+    publication_info:
+      journal_title: Phys. Rev. Lett.
     arxiv_eprint: '1611.07528'
   raw_refs:
   - source: American Physical Society
