@@ -14,6 +14,7 @@ from __future__ import absolute_import, division, print_function
 import re
 import os
 from urlparse import urljoin
+from six.moves.urllib.parse import quote
 
 from scrapy import Request, Selector
 
@@ -335,8 +336,8 @@ class POSSpider(StatefulSpider):
         return [
             {
                 'key': os.path.basename(path),
-                'url': path,
-                'original_url': path,
+                'url': quote(path, safe=':/'),
+                'original_url': quote(path, safe=':/'),
                 'hidden': True,
                 'fulltext': True,
             },

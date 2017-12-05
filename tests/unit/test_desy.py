@@ -23,6 +23,7 @@ from hepcrawl.testlib.fixtures import (
     expected_json_results_from_file,
     fake_response_from_file,
 )
+from hepcrawl.testlib.utils import deep_sort
 
 
 def create_spider():
@@ -110,4 +111,6 @@ def test_pipeline(generated_records, expected_records):
         override_generated_fields(generated_record)
         for generated_record in generated_records
     ]
-    assert clean_generated_records == expected_records
+    sorted_generated_records = deep_sort(clean_generated_records)
+    sorted_expected_records = deep_sort(expected_records)
+    assert sorted_generated_records == sorted_expected_records
