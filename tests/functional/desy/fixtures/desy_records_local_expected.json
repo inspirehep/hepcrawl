@@ -78,7 +78,6 @@
         ], 
         "inspire_categories": [
             {
-                "source": "undefined", 
                 "term": "Experiment-HEP"
             }
         ], 
@@ -194,7 +193,7 @@
                 "year": 2017
             }
         ], 
-        "$schema": "hep.json", 
+        "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
             "thesis"
         ], 
@@ -252,7 +251,6 @@
         "number_of_pages": 141, 
         "inspire_categories": [
             {
-                "source": "undefined", 
                 "term": "Theory-HEP"
             }
         ], 
@@ -436,7 +434,7 @@
                 "year": 2017
             }
         ], 
-        "$schema": "hep.json", 
+        "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
             "thesis"
         ], 

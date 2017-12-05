@@ -281,6 +281,8 @@ class DesySpider(StatefulSpider):
             )
             with app.app_context():
                 dojson_record = hep.do(object_record)
+                base_uri = self.settings['SCHEMA_BASE_URI']
+                dojson_record['$schema'] = base_uri + 'hep.json'
 
             return dojson_record
 

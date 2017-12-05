@@ -66,6 +66,8 @@ class CDSSpider(StatefulSpider, XMLFeedSpider):
         marcxml_record = record_xml_output(inspire_bibrec)
         record = create_record(marcxml_record)
         json_record = hep.do(record)
+        base_uri = self.settings['SCHEMA_BASE_URI']
+        json_record['$schema'] = base_uri + 'hep.json'
         parsed_item = ParsedItem(
                 record=json_record,
                 record_format='hep',

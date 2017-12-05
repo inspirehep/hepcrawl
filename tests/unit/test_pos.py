@@ -213,8 +213,8 @@ def test_pipeline_conference_paper(generated_conference_paper):
                 'key': 'LATTICE 2013_001.pdf',
                 'fulltext': True,
                 'hidden': True,
-                'url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE 2013_001.pdf',
-                'original_url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE 2013_001.pdf',
+                'url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE%202013_001.pdf',
+                'original_url': u'https://pos.sissa.it/archive/conferences/187/001/LATTICE%202013_001.pdf',
                 'source': 'pos',
             }
         ],

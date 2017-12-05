@@ -375,7 +375,10 @@ class JatsParser(object):
         for raw_referred_id in raw_referred_ids:
             referred_ids.update(set(raw_referred_id.split(' ')))
 
-        affiliations = [self.get_affiliation(rid) for rid in referred_ids]
+        affiliations = [
+            self.get_affiliation(rid) for rid in referred_ids
+            if self.get_affiliation(rid)
+        ]
 
         return affiliations
 
