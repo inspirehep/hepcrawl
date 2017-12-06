@@ -22,6 +22,7 @@ install_requires = [
     'inspire-utils~=0.0,>=0.0.13',
     'Scrapy>=1.1.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
+    'scrapy-sentry~=0.0,>=0.8.0',
     # TODO: unpin once they support wheel building again
     'scrapyd==1.1.0',
     'scrapyd-client>=1.0.1',
