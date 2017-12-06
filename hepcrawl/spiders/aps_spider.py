@@ -108,11 +108,10 @@ class APSSpider(StatefulSpider):
         """Parse an XML JATS response."""
         parser = JatsParser(response.selector, source=self.name)
 
-        url = response.url
-        file_name = "{}.xml".find(url[url.rfind('/') + 1:])
-        parser.attach_fulltext_document(file_name, url)
+        file_name = self._file_name_from_url(response.url)
+        parser.attach_fulltext_document(file_name, response.url)
 
-        yield ParsedItem(
+        return ParsedItem(
             record=parser.parse(),
             record_format='hep',
         )
@@ -195,3 +194,6 @@ class APSSpider(StatefulSpider):
                 collaboration.append(author['name'])
 
         return authors, collaboration
+
+    def _file_name_from_url(self, url):
+        return "{}.xml".format(url[url.rfind('/') + 1:])

@@ -125,7 +125,11 @@ class JatsParser(object):
             './front//contrib[@contrib-type="collaboration"] |'
             './front//on-behalf-of'
         )
-        collaborations = [collab.xpath('string(.)').extract_first() for collab in collab_nodes]
+        collaborations = set(
+            self._sanitize_collaboration_name(
+                collab.xpath('string(.)').extract_first()
+            ) for collab in collab_nodes
+        )
 
         return collaborations
 
@@ -585,3 +589,22 @@ class JatsParser(object):
 
     def attach_fulltext_document(self, file_name, url):
         self.builder.add_document(file_name, url, fulltext=True, hidden=True)
+
+
+    @staticmethod
+    def _sanitize_collaboration_name(collaboration):
+        """Sanitize collaboration name to conform with the schema.
+
+        Collaboration name should have the Collaboration suffix dropped,
+        so "ATLAS", and not "ATLAS Collaboration"
+
+        Args:
+            collaboration (string): collaboration name
+
+        Returns:
+            string: sanitized collaboration name
+        """
+        if collaboration.startswith('(') and collaboration.endswith(')'):
+            collaboration = collaboration[1:-1]
+        collaboration = re.sub(r'\sCollaboration', '', collaboration)
+        return collaboration
