@@ -73,11 +73,12 @@ SPIDER_MIDDLEWARES = {
     'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
 }
 
-DOWNLOAD_HANDLERS_BASE = dict(default_settings.DOWNLOAD_HANDLERS_BASE)
-DOWNLOAD_HANDLERS_BASE.update({
+# Configure custom downloaders
+# See https://doc.scrapy.org/en/0.20/topics/settings.html#download-handlers
+DOWNLOAD_HANDLERS = {
     'oaipmh+http': 'hepcrawl.downloaders.DummyDownloadHandler',
     'oaipmh+https': 'hepcrawl.downloaders.DummyDownloadHandler',
-})
+}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html

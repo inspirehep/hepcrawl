@@ -34,7 +34,7 @@ class CDSSpider(OAIPMHSpider):
         Using OAI-PMH XML files::
 
             $ scrapy crawl CDS \\
-                -a "set=forINSPIRE" -a "from_date=2017-10-10"
+                -a "oai_set=forINSPIRE" -a "from_date=2017-10-10"
 
     It uses `HarvestingKit <https://pypi.python.org/pypi/HarvestingKit>`_ to
     translate from CDS's MARCXML into INSPIRE Legacy's MARCXML flavor. It then
@@ -44,8 +44,13 @@ class CDSSpider(OAIPMHSpider):
 
     name = 'CDS'
 
-    def __init__(self, from_date=None, set="forINSPIRE", *args, **kwargs):
-        super(CDSSpider, self).__init__(url='http://cds.cern.ch/oai2d', metadata_prefix='marcxml', set=set, from_date=from_date, **kwargs)
+    def __init__(self, from_date=None, oai_set="forINSPIRE", *args, **kwargs):
+        super(CDSSpider, self).__init__(
+            url='http://cds.cern.ch/oai2d',
+            metadata_prefix='marcxml',
+            oai_set=oai_set,
+            from_date=from_date,
+            **kwargs)
 
     def parse_record(self, record):
         response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
@@ -65,6 +70,8 @@ class CDSSpider(OAIPMHSpider):
             )
             with app.app_context():
                 json_record = hep.do(record)
+                base_uri = self.settings['SCHEMA_BASE_URI']
+                json_record['$schema'] = base_uri + 'hep.json'
             return ParsedItem(record=json_record, record_format='hep')
         except Exception:
             logger.exception("Error when parsing record")
