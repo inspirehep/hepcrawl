@@ -17,7 +17,8 @@ from sickle import Sickle
 from sickle.models import Record
 from sickle.oaiexceptions import NoRecordsMatch
 
-from scrapy.http import Request
+from scrapy.http import Request, XmlResponse
+from scrapy.selector import Selector
 from scrapy.spiders import Spider
 
 logger = logging.getLogger(__name__)
@@ -81,8 +82,11 @@ class OAIPMHSpider(Spider):
     def parse_record(self, record):
         """
         This method need to be reimplemented in order to provide special parsing.
+
+        Args:
+            record (scrapy.selector.Selector): selector on the parsed record
         """
-        return record.xml
+        raise NotImplementedError()
 
     def parse(self, response):
         sickle = Sickle(self.url, class_mapping={
@@ -100,7 +104,9 @@ class OAIPMHSpider(Spider):
             logger.warning(err)
             raise StopIteration()
         for record in records:
-            yield self.parse_record(record)
+            response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
+            selector = Selector(response, type='xml')
+            yield self.parse_record(selector)
 
     def _make_alias(self):
         return '{url}-{metadata_prefix}-{set}'.format(

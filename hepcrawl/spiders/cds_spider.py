@@ -11,8 +11,6 @@
 
 import logging
 from scrapy import Request
-from scrapy.http import XmlResponse
-from scrapy.selector import Selector
 from flask.app import Flask
 from harvestingkit.inspire_cds_package.from_cds import CDS2Inspire
 from harvestingkit.bibrecord import (
@@ -52,9 +50,7 @@ class CDSSpider(OAIPMHSpider):
             from_date=from_date,
             **kwargs)
 
-    def parse_record(self, record):
-        response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
-        selector = Selector(response, type='xml')
+    def parse_record(self, selector):
         selector.remove_namespaces()
         try:
             cds_bibrec, ok, errs = create_bibrec(selector.xpath('.//record').extract()[0])
