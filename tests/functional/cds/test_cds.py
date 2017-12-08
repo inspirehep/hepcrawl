@@ -17,7 +17,6 @@ import json
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 from tempfile import NamedTemporaryFile
-from twisted.internet import reactor
 
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
@@ -69,7 +68,7 @@ def override_dynamic_fields_on_record(record):
 
 
 def test_cds(cds_oai_server):
-    f = NamedTemporaryFile('rw')
+    f = NamedTemporaryFile('r+')
 
     settings = get_project_settings()
     settings.set('FEED_FORMAT', 'json')

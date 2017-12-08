@@ -42,6 +42,12 @@ SCHEMA_BASE_URI = os.environ.get(
     'http://localhost/schemas/records/'
 )
 
+# Location of last run information
+LAST_RUNS_PATH = os.environ.get(
+    'APP_LAST_RUNS_PATH',
+    '/var/lib/scrapy/last_runs/'
+)
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS=32
 

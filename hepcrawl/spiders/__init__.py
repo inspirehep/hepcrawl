@@ -15,4 +15,4 @@ from scrapy import Spider
 class StatefulSpider(Spider):
     def __init__(self, *args, **kwargs):
         self.state = {}
-        return super(Spider, self).__init__(*args, **kwargs)
+        super(StatefulSpider, self).__init__(*args, **kwargs)

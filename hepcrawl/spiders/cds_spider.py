@@ -55,7 +55,7 @@ class CDSSpider(OAIPMHSpider):
         try:
             cds_bibrec, ok, errs = create_bibrec(selector.xpath('.//record').extract()[0])
             if not ok:
-                raise RuntimeError("Cannot parse record %s: %s", record, errs)
+                raise RuntimeError("Cannot parse record %s: %s", selector, errs)
             self.logger.info("Here's the record: %s" % cds_bibrec)
             inspire_bibrec = CDS2Inspire(cds_bibrec).get_record()
             marcxml_record = record_xml_output(inspire_bibrec)

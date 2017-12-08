@@ -11,7 +11,12 @@
 
 import logging
 from enum import Enum
+from errno import EEXIST
 from datetime import datetime
+from dateutil import parser as dateparser
+import hashlib
+import json
+from os import path, makedirs
 
 from sickle import Sickle
 from sickle.models import Record
@@ -19,7 +24,7 @@ from sickle.oaiexceptions import NoRecordsMatch
 
 from scrapy.http import Request, XmlResponse
 from scrapy.selector import Selector
-from scrapy.spiders import Spider
+from . import StatefulSpider
 
 logger = logging.getLogger(__name__)
 
@@ -33,22 +38,21 @@ class _Granularity(Enum):
             return datetime_object.strftime('%Y-%m-%d')
         if self == self.SECOND:
             return datetime_object.strftime('%Y-%m-%dT%H:%M:%SZ')
-        raise ValueError("Invalid granularity: %s" % self.granularity)
 
 
-class OAIPMHSpider(Spider):
+class OAIPMHSpider(StatefulSpider):
     """
     Implements a spider for the OAI-PMH protocol by using the Python sickle library.
 
-    In case of successful harvest (OAI-PMH crawling) the spider will remember the initial starting
-    date and will use it as `from_date` argument on the next harvest.
+    In case of successful harvest (OAI-PMH crawling) the spider will remember
+    the initial starting date and will use it as `from_date` argument on the
+    next harvest.
     """
     name = 'OAI-PMH'
-    state = {}
     granularity = _Granularity.DATE
 
     def __init__(self, url, metadata_prefix='marcxml', oai_set=None, alias=None,
-                 from_date=None, until_date=None, granularity='',
+                 from_date=None, until_date=None, granularity=_Granularity.DATE,
                  record_class=Record, *args, **kwargs):
         super(OAIPMHSpider, self).__init__(*args, **kwargs)
         self.url = url
@@ -57,13 +61,13 @@ class OAIPMHSpider(Spider):
         self.granularity = granularity
         self.alias = alias or self._make_alias()
         self.from_date = from_date
-        logger.info("Current state:{}".format(self.state))
         self.until_date = until_date
         self.record_class = record_class
 
     def start_requests(self):
-        self.from_date = self.from_date or self.state.get(self.alias)
-        logger.info("Current state 2:{}".format(self.state))
+        self.from_date = self.from_date or self._resume_from
+        started_at = datetime.utcnow()
+
         logger.info("Starting harvesting of {url} with set={set} and "
                     "metadataPrefix={metadata_prefix}, from={from_date}, "
                     "until={until_date}".format(
@@ -73,11 +77,15 @@ class OAIPMHSpider(Spider):
             from_date=self.from_date,
             until_date=self.until_date
         ))
-        now = datetime.utcnow()
+
         request = Request('oaipmh+{}'.format(self.url), self.parse)
         yield request
-        self.state[self.alias] = self.granularity.format(now)
-        logger.info("Harvesting completed. Next harvesting will resume from {}".format(self.state[self.alias]))
+
+        now = datetime.utcnow()
+        self._save_run(started_at)
+
+        logger.info("Harvesting completed. Next harvesting will resume from {}"
+                    .format(self.until_date or self.granularity.format(now)))
 
     def parse_record(self, record):
         """
@@ -109,8 +117,72 @@ class OAIPMHSpider(Spider):
             yield self.parse_record(selector)
 
     def _make_alias(self):
-        return '{url}-{metadata_prefix}-{set}'.format(
+        return '{url}?metadataPrefix={metadata_prefix}&set={set}'.format(
             url=self.url,
             metadata_prefix=self.metadata_prefix,
             set=self.set
         )
+
+    def _last_run_file_path(self):
+        """Render a path to a file where last run information is stored.
+
+        Returns:
+            string: path to last runs path
+        """
+        lasts_run_path = self.settings['LAST_RUNS_PATH']
+        file_name = hashlib.sha1(self._make_alias()).hexdigest() + '.json'
+        return path.join(lasts_run_path, self.name, file_name)
+
+    def _load_last_run(self):
+        """Return stored last run information
+
+        Returns:
+            Optional[dict]: last run information or None if don't exist
+        """
+        file_path = self._last_run_file_path()
+        try:
+            with open(file_path) as f:
+                last_run = json.load(f)
+                logger.info('Last run file loaded: {}'.format(repr(last_run)))
+                return last_run
+        except IOError:
+            return None
+
+    def _save_run(self, started_at):
+        """Store last run information
+
+        Args:
+            started_at (datetime.datetime)
+
+        Raises:
+            IOError: if writing the file is unsuccessful
+        """
+        last_run_info = {
+            'spider': self.name,
+            'url': self.url,
+            'metadata_prefix': self.metadata_prefix,
+            'set': self.set,
+            'granularity': self.granularity.value,
+            'from_date': self.from_date,
+            'until_date': self.until_date,
+            'last_run_started_at': started_at.isoformat(),
+            'last_run_finished_at': datetime.utcnow().isoformat(),
+        }
+        file_path = self._last_run_file_path()
+        logger.info("Last run file saved to {}".format(file_path))
+        try:
+            makedirs(path.dirname(file_path))
+        except OSError as exc:
+            if exc.errno == EEXIST:
+                pass
+            else:
+                raise
+        with open(file_path, 'w') as f:
+            json.dump(last_run_info, f, indent=4)
+
+    @property
+    def _resume_from(self):
+        last_run = self._load_last_run()
+        resume_at = last_run['until_date'] or last_run['last_run_finished_at']
+        date_parsed = dateparser.parse(resume_at)
+        return self.granularity.format(date_parsed)
