@@ -128,15 +128,3 @@ def test_attach_fulltext_document(records):
     result = parser.parse()
 
     assert result['documents'] == records['expected']['documents']
-
-
-@pytest.mark.parametrize('test,expected', [
-    ('ATLAS Collaboration', 'ATLAS'),
-    ('Particle Data Group', 'Particle Data Group'),
-    ('(AMS Collaboration)', 'AMS'),
-    ('(Particle Data Group)', 'Particle Data Group'),
-])
-def test_sanitize_collaboration_name(test, expected):
-    result = JatsParser._sanitize_collaboration_name(test)
-
-    assert result == expected
