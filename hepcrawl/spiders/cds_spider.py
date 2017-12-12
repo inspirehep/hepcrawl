@@ -42,13 +42,18 @@ class CDSSpider(OAIPMHSpider):
 
     name = 'CDS'
 
-    def __init__(self, from_date=None, oai_set="forINSPIRE", *args, **kwargs):
+    def __init__(self,
+                 oai_endpoint='http://cds.cern.ch/oai2d',
+                 from_date=None,
+                 oai_set="forINSPIRE",
+                 *args, **kwargs):
         super(CDSSpider, self).__init__(
-            url='http://cds.cern.ch/oai2d',
+            url=oai_endpoint,
             metadata_prefix='marcxml',
             oai_set=oai_set,
             from_date=from_date,
-            **kwargs)
+            **kwargs
+        )
 
     def parse_record(self, selector):
         selector.remove_namespaces()

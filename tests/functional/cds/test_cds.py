@@ -9,84 +9,97 @@
 
 """Functional tests for CDS spider"""
 
+from __future__ import absolute_import, division, print_function
+
+import os
 import pytest
-import requests_mock
 
-import copy
-import json
-from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
-from tempfile import NamedTemporaryFile
-
+from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
+    clean_dir,
 )
+from hepcrawl.testlib.tasks import app as celery_app
+from hepcrawl.testlib.utils import get_crawler_instance
 
 
-@pytest.fixture
-def cds_oai_server():
-    with requests_mock.Mocker() as m:
-        m.get('http://cds.cern.ch/oai2d?from=2017-11-15&verb=ListRecords&set=forINSPIRE&metadataPrefix=marcxml',
-              text=open(get_test_suite_path('cds', 'fixtures', 'cds.xml', test_suite='functional')).read())
-        yield m
+@pytest.fixture(scope='function', autouse=True)
+def cleanup():
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    yield
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
 
-def override_dynamic_fields_on_records(records):
-    clean_records = []
-    for record in records:
-        clean_record = override_dynamic_fields_on_record(record)
-        clean_records.append(clean_record)
-
-    return clean_records
-
-
-def override_dynamic_fields_on_record(record):
-    def _override(field_key, original_dict, backup_dict, new_value):
-        backup_dict[field_key] = original_dict[field_key]
-        original_dict[field_key] = new_value
-
-    clean_record = copy.deepcopy(record)
-    overriden_fields = {}
-    dummy_random_date = u'2017-04-03T10:26:40.365216'
-
-    overriden_fields['acquisition_source'] = {}
-    _override(
-        field_key='datetime',
-        original_dict=clean_record['acquisition_source'],
-        backup_dict=overriden_fields['acquisition_source'],
-        new_value=dummy_random_date,
-    )
-    _override(
-        field_key='submission_number',
-        original_dict=clean_record['acquisition_source'],
-        backup_dict=overriden_fields['acquisition_source'],
-        new_value=u'5652c7f6190f11e79e8000224dabeaad',
+def override_generated_fields(record):
+    record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
     )
 
-    return clean_record
+    return record
 
 
-def test_cds(cds_oai_server):
-    f = NamedTemporaryFile('r+')
+def get_configuration():
+    return {
+        'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+        'CRAWLER_PROJECT': 'hepcrawl',
+        'CRAWLER_ARGUMENTS': {
+            'from_date': '2017-11-15',
+            'oai_set': 'forINSPIRE',
+            'oai_endpoint': 'http://cds-http-server.local/oai2d',
+        }
+    }
 
-    settings = get_project_settings()
-    settings.set('FEED_FORMAT', 'json')
-    settings.set('FEED_URI', f.name)
 
-    process = CrawlerProcess(settings)
-    process.crawl('CDS', from_date='2017-11-15', oai_set='forINSPIRE')
-    process.start()
+@pytest.mark.parametrize(
+    'expected_results, config',
+    [
+        (
+            expected_json_results_from_file(
+                'cds',
+                'fixtures',
+                'cds_expected.json',
+            ),
+            get_configuration(),
+        ),
+    ],
+    ids=[
+        'smoke',
+    ]
+)
+def test_cds(
+    expected_results,
+    config,
+):
+    crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
-    result = json.load(f)
-
-    expected = expected_json_results_from_file(
-        'cds', 'fixtures', 'cds_expected.json'
+    results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=100,
+        events_limit=2,
+        crawler_instance=crawler,
+        project=config['CRAWLER_PROJECT'],
+        spider='CDS',
+        settings={},
+        **config['CRAWLER_ARGUMENTS']
     )
 
-    expected = override_dynamic_fields_on_records(expected)
-    result = override_dynamic_fields_on_records(result)
+    gotten_results = [override_generated_fields(result) for result in results]
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
+    ]
 
-    assert result == expected
+    gotten_results = sorted(
+        gotten_results,
+        key=lambda x: x['document_type']
+    )
+    expected_results = sorted(
+        expected_results,
+        key=lambda x: x['document_type']
+    )
 
-    f.close()
+    assert gotten_results == expected_results

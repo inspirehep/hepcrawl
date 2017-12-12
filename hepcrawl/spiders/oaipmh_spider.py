@@ -51,8 +51,14 @@ class OAIPMHSpider(StatefulSpider):
     name = 'OAI-PMH'
     granularity = _Granularity.DATE
 
-    def __init__(self, url, metadata_prefix='marcxml', oai_set=None, alias=None,
-                 from_date=None, until_date=None, granularity=_Granularity.DATE,
+    def __init__(self,
+                 url,
+                 metadata_prefix='oai_dc',
+                 oai_set=None,
+                 alias=None,
+                 from_date=None,
+                 until_date=None,
+                 granularity=_Granularity.DATE,
                  record_class=Record, *args, **kwargs):
         super(OAIPMHSpider, self).__init__(*args, **kwargs)
         self.url = url
