@@ -1,27 +1,41 @@
 [
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2009",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1200752/files/MQW7_018.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1200752/files/MQW7_018.pdf"
             }
         ],
-        "citeable": true,
-        "_collections": [
-            "Literature"
+        "external_system_identifiers": [
+            {
+                "value": "1509577",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002842486CER",
+                "schema": "SPIRES"
+            }
         ],
+        "curated": true,
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
+        ],
+        "control_number": 1200752,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1200752"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:16.980315",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -29,15 +43,15 @@
                 "title": "High and very high energy gamma-ray emission from binaries"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "MQW7",
-                "page_start": "018",
-                "year": 2008,
-                "artid": "018",
-                "journal_title": "PoS"
+                "value": "SIS POS MQW7-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -45,53 +59,72 @@
                         "value": "Grenoble Observ."
                     }
                 ],
-                "full_name": "Dubus, G."
+                "full_name": "Dubus, G"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1200752",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509577",
-                "schema": "Inspire"
+                "journal_volume": "MQW7",
+                "page_start": "018",
+                "journal_title": "PoS",
+                "artid": "018",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
         ],
-        "curated": true
-    },
-    {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "imprints": [
             {
-                "url": "http://cds.cern.ch/record/1200753/files/MQW7_019.pdf",
-                "key": "document"
+                "date": "2009"
             }
         ],
-        "citeable": true,
-        "_collections": [
-            "Literature"
+        "citeable": true
+    },
+    {
+        "urls": [
+            {
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1200753/files/MQW7_019.pdf"
+            }
         ],
+        "external_system_identifiers": [
+            {
+                "value": "1509578",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002842487CER",
+                "schema": "SPIRES"
+            }
+        ],
+        "curated": true,
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
+        ],
+        "control_number": 1200753,
         "collaborations": [
             {
                 "value": "Fermi LAT"
             }
         ],
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1200753"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.101983",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -102,15 +135,18 @@
                 "title": "Fermi: Launched and Being Commissioned - Status and Prospects for Microquasars"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "MQW7",
-                "page_start": "019",
-                "year": 2008,
-                "artid": "019",
-                "journal_title": "PoS"
+                "value": "SIS POS MQW7-2009"
+            },
+            {
+                "value": "No authors"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -118,48 +154,67 @@
                         "value": "SLAC"
                     }
                 ],
-                "full_name": "Dubois, R."
+                "full_name": "Dubois, R"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1200753",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509578",
-                "schema": "Inspire"
+                "journal_volume": "MQW7",
+                "page_start": "019",
+                "journal_title": "PoS",
+                "artid": "019",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
         ],
-        "curated": true
-    },
-    {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "imprints": [
             {
-                "url": "http://cds.cern.ch/record/1200754/files/MQW7_020.pdf",
-                "key": "document"
+                "date": "2008"
             }
         ],
-        "citeable": true,
-        "_collections": [
-            "Literature"
+        "citeable": true
+    },
+    {
+        "urls": [
+            {
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1200754/files/MQW7_020.pdf"
+            }
         ],
+        "external_system_identifiers": [
+            {
+                "value": "1509579",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002842488CER",
+                "schema": "SPIRES"
+            }
+        ],
+        "curated": true,
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
+        ],
+        "control_number": 1200754,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1200754"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.153496",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -167,15 +222,15 @@
                 "title": "Hadronic models of high-energy radiation from microquasars: recent developments"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "MQW7",
-                "page_start": "020",
-                "year": 2008,
-                "artid": "020",
-                "journal_title": "PoS"
+                "value": "SIS POS MQW7-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -186,48 +241,67 @@
                         "value": "La Plata U."
                     }
                 ],
-                "full_name": "Romero, G. E."
+                "full_name": "Romero, G E"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1200754",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509579",
-                "schema": "Inspire"
+                "journal_volume": "MQW7",
+                "page_start": "020",
+                "journal_title": "PoS",
+                "artid": "020",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
         ],
-        "curated": true
+        "imprints": [
+            {
+                "date": "2008"
+            }
+        ],
+        "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203280/files/NIC20X_104.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203280/files/NIC20X_104.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509595",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844587CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203280,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203280"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.209845",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -235,15 +309,15 @@
                 "title": "Studying matrix elements for the neutrinoless double beta decay of 150Nd via the 150Sm(t,3He)150Pm* and 150Nd(3He,t)150Pm* reactions"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "104",
-                "year": 2008,
-                "artid": "104",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -257,7 +331,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Guess, C. J."
+                "full_name": "Guess, C J"
             },
             {
                 "affiliations": [
@@ -268,7 +342,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Austin, S. M."
+                "full_name": "Austin, S M"
             },
             {
                 "affiliations": [
@@ -276,7 +350,7 @@
                         "value": "Michigan State U., NSCL"
                     }
                 ],
-                "full_name": "Bazin, D."
+                "full_name": "Bazin, D"
             },
             {
                 "affiliations": [
@@ -290,7 +364,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Brown, B. A."
+                "full_name": "Brown, B A"
             },
             {
                 "affiliations": [
@@ -301,7 +375,7 @@
                         "value": "Mainz U."
                     }
                 ],
-                "full_name": "Caesar, C."
+                "full_name": "Caesar, C"
             },
             {
                 "affiliations": [
@@ -315,7 +389,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Deaven, J. M."
+                "full_name": "Deaven, J M"
             },
             {
                 "affiliations": [
@@ -326,7 +400,7 @@
                         "value": "Mainz U."
                     }
                 ],
-                "full_name": "Herlitzius, C."
+                "full_name": "Herlitzius, C"
             },
             {
                 "affiliations": [
@@ -340,7 +414,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Hitt, G. W."
+                "full_name": "Hitt, G W"
             },
             {
                 "affiliations": [
@@ -354,7 +428,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Meharchand, R. T."
+                "full_name": "Meharchand, R T"
             },
             {
                 "affiliations": [
@@ -365,7 +439,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Perdikakis, G."
+                "full_name": "Perdikakis, G"
             },
             {
                 "affiliations": [
@@ -373,7 +447,7 @@
                         "value": "Niigata U., Grad. Sch. Sci. Tech."
                     }
                 ],
-                "full_name": "Shimbara, Y."
+                "full_name": "Shimbara, Y"
             },
             {
                 "affiliations": [
@@ -384,7 +458,7 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Tur, C."
+                "full_name": "Tur, C"
             },
             {
                 "affiliations": [
@@ -398,48 +472,67 @@
                         "value": "Michigan State U., JINA"
                     }
                 ],
-                "full_name": "Zegers, R. G. T."
+                "full_name": "Zegers, R G T"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203280",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509595",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "104",
+                "journal_title": "PoS",
+                "artid": "104",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203281/files/NIC20X_107.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203281/files/NIC20X_107.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509596",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844588CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203281,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203281"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.271385",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -447,15 +540,15 @@
                 "title": "Untangling supernova-neutrino oscillations with beta-beam data"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "107",
-                "year": 2008,
-                "artid": "107",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -463,7 +556,7 @@
                         "value": "Ghent U."
                     }
                 ],
-                "full_name": "Jachowicz, N."
+                "full_name": "Jachowicz, N"
             },
             {
                 "affiliations": [
@@ -471,7 +564,7 @@
                         "value": "North Carolina State U."
                     }
                 ],
-                "full_name": "McLaughlin, G. C."
+                "full_name": "McLaughlin, G C"
             },
             {
                 "affiliations": [
@@ -479,48 +572,67 @@
                         "value": "Orsay, IPN"
                     }
                 ],
-                "full_name": "Volpe, C."
+                "full_name": "Volpe, C"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203281",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509596",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "107",
+                "journal_title": "PoS",
+                "artid": "107",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203361/files/NIC20X_109.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203361/files/NIC20X_109.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509597",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844668CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203361,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203361"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.324204",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -528,15 +640,15 @@
                 "title": "Neutrino oscillations in non-spherical supernova explosions"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "109",
-                "year": 2008,
-                "artid": "109",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -544,7 +656,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Kawagoe, S."
+                "full_name": "Kawagoe, S"
             },
             {
                 "affiliations": [
@@ -552,7 +664,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Takiwaki, T."
+                "full_name": "Takiwaki, T"
             },
             {
                 "affiliations": [
@@ -560,48 +672,67 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Kotake, K."
+                "full_name": "Kotake, K"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203361",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509597",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "109",
+                "journal_title": "PoS",
+                "artid": "109",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203362/files/NIC20X_116.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203362/files/NIC20X_116.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509598",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844669CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203362,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203362"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.378354",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -609,15 +740,15 @@
                 "title": "Neutrino Emission from Stellar Collapse including Hadron-Quark Mixed Phase"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "116",
-                "year": 2008,
-                "artid": "116",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -625,7 +756,7 @@
                         "value": "Waseda U."
                     }
                 ],
-                "full_name": "Nakazato, K."
+                "full_name": "Nakazato, K"
             },
             {
                 "affiliations": [
@@ -633,7 +764,7 @@
                         "value": "Numazu Coll. Tech."
                     }
                 ],
-                "full_name": "Sumiyoshi, K."
+                "full_name": "Sumiyoshi, K"
             },
             {
                 "affiliations": [
@@ -641,48 +772,67 @@
                         "value": "Waseda U."
                     }
                 ],
-                "full_name": "Yamada, s."
+                "full_name": "Yamada, s"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203362",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509598",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "116",
+                "journal_title": "PoS",
+                "artid": "116",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203363/files/NICX_122.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203363/files/NICX_122.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509599",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844670CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203363,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203363"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.431432",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -690,15 +840,15 @@
                 "title": "Short neutrino burst from failed supernovae as a probe of dense matter with hyperon mixture"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "122",
-                "year": 2008,
-                "artid": "122",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -706,7 +856,7 @@
                         "value": "Numazu Coll. Tech."
                     }
                 ],
-                "full_name": "Sumiyoshi, K."
+                "full_name": "Sumiyoshi, K"
             },
             {
                 "affiliations": [
@@ -714,7 +864,7 @@
                         "value": "Hokkaido U."
                     }
                 ],
-                "full_name": "Ishizuka, C."
+                "full_name": "Ishizuka, C"
             },
             {
                 "affiliations": [
@@ -722,7 +872,7 @@
                         "value": "Kyoto U., Yukawa Inst., Kyoto"
                     }
                 ],
-                "full_name": "Ohnishi, A."
+                "full_name": "Ohnishi, A"
             },
             {
                 "affiliations": [
@@ -730,7 +880,7 @@
                         "value": "Waseda U."
                     }
                 ],
-                "full_name": "Yamada, S."
+                "full_name": "Yamada, S"
             },
             {
                 "affiliations": [
@@ -738,48 +888,67 @@
                         "value": "Tokyo U. of Sci."
                     }
                 ],
-                "full_name": "Suzuki, H."
+                "full_name": "Suzuki, H"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203363",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509599",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "122",
+                "journal_title": "PoS",
+                "artid": "122",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203364/files/NICX_123.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203364/files/NICX_123.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509600",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844671CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203364,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203364"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.486814",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -787,15 +956,15 @@
                 "title": "Neutrino Nucleus Reactions and Nucleosynthesis in Stars"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "123",
-                "year": 2008,
-                "artid": "123",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -803,7 +972,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Suzuki, T."
+                "full_name": "Suzuki, T"
             },
             {
                 "affiliations": [
@@ -811,7 +980,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Yoshida, T."
+                "full_name": "Yoshida, T"
             },
             {
                 "affiliations": [
@@ -819,7 +988,7 @@
                         "value": "JAEA, Ibaraki"
                     }
                 ],
-                "full_name": "Chiba, S."
+                "full_name": "Chiba, S"
             },
             {
                 "affiliations": [
@@ -827,7 +996,7 @@
                         "value": "Aizu U."
                     }
                 ],
-                "full_name": "Honma, M."
+                "full_name": "Honma, M"
             },
             {
                 "affiliations": [
@@ -835,7 +1004,7 @@
                         "value": "Chiba Inst. Tech."
                     }
                 ],
-                "full_name": "Higashiyama, K."
+                "full_name": "Higashiyama, K"
             },
             {
                 "affiliations": [
@@ -843,7 +1012,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Umeda, H."
+                "full_name": "Umeda, H"
             },
             {
                 "affiliations": [
@@ -851,7 +1020,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Nomoto, K."
+                "full_name": "Nomoto, K"
             },
             {
                 "affiliations": [
@@ -862,7 +1031,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Kajino, T."
+                "full_name": "Kajino, T"
             },
             {
                 "affiliations": [
@@ -870,48 +1039,67 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Otsuka, T."
+                "full_name": "Otsuka, T"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203364",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509600",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "123",
+                "journal_title": "PoS",
+                "artid": "123",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203365/files/NICX_243.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203365/files/NICX_243.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509601",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844672CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203365,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203365"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.541467",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -922,15 +1110,15 @@
                 "title": "A new approach to neutrino transport in 3D simulations of core-collapse supernovae"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "243",
-                "year": 2008,
-                "artid": "243",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -938,7 +1126,7 @@
                         "value": "Basel U."
                     }
                 ],
-                "full_name": "Whitehouse, S."
+                "full_name": "Whitehouse, S"
             },
             {
                 "affiliations": [
@@ -946,48 +1134,67 @@
                         "value": "Basel U."
                     }
                 ],
-                "full_name": "Liebendörfer, M."
+                "full_name": "Liebend\u00f6rfer, M"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203365",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509601",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "243",
+                "journal_title": "PoS",
+                "artid": "243",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203366/files/NIC20X_128.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203366/files/NIC20X_128.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509602",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844673CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203366,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203366"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.595372",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -995,15 +1202,15 @@
                 "title": "Neutrino-driven winds and nucleosynthesis"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "128",
-                "year": 2008,
-                "artid": "128",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1014,7 +1221,7 @@
                         "value": "Darmstadt, GSI"
                     }
                 ],
-                "full_name": "Arcones, A."
+                "full_name": "Arcones, A"
             },
             {
                 "affiliations": [
@@ -1022,7 +1229,7 @@
                         "value": "Darmstadt, GSI"
                     }
                 ],
-                "full_name": "Martínez-Pinedo, G."
+                "full_name": "Mart\u00ednez-Pinedo, G"
             },
             {
                 "affiliations": [
@@ -1030,7 +1237,7 @@
                         "value": "TRIUMF"
                     }
                 ],
-                "full_name": "Schwenk, A."
+                "full_name": "Schwenk, A"
             },
             {
                 "affiliations": [
@@ -1041,7 +1248,7 @@
                         "value": "Caltech"
                     }
                 ],
-                "full_name": "O’Connor, E."
+                "full_name": "O\u2019Connor, E"
             },
             {
                 "affiliations": [
@@ -1052,7 +1259,7 @@
                         "value": "Darmstadt, GSI"
                     }
                 ],
-                "full_name": "Langanke, K."
+                "full_name": "Langanke, K"
             },
             {
                 "affiliations": [
@@ -1060,7 +1267,7 @@
                         "value": "Indiana U."
                     }
                 ],
-                "full_name": "Horowitz, C. J."
+                "full_name": "Horowitz, C J"
             },
             {
                 "affiliations": [
@@ -1068,48 +1275,67 @@
                         "value": "Garching, Max Planck Inst."
                     }
                 ],
-                "full_name": "Janka, H. T."
+                "full_name": "Janka, H T"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203366",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509602",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "128",
+                "journal_title": "PoS",
+                "artid": "128",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203367/files/NICX_146.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203367/files/NICX_146.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509603",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844674CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203367,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203367"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.650283",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -1117,15 +1343,15 @@
                 "title": "Nucleosynthesis in the Neutrino Driven Wind of Protoneutron Stars"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "146",
-                "year": 2008,
-                "artid": "146",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1133,7 +1359,7 @@
                         "value": "UC, Santa Cruz, Astron. Astrophys."
                     }
                 ],
-                "full_name": "Roberts, L."
+                "full_name": "Roberts, L"
             },
             {
                 "affiliations": [
@@ -1141,7 +1367,7 @@
                         "value": "UC, Santa Cruz, Astron. Astrophys."
                     }
                 ],
-                "full_name": "Woosley, S."
+                "full_name": "Woosley, S"
             },
             {
                 "affiliations": [
@@ -1149,7 +1375,7 @@
                         "value": "Minnesota U."
                     }
                 ],
-                "full_name": "Heger, A."
+                "full_name": "Heger, A"
             },
             {
                 "affiliations": [
@@ -1157,48 +1383,67 @@
                         "value": "LLNL, Livermore"
                     }
                 ],
-                "full_name": "Hoffman, R."
+                "full_name": "Hoffman, R"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203367",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509603",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "146",
+                "journal_title": "PoS",
+                "artid": "146",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203369/files/NICX_226.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203369/files/NICX_226.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509604",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844676CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203369,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203369"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.704338",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -1209,15 +1454,15 @@
                 "title": "Neutrino effects in cosmology with A primordial magnetic field"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "226",
-                "year": 2008,
-                "artid": "226",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1228,7 +1473,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Kojima, K."
+                "full_name": "Kojima, K"
             },
             {
                 "affiliations": [
@@ -1236,7 +1481,7 @@
                         "value": "Nagoya U."
                     }
                 ],
-                "full_name": "Ichiki, K."
+                "full_name": "Ichiki, K"
             },
             {
                 "affiliations": [
@@ -1247,7 +1492,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Kajino, T."
+                "full_name": "Kajino, T"
             },
             {
                 "affiliations": [
@@ -1258,48 +1503,67 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Mathews, G. J."
+                "full_name": "Mathews, G J"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203369",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509604",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "226",
+                "journal_title": "PoS",
+                "artid": "226",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     },
     {
-        "refereed": true,
-        "core": true,
-        "preprint_date": "2008",
-        "documents": [
+        "urls": [
             {
-                "url": "http://cds.cern.ch/record/1203370/files/NICX_239.pdf",
-                "key": "document"
+                "description": "Published version from PoS",
+                "value": "http://cds.cern.ch/record/1203370/files/NICX_239.pdf"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "1509605",
+                "schema": "Inspire"
+            },
+            {
+                "value": "002844677CER",
+                "schema": "SPIRES"
             }
         ],
         "curated": true,
-        "_collections": [
-            "Literature"
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+                "license": "CC-BY-NC-SA-3.0"
+            }
         ],
+        "control_number": 1203370,
+        "self": {
+            "$ref": "https://labs.inspirehep.net/api/literature/1203370"
+        },
         "acquisition_source": {
             "source": "CDS",
-            "datetime": "2017-12-07T15:54:17.758624",
             "method": "hepcrawl",
-            "submission_number": "None"
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
+            "datetime": "2017-04-03T10:26:40.365216"
         },
         "inspire_categories": [
             {
-                "term": "Astrophysics"
+                "term": "Other"
             }
         ],
         "titles": [
@@ -1307,15 +1571,15 @@
                 "title": "A Strong Constraint on the Neutrino Mass from the Formation of Large Scale Structure in the Presence of the Primordial Magnetic Field"
             }
         ],
-        "publication_info": [
+        "_private_notes": [
             {
-                "journal_volume": "NIC X",
-                "page_start": "239",
-                "year": 2008,
-                "artid": "239",
-                "journal_title": "PoS"
+                "value": "SIS POS NIC X-2009"
+            },
+            {
+                "value": "Inspire"
             }
         ],
+        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1323,7 +1587,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Yamazaki, D. G."
+                "full_name": "Yamazaki, D G"
             },
             {
                 "affiliations": [
@@ -1331,7 +1595,7 @@
                         "value": "Tokyo U."
                     }
                 ],
-                "full_name": "Ichiki, K."
+                "full_name": "Ichiki, K"
             },
             {
                 "affiliations": [
@@ -1339,7 +1603,7 @@
                         "value": "Natl. Astron. Observ. of Japan"
                     }
                 ],
-                "full_name": "Kajino, T."
+                "full_name": "Kajino, T"
             },
             {
                 "affiliations": [
@@ -1347,22 +1611,27 @@
                         "value": "Notre Dame U."
                     }
                 ],
-                "full_name": "Mathews, G. J."
+                "full_name": "Mathews, G J"
             }
         ],
-        "external_system_identifiers": [
+        "publication_info": [
             {
-                "value": "1203370",
-                "schema": "CDS"
-            },
-            {
-                "value": "1509605",
-                "schema": "Inspire"
+                "journal_volume": "NIC X",
+                "page_start": "239",
+                "journal_title": "PoS",
+                "artid": "239",
+                "year": 2008
             }
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
+            "article",
             "conference paper"
+        ],
+        "imprints": [
+            {
+                "date": "2008"
+            }
         ],
         "citeable": true
     }
