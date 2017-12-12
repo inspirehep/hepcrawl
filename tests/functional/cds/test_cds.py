@@ -16,7 +16,6 @@ import pytest
 
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
-    get_test_suite_path,
     expected_json_results_from_file,
     clean_dir,
 )
