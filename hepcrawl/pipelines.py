@@ -116,11 +116,8 @@ class InspireAPIPushPipeline(object):
 
         hep_record = self._post_enhance_item(item, spider)
 
-        try:
-            validate(hep_record, 'hep')
-            spider.logger.debug('Validated item by Inspire Schemas.')
-        except Exception as err:
-            spider.logger.error('ERROR in validating {}: {}'.format(hep_record, err))
+        validate(hep_record, 'hep')
+        spider.logger.debug('Validated item by Inspire Schemas.')
 
         self.results_data.append(hep_record)
 
