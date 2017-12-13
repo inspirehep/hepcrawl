@@ -189,6 +189,8 @@ class OAIPMHSpider(StatefulSpider):
     @property
     def _resume_from(self):
         last_run = self._load_last_run()
+        if not last_run:
+            return None
         resume_at = last_run['until_date'] or last_run['last_run_finished_at']
         date_parsed = dateparser.parse(resume_at)
         return self.granularity.format(date_parsed)

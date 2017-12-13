@@ -82,9 +82,14 @@ def test_store_and_load_last_run(spider, cleanup):
     assert expected == result
 
 
-def test_load_inexisting(spider):
+def test_load_nonexistent(spider):
     last_run = spider._load_last_run()
     assert last_run == None
+
+
+def test_resume_from_nonexistent_no_error(spider):
+    resume_from = spider._resume_from
+    assert resume_from == None
 
 
 @pytest.mark.parametrize('until_date,last_run,expected,granularity', [
