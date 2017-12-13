@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2017 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -26,7 +26,8 @@ from scrapy.http import Request, XmlResponse
 from scrapy.selector import Selector
 from . import StatefulSpider
 
-logger = logging.getLogger(__name__)
+
+LOGGER = logging.getLogger(__name__)
 
 
 class _Granularity(Enum):
@@ -51,15 +52,18 @@ class OAIPMHSpider(StatefulSpider):
     name = 'OAI-PMH'
     granularity = _Granularity.DATE
 
-    def __init__(self,
-                 url,
-                 metadata_prefix='oai_dc',
-                 oai_set=None,
-                 alias=None,
-                 from_date=None,
-                 until_date=None,
-                 granularity=_Granularity.DATE,
-                 record_class=Record, *args, **kwargs):
+    def __init__(
+        self,
+        url,
+        metadata_prefix='oai_dc',
+        oai_set=None,
+        alias=None,
+        from_date=None,
+        until_date=None,
+        granularity=_Granularity.DATE,
+        record_class=Record,
+        *args, **kwargs
+    ):
         super(OAIPMHSpider, self).__init__(*args, **kwargs)
         self.url = url
         self.metadata_prefix = metadata_prefix
@@ -74,7 +78,7 @@ class OAIPMHSpider(StatefulSpider):
         self.from_date = self.from_date or self._resume_from
         started_at = datetime.utcnow()
 
-        logger.info("Starting harvesting of {url} with set={set} and "
+        LOGGER.info("Starting harvesting of {url} with set={set} and "
                     "metadataPrefix={metadata_prefix}, from={from_date}, "
                     "until={until_date}".format(
             url=self.url,
@@ -90,7 +94,7 @@ class OAIPMHSpider(StatefulSpider):
         now = datetime.utcnow()
         self._save_run(started_at)
 
-        logger.info("Harvesting completed. Next harvesting will resume from {}"
+        LOGGER.info("Harvesting completed. Next harvesting will resume from {}"
                     .format(self.until_date or self.granularity.format(now)))
 
     def parse_record(self, record):
@@ -115,7 +119,7 @@ class OAIPMHSpider(StatefulSpider):
                 'until': self.until_date,
             })
         except NoRecordsMatch as err:
-            logger.warning(err)
+            LOGGER.warning(err)
             raise StopIteration()
         for record in records:
             response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
@@ -149,7 +153,7 @@ class OAIPMHSpider(StatefulSpider):
         try:
             with open(file_path) as f:
                 last_run = json.load(f)
-                logger.info('Last run file loaded: {}'.format(repr(last_run)))
+                LOGGER.info('Last run file loaded: {}'.format(repr(last_run)))
                 return last_run
         except IOError:
             return None
@@ -175,7 +179,7 @@ class OAIPMHSpider(StatefulSpider):
             'last_run_finished_at': datetime.utcnow().isoformat(),
         }
         file_path = self._last_run_file_path()
-        logger.info("Last run file saved to {}".format(file_path))
+        LOGGER.info("Last run file saved to {}".format(file_path))
         try:
             makedirs(path.dirname(file_path))
         except OSError as exc:

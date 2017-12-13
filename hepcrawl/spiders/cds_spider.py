@@ -17,7 +17,9 @@ from inspire_dojson.hep import hep
 from .oaipmh_spider import OAIPMHSpider
 from ..utils import ParsedItem
 
-logger = logging.getLogger(__name__)
+
+LOGGER = logging.getLogger(__name__)
+
 
 class CDSSpider(OAIPMHSpider):
     """Spider for crawling the CERN Document Server OAI-PMH XML files.
@@ -49,7 +51,7 @@ class CDSSpider(OAIPMHSpider):
 
     def parse_record(self, selector):
         selector.remove_namespaces()
-        record = create_record(selector.xpath('.//record').extract()[0])
+        record = selector.xpath('.//record').extract_first()
         app = Flask('hepcrawl')
         app.config.update(
             self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
