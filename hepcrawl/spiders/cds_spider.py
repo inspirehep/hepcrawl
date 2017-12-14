@@ -11,8 +11,8 @@
 
 import logging
 from flask.app import Flask
-from dojson.contrib.marc21.utils import create_record
 from inspire_dojson import marcxml2record
+from os.path import join as path_join
 
 from .oaipmh_spider import OAIPMHSpider
 from ..utils import ParsedItem
@@ -59,5 +59,5 @@ class CDSSpider(OAIPMHSpider):
         with app.app_context():
             json_record = marcxml2record(record)
             base_uri = self.settings['SCHEMA_BASE_URI']
-            json_record['$schema'] = base_uri + 'hep.json'
+            json_record['$schema'] = path_join(base_uri, 'hep.json')
         return ParsedItem(record=json_record, record_format='hep')
