@@ -9,6 +9,7 @@
 
 """Generic spider for OAI-PMH servers."""
 
+import abc
 import logging
 from errno import EEXIST as FILE_EXISTS, ENOENT as NO_SUCH_FILE_OR_DIR
 from datetime import datetime
@@ -42,6 +43,7 @@ class OAIPMHSpider(StatefulSpider):
     the initial starting date and will use it as `from_date` argument on the
     next harvest.
     """
+    __metaclass__ = abc.ABCMeta
     name = 'OAI-PMH'
 
     def __init__(
@@ -84,6 +86,7 @@ class OAIPMHSpider(StatefulSpider):
         LOGGER.info("Harvesting completed. Next harvesting will resume from {}"
                     .format(self.until_date or now.strftime('%Y-%m-%d')))
 
+    @abc.abstractmethod
     def parse_record(self, record):
         """
         This method need to be reimplemented in order to provide special parsing.

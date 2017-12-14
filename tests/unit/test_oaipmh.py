@@ -43,7 +43,11 @@ def settings():
 
 @pytest.fixture
 def spider(settings):
-    spider = OAIPMHSpider('http://0.0.0.0/oai2', settings=settings)
+    class TestOAIPMHSpider(OAIPMHSpider):
+        def parse_record(self, record):
+            return None
+
+    spider = TestOAIPMHSpider('http://0.0.0.0/oai2', settings=settings)
     spider.from_date = '2017-12-08'
     spider.set = 'physics:hep-th'
     spider.metadata_prefix = 'marcxml'
