@@ -10,7 +10,7 @@
 """Generic spider for OAI-PMH servers."""
 
 import logging
-from errno import EEXIST
+from errno import EEXIST as FILE_EXISTS, ENOENT as NO_SUCH_FILE_OR_DIR
 from datetime import datetime
 from dateutil import parser as dateparser
 import hashlib
@@ -26,6 +26,12 @@ from . import StatefulSpider
 
 
 LOGGER = logging.getLogger(__name__)
+
+
+class NoLastRunToLoad(Exception):
+    """Error raised when there was a problem with loading the last_runs file"""
+    def __init__(self, file_path):
+        self.message = "Failed to load file at {}".format(file_path)
 
 
 class OAIPMHSpider(StatefulSpider):
@@ -132,8 +138,10 @@ class OAIPMHSpider(StatefulSpider):
                 last_run = json.load(f)
                 LOGGER.info('Last run file loaded: {}'.format(repr(last_run)))
                 return last_run
-        except IOError:
-            return None
+        except IOError as exc:
+            if exc.errno == NO_SUCH_FILE_OR_DIR:
+                raise NoLastRunToLoad(file_path)
+            raise
 
     def _save_run(self, started_at):
         """Store last run information
@@ -159,18 +167,17 @@ class OAIPMHSpider(StatefulSpider):
         try:
             makedirs(path.dirname(file_path))
         except OSError as exc:
-            if exc.errno == EEXIST:
-                pass
-            else:
+            if exc.errno != FILE_EXISTS:
                 raise
         with open(file_path, 'w') as f:
             json.dump(last_run_info, f, indent=4)
 
     @property
     def _resume_from(self):
-        last_run = self._load_last_run()
-        if not last_run:
+        try:
+            last_run = self._load_last_run()
+            resume_at = last_run['until_date'] or last_run['last_run_finished_at']
+            date_parsed = dateparser.parse(resume_at)
+            return date_parsed.strftime('%Y-%m-%d')
+        except NoLastRunToLoad:
             return None
-        resume_at = last_run['until_date'] or last_run['last_run_finished_at']
-        date_parsed = dateparser.parse(resume_at)
-        return date_parsed.strftime('%Y-%m-%d')

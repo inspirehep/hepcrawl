@@ -10,10 +10,9 @@
 from datetime import datetime
 import json
 from mock import patch
-from os import remove, rmdir
 import pytest
 
-from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider
+from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider, NoLastRunToLoad
 from hepcrawl.testlib.fixtures import clean_dir
 from scrapy.utils.project import get_project_settings
 
@@ -58,7 +57,7 @@ def test_last_run_file_path(spider):
     assert expected == result
 
 
-def test_store_and_load_last_run(spider, cleanup):
+def test_load_last_run(spider, cleanup):
     now = datetime.utcnow()
     spider._save_run(started_at=now)
 
@@ -84,8 +83,8 @@ def test_store_and_load_last_run(spider, cleanup):
 
 
 def test_load_nonexistent(spider):
-    last_run = spider._load_last_run()
-    assert last_run == None
+    with pytest.raises(NoLastRunToLoad):
+        spider._load_last_run()
 
 
 def test_resume_from_nonexistent_no_error(spider):
