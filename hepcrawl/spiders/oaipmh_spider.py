@@ -60,7 +60,6 @@ class OAIPMHSpider(StatefulSpider):
         from_date=None,
         until_date=None,
         granularity=_Granularity.DATE,
-        record_class=Record,
         *args, **kwargs
     ):
         super(OAIPMHSpider, self).__init__(*args, **kwargs)
@@ -71,7 +70,6 @@ class OAIPMHSpider(StatefulSpider):
         self.alias = alias or self._make_alias()
         self.from_date = from_date
         self.until_date = until_date
-        self.record_class = record_class
 
     def start_requests(self):
         self.from_date = self.from_date or self._resume_from
@@ -106,10 +104,7 @@ class OAIPMHSpider(StatefulSpider):
         raise NotImplementedError()
 
     def parse(self, response):
-        sickle = Sickle(self.url, class_mapping={
-            'ListRecords': self.record_class,
-            'GetRecord': self.record_class,
-        })
+        sickle = Sickle(self.url)
         try:
             records = sickle.ListRecords(**{
                 'metadataPrefix': self.metadata_prefix,
