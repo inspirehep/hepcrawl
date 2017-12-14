@@ -35,6 +35,8 @@ from ..utils import (
     get_license
 )
 
+import datetime
+
 from inspire_schemas.api import validate as validate_schema
 from ..extractors.jats import Jats
 from zipfile import ZipFile
@@ -87,7 +89,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
     name = 'Springer'
     start_urls = []
     iterator = 'iternodes'
-    itertag = 'article'
+    itertag = 'Publisher'
 
     allowed_article_types = [
         'research-article',
@@ -98,12 +100,13 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         'correction',
         'addendum',
         'review-article',
-        'rapid-communications'
+        'rapid-communications',
+        'OriginalPaper'
     ]
 
     ERROR_CODES = range(400, 432)
 
-    def __init__(self, package_path=None, ftp_folder="data/in/EPJC", ftp_host=None, ftp_netrc=None, *args, **kwargs):
+    def __init__(self, package_path=None, ftp_folder="data/in", ftp_host=None, ftp_netrc=None, *args, **kwargs):
         """Construct Elsevier spider."""
         super(S3SpringerSpider, self).__init__(*args, **kwargs)
         self.ftp_folder = ftp_folder
@@ -120,40 +123,46 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
             yield Request(self.package_path, callback=self.handle_package_file)
         else:
             ftp_host, ftp_params = ftp_connection_info(self.ftp_host, self.ftp_netrc)
-            #for journal in ['EPJC']:
-            new_files, missing_files = ftp_list_files(
-                    #os.path.join(self.ftp_folder, journal),
-                    self.ftp_folder,
-                    os.path.join(self.target_folder,'EPJC'),
+            new_files = []
+            missing_files = []
+            for journal in ['EPJC', 'JHEP']:
+                print("Checking %s" % journal)
+                tmp_new_files, tmp_missing_files = ftp_list_files(
+                    os.path.join(self.ftp_folder,journal),
+                    os.path.join(self.target_folder,journal),
                     server=ftp_host,
                     user=ftp_params['ftp_user'],
                     password=ftp_params['ftp_password']
                 )
+                new_files.extend(tmp_new_files)
+                missing_files.extend(tmp_missing_files)
             ## TODO - add checking if the package was already downloaded
             # Cast to byte-string for scrapy compatibility
             print(missing_files)
             for remote_file in missing_files:
+                if('EPJC' in remote_file):
+                    journal = 'EPJC'
+                else:
+                    journal = 'JHEP'
                 print(remote_file)
-                remote_file = str(remote_file).strip('/data/in/EPJC/')
+                remote_file = str(remote_file).strip('/data/in/%s/' % journal)
                 ftp_params["ftp_local_filename"] = os.path.join(
                     self.target_folder,
-                    'EPJC',
+                    journal,
                     remote_file
                 )
-                remote_url = "ftp://{0}/{1}".format(ftp_host, 'data/in/EPJC/'+remote_file)
+                remote_url = "ftp://{0}/{1}".format(ftp_host, os.path.join('data/in/', journal, remote_file))
                 print(remote_url)
                 yield Request(
                     str(remote_url),
                     meta=ftp_params,
                     callback=self.handle_package_ftp)
 
-
     def handle_package_ftp(self, response):
         """Handle the zip package and yield a request for every XML found."""
         filename = os.path.basename(response.url).rstrip(".zip")
         # TMP dir to extract zip packages:
         target_folder = mkdtemp(prefix=filename + "_", dir=SPRINGER_UNPACK_FOLDER)
-
 
         zip_filepath = response.meta["ftp_local_filename"]
         print("zip_filepath: %s" % (zip_filepath,))
@@ -162,22 +171,105 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         # The xml files shouldn't be removed after processing; they will
         # be later uploaded to Inspire. So don't remove any tmp files here.
         for xml_file in files:
-            if 'EPJC' in zip_filepath:
-                if 'nlm.xml' in xml_file:
-                    xml_url = u"file://{0}".format(os.path.abspath(xml_file))
-                    yield Request(
-                        xml_url,
-                        meta={"package_path": zip_filepath,
-                              "xml_url": xml_url},
-                        )
-            else:
-                pass
+            # if 'EPJC' in zip_filepath:
+            if '.scoap' in xml_file or '.Meta' in xml_file:
+                xml_url = u"file://{0}".format(os.path.abspath(xml_file))
+                yield Request(
+                    xml_url,
+                    meta={"package_path": zip_filepath,
+                          "xml_url": xml_url},
+                )
+            # else:
+            #    pass
+
+    def _get_published_date(self, node):
+        year = node.xpath('//OnlineDate/Year/text()').extract()[0]
+        month = node.xpath('//OnlineDate/Month/text()').extract()[0]
+        day = node.xpath('//OnlineDate/Day/text()').extract()[0]
+        return datetime.date(day=int(day), month=int(month), year=int(year)).isoformat()
 
 
-    def parse_node(self, response, node):
-        """Parse a OUP XML file into a HEP record."""
+    def _get_license(self, node):
+        license_type = node.xpath('//License/@SubType').extract()
+        version = node.xpath('//License/@Version').extract()
+        text = "https://creativecommons.org/licenses/"
+
+        if license_type:
+            license_type = license_type[0].lower().lstrip('cc ').replace(' ','-')
+            return {"license": "CC="+license_type.upper()+"-"+version[0],"url":"%s/%s/%s" % (text, license_type, version[0])}
+        else:
+            self.log("No license defined. Setting default license!")
+            return {"license": "CC-BY-3.0", "url":"https://creativecommons.org/licenses/by/3.0"}
+
+    def _clean_aff(self, node):
+        org_div = node.xpath('./OrgDivision/text()').extract()
+        org_name = node.xpath('./OrgName/text()').extract()
+        street = node.xpath('./OrgAddress/Street/text()').extract()
+        city = node.xpath('./OrgAddress/City/text()').extract()
+        state = node.xpath('./OrgAddress/State/text()').extract()
+        postcode = node.xpath('./OrgAddress/Postcode/text()').extract()
+        country = node.xpath('./OrgAddress/Country/text()').extract()
+
+        tmp = []
+        if org_div:
+            tmp.append(org_div[0])
+        if org_name:
+            tmp.append(org_name[0])
+        if street:
+            tmp.append(street[0])
+        if city:
+            tmp.append(city[0])
+        if state:
+            tmp.append(state[0])
+        if postcode:
+            tmp.append(postcode[0])
+        if country:
+            tmp.append(country[0])
+
+        return (', '.join(tmp), org_name[0], country)
+
+
+    def _get_authors(self, node):
+        authors = []
+        for contrib in node.xpath("//Author"):
+            surname = contrib.xpath("./AuthorName/FamilyName/text()").extract()
+            given_names = contrib.xpath("./AuthorName/GivenName/text()").extract()
+            email = contrib.xpath("./Contact/Email/text()").extract()
+            # ?? no idea what it is suppose to do ??
+            #affiliations = contrib.xpath('//Affiliation')
+            affiliations = []
+            reffered_id = contrib.xpath("@AffiliationIDS").extract()
+            # check what is in reffered_id
+            print(reffered_id)
+            if reffered_id:
+                for ref in reffered_id[0].split():
+                    affiliations += node.xpath("//Affiliation[@ID='{0}']".format(ref))
+            tmp_aff = []
+            for aff in affiliations:
+                a, org, country = self._clean_aff(aff)
+                tmp_aff.append({'value':a, 'organization':org, 'country':country})
+            # affiliations = [
+            #     {'value': self._clean_aff(aff)}
+            #     for aff in affiliations
+            # ]
+
+            authors.append({
+                'surname': get_first(surname, ""),
+                'given_names': get_first(given_names, ""),
+                'affiliations': tmp_aff,
+                'email': get_first(email, ""),
+            })
+        return authors
+
+    def _get_collaboration(self, node):
+        pass
+        #node.xpath("InstitutionalAuthor")
+
+
+   def parse_node(self, response, node):
+        """Parse a Springer XML file into a HEP record."""
         node.remove_namespaces()
-        article_type = node.xpath('@article-type').extract()
+        article_type = node.xpath('//Article/ArticleInfo/@ArticleType').extract()
         self.log("Got article_type {0}".format(article_type))
         if article_type is None or article_type[0] not in self.allowed_article_types:
             # Filter out non-interesting article types
@@ -188,51 +280,57 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
                             'addendum']:
             record.add_xpath('related_article_doi', "//related-article[@ext-link-type='doi']/@href")
             record.add_value('journal_doctype', article_type)
-        record.add_xpath('dois', "//article-id[@pub-id-type='doi']/text()")
-        record.add_xpath('page_nr', "//counts/page-count/@count")
+        record.add_xpath('dois', "//ArticleDOI/text()")
+        #record.add_xpath('page_nr', "//counts/page-count/@count")
 
-        record.add_xpath('abstract', '//abstract[1]')
-        record.add_xpath('title', '//article-title/text()')
-        record.add_xpath('subtitle', '//subtitle/text()')
+        record.add_xpath('abstract', '//Abstract/Para/')
 
+        title = node.xpath('//ArticleTitle')
+        print(title)
+        print(title.extract()[0])
+        title = re.sub('<math>.*?</math>', '', title.extract()[0])
+        title = re.sub('<math>.*?</math>', '', title)
+        self.log('title: '+title)
+
+        record.add_xpath('abstract', '//Abstract/Para')
+        record.add_value('title', title)
+
+        #record.add_xpath('title', '//ArticleTitle')
+        #record.add_xpath('subtitle', '//subtitle/text()')
+
+        # TODO: authors and colaboration
+        print('new article')
         record.add_value('authors', self._get_authors(node))
-        record.add_xpath('collaborations', "//contrib/collab/text()")
+        # record.add_xpath('collaborations', "//contrib/collab/text()")
 
-        free_keywords, classification_numbers = self._get_keywords(node)
-        record.add_value('free_keywords', free_keywords)
-        record.add_value('classification_numbers', classification_numbers)
+        # free_keywords, classification_numbers = self._get_keywords(node)
+        # record.add_value('free_keywords', free_keywords)
+        # record.add_value('classification_numbers', classification_numbers)
 
         record.add_value('date_published', self._get_published_date(node))
 
-        # TODO: Special journal title handling
-        # journal, volume = fix_journal_name(journal, self.journal_mappings)
-        # volume += get_value_in_tag(self.document, 'volume')
-        record.add_xpath('journal_title', '//abbrev-journal-title/text()|//journal-title/text()')
-        record.add_xpath('journal_issue', '//issue/text()')
-        record.add_xpath('journal_volume', '//volume/text()')
-        record.add_xpath('journal_artid', '//elocation-id/text()')
+        journal = node.xpath('//JournalTitle/text()').extract()[0].lstrip('The ')
+        record.add_value('journal_title', journal)
+        record.add_xpath('journal_issue', '//IssueIDStart/text()')
+        record.add_xpath('journal_volume', '//VolumeIDStart/text()')
+        record.add_xpath('journal_artid', '//Article/@ID/text()')
 
-        record.add_xpath('journal_fpage', '//fpage/text()')
-        record.add_xpath('journal_lpage', '//lpage/text()')
+        record.add_xpath('journal_fpage', '//ArticleFirstPage/text()')
+        record.add_xpath('journal_lpage', '//ArticleLastPage/text()')
 
         published_date = self._get_published_date(node)
         record.add_value('journal_year', int(published_date[:4]))
         record.add_value('date_published', published_date)
 
-        record.add_xpath('copyright_holder', '//copyright-holder/text()')
-        record.add_xpath('copyright_year', '//copyright-year/text()')
-        record.add_xpath('copyright_statement', '//copyright-statement/text()')
+        record.add_xpath('copyright_holder', '//ArticleCopyright/CopyrightHolderName/text()')
+        record.add_xpath('copyright_year', '//ArticleCopyright/CopyrightYear/text()')
+        record.add_xpath('copyright_statement', '//ArticleCopyright/copyright-statement/text()')
         record.add_value('copyright_material', 'Article')
 
-        license = get_license(
-            license_url=node.xpath(
-                '//license/license-p/ext-link/@href').extract_first(),
-            license_text=node.xpath(
-                '//license/license-p/ext-link/text()').extract_first(),
-        )
+        license = self._get_license(node)
         record.add_value('license', license)
 
-        record.add_value('collections', ['European Physical Journal C'])
+        record.add_value('collections', [journal])
         parsed_record = dict(record.load_item())
         validate_schema(data=parsed_record, schema_name='hep')
 
