@@ -20,7 +20,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -92,13 +92,7 @@ def test_cds(
         override_generated_fields(expected) for expected in expected_results
     ]
 
-    gotten_results = sorted(
-        gotten_results,
-        key=lambda x: x['document_type']
-    )
-    expected_results = sorted(
-        expected_results,
-        key=lambda x: x['document_type']
-    )
+    gotten_results = deep_sort(gotten_results)
+    expected_results = deep_sort(expected_results)
 
     assert gotten_results == expected_results

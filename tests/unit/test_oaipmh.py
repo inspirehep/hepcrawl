@@ -14,6 +14,7 @@ from os import remove, rmdir
 import pytest
 
 from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider
+from hepcrawl.testlib.fixtures import clean_dir
 from scrapy.utils.project import get_project_settings
 
 
@@ -29,9 +30,7 @@ def override_dynamic_fields(run):
 @pytest.fixture(scope='function')
 def cleanup():
     yield
-    remove('/tmp/last_runs/OAI-PMH/{}.json'.format(LAST_RUN_TEST_FILE_SHA1))
-    rmdir('/tmp/last_runs/OAI-PMH')
-    rmdir('/tmp/last_runs')
+    clean_dir('/tmp/last_runs/')
 
 
 @pytest.fixture
