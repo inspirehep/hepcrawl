@@ -46,9 +46,6 @@ import traceback
 from scrapy.utils.python import re_rsearch
 from scrapy.selector import Selector
 
-from elsevier_spider import
-
-
 
 def list_files(path, target_folder):
     files = os.listdir(path)
@@ -116,7 +113,7 @@ def xmliter(text, nodename):
 
 
 
-class S3ElsevierSpider(Jats, Spider):
+class S3ElsevierSpider(Jats, XMLFeedSpider):
     """Elsevier SCOPA3 crawler.
 
     This spider can scrape either an ATOM feed (default), zip file
@@ -219,7 +216,7 @@ class S3ElsevierSpider(Jats, Spider):
         if orcid_raw:
             return u"ORCID:{0}".format(orcid_raw)
 
-        @staticmethod
+    @staticmethod
     def _find_affiliations_by_id(author_group, ref_ids):
         """Return affiliations with given ids.
 
@@ -418,7 +415,7 @@ class S3ElsevierSpider(Jats, Spider):
 
         published_date = self._get_published_date(node)
         record.add_value('journal_year', int(published_date[:4]))
-        record.add_value('date_published', datetime.datetime.strptime(meta['articles'][doi]['publication-date'], "%Y-%m-%dT%H:%M:%S").isoformat())
+        record.add_value('date_published', datetime.datetime.strptime(meta['articles'][doi]['publication-date'], "%Y-%m-%dT%H:%M:%S").strftime("%Y-%m-%d"))
 
         record.add_xpath('copyright_holder', '//copyright/text()')
         record.add_xpath('copyright_year', '//copyright/@year/text()')
@@ -436,3 +433,4 @@ class S3ElsevierSpider(Jats, Spider):
 
         print(parsed_record)
         return parsed_record
+
