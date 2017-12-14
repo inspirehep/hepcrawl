@@ -8,7 +8,6 @@
 # more details.
 
 from datetime import datetime
-import json
 from mock import patch
 import pytest
 
@@ -61,9 +60,6 @@ def test_load_last_run(spider, cleanup):
     now = datetime.utcnow()
     spider._save_run(started_at=now)
 
-    file_path = spider._last_run_file_path()
-    result = override_dynamic_fields(json.load(open(file_path)))
-
     expected = override_dynamic_fields({
         'spider': 'OAI-PMH',
         'url': 'http://0.0.0.0/oai2',
@@ -75,14 +71,12 @@ def test_load_last_run(spider, cleanup):
         'last_run_finished_at': '2017-12-08T13:55:00.000000',
     })
 
-    assert expected == result
-
     result = override_dynamic_fields(spider._load_last_run())
 
     assert expected == result
 
 
-def test_load_nonexistent(spider):
+def test_load_last_run_nonexistent(spider):
     with pytest.raises(NoLastRunToLoad):
         spider._load_last_run()
 
