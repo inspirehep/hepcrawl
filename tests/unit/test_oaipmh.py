@@ -13,7 +13,7 @@ from mock import patch
 from os import remove, rmdir
 import pytest
 
-from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider, _Granularity
+from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider
 from scrapy.utils.project import get_project_settings
 
 
@@ -71,7 +71,6 @@ def test_store_and_load_last_run(spider, cleanup):
         'url': 'http://0.0.0.0/oai2',
         'metadata_prefix': 'marcxml',
         'set': 'physics:hep-th',
-        'granularity': 'YYYY-MM-DD',
         'from_date': '2017-12-08',
         'until_date': None,
         'last_run_started_at': now.isoformat(),
@@ -93,29 +92,3 @@ def test_load_nonexistent(spider):
 def test_resume_from_nonexistent_no_error(spider):
     resume_from = spider._resume_from
     assert resume_from == None
-
-
-@pytest.mark.parametrize('until_date,last_run,expected,granularity', [
-    ('2017-12-08T13:54:00.0', '2017-12-08T13:54:00.0', '2017-12-08', _Granularity.DATE),
-    ('2017-12-08T13:54:00.0', '2017-12-08T13:54:00.0', '2017-12-08T13:54:00Z', _Granularity.SECOND),
-    ('2017-12-08', '2017-12-08', '2017-12-08', _Granularity.DATE),
-    ('2017-12-08', '2017-12-08', '2017-12-08T00:00:00Z', _Granularity.SECOND),
-    (None, '2017-12-10T13:54:00.0', '2017-12-10', _Granularity.DATE),
-    (None, '2017-12-10', '2017-12-10T00:00:00Z', _Granularity.SECOND),
-])
-def test_resume_from(spider, until_date, last_run, expected, granularity, cleanup):
-    spider.until_date = until_date
-    spider.granularity = granularity
-    spider._save_run(started_at=datetime.utcnow())
-
-    with open(spider._last_run_file_path(), 'r') as f:
-        run_record = json.load(f)
-
-    run_record['last_run_finished_at'] = last_run
-
-    with open(spider._last_run_file_path(), 'w+') as f:
-        json.dump(run_record, f)
-
-    result = spider._resume_from
-
-    assert expected == result

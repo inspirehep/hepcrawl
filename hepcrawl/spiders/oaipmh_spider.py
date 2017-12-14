@@ -10,7 +10,6 @@
 """Generic spider for OAI-PMH servers."""
 
 import logging
-from enum import Enum
 from errno import EEXIST
 from datetime import datetime
 from dateutil import parser as dateparser
@@ -29,17 +28,6 @@ from . import StatefulSpider
 LOGGER = logging.getLogger(__name__)
 
 
-class _Granularity(Enum):
-    DATE = 'YYYY-MM-DD'
-    SECOND = 'YYYY-MM-DDThh:mm:ssZ'
-
-    def format(self, datetime_object):
-        if self == self.DATE:
-            return datetime_object.strftime('%Y-%m-%d')
-        if self == self.SECOND:
-            return datetime_object.strftime('%Y-%m-%dT%H:%M:%SZ')
-
-
 class OAIPMHSpider(StatefulSpider):
     """
     Implements a spider for the OAI-PMH protocol by using the Python sickle library.
@@ -49,7 +37,6 @@ class OAIPMHSpider(StatefulSpider):
     next harvest.
     """
     name = 'OAI-PMH'
-    granularity = _Granularity.DATE
 
     def __init__(
         self,
@@ -59,14 +46,12 @@ class OAIPMHSpider(StatefulSpider):
         alias=None,
         from_date=None,
         until_date=None,
-        granularity=_Granularity.DATE,
         *args, **kwargs
     ):
         super(OAIPMHSpider, self).__init__(*args, **kwargs)
         self.url = url
         self.metadata_prefix = metadata_prefix
         self.set = oai_set
-        self.granularity = granularity
         self.from_date = from_date
         self.until_date = until_date
 
@@ -91,7 +76,7 @@ class OAIPMHSpider(StatefulSpider):
         self._save_run(started_at)
 
         LOGGER.info("Harvesting completed. Next harvesting will resume from {}"
-                    .format(self.until_date or self.granularity.format(now)))
+                    .format(self.until_date or now.strftime('%Y-%m-%d')))
 
     def parse_record(self, record):
         """
@@ -164,7 +149,6 @@ class OAIPMHSpider(StatefulSpider):
             'url': self.url,
             'metadata_prefix': self.metadata_prefix,
             'set': self.set,
-            'granularity': self.granularity.value,
             'from_date': self.from_date,
             'until_date': self.until_date,
             'last_run_started_at': started_at.isoformat(),
@@ -189,4 +173,4 @@ class OAIPMHSpider(StatefulSpider):
             return None
         resume_at = last_run['until_date'] or last_run['last_run_finished_at']
         date_parsed = dateparser.parse(resume_at)
-        return self.granularity.format(date_parsed)
+        return date_parsed.strftime('%Y-%m-%d')
