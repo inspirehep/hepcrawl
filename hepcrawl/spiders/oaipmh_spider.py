@@ -67,7 +67,6 @@ class OAIPMHSpider(StatefulSpider):
         self.metadata_prefix = metadata_prefix
         self.set = oai_set
         self.granularity = granularity
-        self.alias = alias or self._make_alias()
         self.from_date = from_date
         self.until_date = until_date
 
@@ -121,8 +120,7 @@ class OAIPMHSpider(StatefulSpider):
             yield self.parse_record(selector)
 
     def _make_alias(self):
-        return '{url}?metadataPrefix={metadata_prefix}&set={set}'.format(
-            url=self.url,
+        return 'metadataPrefix={metadata_prefix}&set={set}'.format(
             metadata_prefix=self.metadata_prefix,
             set=self.set
         )

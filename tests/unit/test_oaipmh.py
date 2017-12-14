@@ -17,6 +17,9 @@ from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider, _Granularity
 from scrapy.utils.project import get_project_settings
 
 
+LAST_RUN_TEST_FILE_SHA1 = '4fabe0a2d2f3cb58e656f307b6290b3edd46acd6'
+
+
 def override_dynamic_fields(run):
     if 'last_run_finished_at' in run:
         run['last_run_finished_at'] = '2017-12-08T23:55:54.794969'
@@ -26,7 +29,7 @@ def override_dynamic_fields(run):
 @pytest.fixture(scope='function')
 def cleanup():
     yield
-    remove('/tmp/last_runs/OAI-PMH/2cea86bbc1d329b4273a29dc603fb8c0bb91439c.json')
+    remove('/tmp/last_runs/OAI-PMH/{}.json'.format(LAST_RUN_TEST_FILE_SHA1))
     rmdir('/tmp/last_runs/OAI-PMH')
     rmdir('/tmp/last_runs')
 
@@ -43,7 +46,7 @@ def settings():
 
 @pytest.fixture
 def spider(settings):
-    spider = OAIPMHSpider('http://export.arxiv.org/oai2', settings=settings)
+    spider = OAIPMHSpider('http://0.0.0.0/oai2', settings=settings)
     spider.from_date = '2017-12-08'
     spider.set = 'physics:hep-th'
     spider.metadata_prefix = 'marcxml'
@@ -51,7 +54,7 @@ def spider(settings):
 
 
 def test_last_run_file_path(spider):
-    expected = '/tmp/last_runs/OAI-PMH/2cea86bbc1d329b4273a29dc603fb8c0bb91439c.json'
+    expected = '/tmp/last_runs/OAI-PMH/{}.json'.format(LAST_RUN_TEST_FILE_SHA1)
     result = spider._last_run_file_path()
     assert expected == result
 
@@ -65,7 +68,7 @@ def test_store_and_load_last_run(spider, cleanup):
 
     expected = override_dynamic_fields({
         'spider': 'OAI-PMH',
-        'url': 'http://export.arxiv.org/oai2',
+        'url': 'http://0.0.0.0/oai2',
         'metadata_prefix': 'marcxml',
         'set': 'physics:hep-th',
         'granularity': 'YYYY-MM-DD',
