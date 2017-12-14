@@ -19,7 +19,6 @@ import json
 from os import path, makedirs
 
 from sickle import Sickle
-from sickle.models import Record
 from sickle.oaiexceptions import NoRecordsMatch
 
 from scrapy.http import Request, XmlResponse

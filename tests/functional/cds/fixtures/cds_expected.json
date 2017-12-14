@@ -1,57 +1,36 @@
 [
     {
-        "urls": [
+        "core": true,
+        "documents": [
             {
+                "url": "http://cds.cern.ch/record/1200752/files/MQW7_018.pdf",
+                "source": "CDS",
                 "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1200752/files/MQW7_018.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509577",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002842486CER",
-                "schema": "SPIRES"
+                "key": "MQW7_018.pdf"
             }
         ],
         "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
+        "_collections": [
+            "Literature"
         ],
-        "control_number": 1200752,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1200752"
-        },
-        "acquisition_source": {
-            "source": "CDS",
-            "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "High and very high energy gamma-ray emission from binaries"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS MQW7-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1200752"
             }
         ],
-        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -73,80 +52,62 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2009"
             }
         ],
-        "citeable": true
+        "acquisition_source": {
+            "source": "CDS",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.875113"
+        }
     },
     {
-        "urls": [
+        "core": true,
+        "documents": [
             {
+                "url": "http://cds.cern.ch/record/1200753/files/MQW7_019.pdf",
+                "source": "CDS",
                 "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1200753/files/MQW7_019.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509578",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002842487CER",
-                "schema": "SPIRES"
+                "key": "MQW7_019.pdf"
             }
         ],
         "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
+        "_collections": [
+            "Literature"
         ],
-        "control_number": 1200753,
         "collaborations": [
             {
                 "value": "Fermi LAT"
             }
         ],
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1200753"
-        },
-        "acquisition_source": {
-            "source": "CDS",
-            "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "GLAST: Launched and Being Commissioned - Status and Prospects for Microquasars"
             },
             {
+                "source": "CDS",
                 "title": "Fermi: Launched and Being Commissioned - Status and Prospects for Microquasars"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS MQW7-2009"
-            },
-            {
-                "value": "No authors"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1200753"
             }
         ],
-        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -168,69 +129,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1200754/files/MQW7_020.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509579",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002842488CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1200754,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1200754"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.951904"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1200754/files/MQW7_020.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "MQW7_020.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Hadronic models of high-energy radiation from microquasars: recent developments"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS MQW7-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1200754"
             }
         ],
-        "legacy_creation_date": "2009-08-17",
         "authors": [
             {
                 "affiliations": [
@@ -255,69 +200,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203280/files/NIC20X_104.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509595",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844587CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203280,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203280"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.984541"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203280/files/NIC20X_104.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NIC20X_104.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Studying matrix elements for the neutrinoless double beta decay of 150Nd via the 150Sm(t,3He)150Pm* and 150Nd(3He,t)150Pm* reactions"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203280"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -486,69 +415,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203281/files/NIC20X_107.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509596",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844588CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203281,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203281"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.019463"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203281/files/NIC20X_107.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NIC20X_107.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Untangling supernova-neutrino oscillations with beta-beam data"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203281"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -586,69 +499,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203361/files/NIC20X_109.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509597",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844668CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203361,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203361"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.058926"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203361/files/NIC20X_109.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NIC20X_109.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino oscillations in non-spherical supernova explosions"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203361"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -686,69 +583,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203362/files/NIC20X_116.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509598",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844669CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203362,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203362"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.091842"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203362/files/NIC20X_116.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NIC20X_116.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino Emission from Stellar Collapse including Hadron-Quark Mixed Phase"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203362"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -786,69 +667,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203363/files/NICX_122.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509599",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844670CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203363,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203363"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.125345"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203363/files/NICX_122.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_122.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Short neutrino burst from failed supernovae as a probe of dense matter with hyperon mixture"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203363"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -902,69 +767,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203364/files/NICX_123.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509600",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844671CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203364,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203364"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.158736"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203364/files/NICX_123.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_123.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino Nucleus Reactions and Nucleosynthesis in Stars"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203364"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1053,72 +902,57 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203365/files/NICX_243.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509601",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844672CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203365,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203365"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.193230"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203365/files/NICX_243.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_243.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino transport in 3D simulations of core-collapse supernovae"
             },
             {
+                "source": "CDS",
                 "title": "A new approach to neutrino transport in 3D simulations of core-collapse supernovae"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203365"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1134,7 +968,7 @@
                         "value": "Basel U."
                     }
                 ],
-                "full_name": "Liebend\u00f6rfer, M"
+                "full_name": "Liebendörfer, M"
             }
         ],
         "publication_info": [
@@ -1148,69 +982,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203366/files/NIC20X_128.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509602",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844673CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203366,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203366"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.228093"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203366/files/NIC20X_128.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NIC20X_128.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino-driven winds and nucleosynthesis"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203366"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1229,7 +1047,7 @@
                         "value": "Darmstadt, GSI"
                     }
                 ],
-                "full_name": "Mart\u00ednez-Pinedo, G"
+                "full_name": "Martínez-Pinedo, G"
             },
             {
                 "affiliations": [
@@ -1248,7 +1066,7 @@
                         "value": "Caltech"
                     }
                 ],
-                "full_name": "O\u2019Connor, E"
+                "full_name": "O’Connor, E"
             },
             {
                 "affiliations": [
@@ -1289,69 +1107,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203367/files/NICX_146.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509603",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844674CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203367,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203367"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.261882"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203367/files/NICX_146.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_146.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Nucleosynthesis in the Neutrino Driven Wind of Protoneutron Stars"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203367"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1397,72 +1199,57 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203369/files/NICX_226.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509604",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844676CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203369,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203369"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.296986"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203369/files/NICX_226.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_226.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "Neutrino effect in cosmology with the primordial magnetic field"
             },
             {
+                "source": "CDS",
                 "title": "Neutrino effects in cosmology with A primordial magnetic field"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203369"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1517,69 +1304,53 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
-    },
-    {
-        "urls": [
-            {
-                "description": "Published version from PoS",
-                "value": "http://cds.cern.ch/record/1203370/files/NICX_239.pdf"
-            }
-        ],
-        "external_system_identifiers": [
-            {
-                "value": "1509605",
-                "schema": "Inspire"
-            },
-            {
-                "value": "002844677CER",
-                "schema": "SPIRES"
-            }
-        ],
-        "curated": true,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
-                "license": "CC-BY-NC-SA-3.0"
-            }
-        ],
-        "control_number": 1203370,
-        "self": {
-            "$ref": "https://labs.inspirehep.net/api/literature/1203370"
-        },
         "acquisition_source": {
             "source": "CDS",
             "method": "hepcrawl",
-            "submission_number": "5652c7f6190f11e79e8000224dabeaad",
-            "datetime": "2017-04-03T10:26:40.365216"
-        },
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.330649"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1203370/files/NICX_239.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "NICX_239.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
         "inspire_categories": [
             {
-                "term": "Other"
+                "source": "cds",
+                "term": "Astrophysics"
             }
         ],
         "titles": [
             {
+                "source": "CDS",
                 "title": "A Strong Constraint on the Neutrino Mass from the Formation of Large Scale Structure in the Presence of the Primordial Magnetic Field"
             }
         ],
         "_private_notes": [
             {
-                "value": "SIS POS NIC X-2009"
-            },
-            {
-                "value": "Inspire"
+                "source": "CDS",
+                "value": "CDS-1203370"
             }
         ],
-        "legacy_creation_date": "2009-08-27",
         "authors": [
             {
                 "affiliations": [
@@ -1625,14 +1396,19 @@
         ],
         "$schema": "http://localhost/schemas/records/hep.json",
         "document_type": [
-            "article",
             "conference paper"
         ],
+        "citeable": true,
         "imprints": [
             {
                 "date": "2008"
             }
         ],
-        "citeable": true
+        "acquisition_source": {
+            "source": "CDS",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:04.366880"
+        }
     }
 ]
