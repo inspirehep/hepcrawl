@@ -129,6 +129,11 @@ OXFORD_UNPACK_FOLDER = "/eos/project/s/scoap3repo/BETA/harvesting/OUP/unpacked"
 SPRINGER_DOWNLOAD_DIR = "/eos/project/s/scoap3repo/BETA/harvesting/Springer/download"
 SPRINGER_UNPACK_FOLDER = "/eos/project/s/scoap3repo/BETA/harvesting/Springer/unpacked"
 
+# Location of last run information
+LAST_RUNS_PATH = os.environ.get(
+    'APP_LAST_RUNS_PATH',
+    '/eos/project/s/scoap3repo/last_run'
+)
 
 
 # Enable and configure the AutoThrottle extension (disabled by default)
