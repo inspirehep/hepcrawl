@@ -28,8 +28,6 @@ from ..loaders import HEPLoader
 from ..settings import LAST_RUNS_PATH
 from ..utils import get_license, get_nested, build_dict
 
-
-
 LOGGER = logging.getLogger(__name__)
 
 class APSSpider(Spider):
@@ -56,7 +54,8 @@ class APSSpider(Spider):
             else:
                 last_run = self._load_last_run()
                 if last_run:
-                    self.params['from'] = last_run['last_run_finished_at']
+                    f = last_run['last_run_finished_at'].split('T')[0]
+                    self.params['from'] = f
             if until_date:
                 self.params['until'] = until_date
             if date:
