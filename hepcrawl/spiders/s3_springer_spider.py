@@ -266,7 +266,7 @@ class S3SpringerSpider(Jats, XMLFeedSpider):
         #node.xpath("InstitutionalAuthor")
 
 
-   def parse_node(self, response, node):
+    def parse_node(self, response, node):
         """Parse a Springer XML file into a HEP record."""
         node.remove_namespaces()
         article_type = node.xpath('//Article/ArticleInfo/@ArticleType').extract()
