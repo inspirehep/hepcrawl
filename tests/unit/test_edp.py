@@ -587,7 +587,7 @@ def test_references(record_references_only):
         'journal_title': u'J. Nucl. Radiochem. Sci.',
         'journal_volume': u'10',
         'number': u'5a',
-        'raw_reference': u'<mixed-citation xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" publication-type="journal" id="a"><string-name><given-names>R.V.</given-names> <surname>Krishnan</surname></string-name>, <string-name><given-names>G.</given-names> <surname>Panneerselvam</surname></string-name>, <string-name><given-names>P.</given-names> <surname>Manikandan</surname></string-name> <string-name><given-names>M.P.</given-names> <surname>Antony</surname></string-name>, <string-name><given-names>K.</given-names> <surname>Nagarajan</surname></string-name>, <source>J. Nucl. Radiochem. Sci.</source>, <volume>10</volume>.<issue>1</issue>, <fpage>19</fpage>\u2013<lpage>26</lpage> (<year>2009</year>).</mixed-citation>',
+        'raw_reference': u'<mixed-citation publication-type="journal" id="a"><string-name><given-names>R.V.</given-names> <surname>Krishnan</surname></string-name>, <string-name><given-names>G.</given-names> <surname>Panneerselvam</surname></string-name>, <string-name><given-names>P.</given-names> <surname>Manikandan</surname></string-name> <string-name><given-names>M.P.</given-names> <surname>Antony</surname></string-name>, <string-name><given-names>K.</given-names> <surname>Nagarajan</surname></string-name>, <source>J. Nucl. Radiochem. Sci.</source>, <volume>10</volume>.<issue>1</issue>, <fpage>19</fpage>\u2013<lpage>26</lpage> (<year>2009</year>).</mixed-citation>',
         'year': u'2009'
     }
 

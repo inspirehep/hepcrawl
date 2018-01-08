@@ -20,8 +20,6 @@ from inspire_schemas.utils import split_page_artid
 from inspire_utils.date import PartialDate
 from inspire_utils.helpers import maybe_int, remove_tags
 
-from lxml import etree  # needed until a new release of parsel is made
-
 from ..utils import get_first, get_node
 
 
@@ -459,7 +457,6 @@ class JatsParser(object):
         else:
             root = jats_record
         root.remove_namespaces()
-        etree.cleanup_namespaces(root.root)
 
         return root
 
