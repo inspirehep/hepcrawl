@@ -146,10 +146,10 @@ class NLM(object):
 
         fpage = node.xpath(".//FirstPage/text()").extract_first()
         lpage = node.xpath(".//LastPage/text()").extract_first()
-        if fpage and lpage:
+        try:
             page_nr = str(int(lpage) - int(fpage) + 1)
-        else:
-            page_nr = ''
+        except (ValueError, TypeError):
+            page_nr = None
 
         return (
             fpage,

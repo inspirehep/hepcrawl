@@ -159,6 +159,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
             "fulltext": fulltext,
             "description": self.name.upper(),
             "url": file_path,
+            "key": os.path.basename(file_path),
         }
         return file_dict
 

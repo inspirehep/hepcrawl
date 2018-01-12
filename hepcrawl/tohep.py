@@ -243,7 +243,7 @@ def hepcrawl_to_hep(crawler_record):
     for author in crawler_record.get('authors', []):
         builder.add_author(builder.make_author(
             full_name=author['full_name'],
-            affiliations=_filter_affiliation(author['affiliations']),
+            affiliations=_filter_affiliation(author.get('affiliations', [])),
         ))
 
     for title in crawler_record.get('titles', []):
