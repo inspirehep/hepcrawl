@@ -229,13 +229,6 @@ def hepcrawl_to_hep(crawler_record):
             :class:`inspire_schemas.api.validate`).
     """
 
-    def _filter_affiliation(affiliations):
-        return [
-            affilation.get('value')
-            for affilation in affiliations
-            if affilation.get('value')
-        ]
-
     builder = LiteratureBuilder(
         source=crawler_record['acquisition_source']['source']
     )
@@ -243,7 +236,10 @@ def hepcrawl_to_hep(crawler_record):
     for author in crawler_record.get('authors', []):
         builder.add_author(builder.make_author(
             full_name=author['full_name'],
-            affiliations=_filter_affiliation(author.get('affiliations', [])),
+            affiliations=(
+                affiliation.get('value')
+                for affiliation in author.get('affiliations', [])
+            ),
         ))
 
     for title in crawler_record.get('titles', []):
