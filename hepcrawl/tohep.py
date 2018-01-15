@@ -324,6 +324,7 @@ def hepcrawl_to_hep(crawler_record):
         'introductory',
         'lectures',
         'review',
+        'manual',
     ]
 
     document_types = [
