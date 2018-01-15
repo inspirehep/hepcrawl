@@ -298,10 +298,10 @@ def test_publication_info(generated_record, expected_publication_info):
             get_one_record('world_scientific/sample_ws_record.xml'),
             [
                 {
-                    'full_name': u'BI, DONGQIN',
+                    'full_name': u'Bi, Dongqin',
                 },
                 {
-                    'full_name': u'BOSCHLOO, GERRIT',
+                    'full_name': u'Boschloo, Gerrit',
                     'raw_affiliations': [{
                         'source': 'WSP',
                         'value': u'Physics Department, Brookhaven National Laboratory, Upton, NY 11973, USA'
@@ -309,7 +309,7 @@ def test_publication_info(generated_record, expected_publication_info):
                 },
                 {
                     'emails': [u'anders.hagfeldt@kemi.uu.se'],
-                    'full_name': u'HAGFELDT, ANDERS',
+                    'full_name': u'Hagfeldt, Anders',
                 }],
         ],
     ],
@@ -413,7 +413,7 @@ def test_pipeline_record(generated_record):
         'authors': [
             {
                 'emails': ['name_1@domain.com'],
-                'full_name': 'author_surname_2, author_name_1',
+                'full_name': 'Author_surname_2, Author_name_1',
                 'raw_affiliations': [
                     {
                         'source': 'WSP',

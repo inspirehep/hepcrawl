@@ -18,7 +18,7 @@
             "value": "Department, University, City, City_code 123456, C. R. Country_2"
         }],
         "emails": ["name_1@domain.com"],
-        "full_name": "author_surname_2, author_name_1"
+        "full_name": "Author_surname_2, Author_name_1"
     }],
     "titles": [{
         "source": "WSP",
@@ -86,7 +86,7 @@
                 "value": "Department, University, City, City_code 123456, C. R. Country_1"
             }],
             "emails": ["name_1@domain.com"],
-            "full_name": "author_surname_1, author_name_1"
+            "full_name": "Author_surname_1, Author_name_1"
         },
         {
             "raw_affiliations": [{
@@ -94,7 +94,7 @@
                 "value": "Department, University, City, City_code 123456, C. R. Country_1"
             }],
             "emails": ["name_2@domain.com"],
-            "full_name": "author_surname_2, author_name_2"
+            "full_name": "Author_surname_2, Author_name_2"
         }
     ],
     "titles": [{
