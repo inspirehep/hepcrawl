@@ -19,7 +19,7 @@ import requests
 from scrapy.http import Request
 from scrapy.spiders import XMLFeedSpider
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (

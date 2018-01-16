@@ -18,7 +18,7 @@ import tempfile
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..parsers import JatsParser
 from ..utils import (
     ftp_list_files,

@@ -14,7 +14,7 @@ from flask.app import Flask
 from inspire_dojson import marcxml2record
 from os.path import join as path_join
 
-from .oaipmh_spider import OAIPMHSpider
+from .common import OAIPMHSpider
 from ..utils import ParsedItem
 
 

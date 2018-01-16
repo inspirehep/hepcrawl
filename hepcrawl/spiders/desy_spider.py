@@ -18,7 +18,7 @@ from lxml import etree
 from scrapy import Request
 from six.moves import urllib
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..utils import (
     ftp_list_files,
     ftp_connection_info,

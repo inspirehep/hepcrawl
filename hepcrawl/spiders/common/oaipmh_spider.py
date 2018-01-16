@@ -23,7 +23,7 @@ from sickle.oaiexceptions import NoRecordsMatch
 
 from scrapy.http import Request, XmlResponse
 from scrapy.selector import Selector
-from . import StatefulSpider
+from .stateful_spider import StatefulSpider
 
 
 LOGGER = logging.getLogger(__name__)

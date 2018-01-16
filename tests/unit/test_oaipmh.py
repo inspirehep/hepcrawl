@@ -11,7 +11,7 @@ from datetime import datetime
 from mock import patch
 import pytest
 
-from hepcrawl.spiders.oaipmh_spider import OAIPMHSpider, NoLastRunToLoad
+from hepcrawl.spiders.common.oaipmh_spider import OAIPMHSpider, NoLastRunToLoad
 from hepcrawl.testlib.fixtures import clean_dir
 from scrapy.utils.project import get_project_settings
 
