@@ -26,6 +26,7 @@ from ..utils import get_node
 NLM_OBJECT_TYPE_TO_HEP_MAP = {
     'Erratum': 'erratum',
     'Reprint': 'reprint',
+    'Republished': 'reprint',
     'Update': 'addendum',
     'Dataset': 'data',
 }
