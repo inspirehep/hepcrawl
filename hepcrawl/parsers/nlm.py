@@ -30,6 +30,9 @@ NLM_OBJECT_TYPE_TO_HEP_MAP = {
     'Update': 'addendum',
     'Dataset': 'data',
 }
+"""Mapping from Object/@Type to HEP material.
+See: https://www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.Object_O
+"""
 
 
 class NLMParser(object):
@@ -190,8 +193,14 @@ class NLMParser(object):
     def material(self):
         object_type = self.root.xpath('Object/@Type').extract_first()
 
+        # See: www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.Object_O
         if object_type in NLM_OBJECT_TYPE_TO_HEP_MAP:
             return NLM_OBJECT_TYPE_TO_HEP_MAP[object_type]
+
+        pub_type = self.root.xpath('./PublicationType/text()').extract_first()
+        # See: www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.PublicationType_O
+        if pub_type == 'Published Erratum':
+            return 'erratum'
 
         return 'publication'
 
