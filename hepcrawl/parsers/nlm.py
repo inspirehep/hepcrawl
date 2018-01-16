@@ -81,6 +81,10 @@ class NLMParser(object):
         Args:
             nlm_records (Union[string, scrapy.selector.Selector]): records
             source (Optional[string]): source passed to `__init__`
+
+        Returns:
+            List[dict]: list of HEP records, each corresponding to an Article
+                in the provided ArticleSet
         """
         root = cls.get_root_node(nlm_records)
         nlm_records = root.xpath('/ArticleSet/Article').extract()
