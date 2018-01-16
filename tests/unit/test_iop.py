@@ -87,7 +87,7 @@ def test_free_keywords(record):
 def test_dois(record):
     """Test extracting dois."""
     assert record["dois"]
-    assert record["dois"][0]["value"] == '110.1309/AJCP4D7RXOBHLKGJ'
+    assert record["dois"][0]["value"] == '10.1309/AJCP4D7RXOBHLKGJ'
 
 
 def test_collections(record):
