@@ -17,7 +17,7 @@ readme = open('README.rst').read()
 
 install_requires = [
     'autosemver~=0.2',
-    'inspire-schemas~=56.0',
+    'inspire-schemas~=57.0',
     'inspire-dojson~=57.0',
     'inspire-utils~=2.0,>=2.0.2',
     'Scrapy>=1.1.0',
