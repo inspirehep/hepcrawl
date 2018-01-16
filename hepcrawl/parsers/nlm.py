@@ -324,11 +324,7 @@ class NLMParser(object):
             day = node.xpath('./Day/text()').extract_first()
             month = node.xpath('./Month/text()').extract_first()
             year = node.xpath('./Year/text()').extract_first()
-            return PartialDate(
-                maybe_int(year),
-                maybe_int(month),
-                maybe_int(day)
-            )
+            return PartialDate.from_parts(year, month, day)
         except ValueError:
             return None
 
