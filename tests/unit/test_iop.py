@@ -117,29 +117,6 @@ def test_publication_info(record):
     assert record["journal_issn"][0] == journal_issn
 
 
-def test_authors(record):
-    """Test authors."""
-    authors = ['Roth, Rachel M', 'Hampel, Heather', 'Arnold, Christina A',
-               'Yearsley, Martha M', 'Marsh, William L', 'Frankel, Wendy L']
-
-    affiliations = [
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Human Genetics, The Ohio State University Wexner Medical Center Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'},
-         {'value': u'Department of Microbiology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'},
-         {'value': u'Department of Human Genetics, The Ohio State University Wexner Medical Center, Columbus'}]
-    ]
-
-    assert "authors" in record
-    assert len(record["authors"]) == 6
-    for index, (name, aff) in enumerate(zip(authors, affiliations)):
-        assert record["authors"][index]["full_name"] == name
-        assert record["authors"][index]["affiliations"] == aff
-
-
 def test_copyrights(record):
     """Test extracting copyright."""
     copyright_holder = "American Society for Clinical Pathology"

@@ -71,7 +71,23 @@
          Columbus</Affiliation>  
                </AffiliationInfo>
             </Author>
+            <Author>
+                <CollectiveName>Cancer Genome Center</CollectiveName>
+            </Author>
         </AuthorList>
+        <GroupList>
+            <Group>
+                <GroupName>Cancer Genome Center</GroupName>
+                <IndividualName>
+                    <FirstName>John</FirstName>
+                    <LastName>Smith</LastName>
+                </IndividualName>
+                <IndividualName>
+                    <FirstName>Mary</FirstName>
+                    <LastName>Jones</LastName>
+                </IndividualName>
+            </Group>
+        </GroupList>
         <PublicationType>Journal Article</PublicationType>
         <ArticleIdList>
             <ArticleId IdType="pii">j143/3/336</ArticleId>
