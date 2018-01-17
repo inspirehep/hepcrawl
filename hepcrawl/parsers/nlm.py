@@ -17,7 +17,7 @@ from itertools import chain
 
 from inspire_schemas.api import LiteratureBuilder
 from inspire_utils.date import PartialDate
-from inspire_utils.helpers import maybe_int
+from inspire_utils.helpers import remove_tags
 from inspire_utils.name import ParsedName
 
 from ..utils import get_node
@@ -99,7 +99,19 @@ class NLMParser(object):
 
     @property
     def abstract(self):
-        return self.root.xpath('normalize-space(./Abstract)').extract_first()
+        abstract_node = self.root.xpath('./Abstract')
+
+        if not abstract_node:
+            return None
+
+        abstract = self.normalize_space(
+            remove_tags(
+                abstract_node[0],
+                allowed_tags=['sup', 'sub'],
+                allowed_trees=['math'],
+            )
+        )
+        return abstract
 
     @property
     def title(self):

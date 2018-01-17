@@ -1,12 +1,10 @@
-abstract: Somatic BRAF mutation in colon cancer essentially excludes Lynch
-  syndrome. We compared BRAF V600E immunohistochemistry (IHC) with BRAF
-  mutation in core, biopsy, and whole-section slides to determine whether
-  IHC is similar and to assess the cost-benefit of IHC. Resection cases
-  (2009-2013) with absent MLH1 and PMS2 and prior BRAF mutation polymerase
-  chain reaction results were chosen (n = 57). To mimic biopsy specimens,
-  tissue microarrays (TMAs) were constructed. In addition, available biopsies
-  performed prior to the resection were available in 15 cases. BRAF V600E IHC
-  was performed and graded on TMAs, available biopsy specimens, and
+abstract: This is a sample text containing maths,
+  <math><int/><mfrac><mi>f(x)</mi><mi>1+x</mi></mfrac><mi>dx</mi></math> and <sup>superscript text</sup>.
+  Resection cases (2009-2013) with absent MLH1 and PMS2 and prior BRAF mutation
+  polymerase chain reaction results were chosen (n = 57). To mimic biopsy
+  specimens, tissue microarrays (TMAs) were constructed. In addition, available
+  biopsies performed prior to the resection were available in 15 cases. BRAF
+  V600E IHC was performed and graded on TMAs, available biopsy specimens, and
   whole-section slides. Mutation status was compared with IHC, and
   cost-benefit analysis was performed. BRAF V600E IHC was similar in TMAs,
   biopsy specimens, and whole-section slides, with only four (7%) showing

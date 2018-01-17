@@ -46,12 +46,6 @@ def record():
     return parsed_item.record
 
 
-def test_abstract(record):
-    """Test extracting abstract."""
-    assert "abstract" in record
-    assert record["abstract"].startswith("Somatic BRAF mutation")
-
-
 def test_title(record):
     """Test extracting title."""
     title = 'A Modified Lynch Syndrome Screening Algorithm in Colon Cancer: BRAF Immunohistochemistry Is Efficacious and Cost Beneficial.'
