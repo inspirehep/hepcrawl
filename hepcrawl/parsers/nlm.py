@@ -124,7 +124,9 @@ class NLMParser(object):
         For list of NLM PublicationTypes see:
         www.ncbi.nlm.nih.gov/books/NBK3828/#publisherhelp.PublicationType_O
         """
-        pub_type = self.root.xpath('./PublicationType/text()').extract_first()
+        pub_type = self.root.xpath(
+            './PublicationType/text()'
+        ).extract_first(default='')
 
         if 'Conference' in pub_type or pub_type == 'Congresses':
             return 'proceedings'
