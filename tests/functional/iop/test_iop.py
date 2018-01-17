@@ -103,5 +103,6 @@ def test_iop(expected_results, config):
         expected_results,
         key=lambda x: x['titles'][0]['title']
     )
-
+    import json
+    json.dump(gotten_results, open('x.json', 'w'))
     assert gotten_results == expected_results

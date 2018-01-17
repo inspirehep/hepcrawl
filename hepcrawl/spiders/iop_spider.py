@@ -19,13 +19,11 @@ from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
 from . import StatefulSpider
-from ..extractors.nlm import NLM
-from ..items import HEPRecord
-from ..loaders import HEPLoader
+from ..parsers import NLMParser
 from ..utils import ParsedItem
 
 
-class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
+class IOPSpider(StatefulSpider, XMLFeedSpider):
     """IOPSpider crawler.
 
     This spider should first be able to harvest files from `IOP STACKS`_.
@@ -152,7 +150,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
             if pattern in pdf_path:
                 return os.path.join(self.pdf_files, pdf_path)
 
-    def add_document(self, file_path, hidden, fulltext):
+    def make_document(self, file_path, hidden, fulltext):
         """Create a structured dictionary and add to 'files' item."""
         file_dict = {
             "hidden": hidden,
@@ -164,72 +162,40 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
         return file_dict
 
     def parse_node(self, response, node):
-        """Parse the record XML and create a HEPRecord."""
-        record = HEPLoader(item=HEPRecord(), selector=node, response=response)
+        """Parse individual Article nodes to create a HEPRecord."""
+        parser = NLMParser(node, source='IOP')
 
-        pub_status = self.get_pub_status(node)
-        if pub_status in {"aheadofprint", "received"}:
-            return None
-
-        fpage, lpage, page_nr = self.get_page_numbers(node)
-        volume = node.xpath(".//Journal/Volume/text()").extract_first()
-        issue = node.xpath(".//Journal/Issue/text()").extract_first()
-
-        record.add_value("journal_fpage", fpage)
-        record.add_value("journal_lpage", lpage)
-        record.add_xpath('abstract', ".//Abstract")
-        record.add_xpath("title", ".//ArticleTitle")
-        record.add_value('authors', self.get_authors(node))
-        journal_title = node.xpath(
-            ".//Journal/JournalTitle/text()").extract_first()
-        record.add_value("journal_title", journal_title)
-        record.add_value("journal_issue", issue)
-        record.add_value("journal_volume", volume)
-        record.add_xpath("journal_issn", ".//Journal/Issn/text()")
-        record.add_dois(dois_values=self.get_dois(node))
-
-        journal_year = node.xpath(".//Journal/PubDate/Year/text()").extract()
-        if journal_year:
-            record.add_value("journal_year", int(journal_year[0]))
-
-        record.add_xpath("language", ".//Language/text()")
-        record.add_value("page_nr", page_nr)
-        record.add_value('date_published', self.get_date_published(node))
-        record.add_xpath('copyright_statement',
-                         "./CopyrightInformation/text()")
-        record.add_xpath('copyright_holder', "//Journal/PublisherName/text()")
-        record.add_xpath(
-            'free_keywords', "ObjectList/Object[@Type='keyword']/Param[@Name='value']/text()")
-
-        record.add_xpath("related_article_doi", "//Replaces[@IdType='doi']/text()")
-        doctype = self.get_doctype(node)  # FIXME: should these be mapped?
-        record.add_value("journal_doctype", doctype)
-        record.add_value('collections', self.get_collections(doctype))
-
-        xml_file_path = response.url
-        record.add_value(
-            "documents",
-            self.add_document(xml_file_path, hidden=True, fulltext=True),
+        xml_document = self.make_document(
+            file_path=response.url,
+            hidden=True,
+            fulltext=False,
         )
+        parser.builder.add_document(**xml_document)
+
         if self.pdf_files:
-            pdf_file_path = self.get_pdf_path(volume, issue, fpage)
+            pdf_file_path = self.get_pdf_path(
+                parser.journal_volume,
+                parser.journal_issue,
+                parser.page_start
+            )
             if pdf_file_path:
-                if doctype and "erratum" in doctype.lower():
+                if parser.material == "erratum":
                     fulltext = False
                 else:
-                    fulltext = True
-                if journal_title in self.OPEN_ACCESS_JOURNALS:
+                    fulltext = True  # FIXME
+                if parser.journal_title in self.OPEN_ACCESS_JOURNALS:
                     hidden = False
                 else:
                     hidden = True
-                record.add_value(
-                    "documents",
-                    self.add_document(pdf_file_path, hidden=hidden, fulltext=fulltext),
+
+                pdf_document = self.make_document(
+                    file_path=pdf_file_path,
+                    hidden=hidden,
+                    fulltext=fulltext
                 )
+                parser.builder.add_document(**pdf_document)
 
-        parsed_item = ParsedItem(
-            record=record.load_item(),
-            record_format='hepcrawl',
+        return ParsedItem(
+            record=parser.parse(),
+            record_format='hep',
         )
-
-        return parsed_item
