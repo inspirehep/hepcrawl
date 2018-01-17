@@ -73,7 +73,8 @@ class NLMParser(object):
             self.builder.add_doi(**doi)
         for keyword in self.keywords:
             self.builder.add_keyword(keyword)
-        self.builder.add_imprint_date(self.print_publication_date.dumps())
+        if self.print_publication_date:
+            self.builder.add_imprint_date(self.print_publication_date.dumps())
 
         return self.builder.record
 
@@ -174,7 +175,7 @@ class NLMParser(object):
             'material': self.material,
             'page_start': self.page_start,
             'page_end': self.page_end,
-            'year': pub_date.year,
+            'year': pub_date.year if pub_date else None,
         }
 
         return publication_info
