@@ -1,0 +1,2100 @@
+abstract: We analyze the parametric structure of twin Higgs (TH) theories and assess the gain in fine tuning which they enable compared to extensions of the standard model with colored top partners. Estimates show that, at least in the simplest realizations of the TH idea, the separation between the mass of new colored particles and the electroweak scale is controlled by the coupling strength of the underlying UV theory, and that a parametric gain is achieved only for strongly-coupled dynamics. Motivated by this consideration we focus on one of these simple realizations, namely composite TH theories, and study how well such constructions can reproduce electroweak precision data. The most important effect of the twin states is found to be the infrared contribution to the Higgs quartic coupling, while direct corrections to electroweak observables are subleading and negligible. We perform a careful fit to the electroweak data including the leading-logarithmic corrections to the Higgs quartic up to three loops. Our analysis shows that agreement with electroweak precision tests can be achieved with only a moderate amount of tuning, in the range 5%–10%, in theories where colored states have mass of order 3–5 TeV and are thus out of reach of the LHC. For these levels of tuning, larger masses are excluded by a perturbativity bound, which makes these theories possibly discoverable, hence falsifiable, at a future 100 TeV collider.
+copyright_holder: authors
+copyright_statement: Published by the American Physical Society
+copyright_year: 2017
+document_type: article
+license_url: https://creativecommons.org/licenses/by/4.0/
+license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 4.0 International license. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI.
+article_type: research-article
+journal_title: Physical Review D
+material: publication
+publisher: American Physical Society
+year: 2017
+authors:
+- raw_affiliations:
+  - source: American Physical Society
+    value: Scuola Normale Superiore and INFN, Pisa IT-56125, Italy
+  full_name: Contino, Roberto
+- raw_affiliations:
+  - source: American Physical Society
+    value: Theoretical Particle Physics Laboratory, Institute of Physics, EPFL, Lausanne
+      CH-1015, Switzerland
+  full_name: Greco, Davide
+- raw_affiliations:
+  - source: American Physical Society
+    value: Theoretical Physics Department, CERN, Geneva CH-1211, Switzerland
+  full_name: Mahbubani, Rakhi
+- raw_affiliations:
+  - source: American Physical Society
+    value: Theoretical Particle Physics Laboratory, Institute of Physics, EPFL, Lausanne
+      CH-1015, Switzerland
+  full_name: Rattazzi, Riccardo
+- raw_affiliations:
+  - source: American Physical Society
+    value: Theoretical Particle Physics Laboratory, Institute of Physics, EPFL, Lausanne
+      CH-1015, Switzerland
+  full_name: Torre, Riccardo
+artid: '095036'
+title: Precision tests and fine tuning in twin Higgs models
+number_of_pages: 31
+dois:
+- material: publication
+  doi: 10.1103/PhysRevD.96.095036
+journal_volume: '96'
+journal_issue: '9'
+is_conference_paper: false
+publication_date: 2017-11-01
+documents:
+- key: PhysRevD.96.095036.xml
+  url: http://example.org/PhysRevD.96.095036.xml
+  source: American Physical Society
+  fulltext: true
+  hidden: true
+references:
+- reference:
+    publication_info:
+      journal_volume: '96'
+      year: 2006
+      artid: '231802'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Chacko, Z.
+    - inspire_role: author
+      full_name: Goh, H.-S.
+    - inspire_role: author
+      full_name: Harnik, R.
+    title:
+      title: 'The Twin Higgs: Natural Electroweak Breaking from Mirror Symmetry'
+    label: '1'
+    dois:
+    - 10.1103/PhysRevLett.96.231802
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c1"><label>[1]</label><mixed-citation publication-type="journal"><object-id>1</object-id><person-group
+      person-group-type="author"><string-name>Z. Chacko</string-name>, <string-name>H.-S.
+      Goh</string-name>, and <string-name>R. Harnik</string-name></person-group>,
+      <article-title>The Twin Higgs: Natural Electroweak Breaking from Mirror Symmetry</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>96</volume>, <page-range>231802</page-range>
+      (<year>2006</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.96.231802</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Gregoire, T.
+    - inspire_role: author
+      full_name: Hall, L.J.
+    title:
+      title: Mirror world at the large hadron collider
+    label: '2'
+    arxiv_eprint: hep-ph/0509242
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c2"><label>[2]</label><mixed-citation publication-type="eprint"><object-id>2</object-id><person-group
+      person-group-type="author"><string-name>R. Barbieri</string-name>, <string-name>T.
+      Gregoire</string-name>, and <string-name>L. J. Hall</string-name></person-group>,
+      <article-title>Mirror world at the large hadron collider</article-title>, <pub-id
+      pub-id-type="arxiv">arXiv:hep-ph/0509242</pub-id>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2006'
+      page_start: '126'
+      journal_issue: '01'
+      artid: '126'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Chacko, Z.
+    - inspire_role: author
+      full_name: Nomura, Y.
+    - inspire_role: author
+      full_name: Papucci, M.
+    - inspire_role: author
+      full_name: Perez, G.
+    title:
+      title: Natural little hierarchy from a partially Goldstone twin Higgs
+    label: '3'
+    dois:
+    - 10.1088/1126-6708/2006/01/126
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c3"><label>[3]</label><mixed-citation publication-type="journal"><object-id>3</object-id><person-group
+      person-group-type="author"><string-name>Z. Chacko</string-name>, <string-name>Y.
+      Nomura</string-name>, <string-name>M. Papucci</string-name>, and <string-name>G.
+      Perez</string-name></person-group>, <article-title>Natural little hierarchy
+      from a partially Goldstone twin Higgs</article-title>, <source>J. High Energy
+      Phys.</source> <issue>01</issue> (<volume>2006</volume>) <page-range>126</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1088/1126-6708/2006/01/126</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2006'
+      page_start: '108'
+      journal_issue: '01'
+      artid: '108'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Chacko, Z.
+    - inspire_role: author
+      full_name: Goh, H.-S.
+    - inspire_role: author
+      full_name: Harnik, R.
+    title:
+      title: A twin Higgs model from left-right symmetry
+    label: '4'
+    dois:
+    - 10.1088/1126-6708/2006/01/108
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c4"><label>[4]</label><mixed-citation publication-type="journal"><object-id>4</object-id><person-group
+      person-group-type="author"><string-name>Z. Chacko</string-name>, <string-name>H.-S.
+      Goh</string-name>, and <string-name>R. Harnik</string-name></person-group>,
+      <article-title>A twin Higgs model from left-right symmetry</article-title>,
+      <source>J. High Energy Phys.</source> <issue>01</issue> (<volume>2006</volume>)
+      <page-range>108</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1088/1126-6708/2006/01/108</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '75'
+      year: 2007
+      artid: 035009
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Chang, S.
+    - inspire_role: author
+      full_name: Hall, L.J.
+    - inspire_role: author
+      full_name: Weiner, N.
+    title:
+      title: A supersymmetric twin Higgs
+    label: '5'
+    dois:
+    - 10.1103/PhysRevD.75.035009
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c5"><label>[5]</label><mixed-citation publication-type="journal"><object-id>5</object-id><person-group
+      person-group-type="author"><string-name>S. Chang</string-name>, <string-name>L. J.
+      Hall</string-name>, and <string-name>N. Weiner</string-name></person-group>,
+      <article-title>A supersymmetric twin Higgs</article-title>, <source>Phys. Rev.
+      D</source> <volume>75</volume>, <page-range>035009</page-range> (<year>2007</year>).<pub-id
+      pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevD.75.035009</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '79'
+      year: 2009
+      artid: 095012
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Batra, P.
+    - inspire_role: author
+      full_name: Chacko, Z.
+    title:
+      title: A composite twin Higgs model
+    label: '6'
+    dois:
+    - 10.1103/PhysRevD.79.095012
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c6"><label>[6]</label><mixed-citation publication-type="journal"><object-id>6</object-id><person-group
+      person-group-type="author"><string-name>P. Batra</string-name> and <string-name>Z.
+      Chacko</string-name></person-group>, <article-title>A composite twin Higgs model</article-title>,
+      <source>Phys. Rev. D</source> <volume>79</volume>, <page-range>095012</page-range>
+      (<year>2009</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.79.095012</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2014'
+      page_start: '140'
+      journal_issue: '03'
+      artid: '140'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Howe, K.
+    title:
+      title: Doubling down on naturalness with a supersymmetric twin Higgs
+    label: '7'
+    dois:
+    - 10.1007/JHEP03(2014)140
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c7"><label>[7]</label><mixed-citation publication-type="journal"><object-id>7</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name> and <string-name>K.
+      Howe</string-name></person-group>, <article-title>Doubling down on naturalness
+      with a supersymmetric twin Higgs</article-title>, <source>J. High Energy Phys.</source>
+      <issue>03</issue> (<volume>2014</volume>) <page-range>140</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP03(2014)140</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '114'
+      year: 2015
+      artid: 061803
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Knapen, S.
+    - inspire_role: author
+      full_name: Longhi, P.
+    title:
+      title: Neutral Naturalness from Orbifold Higgs Models
+    label: '8'
+    dois:
+    - 10.1103/PhysRevLett.114.061803
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c8"><label>[8]</label><mixed-citation publication-type="journal"><object-id>8</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name>, <string-name>S.
+      Knapen</string-name>, and <string-name>P. Longhi</string-name></person-group>,
+      <article-title>Neutral Naturalness from Orbifold Higgs Models</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>114</volume>, <page-range>061803</page-range>
+      (<year>2015</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.114.061803</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '114'
+      year: 2015
+      artid: '191801'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Geller, M.
+    - inspire_role: author
+      full_name: Telem, O.
+    title:
+      title: Holographic Twin Higgs Model
+    label: '9'
+    dois:
+    - 10.1103/PhysRevLett.114.191801
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c9"><label>[9]</label><mixed-citation publication-type="journal"><object-id>9</object-id><person-group
+      person-group-type="author"><string-name>M. Geller</string-name> and <string-name>O.
+      Telem</string-name></person-group>, <article-title>Holographic Twin Higgs Model</article-title>,
+      <source>Phys. Rev. Lett.</source> <volume>114</volume>, <page-range>191801</page-range>
+      (<year>2015</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.114.191801</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '91'
+      year: 2015
+      artid: '055007'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Burdman, G.
+    - inspire_role: author
+      full_name: Chacko, Z.
+    - inspire_role: author
+      full_name: Harnik, R.
+    - inspire_role: author
+      full_name: de Lima, L.
+    - inspire_role: author
+      full_name: Verhaaren, C.B.
+    title:
+      title: Colorless top partners, a 125 GeV Higgs, and the limits on naturalness
+    label: '10'
+    dois:
+    - 10.1103/PhysRevD.91.055007
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c10"><label>[10]</label><mixed-citation publication-type="journal"><object-id>10</object-id><person-group
+      person-group-type="author"><string-name>G. Burdman</string-name>, <string-name>Z.
+      Chacko</string-name>, <string-name>R. Harnik</string-name>, <string-name>L.
+      de Lima</string-name>, and <string-name>C. B. Verhaaren</string-name></person-group>,
+      <article-title>Colorless top partners, a 125 GeV Higgs, and the limits on naturalness</article-title>,
+      <source>Phys. Rev. D</source> <volume>91</volume>, <page-range>055007</page-range>
+      (<year>2015</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.91.055007</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '106'
+      journal_issue: '03'
+      artid: '106'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Knapen, S.
+    - inspire_role: author
+      full_name: Longhi, P.
+    title:
+      title: The orbifold Higgs
+    label: '11'
+    dois:
+    - 10.1007/JHEP03(2015)106
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c11"><label>[11]</label><mixed-citation publication-type="journal"><object-id>11</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name>, <string-name>S.
+      Knapen</string-name>, and <string-name>P. Longhi</string-name></person-group>,
+      <article-title>The orbifold Higgs</article-title>, <source>J. High Energy Phys.</source>
+      <issue>03</issue> (<volume>2015</volume>) <page-range>106</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP03(2015)106</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '105'
+      journal_issue: '07'
+      artid: '105'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Katz, A.
+    - inspire_role: author
+      full_name: Strassler, M.
+    - inspire_role: author
+      full_name: Sundrum, R.
+    title:
+      title: Naturalness in the dark at the LHC
+    label: '12'
+    dois:
+    - 10.1007/JHEP07(2015)105
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c12"><label>[12]</label><mixed-citation publication-type="journal"><object-id>12</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name>, <string-name>A.
+      Katz</string-name>, <string-name>M. Strassler</string-name>, and <string-name>R.
+      Sundrum</string-name></person-group>, <article-title>Naturalness in the dark
+      at the LHC</article-title>, <source>J. High Energy Phys.</source> <issue>07</issue>
+      (<volume>2015</volume>) <page-range>105</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2015)105</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '161'
+      journal_issue: 08
+      artid: '161'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Greco, D.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: The composite twin Higgs scenario
+    label: '13'
+    dois:
+    - 10.1007/JHEP08(2015)161
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c13"><label>[13]</label><mixed-citation publication-type="journal"><object-id>13</object-id><person-group
+      person-group-type="author"><string-name>R. Barbieri</string-name>, <string-name>D.
+      Greco</string-name>, <string-name>R. Rattazzi</string-name>, and <string-name>A.
+      Wulzer</string-name></person-group>, <article-title>The composite twin Higgs
+      scenario</article-title>, <source>J. High Energy Phys.</source> <issue>08</issue>
+      (<volume>2015</volume>) <page-range>161</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP08(2015)161</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '108'
+      journal_issue: '03'
+      artid: '108'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Low, M.
+    - inspire_role: author
+      full_name: Tesi, A.
+    - inspire_role: author
+      full_name: Wang, L.-T.
+    title:
+      title: The twin Higgs mechanism and composite Higgs
+    label: '14'
+    dois:
+    - 10.1007/JHEP03(2016)108
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c14"><label>[14]</label><mixed-citation publication-type="journal"><object-id>14</object-id><person-group
+      person-group-type="author"><string-name>M. Low</string-name>, <string-name>A.
+      Tesi</string-name>, and <string-name>L.-T. Wang</string-name></person-group>,
+      <article-title>The twin Higgs mechanism and composite Higgs</article-title>,
+      <source>J. High Energy Phys.</source> <issue>03</issue> (<volume>2016</volume>)
+      <page-range>108</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP03(2016)108</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '93'
+      year: 2016
+      artid: '055044'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Curtin, D.
+    - inspire_role: author
+      full_name: Saraswat, P.
+    title:
+      title: Towards a no-lose theorem for naturalness
+    label: '15'
+    dois:
+    - 10.1103/PhysRevD.93.055044
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c15"><label>[15]</label><mixed-citation publication-type="journal"><object-id>15</object-id><person-group
+      person-group-type="author"><string-name>D. Curtin</string-name> and <string-name>P.
+      Saraswat</string-name></person-group>, <article-title>Towards a no-lose theorem
+      for naturalness</article-title>, <source>Phys. Rev. D</source> <volume>93</volume>,
+      <page-range>055044</page-range> (<year>2016</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.93.055044</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '146'
+      journal_issue: 09
+      artid: '146'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Csaki, C.
+    - inspire_role: author
+      full_name: Geller, M.
+    - inspire_role: author
+      full_name: Telem, O.
+    - inspire_role: author
+      full_name: Weiler, A.
+    title:
+      title: The flavor of the composite twin Higgs
+    label: '16'
+    dois:
+    - 10.1007/JHEP09(2016)146
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c16"><label>[16]</label><mixed-citation publication-type="journal"><object-id>16</object-id><person-group
+      person-group-type="author"><string-name>C. Csaki</string-name>, <string-name>M.
+      Geller</string-name>, <string-name>O. Telem</string-name>, and <string-name>A.
+      Weiler</string-name></person-group>, <article-title>The flavor of the composite
+      twin Higgs</article-title>, <source>J. High Energy Phys.</source> <issue>09</issue>
+      (<volume>2016</volume>) <page-range>146</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP09(2016)146</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '002'
+      journal_issue: '07'
+      artid: '002'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Knapen, S.
+    - inspire_role: author
+      full_name: Longhi, P.
+    - inspire_role: author
+      full_name: Strassler, M.
+    title:
+      title: The vector-like twin Higgs
+    label: '17'
+    dois:
+    - 10.1007/JHEP07(2016)002
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c17"><label>[17]</label><mixed-citation publication-type="journal"><object-id>17</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name>, <string-name>S.
+      Knapen</string-name>, <string-name>P. Longhi</string-name>, and <string-name>M.
+      Strassler</string-name></person-group>, <article-title>The vector-like twin
+      Higgs</article-title>, <source>J. High Energy Phys.</source> <issue>07</issue>
+      (<volume>2016</volume>) <page-range>002</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2016)002</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '111'
+      journal_issue: '03'
+      artid: '111'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Harnik, R.
+    - inspire_role: author
+      full_name: Howe, K.
+    - inspire_role: author
+      full_name: Kearney, J.
+    title:
+      title: Tadpole-induced electroweak symmetry breaking and pNGB Higgs models
+    label: '18'
+    dois:
+    - 10.1007/JHEP03(2017)111
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c18"><label>[18]</label><mixed-citation publication-type="journal"><object-id>18</object-id><person-group
+      person-group-type="author"><string-name>R. Harnik</string-name>, <string-name>K.
+      Howe</string-name>, and <string-name>J. Kearney</string-name></person-group>,
+      <article-title>Tadpole-induced electroweak symmetry breaking and pNGB Higgs
+      models</article-title>, <source>J. High Energy Phys.</source> <issue>03</issue>
+      (<volume>2017</volume>) <page-range>111</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP03(2017)111</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '172'
+      journal_issue: '11'
+      artid: '172'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Hall, L.J.
+    - inspire_role: author
+      full_name: Harigaya, K.
+    title:
+      title: Minimal mirror twin Higgs
+    label: '19'
+    dois:
+    - 10.1007/JHEP11(2016)172
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c19"><label>[19]</label><mixed-citation publication-type="journal"><object-id>19</object-id><person-group
+      person-group-type="author"><string-name>R. Barbieri</string-name>, <string-name>L. J.
+      Hall</string-name>, and <string-name>K. Harigaya</string-name></person-group>,
+      <article-title>Minimal mirror twin Higgs</article-title>, <source>J. High Energy
+      Phys.</source> <issue>11</issue> (<volume>2016</volume>) <page-range>172</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP11(2016)172</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '023'
+      journal_issue: '07'
+      artid: '023'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Chacko, Z.
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Fox, P.J.
+    - inspire_role: author
+      full_name: Harnik, R.
+    title:
+      title: Cosmology in mirror twin Higgs and neutrino masses
+    label: '20'
+    dois:
+    - 10.1007/JHEP07(2017)023
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c20"><label>[20]</label><mixed-citation publication-type="journal"><object-id>20</object-id><person-group
+      person-group-type="author"><string-name>Z. Chacko</string-name>, <string-name>N.
+      Craig</string-name>, <string-name>P. J. Fox</string-name>, and <string-name>R.
+      Harnik</string-name></person-group>, <article-title>Cosmology in mirror twin
+      Higgs and neutrino masses</article-title>, <source>J. High Energy Phys.</source>
+      <issue>07</issue> (<volume>2017</volume>) <page-range>023</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP07(2017)023</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: 038
+      journal_issue: '05'
+      artid: 038
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Craig, N.
+    - inspire_role: author
+      full_name: Koren, S.
+    - inspire_role: author
+      full_name: Trott, T.
+    title:
+      title: Cosmological signals of a mirror twin Higgs
+    label: '21'
+    dois:
+    - 10.1007/JHEP05(2017)038
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c21"><label>[21]</label><mixed-citation publication-type="journal"><object-id>21</object-id><person-group
+      person-group-type="author"><string-name>N. Craig</string-name>, <string-name>S.
+      Koren</string-name>, and <string-name>T. Trott</string-name></person-group>,
+      <article-title>Cosmological signals of a mirror twin Higgs</article-title>,
+      <source>J. High Energy Phys.</source> <issue>05</issue> (<volume>2017</volume>)
+      <page-range>038</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP05(2017)038</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '142'
+      journal_issue: '01'
+      artid: '142'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Katz, A.
+    - inspire_role: author
+      full_name: Mariotti, A.
+    - inspire_role: author
+      full_name: Pokorski, S.
+    - inspire_role: author
+      full_name: Redigolo, D.
+    - inspire_role: author
+      full_name: Ziegler, R.
+    title:
+      title: SUSY meets her twin
+    label: '22'
+    dois:
+    - 10.1007/JHEP01(2017)142
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c22"><label>[22]</label><mixed-citation publication-type="journal"><object-id>22</object-id><person-group
+      person-group-type="author"><string-name>A. Katz</string-name>, <string-name>A.
+      Mariotti</string-name>, <string-name>S. Pokorski</string-name>, <string-name>D.
+      Redigolo</string-name>, and <string-name>R. Ziegler</string-name></person-group>,
+      <article-title>SUSY meets her twin</article-title>, <source>J. High Energy Phys.</source>
+      <issue>01</issue> (<volume>2017</volume>) <page-range>142</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP01(2017)142</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B365
+      page_start: '259'
+      year: 1991
+      artid: '259'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Kaplan, D.B.
+    title:
+      title: 'Flavor at SSC energies: A new mechanism for dynamically generated fermion
+        masses'
+    label: '23'
+    dois:
+    - 10.1016/S0550-3213(05)80021-5
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c23"><label>[23]</label><mixed-citation publication-type="journal"><object-id>23</object-id><person-group
+      person-group-type="author"><string-name>D. B. Kaplan</string-name></person-group>,
+      <article-title>Flavor at SSC energies: A new mechanism for dynamically generated
+      fermion masses</article-title>, <source>Nucl. Phys.</source> <volume>B365</volume>,
+      <page-range>259</page-range> (<year>1991</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/S0550-3213(05)80021-5</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '045'
+      journal_issue: 08
+      artid: '045'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Aad, G.
+    title:
+      title: 'Measurements of the Higgs boson production and decay rates and constraints
+        on its couplings from a combined ATLAS and CMS analysis of the LHC pp collision
+        data at '
+    label: '24'
+    dois:
+    - 10.1007/JHEP08(2016)045
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c24"><label>[24]</label><mixed-citation publication-type="journal"><object-id>24</object-id><person-group
+      person-group-type="author"><string-name>G. Aad</string-name> <etal/> (<collab>ATLAS,
+      CMS Collaboration</collab>)</person-group>, <article-title>Measurements of the
+      Higgs boson production and decay rates and constraints on its couplings from
+      a combined ATLAS and CMS analysis of the LHC pp collision data at <inline-formula><math
+      display="inline"><msqrt><mi>s</mi></msqrt><mo>=</mo><mn>7</mn></math></inline-formula>
+      and 8 TeV</article-title>, <source>J. High Energy Phys.</source> <issue>08</issue>
+      (<volume>2016</volume>) <page-range>045</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP08(2016)045</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '100'
+      journal_issue: '07'
+      artid: '100'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Thamm, A.
+    - inspire_role: author
+      full_name: Torre, R.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: 'Future tests of Higgs compositeness: Direct vs indirect'
+    label: '25'
+    dois:
+    - 10.1007/JHEP07(2015)100
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c25"><label>[25]</label><mixed-citation publication-type="journal"><object-id>25</object-id><person-group
+      person-group-type="author"><string-name>A. Thamm</string-name>, <string-name>R.
+      Torre</string-name>, and <string-name>A. Wulzer</string-name></person-group>,
+      <article-title>Future tests of Higgs compositeness: Direct vs indirect</article-title>,
+      <source>J. High Energy Phys.</source> <issue>07</issue> (<volume>2015</volume>)
+      <page-range>100</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2015)100</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '106'
+      journal_issue: 08
+      artid: '106'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Ciuchini, M.
+    - inspire_role: author
+      full_name: Franco, E.
+    - inspire_role: author
+      full_name: Mishima, S.
+    - inspire_role: author
+      full_name: Silvestrini, L.
+    title:
+      title: Electroweak precision observables, new physics and the nature of a 126 GeV
+        Higgs boson
+    label: '26'
+    dois:
+    - 10.1007/JHEP08(2013)106
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c26"><label>[26]</label><mixed-citation publication-type="journal"><object-id>26</object-id><person-group
+      person-group-type="author"><string-name>M. Ciuchini</string-name>, <string-name>E.
+      Franco</string-name>, <string-name>S. Mishima</string-name>, and <string-name>L.
+      Silvestrini</string-name></person-group>, <article-title>Electroweak precision
+      observables, new physics and the nature of a 126 GeV Higgs boson</article-title>,
+      <source>J. High Energy Phys.</source> <issue>08</issue> (<volume>2013</volume>)
+      <page-range>106</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP08(2013)106</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '690'
+      journal_issue: ICHEP2016
+      artid: '690'
+    authors:
+    - inspire_role: author
+      full_name: de Blas, J.
+    - inspire_role: author
+      full_name: Ciuchini, M.
+    - inspire_role: author
+      full_name: Franco, E.
+    - inspire_role: author
+      full_name: Mishima, S.
+    - inspire_role: author
+      full_name: Pierini, M.
+    - inspire_role: author
+      full_name: Reina, L.
+    - inspire_role: author
+      full_name: Silvestrini, L.
+    label: '27'
+    misc:
+    - Proc. Sci.,    []
+    arxiv_eprint: '1611.05354'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c27"><label>[27]</label><mixed-citation publication-type="proc"><object-id>27</object-id><person-group
+      person-group-type="author"><string-name>J. de Blas</string-name>, <string-name>M.
+      Ciuchini</string-name>, <string-name>E. Franco</string-name>, <string-name>S.
+      Mishima</string-name>, <string-name>M. Pierini</string-name>, <string-name>L.
+      Reina</string-name>, and <string-name>L. Silvestrini</string-name></person-group>,
+      <source>Proc. Sci.</source>, <issue>ICHEP2016</issue> (<volume>2017</volume>)
+      <page-range>690</page-range> [<pub-id pub-id-type="arxiv">arXiv:1611.05354</pub-id>].</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '79'
+      year: 2009
+      artid: '075003'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Anastasiou, C.
+    - inspire_role: author
+      full_name: Furlan, E.
+    - inspire_role: author
+      full_name: Santiago, J.
+    title:
+      title: Realistic composite Higgs models
+    label: '28'
+    dois:
+    - 10.1103/PhysRevD.79.075003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c28"><label>[28]</label><mixed-citation publication-type="journal"><object-id>28</object-id><person-group
+      person-group-type="author"><string-name>C. Anastasiou</string-name>, <string-name>E.
+      Furlan</string-name>, and <string-name>J. Santiago</string-name></person-group>,
+      <article-title>Realistic composite Higgs models</article-title>, <source>Phys.
+      Rev. D</source> <volume>79</volume>, <page-range>075003</page-range> (<year>2009</year>).<pub-id
+      pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevD.79.075003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '160'
+      journal_issue: '10'
+      artid: '160'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Grojean, C.
+    - inspire_role: author
+      full_name: Matsedonskyi, O.
+    - inspire_role: author
+      full_name: Panico, G.
+    title:
+      title: Light top partners and precision physics
+    label: '29'
+    dois:
+    - 10.1007/JHEP10(2013)160
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c29"><label>[29]</label><mixed-citation publication-type="journal"><object-id>29</object-id><person-group
+      person-group-type="author"><string-name>C. Grojean</string-name>, <string-name>O.
+      Matsedonskyi</string-name>, and <string-name>G. Panico</string-name></person-group>,
+      <article-title>Light top partners and precision physics</article-title>, <source>J.
+      High Energy Phys.</source> <issue>10</issue> (<volume>2013</volume>) <page-range>160</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP10(2013)160</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B914
+      page_start: '346'
+      year: 2017
+      artid: '346'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Ghosh, D.
+    - inspire_role: author
+      full_name: Salvarezza, M.
+    - inspire_role: author
+      full_name: Senia, F.
+    title:
+      title: Extending the analysis of electroweak precision constraints in composite
+        Higgs models
+    label: '30'
+    dois:
+    - 10.1016/j.nuclphysb.2016.11.013
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c30"><label>[30]</label><mixed-citation publication-type="journal"><object-id>30</object-id><person-group
+      person-group-type="author"><string-name>D. Ghosh</string-name>, <string-name>M.
+      Salvarezza</string-name>, and <string-name>F. Senia</string-name></person-group>,
+      <article-title>Extending the analysis of electroweak precision constraints in
+      composite Higgs models</article-title>, <source>Nucl. Phys.</source> <volume>B914</volume>,
+      <page-range>346</page-range> (<year>2017</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/j.nuclphysb.2016.11.013</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2007'
+      page_start: '045'
+      journal_issue: '06'
+      artid: '045'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Giudice, G.F.
+    - inspire_role: author
+      full_name: Grojean, C.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    title:
+      title: The strongly-interacting light Higgs
+    label: '31'
+    dois:
+    - 10.1088/1126-6708/2007/06/045
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c31"><label>[31]</label><mixed-citation publication-type="journal"><object-id>31</object-id><person-group
+      person-group-type="author"><string-name>G. F. Giudice</string-name>, <string-name>C.
+      Grojean</string-name>, <string-name>A. Pomarol</string-name>, and <string-name>R.
+      Rattazzi</string-name></person-group>, <article-title>The strongly-interacting
+      light Higgs</article-title>, <source>J. High Energy Phys.</source> <issue>06</issue>
+      (<volume>2007</volume>) <page-range>045</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1088/1126-6708/2007/06/045</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '76'
+      year: 2007
+      artid: '115008'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Bellazzini, B.
+    - inspire_role: author
+      full_name: Rychkov, S.
+    - inspire_role: author
+      full_name: Varagnolo, A.
+    title:
+      title: The Higgs boson from an extended symmetry
+    label: '32'
+    dois:
+    - 10.1103/PhysRevD.76.115008
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c32"><label>[32]</label><mixed-citation publication-type="journal"><object-id>32</object-id><person-group
+      person-group-type="author"><string-name>R. Barbieri</string-name>, <string-name>B.
+      Bellazzini</string-name>, <string-name>S. Rychkov</string-name>, and <string-name>A.
+      Varagnolo</string-name></person-group>, <article-title>The Higgs boson from
+      an extended symmetry</article-title>, <source>Phys. Rev. D</source> <volume>76</volume>,
+      <page-range>115008</page-range> (<year>2007</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.76.115008</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '004'
+      journal_issue: '04'
+      artid: '004'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: De Simone, A.
+    - inspire_role: author
+      full_name: Matsedonskyi, O.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: A first top partner’s hunter guide
+    label: '33'
+    dois:
+    - 10.1007/JHEP04(2013)004
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c33"><label>[33]</label><mixed-citation publication-type="journal"><object-id>33</object-id><person-group
+      person-group-type="author"><string-name>A. De Simone</string-name>, <string-name>O.
+      Matsedonskyi</string-name>, <string-name>R. Rattazzi</string-name>, and <string-name>A.
+      Wulzer</string-name></person-group>, <article-title>A first top partner’s hunter
+      guide</article-title>, <source>J. High Energy Phys.</source> <issue>04</issue>
+      (<volume>2013</volume>) <page-range>004</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP04(2013)004</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      year: 2016
+    report_numbers:
+    - ATLAS-CONF-2016-101
+    misc:
+    - Report No. 
+    label: '34'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c34"><label>[34]</label><mixed-citation publication-type="report"><object-id>34</object-id><person-group
+      person-group-type="author"><collab>ATLAS Collaboration</collab></person-group>,
+      Report No. <pub-id pub-id-type="other">ATLAS-CONF-2016-101</pub-id>, <year>2016</year>.</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      year: 2016
+    report_numbers:
+    - CMS-PAS-B2G-16-011
+    misc:
+    - Report No. , , [Inspire]
+    label: '35'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c35"><label>[35]</label><mixed-citation publication-type="report"><object-id>35</object-id><person-group
+      person-group-type="author"><collab>CMS Collaboration</collab></person-group>,
+      Report No. <pub-id pub-id-type="other">CMS-PAS-B2G-16-011</pub-id>, <year>2016</year>,
+      [Inspire].</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Kagan, A.
+    misc:
+    - Talk at KITP workshop on Physics of the Large Hadron Collider (unpublished)
+    label: '36'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c36"><label>[36]</label><mixed-citation id="c36a" publication-type="proc"><object-id>36a</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>,
+      Talk at <source>KITP workshop on Physics of the Large Hadron Collider</source>
+      (unpublished); </mixed-citation><mixed-citation id="c36b" publication-type="proc"
+      specific-use="author"><object-id>36b</object-id><person-group person-group-type="author"><string-name>A.
+      Kagan</string-name></person-group>Talk at <source>Naturalness 2014</source>,
+      Weizmann Institute (unpublished); </mixed-citation><mixed-citation id="c36c"
+      publication-type="proc" specific-use="author"><object-id>36c</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>Talk
+      at <source>Physics from Run 2 of the LHC, 2nd NPKI Workshop</source>, Jeju (unpublished).</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Kagan, A.
+    misc:
+    - Talk at Naturalness 2014, Weizmann Institute (unpublished)
+    label: '36'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c36"><label>[36]</label><mixed-citation id="c36a" publication-type="proc"><object-id>36a</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>,
+      Talk at <source>KITP workshop on Physics of the Large Hadron Collider</source>
+      (unpublished); </mixed-citation><mixed-citation id="c36b" publication-type="proc"
+      specific-use="author"><object-id>36b</object-id><person-group person-group-type="author"><string-name>A.
+      Kagan</string-name></person-group>Talk at <source>Naturalness 2014</source>,
+      Weizmann Institute (unpublished); </mixed-citation><mixed-citation id="c36c"
+      publication-type="proc" specific-use="author"><object-id>36c</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>Talk
+      at <source>Physics from Run 2 of the LHC, 2nd NPKI Workshop</source>, Jeju (unpublished).</mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Kagan, A.
+    misc:
+    - Talk at Physics from Run 2 of the LHC, 2nd NPKI Workshop, Jeju (unpublished)
+    label: '36'
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c36"><label>[36]</label><mixed-citation id="c36a" publication-type="proc"><object-id>36a</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>,
+      Talk at <source>KITP workshop on Physics of the Large Hadron Collider</source>
+      (unpublished); </mixed-citation><mixed-citation id="c36b" publication-type="proc"
+      specific-use="author"><object-id>36b</object-id><person-group person-group-type="author"><string-name>A.
+      Kagan</string-name></person-group>Talk at <source>Naturalness 2014</source>,
+      Weizmann Institute (unpublished); </mixed-citation><mixed-citation id="c36c"
+      publication-type="proc" specific-use="author"><object-id>36c</object-id><person-group
+      person-group-type="author"><string-name>A. Kagan</string-name></person-group>Talk
+      at <source>Physics from Run 2 of the LHC, 2nd NPKI Workshop</source>, Jeju (unpublished).</mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '89'
+      year: 2014
+      artid: '075003'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Galloway, J.
+    - inspire_role: author
+      full_name: Luty, M.A.
+    - inspire_role: author
+      full_name: Tsai, Y.
+    - inspire_role: author
+      full_name: Zhao, Y.
+    title:
+      title: Induced electroweak symmetry breaking and supersymmetric naturalness
+    label: '37'
+    dois:
+    - 10.1103/PhysRevD.89.075003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c37"><label>[37]</label><mixed-citation publication-type="journal"><object-id>37</object-id><person-group
+      person-group-type="author"><string-name>J. Galloway</string-name>, <string-name>M. A.
+      Luty</string-name>, <string-name>Y. Tsai</string-name>, and <string-name>Y.
+      Zhao</string-name></person-group>, <article-title>Induced electroweak symmetry
+      breaking and supersymmetric naturalness</article-title>, <source>Phys. Rev.
+      D</source> <volume>89</volume>, <page-range>075003</page-range> (<year>2014</year>).<pub-id
+      pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevD.89.075003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '017'
+      journal_issue: '03'
+      artid: '017'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Chang, S.
+    - inspire_role: author
+      full_name: Galloway, J.
+    - inspire_role: author
+      full_name: Luty, M.
+    - inspire_role: author
+      full_name: Salvioni, E.
+    - inspire_role: author
+      full_name: Tsai, Y.
+    title:
+      title: Phenomenology of induced electroweak symmetry breaking
+    label: '38'
+    dois:
+    - 10.1007/JHEP03(2015)017
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c38"><label>[38]</label><mixed-citation publication-type="journal"><object-id>38</object-id><person-group
+      person-group-type="author"><string-name>S. Chang</string-name>, <string-name>J.
+      Galloway</string-name>, <string-name>M. Luty</string-name>, <string-name>E.
+      Salvioni</string-name>, and <string-name>Y. Tsai</string-name></person-group>,
+      <article-title>Phenomenology of induced electroweak symmetry breaking</article-title>,
+      <source>J. High Energy Phys.</source> <issue>03</issue> (<volume>2015</volume>)
+      <page-range>017</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP03(2015)017</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B853
+      page_start: '1'
+      year: 2011
+      artid: '1'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Mrazek, J.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    - inspire_role: author
+      full_name: Redi, M.
+    - inspire_role: author
+      full_name: Serra, J.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: The other natural two Higgs doublet model
+    label: '39'
+    dois:
+    - 10.1016/j.nuclphysb.2011.07.008
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c39"><label>[39]</label><mixed-citation publication-type="journal"><object-id>39</object-id><person-group
+      person-group-type="author"><string-name>J. Mrazek</string-name>, <string-name>A.
+      Pomarol</string-name>, <string-name>R. Rattazzi</string-name>, <string-name>M.
+      Redi</string-name>, <string-name>J. Serra</string-name>, and <string-name>A.
+      Wulzer</string-name></person-group>, <article-title>The other natural two Higgs
+      doublet model</article-title>, <source>Nucl. Phys.</source> <volume>B853</volume>,
+      <page-range>1</page-range> (<year>2011</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/j.nuclphysb.2011.07.008</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2004'
+      page_start: 058
+      journal_issue: '11'
+      artid: 058
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Contino, R.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    title:
+      title: Holography for fermions
+    label: '40'
+    dois:
+    - 10.1088/1126-6708/2004/11/058
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c40"><label>[40]</label><mixed-citation publication-type="journal"><object-id>40</object-id><person-group
+      person-group-type="author"><string-name>R. Contino</string-name> and <string-name>A.
+      Pomarol</string-name></person-group>, <article-title>Holography for fermions</article-title>,
+      <source>J. High Energy Phys.</source> <issue>11</issue> (<volume>2004</volume>)
+      <page-range>058</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1088/1126-6708/2004/11/058</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '177'
+      page_start: '2239'
+      year: 1969
+      artid: '2239'
+      journal_title: Phys. Rev.
+    authors:
+    - inspire_role: author
+      full_name: Coleman, S.
+    - inspire_role: author
+      full_name: Wess, J.
+    - inspire_role: author
+      full_name: Zumino, B.
+    title:
+      title: Structure of phenomenological Lagrangians. I
+    label: '41'
+    dois:
+    - 10.1103/PhysRev.177.2239
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c41"><label>[41]</label><mixed-citation publication-type="journal"><object-id>41</object-id><person-group
+      person-group-type="author"><string-name>S. Coleman</string-name>, <string-name>J.
+      Wess</string-name>, and <string-name>B. Zumino</string-name></person-group>,
+      <article-title>Structure of phenomenological Lagrangians. I</article-title>,
+      <source>Phys. Rev.</source> <volume>177</volume>, <page-range>2239</page-range>
+      (<year>1969</year>).<pub-id pub-id-type="coden">PHRVAO</pub-id><issn>0031-899X</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRev.177.2239</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '177'
+      page_start: '2247'
+      year: 1969
+      artid: '2247'
+      journal_title: Phys. Rev.
+    authors:
+    - inspire_role: author
+      full_name: Callan, C.G.
+    - inspire_role: author
+      full_name: Coleman, S.
+    - inspire_role: author
+      full_name: Wess, J.
+    - inspire_role: author
+      full_name: Zumino, B.
+    title:
+      title: Structure of phenomenological Lagrangians. II
+    label: '42'
+    dois:
+    - 10.1103/PhysRev.177.2247
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c42"><label>[42]</label><mixed-citation publication-type="journal"><object-id>42</object-id><person-group
+      person-group-type="author"><string-name>C. G. Callan</string-name>, <string-name>S.
+      Coleman</string-name>, <string-name>J. Wess</string-name>, and <string-name>B.
+      Zumino</string-name></person-group>, <article-title>Structure of phenomenological
+      Lagrangians. II</article-title>, <source>Phys. Rev.</source> <volume>177</volume>,
+      <page-range>2247</page-range> (<year>1969</year>).<pub-id pub-id-type="coden">PHRVAO</pub-id><issn>0031-899X</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRev.177.2247</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2011'
+      page_start: 081
+      journal_issue: '10'
+      artid: 081
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Contino, R.
+    - inspire_role: author
+      full_name: Marzocca, D.
+    - inspire_role: author
+      full_name: Pappadopulo, D.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    title:
+      title: On the effect of resonances in composite Higgs phenomenology
+    label: '43'
+    dois:
+    - 10.1007/JHEP10(2011)081
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c43"><label>[43]</label><mixed-citation publication-type="journal"><object-id>43</object-id><person-group
+      person-group-type="author"><string-name>R. Contino</string-name>, <string-name>D.
+      Marzocca</string-name>, <string-name>D. Pappadopulo</string-name>, and <string-name>R.
+      Rattazzi</string-name></person-group>, <article-title>On the effect of resonances
+      in composite Higgs phenomenology</article-title>, <source>J. High Energy Phys.</source>
+      <issue>10</issue> (<volume>2011</volume>) <page-range>081</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP10(2011)081</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2011'
+      page_start: '135'
+      journal_issue: 09
+      artid: '135'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Panico, G.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: The discrete composite Higgs model
+    label: '44'
+    dois:
+    - 10.1007/JHEP09(2011)135
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c44"><label>[44]</label><mixed-citation publication-type="journal"><object-id>44</object-id><person-group
+      person-group-type="author"><string-name>G. Panico</string-name> and <string-name>A.
+      Wulzer</string-name></person-group>, <article-title>The discrete composite Higgs
+      model</article-title>, <source>J. High Energy Phys.</source> <issue>09</issue>
+      (<volume>2011</volume>) <page-range>135</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP09(2011)135</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '065'
+      journal_issue: '07'
+      artid: '065'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Contino, R.
+    - inspire_role: author
+      full_name: Salvarezza, M.
+    title:
+      title: One-loop effects from spin-1 resonances in composite Higgs models
+    label: '45'
+    dois:
+    - 10.1007/JHEP07(2015)065
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c45"><label>[45]</label><mixed-citation publication-type="journal"><object-id>45</object-id><person-group
+      person-group-type="author"><string-name>R. Contino</string-name> and <string-name>M.
+      Salvarezza</string-name></person-group>, <article-title>One-loop effects from
+      spin-1 resonances in composite Higgs models</article-title>, <source>J. High
+      Energy Phys.</source> <issue>07</issue> (<volume>2015</volume>) <page-range>065</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP07(2015)065</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '108'
+      journal_issue: '11'
+      artid: '108'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Greco, D.
+    - inspire_role: author
+      full_name: Mimouni, K.
+    title:
+      title: The RG-improved twin Higgs effective potential at NNLL
+    label: '46'
+    dois:
+    - 10.1007/JHEP11(2016)108
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c46"><label>[46]</label><mixed-citation publication-type="journal"><object-id>46</object-id><person-group
+      person-group-type="author"><string-name>D. Greco</string-name> and <string-name>K.
+      Mimouni</string-name></person-group>, <article-title>The RG-improved twin Higgs
+      effective potential at NNLL</article-title>, <source>J. High Energy Phys.</source>
+      <issue>11</issue> (<volume>2016</volume>) <page-range>108</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP11(2016)108</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B703
+      page_start: '127'
+      year: 2004
+      artid: '127'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    - inspire_role: author
+      full_name: Strumia, A.
+    title:
+      title: Electroweak symmetry breaking after LEP1 and LEP2
+    label: '47'
+    dois:
+    - 10.1016/j.nuclphysb.2004.10.014
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c47"><label>[47]</label><mixed-citation publication-type="journal"><object-id>47</object-id><person-group
+      person-group-type="author"><string-name>R. Barbieri</string-name>, <string-name>A.
+      Pomarol</string-name>, <string-name>R. Rattazzi</string-name>, and <string-name>A.
+      Strumia</string-name></person-group>, <article-title>Electroweak symmetry breaking
+      after LEP1 and LEP2</article-title>, <source>Nucl. Phys.</source> <volume>B703</volume>,
+      <page-range>127</page-range> (<year>2004</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/j.nuclphysb.2004.10.014</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '265'
+      page_start: '326'
+      year: 1991
+      artid: '326'
+      journal_title: Phys. Lett. B
+    authors:
+    - inspire_role: author
+      full_name: Grinstein, B.
+    - inspire_role: author
+      full_name: Wise, M.B.
+    title:
+      title: Operator analysis for precision electroweak physics
+    label: '48'
+    dois:
+    - 10.1016/0370-2693(91)90061-T
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c48"><label>[48]</label><mixed-citation publication-type="journal"><object-id>48</object-id><person-group
+      person-group-type="author"><string-name>B. Grinstein</string-name> and <string-name>M. B.
+      Wise</string-name></person-group>, <article-title>Operator analysis for precision
+      electroweak physics</article-title>, <source>Phys. Lett. B</source> <volume>265</volume>,
+      <page-range>326</page-range> (<year>1991</year>).<pub-id pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0370-2693(91)90061-T</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '65'
+      page_start: '964'
+      year: 1990
+      artid: '964'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Peskin, M.E.
+    - inspire_role: author
+      full_name: Takeuchi, T.
+    title:
+      title: A New Constraint on a Strongly Interacting Higgs Sector
+    label: '49'
+    dois:
+    - 10.1103/PhysRevLett.65.964
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c49"><label>[49]</label><mixed-citation publication-type="journal"><object-id>49</object-id><person-group
+      person-group-type="author"><string-name>M. E. Peskin</string-name> and <string-name>T.
+      Takeuchi</string-name></person-group>, <article-title>A New Constraint on a
+      Strongly Interacting Higgs Sector</article-title>, <source>Phys. Rev. Lett.</source>
+      <volume>65</volume>, <page-range>964</page-range> (<year>1990</year>).<pub-id
+      pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevLett.65.964</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '46'
+      page_start: '381'
+      year: 1992
+      artid: '381'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Peskin, M.E.
+    - inspire_role: author
+      full_name: Takeuchi, T.
+    title:
+      title: Estimation of oblique electroweak corrections
+    label: '50'
+    dois:
+    - 10.1103/PhysRevD.46.381
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c50"><label>[50]</label><mixed-citation publication-type="journal"><object-id>50</object-id><person-group
+      person-group-type="author"><string-name>M. E. Peskin</string-name> and <string-name>T.
+      Takeuchi</string-name></person-group>, <article-title>Estimation of oblique
+      electroweak corrections</article-title>, <source>Phys. Rev. D</source> <volume>46</volume>,
+      <page-range>381</page-range> (<year>1992</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.46.381</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '92'
+      year: 2015
+      artid: '115010'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Contino, R.
+    - inspire_role: author
+      full_name: Salvarezza, M.
+    title:
+      title: Dispersion relations for electroweak observables in composite Higgs models
+    label: '51'
+    dois:
+    - 10.1103/PhysRevD.92.115010
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c51"><label>[51]</label><mixed-citation publication-type="journal"><object-id>51</object-id><person-group
+      person-group-type="author"><string-name>R. Contino</string-name> and <string-name>M.
+      Salvarezza</string-name></person-group>, <article-title>Dispersion relations
+      for electroweak observables in composite Higgs models</article-title>, <source>Phys.
+      Rev. D</source> <volume>92</volume>, <page-range>115010</page-range> (<year>2015</year>).<pub-id
+      pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevD.92.115010</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '641'
+      page_start: '62'
+      year: 2006
+      artid: '62'
+      journal_title: Phys. Lett. B
+    authors:
+    - inspire_role: author
+      full_name: Agashe, K.
+    - inspire_role: author
+      full_name: Contino, R.
+    - inspire_role: author
+      full_name: Da Rold, L.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    title:
+      title: 'A custodial symmetry for '
+    label: '52'
+    dois:
+    - 10.1016/j.physletb.2006.08.005
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c52"><label>[52]</label><mixed-citation publication-type="journal"><object-id>52</object-id><person-group
+      person-group-type="author"><string-name>K. Agashe</string-name>, <string-name>R.
+      Contino</string-name>, <string-name>L. Da Rold</string-name>, and <string-name>A.
+      Pomarol</string-name></person-group>, <article-title>A custodial symmetry for
+      <inline-formula><math display="inline"><mi>Z</mi><mi>b</mi><mover accent="true"><mi>b</mi><mo
+      stretchy="false">¯</mo></mover></math></inline-formula>”</article-title>, <source>Phys.
+      Lett. B</source> <volume>641</volume>, <page-range>62</page-range> (<year>2006</year>).<pub-id
+      pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1016/j.physletb.2006.08.005</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '066'
+      journal_issue: '11'
+      artid: '066'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Elias-Miro, J.
+    - inspire_role: author
+      full_name: Espinosa, J.R.
+    - inspire_role: author
+      full_name: Masso, E.
+    - inspire_role: author
+      full_name: Pomarol, A.
+    title:
+      title: 'Higgs windows to new physics through '
+    label: '53'
+    dois:
+    - 10.1007/JHEP11(2013)066
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c53"><label>[53]</label><mixed-citation publication-type="journal"><object-id>53</object-id><person-group
+      person-group-type="author"><string-name>J. Elias-Miro</string-name>, <string-name>J. R.
+      Espinosa</string-name>, <string-name>E. Masso</string-name>, and <string-name>A.
+      Pomarol</string-name></person-group>, <article-title>Higgs windows to new physics
+      through <inline-formula><math display="inline"><mrow><mi>d</mi><mo>=</mo><mn>6</mn></mrow></math></inline-formula>
+      operators: constraints and one-loop anomalous dimensions</article-title>, <source>J.
+      High Energy Phys.</source> <issue>11</issue> (<volume>2013</volume>) <page-range>066</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP11(2013)066</pub-id></mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B335
+      page_start: '301'
+      year: 1990
+      artid: '301'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Rattazzi, R.
+    title:
+      title: Phenomenological implications of a heavy isosinglet up type quark
+    label: '54'
+    dois:
+    - 10.1016/0550-3213(90)90495-Y
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c54"><label>[54]</label><mixed-citation publication-type="journal"><object-id>54</object-id><person-group
+      person-group-type="author"><string-name>R. Rattazzi</string-name></person-group>,
+      <article-title>Phenomenological implications of a heavy isosinglet up type quark</article-title>,
+      <source>Nucl. Phys.</source> <volume>B335</volume>, <page-range>301</page-range>
+      (<year>1990</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(90)90495-Y</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '76'
+      year: 2007
+      artid: '035006'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Carena, M.
+    - inspire_role: author
+      full_name: Ponton, E.
+    - inspire_role: author
+      full_name: Santiago, J.
+    - inspire_role: author
+      full_name: Wagner, C.E. M.
+    title:
+      title: Electroweak constraints on warped models with custodial symmetry
+    label: '55'
+    dois:
+    - 10.1103/PhysRevD.76.035006
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c55"><label>[55]</label><mixed-citation publication-type="journal"><object-id>55</object-id><person-group
+      person-group-type="author"><string-name>M. Carena</string-name>, <string-name>E.
+      Ponton</string-name>, <string-name>J. Santiago</string-name>, and <string-name>C. E. M.
+      Wagner</string-name></person-group>, <article-title>Electroweak constraints
+      on warped models with custodial symmetry</article-title>, <source>Phys. Rev.
+      D</source> <volume>76</volume>, <page-range>035006</page-range> (<year>2007</year>).<pub-id
+      pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1103/PhysRevD.76.035006</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '80'
+      year: 2009
+      artid: '055003'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Gillioz, M.
+    title:
+      title: A light composite Higgs boson facing electroweak precision tests
+    label: '56'
+    dois:
+    - 10.1103/PhysRevD.80.055003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c56"><label>[56]</label><mixed-citation publication-type="journal"><object-id>56</object-id><person-group
+      person-group-type="author"><string-name>M. Gillioz</string-name></person-group>,
+      <article-title>A light composite Higgs boson facing electroweak precision tests</article-title>,
+      <source>Phys. Rev. D</source> <volume>80</volume>, <page-range>055003</page-range>
+      (<year>2009</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.80.055003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '40'
+      year: 2016
+      artid: '100001'
+      journal_title: Chin. Phys. C
+    authors:
+    - inspire_role: author
+      full_name: Patrignani, C.
+    title:
+      title: Review of particle physics
+    label: '57'
+    dois:
+    - 10.1088/1674-1137/40/10/100001
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c57"><label>[57]</label><mixed-citation publication-type="journal"><object-id>57</object-id><person-group
+      person-group-type="author"><string-name>C. Patrignani</string-name> <etal/>
+      (<collab>Particle Data Group Collaboration</collab>)</person-group>, <article-title>Review
+      of particle physics</article-title>, <source>Chin. Phys. C</source> <volume>40</volume>,
+      <page-range>100001</page-range> (<year>2016</year>).<pub-id pub-id-type="coden">CPCHCQ</pub-id><issn>1674-1137</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1088/1674-1137/40/10/100001</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Golling, T.
+    title:
+      title: 'Physics at a 100 TeV pp collider: Beyond the standard model phenomena'
+    label: '58'
+    arxiv_eprint: '1606.00947'
+  raw_refs:
+  - source: American Physical Society
+    value: '<ref id="c58"><label>[58]</label><mixed-citation publication-type="eprint"><object-id>58</object-id><person-group
+      person-group-type="author"><string-name>T. Golling</string-name> <etal/></person-group>,
+      <article-title>Physics at a 100 TeV pp collider: Beyond the standard model phenomena</article-title>,
+      <pub-id pub-id-type="arxiv">arXiv:1606.00947</pub-id>.</mixed-citation></ref>'
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: '003'
+      journal_issue: '04'
+      artid: '003'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Matsedonskyi, O.
+    - inspire_role: author
+      full_name: Panico, G.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: Top partners searches and composite Higgs models
+    label: '59'
+    dois:
+    - 10.1007/JHEP04(2016)003
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c59"><label>[59]</label><mixed-citation publication-type="journal"><object-id>59</object-id><person-group
+      person-group-type="author"><string-name>O. Matsedonskyi</string-name>, <string-name>G.
+      Panico</string-name>, and <string-name>A. Wulzer</string-name></person-group>,
+      <article-title>Top partners searches and composite Higgs models</article-title>,
+      <source>J. High Energy Phys.</source> <issue>04</issue> (<volume>2016</volume>)
+      <page-range>003</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP04(2016)003</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '164'
+      journal_issue: '01'
+      artid: '164'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Matsedonskyi, O.
+    - inspire_role: author
+      full_name: Panico, G.
+    - inspire_role: author
+      full_name: Wulzer, A.
+    title:
+      title: Light top partners for a light composite Higgs
+    label: '60'
+    dois:
+    - 10.1007/JHEP01(2013)164
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c60"><label>[60]</label><mixed-citation publication-type="journal"><object-id>60</object-id><person-group
+      person-group-type="author"><string-name>O. Matsedonskyi</string-name>, <string-name>G.
+      Panico</string-name>, and <string-name>A. Wulzer</string-name></person-group>,
+      <article-title>Light top partners for a light composite Higgs</article-title>,
+      <source>J. High Energy Phys.</source> <issue>01</issue> (<volume>2013</volume>)
+      <page-range>164</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP01(2013)164</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2012'
+      page_start: '013'
+      journal_issue: 08
+      artid: '013'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Marzocca, D.
+    - inspire_role: author
+      full_name: Serone, M.
+    - inspire_role: author
+      full_name: Shu, J.
+    title:
+      title: General composite Higgs models
+    label: '61'
+    dois:
+    - 10.1007/JHEP08(2012)013
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c61"><label>[61]</label><mixed-citation publication-type="journal"><object-id>61</object-id><person-group
+      person-group-type="author"><string-name>D. Marzocca</string-name>, <string-name>M.
+      Serone</string-name>, and <string-name>J. Shu</string-name></person-group>,
+      <article-title>General composite Higgs models</article-title>, <source>J. High
+      Energy Phys.</source> <issue>08</issue> (<volume>2012</volume>) <page-range>013</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP08(2012)013</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2012'
+      page_start: '135'
+      journal_issue: 08
+      artid: '135'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Pomarol, A.
+    - inspire_role: author
+      full_name: Riva, F.
+    title:
+      title: The composite Higgs and light resonance connection
+    label: '62'
+    dois:
+    - 10.1007/JHEP08(2012)135
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c62"><label>[62]</label><mixed-citation publication-type="journal"><object-id>62</object-id><person-group
+      person-group-type="author"><string-name>A. Pomarol</string-name> and <string-name>F.
+      Riva</string-name></person-group>, <article-title>The composite Higgs and light
+      resonance connection</article-title>, <source>J. High Energy Phys.</source>
+      <issue>08</issue> (<volume>2012</volume>) <page-range>135</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP08(2012)135</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: 058
+      journal_issue: '07'
+      artid: 058
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Pappadopulo, D.
+    - inspire_role: author
+      full_name: Thamm, A.
+    - inspire_role: author
+      full_name: Torre, R.
+    title:
+      title: A minimally tuned composite Higgs model from an extra dimension
+    label: '63'
+    dois:
+    - 10.1007/JHEP07(2013)058
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c63"><label>[63]</label><mixed-citation publication-type="journal"><object-id>63</object-id><person-group
+      person-group-type="author"><string-name>D. Pappadopulo</string-name>, <string-name>A.
+      Thamm</string-name>, and <string-name>R. Torre</string-name></person-group>,
+      <article-title>A minimally tuned composite Higgs model from an extra dimension</article-title>,
+      <source>J. High Energy Phys.</source> <issue>07</issue> (<volume>2013</volume>)
+      <page-range>058</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2013)058</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '158'
+      journal_issue: '11'
+      artid: '158'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Buttazzo, D.
+    - inspire_role: author
+      full_name: Sala, F.
+    - inspire_role: author
+      full_name: Tesi, A.
+    title:
+      title: Singlet-like Higgs bosons at present and future colliders
+    label: '64'
+    dois:
+    - 10.1007/JHEP11(2015)158
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c64"><label>[64]</label><mixed-citation publication-type="journal"><object-id>64</object-id><person-group
+      person-group-type="author"><string-name>D. Buttazzo</string-name>, <string-name>F.
+      Sala</string-name>, and <string-name>A. Tesi</string-name></person-group>, <article-title>Singlet-like
+      Higgs bosons at present and future colliders</article-title>, <source>J. High
+      Energy Phys.</source> <issue>11</issue> (<volume>2015</volume>) <page-range>158</page-range>.<pub-id
+      pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1007/JHEP11(2015)158</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2012'
+      page_start: 098
+      journal_issue: 08
+      artid: 098
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Degrassi, G.
+    - inspire_role: author
+      full_name: Di Vita, S.
+    - inspire_role: author
+      full_name: Elias-Miro, J.
+    - inspire_role: author
+      full_name: Espinosa, J.R.
+    - inspire_role: author
+      full_name: Giudice, G.F.
+    - inspire_role: author
+      full_name: Isidori, G.
+    - inspire_role: author
+      full_name: Strumia, A.
+    title:
+      title: Higgs mass and vacuum stability in the standard model at NNLO
+    label: '65'
+    dois:
+    - 10.1007/JHEP08(2012)098
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c65"><label>[65]</label><mixed-citation publication-type="journal"><object-id>65</object-id><person-group
+      person-group-type="author"><string-name>G. Degrassi</string-name>, <string-name>S.
+      Di Vita</string-name>, <string-name>J. Elias-Miro</string-name>, <string-name>J. R.
+      Espinosa</string-name>, <string-name>G. F. Giudice</string-name>, <string-name>G.
+      Isidori</string-name>, and <string-name>A. Strumia</string-name></person-group>,
+      <article-title>Higgs mass and vacuum stability in the standard model at NNLO</article-title>,
+      <source>J. High Energy Phys.</source> <issue>08</issue> (<volume>2012</volume>)
+      <page-range>098</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP08(2012)098</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '253'
+      page_start: '161'
+      year: 1991
+      artid: '161'
+      journal_title: Phys. Lett. B
+    authors:
+    - inspire_role: author
+      full_name: Altarelli, G.
+    - inspire_role: author
+      full_name: Barbieri, R.
+    title:
+      title: Vacuum polarization effects of new physics on electroweak processes
+    label: '66'
+    dois:
+    - 10.1016/0370-2693(91)91378-9
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c66"><label>[66]</label><mixed-citation publication-type="journal"><object-id>66</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name> and <string-name>R.
+      Barbieri</string-name></person-group>, <article-title>Vacuum polarization effects
+      of new physics on electroweak processes</article-title>, <source>Phys. Lett.
+      B</source> <volume>253</volume>, <page-range>161</page-range> (<year>1991</year>).<pub-id
+      pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1016/0370-2693(91)91378-9</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B369
+      page_start: '3'
+      year: 1992
+      artid: '3'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Altarelli, G.
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Jadach, S.
+    title:
+      title: Toward a model independent analysis of electroweak data
+    label: '67'
+    dois:
+    - 10.1016/0550-3213(92)90376-M
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c67"><label>[67]</label><mixed-citation id="c67a" publication-type="journal"><object-id>67a</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name>, <string-name>R.
+      Barbieri</string-name>, and <string-name>S. Jadach</string-name></person-group>,
+      <article-title>Toward a model independent analysis of electroweak data</article-title>,
+      <source>Nucl. Phys.</source> <volume>B369</volume>, <page-range>3</page-range>
+      (<year>1992</year>); <pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(92)90376-M</pub-id></mixed-citation><mixed-citation
+      id="c67b" publication-type="journal" specific-use="author"><object-id>67b</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name>, <string-name>R.
+      Barbieri</string-name>, and <string-name>S. Jadach</string-name></person-group><article-title>Erratum</article-title>,
+      <source>Nucl. Phys.</source> <volume>B376</volume>, <page-range>444</page-range>
+      (<year>1992</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(92)90133-V</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B376
+      page_start: '444'
+      year: 1992
+      artid: '444'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Altarelli, G.
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Jadach, S.
+    title:
+      title: Erratum
+    label: '67'
+    dois:
+    - 10.1016/0550-3213(92)90133-V
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c67"><label>[67]</label><mixed-citation id="c67a" publication-type="journal"><object-id>67a</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name>, <string-name>R.
+      Barbieri</string-name>, and <string-name>S. Jadach</string-name></person-group>,
+      <article-title>Toward a model independent analysis of electroweak data</article-title>,
+      <source>Nucl. Phys.</source> <volume>B369</volume>, <page-range>3</page-range>
+      (<year>1992</year>); <pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(92)90376-M</pub-id></mixed-citation><mixed-citation
+      id="c67b" publication-type="journal" specific-use="author"><object-id>67b</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name>, <string-name>R.
+      Barbieri</string-name>, and <string-name>S. Jadach</string-name></person-group><article-title>Erratum</article-title>,
+      <source>Nucl. Phys.</source> <volume>B376</volume>, <page-range>444</page-range>
+      (<year>1992</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(92)90133-V</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: B405
+      page_start: '3'
+      year: 1993
+      artid: '3'
+      journal_title: Nucl. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Altarelli, G.
+    - inspire_role: author
+      full_name: Barbieri, R.
+    - inspire_role: author
+      full_name: Caravaglios, F.
+    title:
+      title: Nonstandard analysis of electroweak precision data
+    label: '68'
+    dois:
+    - 10.1016/0550-3213(93)90424-N
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c68"><label>[68]</label><mixed-citation publication-type="journal"><object-id>68</object-id><person-group
+      person-group-type="author"><string-name>G. Altarelli</string-name>, <string-name>R.
+      Barbieri</string-name>, and <string-name>F. Caravaglios</string-name></person-group>,
+      <article-title>Nonstandard analysis of electroweak precision data</article-title>,
+      <source>Nucl. Phys.</source> <volume>B405</volume>, <page-range>3</page-range>
+      (<year>1993</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+      pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(93)90424-N</pub-id></mixed-citation></ref>
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: 273–275
+      page_start: '2219'
+      year: 2016
+      artid: '2219'
+      journal_title: Phys. Procedia
+    authors:
+    - inspire_role: author
+      full_name: Ciuchini, M.
+    - inspire_role: author
+      full_name: Franco, E.
+    - inspire_role: author
+      full_name: Mishima, S.
+    - inspire_role: author
+      full_name: Pierini, M.
+    - inspire_role: author
+      full_name: Reina, L.
+    - inspire_role: author
+      full_name: Silvestrini, L.
+    title:
+      title: Update of the electroweak precision fit, interplay with Higgs-boson signal
+        strengths and model-independent constraints on new physics
+    label: '69'
+    dois:
+    - 10.1016/j.nuclphysbps.2015.09.361
+  raw_refs:
+  - source: American Physical Society
+    value: <ref id="c69"><label>[69]</label><mixed-citation publication-type="journal"><object-id>69</object-id><person-group
+      person-group-type="author"><string-name>M. Ciuchini</string-name>, <string-name>E.
+      Franco</string-name>, <string-name>S. Mishima</string-name>, <string-name>M.
+      Pierini</string-name>, <string-name>L. Reina</string-name>, and <string-name>L.
+      Silvestrini</string-name></person-group>, <article-title>Update of the electroweak
+      precision fit, interplay with Higgs-boson signal strengths and model-independent
+      constraints on new physics</article-title>, <source>Phys. Procedia</source>
+      <volume>273–275</volume>, <page-range>2219</page-range> (<year>2016</year>).<pub-id
+      pub-id-type="coden">PPHRCK</pub-id><issn>1875-3892</issn><pub-id pub-id-type="doi"
+      specific-use="suppress-display">10.1016/j.nuclphysbps.2015.09.361</pub-id></mixed-citation></ref>
+    schema: JATS

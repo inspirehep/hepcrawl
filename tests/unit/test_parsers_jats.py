@@ -42,12 +42,14 @@ def get_parser_by_file(filename):
 
 @pytest.fixture(scope='module', params=[
     ('PhysRevX.7.021022.xml', 'PhysRevX.7.021022_expected.yml'),
-    ('PhysRevX.4.021018.xml', 'PhysRevX.4.021018_expected.yml')
+    ('PhysRevX.4.021018.xml', 'PhysRevX.4.021018_expected.yml'),
+    ('PhysRevD.96.095036.xml', 'PhysRevD.96.095036_expected.yml'),
 ])
 def records(request):
     return {
         'jats': get_parser_by_file(request.param[0]),
-        'expected': get_parsed_from_file(request.param[1])
+        'expected': get_parsed_from_file(request.param[1]),
+        'file_name': request.param[0],
     }
 
 
@@ -76,6 +78,7 @@ FIELDS_TO_CHECK = [
 ]
 FIELDS_TO_CHECK_SEPARATELY = [
     'publication_date',
+    'documents',
 ]
 
 
@@ -114,3 +117,14 @@ def test_collaborations(records):
 def test_parse(records):
     record = records['jats'].parse()
     assert validate(record, 'hep') == None
+
+
+def test_attach_fulltext_document(records):
+    parser = records['jats']
+    parser.attach_fulltext_document(
+        records['file_name'],
+        'http://example.org/{}'.format(records['file_name'])
+    )
+    result = parser.parse()
+
+    assert result['documents'] == records['expected']['documents']

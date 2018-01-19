@@ -21,6 +21,7 @@ from scrapy import Request
 from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
+from ..parsers import JatsParser
 from ..utils import (
     get_licenses,
     get_nested,
@@ -76,53 +77,24 @@ class APSSpider(StatefulSpider):
         yield Request(self.url)
 
     def parse(self, response):
-        """Parse a APS JSON file into a HEP record."""
+        """Parse a APS record into a HEP record.
+
+        Attempts to parse an XML JATS full text first, if available, and falls
+        back to parsing JSON if such is not available.
+        """
         aps_response = json.loads(response.body_as_unicode())
 
         for article in aps_response['data']:
-            record = HEPLoader(item=HEPRecord(), response=response)
+            doi = get_nested(article, 'identifiers', 'doi')
 
-            dois = [get_nested(article, 'identifiers', 'doi')]
-            record.add_dois(dois_values=dois)
-            record.add_value('page_nr', str(article.get('numPages', '')))
-
-            record.add_value('abstract', get_nested(article, 'abstract', 'value'))
-            record.add_value('title', get_nested(article, 'title', 'value'))
-            # record.add_value('subtitle', '')
-
-            authors, collaborations = self._get_authors_and_collab(article)
-            record.add_value('authors', authors)
-            record.add_value('collaborations', collaborations)
-
-            # record.add_value('free_keywords', free_keywords)
-            # record.add_value('classification_numbers', classification_numbers)
-
-            record.add_value('journal_title', get_nested(article, 'journal', 'abbreviatedName'))
-            record.add_value('journal_issue', get_nested(article, 'issue', 'number'))
-            record.add_value('journal_volume', get_nested(article, 'volume', 'number'))
-            # record.add_value('journal_artid', )
-
-            published_date = article.get('date', '')
-            record.add_value('journal_year', int(published_date[:4]))
-            record.add_value('date_published', published_date)
-            record.add_value('copyright_holder', get_nested(article, 'rights', 'copyrightHolders')[0]['name'])
-            record.add_value('copyright_year', str(get_nested(article, 'rights', 'copyrightYear')))
-            record.add_value('copyright_statement', get_nested(article, 'rights', 'rightsStatement'))
-            record.add_value('copyright_material', 'Article')
-
-            license = get_licenses(
-                license_url=get_nested(article, 'rights', 'licenses')[0]['url']
-            )
-            record.add_value('license', license)
-
-            record.add_value('collections', ['HEP', 'Citeable', 'Published'])
-
-            parsed_item = ParsedItem(
-                record=record.load_item(),
-                record_format='hepcrawl',
-            )
-
-            yield parsed_item
+            if doi:
+                request = Request(url='{}/{}'.format(self.aps_base_url, doi),
+                              headers={'Accept': 'text/xml'},
+                              callback=self._parse_jats,
+                              errback=self._parse_json_on_failure)
+                request.meta['json_article'] = article
+                request.meta['original_response'] = response
+                yield request
 
         # Pagination support. Will yield until no more "next" pages are found
         if 'Link' in response.headers:
@@ -131,6 +103,71 @@ class APSSpider(StatefulSpider):
             if next:
                 next_url = next[0].href
                 yield Request(next_url)
+
+    def _parse_jats(self, response):
+        """Parse an XML JATS response."""
+        parser = JatsParser(response.selector, source=self.name)
+
+        file_name = self._file_name_from_url(response.url)
+        parser.attach_fulltext_document(file_name, response.url)
+
+        return ParsedItem(
+            record=parser.parse(),
+            record_format='hep',
+        )
+
+    def _parse_json_on_failure(self, failure):
+        """Parse a JSON article entry."""
+        original_response = failure.request.meta['original_response']
+        record = HEPLoader(item=HEPRecord(), response=original_response)
+        article = failure.request.meta['json_article']
+
+        doi = get_nested(article, 'identifiers', 'doi')
+        record.add_dois(dois_values=[doi])
+        record.add_value('page_nr', str(article.get('numPages', '')))
+
+        record.add_value('abstract', get_nested(article, 'abstract', 'value'))
+        record.add_value('title', get_nested(article, 'title', 'value'))
+        # record.add_value('subtitle', '')
+
+        authors, collaborations = self._get_authors_and_collab(article)
+        record.add_value('authors', authors)
+        record.add_value('collaborations', collaborations)
+
+        # record.add_value('free_keywords', free_keywords)
+        # record.add_value('classification_numbers', classification_numbers)
+
+        record.add_value('journal_title',
+                         get_nested(article, 'journal', 'abbreviatedName'))
+        record.add_value('journal_issue',
+                         get_nested(article, 'issue', 'number'))
+        record.add_value('journal_volume',
+                         get_nested(article, 'volume', 'number'))
+        # record.add_value('journal_artid', )
+
+        published_date = article.get('date', '')
+        record.add_value('journal_year', int(published_date[:4]))
+        record.add_value('date_published', published_date)
+        record.add_value('copyright_holder',
+                         get_nested(article, 'rights', 'copyrightHolders')[0][
+                             'name'])
+        record.add_value('copyright_year',
+                         str(get_nested(article, 'rights', 'copyrightYear')))
+        record.add_value('copyright_statement',
+                         get_nested(article, 'rights', 'rightsStatement'))
+        record.add_value('copyright_material', 'publication')
+
+        license = get_licenses(
+            license_url=get_nested(article, 'rights', 'licenses')[0]['url']
+        )
+        record.add_value('license', license)
+
+        record.add_value('collections', ['HEP', 'Citeable', 'Published'])
+
+        return ParsedItem(
+            record=record.load_item(),
+            record_format='hepcrawl',
+        )
 
     def _get_authors_and_collab(self, article):
         authors = []
@@ -157,3 +194,6 @@ class APSSpider(StatefulSpider):
                 collaboration.append(author['name'])
 
         return authors, collaboration
+
+    def _file_name_from_url(self, url):
+        return "{}.xml".format(url[url.rfind('/') + 1:])
