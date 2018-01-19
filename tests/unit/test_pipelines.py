@@ -39,12 +39,13 @@ def spider():
 def json_spider_record(tmpdir):
     from scrapy.http import TextResponse
     spider = arxiv_spider.ArxivSpider()
-    items = spider.parse(
-        fake_response_from_file(
-            'arxiv/sample_arxiv_record10.xml',
-            response_type=TextResponse,
-        ),
+    fake_response = fake_response_from_file(
+        'arxiv/sample_arxiv_record10.xml',
+        response_type=TextResponse,
     )
+
+    test_selectors = fake_response.xpath('.//record')
+    items = (spider.parse_record(sel) for sel in test_selectors)
     parsed_record = items.next()
     assert parsed_record
     yield spider, parsed_record

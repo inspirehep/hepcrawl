@@ -43,16 +43,13 @@ def many_results(spider):
         record = pipeline.process_item(item, spider)
         return record
 
-    parsed_items = list(
-        spider.parse(
-            fake_response_from_file(
-                'arxiv/sample_arxiv_record.xml',
-                response_type=TextResponse,
-            )
-        )
+    fake_response = fake_response_from_file(
+        'arxiv/sample_arxiv_record.xml',
+        response_type=TextResponse,
     )
 
-    assert parsed_items
+    test_selectors = fake_response.xpath('.//record')
+    parsed_items = [spider.parse_record(sel) for sel in test_selectors]
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
 
