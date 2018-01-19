@@ -18,7 +18,7 @@ readme = open('README.rst').read()
 install_requires = [
     'autosemver~=0.2',
     'inspire-schemas~=57.0',
-    'inspire-dojson~=57.0',
+    'inspire-dojson~=57.0,>=57.1',
     'inspire-utils~=2.0,>=2.0.2',
     'Scrapy>=1.1.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
@@ -37,6 +37,7 @@ install_requires = [
     'python-dateutil>=2.4.2',
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
+    'Sickle~=0.6,>=0.6.2',
 ]
 
 tests_require = [

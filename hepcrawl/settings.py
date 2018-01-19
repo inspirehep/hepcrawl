@@ -19,6 +19,8 @@ http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
 from __future__ import absolute_import, division, print_function
 
+from scrapy.settings import default_settings
+
 import os
 
 
@@ -38,6 +40,12 @@ DUPEFILTER_CLASS = "scrapy.dupefilters.BaseDupeFilter"
 SCHEMA_BASE_URI = os.environ.get(
     'APP_SCHEMA_BASE_URI',
     'http://localhost/schemas/records/'
+)
+
+# Location of last run information
+LAST_RUNS_PATH = os.environ.get(
+    'APP_LAST_RUNS_PATH',
+    '/var/lib/scrapy/last_runs/'
 )
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -69,6 +77,13 @@ SCHEMA_BASE_URI = os.environ.get(
 SPIDER_MIDDLEWARES = {
     'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
     'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
+}
+
+# Configure custom downloaders
+# See https://doc.scrapy.org/en/0.20/topics/settings.html#download-handlers
+DOWNLOAD_HANDLERS = {
+    'oaipmh+http': 'hepcrawl.downloaders.DummyDownloadHandler',
+    'oaipmh+https': 'hepcrawl.downloaders.DummyDownloadHandler',
 }
 
 # Enable or disable downloader middlewares
