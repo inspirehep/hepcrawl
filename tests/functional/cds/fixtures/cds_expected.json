@@ -1,0 +1,218 @@
+[
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1200752/files/MQW7_018.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "MQW7_018.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Astrophysics"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "High and very high energy gamma-ray emission from binaries"
+            }
+        ],
+        "_private_notes": [
+            {
+                "source": "CDS",
+                "value": "CDS-1200752"
+            }
+        ],
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "Grenoble Observ."
+                    }
+                ],
+                "full_name": "Dubus, G"
+            }
+        ],
+        "publication_info": [
+            {
+                "journal_volume": "MQW7",
+                "page_start": "018",
+                "journal_title": "PoS",
+                "artid": "018",
+                "year": 2008
+            }
+        ],
+        "$schema": "http://localhost/schemas/records/hep.json",
+        "document_type": [
+            "conference paper"
+        ],
+        "citeable": true,
+        "imprints": [
+            {
+                "date": "2009"
+            }
+        ],
+        "acquisition_source": {
+            "source": "CDS",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.875113"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1200753/files/MQW7_019.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "MQW7_019.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
+        "collaborations": [
+            {
+                "value": "Fermi LAT"
+            }
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Astrophysics"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "GLAST: Launched and Being Commissioned - Status and Prospects for Microquasars"
+            },
+            {
+                "source": "CDS",
+                "title": "Fermi: Launched and Being Commissioned - Status and Prospects for Microquasars"
+            }
+        ],
+        "_private_notes": [
+            {
+                "source": "CDS",
+                "value": "CDS-1200753"
+            }
+        ],
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "SLAC"
+                    }
+                ],
+                "full_name": "Dubois, R"
+            }
+        ],
+        "publication_info": [
+            {
+                "journal_volume": "MQW7",
+                "page_start": "019",
+                "journal_title": "PoS",
+                "artid": "019",
+                "year": 2008
+            }
+        ],
+        "$schema": "http://localhost/schemas/records/hep.json",
+        "document_type": [
+            "conference paper"
+        ],
+        "citeable": true,
+        "imprints": [
+            {
+                "date": "2008"
+            }
+        ],
+        "acquisition_source": {
+            "source": "CDS",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.951904"
+        }
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/1200754/files/MQW7_020.pdf",
+                "source": "CDS",
+                "description": "Published version from PoS",
+                "key": "MQW7_020.pdf"
+            }
+        ],
+        "curated": true,
+        "_collections": [
+            "Literature"
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Astrophysics"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "Hadronic models of high-energy radiation from microquasars: recent developments"
+            }
+        ],
+        "_private_notes": [
+            {
+                "source": "CDS",
+                "value": "CDS-1200754"
+            }
+        ],
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "Villa Elisa, Inst. Argentino Radioastron."
+                    },
+                    {
+                        "value": "La Plata U."
+                    }
+                ],
+                "full_name": "Romero, G E"
+            }
+        ],
+        "publication_info": [
+            {
+                "journal_volume": "MQW7",
+                "page_start": "020",
+                "journal_title": "PoS",
+                "artid": "020",
+                "year": 2008
+            }
+        ],
+        "$schema": "http://localhost/schemas/records/hep.json",
+        "document_type": [
+            "conference paper"
+        ],
+        "citeable": true,
+        "imprints": [
+            {
+                "date": "2008"
+            }
+        ],
+        "acquisition_source": {
+            "source": "CDS",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T08:10:03.984541"
+        }
+    }
+]

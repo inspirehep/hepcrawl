@@ -14,7 +14,7 @@ from __future__ import absolute_import, division, print_function
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (

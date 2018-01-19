@@ -16,7 +16,7 @@ import re
 from scrapy import Request, Selector
 from scrapy.spiders import XMLFeedSpider
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS

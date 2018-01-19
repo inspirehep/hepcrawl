@@ -18,7 +18,7 @@ from six.moves.urllib.parse import quote
 
 from scrapy import Request, Selector
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader

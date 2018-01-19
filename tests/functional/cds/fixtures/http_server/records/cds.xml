@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://cds.cern.ch/css/oai2.xsl.v1.0" ?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2017-12-07T15:05:26Z</responseDate><request from="2017-11-15" verb="ListRecords" set="forINSPIRE" metadataPrefix="marcxml">http://cds.cern.ch/oai2d</request><ListRecords>
+<record><header><identifier>oai:cds.cern.ch:1200752</identifier><datestamp>2017-11-16T08:09:30Z</datestamp><setSpec>cerncds:FULLTEXT</setSpec><setSpec>forINSPIRE</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">1200752</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20171116090930.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:1200752</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">forINSPIRE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">1509577</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Dubus, G</marc:subfield>
+    <marc:subfield code="u">Grenoble Observ.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">High and very high energy gamma-ray emission from binaries</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2009</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="540" ind1=" " ind2=" ">
+    <marc:subfield code="a">Open Access</marc:subfield>
+    <marc:subfield code="a">CC-BY-NC-SA-3.0</marc:subfield>
+    <marc:subfield code="u">http://creativecommons.org/licenses/by-nc-sa/3.0/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS POS MQW7-2009</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">Inspire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Astrophysics and Astronomy</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">018</marc:subfield>
+    <marc:subfield code="p">PoS</marc:subfield>
+    <marc:subfield code="v">MQW7</marc:subfield>
+    <marc:subfield code="y">2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://cds.cern.ch/record/1200752/files/MQW7_018.pdf</marc:subfield>
+    <marc:subfield code="y">Published version from PoS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200933</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20110201</marc:subfield>
+    <marc:subfield code="h">1448</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20090817</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">1129423</marc:subfield>
+    <marc:subfield code="k">018</marc:subfield>
+    <marc:subfield code="n">izmir20080901</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002842486CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ConferencePaper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="c">Hidden</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record><record><header><identifier>oai:cds.cern.ch:1200753</identifier><datestamp>2017-11-16T08:09:30Z</datestamp><setSpec>cerncds:FULLTEXT</setSpec><setSpec>forINSPIRE</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">1200753</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20171116090930.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:1200753</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">forINSPIRE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">1509578</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Dubois, R</marc:subfield>
+    <marc:subfield code="u">SLAC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">GLAST: Launched and Being Commissioned - Status and Prospects for Microquasars</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="246" ind1=" " ind2=" ">
+    <marc:subfield code="a">Fermi: Launched and Being Commissioned - Status and Prospects for Microquasars</marc:subfield>
+    <marc:subfield code="i">Other title</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="540" ind1=" " ind2=" ">
+    <marc:subfield code="a">Open Access</marc:subfield>
+    <marc:subfield code="a">CC-BY-NC-SA-3.0</marc:subfield>
+    <marc:subfield code="u">http://creativecommons.org/licenses/by-nc-sa/3.0/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS POS MQW7-2009</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">No authors</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">Inspire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Astrophysics and Astronomy</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="g">for the Fermi LAT Collaboration</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">019</marc:subfield>
+    <marc:subfield code="p">PoS</marc:subfield>
+    <marc:subfield code="v">MQW7</marc:subfield>
+    <marc:subfield code="y">2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://cds.cern.ch/record/1200753/files/MQW7_019.pdf</marc:subfield>
+    <marc:subfield code="y">Published version from PoS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200933</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20110201</marc:subfield>
+    <marc:subfield code="h">1448</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20090817</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">1129423</marc:subfield>
+    <marc:subfield code="k">019</marc:subfield>
+    <marc:subfield code="n">izmir20080901</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002842487CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ConferencePaper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="c">Hidden</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record><record><header><identifier>oai:cds.cern.ch:1200754</identifier><datestamp>2017-11-16T08:09:30Z</datestamp><setSpec>cerncds:FULLTEXT</setSpec><setSpec>forINSPIRE</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">1200754</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20171116090930.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:1200754</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">forINSPIRE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">1509579</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Romero, G E</marc:subfield>
+    <marc:subfield code="u">Villa Elisa, Inst. Argentino Radioastron.</marc:subfield>
+    <marc:subfield code="u">La Plata U.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">Hadronic models of high-energy radiation from microquasars: recent developments</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="540" ind1=" " ind2=" ">
+    <marc:subfield code="a">Open Access</marc:subfield>
+    <marc:subfield code="a">CC-BY-NC-SA-3.0</marc:subfield>
+    <marc:subfield code="u">http://creativecommons.org/licenses/by-nc-sa/3.0/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS POS MQW7-2009</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">Inspire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Astrophysics and Astronomy</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">020</marc:subfield>
+    <marc:subfield code="p">PoS</marc:subfield>
+    <marc:subfield code="v">MQW7</marc:subfield>
+    <marc:subfield code="y">2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://cds.cern.ch/record/1200754/files/MQW7_020.pdf</marc:subfield>
+    <marc:subfield code="y">Published version from PoS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200933</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20110201</marc:subfield>
+    <marc:subfield code="h">1448</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20090817</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">1129423</marc:subfield>
+    <marc:subfield code="k">020</marc:subfield>
+    <marc:subfield code="n">izmir20080901</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002842488CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ConferencePaper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="c">Hidden</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record></ListRecords>
+</OAI-PMH>
+

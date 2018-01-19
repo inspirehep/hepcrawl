@@ -18,7 +18,7 @@ from furl import furl
 
 from scrapy import Request
 
-from . import StatefulSpider
+from .common import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..parsers import JatsParser
