@@ -1,0 +1,410 @@
+[
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "quant-ph",
+                    "gr-qc",
+                    "hep-th",
+                    "math-ph",
+                    "math.MP",
+                    "physics.hist-ph"
+                ],
+                "value": "1412.8323"
+            }
+        ],
+        "preprint_date": "2014-12-29",
+        "curated": false,
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by/4.0/",
+                "material": "preprint",
+                "license": "CC BY 4.0"
+            }
+        ],
+        "public_notes": [
+            {
+                "source": "arXiv",
+                "value": "78 pages, many figures, graphs and references. Version accepted for\n  publication in Quantum (completed missing part in the proof of reversibility\n  of time evolution, combined previous sections 6 and 7 to a rewritten section\n  6, added clarifications and minor corrections throughout -- overall improved\n  presentation, but results unaffected by revision)"
+            }
+        ],
+        "citeable": true,
+        "number_of_pages": 78,
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Toolbox for reconstructing quantum theory from rules on information acquisition"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Hoehn, Philipp A."
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "We develop an operational approach for reconstructing the quantum theory of qubit systems from elementary rules on information acquisition. The focus lies on an observer O interrogating a system S with binary questions and S's state is taken as O's `catalogue of knowledge' about S. The mathematical tools of the framework are simple and we attempt to highlight all underlying assumptions. Four rules are imposed, asserting (1) a limit on the amount of information available to O; (2) the mere existence of complementary information; (3) O's total amount of information to be preserved in-between interrogations; and, (4) O's `catalogue of knowledge' to change continuously in time in-between interrogations and every consistent such evolution to be possible. This approach permits a constructive derivation of quantum theory, elucidating how the ensuing independence, complementarity and compatibility structure of O's questions matches that of projective measurements in quantum theory, how entanglement and monogamy of entanglement, non-locality and, more generally, how the correlation structure of arbitrarily many qubits and rebits arises. The rules yield a reversible time evolution and a quadratic measure, quantifying O's information about S. Finally, it is shown that the four rules admit two solutions for the simplest case of a single elementary system: the Bloch ball and disc as state spaces for a qubit and rebit, respectively, together with their symmetries as time evolution groups. The reconstruction for arbitrarily many qubits is completed in a companion paper (arXiv:1511.01130) where an additional rule eliminates the rebit case. This approach is inspired by (but does not rely on) the relational interpretation and yields a novel formulation of quantum theory in terms of questions."
+            }
+        ],
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.640233"
+        }
+    },
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th",
+                    "math-ph",
+                    "math.MP",
+                    "quant-ph"
+                ],
+                "value": "1507.07790"
+            }
+        ],
+        "preprint_date": "2015-07-28",
+        "curated": false,
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+                "material": "preprint",
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ],
+        "public_notes": [
+            {
+                "source": "arXiv",
+                "value": "7 pages"
+            }
+        ],
+        "citeable": true,
+        "number_of_pages": 7,
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Relativistic quantum dynamics of vector bosons in an Aharonov-Bohm potential"
+            }
+        ],
+        "dois": [
+            {
+                "source": "arXiv",
+                "material": "publication",
+                "value": "10.1088/1751-8121/aa9c53"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Castro, Luis B."
+            },
+            {
+                "full_name": "Silva, Edilberto O."
+            }
+        ],
+        "publication_info": [
+            {
+                "material": "publication",
+                "pubinfo_freetext": "J. Phys. A: Math. Theor. 51 (2018) 035201"
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "The Aharonov-Bohm (AB) problem for vector bosons by the Duffin-Kemmer-Petiau (DKP) formalism is analyzed. Depending on the values of the spin projection, the relevant eigenvalue equation coming from the DKP formalism reveals an equivalence to the spin-$1/2$ AB problem. By using the self-adjoint extension approach, we examine the bound state scenario. The energy spectra are explicitly computed as well as their dependencies on the magnetic flux parameter and also the conditions for the occurrence of bound states."
+            }
+        ],
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.713128"
+        }
+    },
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "quant-ph",
+                    "gr-qc",
+                    "hep-th",
+                    "math-ph",
+                    "math.MP",
+                    "physics.hist-ph"
+                ],
+                "value": "1412.8323"
+            }
+        ],
+        "preprint_date": "2014-12-29",
+        "curated": false,
+        "license": [
+            {
+                "url": "http://creativecommons.org/licenses/by/4.0/",
+                "material": "preprint",
+                "license": "CC BY 4.0"
+            }
+        ],
+        "public_notes": [
+            {
+                "source": "arXiv",
+                "value": "78 pages, many figures, graphs and references. Version accepted for\n  publication in Quantum (completed missing part in the proof of reversibility\n  of time evolution, combined previous sections 6 and 7 to a rewritten section\n  6, added clarifications and minor corrections throughout -- overall improved\n  presentation, but results unaffected by revision)"
+            }
+        ],
+        "citeable": true,
+        "number_of_pages": 78,
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Toolbox for reconstructing quantum theory from rules on information acquisition"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Hoehn, Philipp A."
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "We develop an operational approach for reconstructing the quantum theory of qubit systems from elementary rules on information acquisition. The focus lies on an observer O interrogating a system S with binary questions and S's state is taken as O's `catalogue of knowledge' about S. The mathematical tools of the framework are simple and we attempt to highlight all underlying assumptions. Four rules are imposed, asserting (1) a limit on the amount of information available to O; (2) the mere existence of complementary information; (3) O's total amount of information to be preserved in-between interrogations; and, (4) O's `catalogue of knowledge' to change continuously in time in-between interrogations and every consistent such evolution to be possible. This approach permits a constructive derivation of quantum theory, elucidating how the ensuing independence, complementarity and compatibility structure of O's questions matches that of projective measurements in quantum theory, how entanglement and monogamy of entanglement, non-locality and, more generally, how the correlation structure of arbitrarily many qubits and rebits arises. The rules yield a reversible time evolution and a quadratic measure, quantifying O's information about S. Finally, it is shown that the four rules admit two solutions for the simplest case of a single elementary system: the Bloch ball and disc as state spaces for a qubit and rebit, respectively, together with their symmetries as time evolution groups. The reconstruction for arbitrarily many qubits is completed in a companion paper (arXiv:1511.01130) where an additional rule eliminates the rebit case. This approach is inspired by (but does not rely on) the relational interpretation and yields a novel formulation of quantum theory in terms of questions."
+            }
+        ],
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.767113"
+        }
+    },
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th"
+                ],
+                "value": "1607.01710"
+            }
+        ],
+        "preprint_date": "2016-07-06",
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.818160"
+        },
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+                "material": "preprint",
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ],
+        "citeable": true,
+        "dois": [
+            {
+                "source": "arXiv",
+                "material": "publication",
+                "value": "10.1002/andp.201700188"
+            }
+        ],
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Refinements of the Weyl pure geometrical thick branes from information-entropic measure"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Correa, R.A.C."
+            },
+            {
+                "full_name": "Dantas, D.M."
+            },
+            {
+                "full_name": "Moraes, P.H.R.S."
+            },
+            {
+                "full_name": "Dutra, A. de Souza"
+            },
+            {
+                "full_name": "Almeida, C.A.S."
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "This letter aims to analyse the so-called configurational entropy in the Weyl pure geometrical thick brane model. The Weyl structure plays a prominent role in the thickness of this model. We find a set of parameters associated to the brane width where the configurational entropy exhibits critical points. Furthermore, we show, by means of this information-theoretical measure, that a stricter bound on the parameter of Weyl pure geometrical brane model arises from the CE."
+            }
+        ],
+        "curated": false
+    },
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th",
+                    "math-ph",
+                    "math.MP",
+                    "quant-ph"
+                ],
+                "value": "1507.07790"
+            }
+        ],
+        "preprint_date": "2015-07-28",
+        "curated": false,
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+                "material": "preprint",
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ],
+        "public_notes": [
+            {
+                "source": "arXiv",
+                "value": "7 pages"
+            }
+        ],
+        "citeable": true,
+        "number_of_pages": 7,
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Relativistic quantum dynamics of vector bosons in an Aharonov-Bohm potential"
+            }
+        ],
+        "dois": [
+            {
+                "source": "arXiv",
+                "material": "publication",
+                "value": "10.1088/1751-8121/aa9c53"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Castro, Luis B."
+            },
+            {
+                "full_name": "Silva, Edilberto O."
+            }
+        ],
+        "publication_info": [
+            {
+                "material": "publication",
+                "pubinfo_freetext": "J. Phys. A: Math. Theor. 51 (2018) 035201"
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "The Aharonov-Bohm (AB) problem for vector bosons by the Duffin-Kemmer-Petiau (DKP) formalism is analyzed. Depending on the values of the spin projection, the relevant eigenvalue equation coming from the DKP formalism reveals an equivalence to the spin-$1/2$ AB problem. By using the self-adjoint extension approach, we examine the bound state scenario. The energy spectra are explicitly computed as well as their dependencies on the magnetic flux parameter and also the conditions for the occurrence of bound states."
+            }
+        ],
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.869228"
+        }
+    },
+    {
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th"
+                ],
+                "value": "1607.01710"
+            }
+        ],
+        "preprint_date": "2016-07-06",
+        "acquisition_source": {
+            "source": "arXiv",
+            "method": "hepcrawl",
+            "submission_number": "None",
+            "datetime": "2017-12-14T15:28:22.922470"
+        },
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+                "material": "preprint",
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ],
+        "citeable": true,
+        "dois": [
+            {
+                "source": "arXiv",
+                "material": "publication",
+                "value": "10.1002/andp.201700188"
+            }
+        ],
+        "_collections": [
+            "Literature"
+        ],
+        "titles": [
+            {
+                "source": "arXiv",
+                "title": "Refinements of the Weyl pure geometrical thick branes from information-entropic measure"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Correa, R.A.C."
+            },
+            {
+                "full_name": "Dantas, D.M."
+            },
+            {
+                "full_name": "Moraes, P.H.R.S."
+            },
+            {
+                "full_name": "Dutra, A. de Souza"
+            },
+            {
+                "full_name": "Almeida, C.A.S."
+            }
+        ],
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "arXiv",
+                "value": "This letter aims to analyse the so-called configurational entropy in the Weyl pure geometrical thick brane model. The Weyl structure plays a prominent role in the thickness of this model. We find a set of parameters associated to the brane width where the configurational entropy exhibits critical points. Furthermore, we show, by means of this information-theoretical measure, that a stricter bound on the parameter of Weyl pure geometrical brane model arises from the CE."
+            }
+        ],
+        "curated": false
+    }
+]

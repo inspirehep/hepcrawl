@@ -56,7 +56,7 @@ def spider(settings):
 
 
 def test_last_run_file_path(spider):
-    expected = '/tmp/last_runs/OAI-PMH/{}.json'.format(LAST_RUN_TEST_FILE_SHA1)
+    expected = '/tmp/last_runs/OAI-PMH/%s.json' % LAST_RUN_TEST_FILE_SHA1
     result = spider._last_run_file_path('physics:hep-th')
     assert expected == result
 
@@ -88,4 +88,4 @@ def test_load_last_run_nonexistent(spider):
 
 def test_resume_from_nonexistent_no_error(spider):
     resume_from = spider.resume_from('physics:hep-th')
-    assert resume_from == None
+    assert resume_from is None

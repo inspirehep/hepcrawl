@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2017-12-14T13:00:41Z</responseDate>
+<request verb="ListRecords" from="2017-12-14" metadataPrefix="arXiv" set="physics:hep-ex">http://export.arxiv.org/oai2</request>
+<ListRecords>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1706.05371</identifier>
+ <datestamp>2017-12-14</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1706.05371</id><created>2017-06-16</created><updated>2017-12-12</updated><authors><author><keyname>Anderson</keyname><forenames>Tyler</forenames></author><author><keyname>Cutter</keyname><forenames>Jacob</forenames></author><author><keyname>Dhaliwal</keyname><forenames>Navneet</forenames></author><author><keyname>Dalager</keyname><forenames>Olivia</forenames></author><author><keyname>Godfrey</keyname><forenames>Benjamin</forenames></author><author><keyname>Hillbrand</keyname><forenames>Seth</forenames></author><author><keyname>Irving</keyname><forenames>Michael</forenames></author><author><keyname>Manalaysay</keyname><forenames>Aaron</forenames></author><author><keyname>Montoya</keyname><forenames>Juan</forenames></author><author><keyname>Morad</keyname><forenames>James</forenames></author><author><keyname>Neher</keyname><forenames>Christian</forenames></author><author><keyname>Stolp</keyname><forenames>Dustin</forenames></author><author><keyname>Tripathi</keyname><forenames>Mani</forenames></author></authors><title>Evaluation of Silicon Photomultipliers for use as Photosensors in Liquid
+  Xenon Detectors</title><categories>physics.ins-det hep-ex</categories><comments>10 pages, 9 figures</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  Silicon photomultipliers (SiPMs) are potential solid-state alternatives to
+traditional photomultiplier tubes (PMTs) for single-photon detection. In this
+paper, we report on evaluating SensL MicroFC-10035-SMT SiPMs for their
+suitability as PMT replacements. The devices were successfully operated in a
+liquid-xenon detector, which demonstrates that SiPMs can be used in noble
+element time projection chambers as photosensors. The devices were also cooled
+down to 170 K to observe dark count dependence on temperature. No dependencies
+on the direction of an applied 3.2 kV/cm electric field were observed with
+respect to dark-count rate, gain, or photon detection efficiency.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1706.09418</identifier>
+ <datestamp>2017-12-14</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1706.09418</id><created>2017-06-28</created><updated>2017-11-26</updated><authors><author><keyname>Dercks</keyname><forenames>Daniel</forenames></author><author><keyname>Dreiner</keyname><forenames>Herbi</forenames></author><author><keyname>Krauss</keyname><forenames>Manuel E.</forenames></author><author><keyname>Opferkuch</keyname><forenames>Toby</forenames></author><author><keyname>Reinert</keyname><forenames>Annika</forenames></author></authors><title>R-Parity Violation at the LHC</title><categories>hep-ph hep-ex</categories><comments>43 pages, 13 tables, 17 figures; updated Figs. 11-17 and Tab. 12
+  including NLO corrections; version accepted for publication in EPJC</comments><report-no>BONN-TH-2017-03</report-no><journal-ref>Eur. Phys. J. C (2017) 77:856</journal-ref><doi>10.1140/epjc/s10052-017-5414-4</doi><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We investigate the phenomenology of the MSSM extended by a single R-parity
+violating coupling at the unification scale. For all R-parity violating
+couplings, we discuss the evolution of the particle spectra through the
+renormalization group equations and the nature of the lightest supersymmetric
+particle (LSP) within the CMSSM, as an example of a specific complete
+supersymmetric model. We use the nature of the LSP to classify the possible
+signatures. For each possible scenario we present in detail the current LHC
+bounds on the supersymmetric particle masses, typically obtained using
+simplified models. From this we determine the present coverage of R-parity
+violating models at the LHC. We find several gaps, in particular for a
+stau-LSP, which is easily obtained in R-parity violating models. Using the
+program CheckMATE we recast existing LHC searches to set limits on the
+parameters of all R-parity violating CMSSMs. We find that virtually all of them
+are either more strongly constrained or similarly constrained in comparison to
+the R-parity conserving CMSSM, including the $\bar U\bar D\bar D$ models. For
+each R-parity violating CMSSM we then give the explicit lower mass bounds on
+all relevant supersymmetric particles.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1707.00874</identifier>
+ <datestamp>2017-12-14</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1707.00874</id><created>2017-07-04</created><updated>2017-12-13</updated><authors><author><keyname>Bandyopadhyay</keyname><forenames>Priyotosh</forenames></author><author><keyname>Chun</keyname><forenames>Eung Jin</forenames></author><author><keyname>Mandal</keyname><forenames>Rusa</forenames></author></authors><title>Implications of right-handed neutrinos in $B-L$ extended standard model
+  with scalar dark matter</title><categories>hep-ph astro-ph.CO hep-ex</categories><comments>Typos corrected, references added, version accepted for publication
+  in PRD</comments><report-no>IITH-PH-0001/17, IMSc/2017/07/05</report-no><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We investigate the Standard Model (SM) with a $U(1)_{B-L}$ gauge extension
+where a $B-L$ charged scalar is a viable dark matter (DM) candidate. The
+dominant annihilation process, for the DM particle is through the $B-L$
+symmetry breaking scalar to right-handed neutrino pair. We exploit the effect
+of decay and inverse decay of the right-handed neutrino in thermal relic
+abundance of the DM. Depending on the values of the decay rate, the DM relic
+density can be significantly different from what is obtained in the standard
+calculation assuming the right-handed neutrino is in thermal equilibrium and
+there appear different regions of the parameter space satisfying the observed
+DM relic density. For a DM mass less than $\mathcal{O}$(TeV), the direct
+detection experiments impose a competitive bound on the mass of the
+$U(1)_{B-L}$ gauge boson $Z^\prime$ with the collider experiments. Utilizing
+the non-observation of the displaced vertices arising from the right-handed
+neutrino decays, bound on the mass of $Z^\prime$ has been obtained at present
+and higher luminosities at the LHC with 14 TeV centre of mass energy where an
+integrated luminosity of 100fb$^{-1}$ is sufficient to probe $m_{Z'} \sim 5.5$
+TeV.
+</abstract></arXiv>
+</metadata>
+</record>
+</ListRecords>
+</OAI-PMH>

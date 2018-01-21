@@ -35,14 +35,13 @@ def results():
 
     crawler = Crawler(spidercls=arxiv_spider.ArxivSpider)
     spider = arxiv_spider.ArxivSpider.from_crawler(crawler)
-    parsed_items = list(
-        spider.parse(
-            fake_response_from_file(
-                'arxiv/sample_arxiv_record0.xml',
-                response_type=TextResponse,
-            )
-        )
+    fake_response = fake_response_from_file(
+        'arxiv/sample_arxiv_record0.xml',
+        response_type=TextResponse,
     )
+
+    test_selectors = fake_response.xpath('.//record')
+    parsed_items = [spider.parse_record(sel) for sel in test_selectors]
 
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)

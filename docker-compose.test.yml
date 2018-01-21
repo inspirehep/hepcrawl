@@ -18,6 +18,7 @@ services:
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - APP_FILES_STORE=/tmp/file_urls
+      - APP_LAST_RUNS_PATH=/code/.scrapy/last_runs
       - APP_CRAWL_ONCE_PATH=/code/.scrapy
       - COVERAGE_PROCESS_START=/code/.coveragerc
       - BASE_USER_UID=${BASE_USER_UID:-1000}
@@ -54,12 +55,8 @@ services:
     depends_on:
       scrapyd:
         condition: service_healthy
-
-  functional_cds:
-    <<: *service_base
-    command: py.test -vv tests/functional/cds
-    links:
-      - scrapyd
+      arxiv-http-server.local:
+        condition: service_healthy
 
   functional_pos:
     <<: *service_base
@@ -128,6 +125,27 @@ services:
       test:
         - "CMD-SHELL"
         - "curl https://localhost:443/"
+
+  functional_cds:
+    <<: *service_base
+    command: py.test -vv tests/functional/cds
+    links:
+      - scrapyd
+
+  arxiv-http-server.local:
+    image: nginx:stable-alpine
+    volumes:
+      - ${PWD}/tests/functional/arxiv/fixtures/http_server/conf/proxy.conf:/etc/nginx/conf.d/default.conf
+      - ${PWD}/tests/functional/arxiv/fixtures/http_server/records:/etc/nginx/html/
+    ports:
+      - 80:80
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test:
+        - "CMD-SHELL"
+        - "curl http://localhost:80/"
 
   rabbitmq:
     image: rabbitmq

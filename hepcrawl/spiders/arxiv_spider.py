@@ -13,10 +13,9 @@ from __future__ import absolute_import, division, print_function
 
 import re
 
-from scrapy import Request, Selector
-from scrapy.spiders import XMLFeedSpider
+from hepcrawl.spiders.common.oaipmh_spider import OAIPMHSpider
+from scrapy import Selector
 
-from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
@@ -27,65 +26,63 @@ from ..utils import (
     ParsedItem,
 )
 
-RE_CONFERENCE = re.compile(r'\b(%s)\b' % '|'.join(
-    [re.escape(word) for word in CONFERENCE_WORDS]), re.I | re.U)
-RE_THESIS = re.compile(r'\b(%s)\b' % '|'.join(
-    [re.escape(word) for word in THESIS_WORDS]), re.I | re.U)
+RE_CONFERENCE = re.compile(
+    r'\b(%s)\b' % '|'.join(
+        [re.escape(word) for word in CONFERENCE_WORDS]
+    ),
+    re.I | re.U,
+)
+RE_THESIS = re.compile(
+    r'\b(%s)\b' % '|'.join(
+        [re.escape(word) for word in THESIS_WORDS]
+    ),
+    re.I | re.U,
+)
 
 
-class ArxivSpider(StatefulSpider, XMLFeedSpider):
+class ArxivSpider(OAIPMHSpider):
     """Spider for crawling arXiv.org OAI-PMH XML files.
 
     Example:
         Using OAI-PMH XML files::
 
-            $ scrapy crawl \\
-                arXiv \\
-                -a "source_file=file://$PWD/tests/functional/arxiv/fixtures/oai_harvested/arxiv_smoke_record.xml"
+            $ scrapy crawl arXiv \\
+                -a "oai_set=physics:hep-th" -a "from_date=2017-12-13"
 
     """
-
     name = 'arXiv'
-    iterator = 'xml'
-    itertag = 'OAI-PMH:record'
-    namespaces = [
-        ("OAI-PMH", "http://www.openarchives.org/OAI/2.0/")
-    ]
 
-    def __init__(self, source_file=None, **kwargs):
-        """Construct Arxiv spider."""
-        super(ArxivSpider, self).__init__(**kwargs)
-        self.source_file = source_file
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('url', 'http://export.arxiv.org/oai2')
+        kwargs.setdefault('format', 'arXiv')
+        super(ArxivSpider, self).__init__(*args, **kwargs)
 
-    def start_requests(self):
-        yield Request(self.source_file)
-
-    def parse_node(self, response, node):
+    def parse_record(self, selector):
         """Parse an arXiv XML exported file into a HEP record."""
-        node.remove_namespaces()
+        selector.remove_namespaces()
 
-        record = HEPLoader(item=HEPRecord(), selector=node)
+        record = HEPLoader(item=HEPRecord(), selector=selector)
         record.add_xpath('title', './/title/text()')
         record.add_xpath('abstract', './/abstract/text()')
         record.add_xpath('preprint_date', './/created/text()')
         record.add_dois(
-            dois_values=self._get_dois(node=node),
+            dois_values=self._get_dois(node=selector),
             material='publication',
         )
 
-        pubinfo_freetext = node.xpath('.//journal-ref//text()').extract()
+        pubinfo_freetext = selector.xpath('.//journal-ref//text()').extract()
         if pubinfo_freetext:
             record.add_value('pubinfo_freetext', pubinfo_freetext)
             record.add_value('pubinfo_material', 'publication')
 
         record.add_value('source', 'arXiv')
 
-        authors, collabs = self._get_authors_or_collaboration(node)
+        authors, collabs = self._get_authors_or_collaboration(selector)
         record.add_value('authors', authors)
         record.add_value('collaborations', collabs)
 
         collections = ['HEP', 'Citeable', 'arXiv']
-        comments = '; '.join(node.xpath('.//comments//text()').extract())
+        comments = '; '.join(selector.xpath('.//comments//text()').extract())
         if comments:
             pages, notes, doctype = self._parse_comments_info(comments)
             record.add_value('public_notes', notes)
@@ -97,23 +94,23 @@ class ArxivSpider(StatefulSpider, XMLFeedSpider):
 
         record.add_value(
             'report_numbers',
-            self._get_arxiv_report_numbers(node)
+            self._get_arxiv_report_numbers(selector)
         )
 
         categories = ' '.join(
-            node.xpath('.//categories//text()').extract()
+            selector.xpath('.//categories//text()').extract()
         ).split()
         record.add_value(
             'arxiv_eprints',
-            self._get_arxiv_eprint(node, categories)
+            self._get_arxiv_eprint(selector, categories)
         )
         record.add_value(
             'external_system_numbers',
-            self._get_ext_systems_number(node)
+            self._get_ext_systems_number(selector)
         )
 
         license = get_licenses(
-            license_url=node.xpath('.//license//text()').extract_first(),
+            license_url=selector.xpath('.//license//text()').extract_first(),
             license_material='preprint',
         )
         record.add_value('license', license)

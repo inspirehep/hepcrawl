@@ -7,69 +7,73 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Functional tests for ArXiv spider"""
+"""Functional tests for arXiv spider"""
 
 from __future__ import absolute_import, division, print_function
 
-from time import sleep
+import os
 import pytest
 
-from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-from hepcrawl.testlib.utils import get_crawler_instance
 from hepcrawl.testlib.fixtures import (
-    get_test_suite_path,
     expected_json_results_from_file,
     clean_dir,
 )
+from hepcrawl.testlib.tasks import app as celery_app
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
+
+
+@pytest.fixture(scope='function', autouse=True)
+def cleanup():
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    yield
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
 
 def override_generated_fields(record):
     record['acquisition_source']['datetime'] = u'2017-04-03T10:26:40.365216'
-    record['acquisition_source']['submission_number'] = u'5652c7f6190f11e79e8000224dabeaad'
+    record['acquisition_source']['submission_number'] = (
+        u'5652c7f6190f11e79e8000224dabeaad'
+    )
 
     return record
 
 
-@pytest.fixture(scope="function")
-def set_up_local_environment():
-    package_location = get_test_suite_path(
-        'arxiv',
-        'fixtures',
-        'oai_harvested',
-        'arxiv_smoke_record.xml',
-        test_suite='functional',
-    )
-
-    # The test must wait until the docker environment is up (takes about 5 seconds).
-    sleep(5)
-
-    yield {
+def get_configuration():
+    return {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'source_file': 'file://' + package_location,
+            'from_date': '2017-11-15',
+            'sets': 'physics:hep-th,physics:hep-ex',
+            'url': 'http://arxiv-http-server.local/oai2',
         }
     }
 
-    clean_dir()
-
 
 @pytest.mark.parametrize(
-    'expected_results',
+    'expected_results, config',
     [
-        expected_json_results_from_file(
-            'arxiv',
-            'fixtures',
-            'arxiv_smoke_record.json',
+        (
+            expected_json_results_from_file(
+                'arxiv',
+                'fixtures',
+                'arxiv_expected.json',
+            ),
+            get_configuration(),
         ),
     ],
     ids=[
         'smoke',
     ]
 )
-def test_arxiv(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
+def test_arxiv(
+    expected_results,
+    config,
+):
+    crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
     results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -77,62 +81,18 @@ def test_arxiv(set_up_local_environment, expected_results):
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
+        project=config['CRAWLER_PROJECT'],
         spider='arXiv',
         settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+        **config['CRAWLER_ARGUMENTS']
     )
 
     gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
-
-    assert gotten_results == expected_results
-
-
-@pytest.mark.parametrize(
-    'expected_results',
-    [
-        expected_json_results_from_file(
-            'arxiv',
-            'fixtures',
-            'arxiv_smoke_record.json',
-        ),
-    ],
-    ids=[
-        'crawl_twice',
+    expected_results = [
+        override_generated_fields(expected) for expected in expected_results
     ]
-)
-def test_arxiv_crawl_twice(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(set_up_local_environment.get('CRAWLER_HOST_URL'))
 
-    results = CeleryMonitor.do_crawl(
-        app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
-        events_limit=1,
-        crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
-        spider='arXiv',
-        settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
-    )
-
-    gotten_results = [override_generated_fields(result) for result in results]
-    expected_results = [override_generated_fields(expected) for expected in expected_results]
+    gotten_results = deep_sort(gotten_results)
+    expected_results = deep_sort(expected_results)
 
     assert gotten_results == expected_results
-
-    results = CeleryMonitor.do_crawl(
-        app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
-        crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
-        spider='arXiv',
-        settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
-    )
-
-    gotten_results = [override_generated_fields(result) for result in results]
-
-    assert gotten_results == []

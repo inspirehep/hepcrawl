@@ -29,13 +29,16 @@ LOGGER = logging.getLogger(__name__)
 class NoLastRunToLoad(Exception):
     """Error raised when there was a problem with loading the last_runs file"""
     def __init__(self, file_path, set_):
-        self.message = "Failed to load file at {} for set {}"\
-            .format(file_path, set_)
+        self.message = u"Failed to load file at {} for set {}".format(
+            file_path,
+            set_,
+        )
 
 
 class OAIPMHSpider(LastRunStoreSpider):
     """
-    Implements a spider for the OAI-PMH protocol by using the Python sickle library.
+    Implements a spider for the OAI-PMH protocol by using the Python sickle
+    library.
 
     In case of successful harvest (OAI-PMH crawling) the spider will remember
     the initial starting date and will use it as `from_date` argument on the
@@ -67,10 +70,10 @@ class OAIPMHSpider(LastRunStoreSpider):
         started_at = datetime.utcnow()
 
         LOGGER.info(
-            "Starting harvesting of {url} with sets={sets} and "
-            "metadataPrefix={metadata_prefix},"
-            "from={from_date}, "
-            "until={until_date}".format(
+            u"Starting harvesting of {url} with sets={sets} and "
+            u"metadataPrefix={metadata_prefix},"
+            u"from={from_date}, "
+            u"until={until_date}".format(
                 url=self.url,
                 sets=self.sets,
                 metadata_prefix=self.format,
@@ -79,18 +82,25 @@ class OAIPMHSpider(LastRunStoreSpider):
             )
         )
 
+        if self.sets is None:
+            LOGGER.warn(
+                'Skipping harvest, no sets passed and cowardly refusing to '
+                'harvest all.'
+            )
+            return
+
         for oai_set in self.sets:
             from_date = self.from_date or self.resume_from(set_=oai_set)
 
             LOGGER.info(
-                "Starting harvesting of set={oai_set} from {from_date}"
-                    .format(
-                        oai_set=oai_set,
-                        from_date=from_date,
-                    )
+                u"Starting harvesting of set={oai_set} from "
+                "{from_date}".format(
+                    oai_set=oai_set,
+                    from_date=from_date,
+                )
             )
 
-            request = Request('oaipmh+{}'.format(self.url), self.parse)
+            request = Request('oaipmh+%s' % self.url, self.parse)
             request.meta['set'] = oai_set
             request.meta['from_date'] = from_date
             yield request
@@ -99,11 +109,11 @@ class OAIPMHSpider(LastRunStoreSpider):
             self.save_run(started_at=started_at, set_=oai_set)
 
             LOGGER.info(
-                "Harvesting of set {} completed. Next time will resume from {}"
-                    .format(
-                        oai_set,
-                        self.until_date or now.strftime('%Y-%m-%d')
-                    )
+                "Harvesting of set %s completed. Next time will resume from %s"
+                % (
+                    oai_set,
+                    self.until_date or now.strftime('%Y-%m-%d')
+                )
             )
 
         LOGGER.info("Harvesting completed.")
@@ -111,7 +121,8 @@ class OAIPMHSpider(LastRunStoreSpider):
     @abc.abstractmethod
     def parse_record(self, record):
         """
-        This method need to be reimplemented in order to provide special parsing.
+        This method need to be reimplemented in order to provide special
+        parsing.
 
         Args:
             record (scrapy.selector.Selector): selector on the parsed record
@@ -136,4 +147,4 @@ class OAIPMHSpider(LastRunStoreSpider):
             yield self.parse_record(selector)
 
     def make_file_fingerprint(self, set_):
-        return 'metadataPrefix={}&set={}'.format(self.format, set_)
+        return u'metadataPrefix={}&set={}'.format(self.format, set_)
