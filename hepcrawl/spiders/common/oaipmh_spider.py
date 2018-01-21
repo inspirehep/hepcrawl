@@ -82,6 +82,13 @@ class OAIPMHSpider(LastRunStoreSpider):
             )
         )
 
+        if self.sets is None:
+            LOGGER.warn(
+                'Skipping harvest, no sets passed and cowardly refusing to '
+                'harvest all.'
+            )
+            return
+
         for oai_set in self.sets:
             from_date = self.from_date or self.resume_from(set_=oai_set)
 
