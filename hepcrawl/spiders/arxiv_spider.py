@@ -122,6 +122,10 @@ class ArxivSpider(OAIPMHSpider):
 
         return parsed_item
 
+    def get_record_identifier(self, record):
+        """Extracts a unique identifier from a sickle record."""
+        return record.header.identifier
+
     def _get_authors_or_collaboration(self, node):
         """Parse authors, affiliations; extract collaboration"""
         author_selectors = node.xpath('.//authors//author')

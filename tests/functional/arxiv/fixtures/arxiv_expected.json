@@ -1,410 +1,460 @@
 [
     {
-        "arxiv_eprints": [
-            {
-                "categories": [
-                    "quant-ph",
-                    "gr-qc",
-                    "hep-th",
-                    "math-ph",
-                    "math.MP",
-                    "physics.hist-ph"
-                ],
-                "value": "1412.8323"
-            }
-        ],
-        "preprint_date": "2014-12-29",
-        "curated": false,
+        "preprint_date": "2016-07-06", 
+        "curated": false, 
+        "citeable": true, 
         "license": [
             {
-                "url": "http://creativecommons.org/licenses/by/4.0/",
-                "material": "preprint",
-                "license": "CC BY 4.0"
-            }
-        ],
-        "public_notes": [
-            {
-                "source": "arXiv",
-                "value": "78 pages, many figures, graphs and references. Version accepted for\n  publication in Quantum (completed missing part in the proof of reversibility\n  of time evolution, combined previous sections 6 and 7 to a rewritten section\n  6, added clarifications and minor corrections throughout -- overall improved\n  presentation, but results unaffected by revision)"
-            }
-        ],
-        "citeable": true,
-        "number_of_pages": 78,
-        "_collections": [
-            "Literature"
-        ],
-        "titles": [
-            {
-                "source": "arXiv",
-                "title": "Toolbox for reconstructing quantum theory from rules on information acquisition"
-            }
-        ],
-        "authors": [
-            {
-                "full_name": "Hoehn, Philipp A."
-            }
-        ],
-        "document_type": [
-            "article"
-        ],
-        "abstracts": [
-            {
-                "source": "arXiv",
-                "value": "We develop an operational approach for reconstructing the quantum theory of qubit systems from elementary rules on information acquisition. The focus lies on an observer O interrogating a system S with binary questions and S's state is taken as O's `catalogue of knowledge' about S. The mathematical tools of the framework are simple and we attempt to highlight all underlying assumptions. Four rules are imposed, asserting (1) a limit on the amount of information available to O; (2) the mere existence of complementary information; (3) O's total amount of information to be preserved in-between interrogations; and, (4) O's `catalogue of knowledge' to change continuously in time in-between interrogations and every consistent such evolution to be possible. This approach permits a constructive derivation of quantum theory, elucidating how the ensuing independence, complementarity and compatibility structure of O's questions matches that of projective measurements in quantum theory, how entanglement and monogamy of entanglement, non-locality and, more generally, how the correlation structure of arbitrarily many qubits and rebits arises. The rules yield a reversible time evolution and a quadratic measure, quantifying O's information about S. Finally, it is shown that the four rules admit two solutions for the simplest case of a single elementary system: the Bloch ball and disc as state spaces for a qubit and rebit, respectively, together with their symmetries as time evolution groups. The reconstruction for arbitrarily many qubits is completed in a companion paper (arXiv:1511.01130) where an additional rule eliminates the rebit case. This approach is inspired by (but does not rely on) the relational interpretation and yields a novel formulation of quantum theory in terms of questions."
-            }
-        ],
-        "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.640233"
-        }
-    },
-    {
-        "arxiv_eprints": [
-            {
-                "categories": [
-                    "hep-th",
-                    "math-ph",
-                    "math.MP",
-                    "quant-ph"
-                ],
-                "value": "1507.07790"
-            }
-        ],
-        "preprint_date": "2015-07-28",
-        "curated": false,
-        "license": [
-            {
-                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-                "material": "preprint",
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                "material": "preprint", 
                 "license": "arXiv nonexclusive-distrib 1.0"
             }
-        ],
-        "public_notes": [
-            {
-                "source": "arXiv",
-                "value": "7 pages"
-            }
-        ],
-        "citeable": true,
-        "number_of_pages": 7,
-        "_collections": [
-            "Literature"
-        ],
-        "titles": [
-            {
-                "source": "arXiv",
-                "title": "Relativistic quantum dynamics of vector bosons in an Aharonov-Bohm potential"
-            }
-        ],
-        "dois": [
-            {
-                "source": "arXiv",
-                "material": "publication",
-                "value": "10.1088/1751-8121/aa9c53"
-            }
-        ],
+        ], 
         "authors": [
             {
-                "full_name": "Castro, Luis B."
-            },
+                "full_name": "Almeida, C.A.S."
+            }, 
             {
-                "full_name": "Silva, Edilberto O."
-            }
-        ],
-        "publication_info": [
+                "full_name": "Correa, R.A.C."
+            }, 
             {
-                "material": "publication",
-                "pubinfo_freetext": "J. Phys. A: Math. Theor. 51 (2018) 035201"
-            }
-        ],
-        "document_type": [
-            "article"
-        ],
-        "abstracts": [
+                "full_name": "Dantas, D.M."
+            }, 
             {
-                "source": "arXiv",
-                "value": "The Aharonov-Bohm (AB) problem for vector bosons by the Duffin-Kemmer-Petiau (DKP) formalism is analyzed. Depending on the values of the spin projection, the relevant eigenvalue equation coming from the DKP formalism reveals an equivalence to the spin-$1/2$ AB problem. By using the self-adjoint extension approach, we examine the bound state scenario. The energy spectra are explicitly computed as well as their dependencies on the magnetic flux parameter and also the conditions for the occurrence of bound states."
-            }
-        ],
-        "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.713128"
-        }
-    },
-    {
-        "arxiv_eprints": [
+                "full_name": "Dutra, A. de Souza"
+            }, 
             {
-                "categories": [
-                    "quant-ph",
-                    "gr-qc",
-                    "hep-th",
-                    "math-ph",
-                    "math.MP",
-                    "physics.hist-ph"
-                ],
-                "value": "1412.8323"
+                "full_name": "Moraes, P.H.R.S."
             }
-        ],
-        "preprint_date": "2014-12-29",
-        "curated": false,
-        "license": [
-            {
-                "url": "http://creativecommons.org/licenses/by/4.0/",
-                "material": "preprint",
-                "license": "CC BY 4.0"
-            }
-        ],
-        "public_notes": [
-            {
-                "source": "arXiv",
-                "value": "78 pages, many figures, graphs and references. Version accepted for\n  publication in Quantum (completed missing part in the proof of reversibility\n  of time evolution, combined previous sections 6 and 7 to a rewritten section\n  6, added clarifications and minor corrections throughout -- overall improved\n  presentation, but results unaffected by revision)"
-            }
-        ],
-        "citeable": true,
-        "number_of_pages": 78,
-        "_collections": [
-            "Literature"
-        ],
-        "titles": [
-            {
-                "source": "arXiv",
-                "title": "Toolbox for reconstructing quantum theory from rules on information acquisition"
-            }
-        ],
-        "authors": [
-            {
-                "full_name": "Hoehn, Philipp A."
-            }
-        ],
-        "document_type": [
-            "article"
-        ],
-        "abstracts": [
-            {
-                "source": "arXiv",
-                "value": "We develop an operational approach for reconstructing the quantum theory of qubit systems from elementary rules on information acquisition. The focus lies on an observer O interrogating a system S with binary questions and S's state is taken as O's `catalogue of knowledge' about S. The mathematical tools of the framework are simple and we attempt to highlight all underlying assumptions. Four rules are imposed, asserting (1) a limit on the amount of information available to O; (2) the mere existence of complementary information; (3) O's total amount of information to be preserved in-between interrogations; and, (4) O's `catalogue of knowledge' to change continuously in time in-between interrogations and every consistent such evolution to be possible. This approach permits a constructive derivation of quantum theory, elucidating how the ensuing independence, complementarity and compatibility structure of O's questions matches that of projective measurements in quantum theory, how entanglement and monogamy of entanglement, non-locality and, more generally, how the correlation structure of arbitrarily many qubits and rebits arises. The rules yield a reversible time evolution and a quadratic measure, quantifying O's information about S. Finally, it is shown that the four rules admit two solutions for the simplest case of a single elementary system: the Bloch ball and disc as state spaces for a qubit and rebit, respectively, together with their symmetries as time evolution groups. The reconstruction for arbitrarily many qubits is completed in a companion paper (arXiv:1511.01130) where an additional rule eliminates the rebit case. This approach is inspired by (but does not rely on) the relational interpretation and yields a novel formulation of quantum theory in terms of questions."
-            }
-        ],
-        "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.767113"
-        }
-    },
-    {
+        ], 
         "arxiv_eprints": [
             {
                 "categories": [
                     "hep-th"
-                ],
+                ], 
                 "value": "1607.01710"
             }
-        ],
-        "preprint_date": "2016-07-06",
-        "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.818160"
-        },
-        "license": [
-            {
-                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-                "material": "preprint",
-                "license": "arXiv nonexclusive-distrib 1.0"
-            }
-        ],
-        "citeable": true,
-        "dois": [
-            {
-                "source": "arXiv",
-                "material": "publication",
-                "value": "10.1002/andp.201700188"
-            }
-        ],
+        ], 
         "_collections": [
             "Literature"
-        ],
+        ], 
         "titles": [
             {
-                "source": "arXiv",
+                "source": "arXiv", 
                 "title": "Refinements of the Weyl pure geometrical thick branes from information-entropic measure"
             }
-        ],
-        "authors": [
+        ], 
+        "dois": [
             {
-                "full_name": "Correa, R.A.C."
-            },
-            {
-                "full_name": "Dantas, D.M."
-            },
-            {
-                "full_name": "Moraes, P.H.R.S."
-            },
-            {
-                "full_name": "Dutra, A. de Souza"
-            },
-            {
-                "full_name": "Almeida, C.A.S."
+                "source": "arXiv", 
+                "material": "publication", 
+                "value": "10.1002/andp.201700188"
             }
-        ],
+        ], 
         "document_type": [
             "article"
-        ],
+        ], 
         "abstracts": [
             {
-                "source": "arXiv",
+                "source": "arXiv", 
                 "value": "This letter aims to analyse the so-called configurational entropy in the Weyl pure geometrical thick brane model. The Weyl structure plays a prominent role in the thickness of this model. We find a set of parameters associated to the brane width where the configurational entropy exhibits critical points. Furthermore, we show, by means of this information-theoretical measure, that a stricter bound on the parameter of Weyl pure geometrical brane model arises from the CE."
             }
-        ],
-        "curated": false
-    },
+        ], 
+        "acquisition_source": {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }
+    }, 
     {
+        "preprint_date": "2017-06-16", 
+        "citeable": true, 
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                "material": "preprint", 
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ], 
+        "authors": [
+            {
+                "full_name": "Anderson, Tyler"
+            }, 
+            {
+                "full_name": "Cutter, Jacob"
+            }, 
+            {
+                "full_name": "Dalager, Olivia"
+            }, 
+            {
+                "full_name": "Dhaliwal, Navneet"
+            }, 
+            {
+                "full_name": "Godfrey, Benjamin"
+            }, 
+            {
+                "full_name": "Hillbrand, Seth"
+            }, 
+            {
+                "full_name": "Irving, Michael"
+            }, 
+            {
+                "full_name": "Manalaysay, Aaron"
+            }, 
+            {
+                "full_name": "Montoya, Juan"
+            }, 
+            {
+                "full_name": "Morad, James"
+            }, 
+            {
+                "full_name": "Neher, Christian"
+            }, 
+            {
+                "full_name": "Stolp, Dustin"
+            }, 
+            {
+                "full_name": "Tripathi, Mani"
+            }
+        ], 
+        "public_notes": [
+            {
+                "source": "arXiv", 
+                "value": "10 pages, 9 figures"
+            }
+        ], 
+        "number_of_pages": 10, 
+        "acquisition_source": {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }, 
+        "_collections": [
+            "Literature"
+        ], 
+        "titles": [
+            {
+                "source": "arXiv", 
+                "title": "Evaluation of Silicon Photomultipliers for use as Photosensors in Liquid Xenon Detectors"
+            }
+        ], 
         "arxiv_eprints": [
             {
                 "categories": [
-                    "hep-th",
-                    "math-ph",
-                    "math.MP",
-                    "quant-ph"
-                ],
-                "value": "1507.07790"
+                    "hep-ex", 
+                    "physics.ins-det"
+                ], 
+                "value": "1706.05371"
             }
-        ],
-        "preprint_date": "2015-07-28",
-        "curated": false,
+        ], 
+        "document_type": [
+            "article"
+        ], 
+        "abstracts": [
+            {
+                "source": "arXiv", 
+                "value": "Silicon photomultipliers (SiPMs) are potential solid-state alternatives to traditional photomultiplier tubes (PMTs) for single-photon detection. In this paper, we report on evaluating SensL MicroFC-10035-SMT SiPMs for their suitability as PMT replacements. The devices were successfully operated in a liquid-xenon detector, which demonstrates that SiPMs can be used in noble element time projection chambers as photosensors. The devices were also cooled down to 170 K to observe dark count dependence on temperature. No dependencies on the direction of an applied 3.2 kV/cm electric field were observed with respect to dark-count rate, gain, or photon detection efficiency."
+            }
+        ], 
+        "curated": false
+    }, 
+    {
+        "preprint_date": "2014-12-29", 
+        "citeable": true, 
         "license": [
             {
-                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-                "material": "preprint",
-                "license": "arXiv nonexclusive-distrib 1.0"
+                "url": "http://creativecommons.org/licenses/by/4.0/", 
+                "material": "preprint", 
+                "license": "CC BY 4.0"
             }
-        ],
+        ], 
+        "authors": [
+            {
+                "full_name": "Hoehn, Philipp A."
+            }
+        ], 
         "public_notes": [
             {
-                "source": "arXiv",
-                "value": "7 pages"
+                "source": "arXiv", 
+                "value": "78 pages, many figures, graphs and references. Version accepted for\n  publication in Quantum (completed missing part in the proof of reversibility\n  of time evolution, combined previous sections 6 and 7 to a rewritten section\n  6, added clarifications and minor corrections throughout -- overall improved\n  presentation, but results unaffected by revision)"
             }
-        ],
-        "citeable": true,
-        "number_of_pages": 7,
+        ], 
+        "number_of_pages": 78, 
+        "acquisition_source": {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }, 
         "_collections": [
             "Literature"
-        ],
+        ], 
         "titles": [
             {
-                "source": "arXiv",
-                "title": "Relativistic quantum dynamics of vector bosons in an Aharonov-Bohm potential"
+                "source": "arXiv", 
+                "title": "Toolbox for reconstructing quantum theory from rules on information acquisition"
             }
-        ],
-        "dois": [
+        ], 
+        "arxiv_eprints": [
             {
-                "source": "arXiv",
-                "material": "publication",
-                "value": "10.1088/1751-8121/aa9c53"
+                "categories": [
+                    "gr-qc", 
+                    "hep-th", 
+                    "math-ph", 
+                    "math.MP", 
+                    "physics.hist-ph", 
+                    "quant-ph"
+                ], 
+                "value": "1412.8323"
             }
-        ],
+        ], 
+        "document_type": [
+            "article"
+        ], 
+        "abstracts": [
+            {
+                "source": "arXiv", 
+                "value": "We develop an operational approach for reconstructing the quantum theory of qubit systems from elementary rules on information acquisition. The focus lies on an observer O interrogating a system S with binary questions and S's state is taken as O's `catalogue of knowledge' about S. The mathematical tools of the framework are simple and we attempt to highlight all underlying assumptions. Four rules are imposed, asserting (1) a limit on the amount of information available to O; (2) the mere existence of complementary information; (3) O's total amount of information to be preserved in-between interrogations; and, (4) O's `catalogue of knowledge' to change continuously in time in-between interrogations and every consistent such evolution to be possible. This approach permits a constructive derivation of quantum theory, elucidating how the ensuing independence, complementarity and compatibility structure of O's questions matches that of projective measurements in quantum theory, how entanglement and monogamy of entanglement, non-locality and, more generally, how the correlation structure of arbitrarily many qubits and rebits arises. The rules yield a reversible time evolution and a quadratic measure, quantifying O's information about S. Finally, it is shown that the four rules admit two solutions for the simplest case of a single elementary system: the Bloch ball and disc as state spaces for a qubit and rebit, respectively, together with their symmetries as time evolution groups. The reconstruction for arbitrarily many qubits is completed in a companion paper (arXiv:1511.01130) where an additional rule eliminates the rebit case. This approach is inspired by (but does not rely on) the relational interpretation and yields a novel formulation of quantum theory in terms of questions."
+            }
+        ], 
+        "curated": false
+    }, 
+    {
+        "preprint_date": "2017-07-04", 
+        "report_numbers": [
+            {
+                "source": "arXiv", 
+                "value": "IITH-PH-0001/17"
+            }, 
+            {
+                "source": "arXiv", 
+                "value": "IMSc/2017/07/05"
+            }
+        ], 
+        "curated": false, 
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                "material": "preprint", 
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ], 
+        "public_notes": [
+            {
+                "source": "arXiv", 
+                "value": "Typos corrected, references added, version accepted for publication\n  in PRD"
+            }
+        ], 
+        "authors": [
+            {
+                "full_name": "Bandyopadhyay, Priyotosh"
+            }, 
+            {
+                "full_name": "Chun, Eung Jin"
+            }, 
+            {
+                "full_name": "Mandal, Rusa"
+            }
+        ], 
+        "acquisition_source": {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }, 
+        "_collections": [
+            "Literature"
+        ], 
+        "titles": [
+            {
+                "source": "arXiv", 
+                "title": "Implications of right-handed neutrinos in $B-L$ extended standard model with scalar dark matter"
+            }
+        ], 
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "astro-ph.CO", 
+                    "hep-ex", 
+                    "hep-ph"
+                ], 
+                "value": "1707.00874"
+            }
+        ], 
+        "document_type": [
+            "article"
+        ], 
+        "abstracts": [
+            {
+                "source": "arXiv", 
+                "value": "We investigate the Standard Model (SM) with a $U(1)_{B-L}$ gauge extension where a $B-L$ charged scalar is a viable dark matter (DM) candidate. The dominant annihilation process, for the DM particle is through the $B-L$ symmetry breaking scalar to right-handed neutrino pair. We exploit the effect of decay and inverse decay of the right-handed neutrino in thermal relic abundance of the DM. Depending on the values of the decay rate, the DM relic density can be significantly different from what is obtained in the standard calculation assuming the right-handed neutrino is in thermal equilibrium and there appear different regions of the parameter space satisfying the observed DM relic density. For a DM mass less than $\\mathcal{O}$(TeV), the direct detection experiments impose a competitive bound on the mass of the $U(1)_{B-L}$ gauge boson $Z^\\prime$ with the collider experiments. Utilizing the non-observation of the displaced vertices arising from the right-handed neutrino decays, bound on the mass of $Z^\\prime$ has been obtained at present and higher luminosities at the LHC with 14 TeV centre of mass energy where an integrated luminosity of 100fb$^{-1}$ is sufficient to probe $m_{Z'} \\sim 5.5$ TeV."
+            }
+        ], 
+        "citeable": true
+    }, 
+    {
+        "preprint_date": "2015-07-28", 
+        "citeable": true, 
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                "material": "preprint", 
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ], 
         "authors": [
             {
                 "full_name": "Castro, Luis B."
-            },
+            }, 
             {
                 "full_name": "Silva, Edilberto O."
             }
-        ],
-        "publication_info": [
+        ], 
+        "public_notes": [
             {
-                "material": "publication",
-                "pubinfo_freetext": "J. Phys. A: Math. Theor. 51 (2018) 035201"
+                "source": "arXiv", 
+                "value": "7 pages"
             }
-        ],
-        "document_type": [
-            "article"
-        ],
-        "abstracts": [
-            {
-                "source": "arXiv",
-                "value": "The Aharonov-Bohm (AB) problem for vector bosons by the Duffin-Kemmer-Petiau (DKP) formalism is analyzed. Depending on the values of the spin projection, the relevant eigenvalue equation coming from the DKP formalism reveals an equivalence to the spin-$1/2$ AB problem. By using the self-adjoint extension approach, we examine the bound state scenario. The energy spectra are explicitly computed as well as their dependencies on the magnetic flux parameter and also the conditions for the occurrence of bound states."
-            }
-        ],
+        ], 
+        "number_of_pages": 7, 
         "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.869228"
-        }
-    },
-    {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }, 
+        "_collections": [
+            "Literature"
+        ], 
+        "titles": [
+            {
+                "source": "arXiv", 
+                "title": "Relativistic quantum dynamics of vector bosons in an Aharonov-Bohm potential"
+            }
+        ], 
+        "dois": [
+            {
+                "source": "arXiv", 
+                "material": "publication", 
+                "value": "10.1088/1751-8121/aa9c53"
+            }
+        ], 
         "arxiv_eprints": [
             {
                 "categories": [
-                    "hep-th"
-                ],
-                "value": "1607.01710"
+                    "hep-th", 
+                    "math-ph", 
+                    "math.MP", 
+                    "quant-ph"
+                ], 
+                "value": "1507.07790"
             }
-        ],
-        "preprint_date": "2016-07-06",
-        "acquisition_source": {
-            "source": "arXiv",
-            "method": "hepcrawl",
-            "submission_number": "None",
-            "datetime": "2017-12-14T15:28:22.922470"
-        },
-        "license": [
+        ], 
+        "publication_info": [
             {
-                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-                "material": "preprint",
-                "license": "arXiv nonexclusive-distrib 1.0"
+                "material": "publication", 
+                "pubinfo_freetext": "J. Phys. A: Math. Theor. 51 (2018) 035201"
             }
-        ],
-        "citeable": true,
-        "dois": [
-            {
-                "source": "arXiv",
-                "material": "publication",
-                "value": "10.1002/andp.201700188"
-            }
-        ],
-        "_collections": [
-            "Literature"
-        ],
-        "titles": [
-            {
-                "source": "arXiv",
-                "title": "Refinements of the Weyl pure geometrical thick branes from information-entropic measure"
-            }
-        ],
-        "authors": [
-            {
-                "full_name": "Correa, R.A.C."
-            },
-            {
-                "full_name": "Dantas, D.M."
-            },
-            {
-                "full_name": "Moraes, P.H.R.S."
-            },
-            {
-                "full_name": "Dutra, A. de Souza"
-            },
-            {
-                "full_name": "Almeida, C.A.S."
-            }
-        ],
+        ], 
         "document_type": [
             "article"
-        ],
+        ], 
         "abstracts": [
             {
-                "source": "arXiv",
-                "value": "This letter aims to analyse the so-called configurational entropy in the Weyl pure geometrical thick brane model. The Weyl structure plays a prominent role in the thickness of this model. We find a set of parameters associated to the brane width where the configurational entropy exhibits critical points. Furthermore, we show, by means of this information-theoretical measure, that a stricter bound on the parameter of Weyl pure geometrical brane model arises from the CE."
+                "source": "arXiv", 
+                "value": "The Aharonov-Bohm (AB) problem for vector bosons by the Duffin-Kemmer-Petiau (DKP) formalism is analyzed. Depending on the values of the spin projection, the relevant eigenvalue equation coming from the DKP formalism reveals an equivalence to the spin-$1/2$ AB problem. By using the self-adjoint extension approach, we examine the bound state scenario. The energy spectra are explicitly computed as well as their dependencies on the magnetic flux parameter and also the conditions for the occurrence of bound states."
             }
-        ],
+        ], 
         "curated": false
+    }, 
+    {
+        "preprint_date": "2017-06-28", 
+        "report_numbers": [
+            {
+                "source": "arXiv", 
+                "value": "BONN-TH-2017-03"
+            }
+        ], 
+        "curated": false, 
+        "license": [
+            {
+                "url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/", 
+                "material": "preprint", 
+                "license": "arXiv nonexclusive-distrib 1.0"
+            }
+        ], 
+        "authors": [
+            {
+                "full_name": "Dercks, Daniel"
+            }, 
+            {
+                "full_name": "Dreiner, Herbi"
+            }, 
+            {
+                "full_name": "Krauss, Manuel E."
+            }, 
+            {
+                "full_name": "Opferkuch, Toby"
+            }, 
+            {
+                "full_name": "Reinert, Annika"
+            }
+        ], 
+        "public_notes": [
+            {
+                "source": "arXiv", 
+                "value": "43 pages, 13 tables, 17 figures; updated Figs. 11-17 and Tab. 12\n  including NLO corrections; version accepted for publication in EPJC"
+            }
+        ], 
+        "number_of_pages": 43, 
+        "acquisition_source": {
+            "source": "arXiv", 
+            "method": "hepcrawl", 
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad", 
+            "datetime": "2017-04-03T10:26:40.365216"
+        }, 
+        "_collections": [
+            "Literature"
+        ], 
+        "titles": [
+            {
+                "source": "arXiv", 
+                "title": "R-Parity Violation at the LHC"
+            }
+        ], 
+        "dois": [
+            {
+                "source": "arXiv", 
+                "material": "publication", 
+                "value": "10.1140/epjc/s10052-017-5414-4"
+            }
+        ], 
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-ex", 
+                    "hep-ph"
+                ], 
+                "value": "1706.09418"
+            }
+        ], 
+        "publication_info": [
+            {
+                "material": "publication", 
+                "pubinfo_freetext": "Eur. Phys. J. C (2017) 77:856"
+            }
+        ], 
+        "document_type": [
+            "article"
+        ], 
+        "abstracts": [
+            {
+                "source": "arXiv", 
+                "value": "We investigate the phenomenology of the MSSM extended by a single R-parity violating coupling at the unification scale. For all R-parity violating couplings, we discuss the evolution of the particle spectra through the renormalization group equations and the nature of the lightest supersymmetric particle (LSP) within the CMSSM, as an example of a specific complete supersymmetric model. We use the nature of the LSP to classify the possible signatures. For each possible scenario we present in detail the current LHC bounds on the supersymmetric particle masses, typically obtained using simplified models. From this we determine the present coverage of R-parity violating models at the LHC. We find several gaps, in particular for a stau-LSP, which is easily obtained in R-parity violating models. Using the program CheckMATE we recast existing LHC searches to set limits on the parameters of all R-parity violating CMSSMs. We find that virtually all of them are either more strongly constrained or similarly constrained in comparison to the R-parity conserving CMSSM, including the $\\bar U\\bar D\\bar D$ models. For each R-parity violating CMSSM we then give the explicit lower mass bounds on all relevant supersymmetric particles."
+            }
+        ], 
+        "citeable": true
     }
 ]

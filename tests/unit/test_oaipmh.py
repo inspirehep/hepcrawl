@@ -45,8 +45,10 @@ def settings():
 @pytest.fixture
 def spider(settings):
     class TestOAIPMHSpider(OAIPMHSpider):
-        def parse_record(self, record):
-            return None
+        def parse_record(self, record): pass
+
+        def get_record_identifier(self, record):
+            return str(record)
 
     spider = TestOAIPMHSpider('http://0.0.0.0/oai2', settings=settings)
     spider.from_date = '2017-12-08'
