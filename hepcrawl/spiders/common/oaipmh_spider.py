@@ -141,7 +141,11 @@ class OAIPMHSpider(LastRunStoreSpider):
         except NoRecordsMatch as err:
             LOGGER.warning(err)
             raise StopIteration()
-        for record in records:
+
+        # Avoid timing out the resumption token
+        # TODO: implemente a storage-based solution, to be able to handle large
+        #       amounts of records.
+        for record in list(records):
             response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
             selector = Selector(response, type='xml')
             yield self.parse_record(selector)
