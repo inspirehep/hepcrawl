@@ -131,16 +131,27 @@ class OAIPMHSpider(LastRunStoreSpider):
 
     def parse(self, response):
         sickle = Sickle(self.url)
+        params = {
+            'metadataPrefix': self.format,
+            'set': response.meta['set'],
+            'from': response.meta['from_date'],
+            'until': self.until_date,
+        }
         try:
-            records = sickle.ListRecords(**{
-                'metadataPrefix': self.format,
-                'set': response.meta['set'],
-                'from': response.meta['from_date'],
-                'until': self.until_date,
-            })
+            records = sickle.ListRecords(**params)
         except NoRecordsMatch as err:
             LOGGER.warning(err)
             raise StopIteration()
+
+        # Avoid timing out the resumption token
+        # TODO: implemente a storage-based solution, to be able to handle large
+        #       amounts of records.
+        records = list(records)
+        LOGGER.info(
+            'Harvested %s record for params %s',
+            len(records),
+            params,
+        )
         for record in records:
             response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
             selector = Selector(response, type='xml')

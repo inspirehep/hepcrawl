@@ -9,15 +9,16 @@
 
 """Spider for the CERN Document Server OAI-PMH interface"""
 
-from scrapy.spider import XMLFeedSpider
-from scrapy import Request
+from dojson.contrib.marc21.utils import create_record
+from flask.app import Flask
 from harvestingkit.inspire_cds_package.from_cds import CDS2Inspire
 from harvestingkit.bibrecord import (
     create_record as create_bibrec,
     record_xml_output,
 )
-from dojson.contrib.marc21.utils import create_record
 from inspire_dojson.hep import hep
+from scrapy import Request
+from scrapy.spider import XMLFeedSpider
 
 from . import StatefulSpider
 from ..utils import ParsedItem
@@ -65,9 +66,16 @@ class CDSSpider(StatefulSpider, XMLFeedSpider):
         inspire_bibrec = CDS2Inspire(cds_bibrec).get_record()
         marcxml_record = record_xml_output(inspire_bibrec)
         record = create_record(marcxml_record)
-        json_record = hep.do(record)
-        base_uri = self.settings['SCHEMA_BASE_URI']
-        json_record['$schema'] = base_uri + 'hep.json'
+
+        app = Flask('hepcrawl')
+        app.config.update(
+            self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
+        )
+        with app.app_context():
+            json_record = hep.do(record)
+            base_uri = self.settings['SCHEMA_BASE_URI']
+            json_record['$schema'] = base_uri + 'hep.json'
+
         parsed_item = ParsedItem(
                 record=json_record,
                 record_format='hep',
