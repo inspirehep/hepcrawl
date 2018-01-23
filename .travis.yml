@@ -56,6 +56,10 @@ after_success:
   - sed -i 's@\"/code/@'"\"$(pwd)/"'@g' .coverage
   - coveralls
 
+after_failure:
+  - docker-compose -f docker-compose.test.yml logs --tail=200
+  - bash -c 'for log in logs/*/*; do echo $log; cat $log; done'
+
 notifications:
   email: false
 
