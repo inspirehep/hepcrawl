@@ -65,6 +65,7 @@ class OAIPMHSpider(LastRunStoreSpider):
         self.sets = sets
         self.from_date = from_date
         self.until_date = until_date
+        self._crawled_records = {}
 
     def start_requests(self):
         started_at = datetime.utcnow()
@@ -116,16 +117,30 @@ class OAIPMHSpider(LastRunStoreSpider):
                 )
             )
 
-        LOGGER.info("Harvesting completed.")
+        LOGGER.info(
+            "Harvesting completed, harvested %s records.",
+            len(self._crawled_records),
+        )
 
     @abc.abstractmethod
     def parse_record(self, record):
         """
-        This method need to be reimplemented in order to provide special
+        This method needs to be reimplemented in order to provide special
         parsing.
 
         Args:
             record (scrapy.selector.Selector): selector on the parsed record
+        """
+        raise NotImplementedError()
+
+    @abc.abstractmethod
+    def get_record_identifier(self, record):
+        """
+        This method need to be reimplemented in order to extract a unique
+        identifier from the record to avoid cross-set reharvesting.
+
+        Args:
+            record (sickle.models.Record): sickle record response
         """
         raise NotImplementedError()
 
@@ -153,6 +168,18 @@ class OAIPMHSpider(LastRunStoreSpider):
             params,
         )
         for record in records:
+            rec_identifier = self.get_record_identifier(record)
+            if rec_identifier in self._crawled_records:
+                # avoid cross-set repeated records
+                LOGGER.info('Skipping duplicated record %s', rec_identifier)
+                continue
+
+            LOGGER.debug(
+                'Not skipping non-duplicated record %s',
+                rec_identifier,
+            )
+
+            self._crawled_records[rec_identifier] = record
             response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
             selector = Selector(response, type='xml')
             yield self.parse_record(selector)

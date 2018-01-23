@@ -47,7 +47,7 @@ def get_configuration():
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
             'from_date': '2017-11-15',
-            'sets': 'physics:hep-th,physics:hep-ex',
+            'sets': 'physics:hep-th,physics:hep-ex,physics:dup-hep-ex',
             'url': 'http://arxiv-http-server.local/oai2',
         }
     }
