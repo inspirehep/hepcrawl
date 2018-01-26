@@ -54,7 +54,7 @@ class OAIPMHSpider(LastRunStoreSpider):
         url,
         format='oai_dc',
         sets=None,
-        alias=None,
+        harvest_single=None,
         from_date=None,
         until_date=None,
         **kwargs
@@ -65,11 +65,34 @@ class OAIPMHSpider(LastRunStoreSpider):
         if isinstance(sets, string_types):
             sets = sets.split(',')
         self.sets = sets
+        self.harvest_single = harvest_single
         self.from_date = from_date
         self.until_date = until_date
         self._crawled_records = {}
 
     def start_requests(self):
+        if self.harvest_single:
+            return self.start_requests_single()
+        return self.start_requests_sets()
+
+    def start_requests_single(self):
+        started_at = datetime.utcnow()
+
+        LOGGER.info(
+            u"Starting harvesting of single record {identifier} at {url} with "
+            u"metadataPrefix={metadata_prefix}.".format(
+                url=self.url,
+                identifier=self.harvest_single,
+                metadata_prefix=self.format,
+            )
+        )
+
+        request = Request('oaipmh+%s' % self.url, self.parse)
+        request.meta['harvest_single'] = self.harvest_single
+        yield request
+
+
+    def start_requests_sets(self):
         started_at = datetime.utcnow()
 
         LOGGER.info(
@@ -147,6 +170,23 @@ class OAIPMHSpider(LastRunStoreSpider):
         raise NotImplementedError()
 
     def parse(self, response):
+        if response.meta.get('harvest_single'):
+            return self.parse_single(response)
+        return self.parse_list(response)
+
+    def parse_single(self, response):
+        sickle = Sickle(self.url)
+        params = {
+            'metadataPrefix': self.format,
+            'identifier': response.meta['harvest_single'],
+        }
+        record = sickle.GetRecord(**params)
+        self._crawled_records[params['identifier']] = record
+        response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
+        selector = Selector(response, type='xml')
+        return self.parse_record(selector)
+
+    def parse_list(self, response):
         sickle = Sickle(self.url)
         params = {
             'metadataPrefix': self.format,

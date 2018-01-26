@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2018-01-26T09:05:29Z</responseDate>
+<request verb="GetRecord" identifier="oai:arXiv.org:1401.2122" metadataPrefix="arXiv">http://export.arxiv.org/oai2</request>
+<GetRecord>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1401.2122</identifier>
+ <datestamp>2018-01-25</datestamp>
+ <setSpec>math</setSpec>
+ <setSpec>physics:hep-th</setSpec>
+ <setSpec>physics:math-ph</setSpec>
+ <setSpec>physics:nlin</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1401.2122</id><created>2014-01-09</created><updated>2017-10-23</updated><authors><author><keyname>Sergyeyev</keyname><forenames>A.</forenames></author></authors><title>New integrable (3+1)-dimensional systems and contact geometry</title><categories>math.AP hep-th math-ph math.DG math.MP nlin.SI</categories><comments>16 pages, LaTeX, no figures, revised and abridged, in this version
+  (v5) the typos were fixed (including some that have unfortunately crept into
+  the published version too), Letters in Mathematical Physics (2017)</comments><msc-class>37K05 37K10 53D10</msc-class><journal-ref>Lett. Math. Phys. 108 (2018), no. 2, 359-376</journal-ref><doi>10.1007/s11005-017-1013-4</doi><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We introduce a novel systematic construction for integrable (3+1)-dimensional
+dispersionless systems using nonisospectral Lax pairs that involve contact
+vector fields.
+  In particular, we present new large classes of (3+1)-dimensional integrable
+dispersionless systems associated to the Lax pairs which are polynomial and
+rational in the spectral parameter.
+</abstract></arXiv>
+</metadata>
+</record>
+</GetRecord>
+</OAI-PMH>

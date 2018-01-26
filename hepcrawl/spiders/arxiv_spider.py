@@ -45,10 +45,14 @@ class ArxivSpider(OAIPMHSpider):
     """Spider for crawling arXiv.org OAI-PMH XML files.
 
     Example:
-        Using OAI-PMH XML files::
+        Using OAI-PMH service::
 
             $ scrapy crawl arXiv \\
                 -a "sets=physics:hep-th" -a "from_date=2017-12-13"
+
+        or to harvest a single record::
+
+            $ scrapy crawl arXiv -a "harvest_single=oai:arXiv.org:1401.2122"
 
     """
     name = 'arXiv'
