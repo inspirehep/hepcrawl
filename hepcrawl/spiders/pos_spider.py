@@ -92,7 +92,7 @@ class POSSpider(StatefulSpider):
         yield Request(self.source_file)
 
     def parse(self, response):
-        self.log('Got record from: {response.url}'.format(**vars()))
+        self.logger.info('Got record from: {response.url}'.format(**vars()))
 
         response.selector.remove_namespaces()
         record_xml_selectors = response.selector.xpath('.//record')
@@ -125,7 +125,7 @@ class POSSpider(StatefulSpider):
         )
 
     def parse_conference_paper(self, response):
-        self.log(
+        self.logger.info(
             'Parsing conference paper from: {response.url}'.format(**vars())
         )
         xml_record = response.meta.get('xml_record')

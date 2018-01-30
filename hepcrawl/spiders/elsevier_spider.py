@@ -168,7 +168,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
 
     def handle_package(self, response):
         """Handle the zip package and yield a request for every XML found."""
-        self.log("Visited %s" % response.url)
+        self.logger.info("Visited %s" % response.url)
         filename = os.path.basename(response.url).rstrip(".zip")
         # TMP dir to extract zip packages:
         target_folder = mkdtemp(prefix="elsevier_" + filename + "_", dir="/tmp/")
