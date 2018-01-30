@@ -24,6 +24,7 @@ from ..utils import (
     parse_domain,
     get_node,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -78,6 +79,7 @@ class BaseSpider(StatefulSpider, XMLFeedSpider):
         ("dc", "http://purl.org/dc/elements/1.1/"),
     ]
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct BASE spider"""
         super(BaseSpider, self).__init__(*args, **kwargs)

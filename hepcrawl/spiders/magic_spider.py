@@ -22,6 +22,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     split_fullname,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -57,6 +58,7 @@ class MagicSpider(StatefulSpider, XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct MAGIC spider"""
         super(MagicSpider, self).__init__(*args, **kwargs)

@@ -27,6 +27,7 @@ from ..utils import (
     get_nested,
     build_dict,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -47,6 +48,7 @@ class APSSpider(StatefulSpider):
     name = 'APS'
     aps_base_url = "http://harvest.aps.org/v2/journals/articles"
 
+    @strict_kwargs
     def __init__(self, url=None, from_date=None, until_date=None,
                  date="published", journals=None, sets=None, per_page=100,
                  **kwargs):

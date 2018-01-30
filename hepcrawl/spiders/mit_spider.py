@@ -28,6 +28,7 @@ from ..utils import (
     get_temporary_file,
     split_fullname,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -63,6 +64,7 @@ class MITSpider(StatefulSpider, XMLFeedSpider):
     itertag = "//ul[@class='ds-artifact-list']/li"
     today = str(datetime.date.today().year)
 
+    @strict_kwargs
     def __init__(self, source_file=None, year=today, *args, **kwargs):
         """Construct MIT spider"""
         super(MITSpider, self).__init__(*args, **kwargs)

@@ -19,7 +19,7 @@ from scrapy.spiders import XMLFeedSpider
 from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import ParsedItem
+from ..utils import ParsedItem, strict_kwargs
 
 
 class PhenixSpider(StatefulSpider, XMLFeedSpider):
@@ -50,6 +50,7 @@ class PhenixSpider(StatefulSpider, XMLFeedSpider):
     iterator = "html"
     itertag = "//table//td/ul/li"
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct PHENIX spider"""
         super(PhenixSpider, self).__init__(*args, **kwargs)

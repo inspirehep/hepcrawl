@@ -24,6 +24,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     has_numbers,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -49,6 +50,7 @@ class AlphaSpider(StatefulSpider, CrawlSpider):
     domain = "http://alpha.web.cern.ch/"
     itertag = "//div[@class = 'node node-thesis']"
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct Alpha spider"""
         super(AlphaSpider, self).__init__(*args, **kwargs)
