@@ -83,7 +83,7 @@ def dummy_strict_kwargs_cls():
     """A sample class with @strict_kwargs constructor."""
     class Dummy(object):
         @strict_kwargs
-        def __init__(self, a, b=10, c=20, *args, **kwargs):
+        def __init__(self, a, b=10, c=20, d=30, *args, **kwargs):
             pass
 
     return Dummy
@@ -277,10 +277,10 @@ def test_get_journal_and_section_invalid():
 
 def test_strict_kwargs_pass(dummy_strict_kwargs_cls):
     """Test the `strict_kwargs` decorator allowing the kwargs."""
-    dummy = dummy_strict_kwargs_cls(a=1, b=2, _x=4, settings={'DUMMY': True})
+    dummy = dummy_strict_kwargs_cls(a=1, b=2, d=None, _x=4, settings={'DUMMY': True})
     assert dummy._init_kwargs == {'a': 1, 'b': 2, 'c': 20}
     assert dummy._all_kwargs == {
-        'a': 1, 'b': 2, 'c': 20, '_x': 4, 'settings': {'DUMMY': True}
+        'a': 1, 'b': 2, 'c': 20, 'd': None, '_x': 4, 'settings': {'DUMMY': True}
     }
 
 
@@ -288,4 +288,4 @@ def test_strict_kwargs_pass(dummy_strict_kwargs_cls):
 def test_strict_kwargs_fail(dummy_strict_kwargs_cls):
     """Test the `strict_kwargs` decorator disallowing some kwargs."""
     with pytest.raises(TypeError):
-        dummy_strict_kwargs_cls(a=1, b=2, d=4)
+        dummy_strict_kwargs_cls(a=1, b=2, e=4)

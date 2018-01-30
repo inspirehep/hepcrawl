@@ -392,10 +392,10 @@ def strict_kwargs(func):
     (used by scrapyd), with this we can ensure that we are not passing unwanted
     data by mistake.
 
-    Additionaly this will add all of the 'public' kwargs to an `_init_kwargs`
-    field in the object for easier passing and all of the arguments (including
-    non-overloaded ones) to `_all_kwargs`. (To make passing them forward
-    easier.)
+    Additionaly this will add all of the 'public' not-None kwargs to an
+    `_init_kwargs` field in the object for easier passing and all of the
+    arguments (including non-overloaded ones) to `_all_kwargs`.
+    (To make passing them forward easier.)
 
     Args:
         func (function): a spider method
@@ -434,6 +434,7 @@ def strict_kwargs(func):
         self._init_kwargs = {
             k: v for k, v in defaults.items()
             if not k.startswith('_') and k not in spider_fields
+               and v is not None
         }
         self._all_kwargs = defaults
         return func(self, *args, **kwargs)
