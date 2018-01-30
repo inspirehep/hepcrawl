@@ -54,45 +54,33 @@ class OAIPMHSpider(LastRunStoreSpider):
         url,
         format='oai_dc',
         sets=None,
-        harvest_single=None,
+        identifier=None,
         from_date=None,
         until_date=None,
         **kwargs
     ):
         super(OAIPMHSpider, self).__init__(**kwargs)
         self.url = url
-        self.format = format
         if isinstance(sets, string_types):
-            sets = sets.split(',')
-        self.sets = sets
-        self.harvest_single = harvest_single
-        self.from_date = from_date
-        self.until_date = until_date
+            self._init_kwargs['sets'] = sets.split(',')
         self._crawled_records = {}
 
     def start_requests(self):
-        if self.harvest_single:
-            return self.start_requests_single()
-        return self.start_requests_sets()
+        if 'identifier' in self._init_kwargs:
+            return self.start_requests_single(**self._init_kwargs)
+        return self.start_requests_sets(**self._init_kwargs)
 
-    def start_requests_single(self):
-        started_at = datetime.utcnow()
-
+    def start_requests_single(self, url, format, identifier):
         LOGGER.info(
-            u"Starting harvesting of single record {identifier} at {url} with "
-            u"metadataPrefix={metadata_prefix}.".format(
-                url=self.url,
-                identifier=self.harvest_single,
-                metadata_prefix=self.format,
-            )
+            u"Starting harvesting of single record {} at {} with "
+            u"metadataPrefix={}.".format(identifier, url, format)
         )
 
-        request = Request('oaipmh+%s' % self.url, self.parse)
-        request.meta['harvest_single'] = self.harvest_single
+        request = Request('oaipmh+%s' % url, self.parse)
+        request.meta['identifier'] = identifier
         yield request
 
-
-    def start_requests_sets(self):
+    def start_requests_sets(self, url, format, sets=None, from_date=None, until_date=None):
         started_at = datetime.utcnow()
 
         LOGGER.info(
@@ -100,23 +88,23 @@ class OAIPMHSpider(LastRunStoreSpider):
             u"metadataPrefix={metadata_prefix},"
             u"from={from_date}, "
             u"until={until_date}".format(
-                url=self.url,
-                sets=self.sets,
-                metadata_prefix=self.format,
-                from_date=self.from_date,
-                until_date=self.until_date
+                url=url,
+                sets=sets,
+                metadata_prefix=format,
+                from_date=from_date,
+                until_date=until_date
             )
         )
 
-        if self.sets is None:
+        if sets is None:
             LOGGER.warn(
                 'Skipping harvest, no sets passed and cowardly refusing to '
                 'harvest all.'
             )
             return
 
-        for oai_set in self.sets:
-            from_date = self.from_date or self.resume_from(set_=oai_set)
+        for oai_set in sets:
+            from_date = from_date or self.resume_from(set_=oai_set)
 
             LOGGER.info(
                 u"Starting harvesting of set={oai_set} from "
@@ -126,7 +114,7 @@ class OAIPMHSpider(LastRunStoreSpider):
                 )
             )
 
-            request = Request('oaipmh+%s' % self.url, self.parse)
+            request = Request('oaipmh+%s' % url, self.parse)
             request.meta['set'] = oai_set
             request.meta['from_date'] = from_date
             yield request
@@ -138,7 +126,7 @@ class OAIPMHSpider(LastRunStoreSpider):
                 "Harvesting of set %s completed. Next time will resume from %s"
                 % (
                     oai_set,
-                    self.until_date or now.strftime('%Y-%m-%d')
+                    until_date or now.strftime('%Y-%m-%d')
                 )
             )
 
@@ -170,7 +158,7 @@ class OAIPMHSpider(LastRunStoreSpider):
         raise NotImplementedError()
 
     def parse(self, response):
-        if response.meta.get('harvest_single'):
+        if response.meta.get('identifier'):
             return self.parse_single(response)
         return self.parse_list(response)
 
@@ -178,7 +166,7 @@ class OAIPMHSpider(LastRunStoreSpider):
         sickle = Sickle(self.url)
         params = {
             'metadataPrefix': self.format,
-            'identifier': response.meta['harvest_single'],
+            'identifier': response.meta['identifier'],
         }
         record = sickle.GetRecord(**params)
         self._crawled_records[params['identifier']] = record

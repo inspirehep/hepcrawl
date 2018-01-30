@@ -58,7 +58,7 @@ def get_configuration_single():
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'harvest_single': 'oai:arXiv.org:1401.2122',
+            'identifier': 'oai:arXiv.org:1401.2122',
             'url': 'http://arxiv-http-server.local/oai2',
         }
     }

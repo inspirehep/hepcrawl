@@ -52,7 +52,7 @@ class ArxivSpider(OAIPMHSpider):
 
         or to harvest a single record::
 
-            $ scrapy crawl arXiv -a "harvest_single=oai:arXiv.org:1401.2122"
+            $ scrapy crawl arXiv -a "identifier=oai:arXiv.org:1401.2122"
 
     """
     name = 'arXiv'
@@ -63,6 +63,7 @@ class ArxivSpider(OAIPMHSpider):
         url='http://export.arxiv.org/oai2',
         format='arXiv',
         sets=None,
+        identifier=None,
         from_date=None,
         until_date=None,
         **kwargs
