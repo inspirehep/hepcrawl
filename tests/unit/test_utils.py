@@ -30,6 +30,7 @@ from hepcrawl.utils import (
     range_as_string,
     split_fullname,
     unzip_xml_files,
+    strict_kwargs,
 )
 
 
@@ -75,6 +76,17 @@ def list_for_dict():
         {'id': 1, 'value': 'Mark', 'age': 27},
         {'id': 2, 'value': 'Bruce', 'age': 9}
     ]
+
+
+@pytest.fixture(scope='module')
+def dummy_strict_kwargs_cls():
+    """A sample class with @strict_kwargs constructor."""
+    class Dummy(object):
+        @strict_kwargs
+        def __init__(self, a, b=10, c=20, *args, **kwargs):
+            pass
+
+    return Dummy
 
 
 def test_unzip_xml(zipfile, tmpdir):
@@ -261,3 +273,19 @@ def test_get_journal_and_section_invalid():
 
     assert journal_title == ''
     assert section == ''
+
+
+def test_strict_kwargs_pass(dummy_strict_kwargs_cls):
+    """Test the `strict_kwargs` decorator allowing the kwargs."""
+    dummy = dummy_strict_kwargs_cls(a=1, b=2, _x=4, settings={'DUMMY': True})
+    assert dummy._init_kwargs == {'a': 1, 'b': 2, 'c': 20}
+    assert dummy._all_kwargs == {
+        'a': 1, 'b': 2, 'c': 20, '_x': 4, 'settings': {'DUMMY': True}
+    }
+
+
+
+def test_strict_kwargs_fail(dummy_strict_kwargs_cls):
+    """Test the `strict_kwargs` decorator disallowing some kwargs."""
+    with pytest.raises(TypeError):
+        dummy_strict_kwargs_cls(a=1, b=2, d=4)
