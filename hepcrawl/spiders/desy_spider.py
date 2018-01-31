@@ -109,7 +109,9 @@ class DesySpider(StatefulSpider):
 
         for file_name in xml_file_names:
             file_path = os.path.join(self.source_folder, file_name)
-            self.log('Local: Try to crawl local file: {0}'.format(file_path))
+            self.logger.info(
+                'Local: Try to crawl local file: {0}'.format(file_path)
+            )
             yield Request(
                 'file://{0}'.format(file_path),
                 callback=self.parse,
@@ -133,7 +135,7 @@ class DesySpider(StatefulSpider):
         xml_remote_files_paths = self._filter_xml_files(remote_files_paths)
 
         for remote_file in xml_remote_files_paths:
-            self.log(
+            self.logger.info(
                 'Remote: Try to crawl file from FTP: {0}'.format(remote_file),
             )
             remote_file = str(remote_file)
@@ -158,7 +160,7 @@ class DesySpider(StatefulSpider):
             response(hepcrawl.http.response.Response): response containing the
                 information about the ftp file download.
         """
-        self.log('Visited url {}'.format(response.url))
+        self.logger.info('Visited url {}'.format(response.url))
         file_path = response.body
         yield Request(
             'file://{0}'.format(file_path),
@@ -207,8 +209,8 @@ class DesySpider(StatefulSpider):
         """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
         """
 
-        self.log('Got record from url/path: {0}'.format(response.url))
-        self.log('FTP enabled: {0}'.format(self.ftp_enabled))
+        self.logger.info('Got record from url/path: {0}'.format(response.url))
+        self.logger.info('FTP enabled: {0}'.format(self.ftp_enabled))
         ftp_params = None
 
         if self.ftp_enabled:
@@ -225,12 +227,12 @@ class DesySpider(StatefulSpider):
             url_schema = 'file'
             hostname = None
 
-        self.log('Getting marc xml records...')
+        self.logger.info('Getting marc xml records...')
         marcxml_records = self._get_marcxml_records(response.body)
-        self.log('Got %d marc xml records' % len(marcxml_records))
-        self.log('Getting hep records...')
+        self.logger.info('Got %d marc xml records' % len(marcxml_records))
+        self.logger.info('Getting hep records...')
         hep_records = self._hep_records_from_marcxml(marcxml_records)
-        self.log('Got %d hep records' % len(hep_records))
+        self.logger.info('Got %d hep records' % len(hep_records))
 
         for hep_record in hep_records:
             files_to_download = [
@@ -244,7 +246,7 @@ class DesySpider(StatefulSpider):
                 if self._has_to_be_downloaded(document['url'])
             ]
 
-            self.log(
+            self.logger.info(
                 'Got the following attached documents to download: %s'
                 % files_to_download
             )
@@ -254,7 +256,7 @@ class DesySpider(StatefulSpider):
                 ftp_params=ftp_params,
                 record_format='hep',
             )
-            self.log('Got item: %s' % parsed_item)
+            self.logger.info('Got item: %s' % parsed_item)
 
             yield parsed_item
 
