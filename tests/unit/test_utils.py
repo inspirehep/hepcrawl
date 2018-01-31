@@ -78,15 +78,11 @@ def list_for_dict():
     ]
 
 
-@pytest.fixture(scope='module')
-def dummy_strict_kwargs_cls():
+class Dummy(object):
     """A sample class with @strict_kwargs constructor."""
-    class Dummy(object):
-        @strict_kwargs
-        def __init__(self, a, b=10, c=20, d=30, *args, **kwargs):
-            pass
-
-    return Dummy
+    @strict_kwargs
+    def __init__(self, a, b=10, c=20, d=30, *args, **kwargs):
+        pass
 
 
 def test_unzip_xml(zipfile, tmpdir):
@@ -275,13 +271,13 @@ def test_get_journal_and_section_invalid():
     assert section == ''
 
 
-def test_strict_kwargs_pass(dummy_strict_kwargs_cls):
+def test_strict_kwargs_pass():
     """Test the `strict_kwargs` decorator allowing the kwargs."""
-    dummy = dummy_strict_kwargs_cls(a=1, b=2, d=None, _x=4, settings={'DUMMY': True})
+    dummy = Dummy(a=1, b=2, d=None, _x=4, settings={'DUMMY': True})
     assert callable(dummy.__init__)
 
 
-def test_strict_kwargs_fail(dummy_strict_kwargs_cls):
+def test_strict_kwargs_fail():
     """Test the `strict_kwargs` decorator disallowing some kwargs."""
     with pytest.raises(TypeError):
-        dummy_strict_kwargs_cls(a=1, b=2, e=4)
+        Dummy(a=1, b=2, e=4)
