@@ -67,6 +67,13 @@ services:
       http-server.local:
         condition: service_healthy
 
+  functional_iop:
+    <<: *service_base
+    command: py.test -vv tests/functional/iop
+    depends_on:
+      scrapyd:
+        condition: service_healthy
+
   unit:
     <<: *service_base
     command: bash -c "py.test tests/unit -vv && make -C docs clean && make -C docs html && python setup.py sdist && ls dist/*"

@@ -31,6 +31,7 @@ env:
     - SUITE=functional_desy
     - SUITE=functional_cds
     - SUITE=functional_pos
+    - SUITE=functional_iop
 
 matrix:
   fast_finish: true
