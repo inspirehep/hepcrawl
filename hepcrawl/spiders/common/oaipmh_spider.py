@@ -61,8 +61,14 @@ class OAIPMHSpider(LastRunStoreSpider):
     ):
         super(OAIPMHSpider, self).__init__(**kwargs)
         self.url = url
+        self.format = format
         if isinstance(sets, string_types):
-            self._init_kwargs['sets'] = sets.split(',')
+            sets = sets.split(',')
+        if sets:
+            self.sets = sets
+            self._init_kwargs['sets'] = sets
+        self.from_date = from_date
+        self.until_date = until_date
         self._crawled_records = {}
 
     def start_requests(self):
