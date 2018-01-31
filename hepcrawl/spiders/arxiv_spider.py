@@ -63,7 +63,14 @@ class ArxivSpider(OAIPMHSpider):
         until_date=None,
         **kwargs
     ):
-        super(ArxivSpider, self).__init__(**self._all_kwargs)
+        super(ArxivSpider, self).__init__(
+            url=url,
+            format=format,
+            sets=sets,
+            from_date=from_date,
+            until_date=until_date,
+            **kwargs
+        )
 
     def parse_record(self, selector):
         """Parse an arXiv XML exported file into a HEP record."""

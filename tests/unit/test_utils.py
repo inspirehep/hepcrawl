@@ -278,11 +278,7 @@ def test_get_journal_and_section_invalid():
 def test_strict_kwargs_pass(dummy_strict_kwargs_cls):
     """Test the `strict_kwargs` decorator allowing the kwargs."""
     dummy = dummy_strict_kwargs_cls(a=1, b=2, d=None, _x=4, settings={'DUMMY': True})
-    assert dummy._init_kwargs == {'a': 1, 'b': 2, 'c': 20}
-    assert dummy._all_kwargs == {
-        'a': 1, 'b': 2, 'c': 20, 'd': None, '_x': 4, 'settings': {'DUMMY': True}
-    }
-
+    assert callable(dummy.__init__)
 
 
 def test_strict_kwargs_fail(dummy_strict_kwargs_cls):

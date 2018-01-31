@@ -410,13 +410,6 @@ def strict_kwargs(func):
 
     allowed_arguments = defined_arguments + spider_fields
 
-    if argspec.defaults:
-        defaults = dict(
-            zip(argspec.args[-len(argspec.defaults):], argspec.defaults)
-        )
-    else:
-        defaults = {}
-
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         disallowed_kwargs = [
@@ -430,13 +423,6 @@ def strict_kwargs(func):
                 'Check {} for typos.'.format(func, ', '.join(disallowed_kwargs))
             )
 
-        defaults.update(kwargs)
-        self._init_kwargs = {
-            k: v for k, v in defaults.items()
-            if not k.startswith('_') and k not in spider_fields
-               and v is not None
-        }
-        self._all_kwargs = defaults
         return func(self, *args, **kwargs)
     return wrapper
 

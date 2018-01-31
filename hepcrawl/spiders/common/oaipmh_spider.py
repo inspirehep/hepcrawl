@@ -59,7 +59,7 @@ class OAIPMHSpider(LastRunStoreSpider):
         until_date=None,
         **kwargs
     ):
-        super(OAIPMHSpider, self).__init__(**self._all_kwargs)
+        super(OAIPMHSpider, self).__init__(**kwargs)
         self.url = url
         self.format = format
         if isinstance(sets, string_types):
