@@ -420,7 +420,7 @@ def strict_kwargs(func):
         if disallowed_kwargs:
             raise TypeError(
                 'Only underscored kwargs allowed in {}. '
-                'Check {} for typos.'.format(func, ', '.join(disallowed_kwargs))
+                'Check {} for typos.'.format(repr(func), repr(disallowed_kwargs))
             )
 
         return func(self, *args, **kwargs)
