@@ -65,7 +65,7 @@ def get_configuration_single():
 
 
 @pytest.mark.parametrize(
-    'expected_results, config',
+    'expected_results, config, spider',
     [
         (
             expected_json_results_from_file(
@@ -74,6 +74,7 @@ def get_configuration_single():
                 'arxiv_expected.json',
             ),
             get_configuration(),
+            'arXiv',
         ),
         (
             expected_json_results_from_file(
@@ -82,6 +83,7 @@ def get_configuration_single():
                 'arxiv_expected_single.json',
             ),
             get_configuration_single(),
+            'arXiv_single',
         ),
     ],
     ids=[
@@ -92,6 +94,7 @@ def get_configuration_single():
 def test_arxiv(
     expected_results,
     config,
+    spider,
 ):
     crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
@@ -102,7 +105,7 @@ def test_arxiv(
         events_limit=1,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
-        spider='arXiv',
+        spider=spider,
         settings={},
         **config['CRAWLER_ARGUMENTS']
     )

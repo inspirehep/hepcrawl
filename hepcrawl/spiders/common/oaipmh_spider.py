@@ -62,19 +62,28 @@ class OAIPMHSpider(LastRunStoreSpider):
         super(OAIPMHSpider, self).__init__(**kwargs)
         self.url = url
         self.format = format
+        self.identifier = identifier
         if isinstance(sets, string_types):
             sets = sets.split(',')
-        if sets:
-            self.sets = sets
-            self._init_kwargs['sets'] = sets
+        self.sets = sets
         self.from_date = from_date
         self.until_date = until_date
         self._crawled_records = {}
 
     def start_requests(self):
-        if 'identifier' in self._init_kwargs:
-            return self.start_requests_single(**self._init_kwargs)
-        return self.start_requests_sets(**self._init_kwargs)
+        if self.identifier:
+            return self.start_requests_single(
+                self.url,
+                self.format,
+                self.identifier,
+            )
+        return self.start_requests_sets(
+            self.url,
+            self.format,
+            self.sets,
+            self.from_date,
+            self.until_date,
+        )
 
     def start_requests_single(self, url, format, identifier):
         LOGGER.info(
