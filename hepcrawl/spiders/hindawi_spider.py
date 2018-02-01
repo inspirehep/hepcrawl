@@ -20,6 +20,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     get_licenses,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -69,6 +70,7 @@ class HindawiSpider(StatefulSpider, XMLFeedSpider):
         ("mml", "http://www.w3.org/1998/Math/MathML"),
     ]
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct Hindawi spider."""
         super(HindawiSpider, self).__init__(*args, **kwargs)

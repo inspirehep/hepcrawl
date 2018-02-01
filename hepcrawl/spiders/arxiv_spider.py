@@ -24,6 +24,7 @@ from ..utils import (
     get_licenses,
     split_fullname,
     ParsedItem,
+    strict_kwargs,
 )
 
 RE_CONFERENCE = re.compile(
@@ -47,15 +48,29 @@ class ArxivSpider(OAIPMHSpider):
         Using OAI-PMH XML files::
 
             $ scrapy crawl arXiv \\
-                -a "oai_set=physics:hep-th" -a "from_date=2017-12-13"
+                -a "sets=physics:hep-th" -a "from_date=2017-12-13"
 
     """
     name = 'arXiv'
 
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('url', 'http://export.arxiv.org/oai2')
-        kwargs.setdefault('format', 'arXiv')
-        super(ArxivSpider, self).__init__(*args, **kwargs)
+    @strict_kwargs
+    def __init__(
+        self,
+        url='http://export.arxiv.org/oai2',
+        format='arXiv',
+        sets=None,
+        from_date=None,
+        until_date=None,
+        **kwargs
+    ):
+        super(ArxivSpider, self).__init__(
+            url=url,
+            format=format,
+            sets=sets,
+            from_date=from_date,
+            until_date=until_date,
+            **kwargs
+        )
 
     def parse_record(self, selector):
         """Parse an arXiv XML exported file into a HEP record."""

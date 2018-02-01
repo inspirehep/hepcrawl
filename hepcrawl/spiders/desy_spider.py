@@ -23,6 +23,7 @@ from ..utils import (
     ftp_list_files,
     ftp_connection_info,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -71,6 +72,7 @@ class DesySpider(StatefulSpider):
      """
     name = 'desy'
 
+    @strict_kwargs
     def __init__(
         self,
         source_folder=None,

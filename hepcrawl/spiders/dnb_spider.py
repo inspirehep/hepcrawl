@@ -22,6 +22,7 @@ from ..utils import (
     parse_domain,
     get_node,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -64,6 +65,7 @@ class DNBSpider(StatefulSpider, XMLFeedSpider):
         ("slim", "http://www.loc.gov/MARC21/slim"),
     ]
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct DNB spider."""
         super(DNBSpider, self).__init__(*args, **kwargs)

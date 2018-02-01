@@ -22,7 +22,7 @@ from . import StatefulSpider
 from ..extractors.nlm import NLM
 from ..items import HEPRecord
 from ..loaders import HEPLoader
-from ..utils import ParsedItem
+from ..utils import ParsedItem, strict_kwargs
 
 
 class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
@@ -82,6 +82,7 @@ class IOPSpider(StatefulSpider, XMLFeedSpider, NLM):
         # FIXME: add more
     }
 
+    @strict_kwargs
     def __init__(self, zip_file=None, xml_file=None, pdf_files=None, *args, **kwargs):
         """Construct IOP spider."""
         super(IOPSpider, self).__init__(*args, **kwargs)

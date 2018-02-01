@@ -33,6 +33,7 @@ from ..utils import (
     range_as_string,
     unzip_xml_files,
     ParsedItem,
+    strict_kwargs,
 )
 from ..dateutils import format_year
 
@@ -138,6 +139,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
 
     ERROR_CODES = range(400, 432)
 
+    @strict_kwargs
     def __init__(self, atom_feed=None, zip_file=None, xml_file=None, *args, **kwargs):
         """Construct Elsevier spider."""
         super(ElsevierSpider, self).__init__(*args, **kwargs)

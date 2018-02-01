@@ -32,6 +32,7 @@ from ..utils import (
     get_node,
     parse_domain,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -123,6 +124,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
         'EPJ Web of Conferences'
     }
 
+    @strict_kwargs
     def __init__(self, package_path=None, ftp_folder="incoming", ftp_netrc=None, *args, **kwargs):
         """Construct EDP spider.
 

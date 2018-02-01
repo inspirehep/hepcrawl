@@ -26,6 +26,7 @@ from ..utils import (
     local_list_files,
     unzip_xml_files,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -89,6 +90,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
         'rapid-communications'
     ]
 
+    @strict_kwargs
     def __init__(
         self,
         local_package_dir=None,

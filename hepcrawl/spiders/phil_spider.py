@@ -24,6 +24,7 @@ from ..utils import (
     parse_domain,
     get_mime_type,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -57,6 +58,7 @@ class PhilSpider(StatefulSpider, CrawlSpider):
     name = 'phil'
     start_urls = ["http://philpapers.org/philpapers/raw/export/inspire.json"]
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct Phil spider."""
         super(PhilSpider, self).__init__(*args, **kwargs)

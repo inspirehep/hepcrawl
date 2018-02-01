@@ -30,6 +30,7 @@ from hepcrawl.utils import (
     range_as_string,
     split_fullname,
     unzip_xml_files,
+    strict_kwargs,
 )
 
 
@@ -75,6 +76,18 @@ def list_for_dict():
         {'id': 1, 'value': 'Mark', 'age': 27},
         {'id': 2, 'value': 'Bruce', 'age': 9}
     ]
+
+
+class Dummy(object):
+    """A sample class with @strict_kwargs constructor."""
+    @strict_kwargs
+    def __init__(self, good1_no_default, good2=10, good3=20, good4=30, *args, **kwargs):
+        self.good1_no_default = good1_no_default
+        self.good2 = good2
+        self.good3 = good3
+        self.good4 = good4
+        self.args = args
+        self.kwargs = kwargs
 
 
 def test_unzip_xml(zipfile, tmpdir):
@@ -261,3 +274,26 @@ def test_get_journal_and_section_invalid():
 
     assert journal_title == ''
     assert section == ''
+
+
+def test_strict_kwargs_pass():
+    """Test the `strict_kwargs` decorator allowing the kwargs."""
+    dummy = Dummy(
+        good1_no_default=1,
+        good2=2,
+        good3=None,
+        _private=4,
+        settings={'DUMMY': True}
+    )
+    assert callable(dummy.__init__)
+    assert dummy.good1_no_default == 1
+    assert dummy.good2 == 2
+    assert dummy.good3 == None
+    assert dummy.good4 == 30
+    assert dummy.kwargs == {'_private': 4, 'settings': {'DUMMY': True}}
+
+
+def test_strict_kwargs_fail():
+    """Test the `strict_kwargs` decorator disallowing some kwargs."""
+    with pytest.raises(TypeError):
+        Dummy(**{'good1_no_default': 1, 'good2': 2, u'bąd_þärãm': 4})

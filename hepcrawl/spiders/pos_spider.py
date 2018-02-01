@@ -26,6 +26,7 @@ from ..utils import (
     get_licenses,
     get_first,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -76,6 +77,7 @@ class POSSpider(StatefulSpider):
     """
     name = 'pos'
 
+    @strict_kwargs
     def __init__(
         self,
         source_file=None,

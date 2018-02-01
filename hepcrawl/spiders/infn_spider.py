@@ -25,6 +25,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     get_temporary_file,
     ParsedItem,
+    strict_kwargs,
 )
 from ..dateutils import format_date
 
@@ -65,6 +66,7 @@ class InfnSpider(StatefulSpider, XMLFeedSpider):
     itertag = "//tr[@onmouseover]"
     today = str(datetime.date.today().year)
 
+    @strict_kwargs
     def __init__(self, source_file=None, year=today, *args, **kwargs):
         """Construct INFN spider"""
         super(InfnSpider, self).__init__(*args, **kwargs)

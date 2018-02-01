@@ -21,6 +21,7 @@ from scrapy.http import Request, XmlResponse
 from scrapy.selector import Selector
 
 from .last_run_store import LastRunStoreSpider
+from ...utils import strict_kwargs
 
 
 LOGGER = logging.getLogger(__name__)
@@ -47,6 +48,7 @@ class OAIPMHSpider(LastRunStoreSpider):
     __metaclass__ = abc.ABCMeta
     name = 'OAI-PMH'
 
+    @strict_kwargs
     def __init__(
         self,
         url,
@@ -55,9 +57,9 @@ class OAIPMHSpider(LastRunStoreSpider):
         alias=None,
         from_date=None,
         until_date=None,
-        *args, **kwargs
+        **kwargs
     ):
-        super(OAIPMHSpider, self).__init__(*args, **kwargs)
+        super(OAIPMHSpider, self).__init__(**kwargs)
         self.url = url
         self.format = format
         if isinstance(sets, string_types):

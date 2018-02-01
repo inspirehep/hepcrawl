@@ -22,6 +22,7 @@ from ..loaders import HEPLoader
 from ..utils import (
     split_fullname,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -59,6 +60,7 @@ class T2kSpider(StatefulSpider, XMLFeedSpider):
     iterator = "html"
     itertag = "//table[@id='folders']//tr"
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct T2K spider"""
         super(T2kSpider, self).__init__(*args, **kwargs)

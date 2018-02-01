@@ -21,7 +21,7 @@ from scrapy import Request
 from scrapy.spider import XMLFeedSpider
 
 from . import StatefulSpider
-from ..utils import ParsedItem
+from ..utils import ParsedItem, strict_kwargs
 
 
 class CDSSpider(StatefulSpider, XMLFeedSpider):
@@ -48,6 +48,7 @@ class CDSSpider(StatefulSpider, XMLFeedSpider):
         ('marc', 'http://www.loc.gov/MARC21/slim'),
     ]
 
+    @strict_kwargs
     def __init__(self, source_file=None, **kwargs):
         super(CDSSpider, self).__init__(**kwargs)
         self.source_file = source_file

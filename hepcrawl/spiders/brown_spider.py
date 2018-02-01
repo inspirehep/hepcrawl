@@ -27,6 +27,7 @@ from ..utils import (
     parse_domain,
     get_mime_type,
     ParsedItem,
+    strict_kwargs,
 )
 
 
@@ -63,6 +64,7 @@ class BrownSpider(StatefulSpider, CrawlSpider):
     name = 'brown'
     start_urls = ["https://repository.library.brown.edu/api/collections/355/"]
 
+    @strict_kwargs
     def __init__(self, source_file=None, *args, **kwargs):
         """Construct Brown spider."""
         super(BrownSpider, self).__init__(*args, **kwargs)

@@ -9,10 +9,12 @@
 
 from __future__ import absolute_import, division, print_function
 
+import inspect
 import fnmatch
 import os
 import pprint
 import re
+from functools import wraps
 from operator import itemgetter
 from itertools import groupby
 from netrc import netrc
@@ -380,6 +382,53 @@ def get_licenses(
         license = []
 
     return license
+
+
+def strict_kwargs(func):
+    """This decorator will disallow any keyword arguments that
+    do not begin with an underscore sign in the decorated method.
+    This is mainly to make errors while passing arguments to spiders
+    immediately visible. As we cannot remove kwargs from there altogether
+    (used by scrapyd), with this we can ensure that we are not passing unwanted
+    data by mistake.
+
+    Additionaly this will add all of the 'public' not-None kwargs to an
+    `_init_kwargs` field in the object for easier passing and all of the
+    arguments (including non-overloaded ones) to `_all_kwargs`.
+    (To make passing them forward easier.)
+
+    Args:
+        func (function): a spider method
+
+    Returns:
+        function: method which will disallow any keyword arguments that
+            do not begin with an underscore sign.
+    """
+    argspec = inspect.getargspec(func)
+    defined_arguments = argspec.args[1:]
+    spider_fields = ['settings']
+
+    allowed_arguments = defined_arguments + spider_fields
+
+    @wraps(func)
+    def wrapper(self, *args, **kwargs):
+        disallowed_kwargs = [
+            key for key in kwargs
+            if not key.startswith('_') and key not in allowed_arguments
+        ]
+
+        if disallowed_kwargs:
+            raise TypeError(
+                'Only underscored kwargs or %s allowed in %s. '
+                'Check %s for typos.' % (
+                    ', '.join(spider_fields),
+                    func,
+                    ', '.join(disallowed_kwargs),
+                )
+            )
+
+        return func(self, *args, **kwargs)
+    return wrapper
 
 
 class RecordFile(object):
