@@ -419,8 +419,12 @@ def strict_kwargs(func):
 
         if disallowed_kwargs:
             raise TypeError(
-                'Only underscored kwargs allowed in {}. '
-                'Check {} for typos.'.format(repr(func), repr(disallowed_kwargs))
+                'Only underscored kwargs or %s allowed in %s. '
+                'Check %s for typos.' % (
+                    ', '.join(spider_fields),
+                    func,
+                    ', '.join(disallowed_kwargs),
+                )
             )
 
         return func(self, *args, **kwargs)
