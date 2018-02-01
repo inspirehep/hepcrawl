@@ -16,3 +16,7 @@ class StatefulSpider(Spider):
     def __init__(self, *args, **kwargs):
         self.state = {}
         super(StatefulSpider, self).__init__(*args, **kwargs)
+
+    @property
+    def source(self):
+        return self.name

@@ -31,6 +31,7 @@ from hepcrawl.testlib.fixtures import (
 def spider():
     mock_spider = mock.create_autospec(Spider)
     mock_spider.name = 'arXiv'
+    mock_spider.source = 'arXiv'
     mock_spider.state = {}
     return mock_spider
 

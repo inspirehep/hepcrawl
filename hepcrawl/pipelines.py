@@ -97,7 +97,7 @@ class InspireAPIPushPipeline(object):
         self.results_data = []
 
     def _post_enhance_item(self, item, spider):
-        source = spider.name
+        source = spider.source
 
         enhanced_record = item_to_hep(
             item=item,
