@@ -289,9 +289,7 @@ class DesySpider(StatefulSpider):
                 except Exception as e:
                     return {'xml_record': xml_record, 'error': e,
                             'traceback': traceback.format_tb(sys.exc_info()[2])}
-                base_uri = self.settings['SCHEMA_BASE_URI']
-                hep_record['$schema'] = base_uri + 'hep.json'
-
+                
             return hep_record
 
         hep_records = []
