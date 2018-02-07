@@ -114,3 +114,13 @@ def test_pipeline(generated_records, expected_records):
     sorted_generated_records = deep_sort(clean_generated_records)
     sorted_expected_records = deep_sort(expected_records)
     assert sorted_generated_records == sorted_expected_records
+
+
+def test_faulty_marc():
+    spider = create_spider()
+    path = os.path.abspath('tests/unit/responses/desy/faulty_record.xml')
+    with open(path, 'r') as xmlfile:
+        data = xmlfile.read()
+    result = spider._hep_records_from_marcxml([data])
+    assert type(result[0]['error']) is ValueError
+    assert result[0].get('traceback') is not None
