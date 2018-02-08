@@ -1,0 +1,169 @@
+<record>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="a">Hamburg</subfield>
+    <subfield code="c">Not a date</subfield>
+    <subfield code="b">Verlag Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="245" ind1=" " ind2=" ">
+    <subfield code="a">Search for contact interactions and finite quark radius using combined $e^{\pm}p$ data at HERA</subfield>
+    <subfield code="9">DESY</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Foster, Brian</subfield>
+    <subfield code="j">ORCID:0000-0001-5699-3046</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="701" ind1=" " ind2=" ">
+    <subfield code="a">Wichmann, Katarzyna</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="502" ind1=" " ind2=" ">
+    <subfield code="b">PhD</subfield>
+    <subfield code="c">Hamburg U.</subfield>
+    <subfield code="d">2017</subfield>
+  </datafield>
+  <datafield tag="520" ind1=" " ind2=" ">
+    <subfield code="a">A combination is presented of all previously published deep inelastic neutral and charged current $e^{\pm}p$ scattering measurements at HERA for zero beam polarisation.The ZEUS and H1 collaborations have collected data at electron beam energy of $27.5$ GeV and proton beam energies of $920$, $820$, $575$ and $460$ GeV.The combined data correspond to an integrated luminosity of about $1$ fb$^{-1}$ and cover a kinematic range in the negative four-momentum-transfer squared from $Q^{2} = 0.045$ GeV$^{2}$ to $Q^{2} = 50000$ GeV$^{2}$ and in Bjorken $x$ from $x_{\rm Bj} = 6 \times 10^{-7}$ to $x_{\rm Bj} = 0.65$.The correlations of systematic uncertainties between different sets of data were taken into account, resulting in significantly improved precision.The combined $e^{\pm}p$ cross sections were used in a QCD analysis at next-to-leading order, providing a set of parton distribution functions, called ZCIPDF.The combined measurements were also used in an analysis beyond the Standard Model using a new approach, performing simultaneous fits on large sets of Monte Carlo replicas of parton distribution functions, PDFs, together with the parameters of "new physics" processes.A simplified approach to reduce the calculation time was developed and extensively tested.It allowed the calculation time to be reduced by about a factor of 50.The resulting $95\,\%$ C.L. upper limit on the effective quark radius is $0.43 \cdot 10^{-16}$ cm and the limits on the mass scales for different contact interaction scenarios extend up to $10$ TeV.The analyses have shown that taking into account the possible influence of processes beyond the Standard Model on the PDF parameters is necessary, since the limits that would be obtained using PDFs from QCD analysis within the Standard Model are too strong by about $10\,\%$.Studies of the surface quality of 28 Niobium superconducting radio frequency, SRF, cavities and development of a controllable cooling system for Niobium samples are also reported.The SRF cavities are the core of the accelerating technology for the future International Linear Collider, ILC; the reported studies are part of an ongoing research and development program.</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="541" ind1=" " ind2=" ">
+    <subfield code="a">DESY</subfield>
+    <subfield code="c">batchupload</subfield>
+  </datafield>
+  <datafield tag="773" ind1=" " ind2=" ">
+    <subfield code="y">2017</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">CORE</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">HEP</subfield>
+  </datafield>
+  <datafield tag="980" ind1=" " ind2=" ">
+    <subfield code="a">Thesis</subfield>
+  </datafield>
+  <datafield tag="024" ind1="7" ind2=" ">
+    <subfield code="a">10.3204/PUBDB-2017-09190</subfield>
+    <subfield code="2">DOI</subfield>
+    <subfield code="9">Deutsches Elektronen-Synchrotron</subfield>
+  </datafield>
+  <datafield tag="260" ind1=" " ind2=" ">
+    <subfield code="c">2017</subfield>
+    <subfield code="t">published</subfield>
+  </datafield>
+  <datafield tag="500" ind1=" " ind2=" ">
+    <subfield code="a">*Temporary record*</subfield>
+  </datafield>
+  <datafield tag="037" ind1=" " ind2=" ">
+    <subfield code="a">DESY-THESIS-2017-035</subfield>
+  </datafield>
+  <datafield tag="100" ind1=" " ind2=" ">
+    <subfield code="a">Turkot, Oleksii</subfield>
+    <subfield code="v">Deutsches Elektronen-Synchrotron</subfield>
+    <subfield code="u">DESY</subfield>
+    <subfield code="j">ORCID:0000-0001-5352-7744</subfield>
+  </datafield>
+  <datafield tag="FFT" ind1=" " ind2=" ">
+    <subfield code="a">http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf</subfield>
+    <subfield code="d">Fulltext</subfield>
+    <subfield code="t">INSPIRE-PUBLIC</subfield>
+  </datafield>
+  <datafield tag="650" ind1="1" ind2="7">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">Experiment-HEP</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">* Automatic Keywords *</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">parton: distribution function</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">beam: energy</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">p: beam</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">beam: polarization</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">electron: beam</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">mass: scale</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">higher-order: 1</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">new physics</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">quantum chromodynamics</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">contact interaction</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">DESY HERA Stor</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">ILC Coll</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">niobium</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">cavity</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">quark</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">deep inelastic scattering</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">superconductivity</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+  <datafield tag="695" ind1=" " ind2=" ">
+    <subfield code="2">INSPIRE</subfield>
+    <subfield code="a">ZEUS</subfield>
+    <subfield code="9">bibclassify</subfield>
+  </datafield>
+</record>

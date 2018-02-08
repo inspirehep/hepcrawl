@@ -193,8 +193,8 @@
             {
                 "year": 2017
             }
-        ], 
-        "$schema": "http://localhost/schemas/records/hep.json",
+        ],
+        "$schema": "hep.json",
         "document_type": [
             "thesis"
         ], 
@@ -435,8 +435,8 @@
             {
                 "year": 2017
             }
-        ], 
-        "$schema": "http://localhost/schemas/records/hep.json",
+        ],
+        "$schema": "hep.json",
         "document_type": [
             "thesis"
         ], 

@@ -25,8 +25,6 @@ import requests
 from scrapy import Request
 from scrapy.pipelines.files import FilesPipeline
 
-from inspire_schemas.utils import validate
-
 from .tohep import item_to_hep
 from .settings import FILES_STORE
 from .utils import RecordFile
@@ -115,9 +113,6 @@ class InspireAPIPushPipeline(object):
         self.count += 1
 
         hep_record = self._post_enhance_item(item, spider)
-
-        validate(hep_record, 'hep')
-        spider.logger.debug('Validated item by Inspire Schemas.')
 
         self.results_data.append(hep_record)
 

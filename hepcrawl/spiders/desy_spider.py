@@ -10,10 +10,11 @@
 from __future__ import absolute_import, division, print_function
 
 import os
+import sys
+import traceback
 
-from dojson.contrib.marc21.utils import create_record
 from flask.app import Flask
-from inspire_dojson.hep import hep
+from inspire_dojson import marcxml2record
 from lxml import etree
 from scrapy import Request
 from six.moves import urllib
@@ -278,17 +279,18 @@ class DesySpider(StatefulSpider):
 
     def _hep_records_from_marcxml(self, marcxml_records):
         def _create_json_record(xml_record):
-            object_record = create_record(etree.XML(xml_record))
             app = Flask('hepcrawl')
             app.config.update(
                 self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
             )
             with app.app_context():
-                dojson_record = hep.do(object_record)
-                base_uri = self.settings['SCHEMA_BASE_URI']
-                dojson_record['$schema'] = base_uri + 'hep.json'
-
-            return dojson_record
+                try:
+                    hep_record = marcxml2record(xml_record)
+                except Exception as e:
+                    return {'xml_record': xml_record, 'error': e,
+                            'traceback': traceback.format_tb(sys.exc_info()[2])}
+                
+            return hep_record
 
         hep_records = []
         for xml_record in marcxml_records:
