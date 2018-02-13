@@ -283,14 +283,15 @@ def test_strict_kwargs_pass():
         good2=2,
         good3=None,
         _private=4,
-        settings={'DUMMY': True}
+        settings={'DUMMY': True},
+        crawler_settings={'DUMMY': True},
     )
     assert callable(dummy.__init__)
     assert dummy.good1_no_default == 1
     assert dummy.good2 == 2
     assert dummy.good3 == None
     assert dummy.good4 == 30
-    assert dummy.kwargs == {'_private': 4, 'settings': {'DUMMY': True}}
+    assert dummy.kwargs == {'_private': 4, 'settings': {'DUMMY': True}, 'crawler_settings': {'DUMMY': True}}
 
 
 def test_strict_kwargs_fail():
