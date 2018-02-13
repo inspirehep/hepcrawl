@@ -406,7 +406,7 @@ def strict_kwargs(func):
     """
     argspec = inspect.getargspec(func)
     defined_arguments = argspec.args[1:]
-    spider_fields = ['settings']
+    spider_fields = ['settings', 'crawler_settings']
 
     allowed_arguments = defined_arguments + spider_fields
 
