@@ -287,7 +287,7 @@ class DesySpider(StatefulSpider):
                 try:
                     hep_record = marcxml2record(xml_record)
                 except Exception as e:
-                    return {'xml_record': xml_record, 'error': e,
+                    return {'xml_record': xml_record, 'error': repr(e),
                             'traceback': traceback.format_tb(sys.exc_info()[2])}
                 
             return hep_record
