@@ -122,5 +122,5 @@ def test_faulty_marc():
     with open(path, 'r') as xmlfile:
         data = xmlfile.read()
     result = spider._hep_records_from_marcxml([data])
-    assert type(result[0]['error']) is ValueError
+    assert result[0]['error'] == "ValueError(u'Unknown string format',)"
     assert result[0].get('traceback') is not None
