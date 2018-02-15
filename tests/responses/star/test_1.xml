@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?><OAI-PMH  xmlns="http://www.openarchives.org/OAI/2.0/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"  ><responseDate>2016-10-28T08:43:43Z</responseDate><request verb="ListRecords" from="2015-12-08T00:00:01Z" until="2016-01-10T23:59:59Z" metadataPrefix="tef" set="ddc:530">http://staroai.theses.fr/OAIHandler</request><ListRecords><record><header><identifier>2015PA112125</identifier><datestamp>2015-12-08T13:48:12Z</datestamp><setSpec>ddc:530</setSpec><setSpec>PA11</setSpec><setSpec>diffusable</setSpec></header><metadata><mets:mets xmlns:tefextension="http://www.abes.fr/abes/documents/tefextension"
+           xmlns:mets="http://www.loc.gov/METS/"
+           xmlns:mads="http://www.loc.gov/mads/"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:metsRights="http://cosimo.stanford.edu/sdr/metsrights/"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns:suj="http://www.theses.fr/namespace/sujets"
+           xmlns:dcterms="http://purl.org/dc/terms/"
+           xmlns:tef="http://www.abes.fr/abes/documents/tef"
+           xsi:schemaLocation="http://www.loc.gov/METS/ http://www.abes.fr/abes/documents/tef/recommandation/tef_schemas.xsd">
+   <mets:metsHdr ID="ABES.STAR.THESE_62162.METS_HEADER" CREATEDATE="2015-06-25T08:03:23"
+                 LASTMODDATE="2015-12-08T11:45:48"
+                 RECORDSTATUS="valide">
+      <mets:agent ROLE="CREATOR">
+         <mets:name/>
+         <mets:note>Note</mets:note>
+      </mets:agent>
+      <mets:agent ROLE="DISSEMINATOR">
+         <mets:name>ABES</mets:name>
+      </mets:agent>
+      <mets:altRecordID ID="ABES.STAR.THESE_62162.METS_HEADER.ALTERNATE" TYPE=""/>
+   </mets:metsHdr>
+   <mets:dmdSec ID="ABES.STAR.THESE_62162.DESCRIPTION_BIBLIOGRAPHIQUE">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_desc_these">
+         <mets:xmlData>
+            <tef:thesisRecord>
+               <dc:title xml:lang="fr">Parallélisation de simulations interactives de champs ultrasonores pour le contrôle non destructif</dc:title>
+               <dcterms:alternative xml:lang="en">Parallelization of ultrasonic field simulations for non destructive testing</dcterms:alternative>
+               <dc:subject xml:lang="fr">Contrôle non destructif</dc:subject>
+               <dc:subject xml:lang="fr">Programmation parallèle</dc:subject>
+               <dc:subject xml:lang="fr">Simulation de champ ultrasonore</dc:subject>
+               <dc:subject xml:lang="fr">Processeurs généralistes multicoeurs</dc:subject>
+               <dc:subject xml:lang="fr">Processeurs graphiques</dc:subject>
+               <dc:subject xml:lang="fr">GPGPU</dc:subject>
+               <dc:subject xml:lang="fr">SIMD</dc:subject>
+               <dc:subject xml:lang="fr">Parallélisme (informatique)</dc:subject>
+               <dc:subject xml:lang="fr">Xeon Phi</dc:subject>
+               <dc:subject xml:lang="fr">CUDA</dc:subject>
+               <dc:subject xml:lang="fr">Manycore</dc:subject>
+               <dc:subject xml:lang="en">Non destructive testing</dc:subject>
+               <dc:subject xml:lang="en">Parallel programming</dc:subject>
+               <dc:subject xml:lang="en">Ultrasonic field simulation</dc:subject>
+               <dc:subject xml:lang="en">Multicore general purpose processors</dc:subject>
+               <dc:subject xml:lang="en">Graphic processing units</dc:subject>
+               <dc:subject xml:lang="en">GPGPU</dc:subject>
+               <dc:subject xml:lang="en">SIMD</dc:subject>
+               <dc:subject xml:lang="en">Parallelism</dc:subject>
+               <dc:subject xml:lang="en">Xeon Phi</dc:subject>
+               <dc:subject xml:lang="en">CUDA</dc:subject>
+               <dc:subject xml:lang="en">Manycore</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC"/>
+               <tef:sujetRameau xml:lang="fr">
+                  <tef:vedetteRameauNomCommun>
+                     <tef:elementdEntree autoriteExterne="027673340" autoriteSource="Sudoc">Contrôle non destructif</tef:elementdEntree>
+                  </tef:vedetteRameauNomCommun>
+                  <tef:vedetteRameauNomCommun>
+                     <tef:elementdEntree autoriteExterne="02787656X" autoriteSource="Sudoc">Parallélisme (informatique)</tef:elementdEntree>
+                  </tef:vedetteRameauNomCommun>
+                  <tef:vedetteRameauNomCommun>
+                     <tef:elementdEntree autoriteExterne="154231371" autoriteSource="Sudoc">CUDA (informatique)</tef:elementdEntree>
+                  </tef:vedetteRameauNomCommun>
+               </tef:sujetRameau>
+               <dcterms:abstract xml:lang="fr">La simulation est de plus en plus utilisée dans le domaine industriel du Contrôle Non Destructif. Elle est employée tout au long du processus de contrôle, que ce soit pour en accélérer la mise au point ou en comprendre les résultats. Les travaux menés au cours de cette thèse présentent une méthode de calcul rapide de champ ultrasonore rayonné par un capteur multi-éléments dans une pièce isotrope, permettant un usage interactif des simulations. Afin de tirer parti des architectures parallèles communément disponibles, un modèle régulier (qui limite au maximum les branchements divergents) dérivé du modèle générique présent dans la plateforme logicielle CIVA a été mis au point. Une première implémentation de référence a permis de le valider par rapport aux résultats CIVA et d'analyser son comportement en termes de performances. Le code a ensuite été porté et optimisé sur trois classes d'architectures parallèles aujourd'hui disponibles dans les stations de calcul : le processeur généraliste central (GPP), le coprocesseur manycore (Intel MIC) et la carte graphique (nVidia GPU). Concernant le processeur généraliste et le coprocesseur manycore, l'algorithme a été réorganisé et le code implémenté afin de tirer parti des deux niveaux de parallélisme disponibles, le multithreading et les instructions vectorielles. Sur la carte graphique, les différentes étapes de simulation de champ ont été découpées en une série de noyaux CUDA. Enfin, des bibliothèques de calculs spécifiques à ces architectures, Intel MKL et nVidia cuFFT, ont été utilisées pour effectuer les opérations de Transformées de Fourier Rapides. Les performances et la bonne adéquation des codes produits ont été analysées en détail pour chaque architecture. Dans plusieurs cas, sur des configurations de contrôle réalistes, des performances autorisant l'interactivité ont été atteintes. Des perspectives pour traiter des configurations plus complexes sont dressées. Enfin la problématique de l'industrialisation de ce type de code dans la plateforme logicielle CIVA est étudiée.</dcterms:abstract>
+               <dcterms:abstract xml:lang="en">The Non Destructive Testing field increasingly uses simulation.It is used at every step of the whole control process of an industrial part, from speeding up control development to helping experts understand results. During this thesis, a simulation tool dedicated to the fast computation of an ultrasonic field radiated by a phase array probe in an isotropic specimen has been developped. Its performance enables an interactive usage. To benefit from the commonly available parallel architectures, a regular model (aimed at removing divergent branching) derived from the generic CIVA model has been developped. First, a reference implementation was developped to validate this model against CIVA results, and to analyze its performance behaviour before optimization. The resulting code has been optimized for three kinds of parallel architectures commonly available in workstations: general purpose processors (GPP), manycore coprocessors (Intel MIC) and graphics processing units (nVidia GPU). On the GPP and the MIC, the algorithm was reorganized and implemented to benefit from both parallelism levels, multhreading and vector instructions. On the GPU, the multiple steps of field computing have been divided in multiple successive CUDA kernels.Moreover, libraries dedicated to each architecture were used to speedup Fast Fourier Transforms, Intel MKL on GPP and MIC and nVidia cuFFT on GPU. Performance and hardware adequation of the produced algorithms were thoroughly studied for each architecture. On multiple realistic control configurations, interactive performance was reached. Perspectives to adress more complex configurations were drawn. Finally, the integration and the industrialization of this code in the commercial NDT plateform CIVA is discussed.</dcterms:abstract>
+               <dc:type>Electronic Thesis or Dissertation</dc:type>
+               <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
+               <dc:type xsi:type="dcterms:DCMIType">Image</dc:type>
+               <dc:type xsi:type="dcterms:DCMIType">StillImage</dc:type>
+               <dc:language xsi:type="dcterms:RFC3066">fr</dc:language>
+            </tef:thesisRecord>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:dmdSec ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DESCRIPTION.EDITION_ARCHIVAGE">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_desc_edition">
+         <mets:xmlData>
+            <tef:edition>
+               <dcterms:medium xsi:type="dcterms:IMT">PDF</dcterms:medium>
+               <dcterms:extent>9882695</dcterms:extent>
+            </tef:edition>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:dmdSec ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DESCRIPTION.EDITION_1">
+      <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_desc_edition">
+         <mets:xmlData>
+            <tef:edition>
+               <dcterms:medium xsi:type="dcterms:IMT">application/pdf</dcterms:medium>
+               <dcterms:extent>14074659</dcterms:extent>
+               <dc:identifier xsi:type="dcterms:URI">http://www.theses.fr/2015PA112125/abes</dc:identifier>
+               <dc:identifier xsi:type="dcterms:URI"/>
+               <dc:identifier xsi:type="dcterms:URI">https://tel.archives-ouvertes.fr/tel-01239899</dc:identifier>
+            </tef:edition>
+         </mets:xmlData>
+      </mets:mdWrap>
+   </mets:dmdSec>
+   <mets:amdSec>
+      <mets:techMD ID="ABES.STAR.THESE_62162.ADMINISTRATION">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_admin_these">
+            <mets:xmlData>
+               <tef:thesisAdmin>
+                  <tef:auteur>
+                     <tef:nom>Lambert</tef:nom>
+                     <tef:prenom>Jason</tef:prenom>
+                     <tef:nomDeNaissance>Lambert</tef:nomDeNaissance>
+                     <tef:dateNaissance>1985-10-22</tef:dateNaissance>
+                     <tef:nationalite scheme="ISO-3166-1">FR</tef:nationalite>
+                     <tef:autoriteExterne autoriteSource="Sudoc">186268033</tef:autoriteExterne>
+                  </tef:auteur>
+                  <dc:identifier xsi:type="tef:nationalThesisPID">http://www.theses.fr/2015PA112125</dc:identifier>
+                  <dc:identifier xsi:type="tef:NNT">2015PA112125</dc:identifier>
+                  <dcterms:dateAccepted xsi:type="dcterms:W3CDTF">2015-07-03</dcterms:dateAccepted>
+                  <tef:thesis.degree>
+                     <tef:thesis.degree.discipline xml:lang="fr">Physique</tef:thesis.degree.discipline>
+                     <tef:thesis.degree.grantor>
+                        <tef:nom>Paris 11</tef:nom>
+                        <tef:autoriteExterne autoriteSource="Sudoc">026404664</tef:autoriteExterne>
+                     </tef:thesis.degree.grantor>
+                     <tef:thesis.degree.level>Doctorat</tef:thesis.degree.level>
+                     <tef:thesis.degree.name xml:lang="fr">Docteur es</tef:thesis.degree.name>
+                  </tef:thesis.degree>
+                  <tef:theseSurTravaux>non</tef:theseSurTravaux>
+                  <tef:avisJury>oui</tef:avisJury>
+                  <tef:directeurThese>
+                     <tef:nom>Lacassagne</tef:nom>
+                     <tef:prenom>Lionel</tef:prenom>
+                     <tef:autoriteInterne>MADS_DIRECTEUR_DE_THESE_1</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">140256849</tef:autoriteExterne>
+                  </tef:directeurThese>
+                  <tef:presidentJury>
+                     <tef:nom>Paindavoine</tef:nom>
+                     <tef:prenom>Michel</tef:prenom>
+                     <tef:autoriteInterne>MADS_PRESIDENT_DU_JURY</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">059655720</tef:autoriteExterne>
+                  </tef:presidentJury>
+                  <tef:membreJury>
+                     <tef:nom>Lacassagne</tef:nom>
+                     <tef:prenom>Lionel</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_1</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">140256849</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:membreJury>
+                     <tef:nom>Paindavoine</tef:nom>
+                     <tef:prenom>Michel</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_2</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">059655720</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:membreJury>
+                     <tef:nom>Cassereau</tef:nom>
+                     <tef:prenom>Didier</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_3</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">086305034</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:membreJury>
+                     <tef:nom>Houzet</tef:nom>
+                     <tef:prenom>Dominique</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_4</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">052608913</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:membreJury>
+                     <tef:nom>Mérigot</tef:nom>
+                     <tef:prenom>Alain</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_5</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">030085705</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:membreJury>
+                     <tef:nom>Rougeron</tef:nom>
+                     <tef:prenom>Gilles</tef:prenom>
+                     <tef:autoriteInterne>MADS_MEMBRE_DU_JURY_6</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">171905172</tef:autoriteExterne>
+                  </tef:membreJury>
+                  <tef:rapporteur>
+                     <tef:nom>Cassereau</tef:nom>
+                     <tef:prenom>Didier</tef:prenom>
+                     <tef:autoriteInterne>MADS_RAPPORTEUR_1</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">086305034</tef:autoriteExterne>
+                  </tef:rapporteur>
+                  <tef:rapporteur>
+                     <tef:nom>Houzet</tef:nom>
+                     <tef:prenom>Dominique</tef:prenom>
+                     <tef:autoriteInterne>MADS_RAPPORTEUR_2</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">052608913</tef:autoriteExterne>
+                  </tef:rapporteur>
+                  <tef:ecoleDoctorale>
+                     <tef:nom>Ecole doctorale Sciences et Technologies de l'Information, des Télécommunications et des Systèmes (Orsay, Essonne)</tef:nom>
+                     <tef:autoriteInterne>MADS_ECOLE_DOCTORALE_1</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">150310560</tef:autoriteExterne>
+                  </tef:ecoleDoctorale>
+                  <tef:partenaireRecherche type="laboratoire">
+                     <tef:nom>Laboratoire de recherche en informatique (Orsay, Essonne)</tef:nom>
+                     <tef:autoriteInterne>MADS_PARTENAIRE_DE_RECHERCHE_1</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="labTEL">2544</tef:autoriteExterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">026390701</tef:autoriteExterne>
+                  </tef:partenaireRecherche>
+                  <tef:partenaireRecherche type="laboratoire">
+                     <tef:nom>Département Imagerie et Simulation pour le Contrôle (Saclay)</tef:nom>
+                     <tef:autoriteInterne>MADS_PARTENAIRE_DE_RECHERCHE_2</tef:autoriteInterne>
+                     <tef:autoriteExterne autoriteSource="labTEL">222633</tef:autoriteExterne>
+                     <tef:autoriteExterne autoriteSource="Sudoc">170630889</tef:autoriteExterne>
+                  </tef:partenaireRecherche>
+                  <tef:oaiSetSpec>ddc:530</tef:oaiSetSpec>
+                  <tef:MADSAuthority authorityID="MADS_DIRECTEUR_DE_THESE_1" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Lacassagne</mads:namePart>
+                        <mads:namePart type="given">Lionel</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_PRESIDENT_DU_JURY" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Paindavoine</mads:namePart>
+                        <mads:namePart type="given">Michel</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_1" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Lacassagne</mads:namePart>
+                        <mads:namePart type="given">Lionel</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_2" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Paindavoine</mads:namePart>
+                        <mads:namePart type="given">Michel</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_3" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Cassereau</mads:namePart>
+                        <mads:namePart type="given">Didier</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_4" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Houzet</mads:namePart>
+                        <mads:namePart type="given">Dominique</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_5" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Mérigot</mads:namePart>
+                        <mads:namePart type="given">Alain</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_MEMBRE_DU_JURY_6" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Rougeron</mads:namePart>
+                        <mads:namePart type="given">Gilles</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_RAPPORTEUR_1" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Cassereau</mads:namePart>
+                        <mads:namePart type="given">Didier</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_RAPPORTEUR_2" type="personal">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Houzet</mads:namePart>
+                        <mads:namePart type="given">Dominique</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_ECOLE_DOCTORALE_1" type="corporate">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Ecole doctorale Sciences et Technologies de l'Information, des Télécommunications et des Systèmes (Orsay, Essonne)</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_PARTENAIRE_DE_RECHERCHE_1" type="corporate">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Laboratoire de recherche en informatique (Orsay, Essonne)</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+                  <tef:MADSAuthority authorityID="MADS_PARTENAIRE_DE_RECHERCHE_2" type="corporate">
+                     <tef:personMADS>
+                        <mads:namePart type="family">Département Imagerie et Simulation pour le Contrôle (Saclay)</mads:namePart>
+                     </tef:personMADS>
+                  </tef:MADSAuthority>
+               </tef:thesisAdmin>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:techMD ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE.TECH_FICHIER.DOSSIER_1.DOSSIER_1.FICHIER_1">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_tech_fichier">
+            <mets:xmlData>
+               <tef:meta_fichier>
+                  <tef:formatFichier>PDF</tef:formatFichier>
+                  <tef:taille>9882695</tef:taille>
+               </tef:meta_fichier>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:techMD>
+      <mets:rightsMD ID="ABES.STAR.THESE_62162.DROITS_UNIVERSITE">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_droits_etablissement_these">
+            <mets:xmlData>
+               <metsRights:RightsDeclarationMD RIGHTSCATEGORY="CONTRACTUAL">
+                  <metsRights:Context CONTEXTCLASS="GENERAL PUBLIC">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+                  <metsRights:Context CONTEXTCLASS="INSTITUTIONAL AFFILIATE">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+               </metsRights:RightsDeclarationMD>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:rightsMD>
+      <mets:rightsMD ID="ABES.STAR.THESE_62162.DROITS_DOCTORANT">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_droits_auteur_these">
+            <mets:xmlData>
+               <metsRights:RightsDeclarationMD RIGHTSCATEGORY="CONTRACTUAL">
+                  <metsRights:Context CONTEXTCLASS="GENERAL PUBLIC">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+                  <metsRights:Context CONTEXTCLASS="INSTITUTIONAL AFFILIATE">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+               </metsRights:RightsDeclarationMD>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:rightsMD>
+      <mets:rightsMD ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DROITS">
+         <mets:mdWrap MDTYPE="OTHER" OTHERMDTYPE="tef_droits_version">
+            <mets:xmlData>
+               <metsRights:RightsDeclarationMD RIGHTSCATEGORY="CONTRACTUAL">
+                  <metsRights:Context CONTEXTCLASS="GENERAL PUBLIC">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+                  <metsRights:Context CONTEXTCLASS="INSTITUTIONAL AFFILIATE">
+                     <metsRights:Permissions DISPLAY="true" DUPLICATE="true" PRINT="true" COPY="false" MODIFY="false"
+                                             DELETE="false"/>
+                  </metsRights:Context>
+               </metsRights:RightsDeclarationMD>
+            </mets:xmlData>
+         </mets:mdWrap>
+      </mets:rightsMD>
+   </mets:amdSec>
+   <mets:fileSec>
+      <mets:fileGrp USE="archive"
+                    ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE.FILEGRP">
+         <mets:file ID="ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE.DOSSIER_1.DOSSIER_1.FICHIER_1"
+                    ADMID="ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE.TECH_FICHIER.DOSSIER_1.DOSSIER_1.FICHIER_1"
+                    SEQ="1">
+            <mets:FLocat LOCTYPE="URL"
+                         xlink:href="PA11/THESE_62162/document/0/0/VA2_LAMBERT_JASON_03072015.pdf"/>
+         </mets:file>
+      </mets:fileGrp>
+   </mets:fileSec>
+   <mets:structMap TYPE="logical">
+      <mets:div TYPE="THESE" CONTENTIDS="CONTENTIDS.ABES.STAR.THESE_62162"
+                DMDID="ABES.STAR.THESE_62162.DESCRIPTION_BIBLIOGRAPHIQUE"
+                ADMID="ABES.STAR.THESE_62162.ADMINISTRATION ABES.STAR.THESE_62162.DROITS_UNIVERSITE ABES.STAR.THESE_62162.DROITS_DOCTORANT">
+         <mets:div TYPE="VERSION_COMPLETE"
+                   CONTENTIDS="CONTENTIDS.ABES.STAR.THESE_62162.ABES.STAR.THESE_62162.VERSION_COMPLETE"
+                   ADMID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DROITS">
+            <mets:div TYPE="EDITION"
+                      CONTENTIDS="CONTENTIDS.ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE"
+                      DMDID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DESCRIPTION.EDITION_ARCHIVAGE">
+               <mets:fptr FILEID="ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_ARCHIVAGE.FILEGRP"/>
+            </mets:div>
+            <mets:div TYPE="EDITION"
+                      CONTENTIDS="CONTENTIDS.ABES.STAR.THESE_62162.VERSION_COMPLETE.EDITION_1"
+                      DMDID="ABES.STAR.THESE_62162.VERSION_COMPLETE.DESCRIPTION.EDITION_1"/>
+         </mets:div>
+      </mets:div>
+   </mets:structMap>
+   </mets:mets></metadata></record>
+
+<resumptionToken expirationDate="2016-10-28T09:43:43Z" completeListSize="299" cursor="0">1477644223438</resumptionToken></ListRecords></OAI-PMH>
