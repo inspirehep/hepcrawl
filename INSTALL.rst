@@ -11,7 +11,7 @@ Installation
 
 
 Quick Installation
-------------------
+++++++++++++++++++
 
 
 .. code-block:: console
@@ -21,38 +21,17 @@ Quick Installation
 
 .. warning::
 
-    Beware that you may need to install additional system level packages like libffi, libssl, libxslt, libxml2 etc.
+    Beware that you may need to install additional system level packages like:
+    ``libffi``, ``libssl``, ``libxslt``, ``libxml2``.
 
 
 Installation for developers
----------------------------
++++++++++++++++++++++++++++
 
-We start by creating a virtual environment for our Python packages:
-
-.. code-block:: console
-
-    mkvirtualenv hepcrawl
-    cdvirtualenv
-    mkdir src && cd src
+.. include:: ./docker_installation.rst
 
 
-Now we grab the code and install it in development mode:
-
-.. code-block:: console
-
-    git clone https://github.com/inspirehep/hepcrawl.git
-    cd hepcrawl
-    pip install -e .
-
-
-Development mode ensures that any changes you do to your sources are automatically
-taken into account = no need to install again after changing something.
-
-Finally run the tests to make sure all is setup correctly:
-
-.. code-block:: console
-
-    python setup.py test
+.. include:: ./native_installation.rst
 
 
 Run a crawler
@@ -70,14 +49,14 @@ spider:
 
 Run the crawler with INSPIRE (assuming you already have a virtualenv with everything set up).
 
-The example below shows how to get all papers from the 24th June 2016 to the 26th June 2016 
+The example below shows how to get all papers from the 24th June 2016 to the 26th June 2016
 from arXiv where the subject area is hep-th (HEP Theory). We use the arXiv spider and assign the
 article workflow.
 
 .. code-block:: console
-    
+
     workon inspire-next
-    
+
     inspirehep oaiharvester harvest -m arXiv -u http://export.arxiv.org/oai2 -f 2016-06-24 -t 2016-06-26 -s 'physics:hep-th' -a 'spider=arXiv' -a 'workflow=article'
-    
+
 Thanks for contributing!

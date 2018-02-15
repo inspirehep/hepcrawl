@@ -32,8 +32,7 @@ HEPCrawl.
 .. toctree::
    :maxdepth: 2
 
-   overview
-   installation
+   getting_started
    operations
    contributing
    guide

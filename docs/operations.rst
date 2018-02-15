@@ -19,30 +19,6 @@ The easiest way to setup scrapy is to login on a machine, fork the `hepcrawl`_ r
 and use ``scrapyd-deploy`` command from ``scrapyd-client`` package to push the project to Scrapyd.
 
 
-Install HEPCrawl
-----------------
-
-We will start with creating a Python virtual environment to install our packages:
-
-
-.. code-block:: console
-
-    mkvirtualenv hepcrawl
-    cdvirtualenv
-    mkdir src && cd src
-
-
-Then proceed to install HEPCrawl on a remote server by cloning the sources.
-
-.. code-block:: console
-
-    $ git clone https://github.com/inspirehep/hepcrawl.git
-    $ cd hepcrawl
-    $ pip install .
-
-
-This should install all dependencies, including Scrapyd.
-
 Setup Scrapyd
 -------------
 
