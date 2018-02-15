@@ -6,14 +6,26 @@
     under the terms of the Revised BSD License; see LICENSE file for
     more details.
 
-.. currentmodule:: hepcrawl
 
+Scrapy Architecture
++++++++++++++++++++
 
-Developers Guide
-================
+Scrapy is the framework that the HEPcrawl project is based. In order to understand how the
+HEPcrawl project works first we have to understand in depth the scrapy project it self and
+it's `architecture
+<https://docs.scrapy.org/en/latest/topics/architecture.html>`_.
+
+In the following diagram we can find an important overview of Scrapy framework.
+
+.. image:: images/scrapy_architecture.png
+    :height: 380
+    :width: 700
+    :target: https://docs.scrapy.org/en/latest/topics/architecture.html
+    :alt: Scrapy Architecture
+
 
 Spiders in HEPcrawl
--------------------
++++++++++++++++++++
 
 Here is a introduction to spiders: http://doc.scrapy.org/en/latest/topics/spiders.html
 
@@ -50,7 +62,7 @@ When you create a new spider, you need to implement at least two methods:
 
 
 Getting data with ``start_requests``
-------------------------------------
+####################################
 
 ``start_requests`` handles the retrieval of data from the source,
 and `yield`_ each record(s) file (in this case XML file). You can even chain
@@ -77,8 +89,9 @@ and extracting metadata from a single XML file can finally begin.
 .. _following links: http://doc.scrapy.org/en/latest/intro/tutorial.html#following-links
 .. _tutorial: http://doc.scrapy.org/en/latest/intro/tutorial.html#our-first-spider
 
+
 Creating records in ``parse_node``
-----------------------------------
+##################################
 
 ``parse_node`` handles the extraction of records for a ``XMLFeedSpider``
 into so-called `items`_. An item is basically a intermediate record object
@@ -151,7 +164,7 @@ to do some extra logic.
 
 
 Re-using common metadata handling using item loaders
-----------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Since INSPIRE has multiple sources of content we will need to have multiple spiders
 that retrieves and extracts data differently. However, the intermediate ``HEPRecord``
@@ -241,7 +254,7 @@ Take a look `here`_ for some useful concepts when dealing with item loaders.
 
 
 Exporting the final record with item pipelines
-----------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++
 
 Finally, the data in the items are exported to INSPIRE via special item pipelines.
 
@@ -249,3 +262,4 @@ These classes are located under ``pipelines.py`` and exports harvested records t
 JSON files and pushes them to INSPIRE-HEP.
 
 **This documentation is still work in progress**
+

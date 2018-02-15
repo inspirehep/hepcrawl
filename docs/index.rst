@@ -35,8 +35,9 @@ HEPCrawl.
    overview
    installation
    operations
-   contributing
-   guide
+   developers_guide
+   operations
+   tests
 
 
 API Reference
