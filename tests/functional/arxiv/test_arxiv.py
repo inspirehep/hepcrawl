@@ -53,8 +53,19 @@ def get_configuration():
     }
 
 
+def get_configuration_single():
+    return {
+        'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+        'CRAWLER_PROJECT': 'hepcrawl',
+        'CRAWLER_ARGUMENTS': {
+            'identifier': 'oai:arXiv.org:1401.2122',
+            'url': 'http://arxiv-http-server.local/oai2',
+        }
+    }
+
+
 @pytest.mark.parametrize(
-    'expected_results, config',
+    'expected_results, config, spider',
     [
         (
             expected_json_results_from_file(
@@ -63,15 +74,27 @@ def get_configuration():
                 'arxiv_expected.json',
             ),
             get_configuration(),
+            'arXiv',
+        ),
+        (
+            expected_json_results_from_file(
+                'arxiv',
+                'fixtures',
+                'arxiv_expected_single.json',
+            ),
+            get_configuration_single(),
+            'arXiv_single',
         ),
     ],
     ids=[
         'smoke',
+        'smoke_single',
     ]
 )
 def test_arxiv(
     expected_results,
     config,
+    spider,
 ):
     crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
@@ -82,7 +105,7 @@ def test_arxiv(
         events_limit=1,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
-        spider='arXiv',
+        spider=spider,
         settings={},
         **config['CRAWLER_ARGUMENTS']
     )
