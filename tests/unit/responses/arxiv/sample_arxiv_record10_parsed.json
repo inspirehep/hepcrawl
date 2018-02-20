@@ -50,7 +50,7 @@
                 }
             ], 
             "acquisition_source": {
-                "date": "2016-06-14T00:00:00", 
+                "datetime": "2016-06-14T00:00:00",
                 "source": "arXiv", 
                 "method": "hepcrawl", 
                 "submission_number": "scrapy_job"

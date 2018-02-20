@@ -61,7 +61,7 @@ def get_records(response_file_name):
         pipeline.process_item(
             record,
             spider
-        ) for record in records
+        )['record'] for record in records
     )
 
 
@@ -121,6 +121,7 @@ def test_faulty_marc():
     path = os.path.abspath('tests/unit/responses/desy/faulty_record.xml')
     with open(path, 'r') as xmlfile:
         data = xmlfile.read()
-    result = spider._hep_records_from_marcxml([data])
-    assert result[0]['error'] == "ValueError(u'Unknown string format',)"
-    assert result[0].get('traceback') is not None
+    result = spider._parsed_items_from_marcxml([data])
+    assert result[0].exception == "ValueError(u'Unknown string format',)"
+    assert result[0].traceback is not None
+    assert result[0].source_data is not None

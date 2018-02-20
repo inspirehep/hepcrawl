@@ -40,8 +40,8 @@ def many_results(spider):
     records.
     """
     def _get_processed_record(item, spider):
-        record = pipeline.process_item(item, spider)
-        return record
+        crawl_result = pipeline.process_item(item, spider)
+        return crawl_result['record']
 
     fake_response = fake_response_from_file(
         'arxiv/sample_arxiv_record.xml',

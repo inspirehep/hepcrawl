@@ -7,8 +7,9 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+from __future__ import absolute_import, division, print_function
 
+from freezegun import freeze_time
 import json
 import mock
 import os
@@ -76,26 +77,29 @@ def test_prepare_payload(
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
     os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
+    fixed_time = expected_response['results_data'][0]['acquisition_source']['datetime']
+    freezer = freeze_time(fixed_time)
+    freezer.start()
+
     pipeline = InspireAPIPushPipeline()
 
     pipeline.open_spider(spider)
+
     pipeline.process_item(json_record, spider)
 
     result = pipeline._prepare_payload(spider)
 
-    # acquisition_source has a timestamp
-    result['results_data'][0]['acquisition_source'].pop('datetime')
-    expected_response['results_data'][0]['acquisition_source'].pop('date')
+    for crawl_result in result['results_data']:
+        validate(crawl_result['record'], 'hep')
 
-    for record in result['results_data']:
-        validate(record, 'hep')
-
-    for res, exp in zip(
+    for crawl_result, exp in zip(
         result['results_data'],
         expected_response['results_data'],
     ):
-        for key in res:
+        record = crawl_result['record']
+        for key in record:
             assert key in exp
-            assert res[key] == exp[key]
+            assert record[key] == exp[key]
 
-    assert result == expected_response
+    assert sorted(result) == sorted(expected_response)
+    freezer.stop()

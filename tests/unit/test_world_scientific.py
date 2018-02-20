@@ -59,7 +59,7 @@ def get_records(response_file_name):
     pipeline.open_spider(spider)
 
     return (
-        pipeline.process_item(record, spider)
+        pipeline.process_item(record, spider)['record']
         for record in records
     )
 

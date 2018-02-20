@@ -69,10 +69,10 @@ def generated_conference_paper(scrape_pos_conference_paper_page_body):
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
     parsed_item = request.callback(response).next()
-    parsed_record = pipeline.process_item(parsed_item, spider)
-    assert parsed_record
+    crawl_result = pipeline.process_item(parsed_item, spider)
+    assert crawl_result['record']
 
-    yield parsed_record
+    yield crawl_result['record']
 
     clean_dir()
 

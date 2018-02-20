@@ -71,7 +71,7 @@ def test_cds(set_up_local_environment, expected_results):
         set_up_local_environment.get('CRAWLER_HOST_URL')
     )
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
@@ -83,10 +83,10 @@ def test_cds(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
-    results = deep_sort(
+    crawl_results = deep_sort(
         sorted(
-            results,
-            key=lambda result: result['titles'][0]['title'],
+            crawl_results,
+            key=lambda result: result['record']['titles'][0]['title'],
         )
     )
     expected_results = deep_sort(
@@ -96,7 +96,9 @@ def test_cds(set_up_local_environment, expected_results):
         )
     )
 
-    gotten_results = [override_generated_fields(result) for result in results]
+    gotten_results = [
+        override_generated_fields(result['record']) for result in crawl_results
+    ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
@@ -134,10 +136,10 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
-    results = deep_sort(
+    crawl_results = deep_sort(
         sorted(
             results,
-            key=lambda result: result['titles'][0]['title'],
+            key=lambda result: result['record']['titles'][0]['title'],
         )
     )
     expected_results = deep_sort(
@@ -147,7 +149,9 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         )
     )
 
-    gotten_results = [override_generated_fields(result) for result in results]
+    gotten_results = [
+        override_generated_fields(result['record']) for result in crawl_results
+    ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]

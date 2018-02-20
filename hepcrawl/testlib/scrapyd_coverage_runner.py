@@ -28,8 +28,6 @@ def save_coverage():
 
 
 if __name__ == '__main__':
-    print("\n--------------- CUSTOM SCRAPYD RUNNER ----------------\n")
-
     start_coverage()
     main()
     save_coverage()
