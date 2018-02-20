@@ -53,7 +53,7 @@ def unzip_xml_files(filename, target_folder):
     return xml_files
 
 
-def ftp_connection_info(ftp_host, netrc_file, passive_mode=False):
+def ftp_connection_info(ftp_host, netrc_file, passive_mode=True):
     """Return ftp connection info from netrc and optional host address."""
     if not ftp_host:
         ftp_host = netrc(netrc_file).hosts.keys()[0]
@@ -72,7 +72,7 @@ def ftp_list_files(
     user,
     password,
     destination_folder=None,
-    passive_mode=False,
+    passive_mode=True,
     only_missing_files=True,
 ):
     """

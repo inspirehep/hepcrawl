@@ -47,7 +47,7 @@ install:
   - travis_retry docker-compose -f docker-compose.test.yml run --rm scrapyd-deploy
 
 script:
-  - travis_retry docker-compose -f docker-compose.test.yml run --rm ${SUITE}
+  - docker-compose -f docker-compose.test.yml run --rm ${SUITE}
 
 after_success:
   - docker-compose -f docker-compose.test.yml kill -s SIGTERM
