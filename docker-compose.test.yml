@@ -82,6 +82,9 @@ services:
   scrapyd:
     <<: *service_base
     command: bash -c "rm -f twistd.pid && exec scrapyd"
+    networks:
+      default:
+      ftp:
     depends_on:
       celery:
         condition: service_started
@@ -103,7 +106,10 @@ services:
   ftp_server:
     image: stilliard/pure-ftpd:hardened
     environment:
-      - PUBLICHOST=localhost
+      - PUBLICHOST=1.2.3.4
+    networks:
+      ftp:
+        ipv4_address: 1.2.3.4
     volumes:
       - ${PWD}/tests/functional/desy/fixtures/ftp_server/FFT:/home/ftpusers/bob/FFT
       - ${PWD}/tests/functional/desy/fixtures/ftp_server/DESY:/home/ftpusers/bob/DESY
@@ -157,3 +163,9 @@ services:
         - "CMD"
         - "rabbitmqctl"
         - "status"
+
+networks:
+  ftp:
+    ipam:
+      config:
+        - subnet: 1.0.0.0/8
