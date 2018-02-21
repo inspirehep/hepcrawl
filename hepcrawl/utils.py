@@ -147,14 +147,6 @@ def list_missing_files(remote_folder, target_folder, file_names):
 
 
 def get_first(iterable, default=None):
-    """Get first item in iterable or default."""
-    if iterable:
-        for item in iterable:
-            return item
-    return default
-
-
-def get_first(iterable, default=None):
     """Get first truthy value from iterable, fall back to default.
 
     This is useful to express a preference among several selectors,
