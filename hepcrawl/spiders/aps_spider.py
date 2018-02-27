@@ -18,13 +18,14 @@ from furl import furl
 
 from scrapy import Request
 
+from inspire_utils.record import get_value
+
 from . import StatefulSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..parsers import JatsParser
 from ..utils import (
     get_licenses,
-    get_nested,
     build_dict,
     ParsedItem,
     strict_kwargs,
@@ -87,7 +88,7 @@ class APSSpider(StatefulSpider):
         aps_response = json.loads(response.body_as_unicode())
 
         for article in aps_response['data']:
-            doi = get_nested(article, 'identifiers', 'doi')
+            doi = get_value(article, 'identifiers.doi', default='')
 
             if doi:
                 request = Request(url='{}/{}'.format(self.aps_base_url, doi),
@@ -124,12 +125,12 @@ class APSSpider(StatefulSpider):
         record = HEPLoader(item=HEPRecord(), response=original_response)
         article = failure.request.meta['json_article']
 
-        doi = get_nested(article, 'identifiers', 'doi')
+        doi = get_value(article, 'identifiers.doi', default='')
         record.add_dois(dois_values=[doi])
         record.add_value('page_nr', str(article.get('numPages', '')))
 
-        record.add_value('abstract', get_nested(article, 'abstract', 'value'))
-        record.add_value('title', get_nested(article, 'title', 'value'))
+        record.add_value('abstract', get_value(article, 'abstract.value', default=''))
+        record.add_value('title', get_value(article, 'title.value', default=''))
         # record.add_value('subtitle', '')
 
         authors, collaborations = self._get_authors_and_collab(article)
@@ -140,27 +141,26 @@ class APSSpider(StatefulSpider):
         # record.add_value('classification_numbers', classification_numbers)
 
         record.add_value('journal_title',
-                         get_nested(article, 'journal', 'abbreviatedName'))
+                         get_value(article, 'journal.abbreviatedName', default=''))
         record.add_value('journal_issue',
-                         get_nested(article, 'issue', 'number'))
+                         get_value(article, 'issue.number', default=''))
         record.add_value('journal_volume',
-                         get_nested(article, 'volume', 'number'))
+                         get_value(article, 'volume.number', default=''))
         # record.add_value('journal_artid', )
 
         published_date = article.get('date', '')
         record.add_value('journal_year', int(published_date[:4]))
         record.add_value('date_published', published_date)
         record.add_value('copyright_holder',
-                         get_nested(article, 'rights', 'copyrightHolders')[0][
-                             'name'])
+                         get_value(article, 'rights.copyrightHolders.name[0]', default=''))
         record.add_value('copyright_year',
-                         str(get_nested(article, 'rights', 'copyrightYear')))
+                         str(get_value(article, 'rights.copyrightYear', default='')))
         record.add_value('copyright_statement',
-                         get_nested(article, 'rights', 'rightsStatement'))
+                         get_value(article, 'rights.rightsStatement', default=''))
         record.add_value('copyright_material', 'publication')
 
         license = get_licenses(
-            license_url=get_nested(article, 'rights', 'licenses')[0]['url']
+            license_url=get_value(article, 'rights.licenses.url[0]', default='')
         )
         record.add_value('license', license)
 

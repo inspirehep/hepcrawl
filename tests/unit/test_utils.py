@@ -23,7 +23,6 @@ from hepcrawl.utils import (
     get_first,
     get_journal_and_section,
     get_mime_type,
-    get_nested,
     get_node,
     has_numbers,
     parse_domain,
@@ -52,20 +51,6 @@ def netrcfile():
         'data',
         'netrc'
     )
-
-
-@pytest.fixture
-def nested_json():
-    """An example JSON to test the get_nested function."""
-    return {
-        'a': {
-            'b': 'example_b',
-            'b1': {
-                'c': 'example_c'
-            }
-        },
-        'a1': 'example_a1'
-    }
 
 
 @pytest.fixture
@@ -110,14 +95,6 @@ def test_ftp_connection_info(netrcfile):
     assert info['ftp_user'] == 'test'
     assert 'ftp_password' in info
     assert info['ftp_password'] == 'test'
-
-
-def test_get_nested(nested_json):
-    """Test the results of recursively parsing a nested dict."""
-    assert get_nested(nested_json, 'a1') == 'example_a1'
-    assert get_nested(nested_json, 'a', 'b') == 'example_b'
-    assert get_nested(nested_json, 'a', 'b1', 'c') == 'example_c'
-    assert get_nested(nested_json, 'a', 'b2') == ''
 
 
 def test_build_dict(list_for_dict):
