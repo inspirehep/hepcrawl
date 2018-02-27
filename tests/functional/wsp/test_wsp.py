@@ -127,7 +127,7 @@ def test_wsp(expected_results, settings, cleanup):
         settings.get('CRAWLER_HOST_URL'),
     )
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
@@ -140,7 +140,7 @@ def test_wsp(expected_results, settings, cleanup):
     )
 
     gotten_results = [
-        override_generated_fields(result) for result in results
+        override_generated_fields(result['record']) for result in crawl_results
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
@@ -179,7 +179,7 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
         settings.get('CRAWLER_HOST_URL'),
     )
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=20,
@@ -190,9 +190,8 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
     )
-
     gotten_results = [
-        override_generated_fields(result) for result in results
+        override_generated_fields(result['record']) for result in crawl_results
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
@@ -200,7 +199,7 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
 
     assert gotten_results == expected_results
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=20,
@@ -212,6 +211,6 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    gotten_results = [override_generated_fields(result) for result in results]
+    gotten_results = [override_generated_fields(result) for result in crawl_results]
 
     assert gotten_results == []

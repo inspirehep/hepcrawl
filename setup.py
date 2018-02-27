@@ -43,6 +43,7 @@ install_requires = [
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'freezegun>=0.3.9',
     'isort==4.2.2',
     'pytest>=2.8.0',
     'pytest-cov>=2.1.0',

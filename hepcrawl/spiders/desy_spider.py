@@ -10,8 +10,6 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-import sys
-import traceback
 
 from flask.app import Flask
 from inspire_dojson import marcxml2record
@@ -211,7 +209,6 @@ class DesySpider(StatefulSpider):
     def parse(self, response):
         """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
         """
-
         self.logger.info('Got record from url/path: {0}'.format(response.url))
         self.logger.info('FTP enabled: {0}'.format(self.ftp_enabled))
         ftp_params = None
@@ -234,33 +231,18 @@ class DesySpider(StatefulSpider):
         marcxml_records = self._get_marcxml_records(response.body)
         self.logger.info('Got %d marc xml records' % len(marcxml_records))
         self.logger.info('Getting hep records...')
-        hep_records = self._hep_records_from_marcxml(marcxml_records)
-        self.logger.info('Got %d hep records' % len(hep_records))
 
-        for hep_record in hep_records:
-            files_to_download = [
-                self._get_full_uri(
-                    current_url=document['url'],
-                    base_url=base_url,
-                    schema=url_schema,
-                    hostname=hostname,
-                )
-                for document in hep_record.get('documents', [])
-                if self._has_to_be_downloaded(document['url'])
-            ]
+        parsed_items = self._parsed_items_from_marcxml(
+            marcxml_records=marcxml_records,
+            base_url=base_url,
+            hostname=hostname,
+            url_schema=url_schema,
+            ftp_params=ftp_params,
+            url=response.url
+        )
+        self.logger.info('Got %d hep records' % len(parsed_items))
 
-            self.logger.info(
-                'Got the following attached documents to download: %s'
-                % files_to_download
-            )
-            parsed_item = ParsedItem(
-                record=hep_record,
-                file_urls=files_to_download,
-                ftp_params=ftp_params,
-                record_format='hep',
-            )
-            self.logger.info('Got item: %s' % parsed_item)
-
+        for parsed_item in parsed_items:
             yield parsed_item
 
     @staticmethod
@@ -277,24 +259,52 @@ class DesySpider(StatefulSpider):
 
         return [etree.tostring(item) for item in list_items]
 
-    def _hep_records_from_marcxml(self, marcxml_records):
-        def _create_json_record(xml_record):
-            app = Flask('hepcrawl')
-            app.config.update(
-                self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
-            )
-            with app.app_context():
+    def _parsed_items_from_marcxml(
+            self,
+            marcxml_records,
+            base_url="",
+            hostname="",
+            url_schema=None,
+            ftp_params=None,
+            url=""
+    ):
+        app = Flask('hepcrawl')
+        app.config.update(self.settings.getdict('MARC_TO_HEP_SETTINGS', {}))
+        file_name = url.split('/')[-1]
+
+        with app.app_context():
+            parsed_items = []
+            for xml_record in marcxml_records:
                 try:
-                    hep_record = marcxml2record(xml_record)
+                    record = marcxml2record(xml_record)
+                    parsed_item = ParsedItem(record=record, record_format='hep')
+                    parsed_item.ftp_params = ftp_params
+                    parsed_item.file_name = file_name
+
+                    files_to_download = [
+                        self._get_full_uri(
+                            current_url=document['url'],
+                            base_url=base_url,
+                            schema=url_schema,
+                            hostname=hostname,
+                        )
+                        for document in parsed_item.record.get('documents', [])
+                        if self._has_to_be_downloaded(document['url'])
+                    ]
+                    parsed_item.file_urls = files_to_download
+
+                    self.logger.info('Got the following attached documents to download: %s'% files_to_download)
+                    self.logger.info('Got item: %s' % parsed_item)
+
+                    parsed_items.append(parsed_item)
+
                 except Exception as e:
-                    return {'xml_record': xml_record, 'error': repr(e),
-                            'traceback': traceback.format_tb(sys.exc_info()[2])}
-                
-            return hep_record
+                    error_parsed_item = ParsedItem.from_exception(
+                        record_format='hep',
+                        exception=repr(e),
+                        source_data=xml_record,
+                        file_name=file_name
+                    )
+                    parsed_items.append(error_parsed_item)
 
-        hep_records = []
-        for xml_record in marcxml_records:
-            json_record = _create_json_record(xml_record)
-            hep_records.append(json_record)
-
-        return hep_records
+            return parsed_items

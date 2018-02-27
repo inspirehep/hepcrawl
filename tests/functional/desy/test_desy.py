@@ -12,8 +12,8 @@
 from __future__ import absolute_import, division, print_function
 
 import copy
-import hashlib
 import os
+import shutil
 from time import sleep
 
 import pytest
@@ -63,19 +63,6 @@ def override_dynamic_fields_on_record(record):
     return clean_record
 
 
-def get_file_name_from_documents(documents_field):
-    file_path = get_test_suite_path(
-        'desy',
-        'fixtures',
-        'ftp_server',
-        'DESY',
-        'FFT',
-        documents_field['key'],
-        test_suite='functional',
-    )
-    return file_path
-
-
 def get_ftp_settings():
     netrc_location = get_test_suite_path(
         'desy',
@@ -113,6 +100,41 @@ def get_local_settings():
     }
 
 
+@pytest.fixture
+def get_local_settings_for_broken():
+    package_location = get_test_suite_path(
+        'desy',
+        'fixtures',
+        'ftp_server',
+        'DESY',
+        'broken',
+        test_suite='functional',
+    )
+    os.mkdir(package_location)
+    tmp_file = os.path.join(package_location, 'broken_record.xml')
+
+    with open(tmp_file, 'w') as f:
+        f.write(
+            "<?xml version='1.0' encoding='UTF-8'?>"
+            "<collection>"
+            "<record>"
+            "<datafield tag='260' ind1=' ' ind2=' '>"
+            "<subfield code='c'>BROKEN DATE</subfield>"
+            "</datafield>"
+            "</record>"
+            "</collection>"
+        )
+
+    yield {
+        'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+        'CRAWLER_PROJECT': 'hepcrawl',
+        'CRAWLER_ARGUMENTS': {
+            'source_folder': package_location,
+        }
+    }
+    shutil.rmtree(package_location)
+
+
 @pytest.fixture(scope="function")
 def cleanup():
     # The test must wait until the docker environment is up (takes about 10
@@ -143,12 +165,12 @@ def cleanup():
                 'desy_records_local_expected.json',
             ),
             get_local_settings(),
-        )
+        ),
 
     ],
     ids=[
         'ftp package',
-        'local package'
+        'local package',
     ]
 )
 def test_desy(
@@ -160,7 +182,7 @@ def test_desy(
         settings.get('CRAWLER_HOST_URL')
     )
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
@@ -172,7 +194,9 @@ def test_desy(
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    gotten_results = override_dynamic_fields_on_records(results)
+    records = [result['record'] for result in crawl_results]
+
+    gotten_results = override_dynamic_fields_on_records(records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
     gotten_results = deep_sort(
@@ -189,3 +213,30 @@ def test_desy(
     )
 
     assert gotten_results == expected_results
+
+
+def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
+    settings = get_local_settings_for_broken
+    crawler = get_crawler_instance(
+        settings.get('CRAWLER_HOST_URL')
+    )
+
+    crawl_results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=100,
+        events_limit=2,
+        crawler_instance=crawler,
+        project=settings.get('CRAWLER_PROJECT'),
+        spider='desy',
+        settings={},
+        **settings.get('CRAWLER_ARGUMENTS')
+    )
+    res = crawl_results[0]
+
+    assert res['record']
+    assert len(res['errors']) == 1
+    assert 'ValueError' in res['errors'][0]['exception']
+    assert res['errors'][0]['traceback']
+    assert res['file_name'] == 'broken_record.xml'
+    assert res['source_data']

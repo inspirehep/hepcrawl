@@ -23,12 +23,10 @@ Currently there are only two formats for records that we consider:
 
 from __future__ import absolute_import, division, print_function
 
-import os
-import datetime
 import logging
+import os
 
 from inspire_schemas.api import LiteratureBuilder
-
 
 LOGGER = logging.getLogger(__name__)
 
@@ -145,54 +143,6 @@ def _normalize_hepcrawl_record(item, source):
     )
 
     return item
-
-
-def item_to_hep(
-    item,
-    source,
-):
-    """Get an output ready hep formatted record from the given
-    :class:`hepcrawl.utils.ParsedItem`, whatever format it's record might be.
-
-    Args:
-        item(hepcrawl.utils.ParsedItem): item to convert.
-        source(str): string identifying the source for this item (ex. 'arXiv').
-
-    Returns:
-        hepcrawl.utils.ParsedItem: the new item, with the internal record
-            formated as hep record.
-
-    Raises:
-        UnknownItemFormat: if the source item format is unknown.
-    """
-    builder = LiteratureBuilder(
-        source=source
-    )
-
-    builder.add_acquisition_source(
-        source=source,
-        method='hepcrawl',
-        date=datetime.datetime.now().isoformat(),
-        submission_number=os.environ.get('SCRAPY_JOB', ''),
-    )
-
-    item.record['acquisition_source'] = builder.record['acquisition_source']
-
-    if item.record_format == 'hep':
-        return hep_to_hep(
-            hep_record=item.record,
-            record_files=item.record_files,
-        )
-    elif item.record_format == 'hepcrawl':
-        record = _normalize_hepcrawl_record(
-            item=item.record,
-            source=source,
-        )
-        return hepcrawl_to_hep(dict(record))
-    else:
-        raise UnknownItemFormat(
-            'Unknown ParsedItem::{}'.format(item.record_format)
-        )
 
 
 def hep_to_hep(hep_record, record_files):

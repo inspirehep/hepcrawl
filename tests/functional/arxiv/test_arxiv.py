@@ -98,7 +98,7 @@ def test_arxiv(
 ):
     crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
@@ -110,7 +110,9 @@ def test_arxiv(
         **config['CRAWLER_ARGUMENTS']
     )
 
-    gotten_results = [override_generated_fields(result) for result in results]
+    gotten_results = [
+        override_generated_fields(result['record']) for result in crawl_results
+    ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]

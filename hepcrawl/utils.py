@@ -9,11 +9,14 @@
 
 from __future__ import absolute_import, division, print_function
 
+import datetime
 import inspect
 import fnmatch
 import os
 import pprint
 import re
+import sys
+import traceback
 from functools import wraps
 from operator import itemgetter
 from itertools import groupby
@@ -26,6 +29,9 @@ import ftputil
 import ftputil.session
 import ftplib
 import requests
+from hepcrawl.tohep import hep_to_hep, _normalize_hepcrawl_record, \
+    hepcrawl_to_hep, UnknownItemFormat
+from inspire_schemas.builders import LiteratureBuilder
 
 from scrapy import Selector
 
@@ -479,6 +485,8 @@ class ParsedItem(dict):
             populated by :class:`hepcrawl.pipelines.DocumentsPipeline` from the
             ``file_urls`` parameter.
 
+        source_file(str): name of the crawled file.
+
     Attributes:
         *: this class bypasses the regular dict ``__getattr__`` allowing to
             access any of it's elements as attributes.
@@ -490,7 +498,7 @@ class ParsedItem(dict):
         file_urls=None,
         ftp_params=None,
         record_files=None,
-        **kwargs
+        file_name=None,
     ):
         super(ParsedItem, self).__init__(
             record=record,
@@ -498,7 +506,7 @@ class ParsedItem(dict):
             file_urls=file_urls,
             ftp_params=ftp_params,
             record_files=record_files,
-            **kwargs
+            file_name=file_name,
         )
 
     def __getattr__(self, key):
@@ -517,3 +525,58 @@ class ParsedItem(dict):
 
     def __str__(self):
         return pprint.pformat(self)
+
+    @staticmethod
+    def from_exception(record_format, exception, source_data, file_name):
+        parsed_item = ParsedItem(
+            record={},
+            record_format=record_format,
+            file_name=file_name,
+        )
+        parsed_item.exception = exception
+        parsed_item.traceback = traceback.format_tb(sys.exc_info()[2]),
+        parsed_item.source_data = source_data,
+        return parsed_item
+
+    def to_hep(self, source):
+        """Get an output ready hep formatted record from the given
+        :class:`hepcrawl.utils.ParsedItem`, whatever format it's record might be.
+
+        Args:
+            source(str): string identifying the source for this item (ex. 'arXiv').
+
+        Returns:
+            hepcrawl.utils.ParsedItem: the new item, with the internal record
+                formated as hep record.
+
+        Raises:
+            UnknownItemFormat: if the source item format is unknown.
+        """
+        builder = LiteratureBuilder(
+            source=source
+        )
+
+        builder.add_acquisition_source(
+            source=source,
+            method='hepcrawl',
+            date=datetime.datetime.now().isoformat(),
+            submission_number=os.environ.get('SCRAPY_JOB', ''),
+        )
+
+        self.record['acquisition_source'] = builder.record['acquisition_source']
+
+        if self.record_format == 'hep':
+            return hep_to_hep(
+                hep_record=self.record,
+                record_files=self.record_files,
+            )
+        elif self.record_format == 'hepcrawl':
+            record = _normalize_hepcrawl_record(
+                item=self.record,
+                source=source,
+            )
+            return hepcrawl_to_hep(dict(record))
+        else:
+            raise UnknownItemFormat(
+                'Unknown ParsedItem::{}'.format(self.record_format)
+            )
