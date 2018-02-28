@@ -212,24 +212,6 @@ def split_fullname(author, switch_name_order=False):
     return surname, given_names
 
 
-def get_temporary_file(prefix="tmp_",
-                       suffix="",
-                       directory=None):
-    """Generate a safe and closed filepath."""
-    try:
-        file_fd, filepath = mkstemp(prefix=prefix,
-                                    suffix=suffix,
-                                    dir=directory)
-        os.close(file_fd)
-    except IOError, e:
-        try:
-            os.remove(filepath)
-        except Exception:
-            pass
-        raise e
-    return filepath
-
-
 def build_dict(seq, key):
     """
     Creates a dictionary from a list, using the specified key.
