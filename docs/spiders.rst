@@ -41,13 +41,6 @@ Desy
 .. automodule:: hepcrawl.spiders.desy_spider
    :members:
 
-DNB
-~~~
-
-.. automodule:: hepcrawl.spiders.dnb_spider
-   :members:
-
-
 EDP
 ~~~
 
