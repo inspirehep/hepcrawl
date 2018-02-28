@@ -67,12 +67,6 @@ IOP
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
-PHENIX
-~~~~~~
-
-.. automodule:: hepcrawl.spiders.phenix_spider
-   :members:
-
 Philpapers.org
 ~~~~~~~~~~~~~~
 
