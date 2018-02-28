@@ -61,13 +61,6 @@ Hindawi
 .. automodule:: hepcrawl.spiders.hindawi_spider
    :members:
 
-
-INFN
-~~~~
-
-.. automodule:: hepcrawl.spiders.infn_spider
-   :members:
-
 IOP
 ~~~
 
