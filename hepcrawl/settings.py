@@ -103,20 +103,20 @@ CRAWL_ONCE_PATH = os.environ.get(
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 EXTENSIONS = {
-    'hepcrawl.extensions.ErrorHandler': 555,
+    'hepcrawl.extensions.ErrorHandler': 200,
 }
 SENTRY_DSN = os.environ.get('APP_SENTRY_DSN')
 if SENTRY_DSN:
     EXTENSIONS = {
-        'scrapy_sentry.extensions.Errors': 10,
-        'hepcrawl.extensions.ErrorHandler': 555,
+        'scrapy_sentry.extensions.Errors': 100,
+        'hepcrawl.extensions.ErrorHandler': 200,
     }
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'hepcrawl.pipelines.DocumentsPipeline': 1,
-    'hepcrawl.pipelines.InspireCeleryPushPipeline': 300,
+    'hepcrawl.pipelines.DocumentsPipeline': 100,
+    'hepcrawl.pipelines.InspireCeleryPushPipeline': 200,
 }
 
 # Files Pipeline settings
