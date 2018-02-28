@@ -67,12 +67,6 @@ IOP
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
-MIT
-~~~
-
-.. automodule:: hepcrawl.spiders.mit_spider
-   :members:
-
 PHENIX
 ~~~~~~
 
