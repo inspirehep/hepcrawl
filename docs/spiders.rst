@@ -73,14 +73,6 @@ Proceedings of Science
 .. automodule:: hepcrawl.spiders.pos_spider
    :members:
 
-
-T2K
-~~~
-
-.. automodule:: hepcrawl.spiders.t2k_spider
-   :members:
-
-
 World Scientific
 ~~~~~~~~~~~~~~~~
 
