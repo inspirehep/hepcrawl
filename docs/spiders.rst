@@ -29,12 +29,6 @@ arXiv.org
 .. automodule:: hepcrawl.spiders.arxiv_spider
    :members:
 
-Brown
-~~~~~
-
-.. automodule:: hepcrawl.spiders.brown_spider
-   :members:
-
 CDS
 ~~~
 
