@@ -67,12 +67,6 @@ IOP
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
-MAGIC
-~~~~~
-
-.. automodule:: hepcrawl.spiders.magic_spider
-   :members:
-
 MIT
 ~~~
 
