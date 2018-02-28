@@ -75,8 +75,8 @@ LAST_RUNS_PATH = os.environ.get(
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
-    'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
-    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
+    'hepcrawl.middlewares.ErrorHandlingMiddleware': 100,
+    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 200,
 }
 
 # Configure custom downloaders
@@ -89,8 +89,8 @@ DOWNLOAD_HANDLERS = {
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'hepcrawl.middlewares.ErrorHandlingMiddleware': 543,
-    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 100,
+    'hepcrawl.middlewares.ErrorHandlingMiddleware': 100,
+    'hepcrawl.middlewares.HepcrawlCrawlOnceMiddleware': 200,
 }
 
 CRAWL_ONCE_ENABLED = True
