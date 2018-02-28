@@ -22,7 +22,6 @@ from hepcrawl.utils import (
     ftp_connection_info,
     get_first,
     get_journal_and_section,
-    get_mime_type,
     get_node,
     has_numbers,
     parse_domain,
@@ -133,25 +132,6 @@ def test_parse_domain():
     url = 'http://www.example.com/0351/content'
     domain = 'http://www.example.com/'
     assert parse_domain(url) == domain
-
-
-@responses.activate
-def test_get_mime_type():
-    """Test MIME type getting when Content-Type is given."""
-    url = 'http://www.example.com/files/einstein_1905.pdf'
-    responses.add(responses.HEAD, url, status=200, content_type='application/pdf')
-    assert get_mime_type(url) == 'application/pdf'
-    assert get_mime_type(None) == ''
-    assert get_mime_type('') == ''
-
-
-@responses.activate
-def test_get_mime_type_no_content():
-    """Test MIME type getting when no Content-Type given."""
-    url = 'http://www.example.com/files/einstein_1905.pdf'
-    responses.add(responses.HEAD, url, status=200, content_type=None)
-    with pytest.raises(Exception):
-        assert get_mime_type(url)
 
 
 def test_has_numbers():
