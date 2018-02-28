@@ -1,6 +1,6 @@
 ..
     This file is part of hepcrawl.
-    Copyright (C) 2016, 2017 CERN.
+    Copyright (C) 2016, 2017, 2018 CERN.
 
     hepcrawl is a free software; you can redistribute it and/or modify it
     under the terms of the Revised BSD License; see LICENSE file for
@@ -15,14 +15,6 @@ Spiders
 .. contents::
     :local:
     :backlinks: none
-
-
-ALPHA
-~~~~~
-
-.. automodule:: hepcrawl.spiders.alpha_spider
-   :members:
-
 
 APS
 ~~~
