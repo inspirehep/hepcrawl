@@ -29,13 +29,6 @@ arXiv.org
 .. automodule:: hepcrawl.spiders.arxiv_spider
    :members:
 
-
-BASE
-~~~~
-
-.. automodule:: hepcrawl.spiders.base_spider
-   :members:
-
 Brown
 ~~~~~
 
