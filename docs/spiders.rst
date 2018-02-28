@@ -67,13 +67,6 @@ IOP
 .. automodule:: hepcrawl.spiders.iop_spider
    :members:
 
-Philpapers.org
-~~~~~~~~~~~~~~
-
-.. automodule:: hepcrawl.spiders.phil_spider
-   :members:
-
-
 Proceedings of Science
 ~~~~~~~~~~~~~~~~~~~~~~
 
