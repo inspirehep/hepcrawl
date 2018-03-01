@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -212,24 +212,6 @@ def split_fullname(author, switch_name_order=False):
     return surname, given_names
 
 
-def get_temporary_file(prefix="tmp_",
-                       suffix="",
-                       directory=None):
-    """Generate a safe and closed filepath."""
-    try:
-        file_fd, filepath = mkstemp(prefix=prefix,
-                                    suffix=suffix,
-                                    dir=directory)
-        os.close(file_fd)
-    except IOError, e:
-        try:
-            os.remove(filepath)
-        except Exception:
-            pass
-        raise e
-    return filepath
-
-
 def build_dict(seq, key):
     """
     Creates a dictionary from a list, using the specified key.
@@ -238,17 +220,6 @@ def build_dict(seq, key):
     O(1)).
     """
     return dict((d[key], dict(d, index=i)) for (i, d) in enumerate(seq))
-
-
-def get_mime_type(url):
-    """Get mime type from url."""
-    if not url:
-        return ""
-    resp = requests.head(url, allow_redirects=True)
-    content_type = resp.headers.get("Content-Type")
-    if content_type is None:
-        raise Exception("No content-type found in URL {0}".format(url))
-    return content_type
 
 
 def parse_domain(url):
