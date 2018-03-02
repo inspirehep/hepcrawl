@@ -12,7 +12,6 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import os
 
 import pytest
-import responses
 import six
 
 from hepcrawl.utils import (
