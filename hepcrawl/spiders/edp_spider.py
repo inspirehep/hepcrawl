@@ -16,6 +16,7 @@ import urlparse
 import tarfile
 from tempfile import mkdtemp
 
+from re import sub
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
@@ -507,7 +508,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
         urls = []
         for ext_link in ext_links:
             if "doi" in ext_link:
-                doi = "doi:" + ext_link.replace("https://doi.org/", "")
+                doi = "doi:" + ext_link.sub("https?://(dx\.)?doi.org/", "")
             else:
                 urls.append(ext_link)
 
