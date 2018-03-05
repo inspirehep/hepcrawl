@@ -74,7 +74,7 @@ detection and observation of the prompt optical emission of the &#x201C;naked-ey
             <subfield code="n">fulltext</subfield>
           </datafield>
           <datafield tag="856" ind1="4" ind2="0">
-            <subfield code="u">https://doi.org/10.1155/2010/194946</subfield>
+            <subfield code="u">http://dx.doi.org/10.1155/2010/194946</subfield>
             <subfield code="z">Full text URL</subfield>
           </datafield>
         </marc:record>

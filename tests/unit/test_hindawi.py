@@ -82,7 +82,7 @@ def test_files(record):
 
 def test_urls(record):
     """Test url in record."""
-    urls = ["https://doi.org/10.1155/2010/194946"]
+    urls = ["http://dx.doi.org/10.1155/2010/194946"]
     assert "urls" in record
     assert len(record["urls"]) == 1
 
