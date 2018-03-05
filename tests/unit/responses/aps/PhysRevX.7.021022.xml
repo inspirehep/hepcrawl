@@ -96,7 +96,7 @@
         <award-group award-type="unspecified">
           <funding-source>
             <named-content content-type="name">National Science Foundation</named-content>
-            <named-content content-type="fundref:id">http://dx.doi.org/10.13039/100000001</named-content>
+            <named-content content-type="fundref:id">https://doi.org/10.13039/100000001</named-content>
             <named-content content-type="fundref:alternate-name">NSF</named-content>
             <named-content content-type="country">http://sws.geonames.org/6252001/</named-content>
             <named-content content-type="aps-code">NSF</named-content>
@@ -106,7 +106,7 @@
         <award-group award-type="unspecified">
           <funding-source>
             <named-content content-type="name">Gordon and Betty Moore Foundation</named-content>
-            <named-content content-type="fundref:id">http://dx.doi.org/10.13039/100000936</named-content>
+            <named-content content-type="fundref:id">https://doi.org/10.13039/100000936</named-content>
             <named-content content-type="fundref:alternate-name">Gordon E. and Betty I. Moore Foundation</named-content>
             <named-content content-type="country">http://sws.geonames.org/6252001/</named-content>
           </funding-source>
@@ -114,14 +114,14 @@
         <award-group award-type="unspecified">
           <funding-source>
             <named-content content-type="name">Simons Foundation</named-content>
-            <named-content content-type="fundref:id">http://dx.doi.org/10.13039/100000893</named-content>
+            <named-content content-type="fundref:id">https://doi.org/10.13039/100000893</named-content>
             <named-content content-type="country">http://sws.geonames.org/6252001/</named-content>
           </funding-source>
         </award-group>
         <award-group award-type="unspecified">
           <funding-source>
             <named-content content-type="name">H2020 European Research Council</named-content>
-            <named-content content-type="fundref:id">http://dx.doi.org/10.13039/100010663</named-content>
+            <named-content content-type="fundref:id">https://doi.org/10.13039/100010663</named-content>
             <named-content content-type="fundref:alternate-name">H2020 Excellent Science - European Research Council</named-content>
             <named-content content-type="fundref:alternate-name">European Research Council</named-content>
             <named-content content-type="fundref:alternate-name">ERC</named-content>

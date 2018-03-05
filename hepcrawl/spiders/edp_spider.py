@@ -240,7 +240,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
 
         if dois and journal_title in self.OPEN_ACCESS_JOURNALS:
             # We should get the pdf only for open access journals
-            link = "http://dx.doi.org/" + dois[0]
+            link = "https://doi.org/" + dois[0]
             request = Request(link, callback=self.scrape_for_pdf)
             request.meta["record"] = node.extract()
             request.meta["article_type"] = article_type
@@ -507,7 +507,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
         urls = []
         for ext_link in ext_links:
             if "doi" in ext_link:
-                doi = "doi:" + ext_link.replace("http://dx.doi.org/", "")
+                doi = "doi:" + ext_link.replace("https://doi.org/", "")
             else:
                 urls.append(ext_link)
 

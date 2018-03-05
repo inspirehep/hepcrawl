@@ -77,7 +77,7 @@ def parsed_node():
                 </oa:sponsor>
                 <oa:userLicense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">http://creativecommons.org/licenses/by/3.0/</oa:userLicense>
             </oa:openAccessInformation>
-            <rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
+            <rdf:Description rdf:about="https://doi.org/10.1016/0370-2693(88)91603-6">
                 <dct:title>Toward classification of conformal theories</dct:title>
                 <prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
                 <prism:startingPage>421</prism:startingPage>

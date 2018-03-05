@@ -16,7 +16,7 @@
 	 xmlns:sb="http://www.elsevier.com/xml/common/struct-bib/schema"
 	 xmlns:xlink="http://www.w3.org/1999/xlink">
 	 <rdf:RDF>
-	 	<rdf:Description rdf:about="http://dx.doi.org/10.1016/0370-2693(88)91603-6">
+	 	<rdf:Description rdf:about="https://doi.org/10.1016/0370-2693(88)91603-6">
 	 		<dct:format>application/xml</dct:format>
 	 		<dct:title>Toward classification of conformal theories</dct:title>
 	 		<dct:creator>Cumrun Vafa</dct:creator>
@@ -34,7 +34,7 @@
 	 		<prism:startingPage>421</prism:startingPage>
 	 		<prism:endingPage>426</prism:endingPage>
 	 		<prism:doi>10.1016/0370-2693(88)91603-6</prism:doi>
-	 		<prism:url>http://dx.doi.org/10.1016/0370-2693(88)91603-6</prism:url>
+	 		<prism:url>https://doi.org/10.1016/0370-2693(88)91603-6</prism:url>
 	 		<dct:identifier>doi:10.1016/0370-2693(88)91603-6</dct:identifier>
 	 	</rdf:Description>
 	 </rdf:RDF>
