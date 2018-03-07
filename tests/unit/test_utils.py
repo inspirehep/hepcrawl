@@ -24,6 +24,7 @@ from hepcrawl.utils import (
     get_node,
     has_numbers,
     parse_domain,
+    ParsedItem,
     range_as_string,
     split_fullname,
     unzip_xml_files,
@@ -254,3 +255,24 @@ def test_strict_kwargs_fail():
     """Test the `strict_kwargs` decorator disallowing some kwargs."""
     with pytest.raises(TypeError):
         Dummy(**{'good1_no_default': 1, 'good2': 2, u'bąd_þärãm': 4})
+
+
+def test_parsed_item_from_exception():
+    record_format = 'hep'
+    source_data = 'some XML'
+    file_name = 'broken.xml'
+
+    try:
+        raise KeyError('this is an error message')
+    except KeyError as e:
+        item = ParsedItem.from_exception(
+            record_format=record_format,
+            exception=e,
+            source_data=source_data,
+            file_name=file_name
+        )
+
+        assert type(item['traceback']) is str
+        assert type(item['exception']) is KeyError
+        assert item['source_data'] == 'some XML'
+        assert item['file_name'] == 'broken.xml'

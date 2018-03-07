@@ -492,8 +492,8 @@ class ParsedItem(dict):
             file_name=file_name,
         )
         parsed_item.exception = exception
-        parsed_item.traceback = traceback.format_tb(sys.exc_info()[2]),
-        parsed_item.source_data = source_data,
+        parsed_item.traceback = ''.join(traceback.format_tb(sys.exc_info()[2]))
+        parsed_item.source_data = source_data
         return parsed_item
 
     def to_hep(self, source):
