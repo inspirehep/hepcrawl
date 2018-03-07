@@ -10,6 +10,8 @@
 from __future__ import absolute_import, division, print_function
 
 import os
+import sys
+import traceback
 
 from flask.app import Flask
 from inspire_dojson import marcxml2record
@@ -299,9 +301,11 @@ class DesySpider(StatefulSpider):
                     parsed_items.append(parsed_item)
 
                 except Exception as e:
+                    tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
                     error_parsed_item = ParsedItem.from_exception(
                         record_format='hep',
                         exception=repr(e),
+                        traceback=tb,
                         source_data=xml_record,
                         file_name=file_name
                     )

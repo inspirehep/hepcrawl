@@ -15,20 +15,16 @@ import fnmatch
 import os
 import pprint
 import re
-import sys
-import traceback
 from functools import wraps
 from operator import itemgetter
 from itertools import groupby
 from netrc import netrc
-from tempfile import mkstemp
 from zipfile import ZipFile
 from urlparse import urlparse
 
 import ftputil
 import ftputil.session
 import ftplib
-import requests
 from hepcrawl.tohep import hep_to_hep, _normalize_hepcrawl_record, \
     hepcrawl_to_hep, UnknownItemFormat
 from inspire_schemas.builders import LiteratureBuilder
@@ -485,14 +481,14 @@ class ParsedItem(dict):
         return pprint.pformat(self)
 
     @staticmethod
-    def from_exception(record_format, exception, source_data, file_name):
+    def from_exception(record_format, exception, traceback, source_data, file_name):
         parsed_item = ParsedItem(
             record={},
             record_format=record_format,
             file_name=file_name,
         )
         parsed_item.exception = exception
-        parsed_item.traceback = ''.join(traceback.format_tb(sys.exc_info()[2]))
+        parsed_item.traceback = traceback
         parsed_item.source_data = source_data
         return parsed_item
 

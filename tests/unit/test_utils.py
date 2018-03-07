@@ -268,11 +268,12 @@ def test_parsed_item_from_exception():
         item = ParsedItem.from_exception(
             record_format=record_format,
             exception=e,
+            traceback='error traceback',
             source_data=source_data,
             file_name=file_name
         )
 
-        assert type(item['traceback']) is str
+        assert item['traceback'] == 'error traceback'
         assert type(item['exception']) is KeyError
         assert item['source_data'] == 'some XML'
         assert item['file_name'] == 'broken.xml'
