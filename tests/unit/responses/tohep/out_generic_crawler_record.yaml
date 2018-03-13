@@ -30,35 +30,40 @@
     ],
     "authors": [
         {
-            "affiliations": [
+            "raw_affiliations": [
                 {
+                    "source": "arXiv",
                     "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
                 }
             ],
             "full_name": "Alemi, Alexander A."
         },
         {
-            "affiliations": [
+            "raw_affiliations": [
                 {
+                    "source": "arXiv",
                     "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
                 }
             ],
             "full_name": "Bierbaum, Matthew"
         },
         {
-            "affiliations": [
+            "raw_affiliations": [
                 {
+                    "source": "arXiv",
                     "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
                 },
                 {
+                    "source": "arXiv",
                     "value": "Institute of Biotechnology, Cornell University, Ithaca, New York 14853, USA"
                 }
             ],
             "full_name": "Myers, Christopher R."
         },
         {
-            "affiliations": [
+            "raw_affiliations": [
                 {
+                    "source": "arXiv",
                     "value": "Laboratory of Atomic and Solid State Physics, Cornell University, Ithaca, New York 14853, USA"
                 }
             ],

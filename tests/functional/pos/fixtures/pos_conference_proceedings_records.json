@@ -62,16 +62,18 @@
     ],
     "authors": [
       {
-        "affiliations": [
+        "raw_affiliations": [
           {
+            "source": "pos",
             "value": "INFN and Universit\u00e0 di Firenze"
           }
         ],
         "full_name": "El-Khadra, Aida"
       },
       {
-        "affiliations": [
+        "raw_affiliations": [
           {
+            "source": "pos",
             "value": "U of Pecs"
           }
         ],

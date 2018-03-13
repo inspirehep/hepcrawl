@@ -133,11 +133,21 @@ def test_authors(generated_conference_paper):
     expected_authors = [
         {
             'full_name': 'El-Khadra, Aida',
-            'affiliations': [{'value': 'INFN and Universit\xe0 di Firenze'}],
+            'raw_affiliations': [
+                {
+                    'source': 'pos',
+                    'value': 'INFN and Universit\xe0 di Firenze',
+                },
+            ],
         },
         {
             'full_name': 'MacDonald, M.T.',
-            'affiliations': [{'value': 'U of Pecs'}],
+            'raw_affiliations': [
+                {
+                    'source': 'pos',
+                    'value': 'U of Pecs',
+                },
+            ],
         }
     ]
 
@@ -164,16 +174,18 @@ def test_pipeline_conference_paper(generated_conference_paper):
         },
         'authors': [
             {
-                'affiliations': [
+                'raw_affiliations': [
                     {
+                        'source': 'pos',
                         'value': u'INFN and Universit\xe0 di Firenze'
                     }
                 ],
                 'full_name': u'El-Khadra, Aida'
             },
             {
-                'affiliations': [
+                'raw_affiliations': [
                     {
+                        'source': 'pos',
                         'value': u'U of Pecs'
                     }
                 ],
