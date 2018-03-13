@@ -122,6 +122,6 @@ def test_faulty_marc():
     with open(path, 'r') as xmlfile:
         data = xmlfile.read()
     result = spider._parsed_items_from_marcxml([data])
-    assert result[0].exception == "ValueError(u'Unknown string format',)"
+    assert result[0].exception == "ValueError(u'Unknown string format:', 'Not a date')"
     assert result[0].traceback is not None
     assert result[0].source_data is not None
