@@ -34,7 +34,7 @@ install_requires = [
     'LinkHeader>=0.4.3',
     'furl>=0.4.95',
     'ftputil>=3.3.1',
-    'python-dateutil>=2.4.2',
+    'python-dateutil~=2.0,>=2.7.0',
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
     'Sickle~=0.6,>=0.6.2',
