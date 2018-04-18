@@ -1,0 +1,159 @@
+{
+   "status":"ok",
+   "message-version":"1.0.0",
+   "message":{
+      "DOI":"10.1103/physrevb.33.3547.2",
+      "subtitle":[
+
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               1986,
+               3,
+               1
+            ]
+         ]
+      },
+      "short-title":[
+
+      ],
+      "prefix":"10.1103",
+      "relation":{
+
+      },
+      "subject":[
+         "Condensed Matter Physics"
+      ],
+      "author":[
+         {
+            "affiliation":[
+
+            ],
+            "given":"Marcos H.",
+            "family":"Degani"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Oscar",
+            "family":"Hipólito"
+         }
+      ],
+      "reference-count":0,
+      "ISSN":[
+         "0163-1829"
+      ],
+      "member":"16",
+      "source":"Crossref",
+      "score":1.0,
+      "deposited":{
+         "timestamp":1491471917000,
+         "date-time":"2017-04-06T09:45:17Z",
+         "date-parts":[
+            [
+               2017,
+               4,
+               6
+            ]
+         ]
+      },
+      "indexed":{
+         "timestamp":1508802763449,
+         "date-time":"2017-10-23T23:52:43Z",
+         "date-parts":[
+            [
+               2017,
+               10,
+               23
+            ]
+         ]
+      },
+      "type":"journal-article",
+      "published-online":{
+         "date-parts":[
+            [
+               1986,
+               3,
+               1
+            ]
+         ]
+      },
+      "URL":"http://dx.doi.org/10.1103/physrevb.33.3547.2",
+      "is-referenced-by-count":1,
+      "volume":"33",
+      "issn-type":[
+         {
+            "type":"print",
+            "value":"0163-1829"
+         }
+      ],
+      "link":[
+         {
+            "URL":"http://link.aps.org/article/10.1103/PhysRevB.33.3547.2",
+            "intended-application":"syndication",
+            "content-version":"vor",
+            "content-type":"unspecified"
+         },
+         {
+            "URL":"http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.33.3547.2/fulltext",
+            "intended-application":"similarity-checking",
+            "content-version":"vor",
+            "content-type":"unspecified"
+         }
+      ],
+      "references-count":0,
+      "original-title":[
+
+      ],
+      "short-container-title":[
+         "Phys. Rev. B"
+      ],
+      "publisher":"American Physical Society (APS)",
+      "content-domain":{
+         "domain":[
+
+         ],
+         "crossmark-restriction":"False"
+      },
+      "license":[
+         {
+            "URL":"http://link.aps.org/licenses/aps-default-license",
+            "start":{
+               "timestamp":510019200000,
+               "date-time":"1986-03-01T00:00:00Z",
+               "date-parts":[
+                  [
+                     1986,
+                     3,
+                     1
+                  ]
+               ]
+            },
+            "content-version":"vor",
+            "delay-in-days":0
+         }
+      ],
+      "created":{
+         "timestamp":1027737182000,
+         "date-time":"2002-07-27T02:33:02Z",
+         "date-parts":[
+            [
+               2002,
+               7,
+               27
+            ]
+         ]
+      },
+      "issue":"5",
+      "title":[
+         "Erratum: Polaronic behavior of electrons on a liquid-helium film"
+      ],
+      "container-title":[
+         "Physical Review B"
+      ],
+      "page":"3547-3548"
+   },
+   "message-type":"work"
+}

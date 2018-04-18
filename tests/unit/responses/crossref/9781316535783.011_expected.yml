@@ -1,0 +1,14 @@
+---
+dois: 
+- doi: 10.1017/9781316535783.011
+  material: publication
+title: Testing Inflation
+authors:
+- full_name: Smeenk, Chris
+page_start: '206'
+page_end: '227'
+year:
+material: publication
+parent_isbn: '9781316535783'
+document_type: book chapter
+imprints:

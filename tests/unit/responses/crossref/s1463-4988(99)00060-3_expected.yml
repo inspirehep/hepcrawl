@@ -1,0 +1,264 @@
+---
+license:
+- url: http://www.elsevier.com/tdm/userlicense/1.0/
+  imposing: Informa UK Limited
+  material: publication
+dois: 
+- doi: 10.1016/s1463-4988(99)00060-3
+  material: publication
+title: Effect of ultraviolet radiation on the bioavailability of marine diatom-derived low-molecular-weight dissolved organic matter
+references:
+- reference:
+    publication_info:
+      journal_volume: '41'
+      page_start: '41'
+      year: 1996
+      journal_title: Limnol. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Amon
+    dois:
+    - 10.4319/lo.1996.41.1.0041
+    title:
+      title: Bacterial utilization of different size classes of dissolved organic
+        matter
+- reference:
+    publication_info:
+      journal_volume: '255'
+      page_start: '1561'
+      year: 1992
+      journal_title: Science
+    authors:
+    - inspire_role: author
+      full_name: Benner
+    dois:
+    - 10.1126/science.255.5051.1561
+    title:
+      title: Bulk chemical characteristics of dissolved organic matter in the ocean
+- reference:
+    publication_info:
+      journal_volume: '5'
+      page_start: '477'
+      year: 1983
+      journal_title: J. Plankton Res.
+    authors:
+    - inspire_role: author
+      full_name: Chrost
+    dois:
+    - 10.1093/plankt/5.4.477
+    title:
+      title: 'Organic carbon release by phytoplankton: its composition and utilization by bacterioplankton'
+- reference:
+    publication_info:
+      journal_volume: '41'
+      page_start: '698'
+      year: 1996
+      journal_title: Limnol. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Graneli
+    dois:
+    - 10.4319/lo.1996.41.4.0698
+    title:
+      title: Photo-oxidative production of dissolved inorganic carbon in lakes of different humic content
+- reference:
+    publication_info:
+      journal_volume: '8'
+      page_start: '229'
+      year: 1962
+      journal_title: Can. J. Microbiol.
+    authors:
+    - inspire_role: author
+      full_name: Guillard
+    dois:
+    - 10.1139/m62-029
+    title:
+      title: Studies of marine planktonic diatoms I. Cyclotella nana Hustedt and Detonula confervacea (Cleve) Gran
+- reference:
+    publication_info:
+      journal_volume: '341'
+      page_start: '637'
+      year: 1989
+      journal_title: Nature
+    authors:
+    - inspire_role: author
+      full_name: Kieber
+    dois:
+    - 10.1038/341637a0
+    title:
+      title: 'Photochemical source of biological substrates in sea water: implications for carbon cycling'
+- reference:
+    publication_info:
+      journal_volume: '40'
+      page_start: '195'
+      year: 1995
+      journal_title: Limnol. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Lindell
+    dois:
+    - 10.4319/lo.1995.40.1.0195
+    title:
+      title: Enhanced bacterial growth in response to photochemical transformation of dissolved organic matter
+- reference:
+    publication_info:
+      journal_volume: '382'
+      page_start: '445'
+      year: 1996
+      journal_title: Nature
+    authors:
+    - inspire_role: author
+      full_name: Lovley
+    dois:
+    - 10.1038/382445a0
+    title:
+      title: Humic substances as electron acceptors for microbial respiration
+- reference:
+    publication_info:
+      journal_volume: '22'
+      page_start: '417'
+      year: 1995
+      journal_title: Geophys. Res. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Miller
+    dois:
+    - 10.1029/94GL03344
+    title:
+      title: 'Photochemical production of dissolved inorganic carbon from terrestrial organic matter: significance to the oceanic organic carbon cycle'
+- reference:
+    publication_info:
+      page_start: '31'
+      year: 1970
+    authors:
+    - inspire_role: author
+      full_name: Menzel
+    title:
+      title: Distribution and cycling of organic matter in the oceans
+- reference:
+    publication_info:
+      journal_volume: '353'
+      page_start: '60'
+      year: 1991
+      journal_title: Nature
+    authors:
+    - inspire_role: author
+      full_name: Mopper
+    dois:
+    - 10.1038/353060a0
+    title:
+      title: Photochemical degradation of dissolved organic carbon and its impact on the oceanic carbon cycle
+- reference:
+    publication_info:
+      journal_volume: '40'
+      page_start: '1381'
+      year: 1995
+      journal_title: Limnol. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Morris
+    dois:
+    - 10.4319/lo.1995.40.8.1381
+    title:
+      title: The attenuation of solar UV radiation in lakes and the role of dissolved organic carbon
+- raw_refs:
+  - value: Murakami, Y., 1999. Effects of a bacterial siderophore on microalgal proliferation. MSc thesis, School of Biosphere Science, Hiroshima University.
+    schema: text
+- reference:
+    publication_info:
+      journal_volume: '53'
+      page_start: '435'
+      year: 1997
+      journal_title: J. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Naganuma
+    title:
+      title: Abundance, production and viability of bacterioplankton in the Seto Inland Sea, Japan
+- reference:
+    publication_info:
+      journal_volume: '135'
+      page_start: '309'
+      year: 1996
+      journal_title: Mar. Ecol. Prog. Ser.
+    authors:
+    - inspire_role: author
+      full_name: Naganuma
+    dois:
+    - 10.3354/meps135309
+    title:
+      title: Photodegradation or photoalteration? Microbial assay of the effect of UV-B on dissolved organic matter
+- reference:
+    publication_info:
+      journal_volume: '19'
+      page_start: '783'
+      year: 1997
+      journal_title: J. Plankton Res
+    authors:
+    - inspire_role: author
+      full_name: Naganuma
+    dois:
+    - 10.1093/plankt/19.6.783
+    title:
+      title: Photoreactivation of UV-induced damage to embryos of a planktonic copepod
+- reference:
+    publication_info:
+      journal_volume: '116'
+      page_start: '247'
+      year: 1995
+      journal_title: Mar. Ecol. Prog. Ser.
+    authors:
+    - inspire_role: author
+      full_name: Obernosterer
+    dois:
+    - 10.3354/meps116247
+    title:
+      title: 'Phytoplankton extracellular release and bacterial growth: dependence on the inorganic N:P ratio'
+- reference:
+    publication_info:
+      journal_volume: '58'
+      page_start: '2938'
+      year: 1992
+      journal_title: Appl. Environ. Microbiol.
+    authors:
+    - inspire_role: author
+      full_name: Sundh
+    title:
+      title: Biochemical composition of dissolved organic carbon derived from phytoplankton and used by heterotrophic bacteria
+- reference:
+    publication_info:
+      journal_volume: '116'
+      page_start: '309'
+      year: 1995
+      journal_title: Mar. Ecol. Prog. Ser.
+    authors:
+    - inspire_role: author
+      full_name: Thomas
+    dois:
+    - 10.3354/meps116309
+    title:
+      title: Photodegradation of algal dissolved organic carbon
+- reference:
+    publication_info:
+      journal_volume: '40'
+      page_start: '1369'
+      year: 1995
+      journal_title: Limnol. Oceanogr.
+    authors:
+    - inspire_role: author
+      full_name: Wetzel
+    dois:
+    - 10.4319/lo.1995.40.8.1369
+    title:
+      title: Natural photolysis by ultraviolet irradiance of recalcitrant dissolved organic matter to simple substrates for rapid bacterial metabolism
+authors:
+- full_name: Naganuma, T.
+page_end: '166'
+journal_title: Aquatic Ecosystem Health and Management
+material: publication
+journal_volume: '3'
+year: 2000
+page_start: '163'
+journal_issue: '1'
+document_type: article
+imprints: 2000-01
