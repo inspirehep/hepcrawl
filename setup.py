@@ -61,7 +61,7 @@ extras_require = {
     ],
     'tests': tests_require,
     'sentry': [
-        'raven==5.1.1',
+        'raven~=6.0,>=6.2.1',
         'scrapy-sentry',
     ],
 }
