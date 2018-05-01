@@ -41,6 +41,14 @@ class ErrorHandlingMiddleware(object):
 
     def process_exception(self, request, exception, spider):
         """Register the error in the spider and continue."""
+        if not exception or issubclass(exception, IgnoreRequest):
+            return
+
+        LOGGER.info(
+            "ErrorHandlingMiddleware: Adding error to list:\nexception: %s\nsender: %s",
+            exception,
+            request,
+        )
         spider.state.setdefault('errors', []).append({
             'exception': exception,
             'sender': request,
