@@ -17,6 +17,7 @@ from __future__ import (
 )
 
 from itertools import islice
+from socket import timeout as SocketTimeout
 
 import logging
 
@@ -52,26 +53,33 @@ class CeleryMonitor(object):
                     task.info(),
                 )
             )
-            tasks = self.app.AsyncResult(task.id)
-            for task in tasks.result:
-                self.results.append(task)
+            task = self.app.AsyncResult(task.id)
+            self.results.append(task.result)
             self.recv.should_stop = True
 
         def announce_failed_tasks(event):
             state.event(event)
             task = state.tasks.get(event['uuid'])
             LOGGER.info(
-                'TASK FAILED: %s[%s] %s' % (task.name, task.uuid, task.info(),)
+                'TASK FAILED: %s[%s] %s' % (
+                    task.name,
+                    task.uuid,
+                    task.info(),
+                )
             )
-            self.results.append(task.info())
+            task = self.app.AsyncResult(task.id)
+            self.results.append(task.result)
             self.recv.should_stop = True
 
         self.app.control.enable_events()
         self.connection = self.app.connection()
-        self.recv = self.app.events.Receiver(self.connection, handlers={
-            'task-succeeded': announce_succeeded_tasks,
-            'task-failed': announce_failed_tasks,
-        })
+        self.recv = self.app.events.Receiver(
+            self.connection,
+            handlers={
+                'task-succeeded': announce_succeeded_tasks,
+                'task-failed': announce_failed_tasks,
+            },
+        )
 
         return self
 
@@ -81,7 +89,12 @@ class CeleryMonitor(object):
             timeout=self.monitor_timeout,
             wakeup=True,
         )
-        self._wait_for_results(events_iter)
+
+        try:
+            self._wait_for_results(events_iter)
+        except SocketTimeout:
+            pass
+
         self.connection.__exit__()
 
     def _wait_for_results(self, events_iter):

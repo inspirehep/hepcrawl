@@ -186,7 +186,7 @@ def test_desy(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
-        events_limit=2,
+        events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
         spider='desy',

@@ -113,7 +113,10 @@ class InspireAPIPushPipeline(object):
         """
         self.count += 1
         item.record = item.to_hep(source=spider.source)
-        spider.logger.debug('Got post-enhanced hep record:\n%s' % pprint.pformat(item.record))
+        spider.logger.debug(
+            'Got post-enhanced hep record:\n%s',
+            pprint.pformat(item.record),
+        )
         crawl_result = CrawlResult.from_parsed_item(item).to_dict()
         self.results_data.append(crawl_result)
         return crawl_result
@@ -127,7 +130,7 @@ class InspireAPIPushPipeline(object):
             log_file=os.environ['SCRAPY_LOG_FILE'],
         )
         payload['errors'] = [
-            (str(err['exception']), str(err['sender']))
+            {'exception': str(err['exception']), 'sender':str(err['sender'])}
             for err in spider.state.get('errors', [])
         ]
         return payload
@@ -150,9 +153,14 @@ class InspireAPIPushPipeline(object):
             task_endpoint
         )
         if api_url and 'SCRAPY_JOB' in os.environ:
-            requests.post(api_url, json={
+            json_data = {
                 "kwargs": self._prepare_payload(spider)
-            })
+            }
+
+            spider.logger.info(
+                'Sending results:\n%s' % pprint.pformat(json_data))
+
+            requests.post(api_url, json=json_data)
 
         self._cleanup(spider)
 
@@ -184,21 +192,31 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
         """Post results to BROKER API."""
         from celery.utils.log import get_task_logger
         logger = get_task_logger(__name__)
+        if 'SCRAPY_JOB' not in os.environ:
+            self._cleanup(spider)
+            return
 
         if hasattr(spider, 'tmp_dir'):
             shutil.rmtree(path=spider.tmp_dir, ignore_errors=True)
 
-        if 'SCRAPY_JOB' in os.environ and self.count > 0:
+        errors = getattr(spider, 'state', {}).get('errors', [])
+
+        if self.count > 0 or errors:
             task_endpoint = spider.settings[
                 'API_PIPELINE_TASK_ENDPOINT_MAPPING'
             ].get(
                 spider.name,
                 spider.settings['API_PIPELINE_TASK_ENDPOINT_DEFAULT'],
             )
-            logger.info('Triggering celery task: %s.' % task_endpoint)
-            self.celery.send_task(
-                task_endpoint,
-                kwargs=self._prepare_payload(spider),
+            logger.info('Triggering celery task: %s.', task_endpoint)
+
+            kwargs = self._prepare_payload(spider)
+            logger.debug(
+                '    Sending results:\n    %s',
+                pprint.pformat(kwargs),
             )
+
+            res = self.celery.send_task(task_endpoint, kwargs=kwargs)
+            logger.info('Sent celery task %s', res)
 
         self._cleanup(spider)
