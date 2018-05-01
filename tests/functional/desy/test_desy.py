@@ -194,15 +194,18 @@ def test_desy(
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    records = [result['record'] for result in crawl_results]
+    crawl_result = crawl_results[0]
 
-    gotten_results = override_dynamic_fields_on_records(records)
+    gotten_records = [
+        result['record'] for result in crawl_result['results_data']
+    ]
+    gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    gotten_results = deep_sort(
+    gotten_records = deep_sort(
         sorted(
-            gotten_results,
-            key=lambda result: result['titles'][0]['title'],
+            gotten_records,
+            key=lambda record: record['titles'][0]['title'],
         )
     )
     expected_results = deep_sort(
@@ -212,7 +215,8 @@ def test_desy(
         )
     )
 
-    assert gotten_results == expected_results
+    assert gotten_records == expected_results
+    assert not crawl_result['errors']
 
 
 def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
