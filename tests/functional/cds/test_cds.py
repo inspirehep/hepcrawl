@@ -83,9 +83,13 @@ def test_cds(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
-    crawl_results = deep_sort(
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
+    results_records = deep_sort(
         sorted(
-            crawl_results,
+            crawl_result['results_data'],
             key=lambda result: result['record']['titles'][0]['title'],
         )
     )
@@ -97,13 +101,15 @@ def test_cds(set_up_local_environment, expected_results):
     )
 
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in results_records
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']
 
 
 @pytest.mark.parametrize(
@@ -124,9 +130,9 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         set_up_local_environment.get('CRAWLER_HOST_URL')
     )
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
+        monitor_timeout=2,
         monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
@@ -136,9 +142,13 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
-    crawl_results = deep_sort(
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
+    results_records = deep_sort(
         sorted(
-            results,
+            crawl_result['results_data'],
             key=lambda result: result['record']['titles'][0]['title'],
         )
     )
@@ -150,17 +160,19 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
     )
 
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in results_records
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']
 
-    results = CeleryMonitor.do_crawl(
+    crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
+        monitor_timeout=2,
         monitor_iter_limit=20,
         crawler_instance=crawler,
         project=set_up_local_environment.get('CRAWLER_PROJECT'),
@@ -169,6 +181,4 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
         **set_up_local_environment.get('CRAWLER_ARGUMENTS')
     )
 
-    gotten_results = [override_generated_fields(result) for result in results]
-
-    assert gotten_results == []
+    assert len(crawl_results) == 0

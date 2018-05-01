@@ -110,8 +110,13 @@ def test_arxiv(
         **config['CRAWLER_ARGUMENTS']
     )
 
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in crawl_result['results_data']
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
@@ -121,3 +126,4 @@ def test_arxiv(
     expected_results = deep_sort(expected_results)
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']

@@ -139,14 +139,20 @@ def test_wsp(expected_results, settings, cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in crawl_result['results_data']
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']
 
 
 @pytest.mark.parametrize(
@@ -183,34 +189,40 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=20,
-        events_limit=2,
+        events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
         spider='WSP',
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
     )
+
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in crawl_result['results_data']
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=20,
-        events_limit=2,
+        events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
         spider='WSP',
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
+
     )
 
-    gotten_results = [override_generated_fields(result) for result in crawl_results]
-
-    assert gotten_results == []
+    assert len(crawl_results) == 0

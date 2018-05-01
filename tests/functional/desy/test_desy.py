@@ -239,6 +239,7 @@ def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
     crawl_result = crawl_results[0]
     result_records = crawl_result['results_data']
 
+    assert not crawl_result['errors']
     assert len(result_records) == 1
     res = result_records[0]
     assert res['record']
@@ -272,7 +273,7 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=2,
+        monitor_timeout=5,
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
@@ -281,6 +282,8 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
     )
+
+    assert len(crawl_results) == 1
 
     crawl_result = crawl_results[0]
 
@@ -309,7 +312,7 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
     # Second crawl
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=2,
+        monitor_timeout=5,
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
