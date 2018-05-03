@@ -132,7 +132,7 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=2,
+        monitor_timeout=5,
         monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
@@ -172,7 +172,7 @@ def test_cds_crawl_twice(set_up_local_environment, expected_results):
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=2,
+        monitor_timeout=5,
         monitor_iter_limit=20,
         crawler_instance=crawler,
         project=set_up_local_environment.get('CRAWLER_PROJECT'),
