@@ -52,4 +52,10 @@ def submit_results(job_id, errors, log_file, results_uri, results_data=None):
     if results_data is None:
         results_data = _extract_results_data(results_path)
 
-    return results_data
+    return {
+        'job_id': job_id,
+        'errors': errors,
+        'log_file': log_file,
+        'results_url': results_uri,
+        'results_data': results_data,
+    }

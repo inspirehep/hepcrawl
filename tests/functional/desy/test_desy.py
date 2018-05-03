@@ -186,7 +186,7 @@ def test_desy(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
-        events_limit=2,
+        events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
         spider='desy',
@@ -194,15 +194,18 @@ def test_desy(
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    records = [result['record'] for result in crawl_results]
+    crawl_result = crawl_results[0]
 
-    gotten_results = override_dynamic_fields_on_records(records)
+    gotten_records = [
+        result['record'] for result in crawl_result['results_data']
+    ]
+    gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    gotten_results = deep_sort(
+    gotten_records = deep_sort(
         sorted(
-            gotten_results,
-            key=lambda result: result['titles'][0]['title'],
+            gotten_records,
+            key=lambda record: record['titles'][0]['title'],
         )
     )
     expected_results = deep_sort(
@@ -212,7 +215,8 @@ def test_desy(
         )
     )
 
-    assert gotten_results == expected_results
+    assert gotten_records == expected_results
+    assert not crawl_result['errors']
 
 
 def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
@@ -232,11 +236,90 @@ def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
     )
-    res = crawl_results[0]
+    crawl_result = crawl_results[0]
+    result_records = crawl_result['results_data']
 
+    assert not crawl_result['errors']
+    assert len(result_records) == 1
+    res = result_records[0]
     assert res['record']
     assert len(res['errors']) == 1
     assert 'ValueError' in res['errors'][0]['exception']
     assert res['errors'][0]['traceback']
     assert res['file_name'] == 'broken_record.xml'
     assert res['source_data']
+
+
+@pytest.mark.parametrize(
+    'expected_results, settings',
+    [
+        (
+            expected_json_results_from_file(
+                'desy',
+                'fixtures',
+                'desy_records_ftp_expected.json',
+            ),
+            get_ftp_settings(),
+        ),
+    ],
+    ids=[
+        'ftp package crawl twice',
+    ]
+)
+def test_desy_crawl_twice(expected_results, settings, cleanup):
+    crawler = get_crawler_instance(
+        settings.get('CRAWLER_HOST_URL')
+    )
+
+    crawl_results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=100,
+        events_limit=1,
+        crawler_instance=crawler,
+        project=settings.get('CRAWLER_PROJECT'),
+        spider='desy',
+        settings={},
+        **settings.get('CRAWLER_ARGUMENTS')
+    )
+
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
+    gotten_records = [
+        result['record'] for result in crawl_result['results_data']
+    ]
+    gotten_records = override_dynamic_fields_on_records(gotten_records)
+    expected_results = override_dynamic_fields_on_records(expected_results)
+
+    gotten_records = deep_sort(
+        sorted(
+            gotten_records,
+            key=lambda record: record['titles'][0]['title'],
+        )
+    )
+    expected_results = deep_sort(
+        sorted(
+            expected_results,
+            key=lambda result: result['titles'][0]['title'],
+        )
+    )
+
+    assert gotten_records == expected_results
+    assert not crawl_result['errors']
+
+    # Second crawl
+    crawl_results = CeleryMonitor.do_crawl(
+        app=celery_app,
+        monitor_timeout=5,
+        monitor_iter_limit=100,
+        events_limit=1,
+        crawler_instance=crawler,
+        project=settings.get('CRAWLER_PROJECT'),
+        spider='desy',
+        settings={},
+        **settings.get('CRAWLER_ARGUMENTS')
+    )
+
+    assert len(crawl_results) == 0

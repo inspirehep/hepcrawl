@@ -100,8 +100,13 @@ def test_pos_conference_paper_record_and_proceedings_record(
         **config['CRAWLER_ARGUMENTS']
     )
 
+    assert len(crawl_results) == 1
+
+    crawl_result = crawl_results[0]
+
     gotten_results = [
-        override_generated_fields(result['record']) for result in crawl_results
+        override_generated_fields(result['record'])
+        for result in crawl_result['results_data']
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
@@ -117,6 +122,7 @@ def test_pos_conference_paper_record_and_proceedings_record(
     )
 
     assert gotten_results == expected_results
+    assert not crawl_result['errors']
 
 
 # TODO create test that receives conference paper record AND proceedings
