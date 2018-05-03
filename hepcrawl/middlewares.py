@@ -41,7 +41,7 @@ class ErrorHandlingMiddleware(object):
 
     def process_exception(self, request, exception, spider):
         """Register the error in the spider and continue."""
-        if not exception or issubclass(exception, IgnoreRequest):
+        if not exception or isinstance(exception, IgnoreRequest):
             return
 
         LOGGER.info(
