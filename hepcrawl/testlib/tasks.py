@@ -20,7 +20,7 @@ from celery import Celery
 
 class Config(object):
     BROKER_URL = 'pyamqp://guest:guest@rabbitmq:5672//'
-    CELERY_RESULT_BACKEND = 'amqp://guest:guest@rabbitmq:5672//'
+    CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
 
 
 app = Celery()

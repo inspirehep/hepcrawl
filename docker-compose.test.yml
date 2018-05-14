@@ -14,7 +14,7 @@ services:
     image: hepcrawl_base  # hepcrawl_base image is build at pip service of docker-compose.deps.yml
     environment:
       - APP_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
-      - APP_CELERY_RESULT_BACKEND=amqp://guest:guest@rabbitmq:5672//
+      - APP_CELERY_RESULT_BACKEND=redis://redis:6379/1
       - APP_CRAWLER_HOST_URL=http://scrapyd:6800
       - APP_API_PIPELINE_TASK_ENDPOINT_DEFAULT=hepcrawl.testlib.tasks.submit_results
       - APP_FILES_STORE=/tmp/file_urls
@@ -77,6 +77,8 @@ services:
     command: celery worker --events --app hepcrawl.testlib.tasks --loglevel=debug
     depends_on:
       rabbitmq:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
   scrapyd:
@@ -163,6 +165,18 @@ services:
         - "CMD"
         - "rabbitmqctl"
         - "status"
+
+  redis:
+    image: redis:3.2.3
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test:
+        - "CMD"
+        - "bash"
+        - "-c"
+        - "exec 3<> /dev/tcp/127.0.0.1/6379 && echo PING >&3 && head -1 <&3 | grep PONG"
 
 networks:
   ftp:
