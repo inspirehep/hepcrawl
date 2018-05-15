@@ -19,11 +19,8 @@ from celery import Celery
 
 
 class Config(object):
-    CELERY_RESULT_BACKEND = "amqp://guest:guest@rabbitmq:5672//"
-    BROKER_URL = "amqp://guest:guest@rabbitmq:5672//"
-    CELERY_ALWAYS_EAGER = True
-    CELERY_CACHE_BACKEND = 'memory'
-    CELERY_EAGER_PROPAGATES_EXCEPTIONS = True
+    BROKER_URL = 'pyamqp://guest:guest@rabbitmq:5672//'
+    CELERY_RESULT_BACKEND = 'redis://redis:6379/1'
 
 
 app = Celery()
