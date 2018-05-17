@@ -244,7 +244,7 @@ def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
     res = result_records[0]
     assert res['record']
     assert len(res['errors']) == 1
-    assert 'ValueError' in res['errors'][0]['exception']
+    assert 'DoJsonError' in res['errors'][0]['exception']
     assert res['errors'][0]['traceback']
     assert res['file_name'] == 'broken_record.xml'
     assert res['source_data']
