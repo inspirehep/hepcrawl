@@ -16,6 +16,7 @@ from setuptools import setup, find_packages
 readme = open('README.rst').read()
 
 install_requires = [
+    'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
     'inspire-schemas~=57.0',
     'inspire-dojson~=58.0',
