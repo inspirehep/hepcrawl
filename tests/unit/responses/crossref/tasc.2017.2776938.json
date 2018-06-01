@@ -1,0 +1,239 @@
+{
+   "status":"ok",
+   "message-version":"1.0.0",
+   "message":{
+      "DOI":"10.1109/tasc.2017.2776938",
+      "subtitle":[
+
+      ],
+      "issued":{
+         "date-parts":[
+            [
+               2018,
+               4
+            ]
+         ]
+      },
+      "short-title":[
+
+      ],
+      "prefix":"10.1109",
+      "relation":{
+
+      },
+      "subject":[
+         "Electrical and Electronic Engineering",
+         "Electronic, Optical and Magnetic Materials",
+         "Condensed Matter Physics"
+      ],
+      "author":[
+         {
+            "ORCID":"http://orcid.org/0000-0002-4869-9338",
+            "authenticated-orcid":"False",
+            "given":"Kento",
+            "family":"Suzuki",
+            "affiliation":[
+
+            ]
+         },
+         {
+            "ORCID":"http://orcid.org/0000-0001-9577-2385",
+            "authenticated-orcid":"False",
+            "given":"Shun",
+            "family":"Enomoto",
+            "affiliation":[
+
+            ]
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Norio",
+            "family":"Higashi"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Masahisa",
+            "family":"Iida"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Yukiko",
+            "family":"Ikemoto"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Hiroshi",
+            "family":"Kawamata"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Nobuhiro",
+            "family":"Kimura"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Tatsushi",
+            "family":"Nakamoto"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Tor",
+            "family":"Ogits"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"H.",
+            "family":"Ohata"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Naoki",
+            "family":"Okada"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Ryutaro",
+            "family":"Okada"
+         },
+         {
+            "affiliation":[
+
+            ],
+            "given":"Michinaka",
+            "family":"Sugano"
+         },
+         {
+            "ORCID":"http://orcid.org/0000-0002-1688-7561",
+            "authenticated-orcid":"False",
+            "given":"Andrea",
+            "family":"Musso",
+            "affiliation":[
+
+            ]
+         },
+         {
+            "ORCID":"http://orcid.org/0000-0001-5518-4191",
+            "authenticated-orcid":"False",
+            "given":"Ezio",
+            "family":"Todesco",
+            "affiliation":[
+
+            ]
+         }
+      ],
+      "reference-count":13,
+      "ISSN":[
+         "1051-8223",
+         "1558-2515"
+      ],
+      "member":"263",
+      "source":"Crossref",
+      "score":1.0,
+      "deposited":{
+         "timestamp":1518475378000,
+         "date-time":"2018-02-12T22:42:58Z",
+         "date-parts":[
+            [
+               2018,
+               2,
+               12
+            ]
+         ]
+      },
+      "indexed":{
+         "timestamp":1518477017625,
+         "date-time":"2018-02-12T23:10:17Z",
+         "date-parts":[
+            [
+               2018,
+               2,
+               12
+            ]
+         ]
+      },
+      "type":"journal-article",
+      "URL":"http://dx.doi.org/10.1109/tasc.2017.2776938",
+      "is-referenced-by-count":1,
+      "volume":"28",
+      "issn-type":[
+         {
+            "type":"print",
+            "value":"1051-8223"
+         },
+         {
+            "type":"electronic",
+            "value":"1558-2515"
+         }
+      ],
+      "link":[
+         {
+            "URL":"http://xplorestaging.ieee.org/ielx7/77/8114526/08119554.pdf?arnumber=8119554",
+            "intended-application":"similarity-checking",
+            "content-version":"vor",
+            "content-type":"unspecified"
+         }
+      ],
+      "published-print":{
+         "date-parts":[
+            [
+               2018,
+               4
+            ]
+         ]
+      },
+      "references-count":13,
+      "original-title":[
+
+      ],
+      "short-container-title":[
+         "IEEE Trans. Appl. Supercond."
+      ],
+      "publisher":"Institute of Electrical and Electronics Engineers (IEEE)",
+      "content-domain":{
+         "domain":[
+
+         ],
+         "crossmark-restriction":"False"
+      },
+      "created":{
+         "timestamp":1511464069000,
+         "date-time":"2017-11-23T19:07:49Z",
+         "date-parts":[
+            [
+               2017,
+               11,
+               23
+            ]
+         ]
+      },
+      "issue":"3",
+      "title":[
+         "Quench Protection Heater Study With the 2-m Model Magnet of Beam Separation Dipole for the HL-LHC Upgrade"
+      ],
+      "container-title":[
+         "IEEE Transactions on Applied Superconductivity"
+      ],
+      "page":"1-5"
+   },
+   "message-type":"work"
+}

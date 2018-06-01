@@ -1,0 +1,110 @@
+---
+license:
+- url: http://creativecommons.org/licenses/by/4.0/
+  imposing: Hindawi Limited
+  material: publication
+authors:
+- raw_affiliations:
+  - source: Crossref
+    value: DIA, Università di Trieste, 34127 Trieste, Italy
+  full_name: Bevilacqua, Paolo
+- raw_affiliations:
+  - source: Crossref
+    value: DEAMS, Università di Trieste, 34127 Trieste, Italy
+  ids:
+  - value: 0000-0002-3799-4630
+    schema: ORCID
+  full_name: Bosi, Gianni
+- raw_affiliations:
+  - source: Crossref
+    value: DEM, Università di Brescia, 25122 Brescia, Italy
+  full_name: Zuanon, Magalì
+journal_volume: '2018'
+artid: '3804742'
+journal_issue: '1'
+page_start: '1'
+page_end: '6'
+year: 2018
+material: publication
+journal_title: Abstract and Applied Analysis
+title: Multiobjective Optimization, Scalarization, and Maximal Elements of Preorders
+references:
+- reference:
+    publication_info:
+      year: 1999
+- reference:
+    publication_info:
+      year: 2000
+      journal_volume: '491'
+- reference:
+    dois:
+    - 10.1007/bf01210689
+- reference:
+    dois:
+    - 10.1007/BF01197716
+- reference:
+    dois:
+    - 10.1016/j.ejor.2017.03.041
+- reference:
+    dois:
+    - 10.1016/j.mathsocsci.2014.12.004
+- reference:
+    dois:
+    - 10.2143/AST.38.1.2030405
+- reference:
+    dois:
+    - 10.1016/j.ejor.2017.04.029
+- reference:
+    dois:
+    - 10.1007/s001860200207
+- reference:
+    dois:
+    - 10.1016/j.ejor.2017.04.012
+- reference:
+    dois:
+    - 10.1016/S1574-0110(02)80014-5
+- reference:
+    dois:
+    - 10.1006/jeth.2001.2814
+- reference:
+    dois:
+    - 10.1016/j.jmateco.2011.07.003
+- reference:
+    dois:
+    - 10.1007/s11083-011-9230-4
+- reference:
+    dois:
+    - 10.1007/s11238-015-9506-z
+- reference:
+    dois:
+    - 10.1016/S0165-4896(01)00083-X
+- reference:
+    dois:
+    - 10.1007/s40505-016-0106-z
+- reference:
+    dois:
+    - 10.1016/j.ejor.2013.02.045
+- reference:
+    dois:
+    - 10.1016/0377-2217(80)90195-2
+- reference:
+    dois:
+    - 10.2307/1909773
+- reference:
+    dois:
+    - 10.2307/1909243
+- reference:
+    dois:
+    - 10.1090/S0002-9939-1954-0063016-5
+- reference:
+    dois:
+    - 10.1016/0022-0531(75)90009-5
+- reference:
+    dois:
+    - 10.1007/PL00004219
+dois: 
+- doi: 10.1155/2018/3804742
+  material: publication
+document_type: article
+abstract: "<jats:p>We characterize the existence of (weak) Pareto optimal solutions to the classical multiobjective optimization problem by referring to the naturally associated preorders and their finite (Richter-Peleg) multiutility representation. The case of a compact design space is appropriately considered by using results concerning the existence of maximal elements of preorders. The possibility of reformulating the multiobjective optimization problem for determining the weak Pareto optimal solutions by means of a scalarization procedure is finally characterized.</jats:p>"
+imprints: '2018'

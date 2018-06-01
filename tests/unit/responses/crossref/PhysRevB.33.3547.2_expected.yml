@@ -1,0 +1,21 @@
+---
+license:
+- url: http://link.aps.org/licenses/aps-default-license
+  imposing: American Physical Society (APS)
+  material: erratum
+dois: 
+- doi: 10.1103/physrevb.33.3547.2
+  material: erratum
+title: 'Erratum: Polaronic behavior of electrons on a liquid-helium film'
+authors:
+- full_name: Degani, Marcos H.
+- full_name: Hipólito, Oscar
+page_end: '3548'
+journal_title: Physical Review B
+material: erratum
+journal_volume: '33'
+year: 1986
+page_start: '3547'
+journal_issue: '5'
+document_type: article
+imprints: '1986-03-01'

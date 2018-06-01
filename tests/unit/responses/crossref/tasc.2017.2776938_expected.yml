@@ -1,0 +1,42 @@
+---
+dois: 
+- doi: 10.1109/tasc.2017.2776938
+  material: publication
+title: Quench Protection Heater Study With the 2-m Model Magnet of Beam Separation Dipole for the HL-LHC Upgrade
+page_end: '5'
+journal_title: IEEE Transactions on Applied Superconductivity
+journal_volume: '28'
+year: 2018
+page_start: '1'
+journal_issue: '3'
+material: publication
+authors:
+- ids:
+  - value: 0000-0002-4869-9338
+    schema: ORCID
+  full_name: Suzuki, Kento
+- ids:
+  - value: 0000-0001-9577-2385
+    schema: ORCID
+  full_name: Enomoto, Shun
+- full_name: Higashi, Norio
+- full_name: Iida, Masahisa
+- full_name: Ikemoto, Yukiko
+- full_name: Kawamata, Hiroshi
+- full_name: Kimura, Nobuhiro
+- full_name: Nakamoto, Tatsushi
+- full_name: Ogits, Tor
+- full_name: Ohata, H.
+- full_name: Okada, Naoki
+- full_name: Okada, Ryutaro
+- full_name: Sugano, Michinaka
+- ids:
+  - value: 0000-0002-1688-7561
+    schema: ORCID
+  full_name: Musso, Andrea
+- ids:
+  - value: 0000-0001-5518-4191
+    schema: ORCID
+  full_name: Todesco, Ezio
+document_type: article
+imprints: 2018-04
