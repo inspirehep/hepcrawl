@@ -20,7 +20,7 @@ from sickle.oaiexceptions import NoRecordsMatch
 from scrapy.http import Request, XmlResponse
 from scrapy.selector import Selector
 
-from .last_run_store import LastRunStoreSpider
+from .lastrunstore_spider import LastRunStoreSpider
 from ...utils import strict_kwargs
 
 
