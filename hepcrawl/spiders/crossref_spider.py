@@ -12,6 +12,8 @@
 from __future__ import absolute_import, division, print_function
 
 import json
+import sys
+import traceback
 
 from scrapy import Request
 
@@ -35,15 +37,16 @@ class CrossrefSpider(StatefulSpider):
 
             $ scrapy crawl crossref -a 'doi=10.1145/2915970.2916007'
     """
+    handle_httpstatus_list = [404]
     name = 'crossref'
 
     @strict_kwargs
-    def __init__(self, url='https://api.crossref.org/works/', doi=None,
+    def __init__(self, doi, url='https://api.crossref.org/works/',
                  **kwargs):
         """Construct Crossref spider."""
         super(CrossrefSpider, self).__init__(**kwargs)
-        if not doi:
-        	raise ValueError("No argument DOI given")
+        #if not doi:
+        #	raise ValueError("No argument DOI given")
         self.url = url + doi
 
     def start_requests(self):
@@ -52,9 +55,23 @@ class CrossrefSpider(StatefulSpider):
 
     def parse(self, response):
         """Parse a JSON article entry."""
-        parser = CrossrefParser(json.loads(response.body))
+        try:
+            if response.status == 404:
+               raise ValueError("DOI not found on Crossref")
 
-        return ParsedItem(
-            record=parser.parse(),
-            record_format='hep',
-        )
+            parser = CrossrefParser(json.loads(response.body))
+
+            return ParsedItem(
+                record=parser.parse(),
+                record_format='hep',
+            )
+        except Exception as e:
+            tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
+            error_parsed_item = ParsedItem.from_exception(
+                record_format='hep',
+                exception=repr(e),
+                traceback=tb,
+                source_data=response.body,
+                file_name=self.url
+            )
+            return error_parsed_item
