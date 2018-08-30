@@ -19,7 +19,7 @@ Here is a introduction to spiders: http://doc.scrapy.org/en/latest/topics/spider
 
 See also the official spider `tutorial`_ for Scrapy.
 
-Spiders are classes which inherit from Scrapy Spider classes and contains the main
+Spiders are classes which inherit from Scrapy Spider classes and contain the main
 logic of retrieval of content from the source and the extraction of metadata
 from the source records. All spiders are located under ``spiders/`` folder and
 follows the naming standard `mysource_spider.py`.
@@ -87,8 +87,52 @@ where the data from the XML is put into.
 The function iterates over the XML tag specified in ``itertag``, which means
 that it supports multiple records inside a single XML file.
 
-The goal of the ``parse_node`` function is to generate a ``HEPRecord``, which in
-the Scrapy world is called item. This is defined in ``items.py`` and is an
+The goal of the ``parse_node`` function is to generate a ``ParsedItem`` which stores the
+harvested record along with associated metadata. A ``ParsedItem`` specifies the format
+of the stored record. Currently in hepcrawl we have two formats: ``hepcrawl`` represented
+by a ``HEPRecord`` object (an intermediate representation, see below) and ``hep``, which
+is a dictionary representing the actual JSON of the record.
+
+.. tip::
+    For an example usage of the ``hepcrawl`` format and ``HEPRecord`` (and associated ``HEPLoader``)
+    you can look into the
+    `ArXiv Spider <https://github.com/inspirehep/hepcrawl/blob/master/hepcrawl/spiders/arxiv_spider.py>`_.
+
+    For an example usage of ``hep`` format you can look into the
+    `APS Spider <https://github.com/inspirehep/hepcrawl/blob/master/hepcrawl/spiders/aps_spider.py>`_.
+
+The choice of the format depends on preferences and needs. The ``hep`` format was introduced
+recently as a means of assuring that the exported records are schema compliant. Any
+changes to the schema will most likely not cause API change in the ``LiteratureBuilder``,
+so the records exported from hepcrawl are 'stable'. On the other hand, ``hepcrawl`` format records
+are now converted to ``hep`` format in the same way, so the disadvantage of this format is largely
+gone. In the end the ``hepcrawl`` format can help by performing some post-processing, providing
+shorthands (such as ``add_xpath``) and being a more general representation of a record. This is at
+the expense of having to manipulate strings with field names (which can cause errors, that could
+otherwise be avoided with the clear API of the ``LiteratureBuilder``).
+
+
+"hep" format
+------------
+
+When you use ``ParsedItem`` with the ``hep`` format the ``record`` will be expected to be an
+INSIPRE record conforming to the ``hep`` schema (can be found in
+`inspire-schemas <https://github.com/inspirehep/inspire-schemas>`_).
+
+You can use the ``inspire_schemas.api.LiteratureBuilder`` to build a record that is conforming to
+the schema, for an example of how to do it you can look into the
+`JATSParser <https://github.com/inspirehep/hepcrawl/blob/master/hepcrawl/parsers/jats.py>`_.
+
+Parsers are another way of building records. Some sources use standardised formats, such as JATS,
+to share their data. In that case you can use a parser to build a ``hep`` record for you, given
+data acquired from a source. You would then build the ``ParsedItem`` with the generated record
+and return it in ``parse_node`` method of the spider (so does the aforementioned `APS Spider`).
+
+
+"hepcrawl" format
+-----------------
+
+``HEPRecord`` in the Scrapy world is called item. This is defined in ``items.py`` and is an
 **intermediate** format of the record metadata that is extracted from every
 source. It tries to resemble the HEP JSON Schema as closely as
 feasible, with some exceptions.
@@ -151,11 +195,11 @@ to do some extra logic.
 
 
 Re-using common metadata handling using item loaders
-----------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Since INSPIRE has multiple sources of content we will need to have multiple spiders
 that retrieves and extracts data differently. However, the intermediate ``HEPRecord``
-is the common output of all sources.
+is the common output of all sources in the ``hepcrawl`` format.
 
 This means that any additional metadata handling, such as converting journal titles
 or author names to the correct format can be done in one place only. This is managed

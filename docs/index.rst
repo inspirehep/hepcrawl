@@ -37,6 +37,7 @@ HEPCrawl.
    operations
    contributing
    guide
+   inspire_crawler
 
 
 API Reference

@@ -16,3 +16,5 @@ HEPcrawl is a Scrapy (http://scrapy.org) based crawler and acts as the service
 responsible for harvesting High-Energy Physics contents for INSPIRE-HEP. HEPcrawl
 is periodically triggered by INSPIRE to perform harvesting from sources and HEPcrawl
 then pushes JSON records back to INSPIRE ingestion workflows.
+
+.. image:: Scrapyd-Inspire-Interaction.svg
