@@ -221,6 +221,11 @@ def hepcrawl_to_hep(crawler_record):
             material=doi.get('material'),
         )
 
+    for private_note in crawler_record.get('private_notes', []):
+        builder.add_private_note(
+            private_notes=private_note
+        )
+
     for public_note in crawler_record.get('public_notes', []):
         builder.add_public_note(
             public_note=public_note.get('value'),

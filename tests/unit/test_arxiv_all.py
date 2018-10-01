@@ -75,6 +75,7 @@ def test_page_nr(many_results):
         23,
         None,
         None,
+        54,
     ]
     for page_nr, record in zip(page_nrs, many_results):
         assert record.get('number_of_pages') == page_nr
@@ -94,6 +95,7 @@ def test_collections(many_results):
         ['article'],
         ['conference paper'],
         ['thesis'],
+        ['article'],
     ]
 
     for doctypes, record in zip(doctypes, many_results):
@@ -115,6 +117,7 @@ def test_collaborations(many_results):
         ['Super-Kamiokande'],
         ['CMS'],
         [],
+        ["NA61/SHINE", "T2K Beam Group"],
     ]
     for num, record in enumerate(many_results):
         collaboration = collaborations[num]
@@ -154,7 +157,17 @@ def test_authors(many_results):
             'de Perio, P.',
         ],
         ['Chudasama, Ruchi', 'Dutta, Dipanwita'],
-        ['Battista, Emmanuele', ]
+        ['Battista, Emmanuele', ],
+        [
+            "Abgrall, N.",
+            "Aduszkiewicz, A.",
+            "Zimmerman, E.D.",
+            "Zwaska, R.",
+            "Berns, L.",
+            "Fiorentini, G.A.",
+            "Yu, M.",
+         ],
+        
     ]
     affiliations = [
         [[], [], [], []],
@@ -192,7 +205,8 @@ def test_authors(many_results):
             ['Department of Physics, University of Toronto']
         ],
         [[], []],
-        [[], ]
+        [[], ],
+        [[], [], [], [], [], [], []],
     ]
     for num, record in enumerate(many_results):
         test_full_names = full_names[num]
@@ -212,16 +226,37 @@ def test_authors(many_results):
         # assert that we have the same list of affiliations
         assert test_affiliations == record_affiliations
 
+def test_private_notes(many_results):
+    """Test extracting private notes."""
+    expected_notes = [
+        None,
+        None,
+        None,
+        None,
+        [{'source': 'arXiv', 'value': 'WARNING: Colon in authors before  P. Ade : Check author list for collaboration names!'}],
+        None,
+        None,
+        None,
+        [{'source': 'arXiv', 'value': 'WARNING: Colon in authors before  K. Abe : Check author list for collaboration names!'}],
+        None,
+        None,
+        [{'source': 'arXiv', 'value': 'WARNING: Colon in authors before  L. Berns : Check author list for collaboration names!'}],
+    ]
+    for index, (expected_note, record) in enumerate(
+        zip(expected_notes, many_results)
+    ):
+        if expected_note:
+            assert '_private_notes' in record
+            assert record['_private_notes'] == expected_note
+        else:
+            assert '_private_notes' not in record
 
 def test_repno(many_results):
     """Test extracting repor numbers."""
     expected_repnos = [
         None,
         None,
-        [{
-            'value': 'YITP-2016-26',
-            'source': 'arXiv',
-        }],
+        [{'source': 'arXiv', 'value': 'YITP-2016-26'}],
         None,
         None,
         None,
@@ -229,6 +264,7 @@ def test_repno(many_results):
             {'source': 'arXiv', 'value': u'DES 2016-0158'},
             {'source': 'arXiv', 'value': u'FERMILAB PUB-16-231-AE'}
         ],
+        None,
         None,
         None,
         None,
