@@ -222,7 +222,7 @@ class HEPRecord(scrapy.Item):
     """Date of preprint release."""
 
     private_notes = scrapy.Field()
-    """Private Notes. E.g. ``Warning: check collaborations``."""
+    """Private Notes. E.g. Warning."""
 
     public_notes = scrapy.Field()
     """Notes
