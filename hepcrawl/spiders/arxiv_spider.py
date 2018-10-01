@@ -133,9 +133,11 @@ def _parse_arxiv(selector):
         record.add_value('pubinfo_freetext', pubinfo_freetext)
         record.add_value('pubinfo_material', 'publication')
 
-    authors, collabs = _get_authors_or_collaboration(selector)
+    authors, collabs, warning = _get_authors_or_collaboration(selector)
     record.add_value('authors', authors)
     record.add_value('collaborations', collabs)
+    if warning:
+        record.add_value('private_notes', warning)
 
     collections = ['HEP', 'Citeable', 'arXiv']
     comments = '; '.join(selector.xpath('.//comments//text()').extract())
@@ -193,6 +195,9 @@ def _get_authors_or_collaboration(node):
 
     authors = []
     collaboration = []
+    warning_tags = []
+    no_collab_in_aff = True
+    add_warning_tag = False
     for selector in author_selectors:
         author = Selector(text=selector.extract())
         forenames = ' '.join(
@@ -201,6 +206,10 @@ def _get_authors_or_collaboration(node):
         keyname = ' '.join(author.xpath('.//keyname//text()').extract())
         name_string = " %s %s " % (forenames, keyname)
         affiliations = author.xpath('.//affiliation//text()').extract()
+        
+        if add_warning_tag:
+            warning_tags.append(name_string)
+            add_warning_tag = False
 
         # collaborations in affiliation field? Cautious with 'for the' in
         # Inst names
@@ -213,6 +222,7 @@ def _get_authors_or_collaboration(node):
                 phrase for phrase in inst_phrases if phrase in aff.lower()
             ):
                 collab_in_aff.append(index)
+                no_collab_in_aff = False
         collab_in_aff.reverse()
         for index in collab_in_aff:
             coll, author_name = coll_cleanforthe(affiliations.pop(index))
@@ -236,21 +246,30 @@ def _get_authors_or_collaboration(node):
             if coll and coll not in collaboration:
                 collaboration.append(coll)
         elif name_string.strip() == ':':
-            # everything up to now seems to be collaboration info
-            for author_info in authors:
-                name_string = " %s %s " % \
-                    (author_info['given_names'], author_info['surname'])
-                coll, author_name = coll_cleanforthe(name_string)
-                if coll and coll not in collaboration:
-                    collaboration.append(coll)
-            authors = []
+            # DANGERZONE : this might not be correct - add a warning for the cataloger
+            add_warning_tag = True
+            if no_collab_in_aff:
+                # everything up to now seems to be collaboration info
+                for author_info in authors:
+                    name_string = " %s %s " % \
+                        (author_info['given_names'], author_info['surname'])
+                    coll, author_name = coll_cleanforthe(name_string)
+                    if coll and coll not in collaboration:
+                        collaboration.append(coll)
+                authors = []
         else:
             authors.append({
                 'surname': keyname,
                 'given_names': forenames,
                 'affiliations': [{"value": aff} for aff in affiliations]
             })
-    return authors, collaboration
+    if add_warning_tag:
+        warning_tags.append('end of author-list')
+    if warning_tags:
+        warning = 'WARNING: Colon in authors before %s: Check author list for collaboration names!' % ', '.join(warning_tags)
+    else:
+        warning = ''
+    return authors, collaboration, warning
 
 
 def _parse_comments_info(comments):

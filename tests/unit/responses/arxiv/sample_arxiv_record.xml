@@ -353,5 +353,48 @@
 </arXiv>
 </metadata>
 </record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:1808.04927</identifier>
+ <datestamp>2018-08-16</datestamp>
+ <setSpec>physics:hep-ex</setSpec>
+ <setSpec>physics:nucl-ex</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>1808.04927</id>
+ <created>2018-08-14</created>
+ <authors>
+ <author><keyname>Abgrall</keyname><forenames>N.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Aduszkiewicz</keyname><forenames>A.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Zimmerman</keyname><forenames>E. D.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Zwaska</keyname><forenames>R.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Group</keyname><forenames>The T2K Beam</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>:</keyname><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Berns</keyname><forenames>L.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Fiorentini</keyname><forenames>G. A.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+<author><keyname>Yu</keyname><forenames>M.</forenames><affiliation>The NA61/SHINE Collaboration</affiliation></author>
+ </authors>
+ <title>Measurements of $\pi^{\pm}$, $K^{\pm}$ and proton yields from the
+  surface of the T2K replica target for incoming 31 GeV/c protons with the
+  NA61/SHINE spectrometer at the CERN SPS</title>
+  <categories>hep-ex nucl-ex</categories>
+  <comments>54 pages, 55 figures</comments>
+  <license>http://creativecommons.org/licenses/by/4.0/</license>
+  <abstract>  Measurements of the $\pi^{\pm}$, $K^{\pm}$, and proton double differential
+yields emitted from the surface of the 90-cm-long carbon target (T2K replica)
+were performed for the incoming 31 GeV/c protons with the NA61/SHINE
+spectrometer at the CERN SPS using data collected during 2010 run. The double
+differential $\pi^{\pm}$ yields were measured with increased precision compared
+to the previously published NA61/SHINE results, while the $K^{\pm}$ and proton
+yields were obtained for the first time. A strategy for dealing with the
+dependence of the results on the incoming proton beam profile is proposed. The
+purpose of these measurements is to reduce significantly the (anti)neutrino
+flux uncertainty in the T2K long-baseline neutrino experiment by constraining
+the production of (anti)neutrino ancestors coming from the T2K target.
+</abstract>
+</arXiv>
+</metadata>
+</record>
 </GetRecord>
 </OAI-PMH>
