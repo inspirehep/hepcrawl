@@ -15,6 +15,7 @@ import re
 
 from hepcrawl.spiders.common.oaipmh_spider import OAIPMHSpider
 from scrapy import Selector
+from six.moves import zip_longest
 
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -133,7 +134,7 @@ def _parse_arxiv(selector):
         record.add_value('pubinfo_freetext', pubinfo_freetext)
         record.add_value('pubinfo_material', 'publication')
 
-    authors, collabs, warning = _get_authors_or_collaboration(selector)
+    authors, collabs, warning = _get_authors_and_collaborations(selector)
     record.add_value('authors', authors)
     record.add_value('collaborations', collabs)
     if warning:
@@ -181,8 +182,17 @@ def _parse_arxiv(selector):
     return parsed_item
 
 
-def _get_authors_or_collaboration(node):
-    """Parse authors, affiliations; extract collaboration"""
+def _get_authors_and_collaborations(node):
+    """Parse authors, affiliations and collaborations from the record node.
+    
+    Heuristics are used to detect collaborations. In case those are not
+    reliable, a warning is returned for manual checking.
+
+    Args:
+        node (Selector): a selector on a record
+    Returns:
+        tuple: a tuple of (authors, collaborations, warning)
+    """
     author_selectors = node.xpath('.//authors//author')
 
     # take 'for the' out of the general phrases and dont use it in
@@ -194,47 +204,50 @@ def _get_authors_or_collaboration(node):
     inst_phrases = ['institute', 'university', 'department', 'center']
 
     authors = []
-    collaboration = []
+    collaborations = []
     warning_tags = []
-    no_collab_in_aff = True
-    add_warning_tag = False
-    for selector in author_selectors:
-        author = Selector(text=selector.extract())
-        forenames = ' '.join(
-            author.xpath('.//forenames//text()').extract()
-        )
-        keyname = ' '.join(author.xpath('.//keyname//text()').extract())
-        name_string = " %s %s " % (forenames, keyname)
-        affiliations = author.xpath('.//affiliation//text()').extract()
+    some_affiliation_contains_collaboration = False
+
+    authors_and_affiliations = (
+        _get_author_names_and_affiliations(author) for author in author_selectors
+    )
+    next_author_and_affiliations = (
+        _get_author_names_and_affiliations(author) for author in author_selectors
+    )
+    next(next_author_and_affiliations)
+
+    for (forenames, keyname, affiliations), (next_forenames, next_keyname, _) in zip_longest(
+            authors_and_affiliations, next_author_and_affiliations,
+            fillvalue=('end of author-list', '', None)
+    ):
         
-        if add_warning_tag:
-            warning_tags.append(name_string)
-            add_warning_tag = False
+        name_string = " %s %s " % (forenames, keyname)
 
         # collaborations in affiliation field? Cautious with 'for the' in
         # Inst names
-        collab_in_aff = []
-        for index, aff in enumerate(affiliations):
-            if any(
-                phrase for phrase in collab_phrases
-                if phrase in aff.lower()
+        affiliations_with_collaborations = []
+        affiliations_without_collaborations = []
+        for aff in affiliations:
+            affiliation_contains_collaboration = any(
+                phrase in aff.lower() for phrase in collab_phrases
             ) and not any(
-                phrase for phrase in inst_phrases if phrase in aff.lower()
-            ):
-                collab_in_aff.append(index)
-                no_collab_in_aff = False
-        collab_in_aff.reverse()
-        for index in collab_in_aff:
-            coll, author_name = coll_cleanforthe(affiliations.pop(index))
-            if coll and coll not in collaboration:
-                collaboration.append(coll)
+                phrase in aff.lower() for phrase in inst_phrases
+            )
+            if affiliation_contains_collaboration:
+                affiliations_with_collaborations.append(aff)
+                some_affiliation_contains_collaboration = True
+            else:
+                affiliations_without_collaborations.append(aff)
+        for aff in affiliations_with_collaborations:
+            coll, author_name = coll_cleanforthe(aff)
+            if coll and coll not in collaborations:
+                collaborations.append(coll)
 
         # Check if name is a collaboration, else append to authors
-        collab_in_name = ' for the ' in name_string.lower() or any(
-            phrase for phrase in collab_phrases
-            if phrase in name_string.lower()
+        collaboration_in_name = ' for the ' in name_string.lower() or any(
+            phrase in name_string.lower() for phrase in collab_phrases
         )
-        if collab_in_name:
+        if collaboration_in_name:
             coll, author_name = coll_cleanforthe(name_string)
             if author_name:
                 surname, given_names = split_fullname(author_name)
@@ -243,33 +256,42 @@ def _get_authors_or_collaboration(node):
                     'given_names': given_names,
                     'affiliations': [],
                 })
-            if coll and coll not in collaboration:
-                collaboration.append(coll)
+            if coll and coll not in collaborations:
+                collaborations.append(coll)
         elif name_string.strip() == ':':
             # DANGERZONE : this might not be correct - add a warning for the cataloger
-            add_warning_tag = True
-            if no_collab_in_aff:
+            warning_tags.append(' %s %s ' % (next_forenames, next_keyname))
+            if not some_affiliation_contains_collaboration:
                 # everything up to now seems to be collaboration info
                 for author_info in authors:
                     name_string = " %s %s " % \
                         (author_info['given_names'], author_info['surname'])
                     coll, author_name = coll_cleanforthe(name_string)
-                    if coll and coll not in collaboration:
-                        collaboration.append(coll)
+                    if coll and coll not in collaborations:
+                        collaborations.append(coll)
                 authors = []
         else:
             authors.append({
                 'surname': keyname,
                 'given_names': forenames,
-                'affiliations': [{"value": aff} for aff in affiliations]
+                'affiliations': [{"value": aff} for aff in affiliations_without_collaborations]
             })
-    if add_warning_tag:
-        warning_tags.append('end of author-list')
     if warning_tags:
         warning = 'WARNING: Colon in authors before %s: Check author list for collaboration names!' % ', '.join(warning_tags)
     else:
         warning = ''
-    return authors, collaboration, warning
+    return authors, collaborations, warning
+
+
+def _get_author_names_and_affiliations(author_node):
+    forenames = ' '.join(
+        author_node.xpath('.//forenames//text()').extract()
+    )
+    keyname = ' '.join(author_node.xpath('.//keyname//text()').extract())
+    affiliations = author_node.xpath('.//affiliation//text()').extract()
+
+    return forenames, keyname, affiliations
+        
 
 
 def _parse_comments_info(comments):
