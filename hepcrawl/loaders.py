@@ -26,6 +26,8 @@ from .inputs import (
     clean_tags_from_affiliations,
     clean_collaborations,
     clean_whitespace_characters,
+    convert_comparators_to_tokens,
+    convert_tokens_to_comparators,
     remove_attributes_from_tags,
     translate_language,
     parse_thesis_supervisors,
@@ -77,8 +79,10 @@ class HEPLoader(ItemLoader):
     abstract_in = MapCompose(
         clean_whitespace_characters,
         convert_html_subscripts_to_latex,
+        convert_comparators_to_tokens,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
+        convert_tokens_to_comparators,
         unicode.strip,
     )
 

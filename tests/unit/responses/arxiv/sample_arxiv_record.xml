@@ -353,5 +353,31 @@
 </arXiv>
 </metadata>
 </record>
+<record>
+<header>
+<identifier>oai:arXiv.org:1808.10515</identifier>
+<datestamp>2018-09-03</datestamp>
+<setSpec>physics:hep-ex</setSpec>
+</header>
+<metadata><arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+<id>1808.10515</id>
+<created>2018-08-30</created>
+<authors>
+<author>
+<keyname>ATLAS Collaboration</keyname>
+</author>
+<author>
+<keyname>Aaboud</keyname>
+<forenames>Morad</forenames>
+</author>
+</authors>
+<title>A search for pairs of highly collimated photon-jets in $pp$ collisions at $\sqrt{s}$ = 13 TeV with the ATLAS detector</title>
+<categories>hep-ex</categories>
+<comments>43 pages in total, author list starting page 27, 10 figures, 4 tables, submitted to PRD. All figures including auxiliary figures are available at https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/EXOT-2017-08</comments>
+<report-no>CERN-EP-2018-143</report-no>
+<license>http://creativecommons.org/licenses/by/4.0/</license>
+<abstract>Results of a search for the pair production of photon-jets---collimated groupings of photons---in the ATLAS detector at the Large Hadron Collider are reported. Highly collimated photon-jets can arise from the decay of new, highly boosted particles that can decay to multiple photons collimated enough to be identified in the electromagnetic calorimeter as a single, photon-like energy cluster. Data from proton--proton collisions at a center-of-mass energy of 13 TeV, corresponding to an integrated luminosity of 36.7 fb$^{-1}$, were collected in 2015 and 2016. Candidate photon-jet pair production events are selected from those containing two reconstructed photons using a set of identification criteria much less stringent than that typically used for the selection of photons, with additional criteria applied to provide improved sensitivity to photon-jets. Narrow excesses in the reconstructed diphoton mass spectra are searched for. The observed mass spectra are consistent with the Standard Model background expectation. The results are interpreted in the context of a model containing a new, high-mass scalar particle with narrow width, $X$, that decays into pairs of photon-jets via new, light particles, $a$. Upper limits are placed on the cross-section times the product of branching ratios $\sigma \times \mathcal{B}(X \rightarrow aa) \times \mathcal {B}(a \rightarrow \gamma \gamma)^{2}$ for 200 GeV $&lt; m_{X} &lt;$ 2 TeV and for ranges of $ m_a $ from a lower mass of 100 MeV up to between 2 GeV and 10 GeV, depending upon $ m_X $. Upper limits are also placed on $\sigma \times \mathcal{B}(X \rightarrow aa) \times \mathcal {B}(a \rightarrow 3\pi^{0})^{2}$ for the same range of $ m_X $ and for ranges of $ m_a $ from a lower mass of 500 MeV up to between 2 GeV and 10 GeV.</abstract></arXiv>
+</metadata>
+</record>
 </GetRecord>
 </OAI-PMH>

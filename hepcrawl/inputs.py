@@ -100,6 +100,20 @@ def clean_tags_from_affiliations(value):
     return value
 
 
+def convert_comparators_to_tokens(text):
+    """Replaces the characters ``<`` and ``>`` with a token"""
+    text = text.replace("<", "{LOWER_THAN;}")
+    text = text.replace(">", "{GREATER_THAN;}")
+    return text
+
+
+def convert_tokens_to_comparators(text):
+    """Replaces comparator tokens with the correspondent ``<`` or ``>``"""
+    text = text.replace("{LOWER_THAN;}", "<")
+    text = text.replace("{GREATER_THAN;}", ">")
+    return text
+
+
 def clean_collaborations(value):
     """Remove the prefixes for collaborations"""
     return value.replace("for the", "").strip()
