@@ -7,7 +7,7 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Extracts for various metadata formats"""
+"""Parser for the arXiv metadata format"""
 
 from __future__ import absolute_import, division, print_function
 
@@ -215,7 +215,7 @@ class ArxivParser(object):
     def abstract(self):
         abstract = self.root.xpath('.//abstract/text()').extract_first()
 
-        return self.fix_abstract(abstract)
+        return self.fix_long_text(abstract)
 
     @property
     def authors(self):
@@ -251,8 +251,6 @@ class ArxivParser(object):
     @property
     def number_of_pages(self):
         comments = '; '.join(self.root.xpath('.//comments/text()').extract())
-        if not comments:
-            return None
 
         found_pages = RE_PAGES.search(comments)
         if found_pages:
@@ -276,15 +274,11 @@ class ArxivParser(object):
 
     @property
     def title(self):
-        return self.fix_title(self.root.xpath('.//title/text()').extract_first())
+        return self.fix_long_text(self.root.xpath('.//title/text()').extract_first())
 
     @staticmethod
-    def fix_title(title):
-        return title.replace('\n','').replace('  ',' ')
-
-    @staticmethod
-    def fix_abstract(text):
-        return text.replace('\n',' ').replace('  ',' ')
+    def fix_long_text(text):
+        return re.sub('\s+', ' ', text).strip()
 
     @staticmethod
     def get_root_node(arxiv_record):
@@ -335,18 +329,13 @@ class ArxivParser(object):
 
     @property
     def arxiv_categories(self):
-        categories = self.root.xpath('.//categories/text()').extract_first()
+        categories = self.root.xpath('.//categories/text()').extract_first(default='[]')
 
-        if categories:
-            return categories.split()
-
-        return []
+        return categories.split()
 
     @property
     def document_type(self):
         comments = '; '.join(self.root.xpath('.//comments/text()').extract())
-        if not comments:
-            return 'article'
         
         doctype = 'article'
         if RE_THESIS.search(comments):
