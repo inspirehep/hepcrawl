@@ -36,7 +36,7 @@ authors:
   - source: American Physical Society
     value: Department of Physics, Hong Kong University of Science and Technology,
       Clear Water Bay, Hong Kong, China
-  full_name: Wong, Chris L. M.
+  full_name: Wong, Chris L.M.
 - raw_affiliations:
   - source: American Physical Society
     value: Department of Physics, Hong Kong University of Science and Technology,
@@ -455,7 +455,7 @@ references:
     - inspire_role: author
       full_name: von Oppen, F.
     - inspire_role: author
-      full_name: Fisher, M.P. A.
+      full_name: Fisher, M.P.A.
     title:
       title: Non-Abelian Statistics and Topological Quantum Information Processing
         in 1D Wire Networks
@@ -591,7 +591,7 @@ references:
     - inspire_role: author
       full_name: Plissard, S.R.
     - inspire_role: author
-      full_name: Bakkers, E.P. A. M.
+      full_name: Bakkers, E.P.A.M.
     - inspire_role: author
       full_name: Kouwenhoven, L.P.
     title:
@@ -701,7 +701,7 @@ references:
     - inspire_role: author
       full_name: Furusaki, A.
     - inspire_role: author
-      full_name: Ludwig, A.W. W.
+      full_name: Ludwig, A.W.W.
     title:
       title: 'Topological Insulators and Superconductors: Ten-fold Way and Dimensional
         Hierarchy'
@@ -759,7 +759,7 @@ references:
       journal_title: Phys. Rev. B
     authors:
     - inspire_role: author
-      full_name: Teo, J.C. Y.
+      full_name: Teo, J.C.Y.
     - inspire_role: author
       full_name: Kane, C.L.
     title:
@@ -787,7 +787,7 @@ references:
     - inspire_role: author
       full_name: Schnyder, A.P.
     - inspire_role: author
-      full_name: Brydon, P.M. R.
+      full_name: Brydon, P.M.R.
     - inspire_role: author
       full_name: Manske, D.
     - inspire_role: author
@@ -817,7 +817,7 @@ references:
       journal_title: Phys. Rev. B
     authors:
     - inspire_role: author
-      full_name: Beenakker, C.W. J.
+      full_name: Beenakker, C.W.J.
     - inspire_role: author
       full_name: Dahlhaus, J.P.
     - inspire_role: author
@@ -904,7 +904,7 @@ references:
       journal_title: Phys. Rev. B
     authors:
     - inspire_role: author
-      full_name: Wong, C.L. M.
+      full_name: Wong, C.L.M.
     - inspire_role: author
       full_name: Law, K.T.
     title:
