@@ -18,9 +18,9 @@ readme = open('README.rst').read()
 install_requires = [
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
-    'inspire-schemas~=58.0,>=58.0.0',
-    'inspire-dojson~=60.0,>=60.0.3',
-    'inspire-utils~=2.0,>=2.0.2',
+    'inspire-schemas~=59.0,>=59.0.0',
+    'inspire-dojson~=61.0,>=61.0.0',
+    'inspire-utils~=3.0,>=3.0.0',
     'Scrapy>=1.1.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
     'scrapy-sentry~=0.0,>=0.8.0',
