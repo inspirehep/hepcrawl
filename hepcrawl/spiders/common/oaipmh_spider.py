@@ -227,7 +227,11 @@ class OAIPMHSpider(LastRunStoreSpider):
             self._crawled_records[rec_identifier] = record
             response = XmlResponse(self.url, encoding='utf-8', body=record.raw)
             selector = Selector(response, type='xml')
-            yield self.parse_record(selector)
+
+            try:
+                yield self.parse_record(selector)
+            except Exception as err:
+                LOGGER.error(err)
 
     def make_file_fingerprint(self, set_):
         return u'metadataPrefix={}&set={}'.format(self.format, set_)
