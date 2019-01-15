@@ -1,0 +1,517 @@
+[
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/428218/files/0002198.pdf",
+                "source": "CDS",
+                "description": "Access to fulltext document",
+                "key": "0002198.pdf"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "On type II NS - five-branes in the presence of an R R field"
+            }
+        ],
+        "citeable": true,
+        "_collections": [
+            "Literature"
+        ],
+        "accelerator_experiments": [
+            {
+                "legacy_name": "Not applicable"
+            }
+        ],
+        "public_notes": [
+            {
+                "value": "Submitted to None"
+            }
+        ],
+        "number_of_pages": 8,
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Theory-HEP"
+            }
+        ],
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "CERN"
+                    }
+                ],
+                "full_name": "Alishahiha, Mohsen"
+            }
+        ],
+        "report_numbers": [
+            {
+                "source": "CDS",
+                "value": "CERN-TH-2000-061"
+            }
+        ],
+        "publication_info": [
+            {
+                "journal_volume": "486",
+                "page_start": "194",
+                "page_end": "201",
+                "year": 2000,
+                "journal_title": "Phys. Lett. B"
+            }
+        ],
+        "dois": [
+            {
+                "source": "CDS",
+                "value": "10.1016/S0370-2693(00)00732-2"
+            }
+        ],
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th"
+                ],
+                "value": "hep-th/0002198"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "428218",
+                "schema": "CDS"
+            },
+            {
+                "value": "4321120",
+                "schema": "SLAC"
+            }
+        ],
+        "$schema": "hep.json",
+        "document_type": [
+            "article"
+        ],
+        "abstracts": [
+            {
+                "source": "CDS",
+                "value": "In this letter we use Type II NS5-branes in the presence of an RR field atthe decoupling limit to study a non-commutative version of little stringtheory. We shall see that the decoupling limit of NS5-branes in the presence ofan RR field is completely different from the one we had in ordinary littlestring theory; in particular for Type IIA NS5-branes this decoupling limit canbe defined only when the theory is wrapped on a circle, but nevertheless flowsto the ordinary non-compact (0,2) theory at the IR limit. We also see thatthese theories, in the UV regime, where the non-commutative effects areimportant, can be described by smeared ordinary D3(D2)-branes in Type IIB(A)string theory."
+            },
+            {
+                "source": "Elsevier", "value": "In this letter we use Type II NS5-branes in the presence of an RR field at the decoupling limit to study a non-commutative version of little string theory. We shall see that the decoupling limit of NS5-branes in the presence of an RR field is completely different from the one we had in ordinary little string theory; in particular for Type IIA NS5-branes this decoupling limit can be defined only when the theory is wrapped on a circle, but nevertheless flows to the ordinary non-compact (0,2) theory at the IR limit. We also see that these theories, in the UV regime, where the non-commutative effects are important, can be described by smeared ordinary D3(D2)-branes in Type IIB(A) string theory."
+            }
+        ],
+        "curated": true,
+        "imprints": [
+            {
+                "date": "2000"
+            }
+        ],
+        "acquisition_source": {
+            "source": "CDS",
+            "datetime": "2017-04-03T10:26:40.365216",
+            "method": "hepcrawl",
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad"
+        }
+        },
+    {
+        "$schema": "hep.json",
+        "_collections": [
+            "Literature"
+        ],
+        "abstracts": [
+            {
+                "source": "CDS",
+                "value": "We search for a Higgs particle with anomalous couplings in the $\\mathrm{e}^+\\mathrm{e}^-\\rightarrow\\mathrm{H}\\gamma$, $\\mathrm{e}^+\\mathrm{e}^-\\rightarrow\\mathrm{H}\\mathrm{Z}$ and $\\mathrm{e}^+\\mathrm{e}^-\\rightarrow\\mathrm{H}\\mathrm{e}^+\\mathrm{e }^-$ processes with the L3 detector at LEP. We explore the mass range $70~{\\rm GeV} < m_\\mathrm{H} < 170~{\\rm GeV}$ using $176~{\\rm pb}^{-1}$ of integrated luminosity at a center-of-mass energy of $\\sqrt{s} = 189~{\\rm GeV}$. The Higgs decays $\\mathrm{H}\\rightarrow\\mathrm{b}\\mathrm{\\overline{b}}$, $\\mathrm{H}\\rightarrow\\gamma\\gamma$ and $\\mathrm{H}\\rightarrow\\mathrm{ Z}\\gamma$ are considered in the analysis. No evidence for anomalous Higgs production is found. This is interpreted in terms of limits on the anomalous couplings $d$, $d_B$, $\\Delta g_1^\\mathrm{Z}$ and $\\Delta \\kappa_\\gamma$. Limits on the $\\Gamma(\\mathrm{H}\\rightarrow\\gamma\\gamma)$ and $\\Gamma(\\mathrm{H}\\rightarrow\\mathrm{Z}\\gamma)$ partial widths in the explored Higgs mass range are also obtained."
+            },
+            {
+                "source": "Elsevier",
+                "value": "We search for a Higgs particle with anomalous couplings in the e + e \u2212 \u2192H \u03b3 , e + e \u2212 \u2192HZ and e + e \u2212 \u2192He + e \u2212 processes with the L3 detector at LEP. We explore the mass range 70 GeV"
+            },
+            {
+                "source": "arXiv",
+                "value": "We search for a Higgs particle with anomalous couplings in the e+e- -> H gamma, e+e- -> HZ and e+e- -> He+e- processes with the L3 detector at LEP. We explore the mass range 70GeV &lt; m_H &lt; 170GeV using 176pb^-1 of integrated luminosity at a center-of-mass energy of \\sqrt{s} = 189GeV. The Higgs decays H -> bb, H -> gamma gamma and H -> Z gamma are considered in the analysis. No evidence for anomalous Higgs production is found. This is interpreted in terms of limits on the anomalous couplings d, d_B, Delta g_1^Z and Delta kappa_gamma. Limits on the Gamma(H -> gamma gamma) and Gamma(H -> Z gamma) partial widths in the explored Higgs mass range are also obtained."
+            }
+        ],
+        "accelerator_experiments": [
+            {
+                "legacy_name": "CERN-LEP-L3"
+            }
+        ],
+        "acquisition_source": {
+            "datetime": "2017-10-04T14:07:59.746165", 
+            "method": "hepcrawl",
+            "source": "CDS", 
+            "submission_number": "None"
+        },
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-ex",
+                    "High Energy Physics - Experiment"
+                ],
+                "value": "hep-ex/0008023"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Acciarri, M."
+            },
+            {
+                "full_name": "Achard, P."
+            },
+            {
+                "full_name": "Adriani, O."
+            },
+            {
+                "full_name": "Aguilar-Benitez, M."
+            }
+        ],
+        "citeable": true,
+        "collaborations": [
+            {
+                "value": "L3"
+            }
+        ],
+        "core": true,
+        "curated": true,
+        "document_type": [
+            "article"
+        ],
+        "dois": [
+            {
+                "source": "CDS", "value": "10.1016/S0370-2693(00)00890-X"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "schema": "CDS", "value": "449260"
+            },
+            {
+                "schema": "INSPEC", "value": "6760891"
+            }
+        ],
+        "imprints": [
+            {
+                "date": "2000"
+            }
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds", "term": "Experiment-HEP"
+            }
+        ],
+        "number_of_pages": 18,
+        "publication_info": [
+            {
+                "journal_issue": "1-2",
+                "journal_title": "Phys. Lett. B",
+                "journal_volume": "489",
+                "page_end": "14",
+                "page_start": "102",
+                "year": 2000
+            }
+        ],
+        "report_numbers": [
+            {
+                "source": "CDS",
+                "value": "CERN-EP-2000-098"
+            },
+            {
+                "hidden": true, "source": "CDS",
+                "value": "ep-2000-098"
+            },
+            {
+                "source": "CDS",
+                "value": "CERN-L3-216"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "Search for anomalous couplings in the Higgs sector at LEP"
+            }
+        ]
+    },
+    {
+        "$schema": "hep.json",
+        "_collections": [
+            "Literature"
+        ],
+        "abstracts": [
+            {
+                "source": "CDS",
+                "value": "An S--Matrix ansatz is used to determine the mass and width of the Z boson, aswell as the contributions of $\\gamma$/Z interference and Z boson exchange tofermion--pair production. For this purpose we use hadron and lepton--pair production cross sections and lepton forward--backward asymmetries that havebeen measured with the L3 detector at centre--of--mass energies between87~Ge\\kern -0.1em V\\ and 189~Ge\\kern -0.1em V."
+            },
+            {
+                "source": "Elsevier",
+                "value": "An S-Matrix ansatz is used to determine the mass and width of the Z boson, as well as the contributions of \u03b3 /Z interference and Z boson exchange to fermion-pair production. For this purpose we use hadron and lepton-pair production cross sections and lepton forward-backward asymmetries that have been measured with the L3 detector at centre-of-mass energies between 87 GeV and 189 GeV."
+            },
+            {
+                "source": "arXiv",
+                "value": "An S-Matrix ansatz is used to determine the mass and width of the Z boson, as well as the contributions of gamma/Z interference and Z boson exchange to fermion-pair production. For this purpose we use hadron and lepton-pair production cross sections and lepton forward-backward asymmetries that have been measured with the L3 detector at centre-of-mass energies between 87GeV and 189GeV."
+            }
+        ],
+        "accelerator_experiments": [
+            {
+                "legacy_name": "CERN-LEP-L3"
+            }
+        ],
+        "acquisition_source": {
+            "datetime": "2017-10-04T14:07:59.746165", 
+            "method": "hepcrawl",
+            "source": "CDS", 
+            "submission_number": "None"
+        },
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-ex",
+                    "High Energy Physics - Experiment"
+                ],
+                "value": "hep-ex/0007006"
+            }
+        ],
+        "authors": [
+            {
+                "full_name": "Acciarri, M."
+            },
+            {
+                "full_name": "Achard, P."
+            },
+            {
+                "full_name": "Adriani, O."
+            },
+            {
+                "full_name": "Aguilar-Benitez, M."
+            },
+            {
+                "full_name": "Alcaraz, J."
+            }
+        ],
+        "citeable": true,
+        "collaborations": [
+            {
+                "value": "L3"
+            }
+        ],
+        "core": true,
+        "curated": true,
+        "document_type": [
+            "article"
+        ],
+        "documents": [
+            {
+                "fulltext": true,
+                "key": "ep-2000-084.pdf",
+                "source": "CDS",
+                "url": "http://cds.cern.ch/record/445527/files/ep-2000-084.pdf"
+            }
+        ],
+        "dois": [
+            {
+                "source": "CDS", "value": "10.1016/S0370-2693(00)00889-3"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "schema": "CDS", "value": "445527"
+            },
+            {
+                "schema": "INSPEC", "value": "6760868"
+            },
+            {
+                "schema": "SLAC", "value": "4414632"
+            }
+        ],
+        "imprints": [
+            {
+                "date": "2000"
+            }
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds", "term": "Experiment-HEP"
+            }
+        ],
+        "number_of_pages": 13,
+        "publication_info": [
+            {
+                "journal_issue": "1-2",
+                "journal_title": "Phys. Lett. B",
+                "journal_volume": "489",
+                "page_end": "101",
+                "page_start": "93",
+                "year": 2000
+            }
+        ],
+        "report_numbers": [
+            {
+                "source": "CDS", "value": "CERN-EP-2000-084"
+            },
+            {
+                "source": "CDS", "value": "CERN-EP-2000-84"
+            },
+            {
+                "hidden": true, "source": "CDS", "value": "ep-2000-084"
+            },
+            {
+                "source": "CDS", "value": "CERN-L3-214"
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "Determination of $\\gamma/Z$ interference in $e^+ e^-$ annihilation at LEP"
+            }
+        ]
+    },
+    {
+        "core": true,
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/329074/files/9706211.pdf",
+                "source": "CDS",
+                "description": "Access to fulltext document",
+                "key": "9706211.pdf"
+            }
+        ],
+        "citeable": true,
+        "_collections": [
+            "Literature"
+        ],
+        "report_numbers": [
+            {
+                "source": "CDS",
+                "value": "CERN-TH-97-136"
+            },
+            {
+                "source": "CDS",
+                "value": "CPT-5370"
+            },
+            {
+                "source": "CDS",
+                "value": "CPTH-5370-0697"
+            }
+        ],
+        "public_notes": [
+            {
+                "source": "arXiv",
+                "value": "14 pages, LaTeX, espcrc2.sty Report-no: CERN--TH/97-136; CPTH--5370.0697"
+            }
+        ],
+        "number_of_pages": 14,
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Theory-HEP"
+            }
+        ],
+        "accelerator_experiments": [
+            {
+                "legacy_name": "Not applicable"
+            }
+        ],
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "CERN"
+                    },
+                    {
+                        "value": "Ecole Polytechnique"
+                    }
+                ],
+                "full_name": "Antoniadis, Ignatios"
+            },
+            {
+                "affiliations": [
+                    {
+                        "value": "Ecole Polytechnique"
+                    }
+                ],
+                "full_name": "Partouche, H."
+            },
+            {
+                "affiliations": [
+                    {
+                        "value": "Northeastern U."
+                    }
+                ],
+                "full_name": "Taylor, T.R."
+            }
+        ],
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "Lectures on Heterotic-Type I Duality"
+            },
+            {
+                "source": "arXiv",
+                "title": "Lectures on heterotic-type I duality."
+            }
+        ],
+        "publication_info": [
+            {
+                "journal_volume": "61",
+                "page_start": "58",
+                "year": 1998,
+                "artid": "58",
+                "journal_title": "Nucl. Phys. B, Proc. Suppl."
+            },
+            {
+                "journal_volume": "67",
+                "page_start": "3",
+                "page_end": "16",
+                "year": 1998,
+                "journal_title": "Nucl. Phys. B, Proc. Suppl."
+            }
+        ],
+        "dois": [
+            {
+                "source": "CDS",
+                "value": "10.1016/S0920-5632(98)00114-5"
+            }
+        ],
+        "arxiv_eprints": [
+            {
+                "categories": [
+                    "hep-th"
+                ],
+                "value": "hep-th/9706211"
+            }
+        ],
+        "external_system_identifiers": [
+            {
+                "value": "329074", "schema": "CDS"
+            },
+            {
+                "value": "3580083",
+                "schema": "SLAC"
+            }
+        ],
+        "$schema": "hep.json",
+        "document_type": [
+            "conference paper"
+        ],
+        "abstracts": [
+            {
+                "source": "CDS",
+                "value": "We present a review of heterotic-type I string duality. In particular, we discuss the effective field theory of six- and four-dimensional compactifications with N>1 supersymmetries. We then describe various duality tests by comparing gauge couplings, N=2 prepotentials, as well as higher-derivative F-terms. Based on invited lectures delivered at: 33rd Karpacz Winter School of Theoretical Physics ``Duality, Strings and Fields,'' Przesieka, Poland, 13 - 22 February 1997; Trieste Conference on Duality Symmetries in String Theory, Trieste, Italy, 1 - 4 April 1997; Cargese Summer School ``Strings, Branes and Dualities,'' Cargese, France, 26 May - 14 June 1997."
+            },
+            {
+                "source": "Inspire",
+                "value": "We present a review of heterotic-type I string duality. In particular, we discuss the effective field theory of six- and four-dimensional compactifications with N>1 supersymmetries. We then describe various duality tests by comparing gauge couplings, N=2 prepotentials, as well as higher-derivative F-terms. Based on invited lectures delivered at: 33rd Karpacz Winter School of Theoretical Physics ``Duality, Strings and Fields,'' Przesieka, Poland, 13 - 22 February 1997; Trieste Conference on Duality Symmetries in String Theory, Trieste, Italy, 1 - 4 April 1997; Cargese Summer School ``Strings, Branes and Dualities,'' Cargese, France, 26 May - 14 June 1997."
+            }
+        ],
+        "curated": true,
+        "imprints": [
+            {
+                "date": "1998"
+            }
+        ],
+        "acquisition_source": {
+            "source": "CDS",
+            "datetime": "2017-04-03T10:26:40.365216",
+            "method": "hepcrawl",
+            "submission_number": "5652c7f6190f11e79e8000224dabeaad"
+        }
+    }
+]

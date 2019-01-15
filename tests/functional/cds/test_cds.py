@@ -7,10 +7,11 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 
-"""Functional tests for ArXiv spider"""
+"""Functional tests for CDS spider"""
 
 from __future__ import absolute_import, division, print_function
 
+import os
 import pytest
 
 from hepcrawl.testlib.tasks import app as celery_app
@@ -32,44 +33,71 @@ def override_generated_fields(record):
     return record
 
 
-@pytest.fixture(scope="function")
-def set_up_local_environment():
-    package_location = get_test_suite_path(
-        'cds',
-        'fixtures',
-        'oai_harvested',
-        'cds_smoke_records.xml',
-        test_suite='functional',
-    )
+@pytest.fixture(scope='function', autouse=True)
+def cleanup():
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    yield
+    clean_dir()
+    clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
 
-    yield {
+
+def get_configuration():
+    return {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'source_file': 'file://' + package_location,
+            'from_date': '2018-11-15',
+            'sets': 'cerncds:hep-th,cerncds:hep-ex,cerncds:dup-hep-ex',
+            'url': 'http://cds-http-server.local/oai2d',
         }
     }
 
-    clean_dir()
+
+def get_configuration_single():
+    return {
+        'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+        'CRAWLER_PROJECT': 'hepcrawl',
+        'CRAWLER_ARGUMENTS': {
+            'identifier': 'oai:cds.cern.ch:2653609',
+            'url': 'http://cds-http-server.local/oai2d',
+        }
+    }
 
 
 @pytest.mark.parametrize(
-    'expected_results',
+    'expected_results, config, spider',
     [
-        expected_json_results_from_file(
-            'cds',
-            'fixtures',
-            'cds_smoke_records_expected.json',
+        (
+            expected_json_results_from_file(
+                'cds',
+                'fixtures',
+                'cds_expected.json',
+            ),
+            get_configuration(),
+            'CDS',
+        ),
+        (
+            expected_json_results_from_file(
+                'cds',
+                'fixtures',
+                'cds_single_expected.json',
+            ),
+            get_configuration_single(),
+            'CDS_single',
         ),
     ],
     ids=[
         'smoke',
+        'smoke_single',
     ]
 )
-def test_cds(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(
-        set_up_local_environment.get('CRAWLER_HOST_URL')
-    )
+def test_cds(
+    expected_results,
+    config,
+    spider,
+):
+    crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
@@ -77,108 +105,26 @@ def test_cds(set_up_local_environment, expected_results):
         monitor_iter_limit=100,
         events_limit=1,
         crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
-        spider='CDS',
+        project=config['CRAWLER_PROJECT'],
+        spider=spider,
         settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
+        **config['CRAWLER_ARGUMENTS']
     )
 
     assert len(crawl_results) == 1
 
     crawl_result = crawl_results[0]
 
-    results_records = deep_sort(
-        sorted(
-            crawl_result['results_data'],
-            key=lambda result: result['record']['titles'][0]['title'],
-        )
-    )
-    expected_results = deep_sort(
-        sorted(
-            expected_results,
-            key=lambda result: result['titles'][0]['title'],
-        )
-    )
-
     gotten_results = [
         override_generated_fields(result['record'])
-        for result in results_records
+        for result in crawl_result['results_data']
     ]
     expected_results = [
         override_generated_fields(expected) for expected in expected_results
     ]
 
-    assert gotten_results == expected_results
-    assert not crawl_result['errors']
-
-
-@pytest.mark.parametrize(
-    'expected_results',
-    [
-        expected_json_results_from_file(
-            'cds',
-            'fixtures',
-            'cds_smoke_records_expected.json',
-        ),
-    ],
-    ids=[
-        'crawl_twice',
-    ]
-)
-def test_cds_crawl_twice(set_up_local_environment, expected_results):
-    crawler = get_crawler_instance(
-        set_up_local_environment.get('CRAWLER_HOST_URL')
-    )
-
-    crawl_results = CeleryMonitor.do_crawl(
-        app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
-        events_limit=1,
-        crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
-        spider='CDS',
-        settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
-    )
-
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
-
-    results_records = deep_sort(
-        sorted(
-            crawl_result['results_data'],
-            key=lambda result: result['record']['titles'][0]['title'],
-        )
-    )
-    expected_results = deep_sort(
-        sorted(
-            expected_results,
-            key=lambda result: result['titles'][0]['title'],
-        )
-    )
-
-    gotten_results = [
-        override_generated_fields(result['record'])
-        for result in results_records
-    ]
-    expected_results = [
-        override_generated_fields(expected) for expected in expected_results
-    ]
+    gotten_results = deep_sort(gotten_results)
+    expected_results = deep_sort(expected_results)
 
     assert gotten_results == expected_results
     assert not crawl_result['errors']
-
-    crawl_results = CeleryMonitor.do_crawl(
-        app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
-        crawler_instance=crawler,
-        project=set_up_local_environment.get('CRAWLER_PROJECT'),
-        spider='CDS',
-        settings={},
-        **set_up_local_environment.get('CRAWLER_ARGUMENTS')
-    )
-
-    assert len(crawl_results) == 0

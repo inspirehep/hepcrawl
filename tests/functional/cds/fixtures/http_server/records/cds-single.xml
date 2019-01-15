@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://cds.cern.ch/css/oai2.xsl.v1.0" ?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2019-01-15T14:02:03Z</responseDate><request verb="GetRecord" metadataPrefix="marcxml" identifier="oai:cds.cern.ch:2653609">http://cds.cern.ch/oai2d</request><GetRecord>
+<record><header><identifier>oai:cds.cern.ch:2653609</identifier><datestamp>2019-01-14T22:10:46Z</datestamp><setSpec>cerncds:FULLTEXT</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">2653609</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20190114231046.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:2653609</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">ATL-PHYS-PROC-2019-010</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="9">ATL-COM-PHYS-2019-003</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="110" ind1=" " ind2=" ">
+    <marc:subfield code="a">The ATLAS collaboration</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">Photon and jet probes of small collision systems with ATLAS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2019</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="269" ind1=" " ind2=" ">
+    <marc:subfield code="b">CERN</marc:subfield>
+    <marc:subfield code="a">Geneva</marc:subfield>
+    <marc:subfield code="c">14 Jan 2019</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="300" ind1=" " ind2=" ">
+    <marc:subfield code="a">5 p</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">Recent results from p+Pb collisions at the LHC provide important information for constraining initial state effects of nuclear collisions and possible modifications of parton distribution functions in the nuclear environment. In these proceedings we summarize new ATLAS results on dijet azimuthal correlations and conditional yields in pp and p+Pb collisions at $\sqrt{s_{NN}}=5.02$ TeV and prompt photon production in $\sqrt{s_{NN}}=8.16$ TeV p+Pb collisions.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="594" ind1=" " ind2=" ">
+    <marc:subfield code="a">PROC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN CDS-Invenio WebSubmit</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Spousta, Martin</marc:subfield>
+    <marc:subfield code="0">AUTHOR|(INSPIRE)INSPIRE-00223860</marc:subfield>
+    <marc:subfield code="0">AUTHOR|(SzGeCERN)633890</marc:subfield>
+    <marc:subfield code="u">Charles University, Faculty of Mathematics and Physics, Prague</marc:subfield>
+    <marc:subfield code="m">martin.spousta@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="a">Particle Physics - Experiment</marc:subfield>
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="2" ind2="7">
+    <marc:subfield code="a">Physics</marc:subfield>
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="653" ind1="1" ind2=" ">
+    <marc:subfield code="9">CERN</marc:subfield>
+    <marc:subfield code="a">HEAVYIONS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">INTNOTE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">PRIVATLAS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">INTNOTEATLASPUBL</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="693" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN LHC</marc:subfield>
+    <marc:subfield code="e">ATLAS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="5">PH-EP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="g">ATLAS Collaboration</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://cds.cern.ch/record/2652830</marc:subfield>
+    <marc:subfield code="y">Original Communication (restricted to ATLAS)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1457856</marc:subfield>
+    <marc:subfield code="s">330061</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/2653609/files/ATL-PHYS-PROC-2019-010.pdf</marc:subfield>
+    <marc:subfield code="z">Stamped by WebSubmit: 14/01/2019</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="859" ind1=" " ind2=" ">
+    <marc:subfield code="f">martin.spousta@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">201970</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">91</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">2632428</marc:subfield>
+    <marc:subfield code="n">aix-les-bains20181001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">000763241CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">INTNOTEATLASPUBL</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ConferencePaper</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record></GetRecord>
+</OAI-PMH>
