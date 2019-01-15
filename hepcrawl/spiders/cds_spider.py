@@ -9,6 +9,10 @@
 
 """Spider for the CERN Document Server OAI-PMH interface"""
 
+from __future__ import absolute_import, division, print_function
+
+import re
+
 from dojson.contrib.marc21.utils import create_record
 from flask.app import Flask
 from harvestingkit.inspire_cds_package.from_cds import CDS2Inspire
@@ -16,53 +20,62 @@ from harvestingkit.bibrecord import (
     create_record as create_bibrec,
     record_xml_output,
 )
+from hepcrawl.spiders.common.oaipmh_spider import OAIPMHSpider
 from inspire_dojson.hep import hep
-from scrapy import Request
-from scrapy.spider import XMLFeedSpider
+from scrapy import Selector
 
-from . import StatefulSpider
-from ..utils import ParsedItem, strict_kwargs
+from ..parsers import CDSParser
+from ..utils import (
+    coll_cleanforthe,
+    get_licenses,
+    split_fullname,
+    ParsedItem,
+    strict_kwargs,
+)
 
 
-class CDSSpider(StatefulSpider, XMLFeedSpider):
-    """Spider for crawling the CERN Document Server OAI-PMH XML files.
+class CDSSpider(OAIPMHSpider):
+    """Spider for crawling cds.cern.ch OAI-PMH.
 
     Example:
-        Using OAI-PMH XML files::
+        Using OAI-PMH service::
 
-            $ scrapy crawl \\
-                cds \\
-                -a "source_file=file://$PWD/tests/functional/cds/fixtures/oai_harvested/cds_smoke_records.xml"
-
-    It uses `HarvestingKit <https://pypi.python.org/pypi/HarvestingKit>`_ to
-    translate from CDS's MARCXML into INSPIRE Legacy's MARCXML flavor. It then
-    employs `inspire-dojson <https://pypi.python.org/pypi/inspire-dojson>`_ to
-    transform the legacy INSPIRE MARCXML into the new INSPIRE Schema.
+            $ scrapy crawl cds -a "from_date=2017-12-13"
     """
-
     name = 'CDS'
-    iterator = 'xml'
-    itertag = 'OAI-PMH:record'
-    namespaces = [
-        ('OAI-PMH', 'http://www.openarchives.org/OAI/2.0/'),
-        ('marc', 'http://www.loc.gov/MARC21/slim'),
-    ]
+    source = 'CDS'
 
     @strict_kwargs
-    def __init__(self, source_file=None, **kwargs):
-        super(CDSSpider, self).__init__(**kwargs)
-        self.source_file = source_file
+    def __init__(
+        self,
+        url='http://cds.cern.ch/oai2d',
+        format='CDS',
+        sets=None,
+        from_date=None,
+        until_date=None,
+        **kwargs
+    ):
+        super(CDSSpider, self).__init__(
+            url=url,
+            format=format,
+            sets=sets,
+            from_date=from_date,
+            until_date=until_date,
+            **kwargs
+        )
 
-    def start_requests(self):
-        yield Request(self.source_file)
+    def get_record_identifier(self, record):
+        """Extracts a unique identifier from a sickle record."""
+        return record.header.identifier
 
-    def parse_node(self, response, node):
-        node.remove_namespaces()
+    def parse_record(self, selector):
+        """Parse a CDS XML exported file into a HEP record."""
+        selector.remove_namespaces()
         cds_bibrec, ok, errs = create_bibrec(
-            node.xpath('.//record').extract()[0]
+            selector.xpath('.//record').extract()[0]
         )
         if not ok:
-            raise RuntimeError("Cannot parse record %s: %s", node, errs)
+            raise RuntimeError("Cannot parse record %s: %s", selector, errs)
         self.logger.info("Here's the record: %s" % cds_bibrec)
         inspire_bibrec = CDS2Inspire(cds_bibrec).get_record()
         marcxml_record = record_xml_output(inspire_bibrec)
@@ -77,8 +90,65 @@ class CDSSpider(StatefulSpider, XMLFeedSpider):
             base_uri = self.settings['SCHEMA_BASE_URI']
             json_record['$schema'] = base_uri + 'hep.json'
 
-        parsed_item = ParsedItem(
-                record=json_record,
-                record_format='hep',
-            )
-        return parsed_item
+        return ParsedItem(
+            record=json_record,
+            record_format='hep',
+        )
+
+
+class CDSSpiderSingle(OAIPMHSpider):
+    """Spider for fetching a single record from cds.cern.ch OAI-PMH.
+
+    Example:
+        Using OAI-PMH service::
+
+            $ scrapy crawl cds -a "identifier=oai:cds.cern.ch:123"
+    """
+    name = 'CDS_single'
+    source = 'CDS'
+
+    @strict_kwargs
+    def __init__(
+        self,
+        url='http://cds.cern.ch/oai2d',
+        format='CDS',
+        identifier=None,
+        **kwargs
+    ):
+        super(CDSSpiderSingle, self).__init__(
+            url=url,
+            format=format,
+            identifier=identifier,
+            **kwargs
+        )
+
+    def get_record_identifier(self, record):
+        """Extracts a unique identifier from a sickle record."""
+        return record.header.identifier
+
+    def parse_record(self, selector):
+        """Parse a CDS XML exported file into a HEP record."""
+        selector.remove_namespaces()
+        cds_bibrec, ok, errs = create_bibrec(
+            selector.xpath('.//record').extract()[0]
+        )
+        if not ok:
+            raise RuntimeError("Cannot parse record %s: %s", selector, errs)
+        self.logger.info("Here's the record: %s" % cds_bibrec)
+        inspire_bibrec = CDS2Inspire(cds_bibrec).get_record()
+        marcxml_record = record_xml_output(inspire_bibrec)
+        record = create_record(marcxml_record)
+
+        app = Flask('hepcrawl')
+        app.config.update(
+            self.settings.getdict('MARC_TO_HEP_SETTINGS', {})
+        )
+        with app.app_context():
+            json_record = hep.do(record)
+            base_uri = self.settings['SCHEMA_BASE_URI']
+            json_record['$schema'] = base_uri + 'hep.json'
+
+        return ParsedItem(
+            record=json_record,
+            record_format='hep',
+        )
