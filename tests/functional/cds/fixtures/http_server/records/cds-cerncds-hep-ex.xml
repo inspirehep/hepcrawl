@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://cds.cern.ch/css/oai2.xsl.v1.0" ?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2019-01-21T14:45:32Z</responseDate><request from="2018-11-15" verb="ListRecords" set="cerncds:hep-ex" metadataPrefix="marcxml">http://cds.cern.ch/oai2d</request><ListRecords>
+<record><header><identifier>oai:cds.cern.ch:445527</identifier><datestamp>2018-12-27T03:46:56Z</datestamp><setSpec>cerncds:hep-ex</setSpec><setSpec>cerncds:CERN</setSpec><setSpec>cerncds:CERN:FULLTEXT</setSpec><setSpec>cerncds:FULLTEXT</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">445527</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20181227044654.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:445527</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN</marc:subfield>
+    <marc:subfield code="p">cerncds:hep-ex</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="024" ind1="7" ind2=" ">
+    <marc:subfield code="2">DOI</marc:subfield>
+    <marc:subfield code="a">10.1016/S0370-2693(00)00889-3</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERCER</marc:subfield>
+    <marc:subfield code="a">2196251</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SLAC</marc:subfield>
+    <marc:subfield code="a">4414632</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">6760868</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERN annual report</marc:subfield>
+    <marc:subfield code="a">2001-3.0448</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SPIRES</marc:subfield>
+    <marc:subfield code="a">4414632</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">529576</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP-2000-084</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">hep-ex/0007006</marc:subfield>
+    <marc:subfield code="c">hep-ex</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP-2000-84</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="084" ind1=" " ind2=" ">
+    <marc:subfield code="2">CERN Library</marc:subfield>
+    <marc:subfield code="a">EP-2000-084</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="9">ep-2000-084</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP-2000-084</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-L3-214</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Acciarri, M.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">Determination of $\gamma/Z$ interference in $e^+ e^-$ annihilation at LEP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="269" ind1=" " ind2=" ">
+    <marc:subfield code="a">Geneva</marc:subfield>
+    <marc:subfield code="b">CERN</marc:subfield>
+    <marc:subfield code="c">29 Jun 2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="300" ind1=" " ind2=" ">
+    <marc:subfield code="a">13 p</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="340" ind1=" " ind2=" ">
+    <marc:subfield code="a">paper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">An S--Matrix ansatz is used to determine the mass and width of the Z boson, aswell as the contributions of $\gamma$/Z interference and Z boson exchange tofermion--pair production. For this purpose we use hadron and lepton--pair production cross sections and lepton forward--backward asymmetries that havebeen measured with the L3 detector at centre--of--mass energies between87~Ge\kern -0.1em V\ and 189~Ge\kern -0.1em V.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">An S-Matrix ansatz is used to determine the mass and width of the Z boson, as well as the contributions of gamma/Z interference and Z boson exchange to fermion-pair production. For this purpose we use hadron and lepton-pair production cross sections and lepton forward-backward asymmetries that have been measured with the L3 detector at centre-of-mass energies between 87GeV and 189GeV.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">Elsevier</marc:subfield>
+    <marc:subfield code="a">An S-Matrix ansatz is used to determine the mass and width of the Z boson, as well as the contributions of γ /Z interference and Z boson exchange to fermion-pair production. For this purpose we use hadron and lepton-pair production cross sections and lepton forward-backward asymmetries that have been measured with the L3 detector at centre-of-mass energies between 87 GeV and 189 GeV.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="540" ind1=" " ind2=" ">
+    <marc:subfield code="a">CC-BY-4.0</marc:subfield>
+    <marc:subfield code="3">Preprint</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="542" ind1=" " ind2=" ">
+    <marc:subfield code="f">Elsevier Science B.V.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">20000704SLAC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">LANL EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">OA</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS INSP2001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS:2001 PR/LKR added</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">affil a faire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="i">6760868</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Particle Physics - Experiment</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="693" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN LEP</marc:subfield>
+    <marc:subfield code="e">L3</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">LANL EDS</marc:subfield>
+    <marc:subfield code="a">High Energy Physics - Experiment</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Achard, P.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Adriani, O.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Aguilar-Benitez, M.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Alcaraz, J.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="g">L3 Collaboration</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="5">EP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">93-101</marc:subfield>
+    <marc:subfield code="n">1-2</marc:subfield>
+    <marc:subfield code="p">Phys. Lett. B</marc:subfield>
+    <marc:subfield code="v">489</marc:subfield>
+    <marc:subfield code="y">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="852" ind1=" " ind2=" ">
+    <marc:subfield code="c">CERN ARC Library</marc:subfield>
+    <marc:subfield code="h">CERN-EP-2000-084</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1293945</marc:subfield>
+    <marc:subfield code="s">154658</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/445527/files/arXiv:hep-ex_0007006.pdf</marc:subfield>
+    <marc:subfield code="y">Preprint</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1293946</marc:subfield>
+    <marc:subfield code="s">19042</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/445527/files/mz_jh_contours.png</marc:subfield>
+    <marc:subfield code="y">00002 Contours in the ($\MZ$, $\jtoth$) plane at 68\% confidence level under the assumption of lepton universality. The dashed line is obtained from Z data only; the inclusion of 130~{\GeV} to 189~{\GeV} data gives the solid line. The circle (Z data) and the cross (all data) indicate the central values of the fits. The {\SM} prediction for $\jtoth$ is shown as the horizontal band. The vertical band corresponds to the 68\% confidence level interval on {\MZ} in a fit assuming the Standard Model value for $\gamma$/Z interference.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1293947</marc:subfield>
+    <marc:subfield code="s">30895</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/445527/files/xshad.png</marc:subfield>
+    <marc:subfield code="y">00001 Cross sections for the process {$\epem\rightarrow\mbox{hadrons}(\gamma)$}, for $\sqrt{s'/s} > 0.85$. The lines represent the theory predictions for different values of $\jtoth$. The lower plot normalises the measurements and predictions to that of $\jtoth = 0.31$.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">60859</marc:subfield>
+    <marc:subfield code="s">126171</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/445527/files/ep-2000-084.ps.gz</marc:subfield>
+    <marc:subfield code="y">Fulltext</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">60859</marc:subfield>
+    <marc:subfield code="s">207994</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/445527/files/ep-2000-084.pdf</marc:subfield>
+    <marc:subfield code="y">Fulltext</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="859" ind1=" " ind2=" ">
+    <marc:subfield code="f">caroline.laignel@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="901" ind1=" " ind2=" ">
+    <marc:subfield code="u">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200027</marc:subfield>
+    <marc:subfield code="y">a2001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20101008</marc:subfield>
+    <marc:subfield code="h">1654</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20000703</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="964" ind1=" " ind2=" ">
+    <marc:subfield code="a">0001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002196251CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">L3_Papers</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record>
+<record><header><identifier>oai:cds.cern.ch:449260</identifier><datestamp>2018-12-27T03:47:05Z</datestamp><setSpec>cerncds:hep-ex</setSpec><setSpec>cerncds:CERN</setSpec><setSpec>cerncds:CERN:FULLTEXT</setSpec><setSpec>cerncds:FULLTEXT</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">449260</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20181227044656.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:449260</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN</marc:subfield>
+    <marc:subfield code="p">cerncds:hep-ex</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="024" ind1="7" ind2=" ">
+    <marc:subfield code="2">DOI</marc:subfield>
+    <marc:subfield code="a">10.1016/S0370-2693(00)00890-X</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="030" ind1=" " ind2=" ">
+    <marc:subfield code="a">Phys. Lett., B</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERCER</marc:subfield>
+    <marc:subfield code="a">2200235</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">6760891</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERN annual report</marc:subfield>
+    <marc:subfield code="a">2001-3.1852</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SPIRES</marc:subfield>
+    <marc:subfield code="a">4442067</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">531571</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP-2000-098</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">hep-ex/0008023</marc:subfield>
+    <marc:subfield code="c">hep-ex</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="084" ind1=" " ind2=" ">
+    <marc:subfield code="2">CERN Library</marc:subfield>
+    <marc:subfield code="a">EP-2000-098</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="9">ep-2000-098</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP-2000-098</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-L3-216</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Acciarri, M.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">Search for anomalous couplings in the Higgs sector at LEP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="269" ind1=" " ind2=" ">
+    <marc:subfield code="a">Geneva</marc:subfield>
+    <marc:subfield code="b">CERN</marc:subfield>
+    <marc:subfield code="c">19 Jul 2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="300" ind1=" " ind2=" ">
+    <marc:subfield code="a">18 p</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="340" ind1=" " ind2=" ">
+    <marc:subfield code="a">paper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">We search for a Higgs particle with anomalous couplings in the $\mathrm{e}^+\mathrm{e}^-\rightarrow\mathrm{H}\gamma$, $\mathrm{e}^+\mathrm{e}^-\rightarrow\mathrm{H}\mathrm{Z}$ and $\mathrm{e}^+\mathrm{e}^-\rightarrow\mathrm{H}\mathrm{e}^+\mathrm{e }^-$ processes with the L3 detector at LEP. We explore the mass range $70~{\rm GeV} &lt; m_\mathrm{H} &lt; 170~{\rm GeV}$ using $176~{\rm pb}^{-1}$ of integrated luminosity at a center-of-mass energy of $\sqrt{s} = 189~{\rm GeV}$. The Higgs decays $\mathrm{H}\rightarrow\mathrm{b}\mathrm{\overline{b}}$, $\mathrm{H}\rightarrow\gamma\gamma$ and $\mathrm{H}\rightarrow\mathrm{ Z}\gamma$ are considered in the analysis. No evidence for anomalous Higgs production is found. This is interpreted in terms of limits on the anomalous couplings $d$, $d_B$, $\Delta g_1^\mathrm{Z}$ and $\Delta \kappa_\gamma$. Limits on the $\Gamma(\mathrm{H}\rightarrow\gamma\gamma)$ and $\Gamma(\mathrm{H}\rightarrow\mathrm{Z}\gamma)$ partial widths in the explored Higgs mass range are also obtained.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">We search for a Higgs particle with anomalous couplings in the e+e- -> H gamma, e+e- -> HZ and e+e- -> He+e- processes with the L3 detector at LEP. We explore the mass range 70GeV &amp;lt; m_H &amp;lt; 170GeV using 176pb^-1 of integrated luminosity at a center-of-mass energy of \sqrt{s} = 189GeV. The Higgs decays H -> bb, H -> gamma gamma and H -> Z gamma are considered in the analysis. No evidence for anomalous Higgs production is found. This is interpreted in terms of limits on the anomalous couplings d, d_B, Delta g_1^Z and Delta kappa_gamma. Limits on the Gamma(H -> gamma gamma) and Gamma(H -> Z gamma) partial widths in the explored Higgs mass range are also obtained.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">HEPDATA</marc:subfield>
+    <marc:subfield code="h">CERN-LEP accelerator. Search for anomalous couplings in the Higgs sector at LEP.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">Elsevier</marc:subfield>
+    <marc:subfield code="a">We search for a Higgs particle with anomalous couplings in the e + e − →H γ , e + e − →HZ and e + e − →He + e − processes with the L3 detector at LEP. We explore the mass range 70 GeV</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="540" ind1=" " ind2=" ">
+    <marc:subfield code="a">CC-BY-4.0</marc:subfield>
+    <marc:subfield code="3">Preprint</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="542" ind1=" " ind2=" ">
+    <marc:subfield code="f">Elsevier Science B.V.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">20000731SLAC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-EP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">LANL EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">OA</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS INSP2001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">SIS:2001 PR/LKR added</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">affil a faire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="i">6760891</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Particle Physics - Experiment</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="693" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN LEP</marc:subfield>
+    <marc:subfield code="e">L3</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="694" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">A1338 (Decays of intermediate and Higgs bosons)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="694" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">A1310 (Weak and electromagnetic interactions of leptons)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="694" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">A1340H (Electromagnetic decays of elementary particles)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="694" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">A1480F (Intermediate and Higgs bosons)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">electromagnetic-decays</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">electron-positron-interactions</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">elementary-particle-coupling-constants</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">Higgs-bosons</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">Higgs-model</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">intermediate-boson-decay</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">intermediate-boson-production</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">INSPEC</marc:subfield>
+    <marc:subfield code="a">photon-production</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="695" ind1=" " ind2=" ">
+    <marc:subfield code="9">LANL EDS</marc:subfield>
+    <marc:subfield code="a">High Energy Physics - Experiment</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Achard, P.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Adriani, O.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Aguilar-Benitez, M.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="g">L3 Collaboration</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="5">EP</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">102-14</marc:subfield>
+    <marc:subfield code="n">1-2</marc:subfield>
+    <marc:subfield code="p">Phys. Lett. B</marc:subfield>
+    <marc:subfield code="v">489</marc:subfield>
+    <marc:subfield code="y">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="852" ind1=" " ind2=" ">
+    <marc:subfield code="c">CERN ARC Library</marc:subfield>
+    <marc:subfield code="h">CERN-EP-2000-098</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="859" ind1=" " ind2=" ">
+    <marc:subfield code="f">caroline.laignel@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="901" ind1=" " ind2=" ">
+    <marc:subfield code="u">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200031</marc:subfield>
+    <marc:subfield code="y">a2001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20101008</marc:subfield>
+    <marc:subfield code="h">1654</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20000728</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="964" ind1=" " ind2=" ">
+    <marc:subfield code="a">0001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002200235CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">L3_Papers</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record></ListRecords>
+</OAI-PMH>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://cds.cern.ch/css/oai2.xsl.v1.0" ?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+<responseDate>2019-01-21T15:09:55Z</responseDate><request from="2018-11-15" verb="ListRecords" set="cerncds:hep-th" metadataPrefix="marcxml">http://cds.cern.ch/oai2d</request><ListRecords>
+<record><header><identifier>oai:cds.cern.ch:329074</identifier><datestamp>2018-11-23T10:21:50Z</datestamp><setSpec>cerncds:CERN</setSpec><setSpec>cerncds:CERN:FULLTEXT</setSpec><setSpec>cerncds:hep-th</setSpec><setSpec>cerncds:FULLTEXT</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">329074</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20181123112147.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:329074</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:hep-th</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="024" ind1="7" ind2=" ">
+    <marc:subfield code="a">10.1016/S0920-5632(98)00114-5</marc:subfield>
+    <marc:subfield code="2">DOI</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERN annual report</marc:subfield>
+    <marc:subfield code="a">1999-3.0665</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">CERN annual report</marc:subfield>
+    <marc:subfield code="a">98-1262</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SLAC</marc:subfield>
+    <marc:subfield code="a">3580083</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SPIRES</marc:subfield>
+    <marc:subfield code="a">3580083</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">445025</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">hep-th/9706211</marc:subfield>
+    <marc:subfield code="c">hep-th</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH-97-136</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CPTH-5370-0697</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="084" ind1=" " ind2=" ">
+    <marc:subfield code="2">CERN Library</marc:subfield>
+    <marc:subfield code="a">TH-1997-134</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH-97-136</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CPT-5370</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Antoniadis, Ignatios</marc:subfield>
+    <marc:subfield code="u">CERN</marc:subfield>
+    <marc:subfield code="u">Ecole Polytechnique</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">Lectures on Heterotic-Type I Duality</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="246" ind1=" " ind2=" ">
+    <marc:subfield code="a">Lectures on heterotic-type I duality.</marc:subfield>
+    <marc:subfield code="9">arXiv</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">1998</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="269" ind1=" " ind2=" ">
+    <marc:subfield code="a">Geneva</marc:subfield>
+    <marc:subfield code="b">CERN</marc:subfield>
+    <marc:subfield code="c">1 Jul 1997</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="300" ind1=" " ind2=" ">
+    <marc:subfield code="a">14 p</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="340" ind1=" " ind2=" ">
+    <marc:subfield code="a">paper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="500" ind1=" " ind2=" ">
+    <marc:subfield code="a">14 pages, LaTeX, espcrc2.sty Report-no: CERN--TH/97-136; CPTH--5370.0697</marc:subfield>
+    <marc:subfield code="9">arXiv</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">We present a review of heterotic-type I string duality. In particular, we discuss the effective field theory of six- and four-dimensional compactifications with N>1 supersymmetries. We then describe various duality tests by comparing gauge couplings, N=2 prepotentials, as well as higher-derivative F-terms. Based on invited lectures delivered at: 33rd Karpacz Winter School of Theoretical Physics ``Duality, Strings and Fields,'' Przesieka, Poland, 13 - 22 February 1997; Trieste Conference on Duality Symmetries in String Theory, Trieste, Italy, 1 - 4 April 1997; Cargese Summer School ``Strings, Branes and Dualities,'' Cargese, France, 26 May - 14 June 1997.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">We present a review of heterotic-type I string duality. In particular, we discuss the effective field theory of six- and four-dimensional compactifications with N>1 supersymmetries. We then describe various duality tests by comparing gauge couplings, N=2 prepotentials, as well as higher-derivative F-terms. Based on invited lectures delivered at: 33rd Karpacz Winter School of Theoretical Physics ``Duality, Strings and Fields,'' Przesieka, Poland, 13 - 22 February 1997; Trieste Conference on Duality Symmetries in String Theory, Trieste, Italy, 1 - 4 April 1997; Cargese Summer School ``Strings, Branes and Dualities,'' Cargese, France, 26 May - 14 June 1997.</marc:subfield>
+    <marc:subfield code="9">Inspire</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">LANL EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">OA</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Particle Physics - Theory</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="693" ind1=" " ind2=" ">
+    <marc:subfield code="a">Not applicable</marc:subfield>
+    <marc:subfield code="e">Not applicable</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Partouche, H.</marc:subfield>
+    <marc:subfield code="u">Ecole Polytechnique</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="700" ind1=" " ind2=" ">
+    <marc:subfield code="a">Taylor, T.R.</marc:subfield>
+    <marc:subfield code="u">Northeastern U.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="5">TH</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">58</marc:subfield>
+    <marc:subfield code="p">Nucl. Phys. B, Proc. Suppl.</marc:subfield>
+    <marc:subfield code="v">61</marc:subfield>
+    <marc:subfield code="y">1998</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">3-16</marc:subfield>
+    <marc:subfield code="p">Nucl. Phys. B, Proc. Suppl.</marc:subfield>
+    <marc:subfield code="v">67</marc:subfield>
+    <marc:subfield code="y">1998</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="852" ind1=" " ind2=" ">
+    <marc:subfield code="c">CERN Central Library</marc:subfield>
+    <marc:subfield code="h">hep-th/9706211</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://preprints.cern.ch/cgi-bin/setlink?base=preprint&amp;categ=hep-th&amp;id=9706211</marc:subfield>
+    <marc:subfield code="y">Access to fulltext document</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="u">http://cds.cern.ch/record/329074/files/9706211.pdf</marc:subfield>
+    <marc:subfield code="y">Access to fulltext document</marc:subfield>
+    <marc:subfield code="8">83937</marc:subfield>
+    <marc:subfield code="s">587917</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1380971</marc:subfield>
+    <marc:subfield code="s">258840</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/329074/files/arXiv:hep-th_9706211.pdf</marc:subfield>
+    <marc:subfield code="y">Preprint</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="859" ind1=" " ind2=" ">
+    <marc:subfield code="f">Tomasz.Taylor@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="901" ind1=" " ind2=" ">
+    <marc:subfield code="u">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="901" ind1=" " ind2=" ">
+    <marc:subfield code="u">Ecole Poly. Palaiseau</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="901" ind1=" " ind2=" ">
+    <marc:subfield code="u">Northeastern Univ. Boston</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">199727</marc:subfield>
+    <marc:subfield code="y">a1999</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20100426</marc:subfield>
+    <marc:subfield code="h">0833</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">19970701</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">314524</marc:subfield>
+    <marc:subfield code="k">58-71</marc:subfield>
+    <marc:subfield code="n">karpacz970213</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">321146</marc:subfield>
+    <marc:subfield code="k">179-199</marc:subfield>
+    <marc:subfield code="n">cargese970526</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="962" ind1=" " ind2=" ">
+    <marc:subfield code="b">000249539</marc:subfield>
+    <marc:subfield code="k">3-16</marc:subfield>
+    <marc:subfield code="n">trieste970401</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">000252526CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ConferencePaper</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record><record><header><identifier>oai:cds.cern.ch:428218</identifier><datestamp>2019-01-16T06:59:34Z</datestamp><setSpec>cerncds:CERN</setSpec><setSpec>cerncds:CERN:FULLTEXT</setSpec><setSpec>cerncds:hep-th</setSpec><setSpec>cerncds:FULLTEXT</setSpec></header><metadata><marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd" type="Bibliographic">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">428218</marc:controlfield>
+  <marc:controlfield tag="003">SzGeCERN</marc:controlfield>
+  <marc:controlfield tag="005">20190116075934.0</marc:controlfield>
+  <marc:datafield tag="024" ind1="8" ind2=" ">
+    <marc:subfield code="a">oai:cds.cern.ch:428218</marc:subfield>
+    <marc:subfield code="p">cerncds:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:hep-th</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN:FULLTEXT</marc:subfield>
+    <marc:subfield code="p">cerncds:CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="024" ind1="7" ind2=" ">
+    <marc:subfield code="2">DOI</marc:subfield>
+    <marc:subfield code="a">10.1016/S0370-2693(00)00732-2</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SLAC</marc:subfield>
+    <marc:subfield code="a">4321120</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">SPIRES</marc:subfield>
+    <marc:subfield code="a">4321120</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">Inspire</marc:subfield>
+    <marc:subfield code="a">524282</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="035" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">oai:arXiv.org:hep-th/0002198</marc:subfield>
+    <marc:subfield code="z">oai:arXiv.org:hep-th/0002198</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="9">arXiv</marc:subfield>
+    <marc:subfield code="a">hep-th/0002198</marc:subfield>
+    <marc:subfield code="c">hep-th</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="037" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH-2000-061</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="041" ind1=" " ind2=" ">
+    <marc:subfield code="a">eng</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="084" ind1=" " ind2=" ">
+    <marc:subfield code="2">CERN Library</marc:subfield>
+    <marc:subfield code="a">TH-2000-062</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="088" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH-2000-061</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="100" ind1=" " ind2=" ">
+    <marc:subfield code="a">Alishahiha, Mohsen</marc:subfield>
+    <marc:subfield code="u">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="245" ind1=" " ind2=" ">
+    <marc:subfield code="a">On type II NS - five-branes in the presence of an R R field</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="260" ind1=" " ind2=" ">
+    <marc:subfield code="c">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="269" ind1=" " ind2=" ">
+    <marc:subfield code="a">Geneva</marc:subfield>
+    <marc:subfield code="b">CERN</marc:subfield>
+    <marc:subfield code="c">23 Feb 2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="300" ind1=" " ind2=" ">
+    <marc:subfield code="a">8 p</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="340" ind1=" " ind2=" ">
+    <marc:subfield code="a">paper</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="a">In this letter we use Type II NS5-branes in the presence of an RR field atthe decoupling limit to study a non-commutative version of little stringtheory. We shall see that the decoupling limit of NS5-branes in the presence ofan RR field is completely different from the one we had in ordinary littlestring theory; in particular for Type IIA NS5-branes this decoupling limit canbe defined only when the theory is wrapped on a circle, but nevertheless flowsto the ordinary non-compact (0,2) theory at the IR limit. We also see thatthese theories, in the UV regime, where the non-commutative effects areimportant, can be described by smeared ordinary D3(D2)-branes in Type IIB(A)string theory.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="520" ind1=" " ind2=" ">
+    <marc:subfield code="9">Elsevier</marc:subfield>
+    <marc:subfield code="a">In this letter we use Type II NS5-branes in the presence of an RR field at the decoupling limit to study a non-commutative version of little string theory. We shall see that the decoupling limit of NS5-branes in the presence of an RR field is completely different from the one we had in ordinary little string theory; in particular for Type IIA NS5-branes this decoupling limit can be defined only when the theory is wrapped on a circle, but nevertheless flows to the ordinary non-compact (0,2) theory at the IR limit. We also see that these theories, in the UV regime, where the non-commutative effects are important, can be described by smeared ordinary D3(D2)-branes in Type IIB(A) string theory.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="542" ind1=" " ind2=" ">
+    <marc:subfield code="f">Elsevier Science B.V.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">CERN-TH</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">LANL EDS</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="595" ind1=" " ind2=" ">
+    <marc:subfield code="a">OA</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="650" ind1="1" ind2="7">
+    <marc:subfield code="2">SzGeCERN</marc:subfield>
+    <marc:subfield code="a">Particle Physics - Theory</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">CERN</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="690" ind1="C" ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="693" ind1=" " ind2=" ">
+    <marc:subfield code="a">Not applicable</marc:subfield>
+    <marc:subfield code="e">Not applicable</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="710" ind1=" " ind2=" ">
+    <marc:subfield code="5">TH</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="c">194-201</marc:subfield>
+    <marc:subfield code="p">Phys. Lett. B</marc:subfield>
+    <marc:subfield code="v">486</marc:subfield>
+    <marc:subfield code="y">2000</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="773" ind1=" " ind2=" ">
+    <marc:subfield code="x">#DONE: Phys. Lett. B486 (2000) 194-201</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="852" ind1=" " ind2=" ">
+    <marc:subfield code="c">CERN ARC Library</marc:subfield>
+    <marc:subfield code="h">CERN-TH-2000-061</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">1458404</marc:subfield>
+    <marc:subfield code="s">159494</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/428218/files/arXiv:hep-th_0002198.pdf</marc:subfield>
+    <marc:subfield code="y">Preprint</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">26157</marc:subfield>
+    <marc:subfield code="s">115719</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/428218/files/0002198.pdf</marc:subfield>
+    <marc:subfield code="y">Access to fulltext document</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="856" ind1="4" ind2=" ">
+    <marc:subfield code="8">26157</marc:subfield>
+    <marc:subfield code="s">128822</marc:subfield>
+    <marc:subfield code="u">http://cds.cern.ch/record/428218/files/0002198.ps.gz</marc:subfield>
+    <marc:subfield code="y">Access to fulltext document</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="859" ind1=" " ind2=" ">
+    <marc:subfield code="f">Mohsen.Alishahiha@cern.ch</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="916" ind1=" " ind2=" ">
+    <marc:subfield code="s">n</marc:subfield>
+    <marc:subfield code="w">200008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="960" ind1=" " ind2=" ">
+    <marc:subfield code="a">13</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="961" ind1=" " ind2=" ">
+    <marc:subfield code="c">20101108</marc:subfield>
+    <marc:subfield code="h">1208</marc:subfield>
+    <marc:subfield code="l">CER01</marc:subfield>
+    <marc:subfield code="x">20000224</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="963" ind1=" " ind2=" ">
+    <marc:subfield code="a">PUBLIC</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="964" ind1=" " ind2=" ">
+    <marc:subfield code="a">0001</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="970" ind1=" " ind2=" ">
+    <marc:subfield code="a">002177527CER</marc:subfield>
+  </marc:datafield>
+  <marc:datafield tag="980" ind1=" " ind2=" ">
+    <marc:subfield code="a">ARTICLE</marc:subfield>
+  </marc:datafield>
+</marc:record>
+</metadata></record></ListRecords>
+</OAI-PMH>

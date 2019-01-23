@@ -1,0 +1,110 @@
+[
+    {
+        "$schema": "hep.json",
+        "_collections": [
+            "Literature"
+        ],
+        "abstracts": [
+            {
+                "source": "CDS",
+                "value": "Recent results from p+Pb collisions at the LHC provide important information for constraining initial state effects of nuclear collisions and possible modifications of parton distribution functions in the nuclear environment. In these proceedings we summarize new ATLAS results on dijet azimuthal correlations and conditional yields in pp and p+Pb collisions at $\\sqrt{s_{NN}}=5.02$ TeV and prompt photon production in $\\sqrt{s_{NN}}=8.16$ TeV p+Pb collisions." 
+            }
+        ],
+        "accelerator_experiments": [
+            {
+                "legacy_name": "CERN-LHC-ATLAS"
+            }
+        ],
+        "acquisition_source": {
+            "datetime": "2017-10-04T14:07:59.746165", 
+            "method": "hepcrawl",
+            "source": "CDS", 
+            "submission_number": "None"
+        },
+        "authors": [
+            {
+                "affiliations": [
+                    {
+                        "value": "Charles University, Faculty of Mathematics and Physics, Prague"
+                    }
+                ],
+                "emails": [
+                    "martin.spousta@cern.ch"
+                ],
+                "full_name": "Spousta, Martin",
+                "ids":[
+                    {
+                        "schema": "INSPIRE ID",
+                        "value": "INSPIRE-00223860"
+                    },
+                    {
+                        "schema": "CERN",
+                        "value": "CERN-633890"
+                    }
+                ]
+            }
+        ],
+        "collaborations": [
+            {
+                "value": "ATLAS"
+            }
+        ],
+        "core": true, 
+        "corporate_author": [
+            "The ATLAS collaboration"
+        ], 
+        "curated": true,
+        "document_type": [
+            "conference paper",
+            "note"
+        ],
+        "documents": [
+            {
+                "url": "http://cds.cern.ch/record/2653609/files/ATL-PHYS-PROC-2019-010.pdf",
+                "key": "ATL-PHYS-PROC-2019-010.pdf",
+                "source": "CDS"
+            }
+        ], 
+        "external_system_identifiers": [
+            {
+                "schema": "CDS", 
+                "value": "2653609"
+            }
+        ],
+        "imprints": [
+            {
+                "date": "2019"
+            }
+        ],
+        "inspire_categories": [
+            {
+                "source": "cds",
+                "term": "Experiment-HEP"
+            }
+        ],
+        "keywords": [
+            {
+                "source": "CERN",
+                "value": "HEAVYIONS"
+            }
+        ],
+        "number_of_pages": 5,
+        "report_numbers": [
+            {
+                "source": "CDS",
+                "value": "ATL-PHYS-PROC-2019-010"
+            }, 
+            {
+                "hidden": true,
+                "source": "CDS",
+                "value": "ATL-COM-PHYS-2019-003"
+            }
+        ], 
+        "titles": [
+            {
+                "source": "CDS",
+                "title": "Photon and jet probes of small collision systems with ATLAS"
+            }
+        ]
+    }
+]
