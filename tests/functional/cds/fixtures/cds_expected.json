@@ -19,11 +19,6 @@
         "_collections": [
             "Literature"
         ],
-        "accelerator_experiments": [
-            {
-                "legacy_name": "Not applicable"
-            }
-        ],
         "public_notes": [
             {
                 "value": "Submitted to None"
@@ -402,11 +397,6 @@
             {
                 "source": "cds",
                 "term": "Theory-HEP"
-            }
-        ],
-        "accelerator_experiments": [
-            {
-                "legacy_name": "Not applicable"
             }
         ],
         "authors": [
