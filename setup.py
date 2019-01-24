@@ -19,7 +19,7 @@ install_requires = [
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
     'inspire-schemas~=59.0,>=59.0.0',
-    'inspire-dojson~=61.0,>=61.0.0',
+    'inspire-dojson~=61.1,>=61.1.1',
     'inspire-utils~=3.0,>=3.0.0',
     'Scrapy>=1.1.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
