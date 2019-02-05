@@ -17,6 +17,9 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from inspire_schemas.utils import validate
+from mock import patch
+from scrapy.crawler import Crawler
+from scrapy.utils.project import get_project_settings
 
 
 @pytest.fixture
@@ -24,7 +27,8 @@ def results_from_json():
     """Return results by parsing a JSON file."""
     from scrapy.http import TextResponse
 
-    spider = aps_spider.APSSpider()
+    crawler = Crawler(spidercls=aps_spider.APSSpider)
+    spider = aps_spider.APSSpider.from_crawler(crawler)
     parsed_items = list(
         spider.parse(
             fake_response_from_file(

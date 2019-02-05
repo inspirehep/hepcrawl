@@ -16,7 +16,7 @@ import os
 
 import pytest
 
-from scrapy.spider import Spider
+from scrapy.spiders import Spider
 from inspire_schemas.api import validate
 
 from hepcrawl.spiders import arxiv_spider

@@ -14,13 +14,14 @@ from __future__ import absolute_import, division, print_function
 import json
 import link_header
 
+from datetime import datetime
 from furl import furl
-
 from scrapy import Request
 
 from inspire_utils.record import get_value
 
 from . import StatefulSpider
+from .common.lastrunstore_spider import LastRunStoreSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..parsers import JatsParser
@@ -32,7 +33,7 @@ from ..utils import (
 )
 
 
-class APSSpider(StatefulSpider):
+class APSSpider(LastRunStoreSpider):
     """APS crawler.
 
     Uses the APS REST API v2.
@@ -41,43 +42,52 @@ class APSSpider(StatefulSpider):
     Example:
         Using the APS spider::
 
-            $ scrapy crawl APS -a 'from_date=2016-05-01' -a 'until_date=2016-05-15' -a 'set=openaccess'
+            $ scrapy crawl APS -a 'from_date=2016-05-01' -a 'until_date=2016-05-15' -a 'sets=openaccess'
 
     .. _See documentation here:
         http://harvest.aps.org/docs/harvest-api#endpoints
+
+    Note:
+        Selecting specific journals is not supported for technical reasons as it's incompatible with the way the last run time is stored.
     """
     name = 'APS'
     aps_base_url = "http://harvest.aps.org/v2/journals/articles"
 
     @strict_kwargs
-    def __init__(self, url=None, from_date=None, until_date=None,
-                 date="published", journals=None, sets=None, per_page=100,
+    def __init__(self, from_date=None, until_date=None,
+                 date="published", sets=None, per_page=100,
                  **kwargs):
         """Construct APS spider."""
         super(APSSpider, self).__init__(**kwargs)
-        if url is None:
-            # We Construct.
-            params = {}
-            if from_date:
-                params['from'] = from_date
-            if until_date:
-                params['until'] = until_date
-            if date:
-                params['date'] = date
-            if journals:
-                params['journals'] = journals
-            if per_page:
-                params['per_page'] = per_page
-            if sets:
-                params['set'] = sets
+        self._set = sets
+        self.from_date = from_date
+        self.until_date = until_date
+        self.per_page = per_page
+        self.date = date
 
-            # Put it together: furl is awesome
-            url = furl(APSSpider.aps_base_url).add(params).url
-        self.url = url
+
+    @property
+    def url(self):
+        params = {}
+        from_date = self.from_date or self.resume_from(set_=self._set)
+        if self.set:
+            params['sets'] = self.set
+        if from_date:
+            params['from_date'] = from_date
+        if self.until_date:
+            params['until_date'] = self.until_date
+        if self.per_page:
+            params['per_page'] = self.per_page
+        if self.date:
+            params['date'] = self.date
+        return furl(APSSpider.aps_base_url).add(params).url
+
 
     def start_requests(self):
         """Just yield the url."""
+        started_at = datetime.utcnow()
         yield Request(self.url)
+        self.save_run(started_at=started_at, set_=self._set)
 
     def parse(self, response):
         """Parse a APS record into a HEP record.
@@ -97,6 +107,7 @@ class APSSpider(StatefulSpider):
                               errback=self._parse_json_on_failure)
                 request.meta['json_article'] = article
                 request.meta['original_response'] = response
+
                 yield request
 
         # Pagination support. Will yield until no more "next" pages are found
@@ -199,3 +210,6 @@ class APSSpider(StatefulSpider):
 
     def _file_name_from_url(self, url):
         return "{}.xml".format(url[url.rfind('/') + 1:])
+
+    def make_file_fingerprint(self, set_):
+        return u'set={}'.format(set_)
