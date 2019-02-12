@@ -59,7 +59,7 @@ class APSSpider(LastRunStoreSpider):
                  **kwargs):
         """Construct APS spider."""
         super(APSSpider, self).__init__(**kwargs)
-        self._set = sets
+        self.set = sets
         self.from_date = from_date
         self.until_date = until_date
         self.per_page = per_page
@@ -69,7 +69,7 @@ class APSSpider(LastRunStoreSpider):
     @property
     def url(self):
         params = {}
-        from_date = self.from_date or self.resume_from(set_=self._set)
+        from_date = self.from_date or self.resume_from(set_=self.set)
         if self.set:
             params['sets'] = self.set
         if from_date:
@@ -87,7 +87,7 @@ class APSSpider(LastRunStoreSpider):
         """Just yield the url."""
         started_at = datetime.utcnow()
         yield Request(self.url)
-        self.save_run(started_at=started_at, set_=self._set)
+        self.save_run(started_at=started_at, set_=self.set)
 
     def parse(self, response):
         """Parse a APS record into a HEP record.
