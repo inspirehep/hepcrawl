@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -12,21 +12,22 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-import urlparse
 import tempfile
 
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
 
+from six.moves.urllib.parse import urlsplit
+
 from . import StatefulSpider
 from ..parsers import JatsParser
 from ..utils import (
-    ftp_list_files,
-    ftp_connection_info,
-    local_list_files,
-    unzip_xml_files,
     ParsedItem,
+    ftp_connection_info,
+    ftp_list_files,
+    local_list_files,
     strict_kwargs,
+    unzip_xml_files,
 )
 
 
@@ -212,7 +213,7 @@ class WorldScientificSpider(StatefulSpider, XMLFeedSpider):
     def handle_package_file(self, response):
         """Handle a local zip package and yield every XML."""
         self.logger.info("Visited file %s" % response.url)
-        zip_filepath = urlparse.urlsplit(response.url).path
+        zip_filepath = urlsplit(response.url).path
         xml_files = unzip_xml_files(zip_filepath, self.destination_folder)
 
         for xml_file in xml_files:

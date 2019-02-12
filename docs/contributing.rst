@@ -1,6 +1,6 @@
 ..
     This file is part of hepcrawl.
-    Copyright (C) 2015, 2016, 2017 CERN.
+    Copyright (C) 2015, 2016, 2017, 2019 CERN.
 
     hepcrawl is a free software; you can redistribute it and/or modify it
     under the terms of the Revised BSD License; see LICENSE file for
@@ -230,13 +230,14 @@ Then we add our input processor to the ``HEPLoader``:
 .. code-block:: python
 
     from scrapy.loader.processors import MapCompose
+    from six import text_type
     from .inputs import convert_html_subscripts_to_latex
 
     class HEPLoader(ItemLoader):
 
         abstract_in = MapCompose(
             convert_html_subscripts_to_latex,
-            unicode.strip,
+            text_type.strip,
         )
 
 
@@ -268,13 +269,14 @@ in the items. For example, instead of a list only assign the first value in the 
 .. code-block:: python
 
     from scrapy.loader.processors import MapCompose, TakeFirst
+    from six import text_type
     from .inputs import convert_html_subscripts_to_latex
 
     class HEPLoader(ItemLoader):
 
         abstract_in = MapCompose(
             convert_html_subscripts_to_latex,
-            unicode.strip,
+            text_type.strip,
         )
         abstract_out = TakeFirst()
 

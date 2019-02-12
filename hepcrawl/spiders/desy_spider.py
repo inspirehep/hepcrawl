@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -17,13 +17,14 @@ from flask.app import Flask
 from inspire_dojson import marcxml2record
 from lxml import etree
 from scrapy import Request
+
 from six.moves import urllib
 
 from . import StatefulSpider
 from ..utils import (
-    ftp_list_files,
-    ftp_connection_info,
     ParsedItem,
+    ftp_connection_info,
+    ftp_list_files,
     strict_kwargs,
 )
 

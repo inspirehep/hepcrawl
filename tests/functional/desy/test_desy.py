@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -18,6 +18,7 @@ from time import sleep
 
 import pytest
 
+from deepdiff import DeepDiff
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
@@ -25,7 +26,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
+from hepcrawl.testlib.utils import get_crawler_instance
 
 
 def override_dynamic_fields_on_records(records):
@@ -202,20 +203,16 @@ def test_desy(
     gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    gotten_records = deep_sort(
-        sorted(
+    gotten_records = sorted(
             gotten_records,
             key=lambda record: record['titles'][0]['title'],
         )
-    )
-    expected_results = deep_sort(
-        sorted(
+    expected_results = sorted(
             expected_results,
             key=lambda result: result['titles'][0]['title'],
         )
-    )
 
-    assert gotten_records == expected_results
+    assert DeepDiff(gotten_records, expected_results, ignore_order=True) == {}
     assert not crawl_result['errors']
 
 
@@ -293,20 +290,16 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
     gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    gotten_records = deep_sort(
-        sorted(
+    gotten_records = sorted(
             gotten_records,
             key=lambda record: record['titles'][0]['title'],
         )
-    )
-    expected_results = deep_sort(
-        sorted(
+    expected_results = sorted(
             expected_results,
             key=lambda result: result['titles'][0]['title'],
         )
-    )
 
-    assert gotten_records == expected_results
+    assert DeepDiff(gotten_records, expected_results, ignore_order=True) == {}
     assert not crawl_result['errors']
 
     # Second crawl

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -10,11 +10,9 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import os
-
-import six
-
 import pkg_resources
 import pytest
+import six
 
 from hepcrawl.spiders import edp_spider
 from hepcrawl.items import HEPRecord
@@ -57,7 +55,7 @@ def package_jats(targzfile):
     """Extract tar.gz package with JATS XML file."""
     spider = edp_spider.EDPSpider()
     response = fake_response_from_string(text="", url="file://" + targzfile)
-    return spider.handle_package_file(response).next()
+    return next(spider.handle_package_file(response))
 
 
 @pytest.fixture
@@ -100,7 +98,7 @@ def package_rich(tarbzfile):
     """Extract tar.gz package with 'rich' XML file."""
     spider = edp_spider.EDPSpider()
     response = fake_response_from_string(text="", url="file://" + tarbzfile)
-    return spider.handle_package_file(response).next()
+    return next(spider.handle_package_file(response))
 
 @pytest.fixture
 def record_rich(package_rich):
@@ -359,7 +357,7 @@ def test_handle_package_ftp(tarbzfile):
     """Test getting the target folder name for xml files."""
     spider = edp_spider.EDPSpider()
     response = fake_response_from_string(text=tarbzfile)
-    request = spider.handle_package_ftp(response).next()
+    request = next(spider.handle_package_ftp(response))
 
     assert isinstance(request, Request)
     assert request.meta["source_folder"] == tarbzfile

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -29,7 +29,7 @@ def get_crawler_instance(crawler_host, *args, **kwargs):
 
 
 def deep_sort(element):
-    """Dummy deep-sort json dicts (lists, dicts, stirngs, bools and integers)."""
+    """Dummy deep-sort json dicts (lists, dicts, strings, bools and integers)."""
     if isinstance(element, dict):
         for key, value in element.items():
             element[key] = deep_sort(value)

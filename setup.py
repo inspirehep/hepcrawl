@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017, 2018 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -44,6 +44,7 @@ install_requires = [
 tests_require = [
     'check-manifest>=0.25',
     'coverage>=4.0',
+    'deepdiff==3.3.0',
     'freezegun>=0.3.9',
     'isort==4.2.2',
     'mock~=2.0,>=2.0.0',
@@ -57,7 +58,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
-        'Sphinx>=1.4',
+        'Sphinx~=1.0,>=1.5',
         'sphinxcontrib-napoleon>=0.6.1',
     ],
     'tests': tests_require,

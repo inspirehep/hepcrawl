@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -14,9 +14,10 @@ from __future__ import absolute_import, division, print_function
 import os
 import pytest
 
+from deepdiff import DeepDiff
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
+from hepcrawl.testlib.utils import get_crawler_instance
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
@@ -123,8 +124,5 @@ def test_cds(
         override_generated_fields(expected) for expected in expected_results
     ]
 
-    gotten_results = deep_sort(gotten_results)
-    expected_results = deep_sort(expected_results)
-
-    assert gotten_results == expected_results
+    assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
     assert not crawl_result['errors']

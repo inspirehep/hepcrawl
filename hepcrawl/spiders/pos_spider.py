@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016, 2017 CERN.
+# Copyright (C) 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -11,21 +11,21 @@
 
 from __future__ import absolute_import, division, print_function
 
-import re
 import os
-from urlparse import urljoin
-from six.moves.urllib.parse import quote
+import re
 
 from scrapy import Request, Selector
+
+from six.moves.urllib.parse import quote, urljoin
 
 from . import StatefulSpider
 from ..dateutils import create_valid_date
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
-    get_licenses,
-    get_first,
     ParsedItem,
+    get_first,
+    get_licenses,
     strict_kwargs,
 )
 

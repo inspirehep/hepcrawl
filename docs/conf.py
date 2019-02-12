@@ -31,17 +31,9 @@ from autosemver.packaging import (
     get_releasenotes,
 )
 
-_warn_node_old = sphinx.environment.BuildEnvironment.warn_node
 URL = 'http://github.com/inspirehep/hepcrawl'
 BUGTRACKER_URL = URL + '/issues/'
-
-
-def _warn_node(self, msg, *args, **kwargs):
-    """Do not warn on external images."""
-    if not msg.startswith('nonlocal image URI found:'):
-        _warn_node_old(self, msg, *args, **kwargs)
-
-
+suppress_warnings = ['image.nonlocal_uri']
 
 
 if not os.path.exists('_build/html/_static'):
@@ -63,10 +55,6 @@ with open('_build/html/_static/CHANGELOG.txt', 'w') as changelog_fd:
         bugtracker_url=BUGTRACKER_URL,
     ).encode('utf-8'))
 
-
-
-
-sphinx.environment.BuildEnvironment.warn_node = _warn_node
 
 # -- General configuration ------------------------------------------------
 

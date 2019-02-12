@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2017 CERN.
+# Copyright (C) 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -60,7 +60,7 @@ class LastRunStoreSpider(StatefulSpider):
             string: path to last runs path
         """
         lasts_run_path = self.settings['LAST_RUNS_PATH']
-        file_name = hashlib.sha1(self.make_file_fingerprint(set_)).hexdigest() + '.json'
+        file_name = hashlib.sha1(self.make_file_fingerprint(set_).encode('utf-8')).hexdigest() + '.json'
         return path.join(lasts_run_path, self.name, file_name)
 
     def _load_last_run(self, set_):

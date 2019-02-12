@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -16,7 +16,9 @@ from __future__ import (
 
 import pytest
 import yaml
+import sys
 
+from deepdiff import DeepDiff
 from inspire_schemas.utils import validate
 from hepcrawl.testlib.fixtures import get_test_suite_path
 from hepcrawl.parsers.jats import JatsParser
@@ -96,7 +98,13 @@ def test_field(field_name, records):
     result = getattr(records['jats'], field_name)
     expected = records['expected'][field_name]
 
-    assert result == expected
+    if field_name == 'authors':
+        diffs = DeepDiff(result, expected, ignore_order=True)
+        if sys.version_info[0] < 3 and 'type_changes' in diffs:
+            del diffs['type_changes']
+        assert diffs == {}
+    else:
+        assert result == expected
 
 
 def test_publication_date(records):
