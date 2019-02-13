@@ -138,7 +138,8 @@ class APSSpider(LastRunStoreSpider):
 
         doi = get_value(article, 'identifiers.doi', default='')
         record.add_dois(dois_values=[doi])
-        record.add_value('page_nr', str(article.get('numPages', '')))
+        if article.get('numPages', -1) > 0:
+            record.add_value('page_nr', str(article.get('numPages', '')))
 
         record.add_value('abstract', get_value(article, 'abstract.value', default=''))
         record.add_value('title', get_value(article, 'title.value', default=''))
