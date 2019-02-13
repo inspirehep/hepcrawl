@@ -172,11 +172,7 @@ def hepcrawl_to_hep(crawler_record):
 
 
     Returns:
-        dict: The hep formatted (and validated) record.
-
-    Raises:
-        Exception: if there was a validation error (the exact class depends on
-            :class:`inspire_schemas.api.validate`).
+        dict: The hep formatted record.
     """
 
     def _filter_affiliation(affiliations):
@@ -354,7 +350,5 @@ def hepcrawl_to_hep(crawler_record):
             original_url=document.get('original_url'),
             url=document['url'],
         )
-
-    builder.validate_record()
 
     return builder.record
