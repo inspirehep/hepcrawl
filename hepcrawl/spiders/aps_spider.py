@@ -71,11 +71,11 @@ class APSSpider(LastRunStoreSpider):
         params = {}
         from_date = self.from_date or self.resume_from(set_=self.set)
         if self.set:
-            params['sets'] = self.set
+            params['set'] = self.set
         if from_date:
-            params['from_date'] = from_date
+            params['from'] = from_date
         if self.until_date:
-            params['until_date'] = self.until_date
+            params['until'] = self.until_date
         if self.per_page:
             params['per_page'] = self.per_page
         if self.date:
