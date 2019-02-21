@@ -13,20 +13,20 @@ https://pos.sissa.it/cgi-bin/oai/oai-script-spires-extended.cgi
                 <setSpec>group:9</setSpec>
         </header>
         <metadata>
-        <pos-ext_dc:pex-dc xmlns:pos-ext_dc="http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd" xmlns:pex-dc="http://pos.sissa.it/pos-ext_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pos.sissa.it/pos-ext_dc/ http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd">
-                <pex-dc:title>Heavy Flavour Physics Review</pex-dc:title>
-                <pex-dc:creator><pex-dc:name>Aida El-Khadra</pex-dc:name><pex-dc:affiliation>INFN and Università di Firenze</pex-dc:affiliation></pex-dc:creator>
-                <pex-dc:creator><pex-dc:name>M. T. MacDonald</pex-dc:name><pex-dc:affiliation>U of Pecs</pex-dc:affiliation></pex-dc:creator><pex-dc:subject>Lattice Field Theory</pex-dc:subject>
-                <pex-dc:description>31st International Symposium on Lattice Field Theory LATTICE 2013; Plenary sessions</pex-dc:description>
-                <pex-dc:publisher>Sissa Medialab</pex-dc:publisher>
-                <pex-dc:date>2014-03-19T21:09:30Z</pex-dc:date>
-                <pex-dc:type>Text</pex-dc:type>
-                <pex-dc:format>application/pdf</pex-dc:format>
-                <pex-dc:identifier>PoS(LATTICE 2013)001</pex-dc:identifier>
-                <pex-dc:language>en</pex-dc:language>
-                <pex-dc:relation>LATTICE 2013 (31st International Symposium on Lattice Field Theory LATTICE 2013) isPartOf</pex-dc:relation>
-                <pex-dc:rights>Creative Commons Attribution-NonCommercial-ShareAlike</pex-dc:rights>
-        </pos-ext_dc:pex-dc>
+        <oai_dc:dc xmlns:pos-ext_dc="http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd" xmlns:dc="http://pos.sissa.it/pos-ext_dc/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pos.sissa.it/pos-ext_dc/ http://pos.sissa.it/pos-ext_dc/pos-ext_dc.xsd">
+                <dc:title>Heavy Flavour Physics Review</dc:title>
+                <dc:creator><dc:name>Aida El-Khadra</dc:name><dc:affiliation>INFN and Università di Firenze</dc:affiliation></dc:creator>
+                <dc:creator><dc:name>M. T. MacDonald</dc:name><dc:affiliation>U of Pecs</dc:affiliation></dc:creator><dc:subject>Lattice Field Theory</dc:subject>
+                <dc:description>31st International Symposium on Lattice Field Theory LATTICE 2013; Plenary sessions</dc:description>
+                <dc:publisher>Sissa Medialab</dc:publisher>
+                <dc:date>2014-03-19T21:09:30Z</dc:date>
+                <dc:type>Text</dc:type>
+                <dc:format>application/pdf</dc:format>
+                <dc:identifier>PoS(LATTICE 2013)001</dc:identifier>
+                <dc:language>en</dc:language>
+                <dc:relation>LATTICE 2013 (31st International Symposium on Lattice Field Theory LATTICE 2013) isPartOf</dc:relation>
+                <dc:rights>Creative Commons Attribution-NonCommercial-ShareAlike</dc:rights>
+        </oai_dc:dc>
         </metadata>
     </record>
 </ListRecords>

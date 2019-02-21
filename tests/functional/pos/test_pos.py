@@ -21,7 +21,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, deep_sort
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -43,48 +43,59 @@ def override_generated_fields(record):
 
 
 def get_configuration():
-    package_location = get_test_suite_path(
-        'pos',
-        'fixtures',
-        'oai_harvested',
-        'pos_record.xml',
-        test_suite='functional',
-    )
-
     return {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'source_file': 'file://' + package_location,
-            'base_conference_paper_url': (
-                'https://http-server.local/contribution?id='
-            ),
-            'base_proceedings_url': (
-                'https://http-server.local/cgi-bin/reader/conf.cgi?confid='
-            ),
+            'from_date': '2012-02-02',
+            'sets': 'conference:IHEP-LHC',
+            'url': 'http://pos-http-server.local/oai',
+        }
+    }
+
+
+def get_configuration_single():
+    return {
+        'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+        'CRAWLER_PROJECT': 'hepcrawl',
+        'CRAWLER_ARGUMENTS': {
+            'identifier': 'PoS(IHEP-LHC)005',
+            'url': 'http://pos-http-server.local/oai',
         }
     }
 
 
 @pytest.mark.parametrize(
-    'expected_results, config',
+    'expected_results, config, spider',
     [
         (
             expected_json_results_from_file(
                 'pos',
                 'fixtures',
-                'pos_conference_proceedings_records.json',
+                'pos_expected.json',
             ),
             get_configuration(),
+            'PoS',
+        ),
+        (
+            expected_json_results_from_file(
+                'pos',
+                'fixtures',
+                'pos_single_expected.json',
+            ),
+            get_configuration_single(),
+            'PoS_single',
         ),
     ],
     ids=[
         'smoke',
+        'smoke_single',
     ]
 )
 def test_pos_conference_paper_record_and_proceedings_record(
     expected_results,
     config,
+    spider,
 ):
     crawler = get_crawler_instance(config['CRAWLER_HOST_URL'])
 
@@ -92,10 +103,10 @@ def test_pos_conference_paper_record_and_proceedings_record(
         app=celery_app,
         monitor_timeout=5,
         monitor_iter_limit=100,
-        events_limit=2,
+        events_limit=1,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
-        spider='pos',
+        spider=spider,
         settings={},
         **config['CRAWLER_ARGUMENTS']
     )
@@ -112,22 +123,8 @@ def test_pos_conference_paper_record_and_proceedings_record(
         override_generated_fields(expected) for expected in expected_results
     ]
 
-    gotten_results = sorted(
-        gotten_results,
-        key=lambda x: x['document_type']
-    )
-    expected_results = sorted(
-        expected_results,
-        key=lambda x: x['document_type']
-    )
+    gotten_results = deep_sort(gotten_results)
+    expected_results = deep_sort(expected_results)
 
     assert gotten_results == expected_results
     assert not crawl_result['errors']
-
-
-# TODO create test that receives conference paper record AND proceedings
-# record. 'Crawl-once' plug-in needed.
-
-
-# TODO create test that receives proceedings record ONLY.
-# 'Crawl-once' plug-in needed.
