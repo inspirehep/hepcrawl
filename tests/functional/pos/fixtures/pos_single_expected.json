@@ -1,0 +1,62 @@
+[
+    {
+        "_collections": [
+            "Literature"
+        ], 
+        "acquisition_source": {
+            "datetime": "2019-02-27T13:40:15.883925", 
+            "method": "hepcrawl", 
+            "source": "PoS", 
+            "submission_number": "308823143a9511e9bfe60242ac120008"
+        }, 
+        "authors": [
+            {
+                "full_name": "SOLOVYANOV, Oleg"
+            }
+        ], 
+        "citeable": true, 
+        "curated": false, 
+        "document_type": [
+            "conference paper"
+        ], 
+        "documents": [
+            {
+                "fulltext": true, 
+                "hidden": true, 
+                "key": "pdf", 
+                "original_url": "https://pos.sissa.it/186/005/pdf", 
+                "source": "PoS", 
+                "url": "https://pos.sissa.it/186/005/pdf"
+            }
+        ], 
+        "imprints": [
+            {
+                "date": "2013-06-24"
+            }
+        ], 
+        "license": [
+            {
+                "license": "Creative Commons Attribution-NonCommercial-ShareAlike"
+            }
+        ], 
+        "publication_info": [
+            {
+                "artid": "005", 
+                "journal_title": "PoS", 
+                "journal_volume": "IHEP-LHC", 
+                "year": 2013
+            }
+        ], 
+        "titles": [
+            {
+                "source": "Sissa Medialab", 
+                "title": "Status of the ATLAS detector"
+            }
+        ], 
+        "urls": [
+            {
+                "value": "https://pos.sissa.it/contribution?id=PoS%28IHEP-LHC%29005"
+            }
+        ]
+    }
+]

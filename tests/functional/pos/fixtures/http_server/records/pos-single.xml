@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+    <responseDate>2019-02-27T14:26:55Z</responseDate>
+    <request verb="GetRecord" identifier="oai:pos.sissa.it:IHEP-LHC/005" metadataPrefix="oai_dc">
+    https://pos.sissa.it/oai
+    </request>
+    <GetRecord>
+        <record>
+        <header>
+            <identifier>oai:pos.sissa.it:IHEP-LHC/005</identifier>
+            <datestamp>2013-07-25</datestamp>
+            <setSpec>conference:IHEP-LHC</setSpec>
+            <setSpec>group:6</setSpec>
+        </header>
+        <metadata>
+        <oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+            <dc:title>Status of the ATLAS detector</dc:title>
+            <dc:creator>Oleg SOLOVYANOV</dc:creator>
+            <dc:subject>High Energy Physics</dc:subject>
+            <dc:description>LHC on the March; session Detector</dc:description>
+            <dc:publisher>Sissa Medialab</dc:publisher>
+            <dc:date>2013-06-24T00:37:20Z</dc:date>
+            <dc:type>Text</dc:type>
+            <dc:format>application/pdf</dc:format>
+            <dc:identifier>PoS(IHEP-LHC)005</dc:identifier>
+            <dc:language>en</dc:language>
+            <dc:relation>IHEP-LHC (LHC on the March) isPartOf</dc:relation>
+            <dc:rights>Creative Commons Attribution-NonCommercial-ShareAlike</dc:rights>
+        </oai_dc:dc>
+        </metadata>
+        </record>
+    </GetRecord>
+</OAI-PMH>

@@ -33,9 +33,6 @@ NEWSPIDER_MODULE = 'hepcrawl.spiders'
 # user-agent
 USER_AGENT = 'hepcrawl (+http://www.inspirehep.net)'
 
-# Allow duplicate requests
-DUPEFILTER_CLASS = "scrapy.dupefilters.BaseDupeFilter"
-
 # URI base prefix for $schema to be used during record generation
 SCHEMA_BASE_URI = os.environ.get(
     'APP_SCHEMA_BASE_URI',

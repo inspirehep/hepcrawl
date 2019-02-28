@@ -1,0 +1,121 @@
+[
+    {
+        "_collections": [
+            "Literature"
+        ], 
+        "acquisition_source": {
+            "datetime": "2019-02-26T15:22:48.594585",
+            "method": "hepcrawl", 
+            "source": "PoS", 
+            "submission_number": "5af38ee239da11e9bfe60242ac120008"
+        }, 
+        "authors": [
+            {
+                "full_name": "Guiducci, Luigi"
+            }
+        ], 
+        "citeable": true, 
+        "curated": false, 
+        "document_type": [
+            "conference paper"
+        ], 
+        "documents": [
+            {
+                "fulltext": true, 
+                "hidden": true, 
+                "key": "pdf", 
+                "original_url": "https://pos.sissa.it/186/001/pdf", 
+                "source": "PoS", 
+                "url": "https://pos.sissa.it/186/001/pdf"
+            }
+        ], 
+        "imprints": [
+            {
+                "date": "2013-07-19"
+            }
+        ], 
+        "license": [
+            {
+                "license": "Creative Commons Attribution-NonCommercial-ShareAlike"
+            }
+        ], 
+        "publication_info": [
+            {
+                "journal_title": "PoS", 
+                "journal_volume": "IHEP-LHC", 
+                "year": 2013
+            }
+        ],
+        "titles": [
+            {
+                "source": "Sissa Medialab", 
+                "title": "Status of the CMS detector and upgrade plans"
+            }
+        ], 
+        "urls": [
+            {
+                "value": "https://pos.sissa.it/contribution?id=PoS%28IHEP-LHC%29001"
+            }
+        ]
+    },
+    {
+        "_collections": [
+            "Literature"
+        ], 
+        "acquisition_source": {
+            "datetime": "2019-02-26T15:24:15.858700", 
+            "method": "hepcrawl", 
+            "source": "PoS", 
+            "submission_number": "8da46cf839da11e9bfe60242ac120008"
+        }, 
+        "authors": [
+            {
+                "full_name": "KRYSHEN, Evgeny"
+            }
+        ], 
+        "citeable": true, 
+        "curated": false, 
+        "document_type": [
+            "conference paper"
+        ], 
+        "documents": [
+            {
+                "fulltext": true, 
+                "hidden": true, 
+                "key": "pdf", 
+                "original_url": "https://pos.sissa.it/186/002/pdf", 
+                "source": "PoS", 
+                "url": "https://pos.sissa.it/186/002/pdf"
+            }
+        ], 
+        "imprints": [
+            {
+                "date": "2013-05-13"
+            }
+        ], 
+        "license": [
+            {
+                "license": "Creative Commons Attribution-NonCommercial-ShareAlike"
+            }
+        ], 
+        "publication_info": [
+            {
+                "artid": "002", 
+                "journal_title": "PoS", 
+                "journal_volume": "IHEP-LHC", 
+                "year": 2013
+            }
+        ], 
+        "titles": [
+            {
+                "source": "Sissa Medialab", 
+                "title": "ALICE status and plans"
+            }
+        ], 
+        "urls": [
+            {
+                "value": "https://pos.sissa.it/contribution?id=PoS%28IHEP-LHC%29002"
+            }
+        ]
+    }
+]
