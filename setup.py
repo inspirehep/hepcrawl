@@ -24,7 +24,7 @@ install_requires = [
     'Scrapy>=1.1.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
     'scrapy-sentry~=0.0,>=0.8.0',
-    # TODO: unpin once they support wheel building again
+    # TODO: unpin once they support wheel building again, needed for Python 3
     'scrapyd==1.1.0',
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
