@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016, 2017 CERN.
+# Copyright (C) 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -11,17 +11,10 @@
 
 from __future__ import absolute_import, division, print_function
 
-import re
-
 from hepcrawl.spiders.common.oaipmh_spider import OAIPMHSpider
-from scrapy import Selector
-from six.moves import zip_longest
 
 from ..parsers import ArxivParser
 from ..utils import (
-    coll_cleanforthe,
-    get_licenses,
-    split_fullname,
     ParsedItem,
     strict_kwargs,
 )
@@ -41,13 +34,13 @@ class ArxivSpider(OAIPMHSpider):
 
     @strict_kwargs
     def __init__(
-        self,
-        url='http://export.arxiv.org/oai2',
-        format='arXiv',
-        sets=None,
-        from_date=None,
-        until_date=None,
-        **kwargs
+            self,
+            url='http://export.arxiv.org/oai2',
+            format='arXiv',
+            sets=None,
+            from_date=None,
+            until_date=None,
+            **kwargs
     ):
         super(ArxivSpider, self).__init__(
             url=url,
@@ -86,11 +79,11 @@ class ArxivSpiderSingle(OAIPMHSpider):
 
     @strict_kwargs
     def __init__(
-        self,
-        url='http://export.arxiv.org/oai2',
-        format='arXiv',
-        identifier=None,
-        **kwargs
+            self,
+            url='http://export.arxiv.org/oai2',
+            format='arXiv',
+            identifier=None,
+            **kwargs
     ):
         super(ArxivSpiderSingle, self).__init__(
             url=url,
