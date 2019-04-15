@@ -35,8 +35,6 @@ env:
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - env: PYTHON=py3 SUITE=unit
 
 before_install:
   - travis_retry pip install twine wheel coveralls check-manifest
