@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -9,18 +9,17 @@
 
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-from hepcrawl.testlib.utils import deep_sort
+from deepdiff import DeepDiff
 
 
-def test_deep_sort_with_dict_in_list():
+def test_deepdiff_with_dict_in_list():
     element = [{'b': {'name': 'bb'}}, {'a': {'name': 'aa'}}]
     expected_element = [{'a': {'name': 'aa'}}, {'b': {'name': 'bb'}}]
 
-    result = deep_sort(expected_element)
-    assert result == expected_element
+    assert DeepDiff(expected_element, element, ignore_order=True) == {}
 
 
-def test_deep_sort_with_query_parser_output():
+def test_deepdiff_with_query_parser_output():
     element = {
         "bool": {
             "filter": {
@@ -73,5 +72,4 @@ def test_deep_sort_with_query_parser_output():
         }
     }
 
-    result = deep_sort(expected_element)
-    assert result == expected_element
+    assert DeepDiff(expected_element, element, ignore_order=True) == {}

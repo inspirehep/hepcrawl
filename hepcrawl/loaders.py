@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -18,6 +18,8 @@ from __future__ import absolute_import, division, print_function
 from scrapy.loader import ItemLoader
 from scrapy.loader.processors import Join, MapCompose, TakeFirst
 from scrapy.utils.url import canonicalize_url
+
+from six import text_type
 
 from .inputs import (
     selective_remove_tags,
@@ -79,7 +81,7 @@ class HEPLoader(ItemLoader):
         convert_html_subscripts_to_latex,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
-        unicode.strip,
+        text_type.strip,
     )
 
     abstract_out = TakeFirst()
@@ -96,7 +98,7 @@ class HEPLoader(ItemLoader):
         convert_html_subscripts_to_latex,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
-        unicode.strip,
+        text_type.strip,
     )
 
     subtitle_in = MapCompose(
@@ -104,7 +106,7 @@ class HEPLoader(ItemLoader):
         convert_html_subscripts_to_latex,
         remove_attributes_from_tags,
         selective_remove_tags(keep=MATHML_ELEMENTS),
-        unicode.strip,
+        text_type.strip,
     )
 
     subtitle_out = TakeFirst()

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -11,8 +11,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import os
 import pkg_resources
-
 import pytest
+
 from scrapy.crawler import Crawler
 from scrapy.http import HtmlResponse
 
@@ -53,11 +53,11 @@ def generated_conference_paper(scrape_pos_conference_paper_page_body):
 
     crawler = Crawler(spidercls=pos_spider.POSSpider)
     spider = pos_spider.POSSpider.from_crawler(crawler)
-    request = spider.parse(
+    request = next(spider.parse(
         fake_response_from_file(
             file_name=str('pos/sample_pos_record.xml'),
         )
-    ).next()
+    ))
     response = HtmlResponse(
         url=request.url,
         request=request,
@@ -68,7 +68,7 @@ def generated_conference_paper(scrape_pos_conference_paper_page_body):
 
     pipeline = InspireCeleryPushPipeline()
     pipeline.open_spider(spider)
-    parsed_item = request.callback(response).next()
+    parsed_item = next(request.callback(response))
     crawl_result = pipeline.process_item(parsed_item, spider)
     assert crawl_result['record']
 

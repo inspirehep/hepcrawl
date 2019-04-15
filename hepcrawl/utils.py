@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017, 2018 CERN.
+# Copyright (C) 2015, 2016, 2017, 2018, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -20,16 +20,16 @@ from operator import itemgetter
 from itertools import groupby
 from netrc import netrc
 from zipfile import ZipFile
-from urlparse import urlparse
 
 import ftputil
 import ftputil.session
 import ftplib
-from hepcrawl.tohep import hep_to_hep, _normalize_hepcrawl_record, \
-    hepcrawl_to_hep, UnknownItemFormat
 from inspire_schemas.builders import LiteratureBuilder
-
 from scrapy import Selector
+
+from hepcrawl.tohep import (hep_to_hep, _normalize_hepcrawl_record,
+                            hepcrawl_to_hep, UnknownItemFormat)
+from six.moves.urllib.parse import urlparse
 
 RE_FOR_THE = re.compile(
     r'\b(?:for|on behalf of|representing)\b',
@@ -238,9 +238,9 @@ def range_as_string(data):
     ranges = []
     for key, group in groupby(
         enumerate(data),
-        lambda (index, item): index - item
+        lambda index_item: index_item[0] - index_item[1]
     ):
-        group = map(itemgetter(1), group)
+        group = [year for _, year in group]
         if len(group) > 1:
             rangestring = "{}-{}".format(str(group[0]), str(group[-1]))
             ranges.append(rangestring)
@@ -289,7 +289,7 @@ def get_journal_and_section(publication):
     journal_title = ''
     possible_sections = ["A", "B", "C", "D", "E"]
     try:
-        split_pub = filter(None, re.split(r'(\W+)', publication))
+        split_pub = [element for element in re.split(r'(\W+)', publication) if element]
         if split_pub[-1] in possible_sections:
             section = split_pub.pop(-1)
         journal_title = "".join(

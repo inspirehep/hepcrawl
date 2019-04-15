@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016, 2017 CERN.
+# Copyright (C) 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -13,29 +13,27 @@ from __future__ import absolute_import, division, print_function
 
 import os
 import re
-
 from tempfile import mkdtemp
 
 import dateutil.parser as dparser
-
 import requests
-
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
+from six import text_type
 
 from . import StatefulSpider
+from ..dateutils import format_year
 from ..items import HEPRecord
 from ..loaders import HEPLoader
 from ..utils import (
+    ParsedItem,
     get_first,
     get_licenses,
     has_numbers,
     range_as_string,
-    unzip_xml_files,
-    ParsedItem,
     strict_kwargs,
+    unzip_xml_files,
 )
-from ..dateutils import format_year
 
 
 class ElsevierSpider(StatefulSpider, XMLFeedSpider):
@@ -355,7 +353,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
 
         # return year, raw_date
         # NOTE: I have call this here (not in the loader), because I need the year.
-        return format_year(raw_date), unicode(raw_date)
+        return format_year(raw_date), text_type(raw_date)
 
     def get_doctype(self, node):
         """Return a doctype mapped from abbreviation."""
@@ -471,7 +469,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
         elif trans_title:  # NOTE: is this case even possible?
             title = trans_title
 
-        return unicode(title)
+        return text_type(title)
 
     @staticmethod
     def _get_ref_journal_title(ref):
@@ -713,7 +711,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
             basename = os.path.basename(xml_file)
             elsevier_id = os.path.splitext(basename)[0]
             url = u"http://www.sciencedirect.com/science/article/pii/" + elsevier_id
-        except AttributeError:
+        except (AttributeError, TypeError):
             url = ''
         return url
 
@@ -739,7 +737,7 @@ class ElsevierSpider(StatefulSpider, XMLFeedSpider):
 
         try:
             # filter after re.split, which may return empty elements:
-            split_pub = filter(None, re.split(r'(\W+)', publication))
+            split_pub = [element for element in re.split(r'(\W+)', publication) if element]
             if split_pub[-1] in possible_sections:
                 section = split_pub.pop(-1)
 

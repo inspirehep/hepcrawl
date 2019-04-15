@@ -66,7 +66,7 @@ services:
 
   unit:
     <<: *service_base
-    command: bash -c "py.test tests/unit -vv && make -C docs clean && make -C docs html && python setup.py sdist && ls dist/*"
+    command: py.test -vv tests/unit
     links: []
 
   celery:

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016, 2017 CERN.
+# Copyright (C) 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -12,12 +12,14 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-import urlparse
 import tarfile
 from tempfile import mkdtemp
 
+import six
 from scrapy import Request
 from scrapy.spiders import XMLFeedSpider
+
+from six.moves.urllib.parse import urljoin, urlparse, urlsplit
 
 from . import StatefulSpider
 from ..extractors.jats import Jats
@@ -172,9 +174,9 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
     def handle_package_ftp(self, response):
         """Handle remote packages and yield every XML found."""
         self.logger.info("Visited %s" % response.url)
-        zip_filepath = response.body
+        zip_filepath = response.text
         zip_target_folder, _ = os.path.splitext(zip_filepath)
-        if "tar" in zip_target_folder:
+        if u"tar" in six.text_type(zip_target_folder):
             zip_target_folder, _ = os.path.splitext(zip_target_folder)
         xml_files = self.untar_files(zip_filepath, zip_target_folder)
         for xml_file in xml_files:
@@ -185,7 +187,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
 
     def handle_package_file(self, response):
         """Handle a local package and yield every XML found."""
-        zip_filepath = urlparse.urlsplit(response.url).path
+        zip_filepath = urlsplit(response.url).path
         zip_target_folder, _ = os.path.splitext(zip_filepath)
         if "tar" in zip_target_folder:
             zip_target_folder, _ = os.path.splitext(zip_target_folder)
@@ -267,7 +269,7 @@ class EDPSpider(StatefulSpider, Jats, XMLFeedSpider):
             '//a[contains(@href, "pdf")]/@href').extract()
         domain = parse_domain(response.url)
         pdf_links = sorted(list(set(
-            [urlparse.urljoin(domain, link) for link in all_links])))
+            [urljoin(domain, link) for link in all_links])))
 
         response.meta["pdf_links"] = pdf_links
         response.meta["urls"] = [response.url]

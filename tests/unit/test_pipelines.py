@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2016, 2017 CERN.
+# Copyright (C) 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -16,7 +16,7 @@ import os
 
 import pytest
 
-from scrapy.spiders import Spider
+from scrapy import Spider
 from inspire_schemas.api import validate
 
 from hepcrawl.spiders import arxiv_spider
@@ -48,7 +48,7 @@ def json_spider_record(tmpdir):
 
     test_selectors = fake_response.xpath('.//record')
     items = (spider.parse_record(sel) for sel in test_selectors)
-    parsed_record = items.next()
+    parsed_record = next(items)
     assert parsed_record
     yield spider, parsed_record
 
