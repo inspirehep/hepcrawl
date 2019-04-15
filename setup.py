@@ -39,6 +39,8 @@ install_requires = [
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
     'Sickle~=0.6,>=0.6.2',
+    # newer versions seem incompatible with required scrapyd version
+    'Twisted~=18.0,>=18.9.0',
 ]
 
 tests_require = [
