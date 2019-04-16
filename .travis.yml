@@ -74,4 +74,4 @@ deploy:
       python: 2.7
       distributions: sdist
       repo: inspirehep/hepcrawl
-      condition: env(SUITE) = functional_arxiv AND env(PYTHON) = py2
+      condition: $SUITE = functional_arxiv && $PYTHON = py2
