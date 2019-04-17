@@ -29,7 +29,7 @@ install_requires = [
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
     'requests>=2.8.1',
-    'celery~=4.0,>=4.1.0,<4.2.0',
+    'celery~=4.1,<4.3.0',
     'redis>=2.10.5',
     'pyasn1>=0.1.8',  # Needed for dependency resolving.
     'LinkHeader>=0.4.3',
