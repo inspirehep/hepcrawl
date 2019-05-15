@@ -1,7 +1,6 @@
 [
     {
         "core": true,
-        "citeable": true,
         "documents": [
             {
                 "url": "/tmp/file_urls/full/53e4ae5ef5adb35d0a7617afe76bf7f324fca2c2.pdf", 
@@ -223,7 +222,6 @@
     }, 
     {
         "core": true,
-        "citeable": true,
         "documents": [
             {
                 "url": "http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf", 
