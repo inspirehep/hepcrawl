@@ -15,6 +15,7 @@ from inspire_schemas.api import LiteratureBuilder, ReferenceBuilder
 from inspire_utils.date import PartialDate
 from inspire_utils.helpers import force_list
 from inspire_utils.record import get_value
+from inspire_utils.dedupers import dedupe_list_of_dicts
 
 """Document types for the crossref objects have been extracted
 from the following link: https://api.crossref.org/v1/types
@@ -293,11 +294,12 @@ class CrossrefParser(object):
                 the references in the record
         """
         ref_keys = self.record.get("reference")
-        return list(
+        reference_list = list(
             itertools.chain.from_iterable(
                 self.get_reference(key) for key in force_list(ref_keys)
             )
         )
+        return dedupe_list_of_dicts(reference_list)
 
     def get_reference(self, ref_key):
         """Extract one reference.
@@ -349,6 +351,6 @@ class CrossrefParser(object):
 
         raw_ref = ref_key.get("unstructured")
         if raw_ref:
-            builder.add_raw_reference(raw_ref)
+            builder.add_raw_reference(raw_ref, self.material_source)
         
         yield builder.obj

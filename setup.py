@@ -21,14 +21,15 @@ install_requires = [
     'inspire-schemas~=60.0,>=60.0.1',
     'inspire-dojson~=62.0,>=62.0.0',
     'inspire-utils~=3.0,>=3.0.0',
-    'Scrapy>=1.1.0',
+    # newer scrapy is incompatible with old scrapyd
+    'Scrapy~=1.6,<1.7.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
     'scrapy-sentry~=0.0,>=0.8.0',
     # TODO: unpin once they support wheel building again, needed for Python 3
     'scrapyd==1.1.0',
     'scrapyd-client>=1.0.1',
     'six>=1.9.0',
-    'requests>=2.8.1',
+    'requests~=2.22,>=2.22.0',
     'celery~=4.1,<4.3.0',
     'redis>=2.10.5',
     'pyasn1>=0.1.8',  # Needed for dependency resolving.

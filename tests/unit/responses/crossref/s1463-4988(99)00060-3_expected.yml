@@ -162,7 +162,8 @@ references:
     title:
       title: The attenuation of solar UV radiation in lakes and the role of dissolved organic carbon
 - raw_refs:
-  - value: Murakami, Y., 1999. Effects of a bacterial siderophore on microalgal proliferation. MSc thesis, School of Biosphere Science, Hiroshima University.
+  - source: Crossref
+    value: Murakami, Y., 1999. Effects of a bacterial siderophore on microalgal proliferation. MSc thesis, School of Biosphere Science, Hiroshima University.
     schema: text
 - reference:
     publication_info:
