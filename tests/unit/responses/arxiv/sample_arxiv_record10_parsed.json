@@ -39,7 +39,13 @@
                     ], 
                     "value": "1606.04259"
                 }
-            ], 
+            ],
+            "inspire_categories": [
+                {
+                    "source": "arxiv",
+                    "term": "Theory-HEP"
+                }
+            ],
             "document_type": [
                 "thesis"
             ], 
