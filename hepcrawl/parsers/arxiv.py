@@ -18,6 +18,7 @@ import six
 
 from inspire_schemas.api import LiteratureBuilder, ReferenceBuilder
 from inspire_schemas.utils import split_page_artid
+from inspire_schemas.utils import classify_field
 from inspire_utils.date import PartialDate
 from inspire_utils.helpers import maybe_int, remove_tags
 
@@ -89,6 +90,9 @@ class ArxivParser(object):
         self.builder.add_arxiv_eprint(self.arxiv_eprint, self.arxiv_categories)
         self.builder.add_private_note(self.private_note)
         self.builder.add_document_type(self.document_type)
+        normalized_categories = [classify_field(arxiv_cat)
+                                 for arxiv_cat in self.arxiv_categories]
+        self.builder.add_inspire_categories(normalized_categories, 'arxiv')
 
         return self.builder.record
 
