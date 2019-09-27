@@ -1,11 +1,11 @@
 {
-    "errors": [], 
-    "results_uri": "scrapy_feed_uri", 
-    "log_file": "scrapy_log_file", 
+    "errors": [],
+    "results_uri": "scrapy_feed_uri",
+    "log_file": "scrapy_log_file",
     "results_data": [
         {
             "_collections": ["Literature"],
-            "preprint_date": "2016-06-14", 
+            "preprint_date": "2016-06-14",
             "curated": false,
             "citeable": true,
             "license": [
@@ -14,33 +14,42 @@
                     "material": "preprint",
                     "license": "arXiv nonexclusive-distrib 1.0"
                 }
-            ], 
+            ],
             "public_notes": [
                 {
-                    "source": "arXiv", 
+                    "source": "arXiv",
                     "value": "Phd thesis in Fundamental and Applied Physics presented at University\n  \"Federico II\" (Naples, Italy) on 29th April 2016"
                 }
-            ], 
+            ],
             "authors": [
                 {
                     "full_name": "Battista, Emmanuele"
                 }
-            ], 
+            ],
             "titles": [
                 {
-                    "source": "arXiv", 
+                    "source": "arXiv",
                     "title": "Extreme Regimes in Quantum Gravity"
                 }
-            ], 
+            ],
             "arxiv_eprints": [
                 {
+                    "value": "1606.04259",
                     "categories": [
-                        "hep-th"
-                    ], 
-                    "value": "1606.04259"
+                        "math.AP",
+                        "hep-th",
+                        "math-ph",
+                        "math.DG",
+                        "math.MP",
+                        "nlin.SI"
+                    ]
                 }
             ],
             "inspire_categories": [
+                {
+                    "source": "arxiv",
+                    "term": "Math and Math Physics"
+                },
                 {
                     "source": "arxiv",
                     "term": "Theory-HEP"
@@ -48,20 +57,20 @@
             ],
             "document_type": [
                 "thesis"
-            ], 
+            ],
             "abstracts": [
                 {
-                    "source": "arXiv", 
+                    "source": "arXiv",
                     "value": "The thesis is divided into two parts. In the first part the low-energy limit of quantum gravity is analysed, whereas in the second we deal with the high-energy domain. In the first part, by applying the effective field theory point of view to the quantization of general relativity, detectable, though tiny, quantum effects in the position of Newtonian Lagrangian points of the Earth-Moon system are found. In order to make more realistic the quantum corrected model proposed, the full three-body problem where the Earth and the Moon interact with a generic massive body and the restricted four-body problem involving the perturbative effects produced by the gravitational presence of the Sun in the Earth-Moon system are also studied. After that, a new quantum theory having general relativity as its classical counterpart is analysed. By exploiting this framework, an innovative interesting prediction involving the position of Lagrangian points within the context of general relativity is described. Furthermore, the new pattern provides quantum corrections to the relativistic coordinates of Earth-Moon libration points of the order of few millimetres. The second part of the thesis deals with the Riemannian curvature characterizing the boosted form assumed by the Schwarzschild-de Sitter metric. The analysis of the Kretschmann invariant and the geodesic equation shows that the spacetime possesses a \"scalar curvature singularity\" within a 3-sphere and that it is possible to define what we here call \"boosted horizon\", a sort of elastic wall where all particles are surprisingly pushed away, suggesting that such \"boosted geometries\" are ruled by a sort of \"antigravity effect\". Eventually, the equivalence with the coordinate shift method is invoked in order to demonstrate that all $\\delta^2$ terms appearing in the Riemann curvature tensor give vanishing contribution in distributional sense."
                 }
-            ], 
+            ],
             "acquisition_source": {
                 "datetime": "2016-06-14T00:00:00",
-                "source": "arXiv", 
-                "method": "hepcrawl", 
+                "source": "arXiv",
+                "method": "hepcrawl",
                 "submission_number": "scrapy_job"
             }
         }
-    ], 
+    ],
     "job_id": "scrapy_job"
 }
