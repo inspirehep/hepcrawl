@@ -11,7 +11,7 @@
 </header>
 <metadata>
  <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
- <id>1606.04259</id><created>2016-06-14</created><authors><author><keyname>Battista</keyname><forenames>Emmanuele</forenames></author></authors><title>Extreme Regimes in Quantum Gravity</title><categories>hep-th</categories><comments>Phd thesis in Fundamental and Applied Physics presented at University
+ <id>1606.04259</id><created>2016-06-14</created><authors><author><keyname>Battista</keyname><forenames>Emmanuele</forenames></author></authors><title>Extreme Regimes in Quantum Gravity</title><categories>math.AP hep-th math-ph math.DG math.MP nlin.SI</categories><comments>Phd thesis in Fundamental and Applied Physics presented at University
   &quot;Federico II&quot; (Naples, Italy) on 29th April 2016</comments><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  The thesis is divided into two parts. In the first part the low-energy limit
 of quantum gravity is analysed, whereas in the second we deal with the
 high-energy domain. In the first part, by applying the effective field theory
