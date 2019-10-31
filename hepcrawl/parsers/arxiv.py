@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of hepcrawl.
-# Copyright (C) 2015, 2016, 2017 CERN.
+# Copyright (C) 2015, 2016, 2017, 2019 CERN.
 #
 # hepcrawl is a free software; you can redistribute it and/or modify it
 # under the terms of the Revised BSD License; see LICENSE file for
@@ -11,27 +11,16 @@
 
 from __future__ import absolute_import, division, print_function
 
-import itertools
 import re
 
 import six
-
-from inspire_schemas.api import LiteratureBuilder, ReferenceBuilder
-from inspire_schemas.utils import split_page_artid
+from inspire_schemas.api import LiteratureBuilder
 from inspire_schemas.utils import classify_field
-from inspire_utils.date import PartialDate
-from inspire_utils.helpers import maybe_int, remove_tags
 from inspire_utils.dedupers import dedupe_list
+from inspire_utils.helpers import maybe_int
 
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
-from ..utils import (
-    coll_cleanforthe,
-    get_first,
-    get_node,
-    split_fullname,
-    ParsedItem,
-    strict_kwargs,
-)
+from ..utils import coll_cleanforthe, get_node, split_fullname
 
 RE_CONFERENCE = re.compile(
     r'\b(%s)\b' % '|'.join(
@@ -97,10 +86,9 @@ class ArxivParser(object):
 
         return self.builder.record
 
-    @staticmethod
     def _get_authors_and_collaborations(self, node):
         """Parse authors, affiliations and collaborations from the record node.
-            
+
         Heuristics are used to detect collaborations. In case those are not
         reliable, a warning is returned for manual checking.
 
@@ -225,7 +213,8 @@ class ArxivParser(object):
     @property
     def authors(self):
         authors, _, _ = self.authors_and_collaborations
-        parsed_authors = [self.builder.make_author(full_name=auth["full_name"],raw_affiliations=auth["affiliations"]) for auth in authors]
+        parsed_authors = [self.builder.make_author(
+            full_name=auth["full_name"], raw_affiliations=auth["affiliations"]) for auth in authors]
 
         return parsed_authors
 
@@ -261,7 +250,7 @@ class ArxivParser(object):
         if found_pages:
             pages = found_pages.group(1)
             return maybe_int(pages)
-        
+
         return None
 
     @property
@@ -283,7 +272,7 @@ class ArxivParser(object):
 
     @staticmethod
     def fix_long_text(text):
-        return re.sub('\s+', ' ', text).strip()
+        return re.sub(r'\s+', ' ', text).strip()
 
     @staticmethod
     def get_root_node(arxiv_record):
@@ -327,7 +316,7 @@ class ArxivParser(object):
             rns.extend(rn.split(', '))
 
         return rns
-    
+
     @property
     def arxiv_eprint(self):
         return self.root.xpath('.//id/text()').extract_first()
@@ -341,7 +330,7 @@ class ArxivParser(object):
     @property
     def document_type(self):
         comments = '; '.join(self.root.xpath('.//comments/text()').extract())
-        
+
         doctype = 'article'
         if RE_THESIS.search(comments):
             doctype = 'thesis'
@@ -357,5 +346,5 @@ class ArxivParser(object):
     @property
     def authors_and_collaborations(self):
         if not hasattr(self, '_authors_and_collaborations'):
-            self._authors_and_collaborations = self._get_authors_and_collaborations(self, self.root)
+            self._authors_and_collaborations = self._get_authors_and_collaborations(self.root)
         return self._authors_and_collaborations
