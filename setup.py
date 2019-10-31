@@ -18,8 +18,8 @@ readme = open('README.rst').read()
 install_requires = [
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
-    'inspire-schemas~=60.0,>=60.0.1',
-    'inspire-dojson~=62.0,>=62.0.0',
+    'inspire-schemas~=61.0',
+    'inspire-dojson~=63.0',
     'inspire-utils~=3.0,>=3.0.0',
     # newer scrapy is incompatible with old scrapyd
     'Scrapy~=1.6,<1.7.0',
