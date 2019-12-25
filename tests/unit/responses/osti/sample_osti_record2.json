@@ -1,0 +1,49 @@
+[
+   {
+      "article_type" : "",
+      "authors" : [
+         "Minty, Michiko G"
+      ],
+      "availability" : "",
+      "contributing_org" : "",
+      "country_publication" : "United States",
+      "description" : "Coupled-bunch instabilities have been observed in the PEP-II high energy electron ring (HER) and in the low energy positron ring (LER). To better characterize the beam motion, new di- agnostics were developed and improvements to existing diagnostics were made. The relative sensitivies of the measurement methods were evaluated and systematic effects were carefully analyzed and subsequently reduced. The studies were occassionally hampered by day-to-day irreproducibility; for example, in the HER, sometimes two-bunch instabilities were observed while in the LER an occassional single-bunch instability was noted. As a consequence, absolute measurements of the instabilities' properties proved di cult, however relative changes were suc- cessfully studied. Measurements were made of instability thresholds, characteristic frequencies, and relative growth rates. These observables were found to depend strongly on various beam properties including fill pattern, single bunch current, and total beam current. Certain features of the beam instabilities were dominant in the measurements. For example, strong horizontal excitations were identi ed and were reproducible for the case of short bunch trains in the HER. Interestingly, measurements in the LER with short bunch trains evidenced similar features indicating a possible common source. With bunch trains, while horizontal motion was prevalent, when normalized to the beam size, motion in the vertical plane was found to be equally significant with regards to the potential impact on collider luminosity. To date, it has not been determined whether the stability issues observed with bunch trains may be relevant for more evenly spaced beam current distributions as in the design fill pattern. Fortunately, in both accelerators, the beam was observed to be more stable with more uniform bunch fills and at modest single-bunch beam currents. In this report is presented a summary of data acquired in both the electron and positron rings during the October-December 1998 commissioning period. Properties of the two accelerators and symbol de nitions are given in Table I. In the main text, the data are classified in terms of bunch fill pattern; cross references to specific experiments are given in appendix A. An overview of theoretical models and simulations is given in references [1], [2], and [3]. Instability measurements made during previous commissioning runs are given in references [4], [5], [6], [7], and [8].",
+      "doe_contract_number" : "AC03-76SF00515",
+      "doi" : "10.2172/9893",
+      "entry_date" : "2016-06-20T00:00:00Z",
+      "format" : "Medium: ED",
+      "journal_issue" : "",
+      "journal_name" : "",
+      "journal_volume" : "",
+      "language" : "English",
+      "links" : [
+         {
+            "href" : "https://www.osti.gov/biblio/9893",
+            "rel" : "citation"
+         }
+      ],
+      "osti_id" : "9893",
+      "other_identifiers" : [
+         "ON: DE00009893"
+      ],
+      "product_type" : "Technical Report",
+      "publication_date" : "1999-04-07T00:00:00Z",
+      "publisher" : "",
+      "report_number" : "SLAC-AP-118",
+      "research_orgs" : [
+         "Stanford Linear Accelerator Center (SLAC), Menlo Park, CA"
+      ],
+      "sponsor_orgs" : [
+         "ER"
+      ],
+      "subjects" : [
+         "43 PARTICLE ACCELERATORS",
+         "PEP Storage Rings",
+         "Instability",
+         "Beam-Beam Interactions",
+         "Beam Bunching",
+         "Coupling"
+      ],
+      "title" : "Coupled-Bunch Instability Measurements at PEP-II (Oct-Dec, 1998)"
+   }
+]

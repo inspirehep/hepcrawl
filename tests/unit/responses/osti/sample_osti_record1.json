@@ -1,0 +1,51 @@
+[
+   {
+      "article_type" : "Accepted Manuscript",
+      "authors" : [
+         "Bjorken, J. D. [Stanford Univ., Stanford, CA (United States)]",
+         "Cline, D. [Univ. of Wisconsin, Madison, WI (United States)]",
+         "Mann, A. K. [Univ. of Pennsylvania, Philadelphia, PA (United States)]"
+      ],
+      "availability" : "",
+      "contributing_org" : "",
+      "country_publication" : "United States",
+      "description" : "The scaling variable ν = xy = 2(E<sub>μ</sub>/M) sin<sup>2</sup>(1/2θ<sub>μ</sub>) is useful for the description of deep-inelastic neutrino-nucleon scattering processes. This variable is determined solely by the momentum and angle of the outgoing lepton. The normalized scattering distribution in this variable is independent of incident lepton energy and flux, provided scale invariance is valid. Furthermore the sensitivity to various hypothetical scale-breaking mechanisms is discussed.",
+      "doe_contract_number" : "AC02-76SF00515",
+      "doi" : "10.1103/PhysRevD.8.3207",
+      "entry_date" : "2019-04-26T00:00:00Z",
+      "format" : "Medium: ED; Size: p. 3207-3210",
+      "journal_issn" : "ISSN 0556-2821",
+      "journal_issue" : "9",
+      "journal_name" : "Physical Review. D, Particles Fields",
+      "journal_volume" : "8",
+      "language" : "English",
+      "links" : [
+         {
+            "href" : "https://www.osti.gov/biblio/1442851",
+            "rel" : "citation"
+         },
+         {
+            "href" : "https://www.osti.gov/servlets/purl/1442851",
+            "rel" : "fulltext"
+         }
+      ],
+      "osti_id" : "1442851",
+      "other_identifiers" : [
+         "Journal ID: ISSN 0556-2821; PRVDAQ; TRN: US1900937"
+      ],
+      "product_type" : "Journal Article",
+      "publication_date" : "1973-11-01T00:00:00Z",
+      "publisher" : "American Physical Society (APS)",
+      "report_number" : "SLAC-PUB-1244",
+      "research_orgs" : [
+         "SLAC National Accelerator Lab., Menlo Park, CA (United States)"
+      ],
+      "sponsor_orgs" : [
+         "USDOE Office of Science (SC)"
+      ],
+      "subjects" : [
+         "72 PHYSICS OF ELEMENTARY PARTICLES AND FIELDS"
+      ],
+      "title" : "Flux-Independent Measurements of Deep-Inelastic Neutrino Processes"
+   }
+]

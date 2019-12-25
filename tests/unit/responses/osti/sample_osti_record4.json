@@ -1,0 +1,56 @@
+[
+   {
+      "article_type" : "Accepted Manuscript",
+      "authors" : [
+         "Gorham, P. W. [Univ. of Hawaii at Manoa, Honolulu, HI (United States)]",
+         "Saltzberg, D. [Univ. of California, Los Angeles, CA (United States)]",
+         "Field, R. C. [Stanford Univ., Stanford, CA (United States)]",
+         "Guillian, E. [Univ. of Hawaii at Manoa, Honolulu, HI (United States)]",
+         "Milinčić, R. [Univ. of Hawaii at Manoa, Honolulu, HI (United States)]",
+         "Miočinović, P. [Univ. of Hawaii at Manoa, Honolulu, HI (United States)]",
+         "Walz, D. [Stanford Univ., Stanford, CA (United States)]",
+         "Williams, D. [Univ. of California, Los Angeles, CA (United States); Pennsylvania State Univ., University Park, PA (United States)]"
+      ],
+      "availability" : "",
+      "contributing_org" : "",
+      "country_publication" : "United States",
+      "description" : "Here, we report on further SLAC measurements of the Askaryan effect: coherent radio emission from charge asymmetry in electromagnetic cascades. We used synthetic rock salt as the dielectric medium, with cascades produced by GeV bremsstrahlung photons at the Final Focus Test Beam. We extend our prior discovery measurements to a wider range of parameter space and explore the effect in a dielectric medium of great potential interest to large-scale ultra-high-energy neutrino detectors: rock salt (halite), which occurs naturally in high purity formations containing in many cases hundreds of km<sup>3</sup> of water-equivalent mass. We observed strong coherent pulsed radio emission over a frequency band from 0.2–15 GHz. A grid of embedded dual-polarization antennas was used to confirm the high degree of linear polarization and track the change of direction of the electric-field vector with azimuth around the shower. Coherence was observed over 4 orders of magnitude of shower energy. The frequency dependence of the radiation was tested over 2 orders of magnitude of UHF and microwave frequencies. We have also made the first observations of coherent transition radiation from the Askaryan charge excess, and the result agrees well with theoretical predictions. Based on these results we have performed a detailed and conservative simulation of a realistic GZK neutrino telescope array within a salt dome, and we find it capable of detecting 10 or more contained events per year from even the most conservative GZK neutrino models.",
+      "doe_contract_number" : "AC02-76SF00515",
+      "doi" : "10.1103/PhysRevD.72.023002",
+      "entry_date" : "2019-04-26T00:00:00Z",
+      "format" : "Medium: ED; Size: Article No. 023002",
+      "journal_issn" : "ISSN 1550-7998",
+      "journal_issue" : "2",
+      "journal_name" : "Physical Review. D, Particles, Fields, Gravitation and Cosmology",
+      "journal_volume" : "72",
+      "language" : "English",
+      "links" : [
+         {
+            "href" : "https://www.osti.gov/biblio/1442457",
+            "rel" : "citation"
+         },
+         {
+            "href" : "https://www.osti.gov/servlets/purl/1442457",
+            "rel" : "fulltext"
+         }
+      ],
+      "osti_id" : "1442457",
+      "other_identifiers" : [
+         "Journal ID: ISSN 1550-7998; PRVDAQ; TRN: US1900924"
+      ],
+      "product_type" : "Journal Article",
+      "publication_date" : "2005-07-21T00:00:00Z",
+      "publisher" : "American Physical Society (APS)",
+      "report_number" : "SLAC-PUB-10911",
+      "research_orgs" : [
+         "SLAC National Accelerator Lab., Menlo Park, CA (United States)"
+      ],
+      "sponsor_orgs" : [
+         "USDOE Office of Science (SC)"
+      ],
+      "subjects" : [
+         "72 PHYSICS OF ELEMENTARY PARTICLES AND FIELDS"
+      ],
+      "title" : "Accelerator measurements of the Askaryan effect in rock salt: A roadmap toward teraton underground neutrino detectors"
+   }
+]

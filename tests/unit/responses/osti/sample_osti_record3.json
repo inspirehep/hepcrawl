@@ -1,0 +1,52 @@
+[
+   {
+      "article_type" : "Accepted Manuscript",
+      "authors" : [
+         "Gugliucci, N. E. [Lycoming College, Williamsport, PA (United States); National Radio Astronomy Observatory, Socorro, NM (United States)]",
+         "Taylor, G. B. [National Radio Astronomy Observatory, Socorro, NM (United States); Kavli Institute of Particle Astrophysics and Cosmology, Menlo Park, CA (United States)]",
+         "Peck, A. B. [Harvard-Smithsonian Center for Astrophysics, Hilo, HI (United States)]",
+         "Giroletti, M. [Istituto di Radiastronomia del CNR, Bologna (Italy)]"
+      ],
+      "availability" : "",
+      "contributing_org" : "",
+      "country_publication" : "United States",
+      "description" : "Here, we present multiepoch VLBA observations of compact symmetric objects (CSOs) from the COINS sample (CSOs Observed In the Northern Sky). These observations allow us to make estimates of, or place limits on, the kinematic ages for those sources with well-identified hot spots. This study significantly increases the number of CSOs with well-determined ages or limits. The age distribution is found to be sharply peaked under 500 yr, suggesting that many CSOs die young, or are episodic in nature, and very few survive to evolve into FR II sources such as Cygnus A. Jet components are found to have higher velocities than hot spots, which is consistent with their movement down cleared channels. We also report on the first detections of significant polarization in two CSOs, J0000+4054 (2.1%) and J1826+1831 (8.8%). In both cases the polarized emission is found in jet components on the stronger side of the center of activity.",
+      "doe_contract_number" : "AC02-76SF00515",
+      "doi" : "10.1086/427934",
+      "entry_date" : "2019-04-26T00:00:00Z",
+      "format" : "Medium: ED; Size: p. 136-148",
+      "journal_issn" : "ISSN 0004-637X",
+      "journal_issue" : "1",
+      "journal_name" : "Astrophysical Journal",
+      "journal_volume" : "622",
+      "language" : "English",
+      "links" : [
+         {
+            "href" : "https://www.osti.gov/biblio/1442479",
+            "rel" : "citation"
+         },
+         {
+            "href" : "https://www.osti.gov/servlets/purl/1442479",
+            "rel" : "fulltext"
+         }
+      ],
+      "osti_id" : "1442479",
+      "other_identifiers" : [
+         "Journal ID: ISSN 0004-637X; TRN: US1900926"
+      ],
+      "product_type" : "Journal Article",
+      "publication_date" : "2005-03-20T00:00:00Z",
+      "publisher" : "Institute of Physics (IOP)",
+      "report_number" : "SLAC-PUB-10931",
+      "research_orgs" : [
+         "SLAC National Accelerator Lab., Menlo Park, CA (United States)"
+      ],
+      "sponsor_orgs" : [
+         "USDOE Office of Science (SC)"
+      ],
+      "subjects" : [
+         "79 ASTRONOMY AND ASTROPHYSICS"
+      ],
+      "title" : "Dating COINS: Kinematic Ages for Compact Symmetric Objects"
+   }
+]
