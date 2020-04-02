@@ -46,12 +46,6 @@ def record():
     return parsed_item.record
 
 
-def test_abstract(record):
-    """Test extracting abstract."""
-    assert "abstract" in record
-    assert record["abstract"].startswith("Somatic BRAF mutation")
-
-
 def test_title(record):
     """Test extracting title."""
     title = 'A Modified Lynch Syndrome Screening Algorithm in Colon Cancer: BRAF Immunohistochemistry Is Efficacious and Cost Beneficial.'
@@ -87,7 +81,7 @@ def test_free_keywords(record):
 def test_dois(record):
     """Test extracting dois."""
     assert record["dois"]
-    assert record["dois"][0]["value"] == '110.1309/AJCP4D7RXOBHLKGJ'
+    assert record["dois"][0]["value"] == '10.1309/AJCP4D7RXOBHLKGJ'
 
 
 def test_collections(record):
@@ -115,29 +109,6 @@ def test_publication_info(record):
     assert record["journal_issue"] == journal_issue
     assert "journal_issn" in record
     assert record["journal_issn"][0] == journal_issn
-
-
-def test_authors(record):
-    """Test authors."""
-    authors = ['Roth, Rachel M', 'Hampel, Heather', 'Arnold, Christina A',
-               'Yearsley, Martha M', 'Marsh, William L', 'Frankel, Wendy L']
-
-    affiliations = [
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Human Genetics, The Ohio State University Wexner Medical Center Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'},
-         {'value': u'Department of Microbiology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'}],
-        [{'value': u'Department of Pathology, The Ohio State University Wexner Medical Center, Columbus'},
-         {'value': u'Department of Human Genetics, The Ohio State University Wexner Medical Center, Columbus'}]
-    ]
-
-    assert "authors" in record
-    assert len(record["authors"]) == 6
-    for index, (name, aff) in enumerate(zip(authors, affiliations)):
-        assert record["authors"][index]["full_name"] == name
-        assert record["authors"][index]["affiliations"] == aff
 
 
 def test_copyrights(record):

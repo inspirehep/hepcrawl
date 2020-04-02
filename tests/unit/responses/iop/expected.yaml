@@ -1,0 +1,80 @@
+abstract: This is a sample text containing maths,
+  <math><int/><mfrac><mi>f(x)</mi><mi>1+x</mi></mfrac><mi>dx</mi></math> and <sup>superscript text</sup>.
+  Resection cases (2009-2013) with absent MLH1 and PMS2 and prior BRAF mutation
+  polymerase chain reaction results were chosen (n = 57). To mimic biopsy
+  specimens, tissue microarrays (TMAs) were constructed. In addition, available
+  biopsies performed prior to the resection were available in 15 cases. BRAF
+  V600E IHC was performed and graded on TMAs, available biopsy specimens, and
+  whole-section slides. Mutation status was compared with IHC, and
+  cost-benefit analysis was performed. BRAF V600E IHC was similar in TMAs,
+  biopsy specimens, and whole-section slides, with only four (7%) showing
+  discordance between IHC and mutation status. Using BRAF V600E IHC in our
+  Lynch syndrome screening algorithm, we found a 10% cost savings compared
+  with mutational analysis. BRAF V600E IHC was concordant between TMAs,
+  biopsy specimens, and whole-section slides, suggesting biopsy specimens are
+  as useful as whole sections. IHC remained cost beneficial compared with
+  mutational analysis, even though more patients needed additional molecular
+  testing to exclude Lynch syndrome.
+title: 'A Modified Lynch Syndrome Screening Algorithm in Colon Cancer: BRAF
+  Immunohistochemistry Is Efficacious and Cost Beneficial.'
+copyright_statement: Copyright© by the American Society for Clinical Pathology
+document_type: article
+publication_type: null
+authors:
+- full_name: Roth, Rachel M.
+  raw_affiliations:
+  - value: Department of Pathology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+- full_name: Hampel, Heather
+  raw_affiliations:
+  - value: Department of Human Genetics,
+      The Ohio State University Wexner Medical Center Columbus
+    source: American Society for Clinical Pathology
+- full_name: Arnold, Christina A.
+  raw_affiliations:
+  - value: Department of Pathology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+  - value: Department of Microbiology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+- full_name: Yearsley, Martha M.
+  raw_affiliations:
+  - value: Department of Pathology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+- full_name: Marsh, William L.
+  raw_affiliations:
+  - value: Department of Pathology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+- full_name: Frankel, Wendy L.
+  raw_affiliations:
+  - value: Department of Pathology,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+  - value: Department of Human Genetics,
+      The Ohio State University Wexner Medical Center, Columbus
+    source: American Society for Clinical Pathology
+- full_name: Smith, John
+- full_name: Jones, Mary
+journal_title: Am J Clin Pathol
+journal_issue: '3'
+journal_volume: '143'
+material: publication
+page_end: '343'
+page_start: '336'
+collaborations:
+- Cancer Genome Center
+dois:
+- doi: 10.1309/AJCP4D7RXOBHLKGJ
+  material: publication
+keywords:
+- BRAF
+- MLH1
+- Immunohistochemistry
+- Cost-benefit analysis
+print_publication_date: 2015-03
+online_publication_date: null
+publisher: American Society for Clinical Pathology
