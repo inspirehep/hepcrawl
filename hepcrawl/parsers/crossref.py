@@ -191,9 +191,8 @@ class CrossrefParser(object):
     @staticmethod
     def get_author_name(author_key):
         """Extract an author's name."""
-        author_name = ', '.join([author_key.get("family"), author_key.get("given")])
-
-        return author_name
+        author_name_list = [author_key.get("family"), author_key.get("given")]
+        return ', '.join(filter(None, author_name_list))
 
     @staticmethod
     def get_author_affiliations(author_key):
