@@ -78,7 +78,7 @@ def test_dois(record):
 def test_authors(record):
     """Test extracting authors."""
     author_full_names = [
-        'Wagman, Michael',
+        'Wagman',
         'Buchoff, Michael I.',
     ]
     assert 'authors' in record
