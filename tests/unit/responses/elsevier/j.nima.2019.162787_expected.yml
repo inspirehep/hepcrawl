@@ -1,0 +1,206 @@
+abstract: 'With its <math display="inline" id="d1e302" altimg="si1.svg"><mrow><mo>∼</mo><mn>1650</mn><msup><mrow><mi>m</mi></mrow><mrow><mn>2</mn></mrow></msup></mrow></math> of MWPCs, the muon detector of LHCb is one of the largest instrument of this kind worldwide, and one of the most irradiated. Currently we run at the relatively low instantaneous luminosity of <math display="inline" id="d1e317" altimg="si2.svg"><mrow><mn>4</mn><mi>⋅</mi><mn>1</mn><msup><mrow><mn>0</mn></mrow><mrow><mn>32</mn></mrow></msup></mrow></math><math display="inline" id="d1e334" altimg="si3.svg"><mrow><mi>c</mi><msup><mrow><mi>m</mi></mrow><mrow><mo>−</mo><mn>2</mn></mrow></msup><msup><mrow><mi>s</mi></mrow><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow></math>, nevertheless the most irradiated MWPCs already integrated <math display="inline" id="d1e359" altimg="si4.svg"><mo>∼</mo></math>0.7 C/cm of accumulated charge per wire. The statistics of gas gaps affected by high voltage trips in the proportional chambers is presented for the whole period of operation. Most of the problematic chambers were successfully recovered in situ during data taking, under the nominal LHC beam conditions, by means of a long-term HV training (with the working gas mixture). The appearing of self-sustained currents in one of the MWPC gaps and the effectiveness of the recovery procedures put in place, indicate that the large majority of the trips are due to Malter effect. The method has proven to be very effective, allowing to keep the muon detector efficiency very close 100%, as it was initially designed. In parallel, a test has been performed of a systematic addition of a small amount of oxygen to the nominal gas mixture: results of this test will be discussed.'
+copyright_holder:
+copyright_statement: © 2019 Published by Elsevier B.V.
+copyright_year: 2019
+document_type: conference paper
+license_url:
+license_statement:
+article_type: full-length article
+journal_title: Nuclear Inst. and Methods in Physics Research A
+material: publication
+publisher: Elsevier B.V.
+year: 2020
+authors:
+- full_name: Kotriakhova, Sofia
+  raw_affiliations:
+  - value: Petersburg Nuclear Physics Institute of National Research Centre ”Kurchatov
+      Institute”, St.Petersburg, Russia
+    source: Elsevier B.V.
+  emails:
+  - skotriak@cern.ch
+artid: '162787'
+title: Long-term and efficient operation of the MWPC muon detector at LHCb
+dois:
+- material: publication
+  doi: 10.1016/j.nima.2019.162787
+journal_volume: '958'
+journal_issue:
+is_conference_paper: true
+publication_date: '2020-04-01'
+collaborations: ['on behalf of LHCb Muon group']
+documents:
+- key: j.nima.2019.162787.xml
+  url: http://example.org/j.nima.2019.162787.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><reference id="sb1"><contribution
+      langtype="en"><authors><author><surname>Alves</surname><given-name>A.A.</given-name><suffix>Jr.</suffix></author><et-al/><collaboration>LHCb
+      Collaboration</collaboration></authors><title><maintitle>The LHCb detector at
+      the LHC</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Instrum.</maintitle></title><volume-nr>3</volume-nr></series><date>2008</date></issue><pages><first-page>S08005</first-page></pages><doi>10.1088/1748-0221/3/08/S08005</doi></host></reference><source-text
+      id="afs1">A. A. Alves, Jr., et al., The LHCb Detector at the LHC, JINST 3 (2008)
+      S08005 doi:101088/1748-0221/3/08/S08005</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Instrum.
+      journal_volume: '3'
+      year: 2008
+      page_start: S08005
+    dois:
+    - 10.1088/1748-0221/3/08/S08005
+    label: '1'
+    authors:
+    - full_name: Alves, A.A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Alves</surname><given-name>A.A.</given-name><suffix>Jr.</suffix></author><et-al/></authors><title><maintitle>Performance
+      of the LHCb muon system</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Instrum.</maintitle></title><volume-nr>8</volume-nr></series><date>2013</date></issue><pages><first-page>P02022</first-page></pages><doi>10.1088/1748-0221/8/02/P02022</doi></host><host><e-host><inter-ref
+      id="interref1" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1211.1346"
+      type="simple">arXiv:1211.1346</inter-ref></e-host></host></reference><source-text
+      id="afs2">A. A. Alves, Jr., et al., Performance of the LHCb muon system, JINST
+      8 (2013) P02022 arXiv:12111346, doi:101088/1748-0221/8/02/P02022</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Instrum.
+      journal_volume: '8'
+      year: 2013
+      page_start: P02022
+    arxiv_eprint: '1211.1346'
+    dois:
+    - 10.1088/1748-0221/8/02/P02022
+    label: '2'
+    authors:
+    - full_name: Alves, A.A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Malter</surname><given-name>L.</given-name></author></authors><title><maintitle>Thin
+      film field emission</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev.</maintitle></title><volume-nr>50</volume-nr></series><date>1936</date></issue><pages><first-page>48</first-page><last-page>58</last-page></pages><doi>10.1103/PhysRev.50.48</doi></host></reference><source-text
+      id="afs3">L. Malter, Thin film field emission, Phys. Rev. 50 (1936) 48–58 doi:101103/PhysRev.5048
+      https://link.aps.org/doi/101103/PhysRev.5048</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev.
+      journal_volume: '50'
+      year: 1936
+      page_start: '48'
+      page_end: '58'
+    dois:
+    - 10.1103/PhysRev.50.48
+    label: '3'
+    authors:
+    - full_name: Malter, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Va’vra</surname><given-name>J.</given-name></author></authors><title><maintitle>Physics
+      and chemistry of aging: Early developments</maintitle></title></contribution><host><issue><series><title><maintitle>ICFA
+      Instrum. Bull.</maintitle></title><volume-nr>24</volume-nr></series><date>2002</date></issue><pages><first-page>1</first-page><last-page>21</last-page></pages><doi>10.1016/j.nima.2003.08.124</doi></host><comment>[,1(2002)]</comment></reference><source-text
+      id="afs4">J. Va’vra, Physics and chemistry of aging: Early developments, ICFA
+      Instrum. Bull. 24 (2002) 1–21, [,1(2002)] doi:101016/j.nima.200308124</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: ICFA Instrum. Bull.
+      journal_volume: '24'
+      year: 2002
+      page_start: '1'
+      page_end: '21'
+    dois:
+    - 10.1016/j.nima.2003.08.124
+    label: '4'
+    misc:
+    - "[,1(2002)]"
+    authors:
+    - full_name: Va'vra, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Plumb</surname><given-name>I.C.</given-name></author><author><surname>Ryan</surname><given-name>K.R.</given-name></author></authors><title><maintitle>A
+      model of the chemical processes occurring in CF4/O2 discharges used in plasma
+      etching</maintitle></title></contribution><host><issue><series><title><maintitle>Plasma
+      Chem. Plasma Process.</maintitle></title><volume-nr>6</volume-nr></series><issue-nr>3</issue-nr><date>1986</date></issue><pages><first-page>205</first-page><last-page>230</last-page></pages><doi>10.1007/BF00575129</doi></host></reference><source-text
+      id="afs5">I. C. Plumb, K. R. Ryan, A model of the chemical processes occurring
+      in cf4/o2 discharges used in plasma etching, Plasma Chemistry and Plasma Processing
+      6 (3) (1986) 205–230 doi:101007/BF00575129 https://doi.org/101007/BF00575129</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Plasma Chem. Plasma Process.
+      journal_volume: '6'
+      journal_issue: '3'
+      year: 1986
+      page_start: '205'
+      page_end: '230'
+    dois:
+    - 10.1007/BF00575129
+    label: '5'
+    authors:
+    - full_name: Plumb, I.C.
+      inspire_role: author
+    - full_name: Ryan, K.R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b6"><label>[6]</label><reference id="sb6"><contribution
+      langtype="en"><authors><author><surname>Grigoriev</surname><given-name>Y.</given-name></author><author><surname>Gorobchuk</surname><given-name>A.G.</given-name></author></authors><title><maintitle>Numerical
+      Simulation of Plasma-Chemical Reactors</maintitle></title></contribution><host><book><date>2006</date></book><pages><first-page>229</first-page><last-page>251</last-page></pages><doi>10.1007/3-540-32376-7˙13</doi></host></reference><source-text
+      id="afs6">Y. Grigoriev, A. G. Gorobchuk, Numerical simulation of plasma-chemical
+      reactors, 2006, pp. 229–251 doi:101007/3-540-32376-7˙13</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2006
+      page_start: '229'
+      page_end: '251'
+    dois:
+    - 10.1007/3-540-32376-7˙13
+    label: '6'
+    authors:
+    - full_name: Grigoriev, Y.
+      inspire_role: author
+    - full_name: Gorobchuk, A.G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b7"><label>[7]</label><reference id="sb7"><contribution
+      langtype="en"><authors><author><surname>Mogab</surname><given-name>C.J.</given-name></author><author><surname>Adams</surname><given-name>A.C.</given-name></author><author><surname>Flamm</surname><given-name>D.L.</given-name></author></authors><title><maintitle>Plasma
+      etching of Si and SiO<math display="inline" id="d1e967" altimg="si27.svg"><msub><mrow/><mrow><mn>2</mn></mrow></msub></math>
+      - The effect of oxygen additions to CF<math display="inline" id="d1e974" altimg="si11.svg"><msub><mrow/><mrow><mn>4</mn></mrow></msub></math>
+      plasmas</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Appl. Phys.</maintitle></title><volume-nr>49</volume-nr></series><date>1978</date></issue><pages><first-page>3796</first-page><last-page>3803</last-page></pages><doi>10.1063/1.325382</doi></host></reference><source-text
+      id="afs7">C. J. Mogab, A. C. Adams, D. L. Flamm, Plasma etching of Si and SiO2
+      - The effect of oxygen additions to CF4 plasmas, Journal of Applied Physics
+      49 (1978) 3796–3803 doi:101063/1325382</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Appl. Phys.
+      journal_volume: '49'
+      year: 1978
+      page_start: '3796'
+      page_end: '3803'
+    dois:
+    - 10.1063/1.325382
+    label: '7'
+    authors:
+    - full_name: Mogab, C.J.
+      inspire_role: author
+    - full_name: Adams, A.C.
+      inspire_role: author
+    - full_name: Flamm, D.L.
+      inspire_role: author

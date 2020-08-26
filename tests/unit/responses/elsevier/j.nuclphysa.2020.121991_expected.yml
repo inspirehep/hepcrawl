@@ -1,0 +1,1154 @@
+abstract: We have investigated the composition of nuclear matter under thermodynamic conditions relevant for the core-collapse of massive stars, with a focus on quantum-statistical effects for light clusters. We find that deviations in the number densities of light clusters between Boltzmann and quantum statistics are small at sub-nuclear densities and temperatures 1–3 MeV, ≈0.2% at most. The formation of heavy clusters in stellar matter leads to a reduction in the number densities of light clusters. As a result, quantum-statistical effects such as the Bose–Einstein condensation of deuterons and α-particles are suppressed. The condensation of α-particles in iso-symmetric nuclear matter is predicted under the assumptions that it is composed solely of nucleons and light clusters and that no heavy clusters are present. We also find that Coulomb screening hardly affects the critical baryon densities for alpha condensation, although it modifies the masses and chemical potentials of the α-particles.
+copyright_holder: Elsevier B.V.
+copyright_statement: © 2020 Elsevier B.V. All rights reserved.
+copyright_year: 2020
+document_type: article
+license_url:
+license_statement:
+article_type: full-length article
+journal_title: Nuclear Physics A
+material: publication
+publisher: Elsevier B.V.
+year: 2020
+authors:
+- full_name: Furusawa, Shun
+  raw_affiliations:
+  - value: Department of Physics, Tokyo University of Science, Shinjuku, Tokyo, 162-8601,
+      Japan
+    source: Elsevier B.V.
+  - value: Interdisciplinary Theoretical and Mathematical Sciences Program (iTHEMS),
+      RIKEN, Wako, Saitama 351-0198, Japan
+    source: Elsevier B.V.
+  emails:
+  - furusawa@rs.tus.ac.jp
+- full_name: Mishustin, Igor
+  raw_affiliations:
+  - value: Frankfurt Institute for Advanced Studies, J.W. Goethe University, 60438
+      Frankfurt am Main, Germany
+    source: Elsevier B.V.
+  - value: National Research Center Kurchatov Institute, Moscow 123182, Russia
+    source: Elsevier B.V.
+artid: '121991'
+title: Degeneracy effects and Bose condensation in warm nuclear matter with light and heavy clusters
+dois:
+- material: publication
+  doi: 10.1016/j.nuclphysa.2020.121991
+journal_volume: '1002'
+journal_issue:
+is_conference_paper: false
+publication_date: 2020-10
+collaborations: []
+documents:
+- key: j.nuclphysa.2020.121991.xml
+  url: http://example.org/j.nuclphysa.2020.121991.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0010"><label>[1]</label><reference id="bib94A6175B2AC334FCA75ED4F2D19530D9s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author></authors><title><maintitle>Nuclei
+      in central engine of core-collapse supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Scr.</maintitle></title><volume-nr>95</volume-nr></series><date>2020</date></issue><article-number>074002</article-number><doi>10.1088/1402-4896/ab8c15</doi></host></reference><source-text
+      id="srct0025">S. Furusawa, Nuclei in central engine of core-collapse supernovae,
+      Physica Scripta 95 (2020) 074002. 10.1088/1402-4896/ab8c15.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Scr.
+      journal_volume: '95'
+      year: 2020
+    dois:
+    - 10.1088/1402-4896/ab8c15
+    label: '1'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0020"><label>[2]</label><reference id="bibF2BA0D364F97B1D5F5396F3D6A127B30s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>H.</given-name><surname>Nagakura</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>C.</given-name><surname>Kato</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author></authors><title><maintitle>Dependence
+      of weak interaction rates on the nuclear composition during stellar core collapse</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>95</volume-nr></series><date>2017</date></issue><article-number>025809</article-number><doi>10.1103/PhysRevC.95.025809</doi></host></reference><source-text
+      id="srct0030">S. Furusawa, H. Nagakura, K. Sumiyoshi, C. Kato, S. Yamada, Dependence
+      of weak interaction rates on the nuclear composition during stellar core collapse,
+      Phys. Rev. C 95 (2017) 025809. doi:10.1103/PhysRevC.95.025809.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '95'
+      year: 2017
+    dois:
+    - 10.1103/PhysRevC.95.025809
+    label: '2'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Nagakura, H.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Kato, C.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0030"><label>[3]</label><reference id="bib5619F1A46B55D98A34C6A86AC7118B36s1"><contribution
+      langtype="en"><authors><author><given-name>W.C.</given-name><surname>Haxton</surname></author></authors><title><maintitle>Neutrino
+      heating in supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>60</volume-nr></series><date>1988</date></issue><pages><first-page>1999</first-page><last-page>2002</last-page></pages><doi>10.1103/PhysRevLett.60.1999</doi></host></reference><source-text
+      id="srct0035">W. C. Haxton, Neutrino heating in supernovae, Physical Review
+      Letters 60 (1988) 1999–2002. doi:10.1103/PhysRevLett.60.1999.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '60'
+      year: 1988
+      page_start: '1999'
+      page_end: '2002'
+    dois:
+    - 10.1103/PhysRevLett.60.1999
+    label: '3'
+    authors:
+    - full_name: Haxton, W.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0040"><label>[4]</label><reference id="bibC6BE608D9CE8CD3C2BD2FF4EBD023763s1"><contribution
+      langtype="en"><authors><author><given-name>E.</given-name><surname>O'Connor</surname></author><author><given-name>D.</given-name><surname>Gazit</surname></author><author><given-name>C.J.</given-name><surname>Horowitz</surname></author><author><given-name>A.</given-name><surname>Schwenk</surname></author><author><given-name>N.</given-name><surname>Barnea</surname></author></authors><title><maintitle>Neutrino
+      breakup of A=3 nuclei in supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>75</volume-nr></series><issue-nr>5</issue-nr><date>2007</date></issue><article-number>055803</article-number><doi>10.1103/PhysRevC.75.055803</doi></host><host><e-host><inter-ref
+      id="inf0010" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:nucl-th/0702044"
+      type="simple">arXiv:nucl-th/0702044</inter-ref></e-host></host></reference><source-text
+      id="srct0040">E. O'Connor, D. Gazit, C. J. Horowitz, A. Schwenk, N. Barnea,
+      Neutrino breakup of A=3 nuclei in supernovae, Phys. Rev. C75 (5) (2007) 055803.
+      arXiv:nucl-th/0702044, doi:10.1103/PhysRevC.75.055803.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '75'
+      journal_issue: '5'
+      year: 2007
+    arxiv_eprint: nucl-th/0702044
+    dois:
+    - 10.1103/PhysRevC.75.055803
+    label: '4'
+    authors:
+    - full_name: O'Connor, E.
+      inspire_role: author
+    - full_name: Gazit, D.
+      inspire_role: author
+    - full_name: Horowitz, C.J.
+      inspire_role: author
+    - full_name: Schwenk, A.
+      inspire_role: author
+    - full_name: Barnea, N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0050"><label>[5]</label><reference id="bib944B2E7C4256EDFA08943E232773367Fs1"><contribution
+      langtype="en"><authors><author><given-name>N.</given-name><surname>Ohnishi</surname></author><author><given-name>K.</given-name><surname>Kotake</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author></authors><title><maintitle>Inelastic
+      neutrino-helium scatterings and standing accretion shock instability in core-collapse
+      supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>667</volume-nr></series><date>2007</date></issue><pages><first-page>375</first-page><last-page>381</last-page></pages><doi>10.1086/520755</doi></host><host><e-host><inter-ref
+      id="inf0020" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:astro-ph/0606187"
+      type="simple">arXiv:astro-ph/0606187</inter-ref></e-host></host></reference><source-text
+      id="srct0045">N. Ohnishi, K. Kotake, S. Yamada, Inelastic Neutrino-Helium Scatterings
+      and Standing Accretion Shock Instability in Core-Collapse Supernovae, Astrophys.
+      J. 667 (2007) 375–381. doi:10.1086/520755, arXiv:astro-ph/0606187</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '667'
+      year: 2007
+      page_start: '375'
+      page_end: '381'
+    arxiv_eprint: astro-ph/0606187
+    dois:
+    - 10.1086/520755
+    label: '5'
+    authors:
+    - full_name: Ohnishi, N.
+      inspire_role: author
+    - full_name: Kotake, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0060"><label>[6]</label><reference id="bibCDF050F520BC4EEF70B3EE868AD71768s1"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>G.</given-name><surname>Röpke</surname></author></authors><title><maintitle>Appearance
+      of light clusters in post-bounce evolution of core-collapse supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>77</volume-nr></series><date>2008</date></issue><article-number>055804</article-number><doi>10.1103/PhysRevC.77.055804</doi></host></reference><source-text
+      id="srct0050">K. Sumiyoshi, G. Röpke, Appearance of light clusters in post-bounce
+      evolution of core-collapse supernovae, Phys. Rev. C 77 (2008) 055804. doi:10.1103/PhysRevC.77.055804.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '77'
+      year: 2008
+    dois:
+    - 10.1103/PhysRevC.77.055804
+    label: '6'
+    authors:
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Röpke, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0070"><label>[7]</label><reference id="bib2B985C95B345F8274C2B7EFD2C9306F1s1"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Arcones</surname></author><author><given-name>G.</given-name><surname>Martínez-Pinedo</surname></author><author><given-name>E.</given-name><surname>O'Connor</surname></author><author><given-name>A.</given-name><surname>Schwenk</surname></author><author><given-name>H.-T.</given-name><surname>Janka</surname></author><author><given-name>C.J.</given-name><surname>Horowitz</surname></author><author><given-name>K.</given-name><surname>Langanke</surname></author></authors><title><maintitle>Influence
+      of light nuclei on neutrino-driven supernova outflows</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>78</volume-nr></series><issue-nr>1</issue-nr><date>2008</date></issue><article-number>015806</article-number><doi>10.1103/PhysRevC.78.015806</doi></host><host><e-host><inter-ref
+      id="inf0030" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:0805.3752"
+      type="simple">arXiv:0805.3752</inter-ref></e-host></host></reference><source-text
+      id="srct0055">A. Arcones, G. Martínez-Pinedo, E. O'Connor, A. Schwenk, H.-T.
+      Janka, C. J. Horowitz, K. Langanke, Influence of light nuclei on neutrino-driven
+      supernova outflows, Phys. Rev. C78 (1) (2008) 015806. arXiv:0805.3752, doi:10.1103/PhysRevC.78.015806.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '78'
+      journal_issue: '1'
+      year: 2008
+    arxiv_eprint: '0805.3752'
+    dois:
+    - 10.1103/PhysRevC.78.015806
+    label: '7'
+    authors:
+    - full_name: Arcones, A.
+      inspire_role: author
+    - full_name: Martínez-Pinedo, G.
+      inspire_role: author
+    - full_name: O'Connor, E.
+      inspire_role: author
+    - full_name: Schwenk, A.
+      inspire_role: author
+    - full_name: Janka, H.-T.
+      inspire_role: author
+    - full_name: Horowitz, C.J.
+      inspire_role: author
+    - full_name: Langanke, K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0080"><label>[8]</label><reference id="bibA3FBD6A2AC34F2E42A03F16CC2075A20s1"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Langanke</surname></author><author><given-name>G.</given-name><surname>Martínez-Pinedo</surname></author><author><given-name>B.</given-name><surname>Müller</surname></author><author><given-name>H.-T.</given-name><surname>Janka</surname></author><author><given-name>A.</given-name><surname>Marek</surname></author><author><given-name>W.R.</given-name><surname>Hix</surname></author><author><given-name>A.</given-name><surname>Juodagalvis</surname></author><author><given-name>J.M.</given-name><surname>Sampaio</surname></author></authors><title><maintitle>Effects
+      of inelastic neutrino-nucleus scattering on supernova dynamics and radiated
+      neutrino spectra</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>100</volume-nr></series><issue-nr>1</issue-nr><date>2008</date></issue><article-number>011101</article-number><doi>10.1103/PhysRevLett.100.011101</doi></host><host><e-host><inter-ref
+      id="inf0040" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:0706.1687"
+      type="simple">arXiv:0706.1687</inter-ref></e-host></host></reference><source-text
+      id="srct0060">K. Langanke, G. Martínez-Pinedo, B. Müller, H.-T. Janka, A. Marek,
+      W. R. Hix, A. Juodagalvis, J. M. Sampaio, Effects of Inelastic Neutrino-Nucleus
+      Scattering on Supernova Dynamics and Radiated Neutrino Spectra, Physical Review
+      Letters 100 (1) (2008) 011101. arXiv:0706.1687, doi:10.1103/PhysRevLett.100.011101.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '100'
+      journal_issue: '1'
+      year: 2008
+    arxiv_eprint: '0706.1687'
+    dois:
+    - 10.1103/PhysRevLett.100.011101
+    label: '8'
+    authors:
+    - full_name: Langanke, K.
+      inspire_role: author
+    - full_name: Martínez-Pinedo, G.
+      inspire_role: author
+    - full_name: Müller, B.
+      inspire_role: author
+    - full_name: Janka, H.-T.
+      inspire_role: author
+    - full_name: Marek, A.
+      inspire_role: author
+    - full_name: Hix, W.R.
+      inspire_role: author
+    - full_name: Juodagalvis, A.
+      inspire_role: author
+    - full_name: Sampaio, J.M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0090"><label>[9]</label><reference id="bibFC600176965B86ECF11326D0D838E0A7s1"><contribution
+      langtype="en"><authors><author><given-name>N.</given-name><surname>Barnea</surname></author><author><given-name>D.</given-name><surname>Gazit</surname></author></authors><title><maintitle>Inelastic
+      neutrino reactions with light nuclei in a core-collapse supernova</maintitle></title></contribution><host><issue><series><title><maintitle>Few-Body
+      Syst.</maintitle></title><volume-nr>43</volume-nr></series><date>2008</date></issue><pages><first-page>5</first-page><last-page>11</last-page></pages><doi>10.1007/s00601-008-0201-2</doi></host></reference><source-text
+      id="srct0065">N. Barnea, D. Gazit, Inelastic neutrino reactions with light nuclei
+      in a core-collapse supernova, Few-Body Systems 43 (2008) 5–11. doi:10.1007/s00601-008-0201-2.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Few-Body Syst.
+      journal_volume: '43'
+      year: 2008
+      page_start: '5'
+      page_end: '11'
+    dois:
+    - 10.1007/s00601-008-0201-2
+    label: '9'
+    authors:
+    - full_name: Barnea, N.
+      inspire_role: author
+    - full_name: Gazit, D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0100"><label>[10]</label><reference id="bibDCD1A939FF07E6B66C98D62FDC8D719Bs1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>H.</given-name><surname>Nagakura</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author></authors><title><maintitle>The
+      influence of inelastic neutrino reactions with light nuclei on the standing
+      accretion shock instability in core-collapse supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>774</volume-nr></series><date>2013</date></issue><pages><first-page>78</first-page></pages><doi>10.1088/0004-637X/774/1/78</doi></host><host><e-host><inter-ref
+      id="inf0050" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1305.1510"
+      type="simple">arXiv:1305.1510</inter-ref></e-host></host></reference><source-text
+      id="srct0070">S. Furusawa, H. Nagakura, K. Sumiyoshi, S. Yamada, The Influence
+      of Inelastic Neutrino Reactions with Light Nuclei on the Standing Accretion
+      Shock Instability in Core-collapse Supernovae, Astrophys. J. 774 (2013) 78.
+      arXiv:1305.1510, doi:10.1088/0004-637X/774/1/78.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '774'
+      year: 2013
+      page_start: '78'
+    arxiv_eprint: '1305.1510'
+    dois:
+    - 10.1088/0004-637X/774/1/78
+    label: '10'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Nagakura, H.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0110"><label>[11]</label><reference id="bib17DC13F4A62DE798C270E945C85D95C7s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Nasu</surname></author><author><given-name>S.X.</given-name><surname>Nakamura</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>T.</given-name><surname>Sato</surname></author><author><given-name>F.</given-name><surname>Myhrer</surname></author><author><given-name>K.</given-name><surname>Kubodera</surname></author></authors><title><maintitle>Neutrino
+      emissivities from deuteron breakup and formation in supernovae</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>801</volume-nr></series><date>2015</date></issue><pages><first-page>78</first-page></pages><doi>10.1088/0004-637X/801/2/78</doi></host><host><e-host><inter-ref
+      id="inf0060" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1402.0959"
+      type="simple">arXiv:1402.0959</inter-ref></e-host></host></reference><source-text
+      id="srct0075">S. Nasu, S. X. Nakamura, K. Sumiyoshi, T. Sato, F. Myhrer, K.
+      Kubodera, Neutrino Emissivities from Deuteron Breakup and Formation in Supernovae,
+      Astrophys. J. 801 (2015) 78. arXiv:1402.0959, doi:10.1088/0004-637X/801/2/78.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '801'
+      year: 2015
+      page_start: '78'
+    arxiv_eprint: '1402.0959'
+    dois:
+    - 10.1088/0004-637X/801/2/78
+    label: '11'
+    authors:
+    - full_name: Nasu, S.
+      inspire_role: author
+    - full_name: Nakamura, S.X.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Sato, T.
+      inspire_role: author
+    - full_name: Myhrer, F.
+      inspire_role: author
+    - full_name: Kubodera, K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0120"><label>[12]</label><reference id="bib67FFB4AE95F03E14A8B640E5FEC50DA4s1"><contribution
+      langtype="en"><authors><author><given-name>T.</given-name><surname>Fischer</surname></author><author><given-name>G.</given-name><surname>Martínez-Pinedo</surname></author><author><given-name>M.</given-name><surname>Hempel</surname></author><author><given-name>L.</given-name><surname>Huther</surname></author><author><given-name>G.</given-name><surname>Röpke</surname></author><author><given-name>S.</given-name><surname>Typel</surname></author><author><given-name>A.</given-name><surname>Lohs</surname></author></authors><title><maintitle>Expected
+      impact from weak reactions with light nuclei in corecollapse supernova simulations</maintitle></title></contribution><host><edited-book><title><maintitle>European
+      Physical Journal Web of Conferences</maintitle></title><book-series><series><title><maintitle>European
+      Physical Journal Web of Conferences</maintitle></title><volume-nr>vol. 109</volume-nr></series></book-series><date>2016</date></edited-book><pages><first-page>06002</first-page></pages><doi>10.1051/epjconf/201610906002</doi></host><host><e-host><inter-ref
+      id="inf0070" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1512.00193"
+      type="simple">arXiv:1512.00193</inter-ref></e-host></host></reference><source-text
+      id="srct0080">T. Fischer, G. Martínez-Pinedo, M. Hempel, L. Huther, G. Röpke,
+      S. Typel, A. Lohs, Expected impact from weak reactions with light nuclei in
+      corecollapse supernova simulations, in: European Physical Journal Web of Conferences,
+      Vol. 109 of European Physical Journal Web of Conferences, 2016, p. 06002. arXiv:1512.00193,
+      doi:10.1051/epjconf/201610906002.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: European Physical Journal Web of Conferences
+      parent_title: European Physical Journal Web of Conferences
+      journal_volume: vol. 109
+      year: 2016
+      page_start: '06002'
+    arxiv_eprint: '1512.00193'
+    dois:
+    - 10.1051/epjconf/201610906002
+    label: '12'
+    authors:
+    - full_name: Fischer, T.
+      inspire_role: author
+    - full_name: Martínez-Pinedo, G.
+      inspire_role: author
+    - full_name: Hempel, M.
+      inspire_role: author
+    - full_name: Huther, L.
+      inspire_role: author
+    - full_name: Röpke, G.
+      inspire_role: author
+    - full_name: Typel, S.
+      inspire_role: author
+    - full_name: Lohs, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0130"><label>[13]</label><reference id="bib3A5BA787A9AA3AB1815E5AEFE6E18626s1"><contribution
+      langtype="en"><authors><author><given-name>H.</given-name><surname>Nagakura</surname></author><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>H.</given-name><surname>Togashi</surname></author><author><given-name>S.</given-name><surname>Richers</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author></authors></contribution><host><issue><series><title><maintitle>Astrophys.
+      J. Suppl. Ser.</maintitle></title><volume-nr>240</volume-nr></series><issue-nr>2</issue-nr><date>2019</date></issue><pages><first-page>38</first-page></pages><doi>10.3847/1538-4365/aafac9</doi></host></reference><source-text
+      id="srct0085">H. Nagakura, S. Furusawa, H. Togashi, S. Richers, K. Sumiyoshi,
+      S. Yamada 240 (2) (2019) 38. doi:10.3847/1538-4365/aafac9, [link]. URL https://doi.org/10.3847%2F1538-4365%2Faafac9</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J. Suppl. Ser.
+      journal_volume: '240'
+      journal_issue: '2'
+      year: 2019
+      page_start: '38'
+    dois:
+    - 10.3847/1538-4365/aafac9
+    label: '13'
+    authors:
+    - full_name: Nagakura, H.
+      inspire_role: author
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Togashi, H.
+      inspire_role: author
+    - full_name: Richers, S.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0140"><label>[14]</label><reference id="bibABA71ECFF13E27186D62CFB9CDD498ECs1"><contribution
+      langtype="en"><authors><author><given-name>A.S.</given-name><surname>Botvina</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author></authors><title><maintitle>Statistical
+      approach for supernova matter</maintitle></title></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys. A</maintitle></title><volume-nr>843</volume-nr></series><date>2010</date></issue><pages><first-page>98</first-page><last-page>132</last-page></pages><doi>10.1016/j.nuclphysa.2010.05.052</doi></host><host><e-host><inter-ref
+      id="inf0080" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:0811.2593"
+      type="simple">arXiv:0811.2593</inter-ref></e-host></host></reference><source-text
+      id="srct0090">A. S. Botvina, I. N. Mishustin, Statistical approach for supernova
+      matter, Nuclear Physics A 843 (2010) 98–132. arXiv:0811.2593, doi:10.1016/j.nuclphysa.2010.05.052.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys. A
+      journal_volume: '843'
+      year: 2010
+      page_start: '98'
+      page_end: '132'
+    arxiv_eprint: '0811.2593'
+    dois:
+    - 10.1016/j.nuclphysa.2010.05.052
+    label: '14'
+    authors:
+    - full_name: Botvina, A.S.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0150"><label>[15]</label><reference id="bib9C785ADE8F6A0E8BAD9C72FBCA939005s1"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Hempel</surname></author><author><given-name>J.</given-name><surname>Schaffner-Bielich</surname></author></authors><title><maintitle>A
+      statistical model for a complete supernova equation of state</maintitle></title></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys. A</maintitle></title><volume-nr>837</volume-nr></series><date>2010</date></issue><pages><first-page>210</first-page><last-page>254</last-page></pages><doi>10.1016/j.nuclphysa.2010.02.010</doi></host><host><e-host><inter-ref
+      id="inf0090" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:0911.4073"
+      type="simple">arXiv:0911.4073</inter-ref></e-host></host></reference><source-text
+      id="srct0095">M. Hempel, J. Schaffner-Bielich, A statistical model for a complete
+      supernova equation of state, Nuclear Physics A 837 (2010) 210–254. arXiv:0911.4073,
+      doi:10.1016/j.nuclphysa.2010.02.010.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys. A
+      journal_volume: '837'
+      year: 2010
+      page_start: '210'
+      page_end: '254'
+    arxiv_eprint: '0911.4073'
+    dois:
+    - 10.1016/j.nuclphysa.2010.02.010
+    label: '15'
+    authors:
+    - full_name: Hempel, M.
+      inspire_role: author
+    - full_name: Schaffner-Bielich, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0160"><label>[16]</label><reference id="bib525786F5C5ADAD0D5D5A569C8365EE98s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>H.</given-name><surname>Suzuki</surname></author></authors><title><maintitle>A
+      new baryonic equation of state at sub-nuclear densities for core-collapse simulations</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>738</volume-nr></series><date>2011</date></issue><pages><first-page>178</first-page></pages><doi>10.1088/0004-637X/738/2/178</doi></host></reference><source-text
+      id="srct0100">S. Furusawa, S. Yamada, K. Sumiyoshi, H. Suzuki, A New Baryonic
+      Equation of State at Sub-nuclear Densities for Core-collapse Simulations, Astrophys.
+      J. 738 (2011) 178. doi:10.1088/0004-637X/738/2/178.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '738'
+      year: 2011
+      page_start: '178'
+    dois:
+    - 10.1088/0004-637X/738/2/178
+    label: '16'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Suzuki, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0170"><label>[17]</label><reference id="bibEEB28C20B9A827D68FD4F55B903ADDC9s1"><contribution
+      langtype="en"><authors><author><given-name>N.</given-name><surname>Buyukcizmeci</surname></author><author><given-name>A.S.</given-name><surname>Botvina</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author></authors><title><maintitle>Tabulated
+      equation of state for supernova matter including full nuclear ensemble</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>789</volume-nr></series><date>2014</date></issue><pages><first-page>33</first-page></pages><doi>10.1088/0004-637X/789/1/33</doi></host></reference><source-text
+      id="srct0105">N. Buyukcizmeci, A. S. Botvina, I. N. Mishustin, Tabulated Equation
+      of State for Supernova Matter Including Full Nuclear Ensemble, Astrophys. J.
+      789 (2014) 33. doi:10.1088/0004-637X/789/1/33.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '789'
+      year: 2014
+      page_start: '33'
+    dois:
+    - 10.1088/0004-637X/789/1/33
+    label: '17'
+    authors:
+    - full_name: Buyukcizmeci, N.
+      inspire_role: author
+    - full_name: Botvina, A.S.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0180"><label>[18]</label><reference id="bibC1976378B5055D3B05458C74EC0E3F06s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author><author><given-name>H.</given-name><surname>Suzuki</surname></author></authors><title><maintitle>New
+      equations of state based on the liquid drop model of heavy nuclei and quantum
+      approach to light nuclei for core-collapse supernova simulations</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>772</volume-nr></series><date>2013</date></issue><pages><first-page>95</first-page></pages><doi>10.1088/0004-637X/772/2/95</doi></host></reference><source-text
+      id="srct0110">S. Furusawa, K. Sumiyoshi, S. Yamada, H. Suzuki, New Equations
+      of State Based on the Liquid Drop Model of Heavy Nuclei and Quantum Approach
+      to Light Nuclei for Core-collapse Supernova Simulations, Astrophys. J. 772 (2013)
+      95. doi:10.1088/0004-637X/772/2/95.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '772'
+      year: 2013
+      page_start: '95'
+    dois:
+    - 10.1088/0004-637X/772/2/95
+    label: '18'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+    - full_name: Suzuki, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0190"><label>[19]</label><reference id="bibB2A8ED3BD54C8545C2C1E637A56B2651s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author><author><given-name>H.</given-name><surname>Suzuki</surname></author></authors><title><maintitle>Supernova
+      equations of state including full nuclear ensemble with in-medium effects</maintitle></title></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys. A</maintitle></title><volume-nr>957</volume-nr></series><date>2017</date></issue><pages><first-page>188</first-page><last-page>207</last-page></pages><doi>10.1016/j.nuclphysa.2016.09.002</doi></host></reference><source-text
+      id="srct0115">S. Furusawa, K. Sumiyoshi, S. Yamada, H. Suzuki, Supernova equations
+      of state including full nuclear ensemble with in-medium effects, Nuclear Physics
+      A 957 (2017) 188 – 207. doi:http://dx.doi.org/10.1016/j.nuclphysa.2016.09.002.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys. A
+      journal_volume: '957'
+      year: 2017
+      page_start: '188'
+      page_end: '207'
+    dois:
+    - 10.1016/j.nuclphysa.2016.09.002
+    label: '19'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+    - full_name: Suzuki, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0200"><label>[20]</label><reference id="bib99A66E7EF2FCB0B2C206960CF95984C3s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>H.</given-name><surname>Togashi</surname></author><author><given-name>H.</given-name><surname>Nagakura</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author><author><given-name>H.</given-name><surname>Suzuki</surname></author><author><given-name>M.</given-name><surname>Takano</surname></author></authors><title><maintitle>A
+      new equation of state for core-collapse supernovae based on realistic nuclear
+      forces and including a full nuclear ensemble</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. G, Nucl. Part. Phys.</maintitle></title><volume-nr>44</volume-nr></series><issue-nr>9</issue-nr><date>2017</date></issue><article-number>094001</article-number></host><host><e-host><inter-ref
+      id="inf0100" role="http://www.elsevier.com/xml/linking-roles/text/html" href="http://stacks.iop.org/0954-3899/44/i=9/a=094001"
+      type="simple">http://stacks.iop.org/0954-3899/44/i=9/a=094001</inter-ref></e-host></host></reference><source-text
+      id="srct0120">S. Furusawa, H. Togashi, H. Nagakura, K. Sumiyoshi, S. Yamada,
+      H. Suzuki, M. Takano, A new equation of state for core-collapse supernovae based
+      on realistic nuclear forces and including a full nuclear ensemble, Journal of
+      Physics G: Nuclear and Particle Physics 44 (9) (2017) 094001. URL http://stacks.iop.org/0954-3899/44/i=9/a=094001</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. G, Nucl. Part. Phys.
+      journal_volume: '44'
+      journal_issue: '9'
+      year: 2017
+    urls:
+    - value: http://stacks.iop.org/0954-3899/44/i=9/a=094001
+    label: '20'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Togashi, H.
+      inspire_role: author
+    - full_name: Nagakura, H.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+    - full_name: Suzuki, H.
+      inspire_role: author
+    - full_name: Takano, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0210"><label>[21]</label><reference id="bib72FEE16BB77EDE757EFF4E221349D0ADs1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author></authors><title><maintitle>Sensitivity
+      of nuclear statistical equilibrium to nuclear uncertainties during stellar core
+      collapse</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>98</volume-nr></series><date>2018</date></issue><article-number>065802</article-number><doi>10.1103/PhysRevC.98.065802</doi></host></reference><source-text
+      id="srct0125">S. Furusawa, Sensitivity of nuclear statistical equilibrium to
+      nuclear uncertainties during stellar core collapse, Phys. Rev. C 98 (2018) 065802.
+      doi:10.1103/PhysRevC.98.065802.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '98'
+      year: 2018
+    dois:
+    - 10.1103/PhysRevC.98.065802
+    label: '21'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0220"><label>[22]</label><reference id="bibFEBCDEA1D0626C548FF73FD13523F9BDs1"><contribution
+      langtype="en"><authors><author><given-name>A.S.</given-name><surname>Schneider</surname></author><author><given-name>L.F.</given-name><surname>Roberts</surname></author><author><given-name>C.D.</given-name><surname>Ott</surname></author></authors><title><maintitle>Open-source
+      nuclear equation of state framework based on the liquid-drop model with skyrme
+      interaction</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>96</volume-nr></series><date>2017</date></issue><article-number>065802</article-number><doi>10.1103/PhysRevC.96.065802</doi></host></reference><source-text
+      id="srct0130">A. S. Schneider, L. F. Roberts, C. D. Ott, Open-source nuclear
+      equation of state framework based on the liquid-drop model with skyrme interaction,
+      Phys. Rev. C 96 (2017) 065802. doi:10.1103/PhysRevC.96.065802.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '96'
+      year: 2017
+    dois:
+    - 10.1103/PhysRevC.96.065802
+    label: '22'
+    authors:
+    - full_name: Schneider, A.S.
+      inspire_role: author
+    - full_name: Roberts, L.F.
+      inspire_role: author
+    - full_name: Ott, C.D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0230"><label>[23]</label><reference id="bib8E94D04F95A6F2203A5FAC935D5C8CB1s1"><contribution
+      langtype="en"><authors><author><given-name>H.</given-name><surname>Pais</surname></author><author><given-name>F.</given-name><surname>Gulminelli</surname></author><author><given-name>C.m.</given-name><surname>c.
+      Providência</surname></author><author><given-name>G.</given-name><surname>Röpke</surname></author></authors><title><maintitle>Full
+      distribution of clusters with universal couplings and in-medium effects</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>99</volume-nr></series><date>2019</date></issue><article-number>055806</article-number><doi>10.1103/PhysRevC.99.055806</doi></host></reference><source-text
+      id="srct0135">H. Pais, F. Gulminelli, C. m. c. Providência, G. Röpke, Full distribution
+      of clusters with universal couplings and in-medium effects, Phys. Rev. C 99
+      (2019) 055806. doi:10.1103/PhysRevC.99.055806.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '99'
+      year: 2019
+    dois:
+    - 10.1103/PhysRevC.99.055806
+    label: '23'
+    authors:
+    - full_name: Pais, H.
+      inspire_role: author
+    - full_name: Gulminelli, F.
+      inspire_role: author
+    - full_name: Providência, C.m.c.
+      inspire_role: author
+    - full_name: Röpke, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0240"><label>[24]</label><reference id="bib595742E7FD3042A85DD840F61DD37844s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>H.</given-name><surname>Togashi</surname></author><author><given-name>K.</given-name><surname>Sumiyoshi</surname></author><author><given-name>K.</given-name><surname>Saito</surname></author><author><given-name>S.</given-name><surname>Yamada</surname></author><author><given-name>H.</given-name><surname>Suzuki</surname></author></authors><title><maintitle>Nuclear
+      statistical equilibrium equation of state with a parametrized Dirac-Brückner
+      Hartree-Fock calculation</maintitle></title></contribution><host><issue><series><title><maintitle>Prog.
+      Theor. Exp. Phys.</maintitle></title><volume-nr>2020</volume-nr></series><issue-nr>1</issue-nr><date>2020</date></issue><article-number>013D05</article-number><doi>10.1093/ptep/ptz135</doi></host><host><e-host><inter-ref
+      id="inf0110" role="http://www.elsevier.com/xml/linking-roles/text/html" href="https://academic.oup.com/ptep/article-pdf/2020/1/013D05/32290084/ptz135.pdf"
+      type="simple">https://academic.oup.com/ptep/article-pdf/2020/1/013D05/32290084/ptz135.pdf</inter-ref></e-host></host></reference><source-text
+      id="srct0140">S. Furusawa, H. Togashi, K. Sumiyoshi, K. Saito, S. Yamada, H.
+      Suzuki, Nuclear statistical equilibrium equation of state with a parametrized
+      Dirac-Brückner Hartree-Fock calculation, Progress of Theoretical and Experimental
+      Physics 2020 (1), 013D05 (2020). doi:10.1093/ptep/ptz135. https://academic.oup.com/ptep/article-pdf/2020/1/013D05/32290084/ptz135.pdf,</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Prog. Theor. Exp. Phys.
+      journal_volume: '2020'
+      journal_issue: '1'
+      year: 2020
+    urls:
+    - value: https://academic.oup.com/ptep/article-pdf/2020/1/013D05/32290084/ptz135.pdf
+    dois:
+    - 10.1093/ptep/ptz135
+    label: '24'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Togashi, H.
+      inspire_role: author
+    - full_name: Sumiyoshi, K.
+      inspire_role: author
+    - full_name: Saito, K.
+      inspire_role: author
+    - full_name: Yamada, S.
+      inspire_role: author
+    - full_name: Suzuki, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0250"><label>[25]</label><reference id="bibC05874160B07D1A7733AADE344A8C86Cs1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>I.</given-name><surname>Mishustin</surname></author></authors><title><maintitle>Self-consistent
+      calculation of the nuclear composition in hot and dense stellar matter</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>95</volume-nr></series><date>2017</date></issue><article-number>035802</article-number><doi>10.1103/PhysRevC.95.035802</doi></host></reference><source-text
+      id="srct0145">S. Furusawa, I. Mishustin, Self-consistent calculation of the
+      nuclear composition in hot and dense stellar matter, Phys. Rev. C 95 (2017)
+      035802. doi:10.1103/PhysRevC.95.035802.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '95'
+      year: 2017
+    dois:
+    - 10.1103/PhysRevC.95.035802
+    label: '25'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Mishustin, I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0260"><label>[26]</label><reference id="bibDE68252418835B79F9172CC38DCEC25Bs1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Furusawa</surname></author><author><given-name>I.</given-name><surname>Mishustin</surname></author></authors><title><maintitle>Equilibrium
+      nuclear ensembles taking into account vaporization of hot nuclei in dense stellar
+      matter</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>97</volume-nr></series><date>2018</date></issue><article-number>025804</article-number><doi>10.1103/PhysRevC.97.025804</doi></host></reference><source-text
+      id="srct0150">S. Furusawa, I. Mishustin, Equilibrium nuclear ensembles taking
+      into account vaporization of hot nuclei in dense stellar matter, Phys. Rev.
+      C 97 (2018) 025804. doi:10.1103/PhysRevC.97.025804.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '97'
+      year: 2018
+    dois:
+    - 10.1103/PhysRevC.97.025804
+    label: '26'
+    authors:
+    - full_name: Furusawa, S.
+      inspire_role: author
+    - full_name: Mishustin, I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0270"><label>[27]</label><reference id="bib3B53039ECB9902992EF1339D29A8B2DBs1"><contribution
+      langtype="en"><authors><author><given-name>G.</given-name><surname>Röpke</surname></author><author><given-name>A.</given-name><surname>Schnell</surname></author><author><given-name>P.</given-name><surname>Schuck</surname></author><author><given-name>P.</given-name><surname>Nozières</surname></author></authors><title><maintitle>Four-particle
+      condensate in strongly coupled fermion systems</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>80</volume-nr></series><date>1998</date></issue><pages><first-page>3177</first-page><last-page>3180</last-page></pages><doi>10.1103/PhysRevLett.80.3177</doi></host></reference><source-text
+      id="srct0155">G. Röpke, A. Schnell, P. Schuck, P. Nozières, Four-particle condensate
+      in strongly coupled fermion systems, Phys. Rev. Lett. 80 (1998) 3177–3180. doi:10.1103/PhysRevLett.80.3177.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '80'
+      year: 1998
+      page_start: '3177'
+      page_end: '3180'
+    dois:
+    - 10.1103/PhysRevLett.80.3177
+    label: '27'
+    authors:
+    - full_name: Röpke, G.
+      inspire_role: author
+    - full_name: Schnell, A.
+      inspire_role: author
+    - full_name: Schuck, P.
+      inspire_role: author
+    - full_name: Nozières, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0280"><label>[28]</label><reference id="bib95EDC6B77AC6187F2A1B1AD1816070AEs1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Misicu</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author><author><given-name>W.</given-name><surname>Greiner</surname></author></authors><title><maintitle>Q-balls
+      of clusterized baryonic matter</maintitle></title></contribution><host><issue><series><title><maintitle>Mod.
+      Phys. Lett. A</maintitle></title><volume-nr>32</volume-nr></series><issue-nr>01</issue-nr><date>2017</date></issue><article-number>1750010</article-number><doi>10.1142/S0217732317500109</doi></host></reference><source-text
+      id="srct0160">S. Misicu, I. N. Mishustin, W. Greiner, Q-balls of clusterized
+      baryonic matter, Modern Physics Letters A 32 (01) (2017) 1750010. doi:10.1142/S0217732317500109.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mod. Phys. Lett. A
+      journal_volume: '32'
+      journal_issue: '01'
+      year: 2017
+    dois:
+    - 10.1142/S0217732317500109
+    label: '28'
+    authors:
+    - full_name: Misicu, S.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+    - full_name: Greiner, W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0290"><label>[29]</label><reference id="bib7D67C5150A61C5F18036E41B14C64E4Fs1"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Sedrakian</surname></author><author><given-name>J.W.</given-name><surname>Clark</surname></author><author><given-name>E.</given-name><surname>Krotscheck</surname></author></authors><title><maintitle>Superfluidity
+      and pairing phenomena from cold atomic gases to neutron stars</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Low Temp. Phys.</maintitle></title><volume-nr>189</volume-nr></series><issue-nr>5</issue-nr><date>2017</date></issue><pages><first-page>231</first-page><last-page>233</last-page></pages><doi>10.1007/s10909-017-1819-6</doi></host></reference><source-text
+      id="srct0165">A. Sedrakian, J. W. Clark, E. Krotscheck, Superfluidity and pairing
+      phenomena from cold atomic gases to neutron stars, Journal of Low Temperature
+      Physics 189 (5) (2017) 231–233. doi:10.1007/s10909-017-1819-6.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Low Temp. Phys.
+      journal_volume: '189'
+      journal_issue: '5'
+      year: 2017
+      page_start: '231'
+      page_end: '233'
+    dois:
+    - 10.1007/s10909-017-1819-6
+    label: '29'
+    authors:
+    - full_name: Sedrakian, A.
+      inspire_role: author
+    - full_name: Clark, J.W.
+      inspire_role: author
+    - full_name: Krotscheck, E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0300"><label>[30]</label><reference id="bib91466F2657BF9B91E396301F9325D8BCs1"><contribution
+      langtype="en"><authors><author><given-name>X.-H.</given-name><surname>Wu</surname></author><author><given-name>S.-B.</given-name><surname>Wang</surname></author><author><given-name>A.</given-name><surname>Sedrakian</surname></author><author><given-name>G.</given-name><surname>Röpke</surname></author></authors><title><maintitle>Composition
+      of nuclear matter with light clusters and Bose–Einstein condensation of <italic>α</italic>
+      particles</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Low Temp. Phys.</maintitle></title><volume-nr>189</volume-nr></series><issue-nr>3</issue-nr><date>2017</date></issue><pages><first-page>133</first-page><last-page>146</last-page></pages><doi>10.1007/s10909-017-1795-x</doi></host></reference><source-text
+      id="srct0170">X.-H. Wu, S.-B. Wang, A. Sedrakian, G. Röpke, Composition of nuclear
+      matter with light clusters and bose–einstein condensation of α particles, Journal
+      of Low Temperature Physics 189 (3) (2017) 133–146. doi:10.1007/s10909-017-1795-x.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Low Temp. Phys.
+      journal_volume: '189'
+      journal_issue: '3'
+      year: 2017
+      page_start: '133'
+      page_end: '146'
+    dois:
+    - 10.1007/s10909-017-1795-x
+    label: '30'
+    authors:
+    - full_name: Wu, X.-H.
+      inspire_role: author
+    - full_name: Wang, S.-B.
+      inspire_role: author
+    - full_name: Sedrakian, A.
+      inspire_role: author
+    - full_name: Röpke, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0310"><label>[31]</label><reference id="bib1994085D19CD819FB92853706CABC02Bs1"><contribution
+      langtype="en"><authors><author><given-name>L.M.</given-name><surname>Satarov</surname></author><author><given-name>M.I.</given-name><surname>Gorenstein</surname></author><author><given-name>A.</given-name><surname>Motornenko</surname></author><author><given-name>V.</given-name><surname>Vovchenko</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author><author><given-name>H.</given-name><surname>Stoecker</surname></author></authors><title><maintitle>Bose-Einstein
+      condensation and liquid-gas phase transition in strongly interacting matter
+      composed of <italic>α</italic> particles</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. G, Nucl. Part. Phys.</maintitle></title><volume-nr>44</volume-nr></series><issue-nr>12</issue-nr><date>2017</date></issue><article-number>125102</article-number><doi>10.1088/1361-6471/aa8c5d</doi></host><host><e-host><inter-ref
+      id="inf0120" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1704.08039"
+      type="simple">arXiv:1704.08039</inter-ref></e-host></host></reference><source-text
+      id="srct0175">L. M. Satarov, M. I. Gorenstein, A. Motornenko, V. Vovchenko,
+      I. N. Mishustin, H. Stoecker, Bose-Einstein condensation and liquid-gas phase
+      transition in strongly interacting matter composed of α particles, Journal of
+      Physics G Nuclear Physics 44 (12) (2017) 125102. arXiv:1704.08039, doi:10.1088/1361-6471/aa8c5d.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. G, Nucl. Part. Phys.
+      journal_volume: '44'
+      journal_issue: '12'
+      year: 2017
+    arxiv_eprint: '1704.08039'
+    dois:
+    - 10.1088/1361-6471/aa8c5d
+    label: '31'
+    authors:
+    - full_name: Satarov, L.M.
+      inspire_role: author
+    - full_name: Gorenstein, M.I.
+      inspire_role: author
+    - full_name: Motornenko, A.
+      inspire_role: author
+    - full_name: Vovchenko, V.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+    - full_name: Stoecker, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0320"><label>[32]</label><reference id="bib2D530B53A77C3973D12B4710E8C0FC85s1"><contribution
+      langtype="en"><authors><author><given-name>L.M.</given-name><surname>Satarov</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author><author><given-name>A.</given-name><surname>Motornenko</surname></author><author><given-name>V.</given-name><surname>Vovchenko</surname></author><author><given-name>M.I.</given-name><surname>Gorenstein</surname></author><author><given-name>H.</given-name><surname>Stoecker</surname></author></authors><title><maintitle>Phase
+      transitions and Bose-Einstein condensation in <italic>α</italic>-nucleon matter</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>99</volume-nr></series><date>2019</date></issue><article-number>024909</article-number><doi>10.1103/PhysRevC.99.024909</doi></host></reference><source-text
+      id="srct0180">L. M. Satarov, I. N. Mishustin, A. Motornenko, V. Vovchenko, M.
+      I. Gorenstein, H. Stoecker, Phase transitions and bose-einstein condensation
+      in α-nucleon matter, Phys. Rev. C 99 (2019) 024909. doi:10.1103/PhysRevC.99.024909.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '99'
+      year: 2019
+    dois:
+    - 10.1103/PhysRevC.99.024909
+    label: '32'
+    authors:
+    - full_name: Satarov, L.M.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+    - full_name: Motornenko, A.
+      inspire_role: author
+    - full_name: Vovchenko, V.
+      inspire_role: author
+    - full_name: Gorenstein, M.I.
+      inspire_role: author
+    - full_name: Stoecker, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0330"><label>[33]</label><reference id="bib5E5A8B8CA606363E2F4EA97BE0E007D8s1"><contribution
+      langtype="en"><authors><author><given-name>Z.-W.</given-name><surname>Zhang</surname></author><author><given-name>L.-W.</given-name><surname>Chen</surname></author></authors><title><maintitle>Cold
+      dilute nuclear matter with <italic>α</italic>-particle condensation in a generalized
+      nonlinear relativistic mean-field model</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>100</volume-nr></series><date>2019</date></issue><article-number>054304</article-number><doi>10.1103/PhysRevC.100.054304</doi></host></reference><source-text
+      id="srct0185">Z.-W. Zhang, L.-W. Chen, Cold dilute nuclear matter with α-particle
+      condensation in a generalized nonlinear relativistic mean-field model, Phys.
+      Rev. C 100 (2019) 054304. doi:10.1103/PhysRevC.100.054304.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '100'
+      year: 2019
+    dois:
+    - 10.1103/PhysRevC.100.054304
+    label: '33'
+    authors:
+    - full_name: Zhang, Z.-W.
+      inspire_role: author
+    - full_name: Chen, L.-W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0340"><label>[34]</label><reference id="bib7F7E304C723A3A692AEE7976CD7A1059s1"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Oyamatsu</surname></author><author><given-name>K.</given-name><surname>Iida</surname></author></authors><title><maintitle>Saturation
+      of nuclear matter and radii of unstable nuclei</maintitle></title></contribution><host><issue><series><title><maintitle>Prog.
+      Theor. Phys.</maintitle></title><volume-nr>109</volume-nr></series><date>2003</date></issue><pages><first-page>631</first-page><last-page>650</last-page></pages><doi>10.1143/PTP.109.631</doi></host><host><e-host><inter-ref
+      id="inf0130" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:nucl-th/0204033"
+      type="simple">arXiv:nucl-th/0204033</inter-ref></e-host></host></reference><source-text
+      id="srct0190">K. Oyamatsu, K. Iida, Saturation of nuclear matter and radii of
+      unstable nuclei, Prog. Theor. Phys. 109 (2003) 631–650. arXiv:nucl-th/0204033,
+      doi:10.1143/PTP.109.631.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Prog. Theor. Phys.
+      journal_volume: '109'
+      year: 2003
+      page_start: '631'
+      page_end: '650'
+    arxiv_eprint: nucl-th/0204033
+    dois:
+    - 10.1143/PTP.109.631
+    label: '34'
+    authors:
+    - full_name: Oyamatsu, K.
+      inspire_role: author
+    - full_name: Iida, K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0350"><label>[35]</label><reference id="bib76469E6BC7E02B2AD27C9426163E8F64s1"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Oyamatsu</surname></author><author><given-name>K.</given-name><surname>Iida</surname></author></authors><title><maintitle>Symmetry
+      energy at subnuclear densities and nuclei in neutron star crusts</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>75</volume-nr></series><issue-nr>1</issue-nr><date>2007</date></issue><article-number>015801</article-number><doi>10.1103/PhysRevC.75.015801</doi></host><host><e-host><inter-ref
+      id="inf0140" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:nucl-th/0609040"
+      type="simple">arXiv:nucl-th/0609040</inter-ref></e-host></host></reference><source-text
+      id="srct0195">K. Oyamatsu, K. Iida, Symmetry energy at subnuclear densities
+      and nuclei in neutron star crusts, Phys. Rev. C75 (1) (2007) 015801. arXiv:nucl-th/0609040,
+      doi:10.1103/PhysRevC.75.015801.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '75'
+      journal_issue: '1'
+      year: 2007
+    arxiv_eprint: nucl-th/0609040
+    dois:
+    - 10.1103/PhysRevC.75.015801
+    label: '35'
+    authors:
+    - full_name: Oyamatsu, K.
+      inspire_role: author
+    - full_name: Iida, K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0360"><label>[36]</label><reference id="bib6EF05884C5695CB7D15AC18FBD204369s1"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Brack</surname></author><author><given-name>P.</given-name><surname>Quentin</surname></author></authors><title><maintitle>Selfconsistent
+      calculations of highly excited nuclei</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Lett. B</maintitle></title><volume-nr>52</volume-nr></series><date>1974</date></issue><pages><first-page>159</first-page><last-page>162</last-page></pages><doi>10.1016/0370-2693(74)90077-X</doi></host></reference><source-text
+      id="srct0200">M. Brack, P. Quentin, Selfconsistent calculations of highly excited
+      nuclei, Physics Letters B 52 (1974) 159–162. doi:10.1016/0370-2693(74)90077-X.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Lett. B
+      journal_volume: '52'
+      year: 1974
+      page_start: '159'
+      page_end: '162'
+    dois:
+    - 10.1016/0370-2693(74)90077-X
+    label: '36'
+    authors:
+    - full_name: Brack, M.
+      inspire_role: author
+    - full_name: Quentin, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0370"><label>[37]</label><reference id="bib911F30658617D70BD2B6C6080E0EC696s1"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Typel</surname></author><author><given-name>G.</given-name><surname>Röpke</surname></author><author><given-name>T.</given-name><surname>Klähn</surname></author><author><given-name>D.</given-name><surname>Blaschke</surname></author><author><given-name>H.H.</given-name><surname>Wolter</surname></author></authors><title><maintitle>Composition
+      and thermodynamics of nuclear matter with light clusters</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>81</volume-nr></series><issue-nr>1</issue-nr><date>2010</date></issue><article-number>015803</article-number><doi>10.1103/PhysRevC.81.015803</doi></host></reference><source-text
+      id="srct0205">S. Typel, G. Röpke, T. Klähn, D. Blaschke, H. H. Wolter, Composition
+      and thermodynamics of nuclear matter with light clusters, Phys. Rev. C81 (1)
+      (2010) 015803. doi:10.1103/PhysRevC.81.015803.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '81'
+      journal_issue: '1'
+      year: 2010
+    dois:
+    - 10.1103/PhysRevC.81.015803
+    label: '37'
+    authors:
+    - full_name: Typel, S.
+      inspire_role: author
+    - full_name: Röpke, G.
+      inspire_role: author
+    - full_name: Klähn, T.
+      inspire_role: author
+    - full_name: Blaschke, D.
+      inspire_role: author
+    - full_name: Wolter, H.H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0380"><label>[38]</label><reference id="bib82822A830757C0D5E96EA548B2900885s1"><contribution
+      langtype="en"><authors><author><given-name>L.M.</given-name><surname>Satarov</surname></author><author><given-name>M.I.</given-name><surname>Gorenstein</surname></author><author><given-name>I.N.</given-name><surname>Mishustin</surname></author><author><given-name>H.</given-name><surname>Stoecker</surname></author></authors><title><maintitle>Possible
+      Bose-Einstein condensate of alpha particles in the ground state of nuclear matter?</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>101</volume-nr></series><issue-nr>2</issue-nr><date>2020</date></issue><article-number>024913</article-number><doi>10.1103/PhysRevC.101.024913</doi></host></reference><source-text
+      id="srct0210">L. M. Satarov, M. I. Gorenstein, I. N. Mishustin, H. Stoecker,
+      Possible Bose-Einstein condensate of alpha particles in the ground state of
+      nuclear matter? Phys. Rev. C101 (2) (2020) 024913. 10.1103/PhysRevC.101.024913.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '101'
+      journal_issue: '2'
+      year: 2020
+    dois:
+    - 10.1103/PhysRevC.101.024913
+    label: '38'
+    authors:
+    - full_name: Satarov, L.M.
+      inspire_role: author
+    - full_name: Gorenstein, M.I.
+      inspire_role: author
+    - full_name: Mishustin, I.N.
+      inspire_role: author
+    - full_name: Stoecker, H.
+      inspire_role: author

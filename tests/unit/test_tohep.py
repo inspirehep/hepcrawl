@@ -28,22 +28,22 @@ def load_file(file_name):
     return data
 
 
-@pytest.fixture('module')
+@pytest.fixture()
 def expected_generic_crawler_record():
     return load_file('out_generic_crawler_record.yaml')
 
 
-@pytest.fixture('module')
+@pytest.fixture()
 def input_generic_crawler_record():
     return load_file('in_generic_crawler_record.yaml')
 
 
-@pytest.fixture('module')
+@pytest.fixture()
 def expected_no_document_type_record():
     return load_file('out_no_document_type.yaml')
 
 
-@pytest.fixture('module')
+@pytest.fixture()
 def input_no_document_type_record():
     return load_file('in_no_document_type.yaml')
 
