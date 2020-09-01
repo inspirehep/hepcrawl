@@ -1,0 +1,694 @@
+abstract: "Since 2001, the SPIRAL 1 facility has been one of the pioneering facilities in ISOL techniques for re-accelerating radioactive ion beams: the fragmentation of the heavy ion beams of GANIL on graphite targets and subsequent ionization in the Nanogan ECR ion source has permitted to deliver beams of gaseous elements (He, N, O, F, Ne, Ar, Kr) to numerous experiments. Thanks to the CIME cyclotron, energies up to 20\u202fAMeV could be obtained. In 2014, the facility was stopped to undertake a major upgrade, with the aim to extend the production capabilities of SPIRAL 1 to a number of new elements. This upgrade, which is presently under commissioning, consists in the integration of an ECR booster in the SPIRAL 1 beam line to charge breed the beam of different 1+ sources. A FEBIAD source (the so-called VADIS from ISOLDE) was chosen to be the future workhorse for producing many metallic ion beams. This source was coupled to the SPIRAL 1 graphite targets and tested on-line with different beams at GANIL. The charge breeder is an upgraded version of the Phoenix booster which was previously tested in ISOLDE. It was recently commissioned at LPSC and lately in the SPIRAL 1 beam lines with stable beams. The upgrade additionally permits the use of other target material than graphite. In particular, the use of fragmentation targets will permit to produce higher intensities than from projectile fragmentation, and thin targets of high Z will be used for producing beams by fusion-evaporation. The performances of the aforementioned ingredients of the upgrade (targets, 1+ source and charge breeder) have been and are still being optimized in the frame of different European projects (EMILIE, ENSAR and ENSAR2). The upgraded SPIRAL 1 facility will provide soon its first new beams for physics and further beam development are undertaken to prepare for the next AGATA campaign. The results obtained during the on-line commissioning period permit to evaluate intensities for new beams from the upgraded facility. © 2001 Elsevier Science. All rights reserved."
+copyright_holder: The Authors
+copyright_statement: © 2019 The Authors. Published by Elsevier B.V.
+copyright_year: 2019
+document_type: article
+license_url: http://creativecommons.org/licenses/by/4.0/
+license_statement: This is an open access article under the CC BY license.
+article_type: full-length article
+journal_title: Nuclear Inst. and Methods in Physics Research B
+material: publication
+publisher: Elsevier B.V.
+year: 2020
+authors:
+- full_name: Delahaye, P.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+  emails:
+  - pierre.delahaye@ganil.fr
+- full_name: Dubois, M.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Maunoury, L.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Annaluru, A.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Angot, J.
+  raw_affiliations:
+  - value: LPSC, avenue des martyrs, 38026 Grenoble, France
+    source: Elsevier B.V.
+- full_name: Bajeat, O.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Blank, B.
+  raw_affiliations:
+  - value: CENBG, 19 chemin du Solarium, 33175 Gradignan, France
+    source: Elsevier B.V.
+- full_name: Cam, J.C.
+  raw_affiliations:
+  - value: LPC Caen, Bd Maréchal Juin, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Chauveau, P.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+  - value: CSNSM, bat. 101, Domaine de l'Université de Paris Sud, 91400 Orsay, France
+    source: Elsevier B.V.
+- full_name: Frigot, R.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Hormigos, S.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Jacquot, B.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Jardin, P.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Kamalou, O.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Kuchi, V.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Lecomte, P.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Osmond, B.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Retailleau, B.M.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Savalle, A.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Stora, T.
+  raw_affiliations:
+  - value: ISOLDE, CERN, route de Meyrin, 1211 Geneva, Switzerland
+    source: Elsevier B.V.
+- full_name: Thomas, J.C.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Toivanen, V.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Traykov, E.
+  raw_affiliations:
+  - value: IPHC, Batiment 27, 23 Rue du Loess, 67200 Strasbourg, France
+    source: Elsevier B.V.
+- full_name: Ujic, P.
+  raw_affiliations:
+  - value: GANIL, bd Henri Becquerel, 14000 Caen, France
+    source: Elsevier B.V.
+- full_name: Vondrasek, R.
+  raw_affiliations:
+  - value: ANL, 9700 Cass Avenue, Lemont, IL 60439, United States
+    source: Elsevier B.V.
+artid: '63603'
+title: New exotic beams from the SPIRAL 1 upgrade
+dois:
+- material: publication
+  doi: 10.1016/j.nimb.2019.04.063
+journal_volume: '463'
+journal_issue:
+is_conference_paper: false
+publication_date: '2020-01-15'
+collaborations: []
+documents:
+- key: j.nimb.2019.04.063.xml
+  url: http://example.org/j.nimb.2019.04.063.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0005"><label>[1]</label><reference id="h0005"><contribution
+      langtype="en"><authors><author><given-name>A.C.C.</given-name><surname>Villari</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nuc.
+      Phys. A</maintitle></title><volume-nr>787</volume-nr></series><date>2007</date></issue><pages><first-page>126c</first-page><last-page>133c</last-page></pages></host><comment>and
+      references therein</comment></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nuc. Phys. A
+      journal_volume: '787'
+      year: 2007
+      page_start: 126c
+      page_end: 133c
+    label: '1'
+    misc:
+    - and references therein
+    authors:
+    - full_name: Villari, A.C.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0010"><label>[2]</label><reference id="h0010"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Navin</surname></author><author><given-name>F.</given-name><surname>De
+      Oliveira Santos</surname></author><author><given-name>P.</given-name><surname>Roussel-Chomaz</surname></author><author><given-name>O.</given-name><surname>Sorlin</surname></author></authors></contribution><host><issue><series><title><maintitle>J.
+      Phys. G: Nucl. Part. Phys.</maintitle></title><volume-nr>38</volume-nr></series><date>2011</date></issue><pages><first-page>24004</first-page></pages></host></reference></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: 'J. Phys. G: Nucl. Part. Phys.'
+      journal_volume: '38'
+      year: 2011
+      page_start: '24004'
+    label: '2'
+    authors:
+    - full_name: Navin, A.
+      inspire_role: author
+    - full_name: De Oliveira Santos, F.
+      inspire_role: author
+    - full_name: Roussel-Chomaz, P.
+      inspire_role: author
+    - full_name: Sorlin, O.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0015"><label>[3]</label><other-ref id="h0015"><textref><inter-ref
+      id="ir005" href="https://indico.in2p3.fr/event/12296/" type="simple">https://indico.in2p3.fr/event/12296/</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: https://indico.in2p3.fr/event/12296/
+    label: '3'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0020"><label>[4]</label><reference id="h0020"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Blank</surname></author><author><given-name>B.</given-name><surname>Pramana</surname></author></authors></contribution><host><issue><series><title><maintitle>J.
+      Phys.</maintitle></title><volume-nr>75</volume-nr></series><date>2010</date></issue><pages><first-page>343</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys.
+      journal_volume: '75'
+      year: 2010
+      page_start: '343'
+    label: '4'
+    authors:
+    - full_name: Blank, B.
+      inspire_role: author
+    - full_name: Pramana, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0025"><label>[5]</label><reference id="h0025"><contribution
+      langtype="en"><authors><author><given-name>A.C.C.</given-name><surname>Villari</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys. A</maintitle></title><volume-nr>701</volume-nr></series><date>2002</date></issue><pages><first-page>476c</first-page><last-page>479c</last-page></pages></host><comment>and
+      references therein</comment></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys. A
+      journal_volume: '701'
+      year: 2002
+      page_start: 476c
+      page_end: 479c
+    label: '5'
+    misc:
+    - and references therein
+    authors:
+    - full_name: Villari, A.C.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0030"><label>[6]</label><reference id="h0030"><contribution
+      langtype="en"><authors><author><given-name>R.</given-name><surname>Kirchner</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>204</volume-nr></series><date>2003</date></issue><pages><first-page>179</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '204'
+      year: 2003
+      page_start: '179'
+    label: '6'
+    authors:
+    - full_name: Kirchner, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0035"><label>[7]</label><reference id="h0035"><contribution
+      langtype="en"><authors><author><given-name>N.</given-name><surname>Lecesne</surname></author></authors><title><maintitle>Etude
+      de la production d'ions radioactifs multichargés en ligne</maintitle></title></contribution><comment>(Ph.D.
+      thesis)</comment><host><book><date>1997</date><publisher><name>Université de
+      Caen</name></publisher></book></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 1997
+    label: '7'
+    misc:
+    - "(Ph.D. thesis)"
+    authors:
+    - full_name: Lecesne, N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0040"><label>[8]</label><reference id="h0040"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Jardin</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>75</volume-nr></series><date>2004</date></issue><pages><first-page>1619</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '75'
+      year: 2004
+      page_start: '1619'
+    label: '8'
+    authors:
+    - full_name: Jardin, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0045"><label>[9]</label><reference id="h0045"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Penescu</surname></author><author><given-name>R.</given-name><surname>Catherall</surname></author><author><given-name>J.</given-name><surname>Lettry</surname></author><author><given-name>T.</given-name><surname>Stora</surname></author></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>81</volume-nr></series><date>2010</date></issue><pages><first-page>02A906</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '81'
+      year: 2010
+      page_start: 02A906
+    label: '9'
+    authors:
+    - full_name: Penescu, L.
+      inspire_role: author
+    - full_name: Catherall, R.
+      inspire_role: author
+    - full_name: Lettry, J.
+      inspire_role: author
+    - full_name: Stora, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0050"><label>[10]</label><other-ref id="h0050"><textref>V.
+      Kuchi, et al., to appear in these proceedings.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    label: '10'
+    misc:
+    - V. Kuchi, et al., to appear in these proceedings
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0055"><label>[11]</label><other-ref id="h0055"><textref>P.
+      Jardin, et al., to appear in these proceedings.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    label: '11'
+    misc:
+    - P. Jardin, et al., to appear in these proceedings
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0060"><label>[12]</label><reference id="h0060"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Delahaye</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>317</volume-nr></series><date>2013</date></issue><pages><first-page>389</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '317'
+      year: 2013
+      page_start: '389'
+    label: '12'
+    authors:
+    - full_name: Delahaye, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0065"><label>[13]</label><reference id="h0065"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Delahaye</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>77</volume-nr></series><date>2006</date></issue><pages><first-page>03B105</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '77'
+      year: 2006
+      page_start: 03B105
+    label: '13'
+    authors:
+    - full_name: Delahaye, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0070"><label>[14]</label><other-ref id="h0070"><textref>M.
+      Marie-Jeanne, PhD thesis, Université Joseph Fourier, 2009.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    label: '14'
+    misc:
+    - M. Marie-Jeanne, PhD thesis, Université Joseph Fourier, 2009
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0075"><label>[15]</label><reference id="h0075"><contribution
+      langtype="en"><authors><author><given-name>O.</given-name><surname>Bajeat</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. Phys. B</maintitle></title><volume-nr>317</volume-nr></series><date>2013</date></issue><pages><first-page>411</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. Phys. B
+      journal_volume: '317'
+      year: 2013
+      page_start: '411'
+    label: '15'
+    authors:
+    - full_name: Bajeat, O.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0080"><label>[16]</label><reference id="h0080"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Grinyer</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>92</volume-nr></series><date>2015</date></issue><article-number>045503</article-number></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '92'
+      year: 2015
+    label: '16'
+    authors:
+    - full_name: Grinyer, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0085"><label>[17]</label><reference id="h0085"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Grinyer</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. C</maintitle></title><volume-nr>91</volume-nr></series><date>2015</date></issue><pages><first-page>032501(R)</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. C
+      journal_volume: '91'
+      year: 2015
+      page_start: 032501(R)
+    label: '17'
+    authors:
+    - full_name: Grinyer, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0090"><label>[18]</label><reference id="h0090"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Chauveau</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>376</volume-nr></series><date>2016</date></issue><pages><first-page>35</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '376'
+      year: 2016
+      page_start: '35'
+    label: '18'
+    authors:
+    - full_name: Chauveau, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0095"><label>[19]</label><reference id="h0095"><contribution
+      langtype="en"><authors><author><given-name>G.F.</given-name><surname>Grinyer</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth.</maintitle></title><volume-nr>A741</volume-nr></series><date>2014</date></issue><pages><first-page>18</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth.
+      journal_volume: A741
+      year: 2014
+      page_start: '18'
+    label: '19'
+    authors:
+    - full_name: Grinyer, G.F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0100"><label>[20]</label><reference id="h0100"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Lukic</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instr. Meth. Phys. Res. A</maintitle></title><volume-nr>565</volume-nr></series><date>2006</date></issue><pages><first-page>784</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instr. Meth. Phys. Res. A
+      journal_volume: '565'
+      year: 2006
+      page_start: '784'
+    label: '20'
+    authors:
+    - full_name: Lukic, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0105"><label>[21]</label><reference id="h0105"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Sümmerer</surname></author><author><given-name>B.</given-name><surname>Blank</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys. A</maintitle></title><volume-nr>701</volume-nr></series><date>2002</date></issue><pages><first-page>161</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys. A
+      journal_volume: '701'
+      year: 2002
+      page_start: '161'
+    label: '21'
+    authors:
+    - full_name: Sümmerer, K.
+      inspire_role: author
+    - full_name: Blank, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0110"><label>[22]</label><reference id="h0110"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Roussière</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instr. Meth. B</maintitle></title><volume-nr>246</volume-nr></series><date>2006</date></issue><pages><first-page>288</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instr. Meth. B
+      journal_volume: '246'
+      year: 2006
+      page_start: '288'
+    label: '22'
+    authors:
+    - full_name: Roussière, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0115"><label>[23]</label><reference id="h0115"><contribution
+      langtype="en"><authors><author><given-name>R.</given-name><surname>Kirchner</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>70</volume-nr></series><date>1992</date></issue><pages><first-page>186</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '70'
+      year: 1992
+      page_start: '186'
+    label: '23'
+    authors:
+    - full_name: Kirchner, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0120"><label>[24]</label><reference id="h0120"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Blank</surname></author><author><given-name>G.</given-name><surname>Canchel</surname></author><author><given-name>F.</given-name><surname>Seis</surname></author><author><given-name>P.</given-name><surname>Delahaye</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>416</volume-nr></series><date>2018</date></issue><pages><first-page>41</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '416'
+      year: 2018
+      page_start: '41'
+    label: '24'
+    authors:
+    - full_name: Blank, B.
+      inspire_role: author
+    - full_name: Canchel, G.
+      inspire_role: author
+    - full_name: Seis, F.
+      inspire_role: author
+    - full_name: Delahaye, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0125"><label>[25]</label><other-ref id="h0125"><textref><inter-ref
+      id="ir010" href="https://u.ganil-spiral2.eu/chartbeams/" type="simple">https://u.ganil-spiral2.eu/chartbeams/</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: https://u.ganil-spiral2.eu/chartbeams/
+    label: '25'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0130"><label>[26]</label><reference id="h0130"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Maunoury</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>87</volume-nr></series><date>2016</date></issue><pages><first-page>02B508</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '87'
+      year: 2016
+      page_start: 02B508
+    label: '26'
+    authors:
+    - full_name: Maunoury, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0135"><label>[27]</label><reference id="h0135"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Delahaye</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>87</volume-nr></series><date>2016</date></issue><pages><first-page>02B510</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '87'
+      year: 2016
+      page_start: 02B510
+    label: '27'
+    authors:
+    - full_name: Delahaye, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0140"><label>[28]</label><reference id="h0140"><contribution
+      langtype="en"><authors><author><given-name>R.</given-name><surname>Vondrasek</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Rev.
+      Sci. Instrum.</maintitle></title><volume-nr>83</volume-nr></series><date>2012</date></issue><article-number>113303</article-number></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Sci. Instrum.
+      journal_volume: '83'
+      year: 2012
+    label: '28'
+    authors:
+    - full_name: Vondrasek, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0145"><label>[29]</label><reference id="h0145"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Delahaye</surname></author><author><given-name>L.</given-name><surname>Maunoury</surname></author><author><given-name>R.</given-name><surname>Vondrasek</surname></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. A</maintitle></title><volume-nr>693</volume-nr></series><date>2012</date></issue><pages><first-page>104</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. A
+      journal_volume: '693'
+      year: 2012
+      page_start: '104'
+    label: '29'
+    authors:
+    - full_name: Delahaye, P.
+      inspire_role: author
+    - full_name: Maunoury, L.
+      inspire_role: author
+    - full_name: Vondrasek, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0150"><label>[30]</label><reference id="h0150"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Maunoury</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>JINST</maintitle></title><volume-nr>13</volume-nr></series><date>2018</date></issue><pages><first-page>C12022</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: JINST
+      journal_volume: '13'
+      year: 2018
+      page_start: C12022
+    label: '30'
+    authors:
+    - full_name: Maunoury, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0155"><label>[31]</label><reference id="h0155"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Angot</surname></author><et-al/></authors><title><maintitle>Recherche
+      et développement sur le Booster de charges Phoenix au LPSC</maintitle></title></contribution><host><issue><series><title><maintitle>Journée
+      des accélérateurs de Roscoff</maintitle></title></series><date>2017</date></issue></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Journée des accélérateurs de Roscoff
+      year: 2017
+    label: '31'
+    authors:
+    - full_name: Angot, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0160"><label>[32]</label><reference id="h0160"><contribution
+      langtype="en"><authors><author><given-name>Y.</given-name><surname>Martinez
+      Palenzuela</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Inst. Meth. Phys. Res. B</maintitle></title><volume-nr>431</volume-nr></series><date>2018</date></issue><pages><first-page>59</first-page><last-page>66</last-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Inst. Meth. Phys. Res. B
+      journal_volume: '431'
+      year: 2018
+      page_start: '59'
+      page_end: '66'
+    label: '32'
+    authors:
+    - full_name: Palenzuela, Y. Martinez
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0165"><label>[33]</label><reference id="h0165"><contribution
+      langtype="en"><authors><author><given-name>T.</given-name><surname>Kurtukian
+      Nieto</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>317</volume-nr></series><date>2013</date></issue><pages><first-page>284</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '317'
+      year: 2013
+      page_start: '284'
+    label: '33'
+    authors:
+    - full_name: Nieto, T. Kurtukian
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0170"><label>[34]</label><reference id="h0170"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Ascher</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>EPJ
+      Web Conf.</maintitle></title><volume-nr>66</volume-nr></series><date>2014</date></issue><pages><first-page>11029</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: EPJ Web Conf.
+      journal_volume: '66'
+      year: 2014
+      page_start: '11029'
+    label: '34'
+    authors:
+    - full_name: Ascher, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0175"><label>[35]</label><reference id="h0175"><contribution
+      langtype="en"><authors><author><given-name>E.</given-name><surname>Minaya Ramirez</surname></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth. B</maintitle></title><volume-nr>376</volume-nr></series><date>2016</date></issue><pages><first-page>298</first-page></pages></host></reference></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth. B
+      journal_volume: '376'
+      year: 2016
+      page_start: '298'
+    label: '35'
+    authors:
+    - full_name: Ramirez, E. Minaya
+      inspire_role: author

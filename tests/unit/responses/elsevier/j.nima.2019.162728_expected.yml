@@ -1,0 +1,258 @@
+abstract: Forward hadron calorimeters with transverse and longitudinal segmentation are developed for upgraded NA61/SHINE [BM@N] and future CBM experiments at CERN, JINR and FAIR respectively. The main purpose of these calorimeters is to provide an event-by-event measurements of centrality and reaction plane orientation in ion collisions. Hadron calorimeters in all these experiments are composed of sampling lead/scintillator modules. The light collection from longitudinal sections in modules is provided by Wave-Length Shifting (WLS) fibers embedded in scintillator plates. Micropixel photodetectors MPPCs are used for light detection. The light yield measured at muons beam for these modules is about 8 - 10 ph.el./MeV. Performance of the supermodule composed of these modules has been studied at proton beam energies 1.5 - 150 GeV at CERN. Radiation conditions at high heavy ion beam rates are studied by FLUKA simulations for calorimeters geometry optimization aimed to get acceptable radiation doses and neutron fluence both for the scintillator plates and for photodetectors in these experiments.
+copyright_holder: Elsevier B.V.
+copyright_statement: © 2019 Elsevier B.V. All rights reserved.
+copyright_year: 2019
+document_type: conference paper
+license_url:
+license_statement:
+article_type: full-length article
+journal_title: Nuclear Inst. and Methods in Physics Research A
+material: publication
+publisher: Elsevier B.V.
+year: 2020
+authors:
+- full_name: Guber, F.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+  emails:
+  - guber@inr.ru
+- full_name: Finogeev, D.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+- full_name: Golubeva, M.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+- full_name: Ivashkin, A.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+- full_name: Izvestnyy, A.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+- full_name: Karpushkin, N.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+  - value: Moscow Institute of Physics and Technology, Dolgoprudny, Moscow Region,
+      Russia
+    source: Elsevier B.V.
+- full_name: Morozov, S.
+  raw_affiliations:
+  - value: Institute for Nuclear Research RAS, Moscow, Russia
+    source: Elsevier B.V.
+  - value: National Research Nuclear University MEPhI, Moscow, Russia
+    source: Elsevier B.V.
+- full_name: Kugler, A.
+  raw_affiliations:
+  - value: Nuclear Physics Institute of CAS, R̆ez̆, Czech Republic
+    source: Elsevier B.V.
+- full_name: Mikhaylov, V.
+  raw_affiliations:
+  - value: Nuclear Physics Institute of CAS, R̆ez̆, Czech Republic
+    source: Elsevier B.V.
+  - value: Czech Technical University, Prague, Czech Republic
+    source: Elsevier B.V.
+- full_name: Senger, A.
+  raw_affiliations:
+  - value: GSI Helmholtz Centre for Heavy Ion Research, Darmstadt, Germany
+    source: Elsevier B.V.
+artid: '162728'
+title: Transverse and longitudinal segmented forward hadron calorimeters with SiPMs light readout for future fixed target heavy ion experiments
+dois:
+- material: publication
+  doi: 10.1016/j.nima.2019.162728
+journal_volume: '958'
+journal_issue:
+is_conference_paper: true
+publication_date: '2020-04-01'
+collaborations: ['NA61/SHINE, CBM and BM@N collaborations']
+documents:
+- key: j.nima.2019.162728.xml
+  url: http://example.org/j.nima.2019.162728.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><other-ref id="sb1"><textref>A.
+      Aduszkiewicz, et al. CERN-APSC-2018-008 / SPSC-P330-ADD-10.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    label: '1'
+    misc:
+    - A. Aduszkiewicz, et al. CERN-APSC-2018-008 / SPSC-P330-ADD-10
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Kapishin</surname><given-name>M.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Phys.</maintitle></title><volume-nr>A982</volume-nr></series><date>2019</date></issue><pages><first-page>967</first-page><last-page>970</last-page></pages></host></reference><source-text
+      id="afs2">M. Kapishin, Nucl.Phys. A982 (2019) 967-970</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Phys.
+      journal_volume: A982
+      year: 2019
+      page_start: '967'
+      page_end: '970'
+    label: '2'
+    authors:
+    - full_name: Kapishin, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Ablyazimov</surname><given-name>T.</given-name></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Eur.
+      Phys. J.</maintitle></title><volume-nr>A53</volume-nr></series><issue-nr>3</issue-nr><date>2017</date></issue><pages><first-page>60</first-page></pages></host></reference><source-text
+      id="afs3">T. Ablyazimov et al., Eur.Phys.J. A53 (2017) no.3, 60</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Eur. Phys. J.
+      journal_volume: A53
+      journal_issue: '3'
+      year: 2017
+      page_start: '60'
+    label: '3'
+    authors:
+    - full_name: Ablyazimov, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Abraamyan</surname><given-name>U.</given-name></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth.</maintitle></title><volume-nr>A628</volume-nr></series><date>2011</date></issue><pages><first-page>99</first-page><last-page>102</last-page></pages></host></reference><source-text
+      id="afs4">U. Abraamyan et al., Nucl.Instrum.Meth. A628 (2011) 99-102</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth.
+      journal_volume: A628
+      year: 2011
+      page_start: '99'
+      page_end: '102'
+    label: '4'
+    authors:
+    - full_name: Abraamyan, U.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Golubeva</surname><given-name>M.</given-name></author><et-al/></authors></contribution><host><issue><series><title><maintitle>J.
+      Phys.: Conf. Ser.</maintitle></title><volume-nr>798</volume-nr></series><date>2017</date></issue><article-number>012073</article-number></host></reference><source-text
+      id="afs5">M. Golubeva et al., Journal of Physics: Conf. Series798 (2017) 012073</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: 'J. Phys.: Conf. Ser.'
+      journal_volume: '798'
+      year: 2017
+    label: '5'
+    authors:
+    - full_name: Golubeva, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b6"><label>[6]</label><other-ref id="sb6"><textref>N.
+      Karpushkin, et al. Accepted at NIM A: <inter-ref id="interref1" href="https://doi.org/10.1016/j.nima.2018.10.054"
+      type="simple">https://doi.org/10.1016/j.nima.2018.10.054</inter-ref>.</textref></other-ref></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    dois:
+    - 10.1016/j.nima.2018.10.054
+    label: '6'
+    misc:
+    - 'N. Karpushkin, et al. Accepted at NIM A:'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b7"><label>[7]</label><other-ref id="sb7"><textref><inter-ref
+      id="interref2" href="http://afi.jinr.ru" type="simple">http://afi.jinr.ru</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: http://afi.jinr.ru
+    label: '7'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b8"><label>[8]</label><reference id="sb8"><contribution
+      langtype="en"><authors><author><surname>Mikhaylov</surname><given-name>V.</given-name></author><et-al/></authors></contribution><host><issue><series><title><maintitle>Nucl.
+      Instrum. Meth.</maintitle></title><volume-nr>A912</volume-nr></series><date>2018</date></issue><pages><first-page>241</first-page><last-page>244</last-page></pages></host></reference><source-text
+      id="afs8">V. Mikhaylov et al., Nucl.Instrum.Meth. A912 (2018) 241-244</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nucl. Instrum. Meth.
+      journal_volume: A912
+      year: 2018
+      page_start: '241'
+      page_end: '244'
+    label: '8'
+    authors:
+    - full_name: Mikhaylov, V.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b9"><label>[9]</label><other-ref id="sb9"><textref><inter-ref
+      id="interref3" href="http://dpnc.unige.ch/bravar/exp/NA61/Bravar-DRS.pdf" type="simple">http://dpnc.unige.ch/bravar/exp/NA61/Bravar-DRS.pdf</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: http://dpnc.unige.ch/bravar/exp/NA61/Bravar-DRS.pdf
+    label: '9'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b10"><label>[10]</label><other-ref id="sb10"><textref>O.
+      Gavrishchuk, et al. <inter-ref id="interref4" role="http://www.elsevier.com/xml/linking-roles/preprint"
+      href="arxiv:1406.1599v2[physics.ins-det]" type="simple">arXiv:1406.1599v2[physics.ins-det]</inter-ref>,
+      2014.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    arxiv_eprint: '1406.1599'
+    label: '10'
+    misc:
+    - O. Gavrishchuk, et al. , 2014
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b11"><label>[11]</label><reference id="sb11"><contribution
+      langtype="en"><authors><author><surname>Guber</surname><given-name>F.</given-name></author><et-al/></authors></contribution><host><issue><series><title><maintitle>EPJ
+      Web Conf.</maintitle></title><volume-nr>204</volume-nr></series><date>2019</date></issue><pages><first-page>07007</first-page></pages><doi>10.1051/epjconf/201920407007</doi></host></reference><source-text
+      id="afs11">F. Guber et al., submitted to EPJ Web Conf. www.epj-conferences.org</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: EPJ Web Conf.
+      journal_volume: '204'
+      year: 2019
+      page_start: '07007'
+    dois:
+    - 10.1051/epjconf/201920407007
+    label: '11'
+    authors:
+    - full_name: Guber, F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><other-ref id="sb12"><textref><inter-ref
+      id="interref5" href="https://ieeexplore.ieee.org/document/5402172" type="simple">https://ieeexplore.ieee.org/document/5402172</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: https://ieeexplore.ieee.org/document/5402172
+    label: '12'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b13"><label>[13]</label><other-ref id="sb13"><textref>F.
+      Guber, et al. <inter-ref id="interref6" href="http://repository.gsi.de/record/109059/files/20150720-CBM-TDR-PSD.pdf"
+      type="simple">http://repository.gsi.de/record/109059/files/20150720-CBM-TDR-PSD.pdf</inter-ref>.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    urls:
+    - value: http://repository.gsi.de/record/109059/files/20150720-CBM-TDR-PSD.pdf
+    label: '13'
+    misc:
+    - F. Guber, et al

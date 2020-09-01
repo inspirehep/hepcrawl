@@ -14,3 +14,4 @@ from __future__ import absolute_import, division, print_function
 from .arxiv import ArxivParser
 from .crossref import CrossrefParser
 from .jats import JatsParser
+from .elsevier import ElsevierParser

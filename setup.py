@@ -18,7 +18,7 @@ readme = open('README.rst').read()
 install_requires = [
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
-    'inspire-schemas~=61.0',
+    'inspire-schemas~=61.3',
     'inspire-dojson~=63.0',
     'inspire-utils~=3.0,>=3.0.0',
     # newer scrapy is incompatible with old scrapyd
@@ -35,7 +35,7 @@ install_requires = [
     'pyasn1>=0.1.8',  # Needed for dependency resolving.
     'LinkHeader>=0.4.3',
     'furl>=0.4.95',
-    'ftputil>=3.3.1',
+    'ftputil>=3.3.1,<4.0',
     'python-dateutil~=2.0,>=2.7.0',
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
