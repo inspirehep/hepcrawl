@@ -40,14 +40,13 @@ services:
       ftp_server:
         condition: service_healthy
 
+
   functional_desy:
     <<: *service_base
     command: py.test -vv tests/functional/desy
     depends_on:
-      scrapyd:
-        condition: service_healthy
-      ftp_server:
-        condition: service_healthy
+      - scrapyd
+      - localstack
 
   functional_arxiv:
     <<: *service_base
@@ -130,9 +129,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl https://localhost:443/"
+      test: "curl -k https://localhost:443/187.html"
 
   functional_cds:
     <<: *service_base
@@ -195,6 +192,16 @@ services:
         - "bash"
         - "-c"
         - "exec 3<> /dev/tcp/127.0.0.1/6379 && echo PING >&3 && head -1 <&3 | grep PONG"
+
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - '4572:4572'
+      - '4566:4566'
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/home/localstack/data
 
 networks:
   ftp:

@@ -13,6 +13,8 @@ import os
 import sys
 import traceback
 
+import boto3
+from botocore.exceptions import UnknownServiceError
 from flask.app import Flask
 from inspire_dojson import marcxml2record
 from lxml import etree
@@ -23,8 +25,6 @@ from six.moves import urllib
 from . import StatefulSpider
 from ..utils import (
     ParsedItem,
-    ftp_connection_info,
-    ftp_list_files,
     strict_kwargs,
 )
 
@@ -33,24 +33,26 @@ class DesySpider(StatefulSpider):
     """This spider parses files in XML MARC format (collections or single
     records).
 
-    It can retrieve the files from a remote FTP or from a local directory, they
+    It can retrieve the files from a S3 or from a local directory, they
     must have the extension ``.xml``.
 
     Args:
         source_folder(str): Path to the folder with the MARC files to ingest,
             might be collections or single records. Will be ignored if
-            ``ftp_host`` is passed.
-
-        ftp_folder(str): Remote folder where to look for the XML files.
-
-        ftp_host(str):
-
-        ftp_netrc(str): Path to the ``.netrc`` file with the authentication
-            details for the ftp connection. For more details see:
-            https://linux.die.net/man/5/netrc
+            s3 config parameters are passed.
 
         destination_folder(str): Path to put the crawl results into. Will be
             created if it does not exist.
+
+        s3_input_bucket(str): S3 bucket from which XMLs will be processed.
+
+        s3_output_bucket(str): S3 bucket to which XMLs will be stored after processing.
+
+        s3_server(str): S3 server (by default: https://s3.cern.ch).
+
+        s3_key(str): S3 key.
+
+        s3_secret(str) S3 secret.
 
         *args: will be passed to the contstructor of
             :class:`scrapy.spiders.Spider`.
@@ -59,13 +61,13 @@ class DesySpider(StatefulSpider):
             :class:`scrapy.spiders.Spider`.
 
     Examples:
-        To run a crawl, you need to pass FTP connection information via
-        ``ftp_host`` and ``ftp_netrc``, if ``ftp_folder`` is not passed, it
+        To run a crawl, you need to pass S3 key and secret information via
+        ``s3_key`` and ``s3_secret``, if they are not passed, it
         will fallback to ``DESY``::
 
             $ scrapy crawl desy \\
-                -a 'ftp_host=ftp.example.com' \\
-                -a 'ftp_netrc=/path/to/netrc'
+                -a 's3_key=<key>>' \\
+                -a 's3_secret=<secret>>'
 
         To run a crawl on local folder, you need to pass the absolute
         ``source_folder``::
@@ -78,26 +80,79 @@ class DesySpider(StatefulSpider):
     def __init__(
         self,
         source_folder=None,
-        ftp_folder='/DESY',
-        ftp_host=None,
-        ftp_netrc=None,
         destination_folder='/tmp/DESY',
+        s3_input_bucket='inspire-publishers-desy-incoming',
+        s3_output_bucket='inspire-publishers-desy-processed',
+        s3_server="https://s3.cern.ch",
+        s3_key=None,
+        s3_secret=None,
         *args,
         **kwargs
     ):
         super(DesySpider, self).__init__(*args, **kwargs)
-        self.ftp_folder = ftp_folder
-        self.ftp_host = ftp_host
-        self.ftp_netrc = ftp_netrc
+
         self.source_folder = source_folder
         self.destination_folder = destination_folder
-        self.ftp_enabled = False if self.source_folder else True
 
-        if self.ftp_enabled and not self.ftp_host:
-            raise Exception('You need to pass source_folder or ftp_host.')
+        self.s3_server = s3_server
+        self.s3_key = s3_key
+        self.s3_secret = s3_secret
+        self.s3_input_bucket = s3_input_bucket
+        self.s3_output_bucket = s3_output_bucket
+
+        self.s3_enabled = False if self.source_folder else True
+
+        if self.s3_enabled:
+            if not (
+                    self.s3_server
+                    and self.s3_key
+                    and self.s3_secret
+                    and self.s3_input_bucket
+                    and self.s3_output_bucket
+            ):
+                raise Exception("Missing s3 connection parameters")
+            else:
+                self.s3_connections = self.connect_to_s3()
+                self.s3_resource = self.get_s3_resource()
 
         if not os.path.exists(self.destination_folder):
             os.makedirs(self.destination_folder)
+
+    def get_s3_resource(self):
+        if not self.s3_enabled:
+            raise Exception("S3 is not enabled.")
+        for key, value in self.s3_connections.items():
+            if key == "s3" and hasattr(value.meta, "client"):
+                return value
+        return None
+
+    def connect_to_s3(self):
+        s3_session_params = {
+            "aws_access_key_id": self.s3_key,
+            "aws_secret_access_key": self.s3_secret
+        }
+        session = boto3.session.Session(**s3_session_params)
+        service = "s3"
+        try:
+            connections = {}
+            kwargs = s3_session_params.copy()
+            kwargs["endpoint_url"] = self.s3_server
+            # Create resource or client
+            if service in session.get_available_resources():
+                connections.update({service: session.resource(service, **kwargs)})
+            else:
+                connections.update({service: session.client(service, **kwargs)})
+        except UnknownServiceError as exc:
+            self.logger.error("Cannot connect to s3.", exc)
+            raise
+        return connections
+
+    def s3_url(self, file=None, expire=86400):
+        return self.s3_resource.meta.client.generate_presigned_url(
+            ClientMethod='get_object',
+            Params={'Bucket': file.bucket_name, "Key": file.key},
+            ExpiresIn=expire
+        )
 
     @staticmethod
     def _filter_xml_files(list_files_paths):
@@ -121,62 +176,26 @@ class DesySpider(StatefulSpider):
                 callback=self.parse,
             )
 
-    def crawl_ftp_directory(self):
-        ftp_host, ftp_params = ftp_connection_info(
-            self.ftp_host,
-            self.ftp_netrc,
-        )
+    def crawl_s3_bucket(self):
+        input_bucket = self.s3_resource.Bucket(self.s3_input_bucket)
+        existing_files = os.listdir(self.destination_folder)
 
-        remote_files_paths = ftp_list_files(
-            self.ftp_folder,
-            destination_folder=self.destination_folder,
-            ftp_host=ftp_host,
-            user=ftp_params['ftp_user'],
-            password=ftp_params['ftp_password'],
-            only_missing_files=False,
-        )
-
-        xml_remote_files_paths = self._filter_xml_files(remote_files_paths)
-
-        for remote_file in xml_remote_files_paths:
-            self.logger.info(
-                'Remote: Try to crawl file from FTP: {0}'.format(remote_file),
-            )
-            remote_file = str(remote_file)
-            ftp_params['ftp_local_filename'] = os.path.join(
-                self.destination_folder,
-                os.path.basename(remote_file),
-            )
-            remote_url = 'ftp://{0}/{1}'.format(ftp_host, remote_file)
-            yield Request(
-                str(remote_url),
-                meta=ftp_params,
-                callback=self.handle_package_ftp,
-            )
-
-    def handle_package_ftp(self, response):
-        """Yield every XML file found.
-
-        This is an intermediate step before calling :func:`DesySpider.parse`
-        to handle ftp downloaded "record collections".
-
-        Args:
-            response(hepcrawl.http.response.Response): response containing the
-                information about the ftp file download.
-        """
-        self.logger.info('Visited url {}'.format(response.url))
-        file_path = response.body
-        yield Request(
-            'file://{0}'.format(file_path),
-            meta={'source_folder': file_path},
-            callback=self.parse,
-        )
+        for s3_file in input_bucket.objects.all():
+            file_data = s3_file.get()
+            if file_data['ContentType'] == 'text/xml' or s3_file.key.endswith('.xml'):
+                self.logger.info("Remote: Try to crawl file from s3: {file}".format(file=s3_file.key))
+                if s3_file.key not in existing_files:
+                    yield Request(
+                        self.s3_url(s3_file),
+                        meta={"s3_file": s3_file.key},
+                        callback=self.parse
+                    )
 
     def start_requests(self):
-        """List selected folder on remote FTP and yield files."""
+        """List selected folder locally or bucket on s3 and yield files."""
 
-        if self.ftp_enabled:
-            requests = self.crawl_ftp_directory()
+        if self.s3_enabled:
+            requests = self.crawl_s3_bucket()
         else:
             requests = self.crawl_local_directory()
 
@@ -192,7 +211,7 @@ class DesySpider(StatefulSpider):
         return _is_local_path(current_url)
 
     @staticmethod
-    def _get_full_uri(current_url, base_url, schema='ftp', hostname=None):
+    def _get_full_uri(current_url, base_url, schema='file', hostname=None):
         hostname = hostname or ''
 
         parsed_url = urllib.parse.urlparse(current_url)
@@ -213,22 +232,14 @@ class DesySpider(StatefulSpider):
         """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
         """
         self.logger.info('Got record from url/path: {0}'.format(response.url))
-        self.logger.info('FTP enabled: {0}'.format(self.ftp_enabled))
-        ftp_params = None
+        self.logger.info('S3 enabled: {0}'.format(self.s3_enabled))
 
-        if self.ftp_enabled:
-            hostname, ftp_params = ftp_connection_info(
-                self.ftp_host,
-                self.ftp_netrc,
-            )
-            base_url = self.ftp_folder
-            url_schema = 'ftp'
-        else:
+        if not self.s3_enabled:
             base_url = os.path.dirname(
                 urllib.parse.urlparse(response.url).path
             )
-            url_schema = 'file'
-            hostname = None
+        else:
+            base_url = ""
 
         self.logger.info('Getting marc xml records...')
         marcxml_records = self._get_marcxml_records(response.body)
@@ -238,12 +249,19 @@ class DesySpider(StatefulSpider):
         parsed_items = self._parsed_items_from_marcxml(
             marcxml_records=marcxml_records,
             base_url=base_url,
-            hostname=hostname,
-            url_schema=url_schema,
-            ftp_params=ftp_params,
             url=response.url
         )
         self.logger.info('Got %d hep records' % len(parsed_items))
+
+        if self.s3_enabled:
+            s3_file = response.meta['s3_file']
+            self.logger.info("Moving {file} from {incoming} bucket to {processed} bucket.".format(
+                file=s3_file, processed=self.s3_output_bucket, incoming=self.s3_input_bucket
+            ))
+            source = {"Bucket": self.s3_input_bucket, "Key": s3_file}
+            processed_bucket = self.s3_resource.Bucket(self.s3_output_bucket)
+            processed_bucket.copy(source, s3_file)
+            self.s3_resource.Object(self.s3_input_bucket, s3_file).delete()
 
         for parsed_item in parsed_items:
             yield parsed_item
@@ -266,14 +284,11 @@ class DesySpider(StatefulSpider):
             self,
             marcxml_records,
             base_url="",
-            hostname="",
-            url_schema=None,
-            ftp_params=None,
             url=""
     ):
         app = Flask('hepcrawl')
         app.config.update(self.settings.getdict('MARC_TO_HEP_SETTINGS', {}))
-        file_name = url.split('/')[-1]
+        file_name = url.split('/')[-1].split("?")[0]
 
         with app.app_context():
             parsed_items = []
@@ -281,22 +296,22 @@ class DesySpider(StatefulSpider):
                 try:
                     record = marcxml2record(xml_record)
                     parsed_item = ParsedItem(record=record, record_format='hep')
-                    parsed_item.ftp_params = ftp_params
                     parsed_item.file_name = file_name
+                    if not self.s3_enabled:
+                        files_to_download = [
+                            self._get_full_uri(
+                                current_url=document['url'],
+                                base_url=base_url,
+                            )
+                            for document in parsed_item.record.get('documents', [])
+                            if self._has_to_be_downloaded(document['url'])
+                        ]
+                    else:
+                        files_to_download = []
 
-                    files_to_download = [
-                        self._get_full_uri(
-                            current_url=document['url'],
-                            base_url=base_url,
-                            schema=url_schema,
-                            hostname=hostname,
-                        )
-                        for document in parsed_item.record.get('documents', [])
-                        if self._has_to_be_downloaded(document['url'])
-                    ]
                     parsed_item.file_urls = files_to_download
 
-                    self.logger.info('Got the following attached documents to download: %s'% files_to_download)
+                    self.logger.info('Got the following attached documents to download: %s' % files_to_download)
                     self.logger.info('Got item: %s' % parsed_item)
 
                     parsed_items.append(parsed_item)
