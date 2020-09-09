@@ -16,7 +16,10 @@ import os
 import shutil
 from time import sleep
 
+import boto3
 import pytest
+from boto3.s3.transfer import TransferConfig
+from botocore.config import Config
 
 from deepdiff import DeepDiff
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
@@ -63,31 +66,79 @@ def override_dynamic_fields_on_record(record):
 
     return clean_record
 
+def setup_s3_files(s3_key, s3_secret, s3_server, s3_input_bucket, s3_output_bucket, **kwargs):
+    s3_session_params = {
+        "aws_access_key_id": s3_key,
+        "aws_secret_access_key": s3_secret
+    }
+    session = boto3.session.Session(**s3_session_params)
+    service = "s3"
+    connection_config = s3_session_params.copy()
+    connection_config["endpoint_url"] = s3_server
+    # Create resource or client
+    if service in session.get_available_resources():
+        s3 = session.resource(
+            service,
+            config=Config(
+                s3={'addressing_style': 'path', 'use_accelerate_endpoint': False},
+                retries={"total_max_attempts": 1, 'max_attempts': 1, 'mode':'legacy'}
+            ),
+            **connection_config
+        )
+    else:
+        raise Exception("Cannot create s3 resource")
 
-def get_ftp_settings():
-    netrc_location = get_test_suite_path(
+
+    bucket = s3.Bucket(s3_input_bucket)
+
+    bucket.create()
+
+    test_files_path = get_test_suite_path(
         'desy',
         'fixtures',
-        'ftp_server',
-        '.netrc',
+        's3_server',
+        'DESY',
         test_suite='functional',
     )
+    transfer_config = TransferConfig(use_threads=False)
+    bucket.upload_file(Filename=os.path.join(test_files_path, "desy_collection_records.xml"), Key="desy_collection_records.xml", Config=transfer_config)
+    bucket.upload_file(Filename=os.path.join(test_files_path, "file_not_for_download.txt"), Key="file_not_for_download.txt", Config=transfer_config)
+    bucket.upload_file(Filename=os.path.join(test_files_path, "FFT/desy-thesis-17-035.title.pdf"), Key="desy-thesis-17-035.title.pdf", Config=transfer_config)
+    bucket.upload_file(Filename=os.path.join(test_files_path, "FFT/desy-thesis-17-036.title.pdf"), Key="desy-thesis-17-036.title.pdf", Config=transfer_config)
+
+    second_bucket = s3.Bucket(s3_output_bucket)
+    second_bucket.create()
+
+
+def get_s3_settings():
+    key = 'key'
+    secret = 'secret'
+    s3_host = 'http://localstack:4572'
+    input_bucket = 'incoming'
+    output_bucket = 'processed'
+
 
     return {
         'CRAWLER_HOST_URL': 'http://scrapyd:6800',
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
-            'ftp_host': 'ftp_server',
-            'ftp_netrc': netrc_location,
-        }
+            's3_secret': secret,
+            's3_key': key,
+            's3_server': s3_host,
+            's3_input_bucket': input_bucket,
+            's3_output_bucket': output_bucket
+        },
+        'S3': True,
     }
+
+
 
 
 def get_local_settings():
     package_location = get_test_suite_path(
         'desy',
         'fixtures',
-        'ftp_server',
+        's3_server',
         'DESY',
         test_suite='functional',
     )
@@ -106,7 +157,7 @@ def get_local_settings_for_broken():
     package_location = get_test_suite_path(
         'desy',
         'fixtures',
-        'ftp_server',
+        's3_server',
         'DESY',
         'broken',
         test_suite='functional',
@@ -148,6 +199,7 @@ def cleanup():
     clean_dir('/tmp/DESY')
 
 
+
 @pytest.mark.parametrize(
     'expected_results, settings',
     [
@@ -155,9 +207,9 @@ def cleanup():
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_records_ftp_expected.json',
+                'desy_records_s3_expected.json',
             ),
-            get_ftp_settings(),
+            get_s3_settings(),
         ),
         (
             expected_json_results_from_file(
@@ -167,10 +219,9 @@ def cleanup():
             ),
             get_local_settings(),
         ),
-
     ],
     ids=[
-        'ftp package',
+        's3 package',
         'local package',
     ]
 )
@@ -179,6 +230,8 @@ def test_desy(
     settings,
     cleanup,
 ):
+    if 'S3' in settings:
+        setup_s3_files(**settings['CRAWLER_ARGUMENTS'])
     crawler = get_crawler_instance(
         settings.get('CRAWLER_HOST_URL')
     )
@@ -254,16 +307,17 @@ def test_desy_broken_xml(get_local_settings_for_broken, cleanup):
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_records_ftp_expected.json',
+                'desy_records_s3_expected.json',
             ),
-            get_ftp_settings(),
+            get_s3_settings(),
         ),
     ],
     ids=[
-        'ftp package crawl twice',
+        's3 package crawl twice',
     ]
 )
 def test_desy_crawl_twice(expected_results, settings, cleanup):
+    setup_s3_files(**settings['CRAWLER_ARGUMENTS'])
     crawler = get_crawler_instance(
         settings.get('CRAWLER_HOST_URL')
     )
