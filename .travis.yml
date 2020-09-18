@@ -31,6 +31,7 @@ env:
     - PYTHON=py2 SUITE=functional_desy
     - PYTHON=py2 SUITE=functional_cds
     - PYTHON=py2 SUITE=functional_pos
+    - PYTHON=py2 SUITE=functional_elsevier
     - PYTHON=py3 SUITE=unit
 
 matrix:

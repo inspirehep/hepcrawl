@@ -40,6 +40,12 @@ services:
       ftp_server:
         condition: service_healthy
 
+  functional_elsevier:
+    <<: *service_base
+    command: py.test -vv tests/functional/elsevier
+    depends_on:
+      - scrapyd
+      - localstack
 
   functional_desy:
     <<: *service_base
@@ -196,12 +202,13 @@ services:
   localstack:
     image: localstack/localstack:latest
     ports:
-      - '4572:4572'
-      - '4566:4566'
+      - "4566:4566"
     environment:
       - SERVICES=s3
       - DEBUG=1
       - DATA_DIR=/home/localstack/data
+      - HOSTNAME_EXTERNAL=localstack
+      - HOSTNAME=localstack
 
 networks:
   ftp:
