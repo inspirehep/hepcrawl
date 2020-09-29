@@ -10,16 +10,16 @@
 version: '2.1'
 
 services:
-  pip:
+  hepcrawl_testing_image:
     build:
-      context: ${PWD}/tests
-      dockerfile: Dockerfile.hepcrawl_base
+      context: ./
+      dockerfile: tests/Dockerfile.hepcrawl_base
+      args:
+        - GID=${GID:-1000}
+        - UID=${UID:-1000}
     image: hepcrawl_base
+    user: "${UID:-1000}:${GID:-1000}"
     tty: true
-    environment:
-      - BASE_USER_UID=${BASE_USER_UID:-1000}
-      - BASE_USER_GIT=${BASE_USER_GIT:-1000}
-    command: bash -c "pip install -e .[all] && pip freeze"
+    command: "true"
     volumes:
-      - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
-      - ${PWD}:/code/
+      - .:/code/

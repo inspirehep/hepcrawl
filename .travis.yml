@@ -20,10 +20,8 @@ python:
 env:
   global:
     - EXTRAS=docs,tests
-    - DOCKER_COMPOSE_VERSION=1.13.0
-    - DOCKER_DATA=/tmp/hepcrawl_docker_data
-    - BASE_USER_UID=2000
-    - BASE_USER_GID=2000
+    - UID=2000
+    - GID=2000
   matrix:
     - PYTHON=py2 SUITE=unit
     - PYTHON=py2 SUITE=functional_wsp
@@ -39,13 +37,9 @@ matrix:
 
 before_install:
   - travis_retry pip install twine wheel coveralls check-manifest
-  - sudo rm -f /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
 
 install:
-  - travis_retry docker-compose -f docker-compose.deps.${PYTHON}.yml run --rm pip
+  - travis_retry docker-compose -f docker-compose.deps.${PYTHON}.yml build
   - travis_retry docker-compose -f docker-compose.test.${PYTHON}.yml run --rm scrapyd-deploy
 
 script:

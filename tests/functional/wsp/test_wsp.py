@@ -31,8 +31,8 @@ def cleanup():
     yield
 
     clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
-    clean_dir('/tmp/file_urls')
-    clean_dir('/tmp/WSP')
+    clean_dir('/code/.tmp/file_urls')
+    clean_dir('/code/.tmp/WSP')
 
 
 def override_generated_fields(record):
@@ -63,6 +63,7 @@ def get_ftp_settings():
         'CRAWLER_ARGUMENTS': {
             'ftp_host': 'ftp_server',
             'ftp_netrc': netrc_location,
+            'destination_folder': "/code/.tmp/WSP"
         }
     }
 
@@ -81,6 +82,7 @@ def get_local_settings():
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
             'local_package_dir': package_location,
+            'destination_folder': "/code/.tmp/WSP"
         }
     }
 

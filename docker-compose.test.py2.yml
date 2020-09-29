@@ -11,7 +11,7 @@ version: '2.1'
 
 services:
   service_base: &service_base
-    image: hepcrawl_base  # hepcrawl_base image is build at pip service of docker-compose.deps.yml
+    image: hepcrawl_base
     environment:
       - APP_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
       - APP_CELERY_RESULT_BACKEND=redis://redis:6379/1
@@ -21,15 +21,10 @@ services:
       - APP_LAST_RUNS_PATH=/code/.scrapy/last_runs
       - APP_CRAWL_ONCE_PATH=/code/.scrapy
       - COVERAGE_PROCESS_START=/code/.coveragerc
-      - BASE_USER_UID=${BASE_USER_UID:-1000}
-      - BASE_USER_GIT=${BASE_USER_GIT:-1000}
     tty: true
     volumes:
-      - ${DOCKER_DATA}/tmp/hepcrawl_venv:/hepcrawl_venv/
-      - ${PWD}:/code/
-      - ${PWD}/tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
-      - /tmp/WSP:/tmp/WSP
-      - /tmp/file_urls:/tmp/file_urls
+      - .:/code/
+      - ./tests/functional/scrapyd_coverage_runner.conf:/etc/scrapyd/scrapyd.conf
 
   functional_wsp:
     <<: *service_base
@@ -44,15 +39,19 @@ services:
     <<: *service_base
     command: py.test -vv tests/functional/elsevier
     depends_on:
-      - scrapyd
-      - localstack
+      scrapyd:
+        condition: service_healthy
+      localstack:
+        condition: service_healthy
 
   functional_desy:
     <<: *service_base
     command: py.test -vv tests/functional/desy
     depends_on:
-      - scrapyd
-      - localstack
+      scrapyd:
+        condition: service_healthy
+      localstack:
+        condition: service_healthy
 
   functional_arxiv:
     <<: *service_base
@@ -88,7 +87,8 @@ services:
 
   scrapyd:
     <<: *service_base
-    command: bash -c "rm -f twistd.pid && exec scrapyd"
+    command: scrapyd --pidfile=/tmp/scrapyd.pid
+    restart: "always"
     networks:
       default:
       ftp:
@@ -99,21 +99,21 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:6800/listprojects.json"
+      test: ['CMD', "curl", "-k", "http://localhost:6800/listprojects.json"]
 
   scrapyd-deploy:
     <<: *service_base
-    command: bash -c "scrapyd-deploy"
+    command: scrapyd-deploy
     depends_on:
       scrapyd:
         condition: service_healthy
 
   ftp_server:
     image: stilliard/pure-ftpd:hardened
+    restart: "always"
     environment:
       - PUBLICHOST=1.2.3.4
+      - ADDED_FLAGS="--pidfile /var/run/pure-ftpd.pid"
     networks:
       ftp:
         ipv4_address: 1.2.3.4
@@ -122,9 +122,15 @@ services:
       - ${PWD}/tests/functional/desy/fixtures/ftp_server/DESY:/home/ftpusers/bob/DESY
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test: "ls -l /var/run/pure-ftpd.pid"
 
   http-server.local:
     image: nginx:stable-alpine
+    restart: "always"
     volumes:
       - ${PWD}/tests/functional/pos/fixtures/https_server/conf/proxy.conf:/etc/nginx/conf.d/default.conf
       - ${PWD}/tests/functional/pos/fixtures/https_server/conf/ssl:/etc/nginx/ssl
@@ -148,6 +154,7 @@ services:
 
   arxiv-http-server.local:
     image: nginx:stable-alpine
+    restart: "always"
     volumes:
       - ${PWD}/tests/functional/arxiv/fixtures/http_server/conf/proxy.conf:/etc/nginx/conf.d/default.conf
       - ${PWD}/tests/functional/arxiv/fixtures/http_server/records:/etc/nginx/html/
@@ -157,12 +164,11 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:80/"
+      test: "curl -k http://localhost:80/arxiv-physics-hep-th.xml"
 
   cds-http-server.local:
     image: nginx:stable-alpine
+    restart: "always"
     volumes:
       - ${PWD}/tests/functional/cds/fixtures/http_server/conf/proxy.conf:/etc/nginx/conf.d/default.conf
       - ${PWD}/tests/functional/cds/fixtures/http_server/records:/etc/nginx/html/
@@ -172,43 +178,42 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:80/"
+      test: "curl -k http://localhost:80/cds-single.xml"
 
   rabbitmq:
-    image: rabbitmq
+    image: rabbitmq:3-management
+    restart: "always"
     healthcheck:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD"
-        - "rabbitmqctl"
-        - "status"
+      test: "rabbitmqctl status"
 
   redis:
-    image: redis:3.2.3
+    image: redis
+    restart: "always"
     healthcheck:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD"
-        - "bash"
-        - "-c"
-        - "exec 3<> /dev/tcp/127.0.0.1/6379 && echo PING >&3 && head -1 <&3 | grep PONG"
+      test: "redis-cli -h 127.0.0.1 ping| grep PONG"
 
   localstack:
     image: localstack/localstack:latest
+    restart: "always"
     ports:
-      - "4566:4566"
+      - '4566:4566'
     environment:
       - SERVICES=s3
       - DEBUG=1
       - DATA_DIR=/home/localstack/data
       - HOSTNAME_EXTERNAL=localstack
       - HOSTNAME=localstack
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test: "curl -k localhost:4566|grep running"
 
 networks:
   ftp:
