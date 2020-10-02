@@ -3,7 +3,7 @@
         "core": true,
         "documents": [
             {
-                "url": "FFT/desy-thesis-17-035.title.pdf",
+                "url": "http://localstack:4566/processed/FFT/desy-thesis-17-035.title.pdf?AWSAccessKeyId=key",
                 "fulltext": true, 
                 "key": "document"
             }
@@ -224,9 +224,10 @@
         "core": true,
         "documents": [
             {
-                "url": "http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf", 
-                "fulltext": true, 
-                "key": "document"
+                "url":"http://localstack:4566/downloaded/full/9fa53d94584e605ee2f33c7ca0f273872a0ef693.pdf?AWSAccessKeyId=key",
+                "fulltext":true,
+                "key":"document",
+                "original_url":"http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf"
             }
         ], 
         "thesis_info": {

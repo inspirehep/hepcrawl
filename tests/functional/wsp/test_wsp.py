@@ -15,6 +15,7 @@ import pytest
 import os
 
 from time import sleep
+from deepdiff import DeepDiff
 
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import (
@@ -153,6 +154,7 @@ def test_wsp(expected_results, settings, cleanup):
         override_generated_fields(expected) for expected in expected_results
     ]
 
+    assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
     assert gotten_results == expected_results
     assert not crawl_result['errors']
 

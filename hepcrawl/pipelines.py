@@ -16,14 +16,17 @@ See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from __future__ import absolute_import, division, print_function
 
 import os
+from six.moves.urllib.parse import urlparse
+
 import shutil
 import pprint
 import logging
 
 import requests
-
 from scrapy import Request
+
 from scrapy.pipelines.files import FilesPipeline
+from scrapy.utils.project import get_project_settings
 
 from .api import CrawlResult
 from .settings import FILES_STORE
@@ -54,35 +57,42 @@ class DocumentsPipeline(FilesPipeline):
 
     def get_media_requests(self, item, info):
         if item.get('file_urls'):
-            logging.info(
-                'Got the following files to download:\n%s' % pprint.pformat(
+            LOGGER.info(
+                'Got the following files to download:\n%s', pprint.pformat(
                     item['file_urls']
                 )
             )
-            for document_url in item.file_urls:
-                yield Request(
-                    url=document_url,
-                    meta=item.ftp_params,
-                )
+            return [Request(x) for x in item.get(self.files_urls_field, [])]
+        return list()
 
-    def get_absolute_file_path(self, path):
-        return os.path.abspath(
-            os.path.join(self.store.basedir, path)
+    def generate_presigned_s3_url(self, path, expire=86400):
+        bucket_location = get_project_settings().get("DOWNLOAD_BUCKET", "documents")
+        LOGGER.info("Generating presigned url for: %s in %s", path, bucket_location)
+        return self.store.s3_client.generate_presigned_url(
+            ClientMethod='get_object',
+            Params={'Bucket': bucket_location, "Key": path},
+            ExpiresIn=expire
         )
 
     def item_completed(self, results, item, info):
         """Create a map that connects file names with downloaded files."""
+        LOGGER.info("results: %s, item: %s, info: %s", results, item, info)
         record_files = [
             RecordFile(
-                path=self.get_absolute_file_path(result_data['path']),
+                path=self.generate_presigned_s3_url(result_data['path']),
                 name=os.path.basename(result_data['url']),
             )
             for ok, result_data in results
             if ok
         ]
+        LOGGER.info("Processed files to download: %s", record_files)
         item.record_files = record_files
 
         return item
+
+    def file_path(self, request, response=None, info=None):
+        path = super(DocumentsPipeline, self).file_path(request, response, info)
+        return urlparse(path).path
 
 
 class InspireAPIPushPipeline(object):

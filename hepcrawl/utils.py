@@ -16,9 +16,9 @@ import os
 import pprint
 import re
 from functools import wraps
-from operator import itemgetter
 from itertools import groupby
 from netrc import netrc
+from six.moves.urllib.parse import urlparse
 from zipfile import ZipFile
 
 import ftputil
@@ -29,7 +29,6 @@ from scrapy import Selector
 
 from hepcrawl.tohep import (hep_to_hep, _normalize_hepcrawl_record,
                             hepcrawl_to_hep, UnknownItemFormat)
-from six.moves.urllib.parse import urlparse
 
 RE_FOR_THE = re.compile(
     r'\b(?:for|on behalf of|representing)\b',
@@ -395,9 +394,9 @@ class RecordFile(object):
     Rises:
         PathDoesNotExist:
     """
-    def __init__(self, path, name=None):
+    def __init__(self, path=None, name=None):
         self.path = path
-        if not os.path.exists(self.path):
+        if self._is_local_path(self.path) and not os.path.exists(self.path):
             raise PathDoesNotExist(
                 "The given record file path '%s' does not exist." % self.path
             )
@@ -407,14 +406,18 @@ class RecordFile(object):
 
         self.name = name
 
+    def _is_local_path(self, url):
+        parsed_url = urlparse(url)
+        return not parsed_url.scheme
+
     def __repr__(self):
         return self.__str__()
 
     def __str__(self):
         return '%s(path="%s", name="%s")' % (
             self.__class__.__name__,
-            self.name,
             self.path,
+            self.name,
         )
 
 
@@ -520,10 +523,15 @@ class ParsedItem(dict):
         self.record['acquisition_source'] = builder.record['acquisition_source']
 
         if self.record_format == 'hep':
-            return hep_to_hep(
+            record = hep_to_hep(
                 hep_record=self.record,
                 record_files=self.record_files,
             )
+            for document in record.get('documents', []):
+                if 'old_url' in document and 'original_url' not in document:
+                    document['original_url'] = document['old_url']
+                    del document['old_url']
+            return record
         elif self.record_format == 'hepcrawl':
             record = _normalize_hepcrawl_record(
                 item=self.record,
