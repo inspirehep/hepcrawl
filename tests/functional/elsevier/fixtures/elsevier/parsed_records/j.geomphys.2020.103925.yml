@@ -1,0 +1,577 @@
+---
+_collections:
+- Literature
+curated: false
+abstracts:
+- value: In this paper, we study a fourth order curve flow <math display="inline"
+    id="d1e99" altimg="si1.svg"><mrow><mfrac><mrow><mi>∂</mi><mi>X</mi></mrow><mrow><mi>∂</mi><mi>t</mi></mrow></mfrac><mo
+    linebreak="goodbreak" linebreakstyle="after">=</mo><mo linebreak="goodbreak" linebreakstyle="after">−</mo><msup><mrow><mi>Δ</mi></mrow><mrow><mn>2</mn></mrow></msup><mi>X</mi></mrow></math>
+    for a smooth closed curve <math display="inline" id="d1e127" altimg="si2.svg"><mi>X</mi></math>
+    in <math display="inline" id="d1e132" altimg="si3.svg"><msup><mrow><mi mathvariant="double-struck">R</mi></mrow><mrow><mn>2</mn></mrow></msup></math>,
+    which means that a fourth order nonlinear parabolic partial differential equation
+    arises naturally in the field of biharmonic maps. We first derive the evolution
+    equations for different geometric quantities along this flow. Utilizing the evolution
+    equations, we prove that for any smooth closed initial curve in <math display="inline"
+    id="d1e143" altimg="si3.svg"><msup><mrow><mi mathvariant="double-struck">R</mi></mrow><mrow><mn>2</mn></mrow></msup></math>,
+    the flow has a smooth solution for all time by assuming some additional conditions.
+  source: Elsevier B.V.
+titles:
+- title: The evolution of a class of curve flows
+  source: Elsevier B.V.
+copyright:
+- holder: Elsevier B.V.
+  statement: "© 2020 Elsevier B.V. All rights reserved."
+  material: publication
+  year: 2020
+document_type:
+- article
+authors:
+- full_name: Yang, Dan
+  raw_affiliations:
+  - value: School of Mathematics, Liaoning University, Shenyang, 110036, China
+    source: Elsevier B.V.
+  emails:
+  - dlutyangdan@126.com
+- full_name: Fu, Yu
+  raw_affiliations:
+  - value: School of Data Science and Artificial Intelligence, Dongbei University
+      of Finance and Economics, Dalian 116025, China
+    source: Elsevier B.V.
+  emails:
+  - yufu@dufe.edu.cn
+publication_info:
+- artid: '103925'
+  journal_title: Journal of Geometry and Physics
+  material: publication
+dois:
+- value: 10.1016/j.geomphys.2020.103925
+  source: Elsevier B.V.
+  material: publication
+keywords:
+- value: primary
+  source: Elsevier B.V.
+- value: secondary
+  source: Elsevier B.V.
+- value: Biharmonic maps
+  source: Elsevier B.V.
+- value: Curve flows
+  source: Elsevier B.V.
+- value: Geometric evolution equations
+  source: Elsevier B.V.
+- value: Fourth order equations
+  source: Elsevier B.V.
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><reference id="sb1"><contribution
+      langtype="en"><authors><author><surname>Caddeo</surname><given-name>R.</given-name></author><author><surname>Montaldo</surname><given-name>S.</given-name></author><author><surname>Oniciuc</surname><given-name>C.</given-name></author></authors><title><maintitle>Biharmonic
+      submanifolds of <math display="inline" id="d1e10335" altimg="si182.svg"><msup><mrow><mi>S</mi></mrow><mrow><mn>3</mn></mrow></msup></math></maintitle></title></contribution><host><issue><series><title><maintitle>Internat.
+      J. Math.</maintitle></title><volume-nr>12</volume-nr></series><issue-nr>8</issue-nr><date>2001</date></issue><pages><first-page>867</first-page><last-page>876</last-page></pages></host></reference><source-text
+      id="afs1">R. Caddeo, S. Montaldo and C. Oniciuc, Biharmonic submanifolds of
+      , Internat. J. Math. 12 (2001) (8) 867–876.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Internat. J. Math.
+      journal_volume: '12'
+      journal_issue: '8'
+      year: 2001
+      page_start: '867'
+      page_end: '876'
+    label: '1'
+    authors:
+    - full_name: Caddeo, R.
+      inspire_role: author
+    - full_name: Montaldo, S.
+      inspire_role: author
+    - full_name: Oniciuc, C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Caddeo</surname><given-name>R.</given-name></author><author><surname>Montaldo</surname><given-name>S.</given-name></author><author><surname>Oniciuc</surname><given-name>C.</given-name></author></authors><title><maintitle>Biharmonic
+      submanifolds in spheres</maintitle></title></contribution><host><issue><series><title><maintitle>Israel
+      J. Math.</maintitle></title><volume-nr>130</volume-nr></series><date>2002</date></issue><pages><first-page>109</first-page><last-page>123</last-page></pages></host></reference><source-text
+      id="afs2">R. Caddeo, S. Montaldo and C. Oniciuc, Biharmonic submanifolds in
+      spheres, Israel J. Math. 130 (2002) 109–123.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Israel J. Math.
+      journal_volume: '130'
+      year: 2002
+      page_start: '109'
+      page_end: '123'
+    label: '2'
+    authors:
+    - full_name: Caddeo, R.
+      inspire_role: author
+    - full_name: Montaldo, S.
+      inspire_role: author
+    - full_name: Oniciuc, C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Chen</surname><given-name>B.Y.</given-name></author></authors><title><maintitle>Some
+      open problems and conjectures on submanifolds of finite type</maintitle></title></contribution><host><issue><series><title><maintitle>Soochow
+      J. Math.</maintitle></title><volume-nr>17</volume-nr></series><issue-nr>2</issue-nr><date>1991</date></issue><pages><first-page>169</first-page><last-page>188</last-page></pages></host></reference><source-text
+      id="afs3">B. Y. Chen, Some open problems and conjectures on submanifolds of
+      finite type, Soochow J. Math. 17 (1991) (2) 169–188.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Soochow J. Math.
+      journal_volume: '17'
+      journal_issue: '2'
+      year: 1991
+      page_start: '169'
+      page_end: '188'
+    label: '3'
+    authors:
+    - full_name: Chen, B.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Chen</surname><given-name>B.Y.</given-name></author></authors><title><maintitle>Total
+      Mean Curvature and Submanifolds of Finite Type</maintitle></title></contribution><host><book><edition>second
+      ed.</edition><date>2015</date><publisher><name>World Scientific</name><location>Hackensack,
+      NJ</location></publisher></book></host></reference><source-text id="afs4">B.
+      Y. Chen, Total Mean Curvature and Submanifolds of Finite Type, 2nd Edition,
+      World Scientific, Hackensack, NJ, 2015.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2015
+    label: '4'
+    misc:
+    - second ed
+    authors:
+    - full_name: Chen, B.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Chen</surname><given-name>B.Y.</given-name></author><author><surname>Munteanu</surname><given-name>M.I.</given-name></author></authors><title><maintitle>Biharmonic
+      ideal hypersurfaces in Euclidean spaces</maintitle></title></contribution><host><issue><series><title><maintitle>Differential
+      Geom. Appl.</maintitle></title><volume-nr>31</volume-nr></series><date>2013</date></issue><pages><first-page>1</first-page><last-page>16</last-page></pages></host></reference><source-text
+      id="afs5">B. Y. Chen and M. I. Munteanu, Biharmonic ideal hypersurfaces in Euclidean
+      spaces, Differential Geom. Appl. 31 (2013) 1–16.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Differential Geom. Appl.
+      journal_volume: '31'
+      year: 2013
+      page_start: '1'
+      page_end: '16'
+    label: '5'
+    authors:
+    - full_name: Chen, B.Y.
+      inspire_role: author
+    - full_name: Munteanu, M.I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b6"><label>[6]</label><reference id="sb6"><contribution
+      langtype="en"><authors><author><surname>Defever</surname><given-name>F.</given-name></author></authors><title><maintitle>Hypersurfaces
+      of <math display="inline" id="d1e10526" altimg="si183.svg"><msup><mrow><mi mathvariant="double-struck">E</mi></mrow><mrow><mn>4</mn></mrow></msup></math>
+      with harmonic mean curvature vector</maintitle></title></contribution><host><issue><series><title><maintitle>Math.
+      Nachr.</maintitle></title><volume-nr>196</volume-nr></series><date>1998</date></issue><pages><first-page>61</first-page><last-page>69</last-page></pages></host></reference><source-text
+      id="afs6">F. Defever, Hypersurfaces of with harmonic mean curvature vector,
+      Math. Nachr. 196 (1998) 61–69.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Math. Nachr.
+      journal_volume: '196'
+      year: 1998
+      page_start: '61'
+      page_end: '69'
+    label: '6'
+    authors:
+    - full_name: Defever, F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b7"><label>[7]</label><reference id="sb7"><contribution
+      langtype="en"><authors><author><surname>Dimitrić</surname><given-name>I.</given-name></author></authors><title><maintitle>Submanifolds
+      of <math display="inline" id="d1e10569" altimg="si184.svg"><msup><mrow><mi mathvariant="double-struck">E</mi></mrow><mrow><mi>n</mi></mrow></msup></math>
+      with harmonic mean curvature vector</maintitle></title></contribution><host><issue><series><title><maintitle>Bull.
+      Inst. Math. Acad. Sin.</maintitle></title><volume-nr>20</volume-nr></series><date>1992</date></issue><pages><first-page>53</first-page><last-page>65</last-page></pages></host></reference><source-text
+      id="afs7">I. Dimitrić, Submanifolds of with harmonic mean curvature vector,
+      Bull. Inst. Math. Acad. Sin. 20 (1992) 53–65.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Bull. Inst. Math. Acad. Sin.
+      journal_volume: '20'
+      year: 1992
+      page_start: '53'
+      page_end: '65'
+    label: '7'
+    authors:
+    - full_name: Dimitrić, I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b8"><label>[8]</label><reference id="sb8"><contribution
+      langtype="en"><authors><author><surname>Dziuk</surname><given-name>G.</given-name></author><author><surname>Kuwert</surname><given-name>E.</given-name></author><author><surname>Schätzle</surname><given-name>R.</given-name></author></authors><title><maintitle>Evolution
+      of elastic curves in <math display="inline" id="d1e10622" altimg="si185.svg"><msup><mrow><mi
+      mathvariant="double-struck">R</mi></mrow><mrow><mi>n</mi></mrow></msup></math>:
+      existence and computation</maintitle></title></contribution><host><issue><series><title><maintitle>SIAM
+      J. Math. Anal.</maintitle></title><volume-nr>33</volume-nr></series><issue-nr>5</issue-nr><date>2002</date></issue><pages><first-page>1228</first-page><last-page>1245</last-page></pages></host></reference><source-text
+      id="afs8">G. Dziuk, E. Kuwert and R. Schätzle, Evolution of elastic curves in
+      : existence and computation, SIAM J. Math. Anal. 33(5) (2002) 1228–1245.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: SIAM J. Math. Anal.
+      journal_volume: '33'
+      journal_issue: '5'
+      year: 2002
+      page_start: '1228'
+      page_end: '1245'
+    label: '8'
+    authors:
+    - full_name: Dziuk, G.
+      inspire_role: author
+    - full_name: Kuwert, E.
+      inspire_role: author
+    - full_name: Schätzle, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b9"><label>[9]</label><other-ref id="sb9"><textref>J.
+      Eells, L. Lemaire, Selected Topics in Harmonic Maps, in: Proceedings of the
+      CBMS Regional Conference Series in Mathematics, Providence, RI, USA, 31 December
+      1983.</textref></other-ref></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    label: '9'
+    misc:
+    - 'J. Eells, L. Lemaire, Selected Topics in Harmonic Maps, in: Proceedings of
+      the CBMS Regional Conference Series in Mathematics, Providence, RI, USA, 31
+      December 1983'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b10"><label>[10]</label><reference id="sb10"><contribution
+      langtype="en"><authors><author><surname>Eells</surname><given-name>J.</given-name></author><author><surname>Sampson</surname><given-name>J.H.</given-name></author></authors><title><maintitle>Harmonic
+      mappings of Riemannian manifolds</maintitle></title></contribution><host><issue><series><title><maintitle>Amer.
+      J. Math.</maintitle></title><volume-nr>86</volume-nr></series><date>1964</date></issue><pages><first-page>109</first-page><last-page>160</last-page></pages></host></reference><source-text
+      id="afs10">J. Eells and J. H. Sampson, Harmonic mappings of Riemannian manifolds,
+      Amer. J. Math. 86 (1964) 109–160.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Amer. J. Math.
+      journal_volume: '86'
+      year: 1964
+      page_start: '109'
+      page_end: '160'
+    label: '10'
+    authors:
+    - full_name: Eells, J.
+      inspire_role: author
+    - full_name: Sampson, J.H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b11"><label>[11]</label><reference id="sb11"><contribution
+      langtype="en"><authors><author><surname>Fu</surname><given-name>Y.</given-name></author></authors><title><maintitle>Biharmonic
+      hypersurfaces with three distinct principal curvatures in Euclidean space</maintitle></title></contribution><host><issue><series><title><maintitle>Tohoku
+      Math. J.</maintitle></title><volume-nr>67</volume-nr></series><date>2015</date></issue><pages><first-page>465</first-page><last-page>479</last-page></pages></host></reference><source-text
+      id="afs11">Y. Fu, Biharmonic hypersurfaces with three distinct principal curvatures
+      in Euclidean space, Tohoku Math. J. 67 (2015) 465–479.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Tohoku Math. J.
+      journal_volume: '67'
+      year: 2015
+      page_start: '465'
+      page_end: '479'
+    label: '11'
+    authors:
+    - full_name: Fu, Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><reference id="sb12"><contribution
+      langtype="en"><authors><author><surname>Gage</surname><given-name>M.E.</given-name></author></authors><title><maintitle>An
+      isoperimetric inequality with applications to curve shortening</maintitle></title></contribution><host><issue><series><title><maintitle>Duke
+      Math. J.</maintitle></title><volume-nr>50</volume-nr></series><issue-nr>4</issue-nr><date>1983</date></issue><pages><first-page>1225</first-page><last-page>1229</last-page></pages></host></reference><source-text
+      id="afs12">M. E. Gage, An isoperimetric inequality with applications to curve
+      shortening, Duke Math. J. 50(4) (1983) 1225–1229.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Duke Math. J.
+      journal_volume: '50'
+      journal_issue: '4'
+      year: 1983
+      page_start: '1225'
+      page_end: '1229'
+    label: '12'
+    authors:
+    - full_name: Gage, M.E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b13"><label>[13]</label><reference id="sb13"><contribution
+      langtype="en"><authors><author><surname>Gage</surname><given-name>M.E.</given-name></author></authors><title><maintitle>Curve
+      shortening makes convex curves circular</maintitle></title></contribution><host><issue><series><title><maintitle>Invent.
+      Math.</maintitle></title><volume-nr>76</volume-nr></series><issue-nr>2</issue-nr><date>1984</date></issue><pages><first-page>357</first-page><last-page>364</last-page></pages></host></reference><source-text
+      id="afs13">M. E. Gage, Curve shortening makes convex curves circular, Invent.
+      Math. 76(2) (1984) 357–364.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Invent. Math.
+      journal_volume: '76'
+      journal_issue: '2'
+      year: 1984
+      page_start: '357'
+      page_end: '364'
+    label: '13'
+    authors:
+    - full_name: Gage, M.E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b14"><label>[14]</label><reference id="sb14"><contribution
+      langtype="en"><authors><author><surname>Gage</surname><given-name>M.E.</given-name></author><author><surname>Hamilton</surname><given-name>R.S.</given-name></author></authors><title><maintitle>The
+      heat equation shrinking convex plane curves</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Differential Geom.</maintitle></title><volume-nr>23</volume-nr></series><issue-nr>1</issue-nr><date>1986</date></issue><pages><first-page>69</first-page><last-page>96</last-page></pages></host></reference><source-text
+      id="afs14">M. E. Gage, R.S. Hamilton, The heat equation shrinking convex plane
+      curves, J. Differential Geom. 23(1) (1986) 69–96.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Differential Geom.
+      journal_volume: '23'
+      journal_issue: '1'
+      year: 1986
+      page_start: '69'
+      page_end: '96'
+    label: '14'
+    authors:
+    - full_name: Gage, M.E.
+      inspire_role: author
+    - full_name: Hamilton, R.S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b15"><label>[15]</label><reference id="sb15"><contribution
+      langtype="en"><authors><author><surname>Hasanis</surname><given-name>T.</given-name></author><author><surname>Vlachos</surname><given-name>T.</given-name></author></authors><title><maintitle>Hypersurfaces
+      in <math display="inline" id="d1e10864" altimg="si183.svg"><msup><mrow><mi mathvariant="double-struck">E</mi></mrow><mrow><mn>4</mn></mrow></msup></math>
+      with harmonic mean curvature vector field</maintitle></title></contribution><host><issue><series><title><maintitle>Math.
+      Nachr.</maintitle></title><volume-nr>172</volume-nr></series><date>1995</date></issue><pages><first-page>145</first-page><last-page>169</last-page></pages></host></reference><source-text
+      id="afs15">T. Hasanis and T. Vlachos, Hypersurfaces in with harmonic mean curvature
+      vector field, Math. Nachr. 172 (1995) 145–169.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Math. Nachr.
+      journal_volume: '172'
+      year: 1995
+      page_start: '145'
+      page_end: '169'
+    label: '15'
+    authors:
+    - full_name: Hasanis, T.
+      inspire_role: author
+    - full_name: Vlachos, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b16"><label>[16]</label><reference id="sb16"><contribution
+      langtype="en"><authors><author><surname>Jiang</surname><given-name>G.Y.</given-name></author></authors><title><maintitle>2-Harmonic
+      maps and their first and second variational formulas</maintitle></title></contribution><host><issue><series><title><maintitle>Chin.
+      Ann. Math. Ser. A</maintitle></title><volume-nr>7</volume-nr></series><date>1986</date></issue><pages><first-page>389</first-page><last-page>402</last-page></pages></host></reference><source-text
+      id="afs16">G. Y. Jiang, 2-Harmonic maps and their first and second variational
+      formulas, Chin. Ann. Math. Ser. A7 (1986) 389–402.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Chin. Ann. Math. Ser. A
+      journal_volume: '7'
+      year: 1986
+      page_start: '389'
+      page_end: '402'
+    label: '16'
+    authors:
+    - full_name: Jiang, G.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b17"><label>[17]</label><reference id="sb17"><contribution
+      langtype="en"><authors><author><surname>Kohsaka</surname><given-name>Y.</given-name></author><author><surname>Nagasawa</surname><given-name>T.</given-name></author></authors><title><maintitle>On
+      the existence for the Helfrich flow and its center manifold near spheres</maintitle></title></contribution><host><issue><series><title><maintitle>Differential
+      Integral Equations</maintitle></title><volume-nr>19</volume-nr></series><issue-nr>2</issue-nr><date>2006</date></issue><pages><first-page>121</first-page><last-page>142</last-page></pages></host></reference><source-text
+      id="afs17">Y. Kohsaka, T. Nagasawa, On the existence for the Helfrich flow and
+      its center manifold near spheres, Different. Intergral Equations 19(2) (2006)
+      121–142.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Differential Integral Equations
+      journal_volume: '19'
+      journal_issue: '2'
+      year: 2006
+      page_start: '121'
+      page_end: '142'
+    label: '17'
+    authors:
+    - full_name: Kohsaka, Y.
+      inspire_role: author
+    - full_name: Nagasawa, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b18"><label>[18]</label><reference id="sb18"><contribution
+      langtype="en"><authors><author><surname>Kuwert</surname><given-name>E.</given-name></author><author><surname>Schätzle</surname><given-name>R.</given-name></author></authors><title><maintitle>The
+      Willmore flow with small initial energy</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Differential Geom.</maintitle></title><volume-nr>57</volume-nr></series><issue-nr>3</issue-nr><date>2001</date></issue><pages><first-page>409</first-page><last-page>441</last-page></pages></host></reference><source-text
+      id="afs18">E. Kuwert, R. Schätzle, The Willmore flow with small initial energy,
+      J. Differential Geom. 57(3) (2001) 409–441.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Differential Geom.
+      journal_volume: '57'
+      journal_issue: '3'
+      year: 2001
+      page_start: '409'
+      page_end: '441'
+    label: '18'
+    authors:
+    - full_name: Kuwert, E.
+      inspire_role: author
+    - full_name: Schätzle, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b19"><label>[19]</label><reference id="sb19"><contribution
+      langtype="en"><authors><author><surname>Kuwert</surname><given-name>E.</given-name></author><author><surname>Schätzle</surname><given-name>R.</given-name></author></authors><title><maintitle>Gradient
+      flow for the Willmore functional</maintitle></title></contribution><host><issue><series><title><maintitle>Comm.
+      Anal. Geom.</maintitle></title><volume-nr>10</volume-nr></series><issue-nr>2</issue-nr><date>2002</date></issue><pages><first-page>307</first-page><last-page>339</last-page></pages></host></reference><source-text
+      id="afs19">E. Kuwert, R. Schätzle, Gradient flow for the Willmore functional,
+      Comm. Anal. Geom. 10(2) (2002) 307–339.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Comm. Anal. Geom.
+      journal_volume: '10'
+      journal_issue: '2'
+      year: 2002
+      page_start: '307'
+      page_end: '339'
+    label: '19'
+    authors:
+    - full_name: Kuwert, E.
+      inspire_role: author
+    - full_name: Schätzle, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b20"><label>[20]</label><reference id="sb20"><contribution
+      langtype="en"><authors><author><surname>Liu</surname><given-name>Y.N.</given-name></author><author><surname>Jian</surname><given-name>H.Y.</given-name></author></authors><title><maintitle>A
+      curve flow evolved by a fourth order parabolic equation</maintitle></title></contribution><host><issue><series><title><maintitle>Sci.
+      China Ser. A</maintitle></title><volume-nr>52</volume-nr></series><date>2009</date></issue><pages><first-page>2177</first-page><last-page>2184</last-page></pages></host></reference><source-text
+      id="afs20">Y. N. Liu and H. Y. Jian, A curve flow evolved by a fourth order
+      parabolic equation, Sci. China Ser. A 52 (2009) 2177–2184.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Sci. China Ser. A
+      journal_volume: '52'
+      year: 2009
+      page_start: '2177'
+      page_end: '2184'
+    label: '20'
+    authors:
+    - full_name: Liu, Y.N.
+      inspire_role: author
+    - full_name: Jian, H.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b21"><label>[21]</label><reference id="sb21"><contribution
+      langtype="en"><authors><author><surname>Ou</surname><given-name>Y.-L.</given-name></author></authors><title><maintitle>Some
+      recent progress of biharmonic submanifolds</maintitle></title></contribution><host><issue><series><title><maintitle>AMS
+      Contemp. Math.</maintitle></title><volume-nr>674</volume-nr></series><date>2016</date></issue><pages><first-page>127</first-page><last-page>140</last-page></pages></host><comment><inter-ref
+      id="interref1" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1511.09103"
+      type="simple">arXiv:1511.09103</inter-ref></comment></reference><source-text
+      id="afs21">Y.-L. Ou, Some recent progress of biharmonic submanifolds, arXiv:1511.09103,
+      AMS Contemp. Math. 674 (2016) 127–140.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: AMS Contemp. Math.
+      journal_volume: '674'
+      year: 2016
+      page_start: '127'
+      page_end: '140'
+    arxiv_eprint: '1511.09103'
+    label: '21'
+    authors:
+    - full_name: Ou, Y.-L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b22"><label>[22]</label><reference id="sb22"><contribution
+      langtype="en"><authors><author><surname>Polden</surname><given-name>A.</given-name></author></authors><title><maintitle>Closed
+      Curves of Least Total Curvature. SFB 382</maintitle></title></contribution><host><book><date>1995</date><publisher><name>Universität
+      Tübingen</name><location>Tübingen, Germany</location></publisher></book></host></reference><source-text
+      id="afs22">A. Polden, Closed curves of least total curvature. SFB 382, Universität
+      Tübingen, Tübingen, Germany, 1995.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 1995
+    label: '22'
+    authors:
+    - full_name: Polden, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b23"><label>[23]</label><reference id="sb23"><contribution
+      langtype="en"><authors><author><surname>Polden</surname><given-name>A.</given-name></author></authors><title><maintitle>Curvature
+      and Surfaces of Least Total Curvature and Fourth-Order Flows</maintitle></title></contribution><comment>(PhD
+      dissertation)</comment><host><book class="report"><date>1996</date><publisher><name>Universität
+      Tübingen</name><location>Tübingen, Germany</location></publisher></book></host></reference><source-text
+      id="afs23">A. Polden, Curvature and surfaces of least total curvature and fourth-order
+      flows. PhD dissertation. Tübingen, Germany: Universität Tübingen, 1996.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 1996
+    label: '23'
+    misc:
+    - "(PhD dissertation)"
+    authors:
+    - full_name: Polden, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b24"><label>[24]</label><reference id="sb24"><contribution
+      langtype="en"><authors><author><surname>Wen</surname><given-name>Y.</given-name></author></authors><title><maintitle>Curve
+      straightening flow deforms closed plane curves with nonzero rotation number
+      to circles</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Differential Equations</maintitle></title><volume-nr>120</volume-nr></series><date>1995</date></issue><pages><first-page>89</first-page><last-page>107</last-page></pages></host></reference><source-text
+      id="afs24">Y. Wen, Curve straightening flow deforms closed plane curves with
+      nonzero rotation number to circles, J. Differential Equations, 120 (1995) 89–107.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Differential Equations
+      journal_volume: '120'
+      year: 1995
+      page_start: '89'
+      page_end: '107'
+    label: '24'
+    authors:
+    - full_name: Wen, Y.
+      inspire_role: author

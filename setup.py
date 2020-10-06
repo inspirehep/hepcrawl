@@ -18,6 +18,7 @@ readme = open('README.rst').read()
 install_requires = [
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
+    "backports.tempfile==1.0",
     'boto3~=1.14',
     'inspire-schemas~=61.3',
     'inspire-dojson~=63.0',

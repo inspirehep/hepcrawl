@@ -1,0 +1,1013 @@
+---
+_collections:
+- Literature
+curated: false
+abstracts:
+- value: We explore the geometric implications of introducing a spectral cut-off on
+    compact Riemannian manifolds. This is naturally phrased in the framework of non-commutative
+    geometry, where we work with spectral triples that are truncated by spectral projections
+    of Dirac-type operators. We associate a metric space of ‘localized’ states to
+    each truncation. The Gromov-Hausdorff limit of these spaces is then shown to equal
+    the underlying manifold one started with. This leads us to propose a computational
+    algorithm that allows us to approximate these metric spaces from the finite-dimensional
+    truncated spectral data. We subsequently develop a technique for embedding the
+    resulting metric graphs in Euclidean space to asymptotically recover an isometric
+    embedding of the limit. We test these algorithms on the truncation of sphere and
+    a recently investigated perturbation thereof.
+  source: Elsevier B.V.
+titles:
+- title: Reconstructing manifolds from truncations of spectral triples
+  source: Elsevier B.V.
+copyright:
+- holder: The Author(s)
+  statement: "© 2020 The Author(s). Published by Elsevier B.V."
+  material: publication
+  year: 2020
+document_type:
+- article
+license:
+- url: http://creativecommons.org/licenses/by-nc-nd/4.0/
+  license: CC BY-NC-ND 4.0
+  material: publication
+authors:
+- full_name: Glaser, Lisa
+  raw_affiliations:
+  - value: Faculty of Physics, University of Vienna, Vienna, Austria
+    source: Elsevier B.V.
+  emails:
+  - lisa.glaser@univie.ac.at
+- full_name: Stern, Abel B.
+  raw_affiliations:
+  - value: Institute of Mathematics, Astrophysics and Particle Physics, Radboud University,
+      Nijmegen, The Netherlans
+    source: Elsevier B.V.
+publication_info:
+- artid: '103921'
+  journal_title: Journal of Geometry and Physics
+  material: publication
+dois:
+- value: 10.1016/j.geomphys.2020.103921
+  source: Elsevier B.V.
+  material: publication
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><reference id="sb1"><contribution
+      langtype="en"><authors><author><surname>Balachandran</surname><given-name>A.P.</given-name></author><author><surname>Dolan</surname><given-name>Brian P.</given-name></author><author><surname>Lee</surname><given-name>J.</given-name></author><author><surname>Martin</surname><given-name>X.</given-name></author><author><surname>O’Connor</surname><given-name>Denjoe</given-name></author></authors><title><maintitle>Fuzzy
+      complex projective spaces and their star-products</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Geom. Phys.</maintitle></title><volume-nr>43</volume-nr></series><issue-nr>2</issue-nr><date>2002</date></issue><pages><first-page>184</first-page><last-page>204</last-page></pages></host></reference><source-text
+      id="afs1">A.P. Balachandran, Brian P. Dolan, J. Lee, X. Martin, and Denjoe O’Connor.
+      Fuzzy complex projective spaces and their star-products. Journal of Geometry
+      and Physics, 43(2):184 – 204, 2002.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Geom. Phys.
+      journal_volume: '43'
+      journal_issue: '2'
+      year: 2002
+      page_start: '184'
+      page_end: '204'
+    label: '1'
+    authors:
+    - full_name: Balachandran, A.P.
+      inspire_role: author
+    - full_name: Dolan, Brian P.
+      inspire_role: author
+    - full_name: Lee, J.
+      inspire_role: author
+    - full_name: Martin, X.
+      inspire_role: author
+    - full_name: O'Connor, Denjoe
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Barrett</surname><given-name>John W.</given-name></author></authors><title><maintitle>Matrix
+      geometries and fuzzy spaces as finite spectral triples</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Math. Phys.</maintitle></title><volume-nr>56</volume-nr></series><issue-nr>8</issue-nr><date>2015</date></issue><article-number>082301</article-number></host></reference><source-text
+      id="afs2">John W. Barrett. Matrix geometries and fuzzy spaces as finite spectral
+      triples. J. Math. Phys., 56(8):082301, 2015.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Math. Phys.
+      journal_volume: '56'
+      journal_issue: '8'
+      year: 2015
+    label: '2'
+    authors:
+    - full_name: Barrett, John W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Barrett</surname><given-name>John W.</given-name></author><author><surname>Druce</surname><given-name>Paul</given-name></author><author><surname>Glaser</surname><given-name>Lisa</given-name></author></authors><title><maintitle>Spectral
+      estimators for finite non-commutative geometries</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys.</maintitle></title><volume-nr>A52</volume-nr></series><issue-nr>27</issue-nr><date>2019</date></issue><article-number>275203</article-number></host></reference><source-text
+      id="afs3">John W. Barrett, Paul Druce, and Lisa Glaser. Spectral estimators
+      for finite non-commutative geometries. J. Phys., A52(27):275203, 2019.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys.
+      journal_volume: A52
+      journal_issue: '27'
+      year: 2019
+    label: '3'
+    authors:
+    - full_name: Barrett, John W.
+      inspire_role: author
+    - full_name: Druce, Paul
+      inspire_role: author
+    - full_name: Glaser, Lisa
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Barrett</surname><given-name>John W.</given-name></author><author><surname>Gaunt</surname><given-name>James</given-name></author></authors><title><maintitle>Finite
+      spectral triples for the fuzzy torus</maintitle></title></contribution><host><book><date>2019</date></book></host></reference><source-text
+      id="afs4">John W. Barrett and James Gaunt. Finite spectral triples for the fuzzy
+      torus. 2019.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2019
+    label: '4'
+    authors:
+    - full_name: Barrett, John W.
+      inspire_role: author
+    - full_name: Gaunt, James
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Barrett</surname><given-name>John W.</given-name></author><author><surname>Glaser</surname><given-name>Lisa</given-name></author></authors><title><maintitle>Monte
+      Carlo simulations of random non-commutative geometries</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys.</maintitle></title><volume-nr>A49</volume-nr></series><date>2016</date></issue><article-number>245001</article-number></host></reference><source-text
+      id="afs5">John W. Barrett and Lisa Glaser. Monte carlo simulations of random
+      non-commutative geometries. J.Phys., A49:245001, May 2016.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys.
+      journal_volume: A49
+      year: 2016
+    label: '5'
+    authors:
+    - full_name: Barrett, John W.
+      inspire_role: author
+    - full_name: Glaser, Lisa
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b6"><label>[6]</label><reference id="sb6"><contribution
+      langtype="en"><authors><author><surname>Berendschot</surname><given-name>T.</given-name></author></authors><title><maintitle>Truncated
+      Geometry: Spectral Approximation of the Torus</maintitle></title></contribution><comment>(Master’s
+      thesis)</comment><host><book class="report"><date>2019</date><publisher><name>Radboud
+      University Nijmegen</name></publisher></book></host></reference><source-text
+      id="afs6">T. Berendschot. Truncated geometry: Spectral approximation of the
+      torus. Master’s thesis, Radboud University Nijmegen, June 2019.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2019
+    label: '6'
+    misc:
+    - "(Master’s thesis)"
+    authors:
+    - full_name: Berendschot, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b7"><label>[7]</label><reference id="sb7"><contribution
+      langtype="en"><authors><author><surname>Berline</surname><given-name>Nicole</given-name></author><author><surname>Getzler</surname><given-name>Ezra</given-name></author><author><surname>Vergne</surname><given-name>Michèle</given-name></author></authors></contribution><host><edited-book><title><maintitle>Heat
+      Kernels and Dirac Operators</maintitle></title><book-series><series><title><maintitle>Grundlehren
+      Text Editions</maintitle></title></series></book-series><date>2004</date><publisher><name>Springer-Verlag</name><location>Berlin</location></publisher></edited-book></host><comment>tex.mrclass:
+      58J35 (35K05 35Q40 47G30 58J60) tex.mrnumber: 2273508</comment></reference><source-text
+      id="afs7">Nicole Berline, Ezra Getzler, and Michle Vergne. Heat kernels and
+      Dirac operators. Grundlehren text editions. Springer-Verlag, Berlin, 2004. tex.mrclass:
+      58J35 (35K05 35Q40 47G30 58J60) tex.mrnumber: 2273508.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Grundlehren Text Editions
+      parent_title: Heat Kernels and Dirac Operators
+      year: 2004
+    label: '7'
+    misc:
+    - 'tex.mrclass: 58J35 (35K05 35Q40 47G30 58J60) tex.mrnumber: 2273508'
+    authors:
+    - full_name: Berline, Nicole
+      inspire_role: author
+    - full_name: Getzler, Ezra
+      inspire_role: author
+    - full_name: Vergne, Michèle
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b8"><label>[8]</label><reference id="sb8"><contribution
+      langtype="en"><authors><author><surname>Bimonte</surname><given-name>G.</given-name></author><author><surname>Lizzi</surname><given-name>F.</given-name></author><author><surname>Sparano</surname><given-name>G.</given-name></author></authors><title><maintitle>Distances
+      on a lattice from non-commutative geometry</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Lett. B</maintitle></title><volume-nr>341</volume-nr></series><issue-nr>2</issue-nr><date>1994</date></issue><pages><first-page>139</first-page><last-page>146</last-page></pages></host></reference><source-text
+      id="afs8">G. Bimonte, F. Lizzi, and G. Sparano. Distances on a lattice from
+      non-commutative geometry. Physics Letters B, 341(2):139 – 146, 1994.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Lett. B
+      journal_volume: '341'
+      journal_issue: '2'
+      year: 1994
+      page_start: '139'
+      page_end: '146'
+    label: '8'
+    authors:
+    - full_name: Bimonte, G.
+      inspire_role: author
+    - full_name: Lizzi, F.
+      inspire_role: author
+    - full_name: Sparano, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b9"><label>[9]</label><reference id="sb9"><contribution
+      langtype="en"><authors><author><surname>Borg</surname><given-name>Ingwer</given-name></author><author><surname>Groenen</surname><given-name>Patrick J.F.</given-name></author></authors></contribution><host><edited-book><title><maintitle>Modern
+      Multidimensional Scaling: Theory and Applications</maintitle></title><edition>second
+      ed.</edition><book-series><series><title><maintitle>Springer Series in Statistics</maintitle></title></series></book-series><date>2005</date><publisher><name>Springer</name><location>New
+      York</location></publisher></edited-book></host><comment>OCLC: ocm61260823</comment></reference><source-text
+      id="afs9">Ingwer Borg and Patrick J. F. Groenen. Modern multidimensional scaling:
+      theory and applications. Springer series in statistics. Springer, New York,
+      2nd ed edition, 2005. OCLC: ocm61260823.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Springer Series in Statistics
+      parent_title: 'Modern Multidimensional Scaling: Theory and Applications'
+      year: 2005
+    label: '9'
+    misc:
+    - 'second ed.OCLC: ocm61260823'
+    authors:
+    - full_name: Borg, Ingwer
+      inspire_role: author
+    - full_name: Groenen, Patrick J.F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b10"><label>[10]</label><reference id="sb10"><contribution
+      langtype="en"><authors><author><surname>Ćaćić</surname><given-name>Branimir</given-name></author></authors><title><maintitle>Moduli
+      spaces of Dirac operators for finite spectral triples</maintitle></title></contribution><host><edited-book><title><maintitle>Quantum
+      Groups and Noncommutative Spaces</maintitle></title><date>2011</date><publisher><name>Springer</name></publisher></edited-book><pages><first-page>9</first-page><last-page>68</last-page></pages></host></reference><source-text
+      id="afs10">Branimir Ćaćić. Moduli spaces of dirac operators for finite spectral
+      triples. In Quantum Groups and Noncommutative Spaces, pages 9–68. Springer,
+      2011.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      parent_title: Quantum Groups and Noncommutative Spaces
+      year: 2011
+      page_start: '9'
+      page_end: '68'
+    label: '10'
+    authors:
+    - full_name: Ćaćić, Branimir
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b11"><label>[11]</label><reference id="sb11"><contribution
+      langtype="en"><authors><author><surname>Chamseddine</surname><given-name>Ali H.</given-name></author><author><surname>Connes</surname><given-name>Alain</given-name></author></authors><title><maintitle>Universal
+      formula for noncommutative geometry actions: Unification of gravity and the
+      standard model</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>77</volume-nr></series><issue-nr>24</issue-nr><date>1996</date></issue><pages><first-page>4868</first-page></pages></host></reference><source-text
+      id="afs11">Ali H Chamseddine and Alain Connes. Universal formula for noncommutative
+      geometry actions: Unification of gravity and the standard model. Physical review
+      letters, 77(24):4868, 1996.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '77'
+      journal_issue: '24'
+      year: 1996
+      page_start: '4868'
+    label: '11'
+    authors:
+    - full_name: Chamseddine, Ali H.
+      inspire_role: author
+    - full_name: Connes, Alain
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><reference id="sb12"><contribution
+      langtype="en"><authors><author><surname>Chamseddine</surname><given-name>Ali H.</given-name></author><author><surname>Connes</surname><given-name>Alain</given-name></author></authors><title><maintitle>Why
+      the standard model</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Geom. Phys.</maintitle></title><volume-nr>58</volume-nr></series><issue-nr>1</issue-nr><date>2008</date></issue><pages><first-page>38</first-page><last-page>47</last-page></pages></host></reference><source-text
+      id="afs12">Ali H Chamseddine and Alain Connes. Why the standard model. Journal
+      of Geometry and Physics, 58(1):38–47, 2008.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Geom. Phys.
+      journal_volume: '58'
+      journal_issue: '1'
+      year: 2008
+      page_start: '38'
+      page_end: '47'
+    label: '12'
+    authors:
+    - full_name: Chamseddine, Ali H.
+      inspire_role: author
+    - full_name: Connes, Alain
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b13"><label>[13]</label><reference id="sb13"><contribution
+      langtype="en"><authors><author><surname>Chamseddine</surname><given-name>Ali H.</given-name></author><author><surname>Connes</surname><given-name>Alain</given-name></author><author><surname>Mukhanov</surname><given-name>Viatcheslav</given-name></author></authors><title><maintitle>Geometry
+      and the quantum: Basics</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      High Energy Phys.</maintitle></title><volume-nr>2014</volume-nr></series><issue-nr>12</issue-nr><date>2014</date></issue><pages><first-page>98</first-page></pages></host></reference><source-text
+      id="afs13">Ali H. Chamseddine, Alain Connes, and Viatcheslav Mukhanov. Geometry
+      and the quantum: Basics. Journal of High Energy Physics, 2014(12):98, 2014.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. High Energy Phys.
+      journal_volume: '2014'
+      journal_issue: '12'
+      year: 2014
+      page_start: '98'
+    label: '13'
+    authors:
+    - full_name: Chamseddine, Ali H.
+      inspire_role: author
+    - full_name: Connes, Alain
+      inspire_role: author
+    - full_name: Mukhanov, Viatcheslav
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b14"><label>[14]</label><reference id="sb14"><contribution
+      langtype="en"><authors><author><surname>Chamseddine</surname><given-name>Ali H.</given-name></author><author><surname>Connes</surname><given-name>Alain</given-name></author><author><surname>Mukhanov</surname><given-name>Viatcheslav</given-name></author></authors><title><maintitle>Quanta
+      of geometry: Noncommutative aspects</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>114</volume-nr></series><issue-nr>9</issue-nr><date>2015</date></issue><article-number>091302</article-number></host></reference><source-text
+      id="afs14">Ali H. Chamseddine, Alain Connes, and Viatcheslav Mukhanov. Quanta
+      of geometry: Noncommutative aspects. Physical Review Letters, 114(9):091302,
+      Mar 2015.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '114'
+      journal_issue: '9'
+      year: 2015
+    label: '14'
+    authors:
+    - full_name: Chamseddine, Ali H.
+      inspire_role: author
+    - full_name: Connes, Alain
+      inspire_role: author
+    - full_name: Mukhanov, Viatcheslav
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b15"><label>[15]</label><reference id="sb15"><contribution
+      langtype="en"><authors><author><surname>Connes</surname><given-name>Alain</given-name></author></authors><title><maintitle>On
+      the spectral characterization of manifolds</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Noncommut. Geom.</maintitle></title><volume-nr>7</volume-nr></series><issue-nr>1</issue-nr><date>2013</date></issue><pages><first-page>1</first-page><last-page>82</last-page></pages></host></reference><source-text
+      id="afs15">Alain Connes. On the spectral characterization of manifolds. Journal
+      of Noncommutative Geometry, 7(1):1–82, 2013.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Noncommut. Geom.
+      journal_volume: '7'
+      journal_issue: '1'
+      year: 2013
+      page_start: '1'
+      page_end: '82'
+    label: '15'
+    authors:
+    - full_name: Connes, Alain
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b16"><label>[16]</label><reference id="sb16"><contribution
+      langtype="en"><authors><author><surname>Connes</surname><given-name>Alain</given-name></author><author><surname>van
+      Suijlekom</surname><given-name>Walter D.</given-name></author></authors><title><maintitle>Spectral
+      truncations in noncommutative geometry and operator systems</maintitle></title></contribution><host><book><date>2020</date></book></host><comment>arXiv
+      e-prints, <inter-ref id="interref1" role="http://www.elsevier.com/xml/linking-roles/preprint"
+      href="arxiv:2004.14115" type="simple">arXiv:2004.14115</inter-ref>, April</comment></reference><source-text
+      id="afs16">Alain Connes and Walter D. van Suijlekom. Spectral truncations in
+      noncommutative geometry and operator systems. arXiv e-prints, page arXiv:2004.14115,
+      April 2020.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2020
+    arxiv_eprint: '2004.14115'
+    label: '16'
+    misc:
+    - arXiv e-prints, , April
+    authors:
+    - full_name: Connes, Alain
+      inspire_role: author
+    - full_name: van Suijlekom, Walter D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b17"><label>[17]</label><reference id="sb17"><contribution
+      langtype="en"><authors><author><surname>D’Andrea</surname><given-name>Francesco</given-name></author></authors><title><maintitle>Pythagoras
+      theorem in noncommutative geometry</maintitle></title></contribution><host><edited-book><title><maintitle>Noncommutative
+      Geometry and Optimal Transport</maintitle></title><book-series><series><title><maintitle>Contemp.
+      Math.</maintitle></title><volume-nr>vol. 676</volume-nr></series></book-series><date>2016</date><publisher><name>Amer.
+      Math. Soc.</name><location>Providence, RI</location></publisher></edited-book><pages><first-page>175</first-page><last-page>210</last-page></pages></host></reference><source-text
+      id="afs17">Francesco D’Andrea. Pythagoras theorem in noncommutative geometry.
+      In Noncommutative geometry and optimal transport, volume 676 of Contemp. Math.,
+      pages 175–210. Amer. Math. Soc., Providence, RI, 2016.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Contemp. Math.
+      parent_title: Noncommutative Geometry and Optimal Transport
+      journal_volume: vol. 676
+      year: 2016
+      page_start: '175'
+      page_end: '210'
+    label: '17'
+    authors:
+    - full_name: D'Andrea, Francesco
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b18"><label>[18]</label><reference id="sb18"><contribution
+      langtype="en"><authors><author><surname>D’Andrea</surname><given-name>Francesco</given-name></author><author><surname>Lizzi</surname><given-name>Fedele</given-name></author><author><surname>Martinetti</surname><given-name>Pierre</given-name></author></authors><title><maintitle>Deformations
+      of the canonical commutation relations and metric structures</maintitle></title></contribution><host><issue><series><title><maintitle>SIGMA
+      Symmetry Integrability Geom. Methods Appl.</maintitle></title><volume-nr>10</volume-nr></series><date>2014</date></issue><pages><first-page>14</first-page></pages></host><comment>Paper
+      062</comment></reference><source-text id="afs18">Francesco D’Andrea, Fedele
+      Lizzi, and Pierre Martinetti. Deformations of the canonical commutation relations
+      and metric structures. SIGMA Symmetry Integrability Geom. Methods Appl., 10:Paper
+      062, 14, 2014.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: SIGMA Symmetry Integrability Geom. Methods Appl.
+      journal_volume: '10'
+      year: 2014
+      page_start: '14'
+    label: '18'
+    misc:
+    - Paper 062
+    authors:
+    - full_name: D'Andrea, Francesco
+      inspire_role: author
+    - full_name: Lizzi, Fedele
+      inspire_role: author
+    - full_name: Martinetti, Pierre
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b19"><label>[19]</label><reference id="sb19"><contribution
+      langtype="en"><authors><author><surname>D’Andrea</surname><given-name>Francesco</given-name></author><author><surname>Lizzi</surname><given-name>Fedele</given-name></author><author><surname>Martinetti</surname><given-name>Pierre</given-name></author></authors><title><maintitle>Spectral
+      geometry with a cut-off: topological and metric aspects</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Geom. Phys.</maintitle></title><volume-nr>82</volume-nr></series><date>2014</date></issue><pages><first-page>18</first-page><last-page>45</last-page></pages></host></reference><source-text
+      id="afs21">Francesco DAndrea, Fedele Lizzi, and Pierre Martinetti. Spectral
+      geometry with a cut-off: topological and metric aspects. Journal of Geometry
+      and Physics, 82:18–45, 2014.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Geom. Phys.
+      journal_volume: '82'
+      year: 2014
+      page_start: '18'
+      page_end: '45'
+    label: '19'
+    authors:
+    - full_name: D'Andrea, Francesco
+      inspire_role: author
+    - full_name: Lizzi, Fedele
+      inspire_role: author
+    - full_name: Martinetti, Pierre
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b20"><label>[20]</label><reference id="sb20"><contribution
+      langtype="en"><authors><author><surname>D’Andrea</surname><given-name>Francesco</given-name></author><author><surname>Lizzi</surname><given-name>Fedele</given-name></author><author><surname>Várilly</surname><given-name>Joseph C.</given-name></author></authors><title><maintitle>Metric
+      properties of the fuzzy sphere</maintitle></title></contribution><host><issue><series><title><maintitle>Lett.
+      Math. Phys.</maintitle></title><volume-nr>103</volume-nr></series><issue-nr>2</issue-nr><date>2013</date></issue><pages><first-page>183</first-page><last-page>205</last-page></pages></host></reference><source-text
+      id="afs22">Francesco DAndrea, Fedele Lizzi, and Joseph C Várilly. Metric properties
+      of the fuzzy sphere. Letters in Mathematical Physics, 103(2):183–205, 2013.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lett. Math. Phys.
+      journal_volume: '103'
+      journal_issue: '2'
+      year: 2013
+      page_start: '183'
+      page_end: '205'
+    label: '20'
+    authors:
+    - full_name: D'Andrea, Francesco
+      inspire_role: author
+    - full_name: Lizzi, Fedele
+      inspire_role: author
+    - full_name: Várilly, Joseph C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b21"><label>[21]</label><reference id="sb21"><contribution
+      langtype="en"><authors><author><surname>Dimakis</surname><given-name>A.</given-name></author><author><surname>Müller-Hoissen</surname><given-name>F.</given-name></author></authors><title><maintitle>Some
+      aspects of noncommutative geometry and physics</maintitle></title></contribution><host><edited-book><title><maintitle>Novelties
+      in String Theory (Göteborg, 1998)</maintitle></title><date>1999</date><publisher><name>World
+      Sci. Publ.</name><location>River Edge, NJ</location></publisher></edited-book><pages><first-page>327</first-page><last-page>347</last-page></pages></host></reference><source-text
+      id="afs19">A. Dimakis and F. Müller-Hoissen. Some aspects of noncommutative
+      geometry and physics. In Novelties in string theory (Göteborg, 1998), pages
+      327–347. World Sci. Publ., River Edge, NJ, 1999.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      parent_title: Novelties in String Theory (Göteborg, 1998)
+      year: 1999
+      page_start: '327'
+      page_end: '347'
+    label: '21'
+    authors:
+    - full_name: Dimakis, A.
+      inspire_role: author
+    - full_name: Müller-Hoissen, F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b22"><label>[22]</label><reference id="sb22"><contribution
+      langtype="en"><authors><author><surname>Dolan</surname><given-name>Brian P.</given-name></author><author><surname>O’Connor</surname><given-name>Denjoe</given-name></author></authors><title><maintitle>A
+      fuzzy three sphere and fuzzy tori</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      High Energy Phys.</maintitle></title><volume-nr>2003</volume-nr></series><issue-nr>10</issue-nr><date>2003</date></issue><pages><first-page>060</first-page></pages></host></reference><source-text
+      id="afs20">Brian P Dolan and Denjoe O’Connor. A fuzzy three sphere and fuzzy
+      tori. Journal of High Energy Physics, 2003(10):060–060, oct 2003.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. High Energy Phys.
+      journal_volume: '2003'
+      journal_issue: '10'
+      year: 2003
+      page_start: '060'
+    label: '22'
+    authors:
+    - full_name: Dolan, Brian P.
+      inspire_role: author
+    - full_name: O'Connor, Denjoe
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b23"><label>[23]</label><reference id="sb23"><contribution
+      langtype="en"><authors><author><surname>Glaser</surname><given-name>Lisa</given-name></author></authors><title><maintitle>Scaling
+      behaviour in random non-commutative geometries</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. A</maintitle></title><volume-nr>50</volume-nr></series><issue-nr>27</issue-nr><date>2017</date></issue><article-number>275201</article-number></host></reference><source-text
+      id="afs24">Lisa Glaser. Scaling behaviour in random non-commutative geometries.
+      Journal of Physics A: Mathematical and Theoretical, 50(27):275201, 2017.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. A
+      journal_volume: '50'
+      journal_issue: '27'
+      year: 2017
+    label: '23'
+    authors:
+    - full_name: Glaser, Lisa
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b24"><label>[24]</label><reference id="sb24"><contribution
+      langtype="en"><authors><author><surname>Glaser</surname><given-name>L.</given-name></author><author><surname>Stern</surname><given-name>A.B.</given-name></author></authors><title><maintitle>Understanding
+      truncated non-commutative geometries through computer simulations</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Math. Phys.</maintitle></title><volume-nr>61</volume-nr></series><issue-nr>3</issue-nr><date>2020</date></issue><article-number>033507</article-number></host><comment>11</comment></reference><source-text
+      id="afs23">L. Glaser and A. B. Stern. Understanding truncated non-commutative
+      geometries through computer simulations. J. Math. Phys., 61(3):033507, 11, 2020.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Math. Phys.
+      journal_volume: '61'
+      journal_issue: '3'
+      year: 2020
+    label: '24'
+    misc:
+    - '11'
+    authors:
+    - full_name: Glaser, L.
+      inspire_role: author
+    - full_name: Stern, A.B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b25"><label>[25]</label><reference id="sb25"><contribution
+      langtype="en"><authors><author><surname>Gracia-Bondía</surname><given-name>José M.</given-name></author><author><surname>Várilly</surname><given-name>Joseph C.</given-name></author><author><surname>Figueroa</surname><given-name>Héctor</given-name></author></authors><title><maintitle>Elements
+      of Noncommutative Geometry</maintitle></title></contribution><host><book><date>2013</date><publisher><name>Springer
+      Science &amp; Business Media</name></publisher></book></host></reference><source-text
+      id="afs25">José M Gracia-Bondía, Joseph C Várilly, and Héctor Figueroa. Elements
+      of noncommutative geometry. Springer Science &amp; Business Media, 2013.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2013
+    label: '25'
+    authors:
+    - full_name: Gracia-Bondía, José M.
+      inspire_role: author
+    - full_name: Várilly, Joseph C.
+      inspire_role: author
+    - full_name: Figueroa, Héctor
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b26"><label>[26]</label><reference id="sb26"><contribution
+      langtype="en"><authors><author><surname>Grosse</surname><given-name>H.</given-name></author><author><surname>Prešnajder</surname><given-name>P.</given-name></author></authors><title><maintitle>The
+      Dirac operator on the fuzzy sphere</maintitle></title></contribution><host><issue><series><title><maintitle>Lett.
+      Math. Phys.</maintitle></title><volume-nr>33</volume-nr></series><issue-nr>2</issue-nr><date>1995</date></issue><pages><first-page>171</first-page><last-page>181</last-page></pages></host></reference><source-text
+      id="afs26">H. Grosse and P. Prešnajder. The dirac operator on the fuzzy sphere.
+      Letters in Mathematical Physics, 33(2):171–181, Feb 1995.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lett. Math. Phys.
+      journal_volume: '33'
+      journal_issue: '2'
+      year: 1995
+      page_start: '171'
+      page_end: '181'
+    label: '26'
+    authors:
+    - full_name: Grosse, H.
+      inspire_role: author
+    - full_name: Prešnajder, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b27"><label>[27]</label><reference id="sb27"><contribution
+      langtype="en"><authors><author><surname>Hörmander</surname><given-name>Lars</given-name></author></authors><title><maintitle>The
+      spectral function of an elliptic operator</maintitle></title></contribution><host><issue><series><title><maintitle>Acta
+      Math.</maintitle></title><volume-nr>121</volume-nr></series><date>1968</date></issue><pages><first-page>193</first-page><last-page>218</last-page></pages></host></reference><source-text
+      id="afs27">Lars Hörmander. The spectral function of an elliptic operator. Acta
+      Mathematica, 121:193–218, 1968.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Acta Math.
+      journal_volume: '121'
+      year: 1968
+      page_start: '193'
+      page_end: '218'
+    label: '27'
+    authors:
+    - full_name: Hörmander, Lars
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b28"><label>[28]</label><reference id="sb28"><contribution
+      langtype="en"><authors><author><surname>Iochum</surname><given-name>Bruno</given-name></author><author><surname>Krajewski</surname><given-name>Thomas</given-name></author><author><surname>Martinetti</surname><given-name>Pierre</given-name></author></authors><title><maintitle>Distances
+      in finite spaces from noncommutative geometry</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Geom. Phys.</maintitle></title><volume-nr>37</volume-nr></series><date>2001</date></issue><pages><first-page>100</first-page><last-page>125</last-page></pages></host></reference><source-text
+      id="afs28">Bruno Iochum, Thomas Krajewski, and Pierre Martinetti. Distances
+      in finite spaces from noncommutative geometry. J. Geom. Phys., 37:100–125, 2001.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Geom. Phys.
+      journal_volume: '37'
+      year: 2001
+      page_start: '100'
+      page_end: '125'
+    label: '28'
+    authors:
+    - full_name: Iochum, Bruno
+      inspire_role: author
+    - full_name: Krajewski, Thomas
+      inspire_role: author
+    - full_name: Martinetti, Pierre
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b29"><label>[29]</label><reference id="sb29"><contribution
+      langtype="en"><authors><author><surname>Krajewski</surname><given-name>Thomas</given-name></author></authors><title><maintitle>Classification
+      of finite spectral triples</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Geom. Phys.</maintitle></title><volume-nr>28</volume-nr></series><issue-nr>1–2</issue-nr><date>1998</date></issue><pages><first-page>1</first-page><last-page>30</last-page></pages></host></reference><source-text
+      id="afs29">Thomas Krajewski. Classification of finite spectral triples. Journal
+      of Geometry and Physics, 28(1-2):1–30, 1998.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Geom. Phys.
+      journal_volume: '28'
+      journal_issue: 1–2
+      year: 1998
+      page_start: '1'
+      page_end: '30'
+    label: '29'
+    authors:
+    - full_name: Krajewski, Thomas
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b30"><label>[30]</label><reference id="sb30"><contribution
+      langtype="en"><authors><author><surname>Martinetti</surname><given-name>Pierre</given-name></author></authors><title><maintitle>Carnot–Carathéodory
+      metric and gauge fluctuation in noncommutative geometry</maintitle></title></contribution><host><issue><series><title><maintitle>Comm.
+      Math. Phys.</maintitle></title><volume-nr>265</volume-nr></series><issue-nr>3</issue-nr><date>2006</date></issue><pages><first-page>585</first-page><last-page>616</last-page></pages></host></reference><source-text
+      id="afs30">Pierre Martinetti. Carnot-Carathéodory metric and gauge fluctuation
+      in noncommutative geometry. Comm. Math. Phys., 265(3):585–616, 2006.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Comm. Math. Phys.
+      journal_volume: '265'
+      journal_issue: '3'
+      year: 2006
+      page_start: '585'
+      page_end: '616'
+    label: '30'
+    authors:
+    - full_name: Martinetti, Pierre
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b31"><label>[31]</label><reference id="sb31"><contribution
+      langtype="en"><authors><author><surname>O’Donoghue</surname><given-name>Brendan</given-name></author><author><surname>Chu</surname><given-name>Eric</given-name></author><author><surname>Parikh</surname><given-name>Neal</given-name></author><author><surname>Boyd</surname><given-name>Stephen</given-name></author></authors><title><maintitle>Conic
+      optimization via operator splitting and homogeneous self-dual embedding</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Optim. Theory Appl.</maintitle></title><volume-nr>169</volume-nr></series><issue-nr>3</issue-nr><date>2016</date></issue><pages><first-page>1042</first-page><last-page>1068</last-page></pages></host></reference><source-text
+      id="afs31">Brendan ODonoghue, Eric Chu, Neal Parikh, and Stephen Boyd. Conic
+      optimization via operator splitting and homogeneous self-dual embedding. Journal
+      of Optimization Theory and Applications, 169(3):1042–1068, 2016.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Optim. Theory Appl.
+      journal_volume: '169'
+      journal_issue: '3'
+      year: 2016
+      page_start: '1042'
+      page_end: '1068'
+    label: '31'
+    authors:
+    - full_name: O'Donoghue, Brendan
+      inspire_role: author
+    - full_name: Chu, Eric
+      inspire_role: author
+    - full_name: Parikh, Neal
+      inspire_role: author
+    - full_name: Boyd, Stephen
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b32"><label>[32]</label><reference id="sb32"><contribution
+      langtype="en"><authors><author><surname>Paschke</surname><given-name>Mario</given-name></author><author><surname>Sitarz</surname><given-name>Andrzej</given-name></author></authors><title><maintitle>On
+      spin structures and Dirac operators on the noncommutative torus</maintitle></title></contribution><host><issue><series><title><maintitle>Lett.
+      Math. Phys.</maintitle></title><volume-nr>77</volume-nr></series><date>2006</date></issue><pages><first-page>317</first-page></pages></host></reference><source-text
+      id="afs32">Mario Paschke and Andrzej Sitarz. On Spin Structures and Dirac Operators
+      on the Noncommutative Torus. Lett. Math. Phys., 77:317, 2006.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lett. Math. Phys.
+      journal_volume: '77'
+      year: 2006
+      page_start: '317'
+    label: '32'
+    authors:
+    - full_name: Paschke, Mario
+      inspire_role: author
+    - full_name: Sitarz, Andrzej
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b33"><label>[33]</label><reference id="sb33"><contribution
+      langtype="en"><authors><author><surname>Rieffel</surname><given-name>Marc A.</given-name></author></authors><title><maintitle>Metrics
+      on state spaces</maintitle></title></contribution><host><issue><series><title><maintitle>Doc.
+      Math.</maintitle></title><volume-nr>4</volume-nr></series><date>1999</date></issue><pages><first-page>559</first-page><last-page>600</last-page></pages></host></reference><source-text
+      id="afs33">Marc A. Rieffel. Metrics on state spaces. Doc. Math., 4:559–600,
+      1999.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Doc. Math.
+      journal_volume: '4'
+      year: 1999
+      page_start: '559'
+      page_end: '600'
+    label: '33'
+    authors:
+    - full_name: Rieffel, Marc A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b34"><label>[34]</label><reference id="sb34"><contribution
+      langtype="en"><authors><author><surname>Rieffel</surname><given-name>Marc A.</given-name></author></authors><title><maintitle>Gromov–Hausdorff
+      Distance for Quantum Metric Spaces. Matrix Algebras Converge to the Sphere for
+      Quantum Gromov–Hausdorff Distance</maintitle></title></contribution><host><book><date>2004</date><publisher><name>American
+      Mathematical Society</name><location>Providence, RI</location></publisher></book></host><comment>viii+91</comment><host><issue><series><title><maintitle>Mem.
+      Amer. Math. Soc.</maintitle></title><volume-nr>168</volume-nr></series><issue-nr>796</issue-nr><date>2004</date></issue></host></reference><source-text
+      id="afs34">Marc A. Rieffel. Gromov-Hausdorff distance for quantum metric spaces.
+      Matrix algebras converge to the sphere for quantum Gromov-Hausdorff distance.
+      American Mathematical Society, Providence, RI, 2004. Mem. Amer. Math. Soc. 168</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mem. Amer. Math. Soc.
+      journal_volume: '168'
+      journal_issue: '796'
+      year: 2004
+    label: '34'
+    misc:
+    - viii+91
+    authors:
+    - full_name: Rieffel, Marc A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b35"><label>[35]</label><reference id="sb35"><contribution
+      langtype="en"><authors><author><surname>Schneiderbauer</surname><given-name>Lukas</given-name></author><author><surname>Steinacker</surname><given-name>Harold C.</given-name></author></authors><title><maintitle>Measuring
+      finite quantum geometries via quasi-coherent states</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. A</maintitle></title><volume-nr>49</volume-nr></series><issue-nr>28</issue-nr><date>2016</date></issue><article-number>285301</article-number></host><host><e-host><inter-ref
+      id="interref2" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1601.08007"
+      type="simple">arXiv:1601.08007</inter-ref></e-host></host></reference><source-text
+      id="afs35">Lukas Schneiderbauer and Harold C. Steinacker. Measuring finite quantum
+      geometries via quasi-coherent states. Journal of Physics A: Mathematical and
+      Theoretical, 49(28):285301, Jul 2016. arXiv: 1601.08007.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. A
+      journal_volume: '49'
+      journal_issue: '28'
+      year: 2016
+    arxiv_eprint: '1601.08007'
+    label: '35'
+    authors:
+    - full_name: Schneiderbauer, Lukas
+      inspire_role: author
+    - full_name: Steinacker, Harold C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b36"><label>[36]</label><reference id="sb36"><contribution
+      langtype="en"><authors><author><surname>Stern</surname><given-name>Abel B.</given-name></author></authors><title><maintitle>Finite-rank
+      approximations of spectral zeta residues</maintitle></title></contribution><host><issue><series><title><maintitle>Lett.
+      Math. Phys.</maintitle></title></series><date>2018</date></issue></host></reference><source-text
+      id="afs38">Abel B. Stern. Finite-rank approximations of spectral zeta residues.
+      Letters in Mathematical Physics, Jul 2018.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lett. Math. Phys.
+      year: 2018
+    label: '36'
+    authors:
+    - full_name: Stern, Abel B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b37"><label>[37]</label><reference id="sb37"><contribution
+      langtype="en"><authors><author><surname>Stern</surname><given-name>A.B.</given-name></author></authors><title><maintitle>A
+      Simple Implementation of the SMACOF Algorithm in FORTRAN</maintitle></title></contribution><host><book><date>2019</date><publisher><name>GitHub
+      Repository, GitHub</name></publisher></book></host><host><e-host><inter-ref
+      id="interref3" href="https://github.com/abstern/py-SMACOF-weighted" type="simple">https://github.com/abstern/py-SMACOF-weighted</inter-ref></e-host></host></reference><source-text
+      id="afs36">A.B. Stern. A simple implementation of the smacof algorithm in fortran.
+      https://github.com/abstern/py-SMACOF-weighted, 2019.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2019
+    urls:
+    - value: https://github.com/abstern/py-SMACOF-weighted
+    label: '37'
+    authors:
+    - full_name: Stern, A.B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b38"><label>[38]</label><reference id="sb38"><contribution
+      langtype="en"><authors><author><surname>Stern</surname><given-name>A.B.</given-name></author><author><surname>Glaser</surname><given-name>L.</given-name></author></authors><title><maintitle>A
+      Python Implementation of the Pointforge Algorithm, with the Sphere as an Example</maintitle></title></contribution><host><book><date>2019</date><publisher><name>GitHub
+      Repository, GitHub</name></publisher></book></host><host><e-host><inter-ref
+      id="interref4" href="https://github.com/abstern/pointforge" type="simple">https://github.com/abstern/pointforge</inter-ref></e-host></host></reference><source-text
+      id="afs37">A.B. Stern and L. Glaser. A python implementation of the pointforge
+      algorithm, with the sphere as an example. https://github.com/abstern/pointforge,
+      2019.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2019
+    urls:
+    - value: https://github.com/abstern/pointforge
+    label: '38'
+    authors:
+    - full_name: Stern, A.B.
+      inspire_role: author
+    - full_name: Glaser, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b39"><label>[39]</label><reference id="sb39"><contribution
+      langtype="en"><authors><author><surname>van Suijlekom</surname><given-name>Walter D.</given-name></author></authors><title><maintitle>Gromov–Hausdorff
+      convergence of state spaces for spectral truncations</maintitle></title></contribution><host><book><date>2020</date></book></host><comment>arXiv
+      e-prints, <inter-ref id="interref5" role="http://www.elsevier.com/xml/linking-roles/preprint"
+      href="arxiv:2005.08544" type="simple">arXiv:2005.08544</inter-ref>, May</comment></reference><source-text
+      id="afs39">Walter D. van Suijlekom. Gromov-Hausdorff convergence of state spaces
+      for spectral truncations. arXiv e-prints, page arXiv:2005.08544, May 2020.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2020
+    arxiv_eprint: '2005.08544'
+    label: '39'
+    misc:
+    - arXiv e-prints, , May
+    authors:
+    - full_name: van Suijlekom, Walter D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b40"><label>[40]</label><reference id="sb40"><contribution
+      langtype="en"><authors><author><surname>Villani</surname><given-name>Cédric</given-name></author></authors><title><maintitle>Topics
+      in Optimal Transportation, No. 58</maintitle></title></contribution><host><book><date>2003</date><publisher><name>American
+      Mathematical Soc.</name></publisher></book></host></reference><source-text id="afs40">Cédric
+      Villani. Topics in optimal transportation. Number 58. American Mathematical
+      Soc., 2003.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 2003
+    label: '40'
+    authors:
+    - full_name: Villani, Cédric
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b41"><label>[41]</label><reference id="sb41"><contribution
+      langtype="en"><authors><author><surname>Villani</surname><given-name>Cédric</given-name></author></authors></contribution><host><edited-book><title><maintitle>Optimal
+      Transport</maintitle></title><book-series><series><title><maintitle>Grundlehren
+      der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]</maintitle></title><volume-nr>vol.
+      338</volume-nr></series></book-series><date>2009</date><publisher><name>Springer-Verlag</name><location>Berlin</location></publisher></edited-book></host><comment>xxii+973,
+      Old and new</comment></reference><source-text id="afs41">Cédric Villani. Optimal
+      transport, volume 338 of Grundlehren der Mathematischen Wissenschaften [Fundamental
+      Principles of Mathematical Sciences]. Springer-Verlag, Berlin, 2009. Old and
+      new.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Grundlehren der Mathematischen Wissenschaften [Fundamental Principles
+        of Mathematical Sciences]
+      parent_title: Optimal Transport
+      journal_volume: vol. 338
+      year: 2009
+    label: '41'
+    misc:
+    - xxii+973, Old and new
+    authors:
+    - full_name: Villani, Cédric
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b42"><label>[42]</label><reference id="sb42"><contribution
+      langtype="en"><authors><author><surname>Wallet</surname><given-name>Jean-Christophe</given-name></author></authors><title><maintitle>Connes
+      distance by examples: homothetic spectral metric spaces</maintitle></title></contribution><host><issue><series><title><maintitle>Rev.
+      Math. Phys.</maintitle></title><volume-nr>24</volume-nr></series><issue-nr>9</issue-nr><date>2012</date></issue><article-number>1250027</article-number></host><comment>26</comment></reference><source-text
+      id="afs42">Jean-Christophe Wallet. Connes distance by examples: homothetic spectral
+      metric spaces. Rev. Math. Phys., 24(9):1250027, 26, 2012.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Math. Phys.
+      journal_volume: '24'
+      journal_issue: '9'
+      year: 2012
+    label: '42'
+    misc:
+    - '26'
+    authors:
+    - full_name: Wallet, Jean-Christophe
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b43"><label>[43]</label><reference id="sb43"><contribution
+      langtype="en"><authors><author><surname>Życzkowski</surname><given-name>Karol</given-name></author><author><surname>Słomczyński</surname><given-name>Wojciech</given-name></author></authors><title><maintitle>The
+      Monge metric on the sphere and geometry of quantum states</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. A</maintitle></title><volume-nr>34</volume-nr></series><issue-nr>34</issue-nr><date>2001</date></issue><pages><first-page>6689</first-page><last-page>6722</last-page></pages></host></reference><source-text
+      id="afs43">Karol Życzkowski and Wojciech Sł omczyński. The Monge metric on the
+      sphere and geometry of quantum states. J. Phys. A, 34(34):6689–6722, 2001.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. A
+      journal_volume: '34'
+      journal_issue: '34'
+      year: 2001
+      page_start: '6689'
+      page_end: '6722'
+    label: '43'
+    authors:
+    - full_name: Życzkowski, Karol
+      inspire_role: author
+    - full_name: Słomczyński, Wojciech
+      inspire_role: author

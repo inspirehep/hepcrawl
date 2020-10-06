@@ -115,7 +115,7 @@ class ElsevierParser(object):
             self.builder.add_doi(**doi)
         for keyword in self.keywords:
             self.builder.add_keyword(keyword)
-        self.builder.add_imprint_date(self.publication_date.dumps())
+        self.builder.add_imprint_date(self.publication_date.dumps() if self.publication_date else None)
         for reference in self.references:
             self.builder.add_reference(reference)
 
@@ -235,6 +235,7 @@ class ElsevierParser(object):
 
     @property
     def document_type(self):
+        doctype = None
         if self.root.xpath("./*[self::article or self::simple-article or self::book-review]"):
             doctype = 'article'
         elif self.root.xpath("./*[self::book or self::simple-book]"):
@@ -341,11 +342,17 @@ class ElsevierParser(object):
 
     @property
     def publication_date(self):
+        publication_date = None
         publication_date_string = self.root.xpath(
             './RDF/Description/coverDisplayDate/text()'
         ).extract_first()
         if publication_date_string:
-            publication_date = PartialDate.parse(publication_date_string)
+            try:
+                publication_date = PartialDate.parse(publication_date_string)
+            except:
+                # in case when date contains month range, eg. July-September 2020
+                publication_date = re.sub("[A-aZ-z]*-(?=[A-aZ-z])", "", publication_date_string)
+                publication_date = PartialDate.parse(publication_date)
         return publication_date
 
     @property
@@ -383,9 +390,9 @@ class ElsevierParser(object):
     def title(self):
         title = self.root.xpath(
             './*/head/title//text()'
-        ).extract_first().strip('\n')
+        ).extract_first()
 
-        return title
+        return title.strip('\n') if title else None
 
     @property
     def year(self):
@@ -484,9 +491,9 @@ class ElsevierParser(object):
         authors = ref_node.xpath("./contribution/authors/author")
         authors_names = []
         for author in authors:
-            given_names = author.xpath("./given-name/text()").extract_first()
-            last_names = author.xpath("./surname/text()").extract_first()
-            authors_names.append(" ".join([given_names, last_names]))
+            given_names = author.xpath("./given-name/text()").extract_first(default="")
+            last_names = author.xpath("./surname/text()").extract_first(default="")
+            authors_names.append(" ".join([given_names, last_names]).strip())
         return authors_names
 
     @staticmethod
@@ -502,9 +509,9 @@ class ElsevierParser(object):
         editors = ref_node.xpath(".//editors/authors/author")
         editors_names = []
         for editor in editors:
-            given_names = editor.xpath("./given-name/text()").extract_first()
-            last_names = editor.xpath("./surname/text()").extract_first()
-            editors_names.append(" ".join([given_names, last_names]))
+            given_names = editor.xpath("./given-name/text()").extract_first(default="")
+            last_names = editor.xpath("./surname/text()").extract_first(default="")
+            editors_names.append(" ".join([given_names, last_names]).strip())
         return editors_names
 
     @staticmethod

@@ -113,7 +113,7 @@ def setup_s3_files(s3_key, s3_secret, s3_server, s3_input_bucket, s3_output_buck
 def get_s3_settings():
     key = 'key'
     secret = 'secret'
-    s3_host = 'http://localstack:4572'
+    s3_host = 'http://localstack:4566'
     input_bucket = 'incoming'
     output_bucket = 'processed'
 

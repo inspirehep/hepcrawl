@@ -1,0 +1,724 @@
+---
+_collections:
+- Literature
+curated: false
+abstracts:
+- value: We study topological properties of families of Hamiltonians which may contain
+    degenerate energy levels aka. band crossings. The primary tool are Chern classes,
+    Berry phases and slicing by surfaces. To analyse the degenerate locus of possibly
+    higher order band crossings aka. degeneracies, we add the study of local models.
+    These give more detailed information including that of the local Chern classes
+    and Berry phases. We then give global constraints for the topological invariants
+    in a systematic fashion. The global constraints are more strict when incorporating
+    symmetries such as time reversal symmetries. We also discuss how the results can
+    be used in the study of deformations. This theory of local models and global constraints
+    is then applied to examples which include the Gyroid geometry, which exhibits
+    two Weyl points and two triple crossings and the honeycomb geometry with its two
+    Dirac points.
+  source: Elsevier B.V.
+titles:
+- title: Local models and global constraints for degeneracies and band crossings
+  source: Elsevier B.V.
+copyright:
+- holder: Elsevier B.V.
+  statement: "© 2020 Elsevier B.V. All rights reserved."
+  material: publication
+  year: 2020
+document_type:
+- article
+authors:
+- full_name: Kaufmann, Ralph M.
+  raw_affiliations:
+  - value: Department of Mathematics, Purdue University, West Lafayette, IN 47907,
+      United States of America
+    source: Elsevier B.V.
+  - value: Department of Physics and Astronomy, Purdue University, West Lafayette,
+      IN 47907, United States of America
+    source: Elsevier B.V.
+  - value: PQSEI, Purdue University, West Lafayette, IN 47907, United States of America
+    source: Elsevier B.V.
+  - value: MPIM Bonn, Vivatsgasse 11, 53111 Bonn, Germany
+    source: Elsevier B.V.
+  emails:
+  - rkaufman@math.purdue.edu
+- full_name: Khlebnikov, Sergei
+  raw_affiliations:
+  - value: Department of Physics and Astronomy, Purdue University, West Lafayette,
+      IN 47907, United States of America
+    source: Elsevier B.V.
+  emails:
+  - skhleb@physics.purdue.edu
+- full_name: Wehefritz–Kaufmann, Birgit
+  raw_affiliations:
+  - value: Department of Mathematics, Purdue University, West Lafayette, IN 47907,
+      United States of America
+    source: Elsevier B.V.
+  - value: Department of Physics and Astronomy, Purdue University, West Lafayette,
+      IN 47907, United States of America
+    source: Elsevier B.V.
+  - value: PQSEI, Purdue University, West Lafayette, IN 47907, United States of America
+    source: Elsevier B.V.
+  emails:
+  - ebkaufma@math.purdue.edu
+publication_info:
+- artid: '103892'
+  journal_title: Journal of Geometry and Physics
+  journal_volume: '158'
+  year: 2020
+  material: publication
+citeable: true
+dois:
+- value: 10.1016/j.geomphys.2020.103892
+  source: Elsevier B.V.
+  material: publication
+keywords:
+- value: Topological invariants
+  source: Elsevier B.V.
+- value: Geometry
+  source: Elsevier B.V.
+- value: Deformations
+  source: Elsevier B.V.
+- value: band structures
+  source: Elsevier B.V.
+- value: Condensed matter systems
+  source: Elsevier B.V.
+imprints:
+- date: 2020-12
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><reference id="sb1"><contribution
+      langtype="en"><authors><author><surname>Agrachev</surname><given-name>A.A.</given-name></author></authors><title><maintitle>Spaces
+      of symmetric operators with multiple ground states</maintitle></title></contribution><host><issue><series><title><maintitle>Funct.
+      Anal. Appl.</maintitle></title><volume-nr>45</volume-nr></series><date>2011</date></issue><pages><first-page>241</first-page><last-page>251</last-page></pages></host></reference><source-text
+      id="afs18">A. A. Agrachev Spaces of Symmetric Operators with Multiple Ground
+      States, Functional Analysis and Its Applications, 45, 241–251 (2011)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Funct. Anal. Appl.
+      journal_volume: '45'
+      year: 2011
+      page_start: '241'
+      page_end: '251'
+    label: '1'
+    authors:
+    - full_name: Agrachev, A.A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Agrachev</surname><given-name>A.</given-name></author></authors><title><maintitle>Quadratic
+      cohomology</maintitle></title></contribution><host><issue><series><title><maintitle>Arnold
+      Math. J.</maintitle></title><volume-nr>1</volume-nr></series><date>2015</date></issue><pages><first-page>37</first-page><last-page>58</last-page></pages></host></reference><source-text
+      id="afs11">A.Agrachev, Quadratic cohomology. Arnold Math. J. 1 2015 37–58.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Arnold Math. J.
+      journal_volume: '1'
+      year: 2015
+      page_start: '37'
+      page_end: '58'
+    label: '2'
+    authors:
+    - full_name: Agrachev, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Arnol’d</surname><given-name>V.I.</given-name></author></authors><title><maintitle>Remarks
+      on eigenvalues and eigenvectors of hermitian matrices, berry phase, adiabatic
+      connections and quantum hall effect</maintitle></title></contribution><host><issue><series><title><maintitle>Selecta
+      Math. (N.S.)</maintitle></title><volume-nr>1</volume-nr></series><issue-nr>1</issue-nr><date>1995</date></issue><pages><first-page>1</first-page><last-page>19</last-page></pages></host></reference><source-text
+      id="afs17">V. I. Arnol’d. Remarks on eigenvalues and eigenvectors of Hermitian
+      matrices, Berry phase, adiabatic connections and quantum Hall effect. Selecta
+      Math. (N.S.) 1 (1995) (1) 1–19.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Selecta Math. (N.S.)
+      journal_volume: '1'
+      journal_issue: '1'
+      year: 1995
+      page_start: '1'
+      page_end: '19'
+    label: '3'
+    authors:
+    - full_name: Arnol'd, V.I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Atiyah</surname><given-name>M.F.</given-name></author></authors></contribution><host><edited-book><title><maintitle>K-Theory.
+      Notes By D. W. Anderson</maintitle></title><edition>second ed.</edition><book-series><series><title><maintitle>Advanced
+      Book Classics</maintitle></title></series></book-series><date>1989</date><publisher><name>Addison-Wesley
+      Publishing Company, Advanced Book Program</name><location>Redwood City, CA</location></publisher></edited-book><pages><first-page>216</first-page></pages></host></reference><source-text
+      id="afs9">M. F. Atiyah. K-theory. Notes by D. W. Anderson. Second edition. Advanced
+      Book Classics. Addison-Wesley Publishing Company, Advanced Book Program, Redwood
+      City, CA, 1989, 216 pp.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Advanced Book Classics
+      parent_title: K-Theory. Notes By D. W. Anderson
+      year: 1989
+      page_start: '216'
+    label: '4'
+    misc:
+    - second ed
+    authors:
+    - full_name: Atiyah, M.F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Avron</surname><given-name>J.E.</given-name></author><author><surname>Raveh</surname><given-name>A.</given-name></author><author><surname>Zur</surname><given-name>B.</given-name></author></authors><title><maintitle>Adiabatic
+      quantum transport in multiply connected systems</maintitle></title></contribution><host><issue><series><title><maintitle>Rev.
+      Modern Phys.</maintitle></title><volume-nr>60</volume-nr></series><date>1988</date></issue><pages><first-page>873</first-page></pages></host></reference><source-text
+      id="afs8">J.E. Avron, A. Raveh and B. Zur, Adiabatic quantum transport in multiply
+      connected systems, Rev. Mod. Phys. 60, 873 (1988).</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Modern Phys.
+      journal_volume: '60'
+      year: 1988
+      page_start: '873'
+    label: '5'
+    authors:
+    - full_name: Avron, J.E.
+      inspire_role: author
+    - full_name: Raveh, A.
+      inspire_role: author
+    - full_name: Zur, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b6"><label>[6]</label><reference id="sb6"><contribution
+      langtype="en"><authors><author><surname>Berry</surname><given-name>M.V.</given-name></author></authors><title><maintitle>Quantum
+      phase factors accompanying adiabatic changes</maintitle></title></contribution><host><issue><series><title><maintitle>Proc.
+      R. Soc. Lond. Ser. A Math. Phys. Eng. Sci.</maintitle></title><volume-nr>392</volume-nr></series><date>1984</date></issue><pages><first-page>45</first-page><last-page>57</last-page></pages></host></reference><source-text
+      id="afs5">M. V. Berry, Quantum phase factors accompanying adiabatic changes,
+      Proc. R. Soc. Lond. A 392, 45–57 (1984)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Proc. R. Soc. Lond. Ser. A Math. Phys. Eng. Sci.
+      journal_volume: '392'
+      year: 1984
+      page_start: '45'
+      page_end: '57'
+    label: '6'
+    authors:
+    - full_name: Berry, M.V.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b7"><label>[7]</label><reference id="sb7"><contribution
+      langtype="en"><authors><author><surname>Bott</surname><given-name>R.</given-name></author><author><surname>Chern</surname><given-name>S.S.</given-name></author></authors><title><maintitle>Hermitian
+      vector bundles and the equidistribution of the zeroes of their holomorphic sections</maintitle></title></contribution><host><issue><series><title><maintitle>Acta
+      Math.</maintitle></title><volume-nr>114</volume-nr></series><date>1965</date></issue><pages><first-page>71</first-page><last-page>112</last-page></pages></host></reference><source-text
+      id="afs15">R. Bott and S. S. Chern. Hermitian vector bundles and the equidistribution
+      of the zeroes of their holomorphic sections. Acta Math. 114 1965 71–112.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Acta Math.
+      journal_volume: '114'
+      year: 1965
+      page_start: '71'
+      page_end: '112'
+    label: '7'
+    authors:
+    - full_name: Bott, R.
+      inspire_role: author
+    - full_name: Chern, S.S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b8"><label>[8]</label><reference id="sb8"><contribution
+      langtype="en"><authors><author><surname>Breiding</surname><given-name>P.</given-name></author><author><surname>Kozhasov</surname><given-name>K.</given-name></author><author><surname>Lerario</surname><given-name>A.</given-name></author></authors><title><maintitle>On
+      the geometry of a set of symmetric matrices with repeated eigenvalues</maintitle></title></contribution><host><issue><series><title><maintitle>Arnold
+      Math. J.</maintitle></title><volume-nr>4</volume-nr></series><date>2019</date></issue><pages><first-page>423</first-page><last-page>443</last-page></pages></host></reference><source-text
+      id="afs19">P. Breiding, K. Kozhasov and A. Lerario, On the geometry of a set
+      of symmetric matrices with repeated eigenvalues, Arnold Math. J. 4 2019 423-443</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Arnold Math. J.
+      journal_volume: '4'
+      year: 2019
+      page_start: '423'
+      page_end: '443'
+    label: '8'
+    authors:
+    - full_name: Breiding, P.
+      inspire_role: author
+    - full_name: Kozhasov, K.
+      inspire_role: author
+    - full_name: Lerario, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b9"><label>[9]</label><reference id="sb9"><contribution
+      langtype="en"><authors><author><surname>Chern</surname><given-name>S.S.</given-name></author><author><surname>Simons</surname><given-name>J.</given-name></author></authors><title><maintitle>Characteristic
+      forms and geometric invariants</maintitle></title></contribution><host><issue><series><title><maintitle>Ann.
+      of Math. (2)</maintitle></title><volume-nr>99</volume-nr></series><date>1974</date></issue><pages><first-page>48</first-page><last-page>69</last-page></pages></host></reference><source-text
+      id="afs14">S. S. Chern and J. Simons. Characteristic forms and geometric invariants.
+      Ann. of Math. (2) 99 (1974) 48–69</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Ann. of Math. (2)
+      journal_volume: '99'
+      year: 1974
+      page_start: '48'
+      page_end: '69'
+    label: '9'
+    authors:
+    - full_name: Chern, S.S.
+      inspire_role: author
+    - full_name: Simons, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b10"><label>[10]</label><reference id="sb10"><contribution
+      langtype="en"><authors><author><surname>Demazure</surname><given-name>M.</given-name></author></authors><title><maintitle>Classification
+      des germs à point critique isolé et à nombres de modules 0 ou 1 (d’après Arnol’d)</maintitle></title></contribution><host><edited-book><title><maintitle>Séminaire
+      Bourbaki, 26e AnnÉe, 1973/74 Exp. No 443</maintitle></title><book-series><series><title><maintitle>Lect.
+      Notes Math</maintitle></title><volume-nr>vol. 431</volume-nr></series></book-series><date>1975</date><publisher><name>Springer</name><location>Berlin</location></publisher></edited-book><pages><first-page>124</first-page><last-page>142</last-page></pages></host></reference><source-text
+      id="afs22">M. Demazure, Classification des germs à point critique isolé et à
+      nombres de modules 0 ou 1 (d’après Arnol’d). Séminaire Bourbaki, 26e année,
+      1973/74 Exp. No 443, 124-142, Lect. Notes Math. 431. Springer, Berlin 1975</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lect. Notes Math
+      parent_title: Séminaire Bourbaki, 26e AnnÉe, 1973/74 Exp. No 443
+      journal_volume: vol. 431
+      year: 1975
+      page_start: '124'
+      page_end: '142'
+    label: '10'
+    authors:
+    - full_name: Demazure, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b11"><label>[11]</label><reference id="sb11"><contribution
+      langtype="en"><authors><author><surname>Hirzebruch</surname><given-name>Friedrich</given-name></author></authors><title><maintitle>Topological
+      methods in algebraic geometry</maintitle></title></contribution><host><edited-book><title><maintitle>Translated
+      from the German and Appendix One By R. L. E. Schwarzenberger. with a Preface
+      To the Third English Edition By the Author and Schwarzenberger. Appendix Two
+      By A. Borel</maintitle></title><edition>Reprint of the 1978 ed.</edition><book-series><series><title><maintitle>Classics
+      in Mathematics</maintitle></title></series></book-series><date>1995</date><publisher><name>Springer-Verlag</name><location>Berlin</location></publisher></edited-book><pages><first-page>xii+234</first-page></pages></host></reference><source-text
+      id="afs13">Friedrich Hirzebruch. Topological methods in algebraic geometry.
+      Translated from the German and Appendix One by R. L. E. Schwarzenberger. With
+      a preface to the third English edition by the author and Schwarzenberger. Appendix
+      Two by A. Borel. Reprint of the 1978 edition. Classics in Mathematics. Springer-Verlag,
+      Berlin, 1995. xii+234 pp.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Classics in Mathematics
+      parent_title: Translated from the German and Appendix One By R. L. E. Schwarzenberger.
+        with a Preface To the Third English Edition By the Author and Schwarzenberger.
+        Appendix Two By A. Borel
+      year: 1995
+      page_start: xii+234
+    label: '11'
+    misc:
+    - Reprint of the 1978 ed
+    authors:
+    - full_name: Hirzebruch, Friedrich
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><reference id="sb12"><contribution
+      langtype="en"><authors><author><surname>Husemoller</surname><given-name>D.</given-name></author></authors></contribution><host><edited-book><title><maintitle>Fibre
+      Bundles</maintitle></title><edition>third ed.</edition><book-series><series><title><maintitle>Graduate
+      Texts in Mathematics</maintitle></title><volume-nr>vol. 20</volume-nr></series></book-series><date>1994</date><publisher><name>Springer-Verlag</name><location>New
+      York</location></publisher></edited-book><pages><first-page>xx+353</first-page></pages></host></reference><source-text
+      id="afs12">D. Husemoller. Fibre bundles. Third edition. Graduate Texts in Mathematics,
+      20. Springer-Verlag, New York, 1994. xx+353 pp</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Graduate Texts in Mathematics
+      parent_title: Fibre Bundles
+      journal_volume: vol. 20
+      year: 1994
+      page_start: xx+353
+    label: '12'
+    misc:
+    - third ed
+    authors:
+    - full_name: Husemoller, D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b13"><label>[13]</label><other-ref id="sb13"><textref>R.M.
+      Kaufmann, S. Khlebnikov, B. Wehefritz-Kaufmann, Topologically stable Dirac points
+      in a three-dimensional supercrystal. In preparation.</textref></other-ref></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    label: '13'
+    misc:
+    - R.M. Kaufmann, S. Khlebnikov, B. Wehefritz-Kaufmann, Topologically stable Dirac
+      points in a three-dimensional supercrystal. In preparation
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b14"><label>[14]</label><reference id="sb14"><contribution
+      langtype="en"><authors><author><surname>Kaufmann</surname><given-name>R.M.</given-name></author><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Wehefritz-Kaufmann</surname><given-name>B.</given-name></author></authors><title><maintitle>The
+      geometry of the double gyroid wire network: quantum and classical</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Noncommut. Geom.</maintitle></title><volume-nr>6</volume-nr></series><date>2012</date></issue><pages><first-page>623</first-page><last-page>664</last-page></pages></host></reference><source-text
+      id="afs7">R.M. Kaufmann, S. Khlebnikov, and B. Wehefritz–Kaufmann, The geometry
+      of the double gyroid wire network: quantum and classical, Journal of Noncommutative
+      Geometry 6, 623-664 (2012)</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Noncommut. Geom.
+      journal_volume: '6'
+      year: 2012
+      page_start: '623'
+      page_end: '664'
+    label: '14'
+    authors:
+    - full_name: Kaufmann, R.M.
+      inspire_role: author
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Wehefritz-Kaufmann, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b15"><label>[15]</label><reference id="sb15"><contribution
+      langtype="en"><authors><author><surname>Kaufmann</surname><given-name>R.M.</given-name></author><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Wehefritz-Kaufmann</surname><given-name>B.</given-name></author></authors><title><maintitle>The
+      noncommutative geometry of wire networks from triply periodic surfaces</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys.: Conf. Ser.</maintitle></title><volume-nr>343</volume-nr></series><date>2012</date></issue><article-number>012054</article-number></host></reference><source-text
+      id="afs27">R.M. Kaufmann, S. Khlebnikov, and B. Wehefritz–Kaufmann, The noncommutative
+      geometry of wire networks from triply periodic surfaces, Journal of Physics:
+      Conf. Ser. 343 (2012) 012054</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: 'J. Phys.: Conf. Ser.'
+      journal_volume: '343'
+      year: 2012
+    label: '15'
+    authors:
+    - full_name: Kaufmann, R.M.
+      inspire_role: author
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Wehefritz-Kaufmann, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b16"><label>[16]</label><reference id="sb16"><contribution
+      langtype="en"><authors><author><surname>Kaufmann</surname><given-name>R.M.</given-name></author><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Wehefritz-Kaufmann</surname><given-name>B.</given-name></author></authors><title><maintitle>Singularities,
+      swallowtails and Dirac points. an analysis for families of hamiltonians and
+      applications to wire networks, especially the gyroid</maintitle></title></contribution><host><issue><series><title><maintitle>Ann.
+      Physics</maintitle></title><volume-nr>327</volume-nr></series><date>2012</date></issue><pages><first-page>2865</first-page></pages></host></reference><source-text
+      id="afs4">R. M. Kaufmann, S. Khlebnikov, and B. Wehefritz–Kaufmann, Singularities,
+      swallowtails and Dirac points. An analysis for families of Hamiltonians and
+      applications to wire networks, especially the Gyroid. Annals of Physics 327,
+      2865 (2012)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Ann. Physics
+      journal_volume: '327'
+      year: 2012
+      page_start: '2865'
+    label: '16'
+    authors:
+    - full_name: Kaufmann, R.M.
+      inspire_role: author
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Wehefritz-Kaufmann, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b17"><label>[17]</label><reference id="sb17"><contribution
+      langtype="en"><authors><author><surname>Kaufmann</surname><given-name>R.M.</given-name></author><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Wehefritz-Kaufmann</surname><given-name>B.</given-name></author></authors><title><maintitle>Geometry
+      of the momentum space: From wire networks to quivers and monopoles</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Singularities</maintitle></title><volume-nr>15</volume-nr></series><date>2016</date></issue><pages><first-page>53</first-page><last-page>79</last-page></pages></host><comment>J.
+      of Singularities</comment></reference><source-text id="afs3">R.M. Kaufmann,
+      S. Khlebnikov, and B. Wehefritz–Kaufmann, Geometry of the momentum space: From
+      wire networks to quivers and monopoles. J. of Singularities, J. of Singularities
+      15 (2016) 53-79.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Singularities
+      journal_volume: '15'
+      year: 2016
+      page_start: '53'
+      page_end: '79'
+    label: '17'
+    misc:
+    - J. of Singularities
+    authors:
+    - full_name: Kaufmann, R.M.
+      inspire_role: author
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Wehefritz-Kaufmann, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b18"><label>[18]</label><reference id="sb18"><contribution
+      langtype="en"><authors><author><surname>Kaufmann</surname><given-name>R.M.</given-name></author><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Wehefritz-Kaufmann</surname><given-name>B.</given-name></author></authors><title><maintitle>Re-gauging
+      groupoid, symmetries and degeneracies for graph hamiltonians and applications
+      to the gyroid wire network</maintitle></title></contribution><host><issue><series><title><maintitle>Ann.
+      Henri Poincare</maintitle></title><volume-nr>17</volume-nr></series><date>2016</date></issue><pages><first-page>1383</first-page><last-page>1414</last-page></pages></host></reference><source-text
+      id="afs26">R.M. Kaufmann, S. Khlebnikov, and B. Wehefritz–Kaufmann, Re-gauging
+      groupoid, symmetries and degeneracies for Graph Hamiltonians and applications
+      to the Gyroid wire network. Annales Henri Poincare 17 (2016) 1383-1414.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Ann. Henri Poincare
+      journal_volume: '17'
+      year: 2016
+      page_start: '1383'
+      page_end: '1414'
+    label: '18'
+    authors:
+    - full_name: Kaufmann, R.M.
+      inspire_role: author
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Wehefritz-Kaufmann, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b19"><label>[19]</label><reference id="sb19"><contribution
+      langtype="en"><authors><author><surname>Khlebnikov</surname><given-name>S.</given-name></author><author><surname>Hillhouse</surname><given-name>H.W.</given-name></author></authors><title><maintitle>Electronic
+      structure of double-gyroid nanostructured semiconductors: Perspectives for carrier
+      multiplication solar cells</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. B</maintitle></title><volume-nr>80</volume-nr></series><date>2009</date></issue><article-number>115316</article-number></host></reference><source-text
+      id="afs2">S. Khlebnikov and H. W. Hillhouse, Electronic Structure of Double-Gyroid
+      Nanostructured Semiconductors: Perspectives for carrier multiplication solar
+      cells, Phys. Rev. B 80, 115316 (2009)</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. B
+      journal_volume: '80'
+      year: 2009
+    label: '19'
+    authors:
+    - full_name: Khlebnikov, S.
+      inspire_role: author
+    - full_name: Hillhouse, H.W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b20"><label>[20]</label><reference id="sb20"><contribution
+      langtype="en"><authors><author><surname>Milnor</surname><given-name>J.W.</given-name></author><author><surname>Stasheff</surname><given-name>J.D.</given-name></author></authors></contribution><host><edited-book><title><maintitle>Characteristic
+      Classes</maintitle></title><book-series><series><title><maintitle>Annals of
+      Mathematics Studies</maintitle></title><volume-nr>vol. 76</volume-nr></series></book-series><date>1974</date><publisher><name>Princeton
+      University Press, University of Tokyo Press</name><location>Princeton, N. J.,
+      Tokyo</location></publisher></edited-book><pages><first-page>vii+331</first-page></pages></host></reference><source-text
+      id="afs10">J.W. Milnor and J. D. Stasheff. Characteristic classes. Annals of
+      Mathematics Studies, (76) Princeton University Press, Princeton, N. J. University
+      of Tokyo Press, Tokyo, 1974. vii+331 pp.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Annals of Mathematics Studies
+      parent_title: Characteristic Classes
+      journal_volume: vol. 76
+      year: 1974
+      page_start: vii+331
+    label: '20'
+    authors:
+    - full_name: Milnor, J.W.
+      inspire_role: author
+    - full_name: Stasheff, J.D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b21"><label>[21]</label><reference id="sb21"><contribution
+      langtype="en"><authors><author><surname>Mostafazadeh</surname><given-name>A.</given-name></author></authors><title><maintitle>Non-abelian
+      geometric phase for general three-dimensional quantum systems</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Phys. A: Math. Gen.</maintitle></title><volume-nr>30</volume-nr></series><date>1997</date></issue><pages><first-page>7525</first-page><last-page>7535</last-page></pages></host></reference><source-text
+      id="afs20">A. Mostafazadeh. Non-Abelian geometric phase for general three-dimensional
+      quantum systems. J. Phys. A: Math. Gen. 30 (1997) 7525–7535.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: 'J. Phys. A: Math. Gen.'
+      journal_volume: '30'
+      year: 1997
+      page_start: '7525'
+      page_end: '7535'
+    label: '21'
+    authors:
+    - full_name: Mostafazadeh, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b22"><label>[22]</label><reference id="sb22"><contribution
+      langtype="en"><authors><author><surname>von Neumann</surname><given-name>J.</given-name></author><author><surname>Wigner</surname><given-name>E.</given-name></author></authors><title><maintitle>Über
+      das Verhalten von Eigenwerten bei adiabatischen Prozessen</maintitle></title></contribution><host><issue><series><title><maintitle>Z.
+      Phys.</maintitle></title><volume-nr>30</volume-nr></series><date>1929</date></issue><pages><first-page>467</first-page></pages></host></reference><source-text
+      id="afs16">J. von Neumann and E. Wigner, Uber das Verhalten von Eigenwerten
+      bei adiabatischen Prozessen̈, Z. Phys. 30, 467 (1929)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Z. Phys.
+      journal_volume: '30'
+      year: 1929
+      page_start: '467'
+    label: '22'
+    authors:
+    - full_name: von Neumann, J.
+      inspire_role: author
+    - full_name: Wigner, E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b23"><label>[23]</label><reference id="sb23"><contribution
+      langtype="en"><authors><author><surname>Ralph</surname><given-name>M.</given-name></author><author><surname>Li</surname><given-name>Dan</given-name></author><author><surname>Kaufmann</surname><given-name>B.</given-name></author><author><surname>Birgit</surname><given-name>Wehefritz-Kaufmann</given-name></author></authors><title><maintitle>Notes
+      on topological insulators</maintitle></title></contribution><host><issue><series><title><maintitle>Rev.
+      Math. Phys.</maintitle></title><volume-nr>28</volume-nr></series><issue-nr>10</issue-nr><date>2016</date></issue><article-number>1630003</article-number></host><comment>(57
+      pages)</comment></reference><source-text id="afs25">Ralph M., Li, Dan, Kaufmann,
+      and Wehefritz-Kaufmann, Birgit. Notes on topological insulators. Reviews in
+      Math. Physics, 28, (10) (2016) 1630003 (57 pages)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Rev. Math. Phys.
+      journal_volume: '28'
+      journal_issue: '10'
+      year: 2016
+    label: '23'
+    misc:
+    - "(57 pages)"
+    authors:
+    - full_name: Ralph, M.
+      inspire_role: author
+    - full_name: Li, Dan
+      inspire_role: author
+    - full_name: Kaufmann, B.
+      inspire_role: author
+    - full_name: Birgit, Wehefritz-Kaufmann
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b24"><label>[24]</label><reference id="sb24"><contribution
+      langtype="en"><authors><author><surname>Sadun</surname><given-name>J.E.L.</given-name></author><author><surname>Segert</surname><given-name>J.</given-name></author><author><surname>Simon</surname><given-name>B.</given-name></author></authors><title><maintitle>Chern
+      numbers, quaternions, and berry’s phases in fermi systems</maintitle></title></contribution><host><issue><series><title><maintitle>Comm.
+      Math. Phys.</maintitle></title><volume-nr>124</volume-nr></series><issue-nr>4</issue-nr><date>1989</date></issue><pages><first-page>595</first-page><last-page>627</last-page></pages></host></reference><source-text
+      id="afs21">J. E. L. Sadun, J. Segert, B. Simon. Chern numbers, quaternions,
+      and Berry’s phases in Fermi systems. Comm. Math. Phys. 124 (1989) (4) 595–627.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Comm. Math. Phys.
+      journal_volume: '124'
+      journal_issue: '4'
+      year: 1989
+      page_start: '595'
+      page_end: '627'
+    label: '24'
+    authors:
+    - full_name: Sadun, J.E.L.
+      inspire_role: author
+    - full_name: Segert, J.
+      inspire_role: author
+    - full_name: Simon, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b25"><label>[25]</label><reference id="sb25"><contribution
+      langtype="en"><authors><author><surname>Simon</surname><given-name>B.</given-name></author></authors><title><maintitle>Holonomy,
+      the quantum adiabatic theorem, and Berry’s phase</maintitle></title></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. Lett.</maintitle></title><volume-nr>51</volume-nr></series><date>1983</date></issue><pages><first-page>2167</first-page><last-page>2170</last-page></pages></host></reference><source-text
+      id="afs6">B. Simon, Holonomy, The Quantum Adiabatic Theorem, and Berry’s Phase,
+      Phys. Rev. Lett. 51, 2167–2170 (1983)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+      journal_volume: '51'
+      year: 1983
+      page_start: '2167'
+      page_end: '2170'
+    label: '25'
+    authors:
+    - full_name: Simon, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b26"><label>[26]</label><reference id="sb26"><contribution
+      langtype="en"><authors><author><surname>Thom</surname><given-name>R.</given-name></author></authors><title><maintitle>Sous-variétés
+      et classes d’homologie des variétés différentiables. II. Résultats et applications</maintitle></title></contribution><host><issue><series><title><maintitle>C.
+      R. Acad. Sci. Paris</maintitle></title><volume-nr>236</volume-nr></series><date>1953</date></issue><pages><first-page>573</first-page><last-page>575</last-page></pages></host></reference><source-text
+      id="afs23">R. Thom. Sous-varietés et classes d’homologie des variétés différentiables.
+      II. Résultats et applications.́ C. R. Acad. Sci. Paris 236, (1953). 573–575</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: C. R. Acad. Sci. Paris
+      journal_volume: '236'
+      year: 1953
+      page_start: '573'
+      page_end: '575'
+    label: '26'
+    authors:
+    - full_name: Thom, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b27"><label>[27]</label><reference id="sb27"><contribution
+      langtype="en"><authors><author><surname>Urade</surname><given-name>V.N.</given-name></author><author><surname>Wei</surname><given-name>T.C.</given-name></author><author><surname>Tate</surname><given-name>M.P.</given-name></author><author><surname>Hillhouse</surname><given-name>H.W.</given-name></author></authors><title><maintitle>Nanofabrication
+      of double-gyroid thin films</maintitle></title></contribution><host><issue><series><title><maintitle>Chem.
+      Mater.</maintitle></title><volume-nr>19</volume-nr></series><issue-nr>4</issue-nr><date>2007</date></issue><pages><first-page>768</first-page><last-page>777</last-page></pages></host></reference><source-text
+      id="afs1">V.N. Urade, T.C. Wei, M.P. Tate and H.W. Hillhouse. Nanofabrication
+      of double-Gyroid thin films. Chem. Mat. 19, 4 (2007) 768-777</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Chem. Mater.
+      journal_volume: '19'
+      journal_issue: '4'
+      year: 2007
+      page_start: '768'
+      page_end: '777'
+    label: '27'
+    authors:
+    - full_name: Urade, V.N.
+      inspire_role: author
+    - full_name: Wei, T.C.
+      inspire_role: author
+    - full_name: Tate, M.P.
+      inspire_role: author
+    - full_name: Hillhouse, H.W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b28"><label>[28]</label><reference id="sb28"><contribution
+      langtype="en"><authors><author><surname>Wigner</surname><given-name>E.</given-name></author></authors><title><maintitle>Über
+      die operation der zeitumkehr in der quantenmechanik</maintitle></title></contribution><host><issue><series><title><maintitle>Nachr.
+      Ges. Wiss. Göttingen</maintitle></title></series><date>1932</date></issue><pages><first-page>546</first-page><last-page>559</last-page></pages></host></reference><source-text
+      id="afs24">E. Wigner. Uber die Operation der Zeitumkehr in der Quantenmechanik.̈
+      Nachrichten von der Gesellschaft der Wissenschaftern zu Göttingen (1932) 546–559.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nachr. Ges. Wiss. Göttingen
+      year: 1932
+      page_start: '546'
+      page_end: '559'
+    label: '28'
+    authors:
+    - full_name: Wigner, E.
+      inspire_role: author
