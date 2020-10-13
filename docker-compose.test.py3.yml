@@ -11,7 +11,7 @@ version: '2.1'
 
 services:
   service_base: &service_base
-    image: hepcrawl_py3  # hepcrawl_py3 image is build at pip service of docker-compose.deps.yml
+    image: hepcrawl_py3
     environment:
       - APP_BROKER_URL=pyamqp://guest:guest@rabbitmq:5672//
       - APP_CELERY_RESULT_BACKEND=redis://redis:6379/1
@@ -21,12 +21,10 @@ services:
       - APP_LAST_RUNS_PATH=/code/.scrapy/last_runs
       - APP_CRAWL_ONCE_PATH=/code/.scrapy
       - COVERAGE_PROCESS_START=/code/.coveragerc
-      - BASE_USER_UID=${BASE_USER_UID:-1000}
-      - BASE_USER_GIT=${BASE_USER_GIT:-1000}
     tty: true
     volumes:
-      - /tmp/WSP:/tmp/WSP
-      - /tmp/file_urls:/tmp/file_urls
+      - .:/code/
+    user: "${UID:-1000}:${GID:-1000}"
 
   functional_wsp:
     <<: *service_base
@@ -80,7 +78,7 @@ services:
 
   scrapyd:
     <<: *service_base
-    command: bash -c "rm -f twistd.pid && exec scrapyd"
+    command: scrapyd --pidfile=/tmp/scrapyd.pid
     networks:
       default:
       ftp:
@@ -91,9 +89,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:6800/listprojects.json"
+      test: "curl -k http://localhost:6800/listprojects.json"
 
   scrapyd-deploy:
     <<: *service_base
@@ -115,6 +111,11 @@ services:
       - ${PWD}/tests/functional/desy/fixtures/ftp_server/DESY:/home/ftpusers/bob/DESY
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/WSP:/home/ftpusers/bob/WSP
       - ${PWD}/tests/functional/wsp/fixtures/ftp_server/pureftpd.passwd:/etc/pure-ftpd/passwd/pureftpd.passwd
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test: "ls -l /var/run/pure-ftpd.pid"
 
   http-server.local:
     image: nginx:stable-alpine
@@ -128,9 +129,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl https://localhost:443/"
+      test: "curl -k https://localhost:443/187.html"
 
   functional_cds:
     <<: *service_base
@@ -152,9 +151,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:80/"
+      test: "curl -k http://localhost:80/arxiv-physics-hep-th.xml"
 
   cds-http-server.local:
     image: nginx:stable-alpine
@@ -167,9 +164,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD-SHELL"
-        - "curl http://localhost:80/"
+      test: "curl -k http://localhost:80/cds-single.xml"
 
   rabbitmq:
     image: rabbitmq
@@ -177,10 +172,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD"
-        - "rabbitmqctl"
-        - "status"
+      test: "rabbitmqctl status"
 
   redis:
     image: redis:3.2.3
@@ -188,11 +180,22 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test:
-        - "CMD"
-        - "bash"
-        - "-c"
-        - "exec 3<> /dev/tcp/127.0.0.1/6379 && echo PING >&3 && head -1 <&3 | grep PONG"
+      test: "redis-cli -h 127.0.0.1 ping| grep PONG"
+
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - '4572:4572'
+      - '4566:4566'
+    environment:
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/home/localstack/data
+    healthcheck:
+      timeout: 5s
+      interval: 5s
+      retries: 5
+      test: "curl -k localhost:4566|grep running"
 
 networks:
   ftp:

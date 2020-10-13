@@ -105,7 +105,6 @@ look like so now:
       volumes:
         - "/local/path/to/hepcrawl/repo:/hepcrawl_code"  # <- added
         - ".:/code"
-        - "${DOCKER_DATA}/tmp/virtualenv:/virtualenv"
 
 
 Then in the ``docker-compose.deps.yml`` we need to tell ``scrapyd-deploy`` service to work with
