@@ -138,5 +138,6 @@ def _parsed_item_from_marcxml(
                 record_format='hep',
                 exception=repr(e),
                 traceback=tb,
-                source_data=marcxml_record
+                source_data=marcxml_record,
+                file_name=None
             )
