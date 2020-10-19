@@ -22,7 +22,7 @@ CRAWLER_ARGS = {
 }
 
 CONFIG = {
-    'CRAWLER_HOST_URL': 'http://scrapyd:6800',
+    "CRAWLER_HOST_URL": "http://scrapyd:6800",
     "CRAWLER_PROJECT": "hepcrawl",
 }
 
@@ -65,8 +65,26 @@ def setup_s3():
     )
 
     mock_elsevier_bucket.upload_file(
+        os.path.join(test_file_path, "wrong_articles.ZIP"), "wrong_articles.ZIP",
+    )
+
+    mock_elsevier_bucket.upload_file(
         os.path.join(test_file_path, "elsevier_batch_feed_response_mock.txt"),
         "elsevier_batch_feed_response_mock.txt",
+    )
+
+    mock_elsevier_bucket.upload_file(
+        os.path.join(
+            test_file_path, "elsevier_batch_feed_response_mock_replicated.txt"
+        ),
+        "elsevier_batch_feed_response_with_wrong_articles.txt",
+    )
+
+    mock_elsevier_bucket.upload_file(
+        os.path.join(
+            test_file_path, "elsevier_batch_feed_response_with_wrong_articles.txt"
+        ),
+        "elsevier_batch_feed_response_with_wrong_articles.txt",
     )
 
 
@@ -156,7 +174,7 @@ class TestElsevierSpider:
 
         assert nb_of_packages_in_s3 == expected_number_of_zip_files
         assert extracted_articles_names == expected_article_names
-        assert len(correctly_parsed_records) == len(expected_article_names)
+        assert len(correctly_parsed_records) == 2
 
     def test_elsevier_spider_doesnt_add_already_existing_packages(self):
         crawl_results = CeleryMonitor.do_crawl(
@@ -178,7 +196,7 @@ class TestElsevierSpider:
         assert nb_of_packages_in_s3 == 1
         assert not crawl_results
 
-    def test_elsevier_spider_doesnt_add_already_existing_articles(self, teardown):
+    def test_elsevier_spider_doesnt_add_already_existing_articles(self,):
         CRAWLER_ARGS[
             "elsevier_consyn_url"
         ] = "http://localstack:4566/batch-feed/elsevier_batch_feed_response_mock_replicated.txt"
@@ -200,4 +218,35 @@ class TestElsevierSpider:
         )
 
         assert articles_in_s3 == 4
+        assert not crawl_results
+
+    def test_elsevier_spider_doesnt_parse_articles_with_missing_metadata_or_wrong_doctype(
+        self, teardown
+    ):
+        CRAWLER_ARGS[
+            "elsevier_consyn_url"
+        ] = "http://localstack:4566/batch-feed/elsevier_batch_feed_response_with_wrong_articles.txt"
+
+        crawl_results = CeleryMonitor.do_crawl(
+            app=celery_app,
+            monitor_timeout=5,
+            monitor_iter_limit=100,
+            events_limit=1,
+            crawler_instance=self.crawler,
+            project=CONFIG["CRAWLER_PROJECT"],
+            spider="elsevier",
+            settings={},
+            **CRAWLER_ARGS
+        )
+
+        nb_of_packages_in_s3 = len(
+            [package for package in self.packages_bucket.objects.all()]
+        )
+
+        articles_in_s3 = len(
+            [article for article in self.articles_bucket.objects.all()]
+        )
+
+        assert nb_of_packages_in_s3 == 2
+        assert articles_in_s3 == 8
         assert not crawl_results

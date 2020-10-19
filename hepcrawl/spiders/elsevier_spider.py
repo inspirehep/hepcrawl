@@ -12,24 +12,24 @@
 import glob
 import os
 import shutil
-from backports import tempfile
 import xml.etree.ElementTree as et
 import zipfile
 from io import BytesIO
 
 import boto3
 import scrapy
-from scrapy import Request, Spider, Selector
+from backports import tempfile
+from scrapy import Request, Selector, Spider
 
-from ..parsers import ElsevierParser
 from . import StatefulSpider
+from ..parsers import ElsevierParser
 from ..utils import ParsedItem, strict_kwargs
 
 
 class ElsevierSpider(StatefulSpider):
     name = "elsevier"
     start_urls = []
-    source = 'Elsevier'
+    source = "Elsevier"
 
     @strict_kwargs
     def __init__(
@@ -52,11 +52,12 @@ class ElsevierSpider(StatefulSpider):
         self.new_xml_files = set()
         self.s3_host = s3_host
 
-        if not all([
-            self.access_key_id,
-            self.secret_access_key,
-            self.packages_bucket_name,
-            self.files_bucket_name,
+        if not all(
+            [
+                self.access_key_id,
+                self.secret_access_key,
+                self.packages_bucket_name,
+                self.files_bucket_name,
             ]
         ):
             raise Exception("Missing parametrs necessary to establish s3 connection")
@@ -107,9 +108,17 @@ class ElsevierSpider(StatefulSpider):
             dict(name: url): dict of zip packages names and urls
 
         """
-        packages_links = Selector(text=elsevier_metadata).xpath("//entry/link/@href").getall()
-        packages_names = scrapy.Selector(text=elsevier_metadata).xpath("//entry/title/text()").getall()
-        urls_for_packages = {name: link for name, link in zip(packages_names, packages_links)}
+        packages_links = (
+            Selector(text=elsevier_metadata).xpath("//entry/link/@href").getall()
+        )
+        packages_names = (
+            scrapy.Selector(text=elsevier_metadata)
+            .xpath("//entry/title/text()")
+            .getall()
+        )
+        urls_for_packages = {
+            name: link for name, link in zip(packages_names, packages_links)
+        }
         return urls_for_packages
 
     def start_requests(self):
@@ -123,7 +132,9 @@ class ElsevierSpider(StatefulSpider):
         Parse batch feed file from elsevier and downloads new zip packages from Elsevier server.
         """
         elsevier_metadata = response.body
-        packages_from_consyn_feed = self._get_package_urls_from_elsevier(elsevier_metadata)
+        packages_from_consyn_feed = self._get_package_urls_from_elsevier(
+            elsevier_metadata
+        )
         for name, url in packages_from_consyn_feed.items():
             presigned_url = self.create_presigned_url(
                 method="head_object", bucket=self.packages_bucket_name, file=name
@@ -139,16 +150,16 @@ class ElsevierSpider(StatefulSpider):
     def package_already_exists(self, response):
         self.logger.info(
             "Package {package} has been already downloaded and processed".format(
-                package=response.request.meta['name']
+                package=response.request.meta["name"]
             )
         )
 
     def download_package_if_new(self, response):
-        if response.request.meta['name'].lower().endswith("zip"):
+        if response.request.meta["name"].lower().endswith("zip"):
             yield Request(
-                response.request.meta['consyn_url'],
+                response.request.meta["consyn_url"],
                 callback=self.populate_s3_bucket_with_elsevier_package,
-                meta={"name": response.request.meta['name']},
+                meta={"name": response.request.meta["name"]},
             )
 
     def populate_s3_bucket_with_elsevier_package(self, response):
@@ -164,7 +175,7 @@ class ElsevierSpider(StatefulSpider):
             method="PUT",
             body=response.body,
             meta={"name": name, "data": response.body},
-            callback=self.unzip_zip_package_to_s3
+            callback=self.unzip_zip_package_to_s3,
         )
 
     @staticmethod
@@ -180,7 +191,7 @@ class ElsevierSpider(StatefulSpider):
         """
         temporary_dir = tempfile.TemporaryDirectory()
         with temporary_dir as tempdir:
-            with zipfile.ZipFile(BytesIO(response.meta['data'])) as zip_package:
+            with zipfile.ZipFile(BytesIO(response.meta["data"])) as zip_package:
                 zip_package.extractall(tempdir)
             for root, dirnames, filenames in os.walk(tempdir):
                 for file in glob.glob(root + "/*.xml"):
@@ -198,14 +209,21 @@ class ElsevierSpider(StatefulSpider):
                         url,
                         method="PUT",
                         body=elsevier_xml,
-                        meta={"name": "{file_doi}.xml".format(file_doi=file_doi),
-                              "data": elsevier_xml},
+                        meta={
+                            "name": "{file_doi}.xml".format(file_doi=file_doi),
+                            "data": elsevier_xml,
+                        },
                         callback=self.parse_record,
                     )
 
     def parse_record(self, response):
         """Parse an elsevier XML downloaded from s3 into a HEP record."""
-        parser = ElsevierParser(response.meta['data'])
-
-        return ParsedItem(record=parser.parse(), record_format="hep")
-
+        parser = ElsevierParser(response.meta["data"])
+        if parser.should_record_be_harvested():
+            return ParsedItem(record=parser.parse(), record_format="hep")
+        else:
+            self.logger.info(
+                "Document {name} is missing required metadata, skipping item creation.".format(
+                    name=response.meta["name"]
+                )
+            )

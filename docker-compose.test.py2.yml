@@ -199,7 +199,7 @@ services:
       test: "redis-cli -h 127.0.0.1 ping| grep PONG"
 
   localstack:
-    image: localstack/localstack:latest
+    image: localstack/localstack:0.11.6
     restart: "always"
     ports:
       - '4566:4566'
@@ -213,7 +213,7 @@ services:
       timeout: 5s
       interval: 5s
       retries: 5
-      test: "curl -k localhost:4566|grep running"
+      test: "curl -k localstack:4566|grep running"
 
 networks:
   ftp:
