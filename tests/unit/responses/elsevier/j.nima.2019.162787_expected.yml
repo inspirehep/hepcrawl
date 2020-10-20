@@ -3,8 +3,9 @@ copyright_holder:
 copyright_statement: © 2019 Published by Elsevier B.V.
 copyright_year: 2019
 document_type: conference paper
-license_url:
-license_statement:
+license_url: ''
+license_statement: ''
+keywords: ['Muon spectrometers', 'Wire chambers (MWPC)', 'Malter effect']
 article_type: full-length article
 journal_title: Nuclear Inst. and Methods in Physics Research A
 material: publication
@@ -24,7 +25,7 @@ dois:
 - material: publication
   doi: 10.1016/j.nima.2019.162787
 journal_volume: '958'
-journal_issue:
+journal_issue: ''
 is_conference_paper: true
 publication_date: '2020-04-01'
 collaborations: ['on behalf of LHCb Muon group']

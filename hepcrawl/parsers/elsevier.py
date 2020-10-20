@@ -177,7 +177,7 @@ class ElsevierParser(object):
 
     @property
     def artid(self):
-        artid = self.root.xpath("./*/item-info/aid/text()").extract_first()
+        artid = self.root.xpath("string(./*/item-info/aid[1])").extract_first()
         return artid
 
     @property
@@ -213,7 +213,7 @@ class ElsevierParser(object):
     @property
     def copyright_holder(self):
         copyright_holder = self.root.xpath(
-            "./*/item-info/copyright[@type]/text()"
+            "string(./*/item-info/copyright[@type][1])"
         ).extract_first()
         if not copyright_holder:
             copyright_type = self.root.xpath(
@@ -226,11 +226,11 @@ class ElsevierParser(object):
     @property
     def copyright_statement(self):
         copyright_statement = self.root.xpath(
-            "./RDF/Description/copyright/text()"
+            "string(./RDF/Description/copyright[1])"
         ).extract_first()
         if not copyright_statement:
             copyright_statement = self.root.xpath(
-                "./*/item-info/copyright[@type]/text()"
+                "string(./*/item-info/copyright[@type][1])"
             ).extract_first()
 
         return copyright_statement
@@ -245,7 +245,7 @@ class ElsevierParser(object):
 
     @property
     def dois(self):
-        doi = self.root.xpath("./*/item-info/doi/text()").extract_first()
+        doi = self.root.xpath("string(./RDF/Description/doi[1])").extract_first()
         return [{"doi": doi, "material": self.material}]
 
     @property
@@ -270,7 +270,7 @@ class ElsevierParser(object):
         if self.root.xpath("./conference-info"):
             return True
         journal_issue = self.root.xpath(
-            "./RDF/Description/issueName/text()"
+            "string(./RDF/Description/issueName[1])"
         ).extract_first()
         if journal_issue:
             is_conference = re.findall(r"proceedings|proc.", journal_issue.lower())
@@ -279,9 +279,9 @@ class ElsevierParser(object):
 
     @property
     def journal_title(self):
-        jid = self.root.xpath("./*/item-info/jid/text()").extract_first(default="")
+        jid = self.root.xpath("string(./*/item-info/jid[1])").extract_first(default="")
         publication = self.root.xpath(
-            "./RDF/Description/publicationName/text()"
+            "string(./RDF/Description/publicationName[1])"
         ).extract_first(default=jid)
         publication = re.sub(" [S|s]ection", "", publication).replace(",", "").strip()
         return publication
@@ -289,7 +289,7 @@ class ElsevierParser(object):
     @property
     def journal_issue(self):
         journal_issue = self.root.xpath(
-            "./serial-issue/issue-info/issue-first/text()"
+            "string(./serial-issue/issue-info/issue-first[1])"
         ).extract_first()
 
         return journal_issue
@@ -297,7 +297,7 @@ class ElsevierParser(object):
     @property
     def journal_volume(self):
         journal_volume = self.root.xpath(
-            "./RDF/Description/volume/text()"
+            "string(./RDF/Description/volume[1])"
         ).extract_first()
 
         return journal_volume
@@ -306,7 +306,7 @@ class ElsevierParser(object):
     def keywords(self):
         keywords = self.root.xpath(
             "./*/head/keywords[not(@abr)]/keyword/text/text()"
-        ).extract()
+        ).getall()
 
         return keywords
 
@@ -323,7 +323,7 @@ class ElsevierParser(object):
     @property
     def license_statement(self):
         license_statement = self.root.xpath(
-            "./RDF/Description/licenseLine/text()"
+            "string(./RDF/Description/licenseLine[1])"
         ).extract_first()
 
         return license_statement
@@ -331,7 +331,7 @@ class ElsevierParser(object):
     @property
     def license_url(self):
         license_url = self.root.xpath(
-            "./RDF/Description/openAccessInformation/userLicense/text()"
+            "string(./RDF/Description/openAccessInformation/userLicense[1])"
         ).extract_first()
 
         return license_url
@@ -356,14 +356,14 @@ class ElsevierParser(object):
     @property
     def page_start(self):
         page_start = self.root.xpath(
-            "./RDF/Description/startingPage/text()"
+            "string(./RDF/Description/startingPage[1])"
         ).extract_first()
         return page_start
 
     @property
     def page_end(self):
         page_end = self.root.xpath(
-            "./RDF/Description/endingPage/text()"
+            "string(./RDF/Description/endingPage[1])"
         ).extract_first()
         return page_end
 
@@ -371,7 +371,7 @@ class ElsevierParser(object):
     def publication_date(self):
         publication_date = None
         publication_date_string = self.root.xpath(
-            "./RDF/Description/coverDisplayDate/text()"
+            "string(./RDF/Description/coverDisplayDate[1])"
         ).extract_first()
         if publication_date_string:
             try:
@@ -401,7 +401,7 @@ class ElsevierParser(object):
 
     @property
     def publisher(self):
-        publisher = self.root.xpath("./RDF/Description/publisher/text()").extract_first(
+        publisher = self.root.xpath("string(./RDF/Description/publisher[1])").extract_first(
             "Elsevier B.V."
         )
 
@@ -409,13 +409,13 @@ class ElsevierParser(object):
 
     @property
     def subtitle(self):
-        subtitle = self.root.xpath("./*/head/subtitle/text()").extract_first()
+        subtitle = self.root.xpath("string(./*/head/subtitle[1])").extract_first()
 
         return subtitle
 
     @property
     def title(self):
-        title = self.root.xpath("./*/head/title//text()").extract_first()
+        title = self.root.xpath("string(./*/head/title[1])").extract_first()
 
         return title.strip("\n") if title else None
 
@@ -427,11 +427,11 @@ class ElsevierParser(object):
     def get_author_affiliations(self, author_node, author_group_node):
         """Extract an author's affiliations."""
         ref_ids = author_node.xpath(".//@refid[contains(., 'af')]").extract()
-        group_affs = author_group_node.xpath("./affiliation/textfn/text()")
+        group_affs = author_group_node.xpath("string(./affiliation/textfn[1])").getall()
         if ref_ids:
             affiliations = self._find_affiliations_by_id(author_group_node, ref_ids)
         else:
-            affiliations = group_affs.extract()
+            affiliations = group_affs
         return affiliations
 
     @staticmethod
@@ -443,7 +443,7 @@ class ElsevierParser(object):
         affiliations_by_id = []
         for aff_id in ref_ids:
             affiliation = author_group.xpath(
-                "//affiliation[@id='{}']/textfn/text()".format(aff_id)
+                "string(//affiliation[@id='{}']/textfn[1])".format(aff_id)
             ).extract_first()
             affiliations_by_id.append(affiliation)
 
@@ -451,16 +451,16 @@ class ElsevierParser(object):
 
     def get_author_emails(self, author_node):
         """Extract an author's email addresses."""
-        emails = author_node.xpath('./e-address[@type="email"]/text()').extract()
+        emails = author_node.xpath('string(./e-address[@type="email"][1])').getall()
 
         return emails
 
     @staticmethod
     def get_author_name(author_node):
         """Extract an author's name."""
-        surname = author_node.xpath("./surname/text()").extract_first()
-        given_names = author_node.xpath("./given-name/text()").extract_first()
-        suffix = author_node.xpath(".//suffix/text()").extract_first()
+        surname = author_node.xpath("string(./surname[1])").extract_first()
+        given_names = author_node.xpath("string(./given-name[1])").extract_first()
+        suffix = author_node.xpath("string(.//suffix[1])").extract_first()
         author_name = ", ".join(el for el in (surname, given_names, suffix) if el)
 
         return author_name
@@ -518,8 +518,8 @@ class ElsevierParser(object):
         authors = ref_node.xpath("./contribution/authors/author")
         authors_names = []
         for author in authors:
-            given_names = author.xpath("./given-name/text()").extract_first(default="")
-            last_names = author.xpath("./surname/text()").extract_first(default="")
+            given_names = author.xpath("string(./given-name[1])").extract_first(default="")
+            last_names = author.xpath("string(./surname[1])").extract_first(default="")
             authors_names.append(" ".join([given_names, last_names]).strip())
         return authors_names
 
@@ -536,15 +536,15 @@ class ElsevierParser(object):
         editors = ref_node.xpath(".//editors/authors/author")
         editors_names = []
         for editor in editors:
-            given_names = editor.xpath("./given-name/text()").extract_first(default="")
-            last_names = editor.xpath("./surname/text()").extract_first(default="")
+            given_names = editor.xpath("string(./given-name[1])").extract_first(default="")
+            last_names = editor.xpath("string(./surname[1])").extract_first(default="")
             editors_names.append(" ".join([given_names, last_names]).strip())
         return editors_names
 
     @staticmethod
     def get_reference_pages(ref_node):
-        first_page = ref_node.xpath(".//pages/first-page/text()").extract_first()
-        last_page = ref_node.xpath(".//pages/last-page/text()").extract_first()
+        first_page = ref_node.xpath("string(.//pages/first-page[1])").extract_first()
+        last_page = ref_node.xpath("string(.//pages/last-page[1])").extract_first()
         return first_page, last_page
 
     def get_reference_iter(self, ref_node):
@@ -569,23 +569,23 @@ class ElsevierParser(object):
             )
 
             fields = [
-                ((".//series/title/maintitle/text()"), builder.set_journal_title,),
+                (("string(.//series/title/maintitle[1])"), builder.set_journal_title,),
                 (
-                    ".//title[parent::edited-book|parent::book]/maintitle/text()",
+                    "string(.//title[parent::edited-book|parent::book]/maintitle[1])",
                     builder.add_parent_title,
                 ),
-                ("./publisher/name/text()", builder.set_publisher),
-                (".//volume-nr/text()", builder.set_journal_volume),
-                (".//issue-nr/text()", builder.set_journal_issue),
-                (".//date/text()", builder.set_year),
-                (".//inter-ref/text()", builder.add_url),
-                (".//doi/text()", builder.add_uid),
+                ("string(./publisher/name[1])", builder.set_publisher),
+                ("string(.//volume-nr[1])", builder.set_journal_volume),
+                ("string(.//issue-nr[1])", builder.set_journal_issue),
+                ("string(.//date[1])", builder.set_year),
+                ("string(.//inter-ref[1])", builder.add_url),
+                ("string(.//doi[1])", builder.add_uid),
                 (
-                    'pub-id[@pub-id-type="other"]'
-                    '[contains(preceding-sibling::text(),"Report No")]/text()',
+                    'string(pub-id[@pub-id-type="other"]'
+                    '[contains(preceding-sibling::text(),"Report No")][1])',
                     builder.add_report_number,
                 ),
-                ("./title/maintitle/text()", builder.add_title),
+                ("string(./title/maintitle[1])", builder.add_title),
             ]
             for xpath, field_handler in fields:
                 value = citation_node.xpath(xpath).extract_first()
@@ -593,7 +593,7 @@ class ElsevierParser(object):
                 if value:
                     field_handler(value)
 
-            label_value = ref_node.xpath("./label/text()").extract_first()
+            label_value = ref_node.xpath("string(./label[1])").extract_first()
             builder.set_label(label_value.strip("[]"))
 
             pages = self.get_reference_pages(citation_node)

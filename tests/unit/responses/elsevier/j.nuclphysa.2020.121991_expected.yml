@@ -3,8 +3,14 @@ copyright_holder: Elsevier B.V.
 copyright_statement: © 2020 Elsevier B.V. All rights reserved.
 copyright_year: 2020
 document_type: article
-license_url:
-license_statement:
+license_url: ''
+license_statement: ''
+keywords: ['Nuclear matter',
+           'Equation of state',
+           'Supernovae',
+           'Nuclear statistical equilibrium',
+           'Quantum statistical effect',
+           'Bose–Einstein condensation']
 article_type: full-length article
 journal_title: Nuclear Physics A
 material: publication
@@ -34,7 +40,7 @@ dois:
 - material: publication
   doi: 10.1016/j.nuclphysa.2020.121991
 journal_volume: '1002'
-journal_issue:
+journal_issue: ''
 is_conference_paper: false
 publication_date: 2020-10
 collaborations: []

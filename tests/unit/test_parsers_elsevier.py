@@ -65,6 +65,7 @@ FIELDS_TO_CHECK = [
     'document_type',
     'license_url',
     'license_statement',
+    'keywords',
     'article_type',
     'journal_title',
     'material',
