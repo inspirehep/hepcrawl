@@ -3,8 +3,11 @@ copyright_holder: Elsevier B.V.
 copyright_statement: © 2019 Elsevier B.V. All rights reserved.
 copyright_year: 2019
 document_type: conference paper
-license_url:
-license_statement:
+license_url: ''
+license_statement: ''
+keywords: ['Forward hadron calorimeter',
+           'Micropixel photodetectors',
+           'Heavy ion collisions']
 article_type: full-length article
 journal_title: Nuclear Inst. and Methods in Physics Research A
 material: publication
@@ -66,7 +69,7 @@ dois:
 - material: publication
   doi: 10.1016/j.nima.2019.162728
 journal_volume: '958'
-journal_issue:
+journal_issue: ''
 is_conference_paper: true
 publication_date: '2020-04-01'
 collaborations: ['NA61/SHINE, CBM and BM@N collaborations']

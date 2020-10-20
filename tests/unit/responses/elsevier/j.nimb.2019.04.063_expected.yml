@@ -5,6 +5,7 @@ copyright_year: 2019
 document_type: article
 license_url: http://creativecommons.org/licenses/by/4.0/
 license_statement: This is an open access article under the CC BY license.
+keywords: ['Radioactive ion beams', 'Ion sources']
 article_type: full-length article
 journal_title: Nuclear Inst. and Methods in Physics Research B
 material: publication
@@ -121,7 +122,7 @@ dois:
 - material: publication
   doi: 10.1016/j.nimb.2019.04.063
 journal_volume: '463'
-journal_issue:
+journal_issue: ''
 is_conference_paper: false
 publication_date: '2020-01-15'
 collaborations: []
