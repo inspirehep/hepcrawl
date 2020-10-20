@@ -47,7 +47,7 @@ def get_parser_by_file(filename):
     ('j.nima.2019.162787.xml', 'j.nima.2019.162787_expected.yml'),
     ('j.nuclphysa.2020.121991.xml', 'j.nuclphysa.2020.121991_expected.yml'),
     ('j.nima.2019.162728.xml', 'j.nima.2019.162728_expected.yml'),
-    ('j.nimb.2019.04.063.xml', 'j.nimb.2019.04.063_expected.yml')
+    ('j.nimb.2019.04.063.xml', 'j.nimb.2019.04.063_expected.yml'),
 ])
 def records(request):
     return {
@@ -142,3 +142,13 @@ def test_get_identifier(records):
     parser = records['elsevier']
     result_doi = parser.get_identifier()
     assert result_doi == records['expected']['dois'][0]['doi']
+
+
+def test_record_should_be_harvested(records):
+    parser = records['elsevier']
+    assert parser.should_record_be_harvested()
+
+
+def test_record_shouldnt_be_harvested():
+    parser = get_parser_by_file("record-that-shouldnt-be-harvested.xml")
+    assert not parser.should_record_be_harvested()
