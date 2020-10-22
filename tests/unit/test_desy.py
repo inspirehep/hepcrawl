@@ -35,7 +35,9 @@ def create_spider():
     )
     return desy_spider.DesySpider.from_crawler(
         crawler,
-        source_folder='idontexist_but_it_does_not_matter',
+        s3_key="key",
+        s3_secret="secret"
+
     )
 
 

@@ -20,7 +20,6 @@ from scrapy import Request
 
 from inspire_utils.record import get_value
 
-from . import StatefulSpider
 from .common.lastrunstore_spider import LastRunStoreSpider
 from ..items import HEPRecord
 from ..loaders import HEPLoader
@@ -51,13 +50,13 @@ class APSSpider(LastRunStoreSpider):
         Selecting specific journals is not supported for technical reasons as it's incompatible with the way the last run time is stored.
     """
     name = 'APS'
-    aps_base_url = "http://harvest.aps.org/v2/journals/articles"
 
     @strict_kwargs
     def __init__(self, from_date=None, until_date=None,
-                 date="published", sets=None, per_page=100,
+                 date="published", sets=None, per_page=100, aps_url="http://harvest.aps.org/v2/journals/articles",
                  **kwargs):
         """Construct APS spider."""
+        self.aps_url = aps_url
         super(APSSpider, self).__init__(**kwargs)
         self.set = sets
         self.from_date = from_date
@@ -80,7 +79,7 @@ class APSSpider(LastRunStoreSpider):
             params['per_page'] = self.per_page
         if self.date:
             params['date'] = self.date
-        return furl(APSSpider.aps_base_url).add(params).url
+        return furl(self.aps_url).add(params).url
 
 
     def start_requests(self):
@@ -99,9 +98,8 @@ class APSSpider(LastRunStoreSpider):
 
         for article in aps_response['data']:
             doi = get_value(article, 'identifiers.doi', default='')
-
             if doi:
-                request = Request(url='{}/{}'.format(self.aps_base_url, doi),
+                request = Request(url='{}/{}'.format(self.aps_url, doi),
                               headers={'Accept': 'text/xml'},
                               callback=self._parse_jats,
                               errback=self._parse_json_on_failure)
@@ -124,10 +122,12 @@ class APSSpider(LastRunStoreSpider):
 
         file_name = self._file_name_from_url(response.url)
         parser.attach_fulltext_document(file_name, response.url)
-
+        record = parser.parse()
+        file_urls = [document['url'] for document in record.get('documents', [])]
         return ParsedItem(
-            record=parser.parse(),
+            record=record,
             record_format='hep',
+            file_urls=file_urls
         )
 
     def _parse_json_on_failure(self, failure):

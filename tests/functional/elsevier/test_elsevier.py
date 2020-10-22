@@ -4,28 +4,30 @@ import os
 
 import boto3
 import pytest
-import scrapy
 import yaml
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
 from hepcrawl.testlib.fixtures import get_test_suite_path
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.utils import get_crawler_instance
-from scrapy.crawler import CrawlerProcess
 
 CRAWLER_ARGS = {
     "access_key_id": "key",
     "secret_access_key": "secret",
     "packages_bucket_name": "inspire-publishers-elsevier-packages",
     "files_bucket_name": "inspire-publishers-elsevier-articles",
-    "elsevier_consyn_url": "http://localstack:4566/batch-feed/elsevier_batch_feed_response_mock.txt",
     "s3_host": "http://localstack:4566",
 }
 
 CONFIG = {
-    "CRAWLER_HOST_URL": "http://scrapyd:6800",
+    'CRAWLER_HOST_URL': 'http://scrapyd:6800',
     "CRAWLER_PROJECT": "hepcrawl",
 }
 
+crawler_settings = dict(
+        AWS_ENDPOINT_URL=CRAWLER_ARGS['s3_host'],
+        AWS_ACCESS_KEY_ID=CRAWLER_ARGS['access_key_id'],
+        AWS_SECRET_ACCESS_KEY=CRAWLER_ARGS['secret_access_key'],
+    )
 
 def establish_s3_connection():
     session = boto3.session.Session(
@@ -50,41 +52,27 @@ def setup_s3():
     packages_bucket = get_bucket(s3, CRAWLER_ARGS["packages_bucket_name"])
     articles_bucket = get_bucket(s3, CRAWLER_ARGS["files_bucket_name"])
     mock_elsevier_bucket = get_bucket(s3, "batch-feed")
+    downloaded_files_bucket = get_bucket(s3, "downloaded")
 
     packages_bucket.create()
     articles_bucket.create()
     mock_elsevier_bucket.create()
+    downloaded_files_bucket.create()
 
     mock_elsevier_bucket.upload_file(
-        os.path.join(test_file_path, "test_zip_file.ZIP"), "test_zip_file.ZIP"
+        os.path.join(test_file_path, "test_zip_file.ZIP"),
+        "test_zip_file.ZIP",
+        ExtraArgs={'ACL': 'public-read'}
     )
 
     mock_elsevier_bucket.upload_file(
         os.path.join(test_file_path, "test_zip_file_replicated.ZIP"),
         "test_zip_file.ZIP",
+        ExtraArgs={'ACL': 'public-read'}
     )
 
     mock_elsevier_bucket.upload_file(
         os.path.join(test_file_path, "wrong_articles.ZIP"), "wrong_articles.ZIP",
-    )
-
-    mock_elsevier_bucket.upload_file(
-        os.path.join(test_file_path, "elsevier_batch_feed_response_mock.txt"),
-        "elsevier_batch_feed_response_mock.txt",
-    )
-
-    mock_elsevier_bucket.upload_file(
-        os.path.join(
-            test_file_path, "elsevier_batch_feed_response_mock_replicated.txt"
-        ),
-        "elsevier_batch_feed_response_with_wrong_articles.txt",
-    )
-
-    mock_elsevier_bucket.upload_file(
-        os.path.join(
-            test_file_path, "elsevier_batch_feed_response_with_wrong_articles.txt"
-        ),
-        "elsevier_batch_feed_response_with_wrong_articles.txt",
     )
 
 
@@ -134,6 +122,9 @@ class TestElsevierSpider:
         self.packages_bucket = get_bucket(self.s3, CRAWLER_ARGS["packages_bucket_name"])
 
     def test_elsevier_spider(self, setup_s3):
+        CRAWLER_ARGS[
+            "elsevier_consyn_url"
+        ] = "http://elsevier-http-server.local/elsevier_batch_feed_response_mock.txt"
         expected_number_of_zip_files = 1
         expected_article_names = set(
             [
@@ -152,7 +143,7 @@ class TestElsevierSpider:
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
             spider="elsevier",
-            settings={},
+            settings=crawler_settings,
             **CRAWLER_ARGS
         )
 
@@ -160,7 +151,10 @@ class TestElsevierSpider:
         records = [record["record"] for record in records_data]
         for record in records:
             record.pop("acquisition_source")
-
+            for document in record['documents']:
+                assert CRAWLER_ARGS['s3_host'] in document['url'] and "Expires" in document['url']
+                assert document['key'].endswith(".xml")
+            record.pop('documents')
         extracted_articles_names = set(
             [article.key for article in self.articles_bucket.objects.all()]
         )
@@ -185,7 +179,7 @@ class TestElsevierSpider:
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
             spider="elsevier",
-            settings={},
+            settings=crawler_settings,
             **CRAWLER_ARGS
         )
 
@@ -196,10 +190,10 @@ class TestElsevierSpider:
         assert nb_of_packages_in_s3 == 1
         assert not crawl_results
 
-    def test_elsevier_spider_doesnt_add_already_existing_articles(self,):
+    def test_elsevier_spider_doesnt_add_already_existing_articles(self, teardown):
         CRAWLER_ARGS[
             "elsevier_consyn_url"
-        ] = "http://localstack:4566/batch-feed/elsevier_batch_feed_response_mock_replicated.txt"
+        ] = "http://elsevier-http-server.local/elsevier_batch_feed_response_mock_replicated.txt"
 
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
@@ -209,7 +203,7 @@ class TestElsevierSpider:
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
             spider="elsevier",
-            settings={},
+            settings=crawler_settings,
             **CRAWLER_ARGS
         )
 
@@ -225,7 +219,7 @@ class TestElsevierSpider:
     ):
         CRAWLER_ARGS[
             "elsevier_consyn_url"
-        ] = "http://localstack:4566/batch-feed/elsevier_batch_feed_response_with_wrong_articles.txt"
+        ] = "http://elsevier-http-server.local/elsevier_batch_feed_response_with_wrong_articles.txt"
 
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
@@ -235,7 +229,7 @@ class TestElsevierSpider:
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
             spider="elsevier",
-            settings={},
+            settings=crawler_settings,
             **CRAWLER_ARGS
         )
 

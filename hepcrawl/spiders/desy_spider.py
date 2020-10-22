@@ -14,7 +14,7 @@ import sys
 import traceback
 
 import boto3
-from botocore.exceptions import UnknownServiceError
+from botocore.exceptions import UnknownServiceError, ClientError
 from flask.app import Flask
 from inspire_dojson import marcxml2record
 from lxml import etree
@@ -37,13 +37,6 @@ class DesySpider(StatefulSpider):
     must have the extension ``.xml``.
 
     Args:
-        source_folder(str): Path to the folder with the MARC files to ingest,
-            might be collections or single records. Will be ignored if
-            s3 config parameters are passed.
-
-        destination_folder(str): Path to put the crawl results into. Will be
-            created if it does not exist.
-
         s3_input_bucket(str): S3 bucket from which XMLs will be processed.
 
         s3_output_bucket(str): S3 bucket to which XMLs will be stored after processing.
@@ -69,18 +62,12 @@ class DesySpider(StatefulSpider):
                 -a 's3_key=<key>>' \\
                 -a 's3_secret=<secret>>'
 
-        To run a crawl on local folder, you need to pass the absolute
-        ``source_folder``::
-
-            $ scrapy crawl desy -a 'source_folder=/path/to/package_dir'
      """
     name = 'desy'
 
     @strict_kwargs
     def __init__(
         self,
-        source_folder=None,
-        destination_folder='/tmp/DESY',
         s3_input_bucket='inspire-publishers-desy-incoming',
         s3_output_bucket='inspire-publishers-desy-processed',
         s3_server="https://s3.cern.ch",
@@ -91,36 +78,25 @@ class DesySpider(StatefulSpider):
     ):
         super(DesySpider, self).__init__(*args, **kwargs)
 
-        self.source_folder = source_folder
-        self.destination_folder = destination_folder
-
         self.s3_server = s3_server
         self.s3_key = s3_key
         self.s3_secret = s3_secret
         self.s3_input_bucket = s3_input_bucket
         self.s3_output_bucket = s3_output_bucket
 
-        self.s3_enabled = False if self.source_folder else True
+        if not (
+                self.s3_server
+                and self.s3_key
+                and self.s3_secret
+                and self.s3_input_bucket
+                and self.s3_output_bucket
+        ):
+            raise Exception("Missing s3 connection parameters")
 
-        if self.s3_enabled:
-            if not (
-                    self.s3_server
-                    and self.s3_key
-                    and self.s3_secret
-                    and self.s3_input_bucket
-                    and self.s3_output_bucket
-            ):
-                raise Exception("Missing s3 connection parameters")
-            else:
-                self.s3_connections = self.connect_to_s3()
-                self.s3_resource = self.get_s3_resource()
-
-        if not os.path.exists(self.destination_folder):
-            os.makedirs(self.destination_folder)
+        self.s3_connections = self.connect_to_s3()
+        self.s3_resource = self.get_s3_resource()
 
     def get_s3_resource(self):
-        if not self.s3_enabled:
-            raise Exception("S3 is not enabled.")
         for key, value in self.s3_connections.items():
             if key == "s3" and hasattr(value.meta, "client"):
                 return value
@@ -147,10 +123,14 @@ class DesySpider(StatefulSpider):
             raise
         return connections
 
-    def s3_url(self, file=None, expire=86400):
+    def s3_url(self, s3_file=None, expire=86400):
+        return self.s3_url_for_file(s3_file.key, bucket=s3_file.bucket_name, expire=expire)
+
+    def s3_url_for_file(self, file_name, bucket=None, expire=86400):
+        bucket = bucket or self.s3_input_bucket
         return self.s3_resource.meta.client.generate_presigned_url(
             ClientMethod='get_object',
-            Params={'Bucket': file.bucket_name, "Key": file.key},
+            Params={'Bucket': bucket, "Key": file_name},
             ExpiresIn=expire
         )
 
@@ -162,29 +142,17 @@ class DesySpider(StatefulSpider):
             if xml_file.endswith('.xml')
         )
 
-    def crawl_local_directory(self):
-        file_names = os.listdir(self.source_folder)
-        xml_file_names = self._filter_xml_files(file_names)
-
-        for file_name in xml_file_names:
-            file_path = os.path.join(self.source_folder, file_name)
-            self.logger.info(
-                'Local: Try to crawl local file: {0}'.format(file_path)
-            )
-            yield Request(
-                'file://{0}'.format(file_path),
-                callback=self.parse,
-            )
 
     def crawl_s3_bucket(self):
         input_bucket = self.s3_resource.Bucket(self.s3_input_bucket)
-        existing_files = os.listdir(self.destination_folder)
-
         for s3_file in input_bucket.objects.all():
             file_data = s3_file.get()
             if file_data['ContentType'] == 'text/xml' or s3_file.key.endswith('.xml'):
                 self.logger.info("Remote: Try to crawl file from s3: {file}".format(file=s3_file.key))
-                if s3_file.key not in existing_files:
+                try:
+                    self.s3_resource.Object(self.s3_output_bucket, s3_file.key).load()
+                    self.logger.info("File %s was already processed!", s3_file.key)
+                except ClientError:  # Process it only if file is not in output_bucket
                     yield Request(
                         self.s3_url(s3_file),
                         meta={"s3_file": s3_file.key},
@@ -192,58 +160,33 @@ class DesySpider(StatefulSpider):
                     )
 
     def start_requests(self):
-        """List selected folder locally or bucket on s3 and yield files."""
-
-        if self.s3_enabled:
-            requests = self.crawl_s3_bucket()
-        else:
-            requests = self.crawl_local_directory()
+        """List selected bucket on s3 and yield files."""
+        requests = self.crawl_s3_bucket()
 
         for request in requests:
             yield request
 
-    @staticmethod
-    def _has_to_be_downloaded(current_url):
-        def _is_local_path(url):
-            parsed_url = urllib.parse.urlparse(url)
-            return not parsed_url.scheme
+    @classmethod
+    def _is_local_path(cls, url):
+        parsed_url = urllib.parse.urlparse(url)
+        return not parsed_url.scheme
 
-        return _is_local_path(current_url)
+    def _get_full_uri(self, file_name, schema='https'):
 
-    @staticmethod
-    def _get_full_uri(current_url, base_url, schema='file', hostname=None):
-        hostname = hostname or ''
-
-        parsed_url = urllib.parse.urlparse(current_url)
-
-        current_path = parsed_url.path
-        if os.path.isabs(current_path):
-            full_path = current_path
-        else:
-            full_path = os.path.join(base_url, current_path)
-
-        return '{schema}://{hostname}{full_path}'.format(
-            schema=schema,
-            hostname=hostname,
-            full_path=full_path,
-        )
+        self.move_file_to_processed(file_name)
+        url = self.s3_url_for_file(file_name, bucket=self.s3_output_bucket)
+        return url
 
     def parse(self, response):
         """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
         """
         self.logger.info('Got record from url/path: {0}'.format(response.url))
-        self.logger.info('S3 enabled: {0}'.format(self.s3_enabled))
 
-        if not self.s3_enabled:
-            base_url = os.path.dirname(
-                urllib.parse.urlparse(response.url).path
-            )
-        else:
-            base_url = ""
+        base_url = ""
 
         self.logger.info('Getting marc xml records...')
         marcxml_records = self._get_marcxml_records(response.body)
-        self.logger.info('Got %d marc xml records' % len(marcxml_records))
+        self.logger.info('Got %d marc xml records', len(marcxml_records))
         self.logger.info('Getting hep records...')
 
         parsed_items = self._parsed_items_from_marcxml(
@@ -251,23 +194,27 @@ class DesySpider(StatefulSpider):
             base_url=base_url,
             url=response.url
         )
-        self.logger.info('Got %d hep records' % len(parsed_items))
+        self.logger.info('Got %d hep records', len(parsed_items))
 
-        if self.s3_enabled:
+        if "s3_file" in response.meta:
             s3_file = response.meta['s3_file']
-            self.logger.info("Moving {file} from {incoming} bucket to {processed} bucket.".format(
-                file=s3_file, processed=self.s3_output_bucket, incoming=self.s3_input_bucket
-            ))
-            source = {"Bucket": self.s3_input_bucket, "Key": s3_file}
-            processed_bucket = self.s3_resource.Bucket(self.s3_output_bucket)
-            processed_bucket.copy(source, s3_file)
-            self.s3_resource.Object(self.s3_input_bucket, s3_file).delete()
+            self.move_file_to_processed(file_name=s3_file)
 
         for parsed_item in parsed_items:
             yield parsed_item
 
-    @staticmethod
-    def _get_marcxml_records(response_body):
+    def move_file_to_processed(self, file_name, file_bucket=None, output_bucket=None):
+        file_bucket = file_bucket or self.s3_input_bucket
+        output_bucket = output_bucket or self.s3_output_bucket
+        self.logger.info("Moving {file} from {incoming} bucket to {processed} bucket.".format(
+            file=file_name, processed=output_bucket, incoming=file_bucket
+        ))
+        source = {"Bucket": file_bucket, "Key": file_name}
+        processed_bucket = self.s3_resource.Bucket(output_bucket)
+        processed_bucket.copy(source, file_name)
+        self.s3_resource.Object(file_bucket, file_name).delete()
+
+    def _get_marcxml_records(self, response_body):
         root = etree.fromstring(response_body)
         if root.tag == 'record':
             list_items = [root]
@@ -286,6 +233,7 @@ class DesySpider(StatefulSpider):
             base_url="",
             url=""
     ):
+        self.logger.info('parsing record')
         app = Flask('hepcrawl')
         app.config.update(self.settings.getdict('MARC_TO_HEP_SETTINGS', {}))
         file_name = url.split('/')[-1].split("?")[0]
@@ -297,22 +245,24 @@ class DesySpider(StatefulSpider):
                     record = marcxml2record(xml_record)
                     parsed_item = ParsedItem(record=record, record_format='hep')
                     parsed_item.file_name = file_name
-                    if not self.s3_enabled:
-                        files_to_download = [
-                            self._get_full_uri(
-                                current_url=document['url'],
-                                base_url=base_url,
-                            )
-                            for document in parsed_item.record.get('documents', [])
-                            if self._has_to_be_downloaded(document['url'])
-                        ]
-                    else:
-                        files_to_download = []
+                    new_documents = []
+                    files_to_download = []
+                    self.logger.info("Parsed document: %s", parsed_item.record)
+                    self.logger.info("Record have documents: %s", "documents" in parsed_item.record)
+                    for document in parsed_item.record.get('documents'):
+                        if self._is_local_path(document['url']):
+                            document['url'] = self._get_full_uri(document['url'])
+                            new_documents.append(document)
+                            self.logger.info("Updating document %s", document)
+                        else:
+                            files_to_download.append(document['url'])
+
+                    if new_documents:
+                        parsed_item.record['documents'] = new_documents
 
                     parsed_item.file_urls = files_to_download
-
-                    self.logger.info('Got the following attached documents to download: %s' % files_to_download)
-                    self.logger.info('Got item: %s' % parsed_item)
+                    self.logger.info('Got the following attached documents to download: %s', files_to_download)
+                    self.logger.info('Got item: %s', parsed_item)
 
                     parsed_items.append(parsed_item)
 

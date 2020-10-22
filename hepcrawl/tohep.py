@@ -55,7 +55,10 @@ def _get_updated_documents(current_documents, record_files):
         url = document.get('old_url', document.get('url', ''))
         full_file_name = os.path.basename(url)
         if url and full_file_name in record_files_index:
+            document['old_url'] = document['url']
             document['url'] = record_files_index[full_file_name]
+            if not 'key' in document:
+                document['key'] = full_file_name
         elif url:
             document['url'] = document['old_url']
 

@@ -121,12 +121,15 @@ ITEM_PIPELINES = {
 
 # Files Pipeline settings
 # =======================
-FILES_STORE = os.environ.get(
-    "APP_FILES_STORE",
-    'files'
-)
 FILES_URLS_FIELD = 'file_urls'
 FILES_RESULT_FIELD = 'files'
+
+# S3 Settings
+DOWNLOAD_BUCKET = os.environ.get("APP_DOWNLOAD_BUCKET", "documents")
+AWS_ENDPOINT_URL = os.environ.get("APP_AWS_ENDPOINT_URL", "https://s3.cern.ch")
+FILES_STORE = "s3://{bucket}/".format(bucket=DOWNLOAD_BUCKET)
+AWS_ACCESS_KEY_ID = os.environ.get("APP_AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("APP_AWS_SECRET_ACCESS_KEY")
 
 # INSPIRE Push Pipeline settings
 # ==============================
