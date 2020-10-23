@@ -231,12 +231,12 @@ class ElsevierSpider(StatefulSpider):
             )
             parser.attach_fulltext_document(file_name, document_url)
             parsed_record = parser.parse()
-            files_urls = [
-                document["url"] for document in parsed_record.get("documents", [])
+            file_urls = [
+                document['url'] for document in parsed_record.get('documents', [])
             ]
-            self.logger.info("Files to download: %s", files_urls)
+            self.logger.info("Files to download: %s", file_urls)
             return ParsedItem(
-                record=parsed_record, file_urls=files_urls, record_format="hep"
+                record=parsed_record, file_urls=file_urls, record_format="hep"
             )
         else:
             self.logger.info(
