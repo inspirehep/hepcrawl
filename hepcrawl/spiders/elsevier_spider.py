@@ -12,15 +12,14 @@
 import glob
 import os
 import zipfile
-
 from io import BytesIO
 from os.path import basename
-from six.moves.urllib.parse import urlparse
 
 import boto3
 import scrapy
 from backports import tempfile
 from scrapy import Request, Selector
+from six.moves.urllib.parse import urlparse
 
 from . import StatefulSpider
 from ..parsers import ElsevierParser
@@ -217,7 +216,8 @@ class ElsevierSpider(StatefulSpider):
                         callback=self.parse_record,
                     )
 
-    def _file_name_from_url(self, url):
+    @staticmethod
+    def _file_name_from_url(url):
         return basename(urlparse(url).path)
 
     def parse_record(self, response):
@@ -226,11 +226,18 @@ class ElsevierSpider(StatefulSpider):
         if parser.should_record_be_harvested():
             file_name = self._file_name_from_url(response.url)
             self.logger.info("Harvesting file: %s", file_name)
-            parser.attach_fulltext_document(file_name, response.url)
+            document_url = self.create_presigned_url(
+                self.files_bucket_name, response.meta["name"], "get_object"
+            )
+            parser.attach_fulltext_document(file_name, document_url)
             parsed_record = parser.parse()
-            files_urls = [document['url'] for document in parsed_record.get('documents', [])]
+            files_urls = [
+                document["url"] for document in parsed_record.get("documents", [])
+            ]
             self.logger.info("Files to download: %s", files_urls)
-            return ParsedItem(record=parsed_record, file_urls=files_urls, record_format="hep")
+            return ParsedItem(
+                record=parsed_record, file_urls=files_urls, record_format="hep"
+            )
         else:
             self.logger.info(
                 "Document {name} is missing required metadata, skipping item creation.".format(
