@@ -56,6 +56,7 @@ class DocumentsPipeline(FilesPipeline):
         )
 
     def get_media_requests(self, item, info):
+        LOGGER.info("item: :", item)
         if item.get('file_urls'):
             LOGGER.info(
                 'Got the following files to download:\n%s', pprint.pformat(
@@ -63,9 +64,9 @@ class DocumentsPipeline(FilesPipeline):
                 )
             )
             return [Request(x) for x in item.get(self.files_urls_field, [])]
-        return list()
+        return item.get("file_requests", [])
 
-    def generate_presigned_s3_url(self, path, expire=86400):
+    def generate_presigned_s3_url(self, path, expire=7776000):
         bucket_location = get_project_settings().get("DOWNLOAD_BUCKET", "documents")
         LOGGER.info("Generating presigned url for: %s in %s", path, bucket_location)
         return self.store.s3_client.generate_presigned_url(

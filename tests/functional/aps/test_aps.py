@@ -7,6 +7,9 @@
 # under the terms of the Revised BSD License; see LICENSE file for
 # more details.
 import os
+
+import boto3
+import requests
 import time
 
 import pytest
@@ -21,10 +24,38 @@ from hepcrawl.testlib.utils import get_crawler_instance
 def cleanup():
     # The test must wait until the docker environment is up (takes about 10
     # seconds).
+    settings = get_settings()['CRAWLER_SETTINGS']
+    settings['buckets'] = ['downloaded']
+    setup_s3_buckets(**settings)
     time.sleep(10)
     yield
 
     clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
+    clean_buckets(**settings)
+
+
+def setup_s3_buckets(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ENDPOINT_URL, buckets=[]):
+    s3 = s3_connection(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ENDPOINT_URL)
+    for bucket_name in buckets:
+        bucket = s3.Bucket(bucket_name)
+        bucket.create()
+
+
+def s3_connection(s3_key, s3_secret, s3_server):
+    session = boto3.session.Session(
+        s3_key, s3_secret
+    )
+    service = "s3"
+    s3 = session.resource(service, endpoint_url=s3_server)
+    return s3
+
+def clean_buckets(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ENDPOINT_URL, buckets=[]):
+    s3 = s3_connection(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_ENDPOINT_URL)
+    for bucket_name in buckets:
+        bucket = s3.Bucket(bucket_name)
+        for file_ in bucket.objects.all():
+            file_.delete()
+        bucket.delete()
 
 
 def get_settings():
@@ -85,3 +116,9 @@ def test_aps_have_document_link_to_s3(cleanup):
     assert document_url.split("?")[0] == expected_s3_url
     for parameter in expected_parameters_in_s3_url:
         assert parameter in document_url
+
+    s3_document_response = requests.get(document_url)
+    original_document_response = requests.get(documents[0]['original_url'])
+    assert s3_document_response.status_code == 200
+    assert s3_document_response.text == original_document_response.text
+

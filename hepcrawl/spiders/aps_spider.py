@@ -123,11 +123,11 @@ class APSSpider(LastRunStoreSpider):
         file_name = self._file_name_from_url(response.url)
         parser.attach_fulltext_document(file_name, response.url)
         record = parser.parse()
-        file_urls = [document['url'] for document in record.get('documents', [])]
+        file_requests = [Request(url=document['url'], headers={'Accept': 'text/xml'}) for document in record.get('documents', [])]
         return ParsedItem(
             record=record,
             record_format='hep',
-            file_urls=file_urls
+            file_requests=file_requests
         )
 
     def _parse_json_on_failure(self, failure):
