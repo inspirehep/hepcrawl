@@ -126,7 +126,7 @@ class DesySpider(StatefulSpider):
     def s3_url(self, s3_file=None, expire=86400):
         return self.s3_url_for_file(s3_file.key, bucket=s3_file.bucket_name, expire=expire)
 
-    def s3_url_for_file(self, file_name, bucket=None, expire=86400):
+    def s3_url_for_file(self, file_name, bucket=None, expire=7776000):
         bucket = bucket or self.s3_input_bucket
         return self.s3_resource.meta.client.generate_presigned_url(
             ClientMethod='get_object',
@@ -249,13 +249,13 @@ class DesySpider(StatefulSpider):
                     files_to_download = []
                     self.logger.info("Parsed document: %s", parsed_item.record)
                     self.logger.info("Record have documents: %s", "documents" in parsed_item.record)
-                    for document in parsed_item.record.get('documents'):
+                    for document in parsed_item.record.get('documents', []):
                         if self._is_local_path(document['url']):
                             document['url'] = self._get_full_uri(document['url'])
-                            new_documents.append(document)
                             self.logger.info("Updating document %s", document)
                         else:
                             files_to_download.append(document['url'])
+                        new_documents.append(document)
 
                     if new_documents:
                         parsed_item.record['documents'] = new_documents
