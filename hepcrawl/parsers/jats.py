@@ -332,13 +332,12 @@ class JatsParser(object):
             Optional[str]: the affiliation with that id or ``None`` if there is
                 no match.
         """
-        affiliation_node = self.root.xpath('//aff[@id=$id_]', id_=id_)[0]
-        affiliation = remove_tags(
-            affiliation_node,
-            strip='self::label | self::email'
-        ).strip()
-
-        return affiliation
+        affiliation_node = self.root.xpath("//aff[@id=$id_]", id_=id_)
+        if affiliation_node:
+            affiliation = remove_tags(
+                affiliation_node[0], strip="self::label | self::email"
+            ).strip()
+            return affiliation
 
     def get_emails_from_refs(self, id_):
         """Get the emails from the node with the specified id.
@@ -498,7 +497,6 @@ class JatsParser(object):
             role=role
         ).extract()
 
-
     def get_reference(self, ref_node):
         """Extract one reference.
 
@@ -582,7 +580,6 @@ class JatsParser(object):
                 builder.set_page_artid(*page_artid)
 
             yield builder.obj
-
 
     def attach_fulltext_document(self, file_name, url):
         self.builder.add_document(file_name, url, fulltext=True, hidden=True)
