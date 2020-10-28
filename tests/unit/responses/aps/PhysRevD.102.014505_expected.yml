@@ -1,0 +1,1956 @@
+abstract: 'We study the behavior of a universal combination of susceptibility and correlation length in the Ising model in two and three dimensions, in presence of both magnetic and thermal perturbations, in the neighborhood of the critical point. In three dimensions we address the problem using a parametric representation of the equation of state. In two dimensions we make use of the exact integrability of the model along the thermal and the magnetic axes. Our results can be used as a sort of “reference frame” to chart the critical region of the model. While our results can be applied in principle to any possible realization of the Ising universality class, we address in particular, as specific examples, three instances of Ising behavior in finite temperature QCD related in various ways to the deconfinement transition. In particular, in the last of these examples, we study the critical ending point in the finite density, finite temperature phase diagram of QCD. In this finite density framework, due to the well-known sign problem, Monte Carlo simulations are not possible and thus a direct comparison of experimental results with quantum field theory & statistical mechanics predictions like the one we discuss in this paper may be important. Moreover in this example it is particularly difficult to disentangle “magnetic-like” from “thermal-like” observables and thus an explicit charting of the neighborhood of the critical point can be particularly useful.'
+copyright_holder: authors
+copyright_statement: Published by the American Physical Society
+copyright_year: 2020
+document_type: article
+license_url: https://creativecommons.org/licenses/by/4.0/
+license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 4.0 International license. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI. Funded by SCOAP3.
+article_type: research-article
+journal_title: Physical Review D
+material: publication
+publisher: American Physical Society
+year: 2020
+authors:
+- full_name: Caselle, Michele
+  raw_affiliations:
+  - value: Department of Physics, University of Turin and INFN, Turin, Via Pietro
+      Giuria 1, I-10125 Turin, Italy
+    source: American Physical Society
+- full_name: Sorba, Marianna
+  raw_affiliations:
+  - value: Department of Physics, University of Turin and INFN, Turin, Via Pietro
+      Giuria 1, I-10125 Turin, Italy
+    source: American Physical Society
+  - value: SISSA and INFN, Sezione di Trieste, Via Bonomea 265, 34136 Trieste, Italy
+    source: American Physical Society
+artid: '014505'
+title: Charting the scaling region of the Ising universality class in two and three dimensions
+number_of_pages: 12
+dois:
+- material: publication
+  doi: 10.1103/PhysRevD.102.014505
+journal_volume: '102'
+journal_issue: '1'
+is_conference_paper: false
+publication_date: 2020-07-01
+documents:
+- key: PhysRevD.102.014505.xml
+  url: http://example.org/PhysRevD.102.014505.xml
+  source: American Physical Society
+  fulltext: true
+  hidden: true
+references:
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c1"><label>[1]</label><mixed-citation publication-type="journal"><object-id>1</object-id><person-group
+          person-group-type="author"><string-name>L. Onsager</string-name></person-group>,
+          <article-title>Crystal statistics. I. A two-dimensional model with an order-disorder
+          transition</article-title>, <source>Phys. Rev.</source> <volume>65</volume>,
+          <page-range>117</page-range> (<year>1944</year>).<pub-id pub-id-type="coden">PHRVAO</pub-id><issn>0031-899X</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRev.65.117</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev.
+        journal_volume: '65'
+        year: 1944
+        page_start: '117'
+        artid: '117'
+      dois:
+        - 10.1103/PhysRev.65.117
+      title:
+        title: Crystal statistics. I. A two-dimensional model with an order-disorder
+          transition
+      label: '1'
+      authors:
+        - full_name: Onsager, L.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c2"><label>[2]</label><mixed-citation publication-type="book"><object-id>2</object-id><person-group
+          person-group-type="author"><string-name>B. McCoy</string-name> and <string-name>T.
+          Wu</string-name></person-group>, <source>The Two-Dimensional Ising Model</source>
+          (<publisher-name>Harvard University Press</publisher-name>, Cambridge, MA, <year>1973</year>),
+          <pub-id pub-id-type="doi" specific-use="display" href="https://doi.org/10.4159/harvard.9780674180758">10.4159/harvard.9780674180758</pub-id>.</mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        parent_title: The Two-Dimensional Ising Model
+        year: 1973
+      imprint:
+        publisher: Harvard University Press
+      dois:
+        - 10.4159/harvard.9780674180758
+      label: '2'
+      misc:
+        - "(, Cambridge, MA, )"
+      authors:
+        - full_name: McCoy, B.
+          inspire_role: author
+        - full_name: Wu, T.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c3"><label>[3]</label><mixed-citation publication-type="journal"><object-id>3</object-id><person-group
+          person-group-type="author"><string-name>A. Pelissetto</string-name> and <string-name>E.
+          Vicari</string-name></person-group>, <article-title>Critical phenomena and renormalization-group
+          theory</article-title>, <source>Phys. Rep.</source> <volume>368</volume>, <page-range>549</page-range>
+          (<year>2002</year>).<pub-id pub-id-type="coden">PRPLCM</pub-id><issn>0370-1573</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/S0370-1573(02)00219-3</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rep.
+        journal_volume: '368'
+        year: 2002
+        page_start: '549'
+        artid: '549'
+      dois:
+        - 10.1016/S0370-1573(02)00219-3
+      title:
+        title: Critical phenomena and renormalization-group theory
+      label: '3'
+      authors:
+        - full_name: Pelissetto, A.
+          inspire_role: author
+        - full_name: Vicari, E.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c4"><label>[4]</label><mixed-citation publication-type="journal"><object-id>4</object-id><person-group
+          person-group-type="author"><string-name>A. A. Belavin</string-name>, <string-name>A. M.
+          Polyakov</string-name>, and <string-name>A. B. Zamolodchikov</string-name></person-group>,
+          <article-title>Infinite conformal symmetry in two-dimensional quantum field
+          theory</article-title>, <source>Nucl. Phys.</source> <volume>B241</volume>,
+          <page-range>333</page-range> (<year>1984</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(84)90052-X</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B241
+        year: 1984
+        page_start: '333'
+        artid: '333'
+      dois:
+        - 10.1016/0550-3213(84)90052-X
+      title:
+        title: Infinite conformal symmetry in two-dimensional quantum field theory
+      label: '4'
+      authors:
+        - full_name: Belavin, A.A.
+          inspire_role: author
+        - full_name: Polyakov, A.M.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.B.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c5"><label>[5]</label><mixed-citation publication-type="journal"><object-id>5</object-id><person-group
+        person-group-type="author"><string-name>P. Fonseca</string-name> and <string-name>A.
+        Zamolodchikov</string-name></person-group>, <article-title>Ising field theory
+        in a magnetic field: Analytic properties of the free energy</article-title>,
+        <source>J. Stat. Phys.</source> <volume>110</volume>, <page-range>527</page-range>
+        (<year>2003</year>).<pub-id pub-id-type="coden">JSTPBS</pub-id><issn>0022-4715</issn><pub-id
+        pub-id-type="doi" specific-use="suppress-display">10.1023/A:1022147532606</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Stat. Phys.
+        journal_volume: '110'
+        year: 2003
+        page_start: '527'
+        artid: '527'
+      dois:
+        - 10.1023/A:1022147532606
+      title:
+        title: 'Ising field theory in a magnetic field: Analytic properties of the free
+          energy'
+      label: '5'
+      authors:
+        - full_name: Fonseca, P.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c6"><label>[6]</label><mixed-citation publication-type="journal"><object-id>6</object-id><person-group
+          person-group-type="author"><string-name>F. Kos</string-name>, <string-name>D.
+          Poland</string-name>, <string-name>D. Simmons-Duffin</string-name>, and <string-name>A.
+          Vichi</string-name></person-group>, <article-title>Precision islands in the
+          Ising and <inline-formula><math display="inline"><mi>O</mi><mo stretchy="false">(</mo><mi>N</mi><mo
+          stretchy="false">)</mo></math></inline-formula> models</article-title>, <source>J.
+          High Energy Phys.</source> <issue>08</issue> (<volume>2016</volume>) <page-range>036</page-range>.<pub-id
+          pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1007/JHEP08(2016)036</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2016'
+        journal_issue: 08
+        page_start: '036'
+        artid: '036'
+      dois:
+        - 10.1007/JHEP08(2016)036
+      title:
+        title: 'Precision islands in the Ising and '
+      label: '6'
+      authors:
+        - full_name: Kos, F.
+          inspire_role: author
+        - full_name: Poland, D.
+          inspire_role: author
+        - full_name: Simmons-Duffin, D.
+          inspire_role: author
+        - full_name: Vichi, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c7"><label>[7]</label><mixed-citation publication-type="journal"><object-id>7</object-id><person-group
+          person-group-type="author"><string-name>B. Berg</string-name>, <string-name>M.
+          Karowski</string-name>, and <string-name>P. Weisz</string-name></person-group>,
+          <article-title>Construction of Green’s functions from an exact <inline-formula><math
+          display="inline"><mi>S</mi></math></inline-formula> matrix</article-title>,
+          <source>Phys. Rev. D</source> <volume>19</volume>, <page-range>2477</page-range>
+          (<year>1979</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.19.2477</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '19'
+        year: 1979
+        page_start: '2477'
+        artid: '2477'
+      dois:
+        - 10.1103/PhysRevD.19.2477
+      title:
+        title: 'Construction of Green’s functions from an exact '
+      label: '7'
+      authors:
+        - full_name: Berg, B.
+          inspire_role: author
+        - full_name: Karowski, M.
+          inspire_role: author
+        - full_name: Weisz, P.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c8"><label>[8]</label><mixed-citation publication-type="journal"><object-id>8</object-id><person-group
+          person-group-type="author"><string-name>M. Campostrini</string-name>, <string-name>A.
+          Pelissetto</string-name>, <string-name>P. Rossi</string-name>, and <string-name>E.
+          Vicari</string-name></person-group>, <article-title>Improved high-temperature
+          expansion and critical equation of state of three-dimensional Ising-like systems</article-title>,
+          <source>Phys. Rev. E</source> <volume>60</volume>, <page-range>3526</page-range>
+          (<year>1999</year>).<pub-id pub-id-type="coden">PLEEE8</pub-id><issn>1063-651X</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevE.60.3526</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. E
+        journal_volume: '60'
+        year: 1999
+        page_start: '3526'
+        artid: '3526'
+      dois:
+        - 10.1103/PhysRevE.60.3526
+      title:
+        title: Improved high-temperature expansion and critical equation of state of
+          three-dimensional Ising-like systems
+      label: '8'
+      authors:
+        - full_name: Campostrini, M.
+          inspire_role: author
+        - full_name: Pelissetto, A.
+          inspire_role: author
+        - full_name: Rossi, P.
+          inspire_role: author
+        - full_name: Vicari, E.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c9"><label>[9]</label><mixed-citation publication-type="journal"><object-id>9</object-id><person-group
+          person-group-type="author"><string-name>M. Hasenbusch</string-name>, <string-name>K.
+          Pinn</string-name>, and <string-name>S. Vinti</string-name></person-group>,
+          <article-title>Critical exponents of the three-dimensional Ising universality
+          class from finite-size scaling with standard and improved actions</article-title>,
+          <source>Phys. Rev. B</source> <volume>59</volume>, <page-range>11471</page-range>
+          (<year>1999</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>0163-1829</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.59.11471</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. B
+        journal_volume: '59'
+        year: 1999
+        artid: '11471'
+      dois:
+        - 10.1103/PhysRevB.59.11471
+      title:
+        title: Critical exponents of the three-dimensional Ising universality class
+          from finite-size scaling with standard and improved actions
+      label: '9'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+        - full_name: Pinn, K.
+          inspire_role: author
+        - full_name: Vinti, S.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c10"><label>[10]</label><mixed-citation publication-type="journal"><object-id>10</object-id><person-group
+          person-group-type="author"><string-name>M. Hasenbusch</string-name></person-group>,
+          <article-title>A Monte Carlo study of leading order scaling corrections of
+          <inline-formula><math display="inline"><msup><mi>ϕ</mi><mn>4</mn></msup></math></inline-formula>
+          theory on a three-dimensional lattice</article-title>, <source>J. Phys. A</source>
+          <volume>32</volume>, <page-range>4851</page-range> (<year>1999</year>).<pub-id
+          pub-id-type="coden">JPHAC5</pub-id><issn>0305-4470</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1088/0305-4470/32/26/304</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Phys. A
+        journal_volume: '32'
+        year: 1999
+        page_start: '4851'
+        artid: '4851'
+      dois:
+        - 10.1088/0305-4470/32/26/304
+      title:
+        title: 'A Monte Carlo study of leading order scaling corrections of '
+      label: '10'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c11"><label>[11]</label><mixed-citation publication-type="journal"><object-id>11</object-id><person-group
+          person-group-type="author"><string-name>M. Hasenbusch</string-name></person-group>,
+          <article-title>Universal amplitude ratios in the three-dimensional Ising universality
+          class</article-title>, <source>Nucl. Phys.</source> <volume>B82</volume>, <page-range>174434</page-range>
+          (<year>2010</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.82.174434</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B82
+        year: 2010
+        artid: '174434'
+      dois:
+        - 10.1103/PhysRevB.82.174434
+      title:
+        title: Universal amplitude ratios in the three-dimensional Ising universality
+          class
+      label: '11'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c12"><label>[12]</label><mixed-citation publication-type="journal"><object-id>12</object-id><person-group
+          person-group-type="author"><string-name>M. Hasenbusch</string-name></person-group>,
+          <article-title>Finite size scaling study of lattice models in the three-dimensional
+          Ising universality class</article-title>, <source>Phys. Rev. B</source> <volume>82</volume>,
+          <page-range>174433</page-range> (<year>2010</year>).<pub-id pub-id-type="coden">PRBMDO</pub-id><issn>1098-0121</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.82.174433</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. B
+        journal_volume: '82'
+        year: 2010
+        artid: '174433'
+      dois:
+        - 10.1103/PhysRevB.82.174433
+      title:
+        title: Finite size scaling study of lattice models in the three-dimensional
+          Ising universality class
+      label: '12'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c13"><label>[13]</label><mixed-citation publication-type="journal"><object-id>13</object-id><person-group
+          person-group-type="author"><string-name>M. Hasenbusch</string-name></person-group>,
+          <article-title>Variance-reduced estimator of the connected two-point function
+          in the presence of a broken <inline-formula><math display="inline"><msub><mi
+          mathvariant="double-struck">Z</mi><mn>2</mn></msub></math></inline-formula>-symmetry</article-title>,
+          <source>Phys. Rev. E</source> <volume>93</volume>, <page-range>032140</page-range>
+          (<year>2016</year>).<pub-id pub-id-type="coden">PRESCM</pub-id><issn>2470-0045</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevE.93.032140</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. E
+        journal_volume: '93'
+        year: 2016
+        artid: '032140'
+      dois:
+        - 10.1103/PhysRevE.93.032140
+      title:
+        title: 'Variance-reduced estimator of the connected two-point function in the
+          presence of a broken '
+      label: '13'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c14"><label>[14]</label><mixed-citation publication-type="journal"><object-id>14</object-id><person-group
+        person-group-type="author"><string-name>M. Hasenbusch</string-name></person-group>,
+        <article-title>Two- and three-point functions at criticality: Monte Carlo
+        simulations of the improved three-dimensional Blume-Capel model</article-title>,
+        <source>Phys. Rev. E</source> <volume>97</volume>, <page-range>012119</page-range>
+        (<year>2018</year>).<pub-id pub-id-type="coden">PRESCM</pub-id><issn>2470-0045</issn><pub-id
+        pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevE.97.012119</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. E
+        journal_volume: '97'
+        year: 2018
+        artid: 012119
+      dois:
+        - 10.1103/PhysRevE.97.012119
+      title:
+        title: 'Two- and three-point functions at criticality: Monte Carlo simulations
+          of the improved three-dimensional Blume-Capel model'
+      label: '14'
+      authors:
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c15"><label>[15]</label><mixed-citation publication-type="journal"><object-id>15</object-id><person-group
+          person-group-type="author"><string-name>J. Engels</string-name>, <string-name>L.
+          Fromme</string-name>, and <string-name>M. Seniuch</string-name></person-group>,
+          <article-title>Numerical equation of state and other scaling functions from
+          an improved three-dimensional Ising model</article-title>, <source>Nucl. Phys.</source>
+          <volume>B655</volume>, <page-range>277</page-range> (<year>2003</year>).<pub-id
+          pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1016/S0550-3213(03)00085-3</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B655
+        year: 2003
+        page_start: '277'
+        artid: '277'
+      dois:
+        - 10.1016/S0550-3213(03)00085-3
+      title:
+        title: Numerical equation of state and other scaling functions from an improved
+          three-dimensional Ising model
+      label: '15'
+      authors:
+        - full_name: Engels, J.
+          inspire_role: author
+        - full_name: Fromme, L.
+          inspire_role: author
+        - full_name: Seniuch, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c16"><label>[16]</label><mixed-citation publication-type="journal"><object-id>16</object-id><person-group
+          person-group-type="author"><string-name>J. J. Rehr</string-name> and <string-name>N. D.
+          Mermin</string-name></person-group>, <article-title>Revised scaling equation
+          of state at the liquid-vapor critical point</article-title>, <source>Phys. Rev.
+          A</source> <volume>8</volume>, <page-range>472</page-range> (<year>1973</year>).<pub-id
+          pub-id-type="coden">PLRAAN</pub-id><issn>0556-2791</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevA.8.472</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. A
+        journal_volume: '8'
+        year: 1973
+        page_start: '472'
+        artid: '472'
+      dois:
+        - 10.1103/PhysRevA.8.472
+      title:
+        title: Revised scaling equation of state at the liquid-vapor critical point
+      label: '16'
+      authors:
+        - full_name: Rehr, J.J.
+          inspire_role: author
+        - full_name: Mermin, N.D.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c17"><label>[17]</label><mixed-citation publication-type="journal"><object-id>17</object-id><person-group
+          person-group-type="author"><string-name>P. Schofield</string-name></person-group>,
+          <article-title>Parametric Representation of the Equation of State near a Critical
+          Point</article-title>, <source>Phys. Rev. Lett.</source> <volume>22</volume>,
+          <page-range>606</page-range> (<year>1969</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.22.606</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. Lett.
+        journal_volume: '22'
+        year: 1969
+        page_start: '606'
+        artid: '606'
+      dois:
+        - 10.1103/PhysRevLett.22.606
+      title:
+        title: Parametric Representation of the Equation of State near a Critical Point
+      label: '17'
+      authors:
+        - full_name: Schofield, P.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c18"><label>[18]</label><mixed-citation publication-type="journal"><object-id>18</object-id><person-group
+          person-group-type="author"><string-name>R. B. Griffiths</string-name></person-group>,
+          <article-title>Thermodynamic functions for fluids and ferromagnets near the
+          critical point</article-title>, <source>Phys. Rev.</source> <volume>158</volume>,
+          <page-range>176</page-range> (<year>1967</year>).<pub-id pub-id-type="coden">PHRVAO</pub-id><issn>0031-899X</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRev.158.176</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev.
+        journal_volume: '158'
+        year: 1967
+        page_start: '176'
+        artid: '176'
+      dois:
+        - 10.1103/PhysRev.158.176
+      title:
+        title: Thermodynamic functions for fluids and ferromagnets near the critical
+          point
+      label: '18'
+      authors:
+        - full_name: Griffiths, R.B.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c19"><label>[19]</label><mixed-citation publication-type="journal"><object-id>19</object-id><person-group
+        person-group-type="author"><string-name>R. Guida</string-name> and <string-name>J.
+        Zinn-Justin</string-name></person-group>, <article-title>3D Ising model: The
+        scaling equation of state</article-title>, <source>Nucl. Phys.</source> <volume>B489</volume>,
+        <page-range>626</page-range> (<year>1997</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+        pub-id-type="doi" specific-use="suppress-display">10.1016/S0550-3213(96)00704-3</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B489
+        year: 1997
+        page_start: '626'
+        artid: '626'
+      dois:
+        - 10.1016/S0550-3213(96)00704-3
+      title:
+        title: '3D Ising model: The scaling equation of state'
+      label: '19'
+      authors:
+        - full_name: Guida, R.
+          inspire_role: author
+        - full_name: Zinn-Justin, J.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c20"><label>[20]</label><mixed-citation publication-type="journal"><object-id>20</object-id><person-group
+          person-group-type="author"><string-name>M. Campostrini</string-name>, <string-name>A.
+          Pelissetto</string-name>, <string-name>P. Rossi</string-name>, and <string-name>E.
+          Vicari</string-name></person-group>, <article-title>25th-order high-temperature
+          expansion results for three-dimensional Ising-like systems on the simple-cubic
+          lattice</article-title>, <source>Phys. Rev. E</source> <volume>65</volume>,
+          <page-range>066127</page-range> (<year>2002</year>).<pub-id pub-id-type="coden">PRESCM</pub-id><issn>1539-3755</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevE.65.066127</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. E
+        journal_volume: '65'
+        year: 2002
+        artid: '066127'
+      dois:
+        - 10.1103/PhysRevE.65.066127
+      title:
+        title: 25th-order high-temperature expansion results for three-dimensional Ising-like
+          systems on the simple-cubic lattice
+      label: '20'
+      authors:
+        - full_name: Campostrini, M.
+          inspire_role: author
+        - full_name: Pelissetto, A.
+          inspire_role: author
+        - full_name: Rossi, P.
+          inspire_role: author
+        - full_name: Vicari, E.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c21"><label>[21]</label><mixed-citation publication-type="journal"><object-id>21</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>M.
+          Hasenbusch</string-name>, <string-name>A. Pelissetto</string-name>, and <string-name>E.
+          Vicari</string-name></person-group>, <article-title>The critical equation of
+          state of the two-dimensional Ising model</article-title>, <source>J. Phys. A</source>
+          <volume>34</volume>, <page-range>2923</page-range> (<year>2001</year>).<pub-id
+          pub-id-type="coden">JPHAC5</pub-id><issn>0305-4470</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1088/0305-4470/34/14/302</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Phys. A
+        journal_volume: '34'
+        year: 2001
+        page_start: '2923'
+        artid: '2923'
+      dois:
+        - 10.1088/0305-4470/34/14/302
+      title:
+        title: The critical equation of state of the two-dimensional Ising model
+      label: '21'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Hasenbusch, M.
+          inspire_role: author
+        - full_name: Pelissetto, A.
+          inspire_role: author
+        - full_name: Vicari, E.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c22"><label>[22]</label><mixed-citation publication-type="journal"><object-id>22</object-id><person-group
+          person-group-type="author"><string-name>H. B. Tarko</string-name> and <string-name>M. E.
+          Fisher</string-name></person-group>, <article-title>Theory of critical point
+          scattering and correlations. III. The Ising model below <inline-formula><math
+          display="inline"><msub><mi>T</mi><mi>c</mi></msub></math></inline-formula> and
+          in a field</article-title>, <source>Phys. Rev. B</source> <volume>11</volume>,
+          <page-range>1217</page-range> (<year>1975</year>).<pub-id pub-id-type="coden">PLRBAQ</pub-id><issn>0556-2805</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevB.11.1217</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. B
+        journal_volume: '11'
+        year: 1975
+        page_start: '1217'
+        artid: '1217'
+      dois:
+        - 10.1103/PhysRevB.11.1217
+      title:
+        title: 'Theory of critical point scattering and correlations. III. The Ising
+          model below '
+      label: '22'
+      authors:
+        - full_name: Tarko, H.B.
+          inspire_role: author
+        - full_name: Fisher, M.E.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c23"><label>[23]</label><mixed-citation publication-type="journal"><object-id>23</object-id><person-group
+          person-group-type="author"><string-name>G. Delfino</string-name></person-group>,
+          <article-title>Universal amplitude ratios in the two-dimensional Ising model</article-title>,
+          <source>Phys. Lett. B</source> <volume>419</volume>, <page-range>291</page-range>
+          (<year>1998</year>).<pub-id pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/S0370-2693(97)01457-3</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Lett. B
+        journal_volume: '419'
+        year: 1998
+        page_start: '291'
+        artid: '291'
+      dois:
+        - 10.1016/S0370-2693(97)01457-3
+      title:
+        title: Universal amplitude ratios in the two-dimensional Ising model
+      label: '23'
+      authors:
+        - full_name: Delfino, G.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c24"><label>[24]</label><mixed-citation publication-type="journal"><object-id>24</object-id><person-group
+          person-group-type="author"><string-name>V. P. Yurov</string-name> and <string-name>A. B.
+          Zamolodchikov</string-name></person-group>, <article-title>Truncated conformal
+          space approach to scaling Lee-Yang model</article-title>, <source>Int. J. Mod.
+          Phys. A</source> <volume>05</volume>, <page-range>3221</page-range> (<year>1990</year>).<pub-id
+          pub-id-type="coden">IMPAEF</pub-id><issn>0217-751X</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1142/S0217751X9000218X</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Int. J. Mod. Phys. A
+        journal_volume: '05'
+        year: 1990
+        page_start: '3221'
+        artid: '3221'
+      dois:
+        - 10.1142/S0217751X9000218X
+      title:
+        title: Truncated conformal space approach to scaling Lee-Yang model
+      label: '24'
+      authors:
+        - full_name: Yurov, V.P.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.B.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c25"><label>[25]</label><mixed-citation publication-type="journal"><object-id>25</object-id><person-group
+          person-group-type="author"><string-name>V. P. Yurov</string-name> and <string-name>A. B.
+          Zamolodchikov</string-name></person-group>, <article-title>Truncated fermionic
+          space approach to the critical 2D Ising model with magnetic field</article-title>,
+          <source>Int. J. Mod. Phys. A</source> <volume>06</volume>, <page-range>4557</page-range>
+          (<year>1991</year>).<pub-id pub-id-type="coden">IMPAEF</pub-id><issn>0217-751X</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1142/S0217751X91002161</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Int. J. Mod. Phys. A
+        journal_volume: '06'
+        year: 1991
+        page_start: '4557'
+        artid: '4557'
+      dois:
+        - 10.1142/S0217751X91002161
+      title:
+        title: Truncated fermionic space approach to the critical 2D Ising model with
+          magnetic field
+      label: '25'
+      authors:
+        - full_name: Yurov, V.P.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.B.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c26"><label>[26]</label><mixed-citation publication-type="eprint"><object-id>26</object-id><person-group
+          person-group-type="author"><string-name>P. Fonseca</string-name> and <string-name>A.
+          Zamolodchikov</string-name></person-group>, <article-title>Ward identities and
+          integrable differential equations in the Ising field theory</article-title>,
+          <pub-id pub-id-type="arxiv">arXiv:hep-th/0309228</pub-id>.</mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      arxiv_eprint: hep-th/0309228
+      title:
+        title: Ward identities and integrable differential equations in the Ising field
+          theory
+      label: '26'
+      authors:
+        - full_name: Fonseca, P.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c27"><label>[27]</label><mixed-citation publication-type="eprint"><object-id>27</object-id><person-group
+          person-group-type="author"><string-name>P. Fonseca</string-name> and <string-name>A.
+          Zamolodchikov</string-name></person-group>, <article-title>Ising spectroscopy.
+          I. Mesons at <inline-formula><math display="inline"><mi>T</mi><mo>&lt;</mo><msub><mi>T</mi><mi>c</mi></msub></math></inline-formula></article-title>,
+          <pub-id pub-id-type="arxiv">arXiv:hep-th/0612304</pub-id>.</mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      arxiv_eprint: hep-th/0612304
+      title:
+        title: 'Ising spectroscopy. I. Mesons at '
+      label: '27'
+      authors:
+        - full_name: Fonseca, P.
+          inspire_role: author
+        - full_name: Zamolodchikov, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c28"><label>[28]</label><mixed-citation publication-type="eprint"><object-id>28</object-id><person-group
+        person-group-type="author"><string-name>A. Zamolodchikov</string-name></person-group>,
+        <article-title>Ising spectroscopy II: Particles and poles at <inline-formula><math
+        display="inline"><mi>T</mi><mo>&gt;</mo><msub><mi>T</mi><mi>c</mi></msub></math></inline-formula></article-title>,
+        <pub-id pub-id-type="arxiv">arXiv:1310.4821</pub-id>.</mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      arxiv_eprint: '1310.4821'
+      title:
+        title: 'Ising spectroscopy II: Particles and poles at '
+      label: '28'
+      authors:
+        - full_name: Zamolodchikov, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c29"><label>[29]</label><mixed-citation publication-type="journal"><object-id>29</object-id><person-group
+          person-group-type="author"><string-name>B. Svetitsky</string-name> and <string-name>L. G.
+          Yaffe</string-name></person-group>, <article-title>Critical behavior at finite
+          temperature confinement transitions</article-title>, <source>Nucl. Phys.</source>
+          <volume>B210</volume>, <page-range>423</page-range> (<year>1982</year>).<pub-id
+          pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1016/0550-3213(82)90172-9</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B210
+        year: 1982
+        page_start: '423'
+        artid: '423'
+      dois:
+        - 10.1016/0550-3213(82)90172-9
+      title:
+        title: Critical behavior at finite temperature confinement transitions
+      label: '29'
+      authors:
+        - full_name: Svetitsky, B.
+          inspire_role: author
+        - full_name: Yaffe, L.G.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c30"><label>[30]</label><mixed-citation publication-type="journal"><object-id>30</object-id><person-group
+          person-group-type="author"><string-name>J. Engels</string-name>, <string-name>J.
+          Fingberg</string-name>, <string-name>F. Karsch</string-name>, <string-name>D.
+          Miller</string-name>, and <string-name>M. Weber</string-name></person-group>,
+          <article-title>Nonperturbative thermodynamics of SU(N) gauge theories</article-title>,
+          <source>Phys. Lett. B</source> <volume>252</volume>, <page-range>625</page-range>
+          (<year>1990</year>).<pub-id pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/0370-2693(90)90496-S</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Lett. B
+        journal_volume: '252'
+        year: 1990
+        page_start: '625'
+        artid: '625'
+      dois:
+        - 10.1016/0370-2693(90)90496-S
+      title:
+        title: Nonperturbative thermodynamics of SU(N) gauge theories
+      label: '30'
+      authors:
+        - full_name: Engels, J.
+          inspire_role: author
+        - full_name: Fingberg, J.
+          inspire_role: author
+        - full_name: Karsch, F.
+          inspire_role: author
+        - full_name: Miller, D.
+          inspire_role: author
+        - full_name: Weber, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c31"><label>[31]</label><mixed-citation publication-type="journal"><object-id>31</object-id><person-group
+          person-group-type="author"><string-name>J. Fingberg</string-name>, <string-name>U. M.
+          Heller</string-name>, and <string-name>F. Karsch</string-name></person-group>,
+          <article-title>Scaling and asymptotic scaling in the SU(2) gauge theory</article-title>,
+          <source>Nucl. Phys.</source> <volume>B392</volume>, <page-range>493</page-range>
+          (<year>1993</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(93)90682-F</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B392
+        year: 1993
+        page_start: '493'
+        artid: '493'
+      dois:
+        - 10.1016/0550-3213(93)90682-F
+      title:
+        title: Scaling and asymptotic scaling in the SU(2) gauge theory
+      label: '31'
+      authors:
+        - full_name: Fingberg, J.
+          inspire_role: author
+        - full_name: Heller, U.M.
+          inspire_role: author
+        - full_name: Karsch, F.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c32"><label>[32]</label><mixed-citation publication-type="journal"><object-id>32</object-id><person-group
+          person-group-type="author"><string-name>J. Engels</string-name>, <string-name>F.
+          Karsch</string-name>, and <string-name>K. Redlich</string-name></person-group>,
+          <article-title>Scaling properties of the energy density in SU(2) lattice gauge
+          theory</article-title>, <source>Nucl. Phys.</source> <volume>B435</volume>,
+          <page-range>295</page-range> (<year>1995</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/0550-3213(94)00491-V</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B435
+        year: 1995
+        page_start: '295'
+        artid: '295'
+      dois:
+        - 10.1016/0550-3213(94)00491-V
+      title:
+        title: Scaling properties of the energy density in SU(2) lattice gauge theory
+      label: '32'
+      authors:
+        - full_name: Engels, J.
+          inspire_role: author
+        - full_name: Karsch, F.
+          inspire_role: author
+        - full_name: Redlich, K.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c33"><label>[33]</label><mixed-citation publication-type="journal"><object-id>33</object-id><person-group
+        person-group-type="author"><string-name>C. Korthals Altes</string-name>, <string-name>A.
+        Michels</string-name>, <string-name>M. A. Stephanov</string-name>, and <string-name>M.
+        Teper</string-name></person-group>, <article-title>Domain walls and perturbation
+        theory in high temperature gauge theory: SU(2) in <inline-formula><math display="inline"><mn>2</mn><mo>+</mo><mn>1</mn></math></inline-formula>
+        dimensions</article-title>, <source>Phys. Rev. D</source> <volume>55</volume>,
+        <page-range>1047</page-range> (<year>1997</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id
+        pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.55.1047</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '55'
+        year: 1997
+        page_start: '1047'
+        artid: '1047'
+      dois:
+        - 10.1103/PhysRevD.55.1047
+      title:
+        title: 'Domain walls and perturbation theory in high temperature gauge theory:
+          SU(2) in '
+      label: '33'
+      authors:
+        - full_name: Altes, C. Korthals
+          inspire_role: author
+        - full_name: Michels, A.
+          inspire_role: author
+        - full_name: Stephanov, M.A.
+          inspire_role: author
+        - full_name: Teper, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c34"><label>[34]</label><mixed-citation publication-type="journal"><object-id>34</object-id><person-group
+          person-group-type="author"><string-name>J. Liddle</string-name> and <string-name>M.
+          Teper</string-name></person-group>, <article-title>The deconfining phase transition
+          in <inline-formula><math display="inline"><mi>D</mi><mo>=</mo><mn>2</mn><mo>+</mo><mn>1</mn></math></inline-formula>
+          SU(N) gauge theories</article-title>, <source>Proc. Sci.</source>, <issue>LAT2005</issue>
+          (<volume>2005</volume>) <page-range>188</page-range>.<pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.22323/1.020.0188</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Proc. Sci.
+        journal_volume: '2005'
+        journal_issue: LAT2005
+        page_start: '188'
+        artid: '188'
+      dois:
+        - 10.22323/1.020.0188
+      title:
+        title: 'The deconfining phase transition in '
+      label: '34'
+      authors:
+        - full_name: Liddle, J.
+          inspire_role: author
+        - full_name: Teper, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c35"><label>[35]</label><mixed-citation publication-type="journal"><object-id>35</object-id><person-group
+          person-group-type="author"><string-name>A. Athenodorou</string-name>, <string-name>B.
+          Bringoltz</string-name>, and <string-name>M. Teper</string-name></person-group>,
+          <article-title>Closed flux tubes and their string description in <inline-formula><math
+          display="inline"><mi>D</mi><mo>=</mo><mn>2</mn><mo>+</mo><mn>1</mn></math></inline-formula>
+          SU(N) gauge theories</article-title>, <source>J. High Energy Phys.</source>
+          <issue>05</issue> (<volume>2011</volume>) <page-range>042</page-range>.<pub-id
+          pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1007/JHEP05(2011)042</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2011'
+        journal_issue: '05'
+        page_start: '042'
+        artid: '042'
+      dois:
+        - 10.1007/JHEP05(2011)042
+      title:
+        title: 'Closed flux tubes and their string description in '
+      label: '35'
+      authors:
+        - full_name: Athenodorou, A.
+          inspire_role: author
+        - full_name: Bringoltz, B.
+          inspire_role: author
+        - full_name: Teper, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c36"><label>[36]</label><mixed-citation publication-type="journal"><object-id>36</object-id><person-group
+          person-group-type="author"><string-name>A. Athenodorou</string-name>, <string-name>B.
+          Bringoltz</string-name>, and <string-name>M. Teper</string-name></person-group>,
+          <article-title>Closed flux tubes and their string description in <inline-formula><math
+          display="inline"><mi>D</mi><mo>=</mo><mn>3</mn><mo>+</mo><mn>1</mn></math></inline-formula>
+          SU(N) gauge theories</article-title>, <source>J. High Energy Phys.</source>
+          <issue>02</issue> (<volume>2011</volume>) <page-range>030</page-range>.<pub-id
+          pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1007/JHEP02(2011)030</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2011'
+        journal_issue: '02'
+        page_start: '030'
+        artid: '030'
+      dois:
+        - 10.1007/JHEP02(2011)030
+      title:
+        title: 'Closed flux tubes and their string description in '
+      label: '36'
+      authors:
+        - full_name: Athenodorou, A.
+          inspire_role: author
+        - full_name: Bringoltz, B.
+          inspire_role: author
+        - full_name: Teper, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c37"><label>[37]</label><mixed-citation publication-type="journal"><object-id>37</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>N.
+          Magnoli</string-name>, <string-name>A. Nada</string-name>, <string-name>M. Panero</string-name>,
+          and <string-name>M. Scanavino</string-name></person-group>, <article-title>Conformal
+          perturbation theory confronts lattice results in the vicinity of a critical
+          point</article-title>, <source>Phys. Rev. D</source> <volume>100</volume>, <page-range>034512</page-range>
+          (<year>2019</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.100.034512</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '100'
+        year: 2019
+        artid: '034512'
+      dois:
+        - 10.1103/PhysRevD.100.034512
+      title:
+        title: Conformal perturbation theory confronts lattice results in the vicinity
+          of a critical point
+      label: '37'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Magnoli, N.
+          inspire_role: author
+        - full_name: Nada, A.
+          inspire_role: author
+        - full_name: Panero, M.
+          inspire_role: author
+        - full_name: Scanavino, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c38"><label>[38]</label><mixed-citation publication-type="journal"><object-id>38</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name> and <string-name>P.
+          Grinza</string-name></person-group>, <article-title>On the intrinsic width of
+          the chromoelectric flux tube in finite temperature LGTs</article-title>, <source>J.
+          High Energy Phys.</source> <issue>11</issue> (<volume>2012</volume>) <page-range>174</page-range>.<pub-id
+          pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1007/JHEP11(2012)174</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2012'
+        journal_issue: '11'
+        page_start: '174'
+        artid: '174'
+      dois:
+        - 10.1007/JHEP11(2012)174
+      title:
+        title: On the intrinsic width of the chromoelectric flux tube in finite temperature
+          LGTs
+      label: '38'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Grinza, P.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c39"><label>[39]</label><mixed-citation id="c39a" publication-type="journal"><object-id>39a</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>A.
+          Nada</string-name>, and <string-name>M. Panero</string-name></person-group>,
+          <article-title>Hagedorn spectrum and thermodynamics of SU(2) and SU(3) Yang-Mills
+          theories</article-title>, <source>J. High Energy Phys.</source> <issue>07</issue>
+          (<volume>2015</volume>) <page-range>143</page-range>; <pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2015)143</pub-id></mixed-citation><mixed-citation
+          id="c39b" publication-type="journal" specific-use="author"><object-id>39b</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>A.
+          Nada</string-name>, and <string-name>M. Panero</string-name></person-group><article-title>Erratum</article-title>,
+          <source>J. High Energy Phys.</source> <issue>11</issue> (<volume>2017</volume>)
+          <page-range>016(E)</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP11(2017)016</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2015'
+        journal_issue: '07'
+        page_start: '143'
+        artid: '143'
+      dois:
+        - 10.1007/JHEP07(2015)143
+      title:
+        title: Hagedorn spectrum and thermodynamics of SU(2) and SU(3) Yang-Mills theories
+      label: '39'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Nada, A.
+          inspire_role: author
+        - full_name: Panero, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c39"><label>[39]</label><mixed-citation id="c39a" publication-type="journal"><object-id>39a</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>A.
+          Nada</string-name>, and <string-name>M. Panero</string-name></person-group>,
+          <article-title>Hagedorn spectrum and thermodynamics of SU(2) and SU(3) Yang-Mills
+          theories</article-title>, <source>J. High Energy Phys.</source> <issue>07</issue>
+          (<volume>2015</volume>) <page-range>143</page-range>; <pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP07(2015)143</pub-id></mixed-citation><mixed-citation
+          id="c39b" publication-type="journal" specific-use="author"><object-id>39b</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name>, <string-name>A.
+          Nada</string-name>, and <string-name>M. Panero</string-name></person-group><article-title>Erratum</article-title>,
+          <source>J. High Energy Phys.</source> <issue>11</issue> (<volume>2017</volume>)
+          <page-range>016(E)</page-range>.<pub-id pub-id-type="coden">JHEPFG</pub-id><issn>1029-8479</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1007/JHEP11(2017)016</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. High Energy Phys.
+        journal_volume: '2017'
+        journal_issue: '11'
+        artid: 016(E)
+      dois:
+        - 10.1007/JHEP11(2017)016
+      title:
+        title: Erratum
+      label: '39'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Nada, A.
+          inspire_role: author
+        - full_name: Panero, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c40"><label>[40]</label><mixed-citation publication-type="journal"><object-id>40</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name> and <string-name>A.
+          Nada</string-name></person-group>, <article-title><inline-formula><math display="inline"><mi>ξ</mi><mo
+          stretchy="false">/</mo><msub><mi>ξ</mi><mrow><mn>2</mn><mi>n</mi><mi>d</mi></mrow></msub></math></inline-formula>
+          ratio as a tool to refine effective Polyakov loop models</article-title>, <source>Phys.
+          Rev. D</source> <volume>96</volume>, <page-range>074503</page-range> (<year>2017</year>).<pub-id
+          pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevD.96.074503</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '96'
+        year: 2017
+        artid: '074503'
+      dois:
+        - 10.1103/PhysRevD.96.074503
+      title:
+        title: " ratio as a tool to refine effective Polyakov loop models"
+      label: '40'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Nada, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c41"><label>[41]</label><mixed-citation publication-type="journal"><object-id>41</object-id><person-group
+        person-group-type="author"><string-name>Y. Aoki</string-name>, <string-name>Z.
+        Fodor</string-name>, <string-name>S. D. Katz</string-name>, and <string-name>K. K.
+        Szabó</string-name></person-group>, <article-title>The QCD transition temperature:
+        Results with physical masses in the continuum limit</article-title>, <source>Phys.
+        Lett. B</source> <volume>643</volume>, <page-range>46</page-range> (<year>2006</year>).<pub-id
+        pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id pub-id-type="doi"
+        specific-use="suppress-display">10.1016/j.physletb.2006.10.021</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Lett. B
+        journal_volume: '643'
+        year: 2006
+        page_start: '46'
+        artid: '46'
+      dois:
+        - 10.1016/j.physletb.2006.10.021
+      title:
+        title: 'The QCD transition temperature: Results with physical masses in the
+          continuum limit'
+      label: '41'
+      authors:
+        - full_name: Aoki, Y.
+          inspire_role: author
+        - full_name: Fodor, Z.
+          inspire_role: author
+        - full_name: Katz, S.D.
+          inspire_role: author
+        - full_name: Szabó, K.K.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c42"><label>[42]</label><mixed-citation publication-type="journal"><object-id>42</object-id><person-group
+          person-group-type="author"><string-name>A. Bazavov</string-name>, <string-name>T.
+          Bhattacharya</string-name>, <string-name>M. Cheng</string-name>, <string-name>C.
+          DeTar</string-name>, <string-name>H. Ding</string-name> <etal/></person-group>,
+          <article-title>The chiral and deconfinement aspects of the QCD transition</article-title>,
+          <source>Phys. Rev. D</source> <volume>85</volume>, <page-range>054503</page-range>
+          (<year>2012</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.85.054503</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '85'
+        year: 2012
+        artid: '054503'
+      dois:
+        - 10.1103/PhysRevD.85.054503
+      title:
+        title: The chiral and deconfinement aspects of the QCD transition
+      label: '42'
+      authors:
+        - full_name: Bazavov, A.
+          inspire_role: author
+        - full_name: Bhattacharya, T.
+          inspire_role: author
+        - full_name: Cheng, M.
+          inspire_role: author
+        - full_name: DeTar, C.
+          inspire_role: author
+        - full_name: Ding, H.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c43"><label>[43]</label><mixed-citation publication-type="journal"><object-id>43</object-id><person-group
+          person-group-type="author"><string-name>R. D. Pisarski</string-name> and <string-name>F.
+          Wilczek</string-name></person-group>, <article-title>Remarks on the chiral phase
+          transition in chromodynamics</article-title>, <source>Phys. Rev. D</source>
+          <volume>29</volume>, <page-range>338</page-range> (<year>1984</year>).<pub-id
+          pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevD.29.338</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '29'
+        year: 1984
+        page_start: '338'
+        artid: '338'
+      dois:
+        - 10.1103/PhysRevD.29.338
+      title:
+        title: Remarks on the chiral phase transition in chromodynamics
+      label: '43'
+      authors:
+        - full_name: Pisarski, R.D.
+          inspire_role: author
+        - full_name: Wilczek, F.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c44"><label>[44]</label><mixed-citation publication-type="journal"><object-id>44</object-id><person-group
+          person-group-type="author"><string-name>F. Karsch</string-name>, <string-name>E.
+          Laermann</string-name>, and <string-name>C. Schmidt</string-name></person-group>,
+          <article-title>The chiral critical point in three-flavor QCD</article-title>,
+          <source>Phys. Lett. B</source> <volume>520</volume>, <page-range>41</page-range>
+          (<year>2001</year>).<pub-id pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/S0370-2693(01)01114-5</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Lett. B
+        journal_volume: '520'
+        year: 2001
+        page_start: '41'
+        artid: '41'
+      dois:
+        - 10.1016/S0370-2693(01)01114-5
+      title:
+        title: The chiral critical point in three-flavor QCD
+      label: '44'
+      authors:
+        - full_name: Karsch, F.
+          inspire_role: author
+        - full_name: Laermann, E.
+          inspire_role: author
+        - full_name: Schmidt, C.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c45"><label>[45]</label><mixed-citation publication-type="journal"><object-id>45</object-id><person-group
+          person-group-type="author"><string-name>A. Bazavov</string-name>, <string-name>H. T.
+          Ding</string-name>, <string-name>P. Hegde</string-name>, <string-name>F. Karsch</string-name>,
+          <string-name>E. Laermann</string-name>, <string-name>S. Mukherjee</string-name>,
+          <string-name>P. Petreczky</string-name>, and <string-name>C. Schmidt</string-name></person-group>,
+          <article-title>Chiral phase structure of three flavor QCD at vanishing baryon
+          number density</article-title>, <source>Phys. Rev. D</source> <volume>95</volume>,
+          <page-range>074505</page-range> (<year>2017</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.95.074505</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '95'
+        year: 2017
+        artid: '074505'
+      dois:
+        - 10.1103/PhysRevD.95.074505
+      title:
+        title: Chiral phase structure of three flavor QCD at vanishing baryon number
+          density
+      label: '45'
+      authors:
+        - full_name: Bazavov, A.
+          inspire_role: author
+        - full_name: Ding, H.T.
+          inspire_role: author
+        - full_name: Hegde, P.
+          inspire_role: author
+        - full_name: Karsch, F.
+          inspire_role: author
+        - full_name: Laermann, E.
+          inspire_role: author
+        - full_name: Mukherjee, S.
+          inspire_role: author
+        - full_name: Petreczky, P.
+          inspire_role: author
+        - full_name: Schmidt, C.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c46"><label>[46]</label><mixed-citation publication-type="journal"><object-id>46</object-id><person-group
+          person-group-type="author"><string-name>R. A. Lacey</string-name>, <string-name>N. N.
+          Ajitanand</string-name>, <string-name>J. M. Alexander</string-name>, <string-name>P.
+          Chung</string-name>, <string-name>W. G. Holzmann</string-name>, <string-name>M.
+          Issah</string-name>, <string-name>A. Taranenko</string-name>, <string-name>P.
+          Danielewicz</string-name>, and <string-name>H. Stöcker</string-name></person-group>,
+          <article-title>Has the QCD Critical Point Been Signaled by Observations at RHIC?</article-title>,
+          <source>Phys. Rev. Lett.</source> <volume>98</volume>, <page-range>092301</page-range>
+          (<year>2007</year>).<pub-id pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevLett.98.092301</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. Lett.
+        journal_volume: '98'
+        year: 2007
+        artid: 092301
+      dois:
+        - 10.1103/PhysRevLett.98.092301
+      title:
+        title: Has the QCD Critical Point Been Signaled by Observations at RHIC?
+      label: '46'
+      authors:
+        - full_name: Lacey, R.A.
+          inspire_role: author
+        - full_name: Ajitanand, N.N.
+          inspire_role: author
+        - full_name: Alexander, J.M.
+          inspire_role: author
+        - full_name: Chung, P.
+          inspire_role: author
+        - full_name: Holzmann, W.G.
+          inspire_role: author
+        - full_name: Issah, M.
+          inspire_role: author
+        - full_name: Taranenko, A.
+          inspire_role: author
+        - full_name: Danielewicz, P.
+          inspire_role: author
+        - full_name: Stöcker, H.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c47"><label>[47]</label><mixed-citation publication-type="journal"><object-id>47</object-id><person-group
+          person-group-type="author"><string-name>M. A. Stephanov</string-name>, <string-name>K.
+          Rajagopal</string-name>, and <string-name>E. V. Shuryak</string-name></person-group>,
+          <article-title>Signatures of the Tricritical Point in QCD</article-title>, <source>Phys.
+          Rev. Lett.</source> <volume>81</volume>, <page-range>4816</page-range> (<year>1998</year>).<pub-id
+          pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevLett.81.4816</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. Lett.
+        journal_volume: '81'
+        year: 1998
+        page_start: '4816'
+        artid: '4816'
+      dois:
+        - 10.1103/PhysRevLett.81.4816
+      title:
+        title: Signatures of the Tricritical Point in QCD
+      label: '47'
+      authors:
+        - full_name: Stephanov, M.A.
+          inspire_role: author
+        - full_name: Rajagopal, K.
+          inspire_role: author
+        - full_name: Shuryak, E.V.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c48"><label>[48]</label><mixed-citation publication-type="journal"><object-id>48</object-id><person-group
+          person-group-type="author"><string-name>L. Adamczyk</string-name> <etal/> (<collab>STAR
+          Collaboration</collab>)</person-group>, <article-title>Energy Dependence of
+          Moments of Net-Proton Multiplicity Distributions at RHIC</article-title>, <source>Phys.
+          Rev. Lett.</source> <volume>112</volume>, <page-range>032302</page-range> (<year>2014</year>).<pub-id
+          pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevLett.112.032302</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. Lett.
+        journal_volume: '112'
+        year: 2014
+        artid: '032302'
+      dois:
+        - 10.1103/PhysRevLett.112.032302
+      title:
+        title: Energy Dependence of Moments of Net-Proton Multiplicity Distributions
+          at RHIC
+      label: '48'
+      authors:
+        - full_name: Adamczyk, L.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c49"><label>[49]</label><mixed-citation publication-type="journal"><object-id>49</object-id><person-group
+          person-group-type="author"><string-name>R. A. Lacey</string-name></person-group>,
+          <article-title>Indications for a Critical End Point in the Phase Diagram for
+          Hot and Dense Nuclear Matter</article-title>, <source>Phys. Rev. Lett.</source>
+          <volume>114</volume>, <page-range>142301</page-range> (<year>2015</year>).<pub-id
+          pub-id-type="coden">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevLett.114.142301</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. Lett.
+        journal_volume: '114'
+        year: 2015
+        artid: '142301'
+      dois:
+        - 10.1103/PhysRevLett.114.142301
+      title:
+        title: Indications for a Critical End Point in the Phase Diagram for Hot and
+          Dense Nuclear Matter
+      label: '49'
+      authors:
+        - full_name: Lacey, R.A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c50"><label>[50]</label><mixed-citation publication-type="journal"><object-id>50</object-id><person-group
+          person-group-type="author"><string-name>M. Gazdzicki</string-name> and <string-name>P.
+          Seyboth</string-name></person-group>, <article-title>Search for critical behaviour
+          of strongly interacting matter at the CERN super proton synchrotron</article-title>,
+          <source>Acta Phys. Pol. B</source> <volume>47</volume>, <page-range>1201</page-range>
+          (<year>2016</year>).<pub-id pub-id-type="coden">APOBBB</pub-id><issn>0587-4254</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.5506/APhysPolB.47.1201</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Acta Phys. Pol. B
+        journal_volume: '47'
+        year: 2016
+        page_start: '1201'
+        artid: '1201'
+      dois:
+        - 10.5506/APhysPolB.47.1201
+      title:
+        title: Search for critical behaviour of strongly interacting matter at the CERN
+          super proton synchrotron
+      label: '50'
+      authors:
+        - full_name: Gazdzicki, M.
+          inspire_role: author
+        - full_name: Seyboth, P.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c51"><label>[51]</label><mixed-citation publication-type="journal"><object-id>51</object-id><person-group
+          person-group-type="author"><string-name>A. Adare</string-name> <etal/> (<collab>PHENIX
+          Collaboration</collab>)</person-group>, <article-title>Measurement of higher
+          cumulants of net-charge multiplicity distributions in <inline-formula><math
+          display="inline"><mrow><mi>Au</mi><mrow><mo stretchy="false">+</mo></mrow><mi>Au</mi></mrow></math></inline-formula>
+          collisions at <inline-formula><math display="inline"><mrow><msqrt><mrow><msub><mrow><mi>s</mi></mrow><mrow><mi>N</mi><mi>N</mi></mrow></msub></mrow></msqrt><mo>=</mo><mn>7.7</mn><mi>–</mi><mn>200</mn><mtext> </mtext><mtext> </mtext><mi>GeV</mi></mrow></math></inline-formula></article-title>,
+          <source>Phys. Rev. C</source> <volume>93</volume>, <page-range>011901</page-range>
+          (<year>2016</year>).<pub-id pub-id-type="coden">PRVCAN</pub-id><issn>2469-9985</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevC.93.011901</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. C
+        journal_volume: '93'
+        year: 2016
+        artid: 011901
+      dois:
+        - 10.1103/PhysRevC.93.011901
+      title:
+        title: 'Measurement of higher cumulants of net-charge multiplicity distributions
+          in '
+      label: '51'
+      authors:
+        - full_name: Adare, A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c52"><label>[52]</label><mixed-citation publication-type="journal"><object-id>52</object-id><person-group
+          person-group-type="author"><string-name>L. Adamczyk</string-name> <etal/> (<collab>STAR
+          Collaboration</collab>)</person-group>, <article-title>Collision energy dependence
+          of moments of net-kaon multiplicity distributions at RHIC</article-title>, <source>Phys.
+          Lett. B</source> <volume>785</volume>, <page-range>551</page-range> (<year>2018</year>).<pub-id
+          pub-id-type="coden">PYLBAJ</pub-id><issn>0370-2693</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1016/j.physletb.2018.07.066</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Lett. B
+        journal_volume: '785'
+        year: 2018
+        page_start: '551'
+        artid: '551'
+      dois:
+        - 10.1016/j.physletb.2018.07.066
+      title:
+        title: Collision energy dependence of moments of net-kaon multiplicity distributions
+          at RHIC
+      label: '52'
+      authors:
+        - full_name: Adamczyk, L.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c53"><label>[53]</label><mixed-citation publication-type="eprint"><object-id>53</object-id><person-group
+        person-group-type="author"><string-name>Y. Yin</string-name></person-group>,
+        <article-title>The QCD critical point hunt: Emergent new ideas and new dynamics</article-title>,
+        <pub-id pub-id-type="arxiv">arXiv:1811.06519</pub-id>.</mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      arxiv_eprint: '1811.06519'
+      title:
+        title: 'The QCD critical point hunt: Emergent new ideas and new dynamics'
+      label: '53'
+      authors:
+        - full_name: Yin, Y.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c54"><label>[54]</label><mixed-citation publication-type="journal"><object-id>54</object-id><person-group
+          person-group-type="author"><string-name>P. de Forcrand</string-name></person-group>,
+          <article-title>Simulating QCD at finite density</article-title>, <source>Proc.
+          Sci.</source> <issue>LAT2009</issue> (<volume>2009</volume>) <page-range>010</page-range>.<issn>1824-8039</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.22323/1.091.0010</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Proc. Sci.
+        journal_volume: '2009'
+        journal_issue: LAT2009
+        page_start: '010'
+        artid: '010'
+      dois:
+        - 10.22323/1.091.0010
+      title:
+        title: Simulating QCD at finite density
+      label: '54'
+      authors:
+        - full_name: de Forcrand, P.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c55"><label>[55]</label><mixed-citation publication-type="journal"><object-id>55</object-id><person-group
+          person-group-type="author"><string-name>C. Gattringer</string-name> and <string-name>K.
+          Langfeld</string-name></person-group>, <article-title>Approaches to the sign
+          problem in lattice field theory</article-title>, <source>Int. J. Mod. Phys.
+          A</source> <volume>31</volume>, <page-range>1643007</page-range> (<year>2016</year>).<pub-id
+          pub-id-type="coden">IMPAEF</pub-id><issn>0217-751X</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1142/S0217751X16430077</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Int. J. Mod. Phys. A
+        journal_volume: '31'
+        year: 2016
+        artid: '1643007'
+      dois:
+        - 10.1142/S0217751X16430077
+      title:
+        title: Approaches to the sign problem in lattice field theory
+      label: '55'
+      authors:
+        - full_name: Gattringer, C.
+          inspire_role: author
+        - full_name: Langfeld, K.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c56"><label>[56]</label><mixed-citation publication-type="journal"><object-id>56</object-id><person-group
+          person-group-type="author"><string-name>M. G. Alford</string-name>, <string-name>K.
+          Rajagopal</string-name>, and <string-name>F. Wilczek</string-name></person-group>,
+          <article-title>Color-flavor locking and chiral symmetry breaking in high density
+          QCD</article-title>, <source>Nucl. Phys.</source> <volume>B537</volume>, <page-range>443</page-range>
+          (<year>1999</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/S0550-3213(98)00668-3</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B537
+        year: 1999
+        page_start: '443'
+        artid: '443'
+      dois:
+        - 10.1016/S0550-3213(98)00668-3
+      title:
+        title: Color-flavor locking and chiral symmetry breaking in high density QCD
+      label: '56'
+      authors:
+        - full_name: Alford, M.G.
+          inspire_role: author
+        - full_name: Rajagopal, K.
+          inspire_role: author
+        - full_name: Wilczek, F.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: '<ref id="c57"><label>[57]</label><mixed-citation publication-type="journal"><object-id>57</object-id><person-group
+        person-group-type="author"><string-name>M. A. Stephanov</string-name></person-group>,
+        <article-title>QCD phase diagram: An overview</article-title>, <source>Proc.
+        Sci.</source> <issue>LAT2006</issue> (<volume>2006</volume>) <page-range>024</page-range>.<issn>1824-8039</issn><pub-id
+        pub-id-type="doi" specific-use="suppress-display">10.22323/1.032.0024</pub-id></mixed-citation></ref>'
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Proc. Sci.
+        journal_volume: '2006'
+        journal_issue: LAT2006
+        page_start: '024'
+        artid: '024'
+      dois:
+        - 10.22323/1.032.0024
+      title:
+        title: 'QCD phase diagram: An overview'
+      label: '57'
+      authors:
+        - full_name: Stephanov, M.A.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c58"><label>[58]</label><mixed-citation publication-type="journal"><object-id>58</object-id><person-group
+          person-group-type="author"><string-name>A. M. Halasz</string-name>, <string-name>A. D.
+          Jackson</string-name>, <string-name>R. E. Shrock</string-name>, <string-name>M. A.
+          Stephanov</string-name>, and <string-name>J. J. M. Verbaarschot</string-name></person-group>,
+          <article-title>Phase diagram of QCD</article-title>, <source>Phys. Rev. D</source>
+          <volume>58</volume>, <page-range>096007</page-range> (<year>1998</year>).<pub-id
+          pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevD.58.096007</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '58'
+        year: 1998
+        artid: 096007
+      dois:
+        - 10.1103/PhysRevD.58.096007
+      title:
+        title: Phase diagram of QCD
+      label: '58'
+      authors:
+        - full_name: Halasz, A.M.
+          inspire_role: author
+        - full_name: Jackson, A.D.
+          inspire_role: author
+        - full_name: Shrock, R.E.
+          inspire_role: author
+        - full_name: Stephanov, M.A.
+          inspire_role: author
+        - full_name: Verbaarschot, J.J.M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c59"><label>[59]</label><mixed-citation publication-type="journal"><object-id>59</object-id><person-group
+          person-group-type="author"><string-name>J. Berges</string-name> and <string-name>K.
+          Rajagopal</string-name></person-group>, <article-title>Color superconductivity
+          and chiral symmetry restoration at non-zero baryon density and temperature</article-title>,
+          <source>Nucl. Phys.</source> <volume>B538</volume>, <page-range>215</page-range>
+          (<year>1999</year>).<pub-id pub-id-type="coden">NUPBBO</pub-id><issn>0550-3213</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1016/S0550-3213(98)00620-8</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Nucl. Phys.
+        journal_volume: B538
+        year: 1999
+        page_start: '215'
+        artid: '215'
+      dois:
+        - 10.1016/S0550-3213(98)00620-8
+      title:
+        title: Color superconductivity and chiral symmetry restoration at non-zero baryon
+          density and temperature
+      label: '59'
+      authors:
+        - full_name: Berges, J.
+          inspire_role: author
+        - full_name: Rajagopal, K.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c60"><label>[60]</label><mixed-citation publication-type="journal"><object-id>60</object-id><person-group
+          person-group-type="author"><string-name>Y. Hatta</string-name> and <string-name>T.
+          Ikeda</string-name></person-group>, <article-title>Universality, the QCD critical/tricritical
+          point and the quark number susceptibility</article-title>, <source>Phys. Rev.
+          D</source> <volume>67</volume>, <page-range>014028</page-range> (<year>2003</year>).<pub-id
+          pub-id-type="coden">PRVDAQ</pub-id><issn>0556-2821</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevD.67.014028</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '67'
+        year: 2003
+        artid: 014028
+      dois:
+        - 10.1103/PhysRevD.67.014028
+      title:
+        title: Universality, the QCD critical/tricritical point and the quark number
+          susceptibility
+      label: '60'
+      authors:
+        - full_name: Hatta, Y.
+          inspire_role: author
+        - full_name: Ikeda, T.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c61"><label>[61]</label><mixed-citation publication-type="journal"><object-id>61</object-id><person-group
+          person-group-type="author"><string-name>C. Nonaka</string-name> and <string-name>M.
+          Asakawa</string-name></person-group>, <article-title>Hydrodynamical evolution
+          near the QCD critical end point</article-title>, <source>Phys. Rev. C</source>
+          <volume>71</volume>, <page-range>044904</page-range> (<year>2005</year>).<pub-id
+          pub-id-type="coden">PRVCAN</pub-id><issn>0556-2813</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevC.71.044904</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. C
+        journal_volume: '71'
+        year: 2005
+        artid: 044904
+      dois:
+        - 10.1103/PhysRevC.71.044904
+      title:
+        title: Hydrodynamical evolution near the QCD critical end point
+      label: '61'
+      authors:
+        - full_name: Nonaka, C.
+          inspire_role: author
+        - full_name: Asakawa, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c62"><label>[62]</label><mixed-citation publication-type="journal"><object-id>62</object-id><person-group
+          person-group-type="author"><string-name>N. G. Antoniou</string-name> and <string-name>F. K.
+          Diakonos</string-name></person-group>, <article-title>Ising-QCD phenomenology
+          close to the critical point</article-title>, <source>J. Phys. G</source> <volume>46</volume>,
+          <page-range>035101</page-range> (<year>2019</year>).<pub-id pub-id-type="coden">JPGPED</pub-id><issn>0954-3899</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1088/1361-6471/aafead</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Phys. G
+        journal_volume: '46'
+        year: 2019
+        artid: '035101'
+      dois:
+        - 10.1088/1361-6471/aafead
+      title:
+        title: Ising-QCD phenomenology close to the critical point
+      label: '62'
+      authors:
+        - full_name: Antoniou, N.G.
+          inspire_role: author
+        - full_name: Diakonos, F.K.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c63"><label>[63]</label><mixed-citation publication-type="journal"><object-id>63</object-id><person-group
+          person-group-type="author"><string-name>P. Parotto</string-name>, <string-name>M.
+          Bluhm</string-name>, <string-name>D. Mroczek</string-name>, <string-name>M.
+          Nahrgang</string-name>, <string-name>J. Noronha-Hostler</string-name>, <string-name>K.
+          Rajagopal</string-name>, <string-name>C. Ratti</string-name>, <string-name>T.
+          Schäfer</string-name>, and <string-name>M. Stephanov</string-name></person-group>,
+          <article-title>QCD equation of state matched to lattice data and exhibiting
+          a critical point singularity</article-title>, <source>Phys. Rev. C</source>
+          <volume>101</volume>, <page-range>034901</page-range> (<year>2020</year>).<pub-id
+          pub-id-type="coden">PRVCAN</pub-id><issn>2469-9985</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1103/PhysRevC.101.034901</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. C
+        journal_volume: '101'
+        year: 2020
+        artid: 034901
+      dois:
+        - 10.1103/PhysRevC.101.034901
+      title:
+        title: QCD equation of state matched to lattice data and exhibiting a critical
+          point singularity
+      label: '63'
+      authors:
+        - full_name: Parotto, P.
+          inspire_role: author
+        - full_name: Bluhm, M.
+          inspire_role: author
+        - full_name: Mroczek, D.
+          inspire_role: author
+        - full_name: Nahrgang, M.
+          inspire_role: author
+        - full_name: Noronha-Hostler, J.
+          inspire_role: author
+        - full_name: Rajagopal, K.
+          inspire_role: author
+        - full_name: Ratti, C.
+          inspire_role: author
+        - full_name: Schäfer, T.
+          inspire_role: author
+        - full_name: Stephanov, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c64"><label>[64]</label><mixed-citation publication-type="journal"><object-id>64</object-id><person-group
+          person-group-type="author"><string-name>M. S. Pradeep</string-name> and <string-name>M.
+          Stephanov</string-name></person-group>, <article-title>Universality of the critical
+          point mapping between Ising model and QCD at small quark mass</article-title>,
+          <source>Phys. Rev. D</source> <volume>100</volume>, <page-range>056003</page-range>
+          (<year>2019</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.100.056003</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '100'
+        year: 2019
+        artid: '056003'
+      dois:
+        - 10.1103/PhysRevD.100.056003
+      title:
+        title: Universality of the critical point mapping between Ising model and QCD
+          at small quark mass
+      label: '64'
+      authors:
+        - full_name: Pradeep, M.S.
+          inspire_role: author
+        - full_name: Stephanov, M.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c65"><label>[65]</label><mixed-citation publication-type="journal"><object-id>65</object-id><person-group
+          person-group-type="author"><string-name>M. Martinez</string-name>, <string-name>T.
+          Schäfer</string-name>, and <string-name>V. Skokov</string-name></person-group>,
+          <article-title>Critical behavior of the bulk viscosity in QCD</article-title>,
+          <source>Phys. Rev. D</source> <volume>100</volume>, <page-range>074017</page-range>
+          (<year>2019</year>).<pub-id pub-id-type="coden">PRVDAQ</pub-id><issn>2470-0010</issn><pub-id
+          pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevD.100.074017</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: Phys. Rev. D
+        journal_volume: '100'
+        year: 2019
+        artid: '074017'
+      dois:
+        - 10.1103/PhysRevD.100.074017
+      title:
+        title: Critical behavior of the bulk viscosity in QCD
+      label: '65'
+      authors:
+        - full_name: Martinez, M.
+          inspire_role: author
+        - full_name: Schäfer, T.
+          inspire_role: author
+        - full_name: Skokov, V.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c66"><label>[66]</label><mixed-citation publication-type="journal"><object-id>66</object-id><person-group
+          person-group-type="author"><string-name>Z. Komargodski</string-name> and <string-name>D.
+          Simmons-Duffin</string-name></person-group>, <article-title>The random-bond
+          Ising model in 2.01 and 3 dimensions</article-title>, <source>J. Phys. A</source>
+          <volume>50</volume>, <page-range>154001</page-range> (<year>2017</year>).<pub-id
+          pub-id-type="coden">JPAMB5</pub-id><issn>1751-8113</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1088/1751-8121/aa6087</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Phys. A
+        journal_volume: '50'
+        year: 2017
+        artid: '154001'
+      dois:
+        - 10.1088/1751-8121/aa6087
+      title:
+        title: The random-bond Ising model in 2.01 and 3 dimensions
+      label: '66'
+      authors:
+        - full_name: Komargodski, Z.
+          inspire_role: author
+        - full_name: Simmons-Duffin, D.
+          inspire_role: author
+  - raw_refs:
+      - schema: JATS
+        value: <ref id="c67"><label>[67]</label><mixed-citation publication-type="journal"><object-id>67</object-id><person-group
+          person-group-type="author"><string-name>M. Caselle</string-name> and <string-name>M.
+          Hasenbusch</string-name></person-group>, <article-title>Universal amplitude
+          ratios in the three-dimensional Ising model</article-title>, <source>J. Phys.
+          A</source> <volume>30</volume>, <page-range>4963</page-range> (<year>1997</year>).<pub-id
+          pub-id-type="coden">JPHAC5</pub-id><issn>0305-4470</issn><pub-id pub-id-type="doi"
+          specific-use="suppress-display">10.1088/0305-4470/30/14/010</pub-id></mixed-citation></ref>
+        source: American Physical Society
+    reference:
+      publication_info:
+        journal_title: J. Phys. A
+        journal_volume: '30'
+        year: 1997
+        page_start: '4963'
+        artid: '4963'
+      dois:
+        - 10.1088/0305-4470/30/14/010
+      title:
+        title: Universal amplitude ratios in the three-dimensional Ising model
+      label: '67'
+      authors:
+        - full_name: Caselle, M.
+          inspire_role: author
+        - full_name: Hasenbusch, M.
+          inspire_role: author

@@ -43,6 +43,7 @@ def get_parser_by_file(filename):
 
 
 @pytest.fixture(scope='module', params=[
+    ('PhysRevD.102.014505.xml', 'PhysRevD.102.014505_expected.yml'),
     ('PhysRevX.7.021022.xml', 'PhysRevX.7.021022_expected.yml'),
     ('PhysRevX.4.021018.xml', 'PhysRevX.4.021018_expected.yml'),
     ('PhysRevD.96.095036.xml', 'PhysRevD.96.095036_expected.yml'),
