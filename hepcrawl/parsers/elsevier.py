@@ -158,14 +158,15 @@ class ElsevierParser(object):
 
     @property
     def abstract(self):
-        abstract_nodes = self.root.xpath(".//head/abstract/abstract-sec/simple-para")
+        abstract_nodes = self.root.xpath(".//head/abstract[not(@graphical)]/abstract-sec/simple-para")
 
         if not abstract_nodes:
             return
 
-        abstract = remove_tags(
-            abstract_nodes[0], **self.remove_tags_config_abstract
-        ).strip("/ \n")
+        abstract_paragraphs = [remove_tags(
+            abstract_node, **self.remove_tags_config_abstract
+        ).strip("/ \n") for abstract_node in abstract_nodes]
+        abstract = ' '.join(abstract_paragraphs)
         return abstract
 
     @property

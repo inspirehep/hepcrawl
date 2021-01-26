@@ -1,0 +1,300 @@
+abstract: 'The present article complements the earlier ones in this series. The first part contains various results on the constituent system <math display="inline" id="d1e220" altimg="si1.svg"><mrow><msub><mrow><mi>C</mi></mrow><mrow><mi>κ</mi></mrow></msub><mrow><mo>(</mo><mi>M</mi><mo>)</mo></mrow></mrow></math> of a graph model <math display="inline" id="d1e238" altimg="si2.svg"><mi>M</mi></math>, and on its feasibility system <math display="inline" id="d1e243" altimg="si3.svg"><mrow><msub><mrow><mi>I</mi></mrow><mrow><mi>η</mi></mrow></msub><mrow><mo>(</mo><mi>M</mi><mo>)</mo></mrow></mrow></math> (which comprises a number of identities that define the number conservation rules). Those results include the general form of the (particle) number conservation rules in models without explicit propagator mixing. A few types of graph models (including self-conjugate and quasi-normal models) are defined. Oversimplifying, a model <math display="inline" id="d1e269" altimg="si2.svg"><mi>M</mi></math> is self-conjugate if it has a certain (weak) combinatorial type of C-symmetry, and <math display="inline" id="d1e274" altimg="si2.svg"><mi>M</mi></math> is quasi-normal if <math display="inline" id="d1e280" altimg="si3.svg"><mrow><msub><mrow><mi>I</mi></mrow><mrow><mi>η</mi></mrow></msub><mrow><mo>(</mo><mi>M</mi><mo>)</mo></mrow></mrow></math> fully determines for which multisets of coloured, unlinked half-edges there is a graph in <math display="inline" id="d1e298" altimg="si2.svg"><mi>M</mi></math> with that exact multiset. It is shown not only that every self-conjugate model is quasi-normal, but also that some extensions of self-conjugate models are still quasi-normal. Most conveniently, self-conjugate models (and even some extended models) may be recognized in polynomial time. These results seem to lead to the following conclusion: for many (possibly ‘most’ of the) consistent, relevant QFT models, a complete correlation function <math display="inline" id="d1e305" altimg="si8.svg"><mrow><mo>〈</mo><mi>F</mi><mo>〉</mo></mrow></math> is graphical — i.e. there exist Feynman diagram(s) for <math display="inline" id="d1e318" altimg="si8.svg"><mrow><mo>〈</mo><mi>F</mi><mo>〉</mo></mrow></math> — if and only if <math display="inline" id="d1e328" altimg="si8.svg"><mrow><mo>〈</mo><mi>F</mi><mo>〉</mo></mrow></math> is allowed by the number conservation rules (i.e. by a complete system of such rules). Since these rules can be computed in polynomial time then, for many QFT models, deciding whether <math display="inline" id="d1e339" altimg="si8.svg"><mrow><mo>〈</mo><mi>F</mi><mo>〉</mo></mrow></math> is graphical also takes polynomial time.'
+copyright_holder: Elsevier B.V.
+copyright_statement: © 2020 Elsevier B.V. All rights reserved.
+copyright_year: 2020
+document_type: article
+license_url: ''
+license_statement: ''
+keywords: ['Particle number conservation rules', 'Feynman diagrams', 'Graphical correlation functions', 'Systems of linear Diophantine equations']
+article_type: full-length article
+journal_title: Computer Physics Communications
+material: publication
+publisher: Elsevier B.V.
+year: 2021
+authors:
+- full_name: Nogueira, P.
+  raw_affiliations:
+  - value: CeFEMA, Instituto Superior Técnico, Universidade de Lisboa, Av. Rovisco
+      Pais 1, 1049-001 Lisboa, Portugal
+    source: Elsevier B.V.
+  emails:
+  - paulo.nogueira@tecnico.ulisboa.pt
+artid: '107740'
+title: From Feynman rules to conserved quantum numbers, III
+dois:
+- material: publication
+  doi: 10.1016/j.cpc.2020.107740
+journal_volume: '260'
+journal_issue: ''
+is_conference_paper: false
+publication_date: '2021-03'
+collaborations: []
+documents:
+- key: j.cpc.2020.107740.xml
+  url: http://example.org/j.cpc.2020.107740.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b1"><label>[1]</label><reference id="sb1"><contribution
+      langtype="en"><authors><author><surname>Nogueira</surname><given-name>P.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Comput.
+      Phys. Comm.</maintitle></title><volume-nr>214</volume-nr></series><date>2017</date></issue><pages><first-page>83</first-page><last-page>90</last-page></pages></host></reference><source-text
+      id="afs1">P. Nogueira, From Feynman rules to conserved quantum numbers I, Comput.
+      Phys. Commun. 214 (2017) 83–90.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Comput. Phys. Comm.
+      journal_volume: '214'
+      year: 2017
+      page_start: '83'
+      page_end: '90'
+    label: '1'
+    authors:
+    - full_name: Nogueira, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b2"><label>[2]</label><reference id="sb2"><contribution
+      langtype="en"><authors><author><surname>Nogueira</surname><given-name>P.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Comput.
+      Phys. Comm.</maintitle></title><volume-nr>215</volume-nr></series><date>2017</date></issue><pages><first-page>13</first-page><last-page>19</last-page></pages></host></reference><source-text
+      id="afs2">P. Nogueira, From Feynman rules to conserved quantum numbers II, Comput.
+      Phys. Commun. 215 (2017) 13–19.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Comput. Phys. Comm.
+      journal_volume: '215'
+      year: 2017
+      page_start: '13'
+      page_end: '19'
+    label: '2'
+    authors:
+    - full_name: Nogueira, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b3"><label>[3]</label><reference id="sb3"><contribution
+      langtype="en"><authors><author><surname>Schrijver</surname><given-name>A.</given-name></author></authors><title><maintitle>Theory
+      of Linear and Integer Programming</maintitle></title></contribution><host><book><date>1986</date><publisher><name>John
+      Wiley &amp; Sons</name><location>Chichester</location></publisher></book></host></reference><source-text
+      id="afs3">A. Schrijver, Theory of Linear and Integer Programming. John Wiley
+      &amp; Sons, Chichester, 1986.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 1986
+    label: '3'
+    authors:
+    - full_name: Schrijver, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b4"><label>[4]</label><reference id="sb4"><contribution
+      langtype="en"><authors><author><surname>Smith</surname><given-name>H.J.S.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Philos.
+      Trans. R. Soc. Lond. Ser. A</maintitle></title><volume-nr>151</volume-nr></series><date>1861</date></issue><pages><first-page>293</first-page><last-page>326</last-page></pages></host></reference><source-text
+      id="afs4">H.J.S. Smith, On systems of linear indeterminate equations and congruences,
+      Philos. Trans. R. Soc. Lond. Ser. A 151 (1861) 293–326.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Philos. Trans. R. Soc. Lond. Ser. A
+      journal_volume: '151'
+      year: 1861
+      page_start: '293'
+      page_end: '326'
+    label: '4'
+    authors:
+    - full_name: Smith, H.J.S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b5"><label>[5]</label><reference id="sb5"><contribution
+      langtype="en"><authors><author><surname>Hermite</surname><given-name>Ch.</given-name></author></authors></contribution><host><issue><series><title><maintitle>J.
+      Reine Angew. Math.</maintitle></title><volume-nr>41</volume-nr></series><date>1851</date></issue><pages><first-page>191</first-page><last-page>216</last-page></pages></host></reference><source-text
+      id="afs5">Ch. Hermite, Sur l’introduction des variables continues dans la théorie
+      des nombres, J. Reine Angew. Math. 41 (1851) 191–216.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Reine Angew. Math.
+      journal_volume: '41'
+      year: 1851
+      page_start: '191'
+      page_end: '216'
+    label: '5'
+    authors:
+    - full_name: Hermite, Ch.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b6"><label>[6]</label><reference id="sb6"><contribution
+      langtype="en"><authors><author><surname>Ivanov</surname><given-name>I.P.</given-name></author><author><surname>Keus</surname><given-name>V.</given-name></author><author><surname>Vdovin</surname><given-name>E.</given-name></author></authors></contribution><host><issue><series><title><maintitle>J.
+      Phys. A</maintitle></title><volume-nr>45</volume-nr></series><date>2012</date></issue><article-number>215201</article-number></host></reference><source-text
+      id="afs6">I.P. Ivanov, V. Keus, E. Vdovin, Abelian symmetries in multi-Higgs-doublet
+      models, J. Phys. A: Math. Theor. 45 (2012) 215201.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: J. Phys. A
+      journal_volume: '45'
+      year: 2012
+    label: '6'
+    authors:
+    - full_name: Ivanov, I.P.
+      inspire_role: author
+    - full_name: Keus, V.
+      inspire_role: author
+    - full_name: Vdovin, E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b7"><label>[7]</label><reference id="sb7"><contribution
+      langtype="en"><authors><author><surname>Ivanov</surname><given-name>I.P.</given-name></author><author><surname>Silva</surname><given-name>J.P.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D</maintitle></title><volume-nr>93</volume-nr></series><date>2016</date></issue><article-number>095014</article-number></host></reference><source-text
+      id="afs7">I.P. Ivanov, J.P. Silva, CP-conserving multi-Higgs model with irremovable
+      complex coefficients, Phys. Rev. D 93 (2016) 095014.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. D
+      journal_volume: '93'
+      year: 2016
+    label: '7'
+    authors:
+    - full_name: Ivanov, I.P.
+      inspire_role: author
+    - full_name: Silva, J.P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b8"><label>[8]</label><reference id="sb8"><contribution
+      langtype="en"><authors><author><surname>Domenjoud</surname><given-name>E.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Lecture
+      Notes in Comput. Sci.</maintitle></title><volume-nr>520</volume-nr></series><date>1991</date></issue><pages><first-page>141</first-page><last-page>150</last-page></pages></host></reference><source-text
+      id="afs8">E. Domenjoud, Solving systems of linear Diophantine equations: an
+      algebraic approach,</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Lecture Notes in Comput. Sci.
+      journal_volume: '520'
+      year: 1991
+      page_start: '141'
+      page_end: '150'
+    label: '8'
+    authors:
+    - full_name: Domenjoud, E.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b9"><label>[9]</label><reference id="sb9"><contribution
+      langtype="en"><authors><author><surname>Faddeev</surname><given-name>L.D.</given-name></author><author><surname>Popov</surname><given-name>V.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Lett. B</maintitle></title><volume-nr>25</volume-nr></series><date>1967</date></issue><pages><first-page>29</first-page><last-page>30</last-page></pages></host></reference><source-text
+      id="afs9">L.D. Faddeev, V. Popov, Feynman diagrams for the Yang-Mills field,
+      Phys. Lett. B. 25 (1967) 29–30.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Lett. B
+      journal_volume: '25'
+      year: 1967
+      page_start: '29'
+      page_end: '30'
+    label: '9'
+    authors:
+    - full_name: Faddeev, L.D.
+      inspire_role: author
+    - full_name: Popov, V.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b10"><label>[10]</label><reference id="sb10"><contribution
+      langtype="en"><authors><author><surname>Becchi</surname><given-name>C.</given-name></author><author><surname>Rouet</surname><given-name>A.</given-name></author><author><surname>Stora</surname><given-name>R.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Ann.
+      Physics</maintitle></title><volume-nr>98</volume-nr></series><date>1976</date></issue><pages><first-page>287</first-page><last-page>321</last-page></pages></host></reference><source-text
+      id="afs10">C. Becchi, A. Rouet, R. Stora, Renormalization of gauge theories,
+      Annals of Physics 98 (1976) 287–321.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Ann. Physics
+      journal_volume: '98'
+      year: 1976
+      page_start: '287'
+      page_end: '321'
+    label: '10'
+    authors:
+    - full_name: Becchi, C.
+      inspire_role: author
+    - full_name: Rouet, A.
+      inspire_role: author
+    - full_name: Stora, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b11"><label>[11]</label><reference id="sb11"><contribution
+      langtype="en"><authors><author><surname>Tyutin</surname><given-name>I.V.</given-name></author></authors><title><maintitle>Gauge
+      invariance in field theory and statistical physics in operator formalism</maintitle></title></contribution><host><book><date>1975</date></book></host><comment>Lebedev
+      Physics Institute preprint 39; <inter-ref id="interref1" role="http://www.elsevier.com/xml/linking-roles/preprint"
+      href="arxiv:0812.0580" type="simple">arXiv:0812.0580</inter-ref> [hep-th]</comment></reference><source-text
+      id="afs11">I.V. Tyutin, Gauge invariance in field theory and statistical physics
+      in operator formalism, Lebedev Physics Institute preprint 39 (1975)</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      year: 1975
+    arxiv_eprint: '0812.0580'
+    label: '11'
+    misc:
+    - Lebedev Physics Institute preprint 39;  [hep-th]
+    authors:
+    - full_name: Tyutin, I.V.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><reference id="rg12a"><contribution
+      langtype="en"><authors><author><surname>Batalin</surname><given-name>I.A.</given-name></author><author><surname>Vilkovisky</surname><given-name>G.A.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D.</maintitle></title><volume-nr>28</volume-nr></series><date>1983</date></issue><pages><first-page>2567</first-page><last-page>2582</last-page></pages></host></reference><reference
+      id="rg12b"><contribution langtype="en"><authors><author><surname>Batalin</surname><given-name>I.A.</given-name></author><author><surname>Vilkovisky</surname><given-name>G.A.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D</maintitle></title><volume-nr>30</volume-nr></series><date>1984</date></issue><pages><first-page>508</first-page></pages></host><comment>(erratum)</comment></reference><source-text
+      id="afs12">I.A.Batalin, G.A. Vilkovisky, Quantization of gauge theories with
+      linearly dependent generators, Phys. Rev. D. 28 (1983) 2567–2582;</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. D.
+      journal_volume: '28'
+      year: 1983
+      page_start: '2567'
+      page_end: '2582'
+    label: '12'
+    authors:
+    - full_name: Batalin, I.A.
+      inspire_role: author
+    - full_name: Vilkovisky, G.A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b12"><label>[12]</label><reference id="rg12a"><contribution
+      langtype="en"><authors><author><surname>Batalin</surname><given-name>I.A.</given-name></author><author><surname>Vilkovisky</surname><given-name>G.A.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D.</maintitle></title><volume-nr>28</volume-nr></series><date>1983</date></issue><pages><first-page>2567</first-page><last-page>2582</last-page></pages></host></reference><reference
+      id="rg12b"><contribution langtype="en"><authors><author><surname>Batalin</surname><given-name>I.A.</given-name></author><author><surname>Vilkovisky</surname><given-name>G.A.</given-name></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D</maintitle></title><volume-nr>30</volume-nr></series><date>1984</date></issue><pages><first-page>508</first-page></pages></host><comment>(erratum)</comment></reference><source-text
+      id="afs12">I.A.Batalin, G.A. Vilkovisky, Quantization of gauge theories with
+      linearly dependent generators, Phys. Rev. D. 28 (1983) 2567–2582;</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. D
+      journal_volume: '30'
+      year: 1984
+      page_start: '508'
+    label: '12'
+    misc:
+    - "(erratum)"
+    authors:
+    - full_name: Batalin, I.A.
+      inspire_role: author
+    - full_name: Vilkovisky, G.A.
+      inspire_role: author
