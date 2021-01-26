@@ -39,3 +39,8 @@ def deep_sort(element):
         return sorted([deep_sort(item) for item in element])
 
     return element
+
+
+def sort_list_of_records_by_record_title(list_to_sort):
+    """Sort list of records by record title"""
+    return sorted(list_to_sort, key=lambda k: k['titles'][0]['title'])

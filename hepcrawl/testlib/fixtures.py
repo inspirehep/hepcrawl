@@ -12,6 +12,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import json
 import shutil
+import yaml
 
 from scrapy.http import Request, TextResponse
 from scrapy.selector import Selector
@@ -130,7 +131,7 @@ def expected_json_results_from_file(*path_chunks, **kwargs):
     response_file = get_test_suite_path(*path_chunks, test_suite=test_suite)
 
     with open(response_file) as fd:
-        expected_data = json.load(fd)
+        expected_data = yaml.safe_load(fd)
 
     return expected_data
 

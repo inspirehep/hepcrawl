@@ -144,6 +144,16 @@ def test_dois(results):
             'source': 'arXiv',
             'value': '10.1103/PhysRevD.93.016005',
             'material': 'publication',
+        },
+        {
+            "value": "10.1103/PhysRevD.98.079901",
+            "source": "arXiv",
+            "material": "publication"
+        },
+        {
+            "value": "10.1103/PhysRevD.98.079903",
+            "source": "arXiv",
+            "material": "publication"
         }
     ]
     for record in results:

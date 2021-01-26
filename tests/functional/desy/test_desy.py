@@ -27,7 +27,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, sort_list_of_records_by_record_title
 
 
 S3_CONFIG = {
@@ -216,21 +216,15 @@ def test_desy(
     )
 
     crawl_result = crawl_results[0]
+    gotten_records = sort_list_of_records_by_record_title(
+        [
+            result['record'] for result in crawl_result['results_data']
+        ]
+    )
+    expected_results = sort_list_of_records_by_record_title(expected_results)
 
-    gotten_records = [
-        result['record'] for result in crawl_result['results_data']
-    ]
     gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
-
-    gotten_records = sorted(
-            gotten_records,
-            key=lambda record: record['titles'][0]['title'],
-        )
-    expected_results = sorted(
-            expected_results,
-            key=lambda result: result['titles'][0]['title'],
-        )
 
     #preproces s3 urls
     for rec in gotten_records:
@@ -239,8 +233,9 @@ def test_desy(
                 assert "&Expires=" in document['url']
                 document['url'] = document['url'].split('&Expires=')[0]
 
+    for record, expected_record in zip(gotten_records, expected_results):
+        assert DeepDiff(record, expected_record, ignore_order=True) == {}
 
-    assert DeepDiff(gotten_records, expected_results, ignore_order=True) == {}
     assert not crawl_result['errors']
 
 
@@ -322,20 +317,15 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
 
     crawl_result = crawl_results[0]
 
-    gotten_records = [
-        result['record'] for result in crawl_result['results_data']
-    ]
+    gotten_records = sort_list_of_records_by_record_title(
+        [
+            result['record'] for result in crawl_result['results_data']
+        ]
+    )
+    expected_results = sort_list_of_records_by_record_title(expected_results)
+
     gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
-
-    gotten_records = sorted(
-            gotten_records,
-            key=lambda record: record['titles'][0]['title'],
-        )
-    expected_results = sorted(
-            expected_results,
-            key=lambda result: result['titles'][0]['title'],
-        )
 
     # preproces s3 urls
     for rec in gotten_records:
@@ -344,7 +334,9 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
                 assert "&Expires=" in document['url']
                 document['url'] = document['url'].split('&Expires=')[0]
 
-    assert DeepDiff(gotten_records, expected_results, ignore_order=True) == {}
+    for record, expected_record in zip(gotten_records, expected_results):
+        assert DeepDiff(record, expected_record, ignore_order=True) == {}
+
     assert not crawl_result['errors']
 
     # Second crawl

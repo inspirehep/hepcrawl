@@ -238,7 +238,7 @@
     <subfield code="u">DESY</subfield>
   </datafield>
   <datafield tag="FFT" ind1=" " ind2=" ">
-    <subfield code="a">http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf</subfield>
+    <subfield code="a">https://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf</subfield>
     <subfield code="d">Fulltext</subfield>
     <subfield code="t">INSPIRE-PUBLIC</subfield>
   </datafield>

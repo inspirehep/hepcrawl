@@ -224,10 +224,10 @@
         "core": true,
         "documents": [
             {
-                "url":"http://localstack:4566/downloaded/full/9fa53d94584e605ee2f33c7ca0f273872a0ef693.pdf?AWSAccessKeyId=key",
+                "url":"http://localstack:4566/downloaded/full/2eeed0d0cb1b2fcffd6dd16e2097fcf055499152.pdf?AWSAccessKeyId=key",
                 "fulltext":true,
                 "key":"document",
-                "original_url":"http://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf"
+                "original_url":"https://bib-pubdb1.desy.de/record/389977/files/desy-thesis-17-035.title.pdf"
             }
         ], 
         "thesis_info": {
