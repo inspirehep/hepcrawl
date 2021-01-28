@@ -11,6 +11,7 @@
 
 from __future__ import absolute_import, division, print_function
 
+from itertools import chain
 import re
 
 import six
@@ -35,6 +36,8 @@ RE_THESIS = re.compile(
     re.I | re.U,
 )
 RE_PAGES = re.compile(r'(?i)(\d+)\s*pages?\b')
+
+RE_DOIS = re.compile(r'[,;\s]+(?=\s*10[.]\d{4,})')
 
 
 class ArxivParser(object):
@@ -227,8 +230,9 @@ class ArxivParser(object):
     @property
     def dois(self):
         doi_values = self.root.xpath('.//doi/text()').extract()
+        doi_values_splitted = chain.from_iterable([re.split(RE_DOIS, doi) for doi in doi_values])
         dois = [
-            {'doi': value, 'material': 'publication'} for value in doi_values
+            {'doi': value, 'material': 'publication'} for value in doi_values_splitted
         ]
 
         return dois
@@ -236,7 +240,7 @@ class ArxivParser(object):
     @property
     def licenses(self):
         licenses = self.root.xpath('.//license/text()').extract()
-        return [{'url':license, 'material': self.material} for license in licenses]
+        return [{'url': license, 'material': self.material} for license in licenses]
 
     @property
     def material(self):

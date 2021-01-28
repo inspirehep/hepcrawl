@@ -24,7 +24,7 @@ from hepcrawl.testlib.fixtures import (
     clean_dir,
 )
 from hepcrawl.testlib.tasks import app as celery_app
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, sort_list_of_records_by_record_title
 
 
 @pytest.fixture(scope="function")
@@ -146,13 +146,13 @@ def test_wsp(expected_results, settings, cleanup):
 
     crawl_result = crawl_results[0]
 
-    gotten_results = [
+    gotten_results = sort_list_of_records_by_record_title([
         override_generated_fields(result['record'])
         for result in crawl_result['results_data']
-    ]
-    expected_results = [
+    ])
+    expected_results = sort_list_of_records_by_record_title([
         override_generated_fields(expected) for expected in expected_results
-    ]
+    ])
 
     assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
     assert gotten_results == expected_results
@@ -205,13 +205,13 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
 
     crawl_result = crawl_results[0]
 
-    gotten_results = [
+    gotten_results = sort_list_of_records_by_record_title([
         override_generated_fields(result['record'])
         for result in crawl_result['results_data']
-    ]
-    expected_results = [
+    ])
+    expected_results = sort_list_of_records_by_record_title([
         override_generated_fields(expected) for expected in expected_results
-    ]
+    ])
 
     assert gotten_results == expected_results
     assert not crawl_result['errors']

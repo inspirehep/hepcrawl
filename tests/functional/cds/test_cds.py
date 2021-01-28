@@ -17,7 +17,7 @@ import pytest
 from deepdiff import DeepDiff
 from hepcrawl.testlib.tasks import app as celery_app
 from hepcrawl.testlib.celery_monitor import CeleryMonitor
-from hepcrawl.testlib.utils import get_crawler_instance
+from hepcrawl.testlib.utils import get_crawler_instance, sort_list_of_records_by_record_title
 from hepcrawl.testlib.fixtures import (
     get_test_suite_path,
     expected_json_results_from_file,
@@ -116,13 +116,18 @@ def test_cds(
 
     crawl_result = crawl_results[0]
 
-    gotten_results = [
-        override_generated_fields(result['record'])
-        for result in crawl_result['results_data']
-    ]
-    expected_results = [
-        override_generated_fields(expected) for expected in expected_results
-    ]
+    gotten_results = sort_list_of_records_by_record_title(
+        [
+            override_generated_fields(result['record'])
+            for result in crawl_result['results_data']
+        ]
+    )
+    expected_results = sort_list_of_records_by_record_title(
+        [
+            override_generated_fields(expected) for expected in expected_results
+        ]
+    )
 
-    assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
+    for record, expected_record in zip(gotten_results, expected_results):
+        assert DeepDiff(record, expected_record, ignore_order=True) == {}
     assert not crawl_result['errors']
