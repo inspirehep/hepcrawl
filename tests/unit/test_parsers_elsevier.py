@@ -48,6 +48,8 @@ def get_parser_by_file(filename):
     ('j.nuclphysa.2020.121991.xml', 'j.nuclphysa.2020.121991_expected.yml'),
     ('j.nima.2019.162728.xml', 'j.nima.2019.162728_expected.yml'),
     ('j.nimb.2019.04.063.xml', 'j.nimb.2019.04.063_expected.yml'),
+    ('j.cpc.2020.107740.xml', 'j.cpc.2020.107740_expected.yml'),
+    ('j.scib.2020.01.008.xml', 'j.scib.2020.01.008_expected.yml'),
 ])
 def records(request):
     return {

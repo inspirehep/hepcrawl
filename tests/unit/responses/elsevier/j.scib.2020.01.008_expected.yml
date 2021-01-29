@@ -1,0 +1,1298 @@
+abstract: Jet component positions with respect to the core as a function of time and
+  the fitted proper motions. The left and right panels show the projected motions
+  along and perpendicular to the jet direction, respectively. High-resolution observations
+  of high-redshift (<math altimg="si19.svg"><mrow><mi>z</mi><mo>&gt;</mo><mn>4</mn></mrow></math>)
+  radio quasars offer a unique insight into jet kinematics at early cosmological
+  epochs, as well as constraints on cosmological model parameters. Due to the general
+  weakness of extremely distant objects and the apparently slow structural changes
+  caused by cosmological time dilation, only a couple of high-redshift quasars (HRQs)
+  have been studied with parsec-scale resolutions, and with limited number of observing
+  epochs. Here we report on very long baseline interferometry (VLBI) observations
+  of a high-redshift blazar J1430 + 4204 (<math altimg="si20.svg"><mrow><mi>z</mi><mo
+  linebreak="goodbreak" linebreakstyle="after">=</mo><mn>4.72</mn></mrow></math>)
+  in the 8 GHz frequency band at five different epochs spanning 22 years. The source
+  shows a compact core–jet structure with two jet components being identified within
+  3 milli-arcsecond (mas) scale. The long time span and multiple-epoch data allow
+  for the kinematic studies of the jet components. That results in a jet proper
+  motion of <math altimg="si21.svg"><mrow><mi>μ</mi><mo stretchy="false">(</mo><mi
+  mathvariant="normal">J</mi><mn>1</mn><mo stretchy="false">)</mo></mrow></math> = 0.017 ± 0.002
+  mas <math altimg="si22.svg"><mrow><msup><mrow><mi mathvariant="normal">a</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math>
+  and <math altimg="si23.svg"><mrow><mi>μ</mi><mo stretchy="false">(</mo><mi mathvariant="normal">J</mi><mn>2</mn><mo
+  stretchy="false">)</mo></mrow></math> = 0.156 ± 0.015 mas <math altimg="si24.svg"><mrow><msup><mrow><mi
+  mathvariant="normal">a</mi></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow></math>,
+  respectively. For the fastest-moving outer jet component J2, the corresponding
+  apparent transverse speed is <math altimg="si25.svg"><mrow><mo>(</mo><mn>19.5</mn><mo>±</mo><mn>1.9</mn><mo>)</mo><mspace
+  width="0.12em"/><mi>c</mi></mrow></math>. The inferred bulk jet Lorentz factor
+  <math altimg="si26.svg"><mrow><mi mathvariant="normal">Γ</mi><mo linebreak="goodbreak"
+  linebreakstyle="after">=</mo><mn>14.6</mn><mo>±</mo><mn>3.8</mn></mrow></math>
+  and viewing angle <math altimg="si27.svg"><mrow><mi>θ</mi><mo linebreak="goodbreak"
+  linebreakstyle="after">=</mo><mn>2.2</mn><mi>°</mi><mo>±</mo><mn>1.6</mn><mi>°</mi></mrow></math>
+  indicate highly relativistic beaming. The Lorentz factor and apparent proper motion
+  are the highest measured to date among the <math altimg="si28.svg"><mrow><mi>z</mi><mo>&gt;</mo><mn>4</mn></mrow></math>
+  jetted radio sources, while the jet kinematics is still consistent with the cosmological
+  interpretation of quasar redshifts.
+copyright_holder: Science China Press
+copyright_statement: © 2020 Science China Press. Published by Elsevier B.V. and Science China Press. All rights reserved.
+copyright_year: 2020
+document_type: article
+license_url: ''
+license_statement: ''
+keywords: ['Nuclei', 'High-redshift', 'Radio continuum', 'Quasars', 'Individual', 'J1430+4204']
+article_type: full-length article
+journal_title: Science Bulletin
+material: publication
+publisher: Elsevier B.V.
+year: 2020
+authors:
+- full_name: Zhang, Yingkang
+  raw_affiliations:
+  - value: Shanghai Astronomical Observatory, Chinese Academy of Sciences, Shanghai
+      200030, China
+    source: Elsevier B.V.
+  - value: University of Chinese Academy of Sciences, Beijing 100049, China
+    source: Elsevier B.V.
+- full_name: An, Tao
+  raw_affiliations:
+  - value: Shanghai Astronomical Observatory, Chinese Academy of Sciences, Shanghai
+      200030, China
+    source: Elsevier B.V.
+  - value: Key Laboratory of Radio Astronomy, Chinese Academy of Sciences, Nanjing
+      210008, China
+    source: Elsevier B.V.
+  emails:
+  - antao@shao.ac.cn
+- full_name: Frey, Sándor
+  raw_affiliations:
+  - value: Konkoly Observatory, Research Centre for Astronomy and Earth Sciences,
+      Konkoly Thege Miklós út 15-17, H-1121 Budapest, Hungary
+    source: Elsevier B.V.
+artid: '932'
+title: Fast jet proper motion discovered in a blazar at z=4.72
+dois:
+- material: publication
+  doi: 10.1016/j.scib.2020.01.008
+journal_volume: '65'
+journal_issue: ''
+is_conference_paper: false
+publication_date: '2020-04-15'
+collaborations: []
+documents:
+- key: j.scib.2020.01.008.xml
+  url: http://example.org/j.scib.2020.01.008.xml
+  source: Elsevier B.V.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0005"><label>[1]</label><reference id="h0005"><contribution
+      langtype="en"><authors><author><given-name>K.I.</given-name><surname>Kellermann</surname></author></authors><title><maintitle>The
+      cosmological deceleration parameter estimated from the angular-size/redshift
+      relation for compact radio sources</maintitle></title></contribution><host><issue><series><title><maintitle>Nature</maintitle></title><volume-nr>361</volume-nr></series><date>1993</date></issue><pages><first-page>134</first-page><last-page>136</last-page></pages></host></reference><source-text
+      id="str025">Kellermann KI. The cosmological deceleration parameter estimated
+      from the angular-size/redshift relation for compact radio sources. Nature 1993;361:134-6.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nature
+      journal_volume: '361'
+      year: 1993
+      page_start: '134'
+      page_end: '136'
+    label: '1'
+    authors:
+    - full_name: Kellermann, K.I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0010"><label>[2]</label><reference id="h0010"><contribution
+      langtype="en"><authors><author><given-name>L.I.</given-name><surname>Gurvits</surname></author><author><given-name>K.I.</given-name><surname>Kellermann</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author></authors><title><maintitle>The,
+      “angular size – redshift” relation for compact radio structures in quasars and
+      radio galaxies</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>342</volume-nr></series><date>1999</date></issue><pages><first-page>378</first-page><last-page>388</last-page></pages></host></reference><source-text
+      id="str030">Gurvits LI, Kellermann KI, &amp; Frey S. The “angular size - redshift”
+      relation for compact radio structures in quasars and radio galaxies. Astron
+      Astrophys 1999;342:378-88.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '342'
+      year: 1999
+      page_start: '378'
+      page_end: '388'
+    label: '2'
+    authors:
+    - full_name: Gurvits, L.I.
+      inspire_role: author
+    - full_name: Kellermann, K.I.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0015"><label>[3]</label><reference id="h0015"><contribution
+      langtype="en"><authors><author><given-name>E.</given-name><surname>Bañados</surname></author><author><given-name>B.P.</given-name><surname>Venemans</surname></author><author><given-name>C.</given-name><surname>Mazzucchelli</surname></author><et-al/></authors><title><maintitle>An
+      800-million-solar-mass black hole in a significantly neutral Universe at a redshift
+      of 7.5</maintitle></title></contribution><host><issue><series><title><maintitle>Nature</maintitle></title><volume-nr>553</volume-nr></series><date>2018</date></issue><pages><first-page>473</first-page><last-page>476</last-page></pages></host></reference><source-text
+      id="str035">Bañados E, Venemans BP, Mazzucchelli C, et al. An 800-million-solar-mass
+      black hole in a significantly neutral Universe at a redshift of 7.5. Nature
+      2018;553:473-6.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nature
+      journal_volume: '553'
+      year: 2018
+      page_start: '473'
+      page_end: '476'
+    label: '3'
+    authors:
+    - full_name: Bañados, E.
+      inspire_role: author
+    - full_name: Venemans, B.P.
+      inspire_role: author
+    - full_name: Mazzucchelli, C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0020"><label>[4]</label><reference id="h0020"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Jiang</surname></author><author><given-name>I.D.</given-name><surname>McGreer</surname></author><author><given-name>X.</given-name><surname>Fan</surname></author><et-al/></authors><title><maintitle>The
+      final SDSS high-redshift quasar sample of 52 quasars at <italic>z</italic><math
+      altimg="si88.svg"><mrow><mo>&gt;</mo></mrow></math> 5.7</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>833</volume-nr></series><date>2016</date></issue><pages><first-page>222</first-page></pages></host></reference><source-text
+      id="str040">Jiang L, McGreer ID, Fan X, et al. The final SDSS high-redshift
+      quasar sample of 52 quasars at z &gt;5.7. Astrophys J 2016;833:222.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '833'
+      year: 2016
+      page_start: '222'
+    label: '4'
+    authors:
+    - full_name: Jiang, L.
+      inspire_role: author
+    - full_name: McGreer, I.D.
+      inspire_role: author
+    - full_name: Fan, X.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0025"><label>[5]</label><reference id="h0025"><contribution
+      langtype="en"><authors><author><given-name>E.</given-name><surname>Bañados</surname></author><author><given-name>B.P.</given-name><surname>Venemans</surname></author><author><given-name>R.</given-name><surname>Decarli</surname></author><et-al/></authors><title><maintitle>The
+      Pan-STARRS1 distant <italic>z</italic><math altimg="si90.svg"><mrow><mo>&gt;</mo></mrow></math>
+      5.6 quasar survey: more than 100 quasars within the first Gyr of the Universe</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J Suppl Ser</maintitle></title><volume-nr>227</volume-nr></series><date>2016</date></issue><pages><first-page>11</first-page></pages></host></reference><source-text
+      id="str045">Bañados E, Venemans BP, Decarli R, et al. The Pan-STARRS1 distant
+      z &gt; 5.6 quasar survey: more than 100 quasars within the first Gyr of the
+      Universe. Astrophys J Suppl Ser 2016;227:11.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J Suppl Ser
+      journal_volume: '227'
+      year: 2016
+      page_start: '11'
+    label: '5'
+    authors:
+    - full_name: Bañados, E.
+      inspire_role: author
+    - full_name: Venemans, B.P.
+      inspire_role: author
+    - full_name: Decarli, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0030"><label>[6]</label><reference id="h0030"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Volonteri</surname></author><author><given-name>M.J.</given-name><surname>Rees</surname></author></authors><title><maintitle>Quasars
+      at <italic>z</italic>=6: the survival of the fittest</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>650</volume-nr></series><date>2006</date></issue><pages><first-page>669</first-page><last-page>678</last-page></pages></host></reference><source-text
+      id="str050">Volonteri M, &amp; Rees MJ. Quasars at z=6) The survival of the
+      fittest. Astrophys J 2006;650:669-78.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '650'
+      year: 2006
+      page_start: '669'
+      page_end: '678'
+    label: '6'
+    authors:
+    - full_name: Volonteri, M.
+      inspire_role: author
+    - full_name: Rees, M.J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0035"><label>[7]</label><reference id="h0035"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Perger</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>K.É.</given-name><surname>Gabányi</surname></author><et-al/></authors><title><maintitle>A
+      catalogue of active galactic nuclei from the first 1.5 Gyr of the Universe</maintitle></title></contribution><host><issue><series><title><maintitle>Front
+      Astron Space Sci</maintitle></title><volume-nr>4</volume-nr></series><date>2017</date></issue><pages><first-page>9</first-page></pages></host></reference><source-text
+      id="str055">Perger K, Frey S, Gabányi KÉ, et al. A catalogue of active galactic
+      nuclei from the first 1.5 Gyr of the Universe. Front Astron Space Sci 2017;4:9.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Front Astron Space Sci
+      journal_volume: '4'
+      year: 2017
+      page_start: '9'
+    label: '7'
+    authors:
+    - full_name: Perger, K.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Gabányi, K.É.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0040"><label>[8]</label><reference id="h0040"><contribution
+      langtype="en"><authors><author><given-name>C.J.</given-name><surname>Willott</surname></author><author><given-name>L.</given-name><surname>Albert</surname></author><author><given-name>D.</given-name><surname>Arzoumanian</surname></author><et-al/></authors><title><maintitle>Eddington-limited
+      accretion and the black hole mass function at redshift 6</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      J</maintitle></title><volume-nr>140</volume-nr></series><date>2010</date></issue><pages><first-page>546</first-page><last-page>560</last-page></pages></host></reference><source-text
+      id="str060">Willott CJ, Albert L, Arzoumanian D, et al. Eddington-limited accretion
+      and the black hole mass function at redshift 6. Astron J 2010;140:546-60.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron J
+      journal_volume: '140'
+      year: 2010
+      page_start: '546'
+      page_end: '560'
+    label: '8'
+    authors:
+    - full_name: Willott, C.J.
+      inspire_role: author
+    - full_name: Albert, L.
+      inspire_role: author
+    - full_name: Arzoumanian, D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0045"><label>[9]</label><reference id="h0045"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>Z.</given-name><surname>Paragi</surname></author><author><given-name>L.I.</given-name><surname>Gurvits</surname></author><et-al/></authors><title><maintitle>Into
+      the central 10 pc of the most distant known radio quasar. VLBI imaging observations
+      of J1429+5447 at <italic>z</italic> = 6.21</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>531</volume-nr></series><date>2011</date></issue><pages><first-page>L5</first-page></pages></host></reference><source-text
+      id="str065">Frey S, Paragi Z, Gurvits LI, et al. Into the central 10 pc of the
+      most distant known radio quasar. VLBI imaging observations of J1429+5447 at
+      z = 6.21. Astron Astrophys 2011;531:L5.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '531'
+      year: 2011
+      page_start: L5
+    label: '9'
+    authors:
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Paragi, Z.
+      inspire_role: author
+    - full_name: Gurvits, L.I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0050"><label>[10]</label><reference id="h0050"><contribution
+      langtype="en"><authors><author><given-name>I.M.</given-name><surname>Hook</surname></author><author><given-name>R.G.</given-name><surname>McMahon</surname></author></authors><title><maintitle>Discovery
+      of radio-loud quasars with <italic>z</italic> = 4.72 and <italic>z</italic>
+      = 4.010</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>294</volume-nr></series><date>1998</date></issue><pages><first-page>L7</first-page><last-page>12</last-page></pages></host></reference><source-text
+      id="str070">Hook IM, &amp; McMahon RG. Discovery of radio-loud quasars with
+      z=4.72 and z=4.010. Mon Not Roy Astron Soc 1998;294:L7-12.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '294'
+      year: 1998
+      page_start: L7
+      page_end: '12'
+    label: '10'
+    authors:
+    - full_name: Hook, I.M.
+      inspire_role: author
+    - full_name: McMahon, R.G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0055"><label>[11]</label><reference id="h0055"><contribution
+      langtype="en"><authors><author><given-name>A.C.</given-name><surname>Fabian</surname></author><author><given-name>K.</given-name><surname>Iwasawa</surname></author><author><given-name>R.G.</given-name><surname>McMahon</surname></author><et-al/></authors><title><maintitle>The
+      ASCA spectrum of the <italic>z</italic> = 4.72 blazar GB 1428+4217</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>295</volume-nr></series><date>1998</date></issue><pages><first-page>L25</first-page><last-page>L28</last-page></pages></host></reference><source-text
+      id="str075">Fabian AC, Iwasawa K, McMahon RG, et al. The ASCA spectrum of the
+      z=4.72 blazar GB 1428+4217. Mon Not Roy Astron Soc 1998;295:L25-28.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '295'
+      year: 1998
+      page_start: L25
+      page_end: L28
+    label: '11'
+    authors:
+    - full_name: Fabian, A.C.
+      inspire_role: author
+    - full_name: Iwasawa, K.
+      inspire_role: author
+    - full_name: McMahon, R.G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0060"><label>[12]</label><reference id="h0060"><contribution
+      langtype="en"><authors><author><given-name>A.C.</given-name><surname>Fabian</surname></author><author><given-name>A.</given-name><surname>Celotti</surname></author><author><given-name>G.</given-name><surname>Pooley</surname></author><et-al/></authors><title><maintitle>Variability
+      of the extreme <italic>z</italic> = 4.72 blazar, GB 1428+4217</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>308</volume-nr></series><date>1999</date></issue><pages><first-page>L6</first-page><last-page>10</last-page></pages></host></reference><source-text
+      id="str080">Fabian AC, Celotti A, Pooley G, et al. Variability of the extreme
+      z=4.72 blazar, GB 1428+4217. Mon Not Roy Astron Soc 1999;308:L6-10.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '308'
+      year: 1999
+      page_start: L6
+      page_end: '10'
+    label: '12'
+    authors:
+    - full_name: Fabian, A.C.
+      inspire_role: author
+    - full_name: Celotti, A.
+      inspire_role: author
+    - full_name: Pooley, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0065"><label>[13]</label><reference id="h0065"><contribution
+      langtype="en"><authors><author><given-name>M.A.</given-name><surname>Worsley</surname></author><author><given-name>A.C.</given-name><surname>Fabian</surname></author><author><given-name>G.G.</given-name><surname>Pooley</surname></author><et-al/></authors><title><maintitle>Radio
+      and X-ray observations of an exceptional radio flare in the extreme <italic>z</italic>
+      = 4.72 blazar GBB1428+4217</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>368</volume-nr></series><date>2006</date></issue><pages><first-page>844</first-page><last-page>850</last-page></pages></host></reference><source-text
+      id="str085">Worsley MA, Fabian AC, Pooley GG, et al. Radio and X-ray observations
+      of an exceptional radio flare in the extreme z = 4.72 blazar GBB1428+4217. Mon
+      Not Roy Astron Soc 2006;368:844-50.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '368'
+      year: 2006
+      page_start: '844'
+      page_end: '850'
+    label: '13'
+    authors:
+    - full_name: Worsley, M.A.
+      inspire_role: author
+    - full_name: Fabian, A.C.
+      inspire_role: author
+    - full_name: Pooley, G.G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0070"><label>[14]</label><reference id="h0070"><contribution
+      langtype="en"><authors><author><given-name>C.C.</given-name><surname>Cheung</surname></author><author><given-name>L.</given-name><surname>Stawarz</surname></author><author><given-name>A.</given-name><surname>Siemiginowska</surname></author><et-al/></authors><title><maintitle>The
+      highest redshift relativistic jets</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Soc Pca Conf Proc</maintitle></title><volume-nr>386</volume-nr></series><date>2008</date></issue><pages><first-page>462</first-page></pages></host></reference><source-text
+      id="str090">Cheung CC, Stawarz L, Siemiginowska A, et al. The highest redshift
+      relativistic jets. Astron Soc Pca Conf Proc 2008;386:462.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Soc Pca Conf Proc
+      journal_volume: '386'
+      year: 2008
+      page_start: '462'
+    label: '14'
+    authors:
+    - full_name: Cheung, C.C.
+      inspire_role: author
+    - full_name: Stawarz, L.
+      inspire_role: author
+    - full_name: Siemiginowska, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0075"><label>[15]</label><reference id="h0075"><contribution
+      langtype="en"><authors><author><given-name>C.C.</given-name><surname>Cheung</surname></author><author><given-name>A.</given-name><surname>Siemiginowska</surname></author><author><given-name>D.</given-name><surname>Gobeille</surname></author><et-al/></authors><title><maintitle>Discovery
+      of a kiloparsec-scale X-Ray/radio jet in the <italic>z</italic> = 4.72 quasar
+      GB 1428+4217</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>756</volume-nr></series><date>2012</date></issue><pages><first-page>L20</first-page></pages></host></reference><source-text
+      id="str095">Cheung CC, Stawarz &amp; Lstrok;, Siemiginowska A, et al. Discovery
+      of a kiloparsec-scale X-Ray/radio jet in the z = 4.72 quasar GB 1428+4217. Astrophys
+      J 2012;756:L20.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '756'
+      year: 2012
+      page_start: L20
+    label: '15'
+    authors:
+    - full_name: Cheung, C.C.
+      inspire_role: author
+    - full_name: Siemiginowska, A.
+      inspire_role: author
+    - full_name: Gobeille, D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0080"><label>[16]</label><reference id="h0080"><contribution
+      langtype="en"><authors><author><given-name>Z.</given-name><surname>Paragi</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>L.I.</given-name><surname>Gurvits</surname></author><et-al/></authors><title><maintitle>VLBI
+      imaging of extremely high redshift quasars at 5 GHz</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>344</volume-nr></series><date>1999</date></issue><pages><first-page>51</first-page><last-page>60</last-page></pages></host></reference><source-text
+      id="str100">Paragi Z, Frey S, Gurvits LI, et al. VLBI imaging of extremely high
+      redshift quasars at 5 GHz. Astron Astrophys 1999;344:51-60.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '344'
+      year: 1999
+      page_start: '51'
+      page_end: '60'
+    label: '16'
+    authors:
+    - full_name: Paragi, Z.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Gurvits, L.I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0085"><label>[17]</label><reference id="h0085"><contribution
+      langtype="en"><authors><author><given-name>J.F.</given-name><surname>Helmboldt</surname></author><author><given-name>G.B.</given-name><surname>Taylor</surname></author><author><given-name>S.</given-name><surname>Tremblay</surname></author><et-al/></authors><title><maintitle>The
+      VLBA imaging and polarimetry survey at 5 GHz</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>658</volume-nr></series><date>2007</date></issue><pages><first-page>203</first-page><last-page>216</last-page></pages></host></reference><source-text
+      id="str105">Helmboldt JF, Taylor GB, Tremblay S, et al. The VLBA imaging and
+      polarimetry survey at 5 GHz. Astrophys J 2007;658:203-16.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '658'
+      year: 2007
+      page_start: '203'
+      page_end: '216'
+    label: '17'
+    authors:
+    - full_name: Helmboldt, J.F.
+      inspire_role: author
+    - full_name: Taylor, G.B.
+      inspire_role: author
+    - full_name: Tremblay, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0090"><label>[18]</label><reference id="h0090"><contribution
+      langtype="en"><authors><author><given-name>A.B.</given-name><surname>Pushkarev</surname></author><author><given-name>Y.Y.</given-name><surname>Kovalev</surname></author></authors><title><maintitle>Single-epoch
+      VLBI imaging study of bright active galactic nuclei at 2 GHz and 8 GHz</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>544</volume-nr></series><date>2012</date></issue><pages><first-page>A34</first-page></pages></host></reference><source-text
+      id="str110">Pushkarev AB, &amp; Kovalev YY. Single-epoch VLBI imaging study
+      of bright active galactic nuclei at 2 GHz and 8 GHz. Astron Astrophys 2012;544:A34.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '544'
+      year: 2012
+      page_start: A34
+    label: '18'
+    authors:
+    - full_name: Pushkarev, A.B.
+      inspire_role: author
+    - full_name: Kovalev, Y.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0095"><label>[19]</label><reference id="h0095"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Veres</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>Z.</given-name><surname>Paragi</surname></author><et-al/></authors><title><maintitle>Physical
+      parameters of a relativistic jet at very high redshift: the case of the blazar
+      J1430+4204</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>521</volume-nr></series><date>2010</date></issue><pages><first-page>A6</first-page></pages></host></reference><source-text
+      id="str115">Veres P, Frey S, Paragi Z, et al. Physical parameters of a relativistic
+      jet at very high redshift: the case of the blazar J1430+4204. Astron Astrophys
+      2010;521:A6.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '521'
+      year: 2010
+      page_start: A6
+    label: '19'
+    authors:
+    - full_name: Veres, P.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Paragi, Z.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0100"><label>[20]</label><reference id="h0100"><contribution
+      langtype="en"><authors><author><given-name>E.L.</given-name><surname>Wright</surname></author></authors><title><maintitle>A
+      Cosmology Calculator for the world wide web</maintitle></title></contribution><host><issue><series><title><maintitle>Pub
+      Astron Soc Pac</maintitle></title><volume-nr>118</volume-nr></series><date>2006</date></issue><pages><first-page>1711</first-page><last-page>1715</last-page></pages></host></reference><source-text
+      id="str120">Wright, EL. A Cosmology Calculator for the world wide web. Pub Astron
+      Soc Pac 2006;118:1711-15.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Pub Astron Soc Pac
+      journal_volume: '118'
+      year: 2006
+      page_start: '1711'
+      page_end: '1715'
+    label: '20'
+    authors:
+    - full_name: Wright, E.L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0105"><label>[21]</label><reference id="h0105"><contribution
+      langtype="en"><authors><author><given-name>E.W.</given-name><surname>Greisen</surname></author></authors><title><maintitle>AIPS,
+      the VLA, and the VLBA</maintitle></title></contribution><host><edited-book><editors><editor><given-name>H.</given-name><surname>André</surname></editor></editors><title><maintitle>Information
+      handling in astronomy – historical vistas</maintitle></title><date>2003</date><publisher><name>Kluwer
+      Acad Publ</name><location>Dordrecht</location></publisher></edited-book><pages><first-page>109</first-page></pages></host></reference><source-text
+      id="str125">Greisen EW. AIPS, the VLA, and the VLBA. In: André H. Information
+      handling in astronomy - historical vistas. Dordrecht: Kluwer Acad Publ 2003;109.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      parent_title: Information handling in astronomy – historical vistas
+      year: 2003
+      page_start: '109'
+    label: '21'
+    misc:
+    - H.André
+    authors:
+    - full_name: Greisen, E.W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0110"><label>[22]</label><reference id="h0110"><contribution
+      langtype="en"><authors><author><given-name>M.C.</given-name><surname>Shepherd</surname></author></authors><title><maintitle>Difmap:
+      an interactive program for synthesis imaging</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Soc Pac Conf Ser</maintitle></title><volume-nr>125</volume-nr></series><date>1997</date></issue><pages><first-page>77</first-page></pages></host></reference><source-text
+      id="str130">Shepherd MC. Difmap: an interactive program for synthesis imaging.
+      Astron Soc Pac Conf Ser 1997;125:77.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Soc Pac Conf Ser
+      journal_volume: '125'
+      year: 1997
+      page_start: '77'
+    label: '22'
+    authors:
+    - full_name: Shepherd, M.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0115"><label>[23]</label><reference id="h0115"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>Z.</given-name><surname>Paragi</surname></author><author><given-name>J.O.</given-name><surname>Fogasy</surname></author><et-al/></authors><title><maintitle>The
+      first estimate of radio jet proper motion at <italic>z</italic><math altimg="si92.svg"><mrow><mo>&gt;</mo></mrow></math>
+      5</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>446</volume-nr></series><date>2015</date></issue><pages><first-page>2921</first-page><last-page>2928</last-page></pages></host></reference><source-text
+      id="str135">Frey S, Paragi Z, Fogasy JO, et al. The first estimate of radio
+      jet proper motion at z &gt; 5. Mon Not Roy Astron Soc 2015;446:2921-2928.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '446'
+      year: 2015
+      page_start: '2921'
+      page_end: '2928'
+    label: '23'
+    authors:
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Paragi, Z.
+      inspire_role: author
+    - full_name: Fogasy, J.O.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0120"><label>[24]</label><reference id="h0120"><contribution
+      langtype="en"><authors><author><given-name>J.E.</given-name><surname>Conway</surname></author><author><given-name>D.W.</given-name><surname>Murphy</surname></author></authors><title><maintitle>Helical
+      jets and the misalignment distribution for core-dominated radio sources</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>411</volume-nr></series><date>1993</date></issue><pages><first-page>89</first-page></pages></host></reference><source-text
+      id="str140">Conway JE, &amp; Murphy DW. Helical jets and the misalignment distribution
+      for core-dominated radio sources. Astrophys J 1993;411:89.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '411'
+      year: 1993
+      page_start: '89'
+    label: '24'
+    authors:
+    - full_name: Conway, J.E.
+      inspire_role: author
+    - full_name: Murphy, D.W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0125"><label>[25]</label><reference id="h0125"><contribution
+      langtype="en"><authors><author><given-name>J.E.</given-name><surname>Conway</surname></author><author><given-name>J.M.</given-name><surname>Wrobel</surname></author></authors><title><maintitle>Helical
+      distortions of the relativistic jet in the BL Lacertae object Mrk 501 (B1652+398)</maintitle></title></contribution><host><issue><series><title><maintitle>Am
+      Astron Soc Meet Abstr</maintitle></title><volume-nr>25</volume-nr></series><date>1993</date></issue><pages><first-page>1449</first-page></pages></host></reference><source-text
+      id="str145">Conway JE, &amp; Wrobel JM. Helical distortions of the relativistic
+      jet in the BL Lacertae object Mrk 501 (B1652+398). Am Astron Soc Meet Abstr
+      1993;25:1449.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Am Astron Soc Meet Abstr
+      journal_volume: '25'
+      year: 1993
+      page_start: '1449'
+    label: '25'
+    authors:
+    - full_name: Conway, J.E.
+      inspire_role: author
+    - full_name: Wrobel, J.M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0130"><label>[26]</label><reference id="h0130"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Kharb</surname></author><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>N.J.</given-name><surname>Cooper</surname></author></authors><title><maintitle>Extended
+      radio emission in MOJAVE blazars: challenges to unification</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>710</volume-nr></series><date>2010</date></issue><pages><first-page>764</first-page><last-page>782</last-page></pages></host></reference><source-text
+      id="str150">Kharb P, Lister ML, &amp; Cooper NJ. Extended radio emission in
+      MOJAVE blazars: challenges to unification. Astrophys J 2010;710:764-82.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '710'
+      year: 2010
+      page_start: '764'
+      page_end: '782'
+    label: '26'
+    authors:
+    - full_name: Kharb, P.
+      inspire_role: author
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Cooper, N.J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0135"><label>[27]</label><reference id="h0135"><contribution
+      langtype="en"><authors><author><given-name>W.</given-name><surname>Zhao</surname></author><author><given-name>X.Y.</given-name><surname>Hong</surname></author><author><given-name>T.</given-name><surname>An</surname></author><et-al/></authors><title><maintitle>Radio
+      structure of the blazar 1156+295 with sub-pc resolution</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>529</volume-nr></series><date>2011</date></issue><pages><first-page>A113</first-page></pages></host></reference><source-text
+      id="str155">Zhao W, Hong XY, An T, et al. Radio structure of the blazar 1156+295
+      with sub-pc resolution. Astron Astrophys 2011;529:A113.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '529'
+      year: 2011
+      page_start: A113
+    label: '27'
+    authors:
+    - full_name: Zhao, W.
+      inspire_role: author
+    - full_name: Hong, X.Y.
+      inspire_role: author
+    - full_name: An, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0140"><label>[28]</label><reference id="h0140"><contribution
+      langtype="en"><authors><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>M.F.</given-name><surname>Aller</surname></author><author><given-name>H.D.</given-name><surname>Aller</surname></author><et-al/></authors><title><maintitle>MOJAVE.X.
+      Parsec-scale jet orientation variations and superluminal motion in active galactic
+      nuclei</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      J</maintitle></title><volume-nr>146</volume-nr></series><date>2013</date></issue><pages><first-page>120</first-page></pages></host></reference><source-text
+      id="str160">Lister ML, Aller MF, Aller HD, et al. MOJAVE.X. Parsec-scale jet
+      orientation variations and superluminal motion in active galactic nuclei. Astron
+      J 2013;146:120.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron J
+      journal_volume: '146'
+      year: 2013
+      page_start: '120'
+    label: '28'
+    authors:
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Aller, M.F.
+      inspire_role: author
+    - full_name: Aller, H.D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0145"><label>[29]</label><reference id="h0145"><contribution
+      langtype="en"><authors><author><given-name>L.I.</given-name><surname>Gurvits</surname></author><author><given-name>R.T.</given-name><surname>Schilizzi</surname></author><author><given-name>G.K.</given-name><surname>Miley</surname></author><et-al/></authors><title><maintitle>A
+      compact radio component in 4C 41.17 at <italic>z</italic> = 3.8: a massive clump
+      in a forming galaxy?</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>318</volume-nr></series><date>1997</date></issue><pages><first-page>11</first-page><last-page>14</last-page></pages></host></reference><source-text
+      id="str165">Gurvits LI, Schilizzi RT, Miley GK, et al. A compact radio component
+      in 4C 41.17 at z=3.8: a massive clump in a forming galaxy? Astron Astrophys
+      1997;318:11-4.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '318'
+      year: 1997
+      page_start: '11'
+      page_end: '14'
+    label: '29'
+    authors:
+    - full_name: Gurvits, L.I.
+      inspire_role: author
+    - full_name: Schilizzi, R.T.
+      inspire_role: author
+    - full_name: Miley, G.K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0150"><label>[30]</label><reference id="h0150"><contribution
+      langtype="en"><authors><author><given-name>J.L.</given-name><surname>Gómez</surname></author><author><given-name>A.P.</given-name><surname>Marscher</surname></author><author><given-name>A.</given-name><surname>Alberdi</surname></author><et-al/></authors><title><maintitle>Flashing
+      superluminal components in the jet of the radio galaxy 3C120</maintitle></title></contribution><host><issue><series><title><maintitle>Science</maintitle></title><volume-nr>289</volume-nr></series><date>2000</date></issue><pages><first-page>2317</first-page><last-page>2320</last-page></pages></host></reference><source-text
+      id="str170">Gómez JL, Marscher AP, Alberdi A, et al. Flashing superluminal components
+      in the jet of the radio galaxy 3C120. Science 2000;289:2317-20.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Science
+      journal_volume: '289'
+      year: 2000
+      page_start: '2317'
+      page_end: '2320'
+    label: '30'
+    authors:
+    - full_name: Gómez, J.L.
+      inspire_role: author
+    - full_name: Marscher, A.P.
+      inspire_role: author
+    - full_name: Alberdi, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0155"><label>[31]</label><reference id="h0155"><contribution
+      langtype="en"><authors><author><given-name>Y.</given-name><surname>Liu</surname></author><author><given-name>D.R.</given-name><surname>Jiang</surname></author><author><given-name>M.</given-name><surname>Gu</surname></author><et-al/></authors><title><maintitle>Multifrequency
+      VLBA polarimetry of the high-redshift GPS quasar OQ172</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>468</volume-nr></series><date>2017</date></issue><pages><first-page>2699</first-page><last-page>2712</last-page></pages></host></reference><source-text
+      id="str175">Liu Y, Jiang DR, Gu M, et al. Multifrequency VLBA polarimetry of
+      the high-redshift GPS quasar OQ172. Mon Not Roy Astron Soc 2017;468:2699-712.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '468'
+      year: 2017
+      page_start: '2699'
+      page_end: '2712'
+    label: '31'
+    authors:
+    - full_name: Liu, Y.
+      inspire_role: author
+    - full_name: Jiang, D.R.
+      inspire_role: author
+    - full_name: Gu, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0160"><label>[32]</label><reference id="h0160"><contribution
+      langtype="en"><authors><author><given-name>C.M.</given-name><surname>Urry</surname></author><author><given-name>P.</given-name><surname>Padovani</surname></author></authors><title><maintitle>Unified
+      schemes for radio-loud active galactic nuclei</maintitle></title></contribution><host><issue><series><title><maintitle>Publ
+      Astron Soc Pac</maintitle></title><volume-nr>107</volume-nr></series><date>1995</date></issue><pages><first-page>803</first-page></pages></host></reference><source-text
+      id="str180">Urry CM, &amp; Padovani P. Unified schemes for radio-loud active
+      galactic nuclei. Publ Astron Soc Pac 1995;107:803.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Publ Astron Soc Pac
+      journal_volume: '107'
+      year: 1995
+      page_start: '803'
+    label: '32'
+    authors:
+    - full_name: Urry, C.M.
+      inspire_role: author
+    - full_name: Padovani, P.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0165"><label>[33]</label><reference id="h0165"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Volonteri</surname></author><author><given-name>F.</given-name><surname>Haardt</surname></author><author><given-name>G.</given-name><surname>Ghisellini</surname></author><et-al/></authors><title><maintitle>Blazars
+      in the early Universe</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Mon Not Roy Astron Soc</maintitle></title><volume-nr>416</volume-nr></series><date>2011</date></issue><pages><first-page>216</first-page><last-page>224</last-page></pages></host></reference><source-text
+      id="str185">Volonteri, M, Haardt F, Ghisellini G, et al. Blazars in the early
+      Universe. Mon Mon Not Roy Astron Soc 2011;416:216-24.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Mon Not Roy Astron Soc
+      journal_volume: '416'
+      year: 2011
+      page_start: '216'
+      page_end: '224'
+    label: '33'
+    authors:
+    - full_name: Volonteri, M.
+      inspire_role: author
+    - full_name: Haardt, F.
+      inspire_role: author
+    - full_name: Ghisellini, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0170"><label>[34]</label><reference id="h0170"><contribution
+      langtype="en"><authors><author><given-name>G.</given-name><surname>Ghisellini</surname></author><author><given-name>T.</given-name><surname>Sbarrato</surname></author></authors><title><maintitle>Dark
+      bubbles around high-redshift radio-loud active galactic nucleus</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>461</volume-nr></series><date>2016</date></issue><pages><first-page>L21</first-page><last-page>L25</last-page></pages></host></reference><source-text
+      id="str190">Ghisellini G, &amp; Sbarrato T. Dark bubbles around high-redshift
+      radio-loud active galactic nucleus. Mon Not Roy Astron Soc 2016;461:L21-5.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '461'
+      year: 2016
+      page_start: L21
+      page_end: L25
+    label: '34'
+    authors:
+    - full_name: Ghisellini, G.
+      inspire_role: author
+    - full_name: Sbarrato, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0175"><label>[35]</label><reference id="h0175"><contribution
+      langtype="en"><authors><author><given-name>G.R.</given-name><surname>Zeimann</surname></author><author><given-name>R.L.</given-name><surname>White</surname></author><author><given-name>R.H.</given-name><surname>Becker</surname></author><et-al/></authors><title><maintitle>Discovery
+      of a radio-selected <math altimg="si94.svg"><mrow><mi>z</mi><mo>∼</mo><mn>6</mn></mrow></math>
+      quasar</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>736</volume-nr></series><date>2011</date></issue><pages><first-page>57</first-page></pages></host></reference><source-text
+      id="str195">Zeimann GR, White RL, Becker RH, et al. Discovery of a radio-selected
+      z∼6)quasar. Astrophys J 2011;736:57.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '736'
+      year: 2011
+      page_start: '57'
+    label: '35'
+    authors:
+    - full_name: Zeimann, G.R.
+      inspire_role: author
+    - full_name: White, R.L.
+      inspire_role: author
+    - full_name: Becker, R.H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0180"><label>[36]</label><reference id="h0180"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Ighina</surname></author><author><given-name>A.</given-name><surname>Caccianiga</surname></author><author><given-name>A.</given-name><surname>Moretti</surname></author><et-al/></authors><title><maintitle>X-ray
+      properties of <math altimg="si95.svg"><mrow><mi>z</mi><mo>&gt;</mo><mn>4</mn></mrow></math>
+      blazars</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>489</volume-nr></series><date>2019</date></issue><pages><first-page>2732</first-page><last-page>2745</last-page></pages></host></reference><source-text
+      id="str200">Ighina L, Caccianiga A, Moretti A, et al. X-ray properties of z
+      &gt; 4)blazars. Mon Not Roy Astron Soc 2019;489:2732-45.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '489'
+      year: 2019
+      page_start: '2732'
+      page_end: '2745'
+    label: '36'
+    authors:
+    - full_name: Ighina, L.
+      inspire_role: author
+    - full_name: Caccianiga, A.
+      inspire_role: author
+    - full_name: Moretti, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0185"><label>[37]</label><reference id="h0185"><contribution
+      langtype="en"><authors><author><given-name>R.</given-name><surname>Coppejans</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>D.</given-name><surname>Cseh</surname></author><et-al/></authors><title><maintitle>On
+      the nature of bright compact radio sources at <italic>z</italic><math altimg="si96.svg"><mrow><mo>&gt;</mo></mrow></math>
+      4.5. Mon Not</maintitle></title></contribution><host><issue><series><title><maintitle>Roy
+      Astron Soc</maintitle></title><volume-nr>463</volume-nr></series><date>2016</date></issue><pages><first-page>3260</first-page><last-page>3275</last-page></pages></host></reference><source-text
+      id="str205">Coppejans R, Frey S, Cseh D, et al. On the nature of bright compact
+      radio sources at z &gt; 4.5. Mon Not Roy Astron Soc 2016;463:3260-75.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Roy Astron Soc
+      journal_volume: '463'
+      year: 2016
+      page_start: '3260'
+      page_end: '3275'
+    label: '37'
+    authors:
+    - full_name: Coppejans, R.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Cseh, D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0190"><label>[38]</label><reference id="h0190"><contribution
+      langtype="en"><authors><author><given-name>T.</given-name><surname>An</surname></author><author><given-name>P.</given-name><surname>Mohan</surname></author><author><given-name>Y.K.</given-name><surname>Zhang</surname></author><et-al/></authors><title><maintitle>Evolving
+      parsec-scale radio structure in the most distant blazar known</maintitle></title></contribution><host><issue><series><title><maintitle>Nat
+      Commun</maintitle></title><volume-nr>11</volume-nr></series><date>2020</date></issue><pages><first-page>143</first-page></pages></host></reference><source-text
+      id="str210">An T, Mohan P, Zhang YK. et al. Evolving parsec-scale radio structure
+      in the most distant blazar known. Nat Commun 2020, doi:10.1038/s41467-019-14093-2.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Nat Commun
+      journal_volume: '11'
+      year: 2020
+      page_start: '143'
+    label: '38'
+    authors:
+    - full_name: An, T.
+      inspire_role: author
+    - full_name: Mohan, P.
+      inspire_role: author
+    - full_name: Zhang, Y.K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0195"><label>[39]</label><reference id="h0195"><contribution
+      langtype="en"><authors><author><given-name>K.</given-name><surname>Perger</surname></author><author><given-name>S.</given-name><surname>Frey</surname></author><author><given-name>K.É.</given-name><surname>Gabányi</surname></author><et-al/></authors><title><maintitle>Constraining
+      the radio jet proper motion of the high-redshift quasar J2134-0419 at <italic>z</italic>
+      = 4.3</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>477</volume-nr></series><date>2018</date></issue><pages><first-page>1065</first-page><last-page>1070</last-page></pages></host></reference><source-text
+      id="str215">Perger K, Frey S, Gabányi KÉ, et al. Constraining the radio jet
+      proper motion of the high-redshift quasar J2134-0419 at z = 4.3. Mon Not Roy
+      Astron Soc 2018;477:1065-70.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '477'
+      year: 2018
+      page_start: '1065'
+      page_end: '1070'
+    label: '39'
+    authors:
+    - full_name: Perger, K.
+      inspire_role: author
+    - full_name: Frey, S.
+      inspire_role: author
+    - full_name: Gabányi, K.É.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0200"><label>[40]</label><reference id="h0200"><contribution
+      langtype="en"><authors><author><given-name>N.H.</given-name><surname>Liao</surname></author><author><given-name>S.</given-name><surname>Li</surname></author><author><given-name>Y.Z.</given-name><surname>Fan</surname></author></authors><title><maintitle>Fermi-LAT
+      detection of a transient <math altimg="si98.svg"><mrow><mi>γ</mi></mrow></math>-Ray
+      source in the direction of a distant blazar B3 1428+422 at <italic>z</italic>
+      = 4.72</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>865</volume-nr></series><date>2018</date></issue><pages><first-page>L17</first-page></pages></host></reference><source-text
+      id="str220">Liao NH, Li S, &amp; Fan YZ. Fermi-LAT detection of a transient
+      γ-Ray source in the direction of a distant blazar B3 1428+422 at z = 4.72. Astrophys
+      J 2018;865:L17.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '865'
+      year: 2018
+      page_start: L17
+    label: '40'
+    authors:
+    - full_name: Liao, N.H.
+      inspire_role: author
+    - full_name: Li, S.
+      inspire_role: author
+    - full_name: Fan, Y.Z.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0205"><label>[41]</label><reference id="h0205"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Siemiginowska</surname></author><author><given-name>R.K.</given-name><surname>Smith</surname></author><author><given-name>T.L.</given-name><surname>Aldcroft</surname></author><et-al/></authors><title><maintitle>An
+      X-Ray jet discovered by Chandra in the <italic>z</italic> = 4.3 radio-selected
+      quasar GB 1508+5714</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>598</volume-nr></series><date>2003</date></issue><pages><first-page>L15</first-page><last-page>L18</last-page></pages></host></reference><source-text
+      id="str225">Siemiginowska A, Smith RK, Aldcroft TL, et al. An X-Ray jet discovered
+      by Chandra in the z=4.3 radio-selected quasar GB 1508+5714. Astrophys J 2003;598:L15-8.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '598'
+      year: 2003
+      page_start: L15
+      page_end: L18
+    label: '41'
+    authors:
+    - full_name: Siemiginowska, A.
+      inspire_role: author
+    - full_name: Smith, R.K.
+      inspire_role: author
+    - full_name: Aldcroft, T.L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0210"><label>[42]</label><reference id="h0210"><contribution
+      langtype="en"><authors><author><given-name>K.I.</given-name><surname>Kellermann</surname></author><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>D.C.</given-name><surname>Homan</surname></author><et-al/></authors><title><maintitle>Sub-milliarcsecond
+      imaging of quasars and active galactic nuclei. III. Kinematics of parsec-scale
+      radio jets</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>609</volume-nr></series><date>2004</date></issue><pages><first-page>539</first-page><last-page>563</last-page></pages></host></reference><source-text
+      id="str230">Kellermann KI, Lister ML, Homan DC, et al. Sub-milliarcsecond imaging
+      of quasars and active galactic nuclei. III. Kinematics of parsec-scale radio
+      jets. Astrophys J 2004;609:539-63.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '609'
+      year: 2004
+      page_start: '539'
+      page_end: '563'
+    label: '42'
+    authors:
+    - full_name: Kellermann, K.I.
+      inspire_role: author
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Homan, D.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0215"><label>[43]</label><reference id="h0215"><contribution
+      langtype="en"><authors><author><given-name>S.</given-name><surname>Britzen</surname></author><author><given-name>R.C.</given-name><surname>Vermeulen</surname></author><author><given-name>R.M.</given-name><surname>Campbell</surname></author><et-al/></authors><title><maintitle>A
+      multi-epoch VLBI survey of the kinematics of CFJ sources. II. Analysis of the
+      kinematics</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Astrophys</maintitle></title><volume-nr>484</volume-nr></series><date>2008</date></issue><pages><first-page>119</first-page><last-page>142</last-page></pages></host></reference><source-text
+      id="str235">Britzen S, Vermeulen RC, Campbell RM, et al. A multi-epoch VLBI
+      survey of the kinematics of CFJ sources. II. Analysis of the kinematics. Astron
+      Astrophys 2008;484:119-42.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Astrophys
+      journal_volume: '484'
+      year: 2008
+      page_start: '119'
+      page_end: '142'
+    label: '43'
+    authors:
+    - full_name: Britzen, S.
+      inspire_role: author
+    - full_name: Vermeulen, R.C.
+      inspire_role: author
+    - full_name: Campbell, R.M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0220"><label>[44]</label><reference id="h0220"><contribution
+      langtype="en"><authors><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>M.H.</given-name><surname>Cohen</surname></author><author><given-name>D.C.</given-name><surname>Homan</surname></author><et-al/></authors><title><maintitle>MOJAVE:
+      monitoring of jets in active galactic nuclei with VLBA experiments. VI. Kinematics
+      analysis of a complete sample of blazar jets</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      J</maintitle></title><volume-nr>138</volume-nr></series><date>2009</date></issue><pages><first-page>1874</first-page><last-page>1892</last-page></pages></host></reference><source-text
+      id="str240">Lister ML, Cohen MH, Homan DC, et al. MOJAVE: monitoring of jets
+      in active galactic nuclei with VLBA experiments. VI. Kinematics analysis of
+      a complete sample of blazar jets. Astron J 2009;138:1874-92.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron J
+      journal_volume: '138'
+      year: 2009
+      page_start: '1874'
+      page_end: '1892'
+    label: '44'
+    authors:
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Cohen, M.H.
+      inspire_role: author
+    - full_name: Homan, D.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0225"><label>[45]</label><reference id="h0225"><contribution
+      langtype="en"><authors><author><given-name>D.C.</given-name><surname>Homan</surname></author><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>Y.Y.</given-name><surname>Kovalev</surname></author><et-al/></authors><title><maintitle>MOJAVE.
+      XII. Acceleration and collimation of Blazar jets on parsec scales</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>798</volume-nr></series><date>2015</date></issue><pages><first-page>134</first-page></pages></host></reference><source-text
+      id="str245">Homan DC, Lister ML, Kovalev YY, et al. MOJAVE. XII. Acceleration
+      and collimation of Blazar jets on parsec scales. Astrophys J 2015;798:134.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '798'
+      year: 2015
+      page_start: '134'
+    label: '45'
+    authors:
+    - full_name: Homan, D.C.
+      inspire_role: author
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Kovalev, Y.Y.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0230"><label>[46]</label><reference id="h0230"><contribution
+      langtype="en"><authors><author><given-name>M.L.</given-name><surname>Lister</surname></author><author><given-name>M.F.</given-name><surname>Aller</surname></author><author><given-name>H.D.</given-name><surname>Aller</surname></author><et-al/></authors><title><maintitle>MOJAVE:
+      XIII. Parsec-scale AGN jet kinematics analysis based on 19 years of VLBA observations
+      at 15 GHz</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      J</maintitle></title><volume-nr>152</volume-nr></series><date>2016</date></issue><pages><first-page>12</first-page></pages></host></reference><source-text
+      id="str250">Lister ML, Aller MF, Aller HD, et al. MOJAVE: XIII. Parsec-scale
+      AGN jet kinematics analysis based on 19 years of VLBA observations at 15 GHz.
+      Astron J 2016;152:12.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron J
+      journal_volume: '152'
+      year: 2016
+      page_start: '12'
+    label: '46'
+    authors:
+    - full_name: Lister, M.L.
+      inspire_role: author
+    - full_name: Aller, M.F.
+      inspire_role: author
+    - full_name: Aller, H.D.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0235"><label>[47]</label><reference id="h0235"><contribution
+      langtype="en"><authors><author><given-name>M.H.</given-name><surname>Cohen</surname></author><author><given-name>P.D.</given-name><surname>Barthel</surname></author><author><given-name>T.J.</given-name><surname>Pearson</surname></author><et-al/></authors><title><maintitle>Expanding
+      quasars and the expansion of the Universe</maintitle></title></contribution><host><issue><series><title><maintitle>Astrophys
+      J</maintitle></title><volume-nr>329</volume-nr></series><date>1988</date></issue><pages><first-page>1</first-page></pages></host></reference><source-text
+      id="str255">Cohen MH, Barthel, PD, Pearson TJ, et al. Expanding quasars and
+      the expansion of the Universe. Astrophys J 1988;329:1.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astrophys J
+      journal_volume: '329'
+      year: 1988
+      page_start: '1'
+    label: '47'
+    authors:
+    - full_name: Cohen, M.H.
+      inspire_role: author
+    - full_name: Barthel, P.D.
+      inspire_role: author
+    - full_name: Pearson, T.J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0240"><label>[48]</label><reference id="h0240"><contribution
+      langtype="en"><authors><author><given-name>G.</given-name><surname>Ghisellini</surname></author><author><given-name>T.</given-name><surname>Sbarrato</surname></author><author><given-name>G.</given-name><surname>Tagliaferri</surname></author><et-al/></authors><title><maintitle>SDSS
+      J114657. 79+403708.6: the third most distant blazar at <italic>z</italic> =
+      5.0</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>440</volume-nr></series><date>2014</date></issue><pages><first-page>L111</first-page><last-page>L115</last-page></pages></host></reference><source-text
+      id="str260">Ghisellini G, Sbarrato T, Tagliaferri G, et al. SDSS J114657.79+403708.6:
+      the third most distant blazar at z = 5.0. Mon Not Roy Astron Soc 2014;440:L111-5.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '440'
+      year: 2014
+      page_start: L111
+      page_end: L115
+    label: '48'
+    authors:
+    - full_name: Ghisellini, G.
+      inspire_role: author
+    - full_name: Sbarrato, T.
+      inspire_role: author
+    - full_name: Tagliaferri, G.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0245"><label>[49]</label><reference id="h0245"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Caccianiga</surname></author><author><given-name>A.</given-name><surname>Moretti</surname></author><author><given-name>S.</given-name><surname>Belladitta</surname></author><et-al/></authors><title><maintitle>The
+      space density of <math altimg="si100.svg"><mrow><mi>z</mi><mo>&gt;</mo><mn>4</mn></mrow></math>
+      blazars</maintitle></title></contribution><host><issue><series><title><maintitle>Mon
+      Not Roy Astron Soc</maintitle></title><volume-nr>484</volume-nr></series><date>2019</date></issue><pages><first-page>204</first-page><last-page>217</last-page></pages></host></reference><source-text
+      id="str265">Caccianiga A, Moretti A, Belladitta S, et al. The space density
+      of z &gt; 4)blazars. Mon Not Roy Astron Soc 2019;484:204-17.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Mon Not Roy Astron Soc
+      journal_volume: '484'
+      year: 2019
+      page_start: '204'
+      page_end: '217'
+    label: '49'
+    authors:
+    - full_name: Caccianiga, A.
+      inspire_role: author
+    - full_name: Moretti, A.
+      inspire_role: author
+    - full_name: Belladitta, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="b0250"><label>[50]</label><reference id="h0250"><contribution
+      langtype="en"><authors><author><given-name>Z.</given-name><surname>Paragi</surname></author><author><given-name>L.</given-name><surname>Godfrey</surname></author><author><given-name>C.</given-name><surname>Reynolds</surname></author><et-al/></authors><title><maintitle>Very
+      long baseline interferometry with the SKA</maintitle></title></contribution><host><issue><series><title><maintitle>Adv
+      Astrophys with the Squ Km Array (AASKA14)</maintitle></title><volume-nr>1</volume-nr></series><date>2015</date></issue><pages><first-page>143</first-page></pages></host></reference><source-text
+      id="str270">Paragi Z, Godfrey L, Reynolds C, et al. Very long baseline interferometry
+      with the SKA. Adv Astrophys with the Squ Km Array (AASKA14) 2015;1:143.</source-text></bib-reference>
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Adv Astrophys with the Squ Km Array (AASKA14)
+      journal_volume: '1'
+      year: 2015
+      page_start: '143'
+    label: '50'
+    authors:
+    - full_name: Paragi, Z.
+      inspire_role: author
+    - full_name: Godfrey, L.
+      inspire_role: author
+    - full_name: Reynolds, C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="b0255"><label>[51]</label><reference id="h0255"><contribution
+      langtype="en"><authors><author><given-name>E.J.</given-name><surname>Murphy</surname></author><author><given-name>J.J.</given-name><surname>Condon</surname></author><author><given-name>A.</given-name><surname>Alberdi</surname></author><et-al/></authors><title><maintitle>Radio
+      continuum emission from galaxies: an accounting of energetic processes</maintitle></title></contribution><host><issue><series><title><maintitle>Astron
+      Soc Pca Conf Proc</maintitle></title><volume-nr>517</volume-nr></series><date>2018</date></issue><pages><first-page>421</first-page></pages></host></reference><source-text
+      id="str275">Murphy EJ, Condon JJ, Alberdi A, et al. Radio continuum emission
+      from galaxies: an accounting of energetic processes. Astron Soc Pca Conf Proc
+      2018;517:421.</source-text></bib-reference>'
+    source: Elsevier B.V.
+  reference:
+    publication_info:
+      journal_title: Astron Soc Pca Conf Proc
+      journal_volume: '517'
+      year: 2018
+      page_start: '421'
+    label: '51'
+    authors:
+    - full_name: Murphy, E.J.
+      inspire_role: author
+    - full_name: Condon, J.J.
+      inspire_role: author
+    - full_name: Alberdi, A.
+      inspire_role: author
