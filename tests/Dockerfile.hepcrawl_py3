@@ -2,17 +2,11 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-ARG GID
-ARG UID
 ENV PYTHONDONTWRITEBYTECODE=1
 RUN mkdir /code /var/lib/scrapy /venv
-RUN groupadd test -r -f -g $GID
-RUN useradd test -u $UID -g $GID -d /home/test -m
 
 copy . /code
-RUN chown -R test:test /var/lib/scrapy /venv /code
 
-USER test
 ENV PATH="/home/test/.local/bin:${PATH}"
 
 WORKDIR /code

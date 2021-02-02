@@ -1,0 +1,109 @@
+name: Build and release
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        suite:
+          [
+            unit,
+            functional_wsp,
+            functional_arxiv,
+            functional_desy,
+            functional_cds,
+            functional_pos,
+            functional_elsevier,
+          ]
+        python-version: [2.7]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel coveralls check-manifest
+          pip install -e .[tests]
+
+      - name: Show python dependencies
+        run: |
+          pip freeze
+
+      - name: Install dependencies
+        run: |
+          docker-compose -f docker-compose.deps.py2.yml build
+          docker-compose -f docker-compose.test.py2.yml run --rm scrapyd-deploy
+
+      - name: Print logs if failure
+        if: ${{ failure() }}
+        run: |
+          docker-compose -f docker-compose.test.py2.yml logs --tail=200
+
+      - name: Run tests
+        run: |
+          docker-compose -f docker-compose.test.py2.yml run --rm ${{ matrix.suite }}
+
+      - name: Coveralls
+        uses: AndreMiras/coveralls-python-action@v20201129
+        with:
+          parallel: true
+          github-token: ${{ secrets.github_token }}
+          flag-name: run-${{ matrix.test_number }}
+
+  Coveralls:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: AndreMiras/coveralls-python-action@v20201129
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
+
+  Release:
+    if: ${{ github.event_name == 'push' }}
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 2.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 2.7
+
+      - name: Cache Python Dependencies
+        uses: actions/cache@v2.1.3
+        id: cache
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ runner.os }}-pip-2.7-${{ github.sha }}
+
+      - name: Install python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel coveralls check-manifest
+          pip install -e .[tests]
+
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@v1.3.1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_PASSWORD }}

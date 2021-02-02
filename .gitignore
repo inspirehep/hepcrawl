@@ -73,3 +73,5 @@ local_settings.py
 
 AUTHORS
 CHANGELOG
+
+.python-version

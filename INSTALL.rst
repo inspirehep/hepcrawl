@@ -75,19 +75,19 @@ Then install the test dependencies inside Docker:
 
 .. code-block:: console
 
-    docker-compose -f docker-compose.deps.py2.yml run --rm pip
+    docker-compose -f docker-compose.deps.2.7.yml run --rm pip
 
 To run the tests (e.g. unit):
 
 .. code-block:: console
 
-    docker-compose -f docker-compose.test.py2.yml run --rm unit
+    docker-compose -f docker-compose.test.2.7.yml run --rm unit
 
-There are also Python 3 variants ending in ``.py3.yml`` in case you want to test with Python 3. These are built in a simpler way and require to rebuild the images on every code change with:
+There are also Python 3 variants ending in ``.3.6.yml`` in case you want to test with Python 3. These are built in a simpler way and require to rebuild the images on every code change with:
 
 .. code-block:: console
 
-    docker-compose -f docker-compose.test.py3.yml build
+    docker-compose -f docker-compose.test.3.6.yml build
 
 Installation for testing with inspire-next in Docker
 ----------------------------------------------------
@@ -164,12 +164,12 @@ Through inspire-next
 
 Run the crawler with INSPIRE (assuming you already have a virtualenv with everything set up).
 
-The example below shows how to get all papers from the 24th June 2016 to the 26th June 2016 
+The example below shows how to get all papers from the 24th June 2016 to the 26th June 2016
 from arXiv where the subject area is hep-th (HEP Theory). We use the arXiv spider and assign the
 article workflow.
 
 .. code-block:: console
-    
+
     workon inspire-next
     inspirehep crawler schedule arXiv article \
         --kwarg 'from_date=2016-06-24' \

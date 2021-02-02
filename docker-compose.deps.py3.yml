@@ -14,10 +14,6 @@ services:
     build:
       context: ./
       dockerfile: tests/Dockerfile.hepcrawl_py3
-      args:
-        - GID=${GID:-1000}
-        - UID=${UID:-1000}
-    user: "${UID:-1000}:${GID:-1000}"
     image: hepcrawl_py3
     command: "true"
     volumes:

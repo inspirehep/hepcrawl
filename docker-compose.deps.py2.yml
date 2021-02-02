@@ -14,11 +14,7 @@ services:
     build:
       context: ./
       dockerfile: tests/Dockerfile.hepcrawl_base
-      args:
-        - GID=${GID:-1000}
-        - UID=${UID:-1000}
     image: hepcrawl_base
-    user: "${UID:-1000}:${GID:-1000}"
     tty: true
     command: "true"
     volumes:
