@@ -28,7 +28,7 @@ def results_from_json():
     from scrapy.http import TextResponse
 
     crawler = Crawler(spidercls=aps_spider.APSSpider)
-    spider = aps_spider.APSSpider.from_crawler(crawler)
+    spider = aps_spider.APSSpider.from_crawler(crawler, aps_token="secret")
     parsed_items = list(
         spider.parse(
             fake_response_from_file(
@@ -53,7 +53,7 @@ def test_results_from_jats():
     """Get and validate results from mocking a JATS response."""
     from scrapy.http import XmlResponse
 
-    spider = aps_spider.APSSpider()
+    spider = aps_spider.APSSpider(aps_token="secret")
     fake_response = fake_response_from_file(
         'aps/PhysRevD.96.095036.xml',
         response_type=XmlResponse,
@@ -66,7 +66,7 @@ def test_get_file_name_from_url():
     """Test filename generation."""
     url = "http://harvest.aps.org/v2/journals/articles/10.1103/PhysRevX.7.041045"
     expected = "PhysRevX.7.041045.xml"
-    spider = aps_spider.APSSpider()
+    spider = aps_spider.APSSpider(aps_token="secret")
     file_name = spider._file_name_from_url(url)
 
     assert file_name == expected

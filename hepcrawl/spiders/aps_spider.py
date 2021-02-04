@@ -52,7 +52,7 @@ class APSSpider(LastRunStoreSpider):
     name = 'APS'
 
     @strict_kwargs
-    def __init__(self, from_date=None, until_date=None,
+    def __init__(self, aps_token, from_date=None, until_date=None,
                  date="published", sets=None, per_page=100, aps_url="http://harvest.aps.org/v2/journals/articles",
                  **kwargs):
         """Construct APS spider."""
@@ -63,6 +63,7 @@ class APSSpider(LastRunStoreSpider):
         self.until_date = until_date
         self.per_page = per_page
         self.date = date
+        self.auth_header = "Bearer {}".format(aps_token)
 
 
     @property
@@ -85,7 +86,7 @@ class APSSpider(LastRunStoreSpider):
     def start_requests(self):
         """Just yield the url."""
         started_at = datetime.utcnow()
-        yield Request(self.url)
+        yield Request(self.url, headers={'Authorization': self.auth_header})
         self.save_run(started_at=started_at, set_=self.set)
 
     def parse(self, response):
@@ -100,7 +101,7 @@ class APSSpider(LastRunStoreSpider):
             doi = get_value(article, 'identifiers.doi', default='')
             if doi:
                 request = Request(url='{}/{}'.format(self.aps_url, doi),
-                              headers={'Accept': 'text/xml'},
+                              headers={'Accept': 'text/xml', 'Authorization': self.auth_header},
                               callback=self._parse_jats,
                               errback=self._parse_json_on_failure)
                 request.meta['json_article'] = article
@@ -114,7 +115,7 @@ class APSSpider(LastRunStoreSpider):
             next = links.links_by_attr_pairs([('rel', 'next')])
             if next:
                 next_url = next[0].href
-                yield Request(next_url)
+                yield Request(next_url, headers={'Authorization': self.auth_header})
 
     def _parse_jats(self, response):
         """Parse an XML JATS response."""
@@ -123,7 +124,9 @@ class APSSpider(LastRunStoreSpider):
         file_name = self._file_name_from_url(response.url)
         parser.attach_fulltext_document(file_name, response.url)
         record = parser.parse()
-        file_requests = [Request(url=document['url'], headers={'Accept': 'text/xml'}) for document in record.get('documents', [])]
+        file_requests = [Request(
+            url=document['url'], headers={'Accept': 'text/xml', 'Authorization': self.auth_header}
+        ) for document in record.get('documents', [])]
         return ParsedItem(
             record=record,
             record_format='hep',

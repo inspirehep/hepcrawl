@@ -21,6 +21,7 @@ jobs:
             functional_cds,
             functional_pos,
             functional_elsevier,
+            functional_aps
           ]
         python-version: [2.7]
 

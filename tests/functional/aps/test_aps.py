@@ -74,6 +74,7 @@ def get_settings():
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_SETTINGS': crawler_settings,
         'CRAWLER_ARGUMENTS': {
+            "aps_token": "test",
             "from_date": "1993-01-01",
             "until_date": "1993-02-01",
             "aps_url": "http://aps-http-server.local/v2/journals/articles"
