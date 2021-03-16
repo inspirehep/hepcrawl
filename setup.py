@@ -44,6 +44,8 @@ install_requires = [
     'Sickle~=0.6,>=0.6.2',
     # newer versions seem incompatible with required scrapyd version
     'Twisted~=18.0,>=18.9.0',
+    #latex parsing
+    'pylatexenc~=2.9',
 ]
 
 tests_require = [

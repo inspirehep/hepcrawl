@@ -19,6 +19,7 @@ from inspire_schemas.api import LiteratureBuilder
 from inspire_schemas.utils import classify_field
 from inspire_utils.dedupers import dedupe_list
 from inspire_utils.helpers import maybe_int
+from pylatexenc.latex2text import LatexNodes2Text
 
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
 from ..utils import coll_cleanforthe, get_node, split_fullname
@@ -210,8 +211,8 @@ class ArxivParser(object):
     @property
     def abstract(self):
         abstract = self.root.xpath('.//abstract/text()').extract_first()
-
-        return self.fix_long_text(abstract)
+        long_text_fixed = self.fix_long_text(abstract)
+        return self.escape_latex_to_unicode(long_text_fixed)
 
     @property
     def authors(self):
@@ -272,7 +273,8 @@ class ArxivParser(object):
 
     @property
     def title(self):
-        return self.fix_long_text(self.root.xpath('.//title/text()').extract_first())
+        long_text_fixed = self.fix_long_text(self.root.xpath('.//title/text()').extract_first())
+        return self.escape_latex_to_unicode(long_text_fixed)
 
     @staticmethod
     def fix_long_text(text):
@@ -352,3 +354,8 @@ class ArxivParser(object):
         if not hasattr(self, '_authors_and_collaborations'):
             self._authors_and_collaborations = self._get_authors_and_collaborations(self.root)
         return self._authors_and_collaborations
+
+    @staticmethod
+    def escape_latex_to_unicode(latex_string):
+        l2t = LatexNodes2Text(math_mode="verbatim")
+        return l2t.latex_to_text(latex_string)
