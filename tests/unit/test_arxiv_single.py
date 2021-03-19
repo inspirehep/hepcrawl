@@ -80,7 +80,7 @@ def test_titles(results):
     """Test extracting title."""
     expected_titles = [{
         'source': 'arXiv',
-        'title': '$L^2$ vanishing theorem on some Kähler manifolds',
+        'title': 'Irreversible degradation of quantum coherence under relativistic motion',
     }]
     for record in results:
         assert 'titles' in record

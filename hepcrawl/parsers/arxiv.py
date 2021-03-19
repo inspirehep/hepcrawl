@@ -19,7 +19,12 @@ from inspire_schemas.api import LiteratureBuilder
 from inspire_schemas.utils import classify_field
 from inspire_utils.dedupers import dedupe_list
 from inspire_utils.helpers import maybe_int
-from pylatexenc.latex2text import LatexNodes2Text
+from pylatexenc.latex2text import (
+    EnvironmentTextSpec,
+    LatexNodes2Text,
+    MacroTextSpec,
+    get_default_latex_context_db,
+)
 
 from ..mappings import CONFERENCE_WORDS, THESIS_WORDS
 from ..utils import coll_cleanforthe, get_node, split_fullname
@@ -41,6 +46,30 @@ RE_PAGES = re.compile(r'(?i)(\d+)\s*pages?\b')
 RE_DOIS = re.compile(r'[,;\s]+(?=\s*10[.]\d{4,})')
 
 
+def _handle_sqrt(node, l2tobj):
+    arg = l2tobj.nodelist_to_text(node.nodeargd.argnlist)
+    format_str = u"\u221a{}" if arg.startswith("(") else u"\u221a({})"
+    return format_str.format(arg)
+
+
+def get_arxiv_latex_context_db():
+    default_db = get_default_latex_context_db()
+    arxiv_db = default_db.filter_context(keep_categories=["latex-base", "advanced-symbols"])
+    arxiv_db.add_context_category(
+        "overrides",
+        prepend=True,
+        macros=[
+            MacroTextSpec("sqrt", _handle_sqrt)
+        ]
+    )
+
+    # adapted from https://github.com/phfaist/pylatexenc/issues/32
+    arxiv_db.set_unknown_macro_spec(MacroTextSpec("", lambda node: node.latex_verbatim()))
+    arxiv_db.set_unknown_environment_spec(EnvironmentTextSpec("", lambda node: node.latex_verbatim()))
+
+    return arxiv_db
+
+
 class ArxivParser(object):
     """Parser for the arXiv format.
 
@@ -52,6 +81,15 @@ class ArxivParser(object):
         source (Optional[str]): if provided, sets the ``source`` everywhere in
             the record. Otherwise, the source is extracted from the arXiv metadata.
     """
+    _l2t = LatexNodes2Text(
+        latex_context=get_arxiv_latex_context_db(),
+        math_mode="verbatim",
+        strict_latex_spaces="based-on-source",
+        keep_comments=True,
+        keep_braced_groups=True,
+        keep_braced_groups_minlen=2,
+    )
+
     def __init__(self, arxiv_record, source=None):
         self.root = self.get_root_node(arxiv_record)
         if not source:
@@ -212,7 +250,7 @@ class ArxivParser(object):
     def abstract(self):
         abstract = self.root.xpath('.//abstract/text()').extract_first()
         long_text_fixed = self.fix_long_text(abstract)
-        return self.escape_latex_to_unicode(long_text_fixed)
+        return self.latex_to_unicode(long_text_fixed)
 
     @property
     def authors(self):
@@ -274,7 +312,7 @@ class ArxivParser(object):
     @property
     def title(self):
         long_text_fixed = self.fix_long_text(self.root.xpath('.//title/text()').extract_first())
-        return self.escape_latex_to_unicode(long_text_fixed)
+        return self.latex_to_unicode(long_text_fixed)
 
     @staticmethod
     def fix_long_text(text):
@@ -306,7 +344,7 @@ class ArxivParser(object):
     def public_note(self):
         comments = '; '.join(self.root.xpath('.//comments/text()').extract())
 
-        return comments
+        return self.latex_to_unicode(comments)
 
     @property
     def private_note(self):
@@ -355,7 +393,9 @@ class ArxivParser(object):
             self._authors_and_collaborations = self._get_authors_and_collaborations(self.root)
         return self._authors_and_collaborations
 
-    @staticmethod
-    def escape_latex_to_unicode(latex_string):
-        l2t = LatexNodes2Text(math_mode="verbatim")
-        return l2t.latex_to_text(latex_string)
+    @classmethod
+    def latex_to_unicode(cls, latex_string):
+        try:
+            return cls._l2t.latex_to_text(latex_string).replace("  "," ")
+        except Exception as e:
+            return latex_string
