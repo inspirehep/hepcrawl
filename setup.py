@@ -77,7 +77,6 @@ extras_require = {
 
 setup_requires = [
     'autosemver~=0.2',
-    'pytest-runner>=2.7.0',
 ]
 
 extras_require['all'] = []
@@ -104,7 +103,6 @@ setup(
     },
     setup_requires=setup_requires,
     install_requires=install_requires,
-    tests_require=tests_require,
     extras_require=extras_require,
     package_data={
         'hepcrawl': ['*.cfg'],
