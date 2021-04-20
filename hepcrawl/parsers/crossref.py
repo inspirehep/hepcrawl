@@ -83,7 +83,7 @@ class CrossrefParser(object):
     @property
     def document_type(self):
         doc_type = self.record.get("type")
-        return DOC_TYPE_MAP[doc_type]
+        return DOC_TYPE_MAP.get(doc_type, "article")
 
     @property
     def title(self):

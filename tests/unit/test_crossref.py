@@ -50,6 +50,33 @@ def record():
     clean_dir()
 
 
+@pytest.fixture
+def record_with_unknown_type():
+    """Return results generator from the crossref spider. All fields, one record.
+    """
+    def _get_record_from_processed_item(item, spider):
+        crawl_result = pipeline.process_item(item, spider)
+        validate(crawl_result['record'], 'hep')
+        assert crawl_result
+        return crawl_result['record']
+
+    crawler = Crawler(spidercls=crossref_spider.CrossrefSpider)
+    spider = crossref_spider.CrossrefSpider.from_crawler(crawler, 'fakedoi')
+    fake_response = fake_response_from_file(
+        'crossref/sample_crossref_record_with_unknown_type.json',
+        response_type=TextResponse,
+    )
+
+    parsed_items = spider.parse(fake_response)
+
+    pipeline = InspireCeleryPushPipeline()
+    pipeline.open_spider(spider)
+
+    yield _get_record_from_processed_item(parsed_items, spider)
+
+    clean_dir()
+
+
 def test_titles(record):
     """Test extracting title."""
     expected_titles = [{
@@ -95,6 +122,11 @@ def test_collections(record):
     assert record['citeable']
     assert 'document_type' in record
     assert record['document_type'] == ['article']
+
+
+def test_unknown_document_type(record_with_unknown_type):
+    """Test extracting collections"""
+    assert record_with_unknown_type['document_type'] == ['article']
 
 
 def test_imprints(record):
