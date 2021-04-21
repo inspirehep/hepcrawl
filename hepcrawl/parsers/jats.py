@@ -61,7 +61,9 @@ class JatsParser(object):
             self.builder.add_doi(**doi)
         for keyword in self.keywords:
             self.builder.add_keyword(**keyword)
-        self.builder.add_imprint_date(self.publication_date.dumps())
+        self.builder.add_imprint_date(
+            self.publication_date.dumps() if self.publication_date else None
+        )
         for reference in self.references:
             self.builder.add_reference(reference)
 
@@ -283,11 +285,13 @@ class JatsParser(object):
             './front//pub-date[starts-with(@date-type,"pub")] |'
             './front//date[starts-with(@date-type,"pub")]'
         )
-        publication_date = min(
-            self.get_date(date_node) for date_node in date_nodes
-        )
 
-        return publication_date
+        if date_nodes:
+            publication_date = min(
+                self.get_date(date_node) for date_node in date_nodes
+            )
+
+            return publication_date
 
     @property
     def publication_info(self):
@@ -364,11 +368,12 @@ class JatsParser(object):
             not_online=not_online
         )
 
-        year = min(
-            self.get_date(date_node) for date_node in date_nodes
-        ).year
+        if date_nodes:
+            year = min(
+                self.get_date(date_node) for date_node in date_nodes
+            ).year
 
-        return year
+            return year
 
     def get_author_affiliations(self, author_node):
         """Extract an author's affiliations."""
