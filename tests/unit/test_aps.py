@@ -59,7 +59,19 @@ def test_results_from_jats():
         response_type=XmlResponse,
     )
     record = spider._parse_jats(fake_response).record
-    assert validate(record, 'hep') == None
+    assert validate(record, 'hep') is None
+
+
+def test_results_jats_parser_handle_date_absence():
+    from scrapy.http import XmlResponse
+
+    spider = aps_spider.APSSpider(aps_token="secret")
+    fake_response = fake_response_from_file(
+        'aps/PhysRevD.96.095036_no_date_nodes.xml',
+        response_type=XmlResponse,
+    )
+    record = spider._parse_jats(fake_response).record
+    assert validate(record, 'hep') is None
 
 
 def test_get_file_name_from_url():
