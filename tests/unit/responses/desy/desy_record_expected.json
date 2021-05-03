@@ -93,96 +93,92 @@
         ], 
         "keywords": [
             {
-                "value": "* Automatic Keywords *", 
-                "schema": "INSPIRE"
-            }, 
-            {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "parton: distribution function", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "beam: energy", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "p: beam", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "beam: polarization", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "electron: beam", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "mass: scale", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "higher-order: 1", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "new physics", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "quantum chromodynamics", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "contact interaction", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "DESY HERA Stor", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "ILC Coll", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "niobium", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "cavity", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "quark", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "deep inelastic scattering", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "superconductivity", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier", 
                 "value": "ZEUS", 
                 "schema": "INSPIRE"
             }

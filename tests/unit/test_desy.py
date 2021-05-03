@@ -113,8 +113,12 @@ def test_pipeline(generated_records, expected_records):
         override_generated_fields(generated_record)
         for generated_record in generated_records
     ]
-    assert DeepDiff(clean_generated_records, expected_records,
-                    ignore_order=True, report_repetition=True) == {}
+
+    for clean_generated_record, expected_record in zip(clean_generated_records, expected_records):
+        assert DeepDiff(clean_generated_record, expected_record,
+                        ignore_order=True, report_repetition=True,
+                        exclude_types=[(unicode, str)]) == {}
+
 
 def test_faulty_marc():
     spider = create_spider()

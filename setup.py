@@ -46,6 +46,7 @@ install_requires = [
     'Twisted~=18.0,>=18.9.0',
     #latex parsing
     'pylatexenc~=2.9',
+    'queuelib==1.5.0'
 ]
 
 tests_require = [

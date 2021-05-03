@@ -94,96 +94,92 @@
         ], 
         "keywords": [
             {
-                "value": "* Automatic Keywords *", 
-                "schema": "INSPIRE"
-            }, 
-            {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "parton: distribution function", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "beam: energy", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "p: beam", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "beam: polarization", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "electron: beam", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "mass: scale", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "higher-order: 1", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "new physics", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "quantum chromodynamics", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "contact interaction", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "DESY HERA Stor", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "ILC Coll", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "niobium", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "cavity", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "quark", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "deep inelastic scattering", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "superconductivity", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "ZEUS", 
                 "schema": "INSPIRE"
             }
@@ -316,116 +312,112 @@
         ], 
         "keywords": [
             {
-                "value": "* Automatic Keywords *", 
-                "schema": "INSPIRE"
-            }, 
-            {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "supergravity: 1", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "dimension: 4", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "supersymmetry: D-term", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "potential: D-term", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "compactification: flux", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "anomaly: Green-Schwarz", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Goldstino: decoupling", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "oscillator: harmonic", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "correction: quantum", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "geometry: internal", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Wilson loop", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Goldstone particle", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "symmetry breaking", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "superpotential", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "gravitation", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "background", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "fractional", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "de Sitter", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "stability", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "orbifold", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "axion", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "fermion: zero mode", 
                 "schema": "INSPIRE"
             }
@@ -550,116 +542,112 @@
         ], 
         "keywords": [
             {
-                "value": "* Automatic Keywords *", 
-                "schema": "INSPIRE"
-            }, 
-            {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "supergravity: 1", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "dimension: 4", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "supersymmetry: D-term", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "potential: D-term", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "compactification: flux", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "anomaly: Green-Schwarz", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Goldstino: decoupling", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "oscillator: harmonic", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "correction: quantum", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "geometry: internal", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Wilson loop", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "Goldstone particle", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "symmetry breaking", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "superpotential", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "gravitation", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "background", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "fractional", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "de Sitter", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "stability", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "orbifold", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "axion", 
                 "schema": "INSPIRE"
             }, 
             {
-                "source": "bibclassify", 
+                "source": "classifier",
                 "value": "fermion: zero mode", 
                 "schema": "INSPIRE"
             }

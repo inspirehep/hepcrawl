@@ -1,0 +1,329 @@
+abstract: It has recently been found that supernova explosions can be simulated in the laboratory by implosions induced in a plasma by intense lasers. A theoretical explanation is that the inversion transformation, (Σ:t→−1/t, x→x/t), leaves the Euler equations of fluid dynamics, with standard polytropic exponent, invariant. This implies that the kinematical invariance group of the Euler equations is larger than the Galilei group. In this paper we determine, in a systematic manner, the maximal invariance group <math altimg="si1.gif"><sc>G</sc></math> of general fluid dynamics and show that it is a semi-direct product <math altimg="si1.gif"><sc>G</sc></math>=SL(2, R)⋌G, where the SL(2, R) group contains the time-translations, dilations, and the inversion Σ, and G is the static (nine-parameter) Galilei group. A subtle aspect of the inclusion of viscosity fields is discussed and it is shown that the Navier–Stokes assumption of constant viscosity breaks the SL(2, R) group to a two-parameter group of time translations and dilations in a tensorial way. The 12-parameter group <math altimg="si1.gif"><sc>G</sc></math> is also known to be the maximal invariance group of the free Schrödinger equation. It originates in the free Hamilton–Jacobi equation which is central to both fluid dynamics and the Schrödinger equation.
+copyright_holder: Academic Press
+copyright_statement: Copyright © 2001 Academic Press All rights reserved.
+copyright_year: 2001
+document_type: article
+license_url: ''
+license_statement: ''
+keywords: []
+article_type: full-length article
+journal_title: Annals of Physics
+material: publication
+publisher: Elsevier Inc.
+year: 2001
+authors:
+- full_name: O'Raifeartaigh, L.
+  raw_affiliations:
+  - value: School of Theoretical Physics, Dublin Institute for Advanced Studies, 10
+      Burlington Road, Dublin, 4, Ireland
+    source: Elsevier Inc.
+- full_name: Sreedhar, V.V
+  raw_affiliations:
+  - value: School of Theoretical Physics, Dublin Institute for Advanced Studies, 10
+      Burlington Road, Dublin, 4, Ireland
+    source: Elsevier Inc.
+artid: '96176'
+title: The Maximal Kinematical Invariance Group of Fluid Dynamics and Explosion–Implosion Duality
+dois:
+- material: publication
+  doi: 10.1006/aphy.2001.6176
+journal_volume: '293'
+journal_issue: ''
+is_conference_paper: false
+publication_date: '2001-11-01'
+collaborations: []
+documents:
+- key: aphy.2001.6176.xml
+  url: http://example.org/aphy.2001.6176.xml
+  source: Elsevier Inc.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="RF1"><label>1</label><other-ref id="oref0005"><textref>Supernova
+      hydrodynamics up close: Science and technology review, January/February, 2000;,
+      <inter-ref href="http://www.llnl.gov/str" type="simple">http://www.llnl.gov/str</inter-ref>.</textref></other-ref></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    urls:
+    - value: http://www.llnl.gov/str
+    label: '1'
+    misc:
+    - 'Supernova hydrodynamics up close: Science and technology review, January/February,
+      2000'
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF2"><label>2</label><reference id="ref0005"><contribution
+      langtype="en"><authors><author><given-name>I</given-name><surname>Hachisu</surname></author></authors></contribution><host><issue><series><title><maintitle>Astrophys.
+      J.</maintitle></title><volume-nr>368</volume-nr></series><date>1991</date></issue><pages><first-page>L27</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Astrophys. J.
+      journal_volume: '368'
+      year: 1991
+      page_start: L27
+    label: '2'
+    authors:
+    - full_name: Hachisu, I.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF3"><label>3</label><reference id="ref0010"><contribution
+      langtype="en"><authors><author><given-name>H</given-name><surname>Sakagami</surname></author><author><given-name>K</given-name><surname>Nishihara</surname></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Fluids B</maintitle></title><volume-nr>2</volume-nr></series><date>1990</date></issue><pages><first-page>2715</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Phys. Fluids B
+      journal_volume: '2'
+      year: 1990
+      page_start: '2715'
+    label: '3'
+    authors:
+    - full_name: Sakagami, H.
+      inspire_role: author
+    - full_name: Nishihara, K.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF4"><label>4</label><reference id="ref0015"><contribution langtype="en"><authors><author><given-name>L</given-name><surname>O'C Drury</surname></author><author><given-name>J.T</given-name><surname>Mendonça</surname></author></authors></contribution><host><issue><series><title><maintitle>Phys. Plasmas</maintitle></title><volume-nr>7</volume-nr></series><date>2000</date></issue><pages><first-page>5148</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Phys. Plasmas
+      journal_volume: '7'
+      year: 2000
+      page_start: '5148'
+    label: '4'
+    authors:
+    - full_name: Drury, L. O'C
+      inspire_role: author
+    - full_name: Mendonça, J.T
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF5"><label>5</label><reference id="ref0020"><contribution
+      langtype="en"><authors><author><given-name>S</given-name><surname>Weinberg</surname></author></authors></contribution><host><book><title><maintitle>Gravitation
+      and Cosmology</maintitle></title><date>1972</date><publisher><name>Wiley</name><location>New
+      York</location></publisher></book></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      parent_title: Gravitation and Cosmology
+      year: 1972
+    label: '5'
+    authors:
+    - full_name: Weinberg, S.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="RF6"><label>6</label><reference id="ref0025"><contribution
+      langtype="en"><authors><author><given-name>E.C.G</given-name><surname>Sudarshan</surname></author><author><given-name>N</given-name><surname>Mukunda</surname></author></authors></contribution><host><book><title><maintitle>Classical
+      Dynamics: A Modern Perspective</maintitle></title><date>1974</date><publisher><name>Wiley</name><location>New
+      York</location></publisher></book></host></reference></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      parent_title: 'Classical Dynamics: A Modern Perspective'
+      year: 1974
+    label: '6'
+    authors:
+    - full_name: Sudarshan, E.C.G
+      inspire_role: author
+    - full_name: Mukunda, N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF7A"><label>7a</label><reference id="ref0030"><contribution
+      langtype="en"><authors><author><given-name>M</given-name><surname>Hassaine</surname></author><author><given-name>P.A</given-name><surname>Horvathy</surname></author></authors></contribution><host><issue><series><title><maintitle>Ann.
+      Phys.</maintitle></title><volume-nr>282</volume-nr></series><date>2000</date></issue><pages><first-page>218</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Ann. Phys.
+      journal_volume: '282'
+      year: 2000
+      page_start: '218'
+    label: 7a
+    authors:
+    - full_name: Hassaine, M.
+      inspire_role: author
+    - full_name: Horvathy, P.A
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF7B"><label>b</label><reference id="ref0035"><contribution
+      langtype="en"><authors><author><given-name>M</given-name><surname>Hassaine</surname></author><author><given-name>P.A</given-name><surname>Horvathy</surname></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Lett. A</maintitle></title><volume-nr>279</volume-nr></series><date>2001</date></issue><pages><first-page>215</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Phys. Lett. A
+      journal_volume: '279'
+      year: 2001
+      page_start: '215'
+    label: b
+    authors:
+    - full_name: Hassaine, M.
+      inspire_role: author
+    - full_name: Horvathy, P.A
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF7C"><label>c</label><reference id="ref0040"><contribution
+      langtype="en"><authors><author><given-name>A.M</given-name><surname>Grundland</surname></author><author><given-name>L</given-name><surname>Lalague</surname></author></authors></contribution><host><issue><series><title><maintitle>Can.
+      J. Phys.</maintitle></title><volume-nr>72</volume-nr></series><date>1994</date></issue><pages><first-page>362</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Can. J. Phys.
+      journal_volume: '72'
+      year: 1994
+      page_start: '362'
+    label: c
+    authors:
+    - full_name: Grundland, A.M
+      inspire_role: author
+    - full_name: Lalague, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF7D"><label>d</label><reference id="ref0045"><contribution
+      langtype="en"><authors><author><given-name>A.M</given-name><surname>Grundland</surname></author><author><given-name>L</given-name><surname>Lalague</surname></author></authors></contribution><host><issue><series><title><maintitle>Can.
+      J. Phys.</maintitle></title><volume-nr>73</volume-nr></series><date>1995</date></issue><pages><first-page>463</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Can. J. Phys.
+      journal_volume: '73'
+      year: 1995
+      page_start: '463'
+    label: d
+    authors:
+    - full_name: Grundland, A.M
+      inspire_role: author
+    - full_name: Lalague, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF7E"><label>e</label><other-ref id="oref0010"><textref>R.
+      Jackiw, physics/0010042.</textref></other-ref></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    label: e
+    misc:
+    - R. Jackiw, physics/0010042
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF8A"><label>8a</label><reference id="ref0050"><contribution
+      langtype="en"><authors><author><given-name>U</given-name><surname>Niederer</surname></author></authors></contribution><host><issue><series><title><maintitle>Helv.
+      Phys. Acta</maintitle></title><volume-nr>45</volume-nr></series><date>1972</date></issue><pages><first-page>802</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Helv. Phys. Acta
+      journal_volume: '45'
+      year: 1972
+      page_start: '802'
+    label: 8a
+    authors:
+    - full_name: Niederer, U.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF8B"><label>b</label><reference id="ref0055"><contribution
+      langtype="en"><authors><author><given-name>C.R</given-name><surname>Hagen</surname></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Rev. D</maintitle></title><volume-nr>5</volume-nr></series><date>1972</date></issue><pages><first-page>377</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Phys. Rev. D
+      journal_volume: '5'
+      year: 1972
+      page_start: '377'
+    label: b
+    authors:
+    - full_name: Hagen, C.R
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF8C"><label>c</label><reference id="ref0060"><contribution
+      langtype="en"><authors><author><given-name>R</given-name><surname>Jackiw</surname></author></authors></contribution><host><issue><series><title><maintitle>Phys.
+      Today</maintitle></title><volume-nr>25</volume-nr></series><date>1972</date></issue><pages><first-page>23</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Phys. Today
+      journal_volume: '25'
+      year: 1972
+      page_start: '23'
+    label: c
+    authors:
+    - full_name: Jackiw, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF9"><label>9</label><reference id="ref0065"><contribution
+      langtype="en"><authors><author><given-name>L.D</given-name><surname>Landau</surname></author><author><given-name>E.M</given-name><surname>Lifshitz</surname></author></authors></contribution><host><book><title><maintitle>Fluid
+      Mechanics</maintitle></title><date>1959</date><publisher><name>Pergamon</name><location>Elmsford</location></publisher></book></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      parent_title: Fluid Mechanics
+      year: 1959
+    label: '9'
+    authors:
+    - full_name: Landau, L.D
+      inspire_role: author
+    - full_name: Lifshitz, E.M
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF10A"><label>10a</label><reference id="ref0070"><contribution
+      langtype="en"><authors><author><given-name>A</given-name><surname>Clebsch</surname></author></authors></contribution><host><issue><series><title><maintitle>J.
+      Reine Angew. Math.</maintitle></title><volume-nr>56</volume-nr></series><date>1859</date></issue><pages><first-page>1</first-page></pages></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Reine Angew. Math.
+      journal_volume: '56'
+      year: 1859
+      page_start: '1'
+    label: 10a
+    authors:
+    - full_name: Clebsch, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF10B"><label>b</label><reference id="ref0075"><contribution
+      langtype="en"><authors><author><given-name>H</given-name><surname>Lamb</surname></author></authors></contribution><host><book><title><maintitle>Hydrodynamics</maintitle></title><date>1942</date><publisher><name>Cambridge
+      Univ. Press</name><location>Cambridge</location></publisher></book></host></reference></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      parent_title: Hydrodynamics
+      year: 1942
+    label: b
+    authors:
+    - full_name: Lamb, H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF10C"><label>c</label><other-ref id="oref0015"><textref>for
+      related work see, S. Deser, R. Jackiw, and, A. P. Polychronakos, physics/0006056;</textref></other-ref></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    label: c
+    misc:
+    - for related work see, S. Deser, R. Jackiw, and, A. P. Polychronakos, physics/0006056
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="RF10D"><label>d</label><other-ref id="oref0020"><textref>R.
+      Jackiw, V. P. Nair, and, So-Young, Pi, hep-th/0004084.</textref></other-ref></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    label: d
+    misc:
+    - R. Jackiw, V. P. Nair, and, So-Young, Pi, hep-th/0004084
