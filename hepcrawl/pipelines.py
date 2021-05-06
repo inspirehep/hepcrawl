@@ -196,6 +196,9 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
             ],
             CELERY_TASK_SERIALIZER='json',
             CELERY_RESULT_SERIALIZER='json',
+            BROKER_TRANSPORT_OPTIONS=spider.settings['BROKER_TRANSPORT_OPTIONS'],
+            BROKER_CONNECTION_MAX_RETRIES=spider.settings['BROKER_CONNECTION_MAX_RETRIES'],
+
         ))
         super(InspireCeleryPushPipeline, self).open_spider(spider=spider)
 
