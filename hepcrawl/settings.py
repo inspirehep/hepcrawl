@@ -8,10 +8,8 @@
 # more details.
 
 """Scrapy settings for HEPcrawl project.
-
 For simplicity, this file contains only settings considered important or
 commonly used. You can find more settings consulting the documentation:
-
 http://doc.scrapy.org/en/latest/topics/settings.html
 http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
@@ -140,17 +138,34 @@ API_PIPELINE_TASK_ENDPOINT_DEFAULT = os.environ.get(
 )
 API_PIPELINE_TASK_ENDPOINT_MAPPING = {}   # e.g. {'my_spider': 'special.task'}
 
-# Celery
-# ======
-BROKER_URL = os.environ.get(
-    "APP_BROKER_URL",
-    "pyamqp://guest:guest@rabbitmq:5672//")
-CELERY_RESULT_BACKEND = os.environ.get(
-    "APP_CELERY_RESULT_BACKEND",
-    "redis://redis:6379/1")
+# Message queue/Celery/Redis
+# ==========================
+
+def redis_url(service_name, database):
+  prefix = service_name.upper().replace('-', '_')
+  host = os.environ[prefix + '_SERVICE_HOST']
+  port = os.environ[prefix + '_SERVICE_PORT']
+  url = 'redis://{}:{}/{}'.format(host, port, database)
+  return url
+
+
+CELERY_RESULT_BACKEND = redis_url('next-redis', '1')
 CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
-CELERY_TIMEZONE = 'Europe/Amsterdam'
 CELERY_DISABLE_RATE_LIMITS = True
+
+CELERY_BROKER_TRANSPORT_OPTIONS = {
+  "max_retries": 3,
+  "interval_start": 0,
+  "interval_step": 0.2,
+  "interval_max": 0.5,
+  "confirm_publish": True
+}
+CELERY_BROKER_CONNECTION_MAX_RETRIES = 5
+
+mq_user = os.environ['MQ_USER']
+mq_password = os.environ['MQ_PASSWORD']
+mq_host = os.environ['MQ_SERVICE_HOST']
+CELERY_BROKER_URL = 'amqp://{}:{}@{}:5672'.format(mq_user, mq_password, mq_host)
 
 # Jobs
 # ====
