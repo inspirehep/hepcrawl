@@ -253,7 +253,7 @@ class ElsevierParser(object):
     def document_type(self):
         doctype = None
         if self.root.xpath(
-            "./*[self::article or self::simple-article or self::book-review]"
+            "./*[contains(name(),'article') or self::book-review]"
         ):
             doctype = "article"
         elif self.root.xpath("./*[self::book or self::simple-book]"):

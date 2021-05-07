@@ -50,6 +50,7 @@ def get_parser_by_file(filename):
     ('j.nimb.2019.04.063.xml', 'j.nimb.2019.04.063_expected.yml'),
     ('j.cpc.2020.107740.xml', 'j.cpc.2020.107740_expected.yml'),
     ('j.scib.2020.01.008.xml', 'j.scib.2020.01.008_expected.yml'),
+    ('aphy.2001.6176.xml', 'aphy.2001.6176_expected.yml'),
 ])
 def records(request):
     return {
@@ -137,7 +138,6 @@ def test_attach_fulltext_document(records):
         'http://example.org/{}'.format(records['file_name'])
     )
     result = parser.parse()
-
     assert result['documents'] == records['expected']['documents']
 
 
