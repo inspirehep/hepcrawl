@@ -16,7 +16,7 @@ import re
 
 import six
 from inspire_schemas.api import LiteratureBuilder
-from inspire_schemas.utils import classify_field
+from inspire_schemas.utils import classify_field, normalize_arxiv_category
 from inspire_utils.dedupers import dedupe_list
 from inspire_utils.helpers import maybe_int
 from pylatexenc.latex2text import (
@@ -368,8 +368,10 @@ class ArxivParser(object):
     @property
     def arxiv_categories(self):
         categories = self.root.xpath('.//categories/text()').extract_first(default='[]')
+        categories = categories.split()
+        categories_without_old = [normalize_arxiv_category(arxiv_cat) for arxiv_cat in categories]
 
-        return categories.split()
+        return dedupe_list(categories_without_old)
 
     @property
     def document_type(self):
