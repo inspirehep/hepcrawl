@@ -209,10 +209,24 @@ def test_authors(results):
 
 
 def test_arxiv_eprints(results):
-    expected_eprints = [{
-        'categories': [u'quant-ph', u'gr-qc', u'hep-th'],
+    expected_eprints = [
+        {
+        'categories': ['quant-ph', 'gr-qc', 'hep-th', 'nlin.CD'],
         'value': u'1601.03238'
-    }]
+        }
+    ]
     for record in results:
         assert 'arxiv_eprints' in record
         assert record['arxiv_eprints'] == expected_eprints
+
+
+def test_inspire_categories(results):
+    expected_eprints = [
+        {'term': 'General Physics', 'source': 'arxiv'},
+        {'term': 'Gravitation and Cosmology', 'source': 'arxiv'},
+        {'term': 'Theory-HEP', 'source': 'arxiv'}
+    ]
+
+    for record in results:
+        assert 'inspire_categories' in record
+        assert record['inspire_categories'] == expected_eprints

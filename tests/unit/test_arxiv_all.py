@@ -278,3 +278,29 @@ def test_repno(many_results):
             assert record['report_numbers'] == expected_repno
         else:
             assert 'report_numbers' not in record
+
+
+def test_eprints(many_results):
+    expected = [
+        [{'value': '1601.03238', 'categories': ['quant-ph', 'gr-qc', 'hep-th']}],
+        [{'value': '1512.07978', 'categories': ['astro-ph.HE']}],
+        [{'value': '1603.00997', 'categories': ['hep-lat', 'nucl-th']}],
+        [{'value': '1603.01251', 'categories': ['physics.ins-det', 'hep-ex']}],
+        [{'value': '1603.05976', 'categories': ['astro-ph.IM', 'astro-ph.CO']}],
+        [{'value': '1604.05585', 'categories': ['astro-ph.GA', 'astro-ph.CO']}],
+        [{'value': '1606.06775', 'categories': ['astro-ph.HE', 'astro-ph.GA']}],
+        [{'value': '1606.07066', 'categories': ['astro-ph.GA', 'astro-ph.CO', 'astro-ph.HE', 'gr-qc']}],
+        [{'value': '1606.07538', 'categories': ['hep-ex', 'physics.ins-det']}],
+        [{'value': '1607.00786', 'categories': ['hep-ex']}],
+        [{'value': '1606.04259', 'categories': ['hep-th']}],
+        [{'value': '1808.04927', 'categories': ['hep-ex', 'nucl-ex', 'nlin.CD']}],
+    ]
+
+    for index, (expected_eprints, record) in enumerate(
+        zip(expected, many_results)
+    ):
+        if expected_eprints:
+            assert 'arxiv_eprints' in record
+            assert record['arxiv_eprints'] == expected_eprints
+        else:
+            assert 'arxiv_eprints' not in record
