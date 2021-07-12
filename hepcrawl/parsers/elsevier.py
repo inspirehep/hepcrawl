@@ -432,7 +432,7 @@ class ElsevierParser(object):
         if ref_ids:
             affiliations = self._find_affiliations_by_id(author_group_node, ref_ids)
         else:
-            affiliations = group_affs
+            affiliations = filter(None, group_affs)
         return affiliations
 
     @staticmethod

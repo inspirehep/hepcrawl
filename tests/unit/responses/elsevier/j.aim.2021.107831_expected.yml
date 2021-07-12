@@ -1,0 +1,699 @@
+abstract: This paper considers the problem of establishing <math altimg="si1.svg"><msup><mrow><mi>L</mi></mrow><mrow><mi>p</mi></mrow></msup></math>-improving inequalities for Radon-like operators in intermediate dimensions (i.e., for averages overs submanifolds which are neither curves nor hypersurfaces). Due to limitations in existing approaches, previous results in this regime are comparatively sparse and tend to require special numerical relationships between the dimension n of the ambient space and the dimension k of the submanifolds. This paper develops a new approach to this problem based on a continuum version of the Kakeya-Brascamp-Lieb inequality, established by Zhang [28] and extended by Zorin-Kranich [29], and on recent results for geometric nonconcentration inequalities [11]. As an initial application of this new approach, this paper establishes sharp restricted strong type <math altimg="si1.svg"><msup><mrow><mi>L</mi></mrow><mrow><mi>p</mi></mrow></msup></math>-improving inequalities for certain model quadratic submanifolds in the range <math altimg="si2.svg"><mi>k</mi><mo linebreak="goodbreak" linebreakstyle="after">&lt;</mo><mi>n</mi><mo>≤</mo><mn>2</mn><mi>k</mi></math>.
+copyright_holder: Elsevier Inc.
+copyright_statement: © 2021 Elsevier Inc. All rights reserved.
+copyright_year: 2021
+document_type: article
+license_url: ''
+license_statement: ''
+keywords: ['Radon-like operators', 'Brascamp-Lieb inequalities']
+article_type: full-length article
+journal_title: Advances in Mathematics
+material: publication
+publisher: Elsevier Inc.
+year: 2021
+authors:
+- full_name: Gressman, Philip T.
+  emails:
+  - gressman@math.upenn.edu
+artid: '107831'
+title: Lp-improving estimates for Radon-like operators and the Kakeya-Brascamp-Lieb inequality
+dois:
+- doi: 10.1016/j.aim.2021.107831
+  material: publication
+journal_volume: '387'
+journal_issue: ''
+is_conference_paper: false
+publication_date: '2021-08-27'
+collaborations: []
+documents:
+- key: j.aim.2021.107831.xml
+  url: http://example.org/j.aim.2021.107831.xml
+  source: Elsevier Inc.
+  fulltext: true
+  hidden: true
+references:
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0010"><label>[1]</label><reference id="bibE12D275DA9E0DAF172313450C8A2986Fs1"><contribution
+      langtype="en"><authors><author><given-name>J.-G.</given-name><surname>Bak</surname></author><author><given-name>D.M.</given-name><surname>Oberlin</surname></author><author><given-name>A.</given-name><surname>Seeger</surname></author></authors><title><maintitle>Restriction
+      of Fourier transforms to curves and related oscillatory integrals</maintitle></title></contribution><host><issue><series><title><maintitle>Am.
+      J. Math.</maintitle></title><volume-nr>131</volume-nr></series><issue-nr>2</issue-nr><date>2009</date></issue><pages><first-page>277</first-page><last-page>311</last-page></pages></host></reference><source-text
+      id="srct0005">J.-G. Bak, D.M. Oberlin, A. Seeger, Restriction of Fourier transforms
+      to curves and related oscillatory integrals, Amer. J. Math. 131 (2009), no.
+      2, 277–311.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Am. J. Math.
+      journal_volume: '131'
+      journal_issue: '2'
+      year: 2009
+      page_start: '277'
+      page_end: '311'
+    label: '1'
+    authors:
+    - full_name: Bak, J.-G.
+      inspire_role: author
+    - full_name: Oberlin, D.M.
+      inspire_role: author
+    - full_name: Seeger, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0020"><label>[2]</label><reference id="bib8DA1B5EA78EF5E7DE642A7464B1E9DDEs1"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Bennett</surname></author><author><given-name>N.</given-name><surname>Bez</surname></author><author><given-name>M.G.</given-name><surname>Cowling</surname></author><author><given-name>T.C.</given-name><surname>Flock</surname></author></authors><title><maintitle>Behaviour
+      of the Brascamp-Lieb constant</maintitle></title></contribution><host><issue><series><title><maintitle>Bull.
+      Lond. Math. Soc.</maintitle></title><volume-nr>49</volume-nr></series><issue-nr>3</issue-nr><date>2017</date></issue><pages><first-page>512</first-page><last-page>518</last-page></pages></host></reference><source-text
+      id="srct0010">J. Bennett, N. Bez, M.G. Cowling, T.C. Flock, Behaviour of the
+      Brascamp-Lieb constant, Bull. Lond. Math. Soc. 49 (2017), no. 3, 512–518.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Bull. Lond. Math. Soc.
+      journal_volume: '49'
+      journal_issue: '3'
+      year: 2017
+      page_start: '512'
+      page_end: '518'
+    label: '2'
+    authors:
+    - full_name: Bennett, J.
+      inspire_role: author
+    - full_name: Bez, N.
+      inspire_role: author
+    - full_name: Cowling, M.G.
+      inspire_role: author
+    - full_name: Flock, T.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0030"><label>[3]</label><reference id="bibBDD4C59FB113F19686C7058E36AC209Es1"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Bennett</surname></author><author><given-name>A.</given-name><surname>Carbery</surname></author><author><given-name>M.</given-name><surname>Christ</surname></author><author><given-name>T.</given-name><surname>Tao</surname></author></authors><title><maintitle>The
+      Brascamp-Lieb inequalities: finiteness, structure and extremals</maintitle></title></contribution><host><issue><series><title><maintitle>Geom.
+      Funct. Anal.</maintitle></title><volume-nr>17</volume-nr></series><issue-nr>5</issue-nr><date>2008</date></issue><pages><first-page>1343</first-page><last-page>1415</last-page></pages></host></reference><source-text
+      id="srct0015">J. Bennett, A. Carbery, M. Christ, T. Tao, The Brascamp-Lieb inequalities:
+      finiteness, structure and extremals, Geom. Funct. Anal. 17 (2008), no. 5, 1343–1415.</source-text></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Geom. Funct. Anal.
+      journal_volume: '17'
+      journal_issue: '5'
+      year: 2008
+      page_start: '1343'
+      page_end: '1415'
+    label: '3'
+    authors:
+    - full_name: Bennett, J.
+      inspire_role: author
+    - full_name: Carbery, A.
+      inspire_role: author
+    - full_name: Christ, M.
+      inspire_role: author
+    - full_name: Tao, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0040"><label>[4]</label><reference id="bib6B30A16C4F2CC6C7307B0FF3DBAFC219s1"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Bennett</surname></author><author><given-name>A.</given-name><surname>Carbery</surname></author><author><given-name>T.</given-name><surname>Tao</surname></author></authors><title><maintitle>On
+      the multilinear restriction and Kakeya conjectures</maintitle></title></contribution><host><issue><series><title><maintitle>Acta
+      Math.</maintitle></title><volume-nr>196</volume-nr></series><issue-nr>2</issue-nr><date>2006</date></issue><pages><first-page>261</first-page><last-page>302</last-page></pages></host></reference><source-text
+      id="srct0020">J. Bennett, A. Carbery, T. Tao, On the multilinear restriction
+      and Kakeya conjectures, Acta Math. 196 (2006), no. 2, 261–302.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Acta Math.
+      journal_volume: '196'
+      journal_issue: '2'
+      year: 2006
+      page_start: '261'
+      page_end: '302'
+    label: '4'
+    authors:
+    - full_name: Bennett, J.
+      inspire_role: author
+    - full_name: Carbery, A.
+      inspire_role: author
+    - full_name: Tao, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0050"><label>[5]</label><reference id="bib55948E7114A1409ADD6D00C7F61FCBDEs1"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Bourgain</surname></author></authors><title><maintitle>Averages
+      in the plane over convex curves and maximal operators</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Anal. Math.</maintitle></title><volume-nr>47</volume-nr></series><date>1986</date></issue><pages><first-page>69</first-page><last-page>85</last-page></pages></host></reference><source-text
+      id="srct0025">J. Bourgain, Averages in the plane over convex curves and maximal
+      operators, J. Analyse Math. 47 (1986) 69–85.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Anal. Math.
+      journal_volume: '47'
+      year: 1986
+      page_start: '69'
+      page_end: '85'
+    label: '5'
+    authors:
+    - full_name: Bourgain, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0060"><label>[6]</label><reference id="bibA5C02F99DDDC936DEC23946CAA7CE733s1"><contribution
+      langtype="en"><authors><author><given-name>J.</given-name><surname>Bourgain</surname></author></authors><title><maintitle>Besicovitch
+      type maximal operators and applications to Fourier analysis</maintitle></title></contribution><host><issue><series><title><maintitle>Geom.
+      Funct. Anal.</maintitle></title><volume-nr>1</volume-nr></series><issue-nr>2</issue-nr><date>1991</date></issue><pages><first-page>147</first-page><last-page>187</last-page></pages></host></reference><source-text
+      id="srct0030">J. Bourgain, Besicovitch type maximal operators and applications
+      to Fourier analysis, Geom. Funct. Anal. 1 (1991), no. 2, 147–187.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Geom. Funct. Anal.
+      journal_volume: '1'
+      journal_issue: '2'
+      year: 1991
+      page_start: '147'
+      page_end: '187'
+    label: '6'
+    authors:
+    - full_name: Bourgain, J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0070"><label>[7]</label><reference id="bib4731C82DFB1F1E2228F3887A96526932s1"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Christ</surname></author></authors><title><maintitle>Convolution,
+      curvature, and combinatorics: a case study</maintitle></title></contribution><host><issue><series><title><maintitle>Int.
+      Math. Res. Not.</maintitle></title><volume-nr>19</volume-nr></series><date>1998</date></issue><pages><first-page>1033</first-page><last-page>1048</last-page></pages></host></reference><source-text
+      id="srct0035">M. Christ, Convolution, curvature, and combinatorics: a case study,
+      Internat. Math. Res. Notices, 19 (1998) 1033–1048.</source-text></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Int. Math. Res. Not.
+      journal_volume: '19'
+      year: 1998
+      page_start: '1033'
+      page_end: '1048'
+    label: '7'
+    authors:
+    - full_name: Christ, M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0080"><label>[8]</label><reference id="bib09698A622BBFEC104E0233F7B71D86B1s1"><contribution
+      langtype="en"><authors><author><given-name>M.</given-name><surname>Domokos</surname></author><author><given-name>A.N.</given-name><surname>Zubkov</surname></author></authors><title><maintitle>Semi-invariants
+      of quivers as determinants</maintitle></title></contribution><host><issue><series><title><maintitle>Transform.
+      Groups</maintitle></title><volume-nr>6</volume-nr></series><issue-nr>1</issue-nr><date>2001</date></issue><pages><first-page>9</first-page><last-page>24</last-page></pages></host></reference><source-text
+      id="srct0040">M. Domokos, A.N. Zubkov, Semi-invariants of quivers as determinants,
+      Transform. Groups 6(2001), no. 1, 9–24.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Transform. Groups
+      journal_volume: '6'
+      journal_issue: '1'
+      year: 2001
+      page_start: '9'
+      page_end: '24'
+    label: '8'
+    authors:
+    - full_name: Domokos, M.
+      inspire_role: author
+    - full_name: Zubkov, A.N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0090"><label>[9]</label><reference id="bibDF84BF172C105716B7C746B1407FD166s1"><contribution
+      langtype="en"><authors><author><given-name>A.</given-name><surname>Garg</surname></author><author><given-name>L.</given-name><surname>Gurvits</surname></author><author><given-name>R.</given-name><surname>Oliveira</surname></author><author><given-name>A.</given-name><surname>Wigderson</surname></author></authors><title><maintitle>Algorithmic
+      and optimization aspects of Brascamp-Lieb inequalities, via operator scaling</maintitle></title></contribution><host><edited-book><title><maintitle>STOC''17—Proceedings
+      of the 49th Annual ACM SIGACT Symposium on Theory of Computing</maintitle></title><date>2017</date><publisher><name>ACM</name><location>New
+      York</location></publisher></edited-book><pages><first-page>397</first-page><last-page>409</last-page></pages></host><comment>MR3678197</comment></reference><source-text
+      id="srct0045">A. Garg, L. Gurvits, R. Oliveira, A. Wigderson, Algorithmic and
+      optimization aspects of Brascamp-Lieb inequalities, via operator scaling, in:
+      STOC''17—Proceedings of the 49th Annual ACM SIGACT Symposium on Theory of Computing,
+      ACM, New York, 2017, pp. 397–409. MR3678197.</source-text></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      parent_title: STOC'17—Proceedings of the 49th Annual ACM SIGACT Symposium on
+        Theory of Computing
+      year: 2017
+      page_start: '397'
+      page_end: '409'
+    label: '9'
+    misc:
+    - MR3678197
+    authors:
+    - full_name: Garg, A.
+      inspire_role: author
+    - full_name: Gurvits, L.
+      inspire_role: author
+    - full_name: Oliveira, R.
+      inspire_role: author
+    - full_name: Wigderson, A.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0100"><label>[10]</label><reference id="bib107ED2DF1C958A95A8E4257E0643D804s1"><contribution
+      langtype="en"><authors><author><given-name>P.T.</given-name><surname>Gressman</surname></author></authors><title><maintitle>On
+      multilinear determinant functionals</maintitle></title></contribution><host><issue><series><title><maintitle>Proc.
+      Am. Math. Soc.</maintitle></title><volume-nr>139</volume-nr></series><issue-nr>7</issue-nr><date>2011</date></issue><pages><first-page>2473</first-page><last-page>2484</last-page></pages></host></reference><source-text
+      id="srct0050">P.T. Gressman, On multilinear determinant functionals, Proc. Amer.
+      Math. Soc. 139 (2011), no. 7, 2473–2484.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Proc. Am. Math. Soc.
+      journal_volume: '139'
+      journal_issue: '7'
+      year: 2011
+      page_start: '2473'
+      page_end: '2484'
+    label: '10'
+    authors:
+    - full_name: Gressman, P.T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0110"><label>[11]</label><reference id="bibF16D431548F4682323C1F69D60894E45s1"><contribution
+      langtype="en"><authors><author><given-name>P.T.</given-name><surname>Gressman</surname></author></authors><title><maintitle>Geometric
+      averaging operators and nonconcentration inequalities</maintitle></title></contribution><comment>Available
+      online at</comment><host><e-host><inter-ref id="inf0010" role="http://www.elsevier.com/xml/linking-roles/preprint"
+      href="arxiv:1906.04599" type="simple">arXiv:1906.04599</inter-ref><date>2019</date></e-host></host></reference><source-text
+      id="srct0055">P.T. Gressman, Geometric averaging operators and nonconcentration
+      inequalities, 2019. Available online at arXiv:1906.04599.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      year: 2019
+    arxiv_eprint: '1906.04599'
+    label: '11'
+    misc:
+    - Available online at
+    authors:
+    - full_name: Gressman, P.T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0120"><label>[12]</label><reference id="bib3DD2E73769EE39B76489BB2B77E6A7C9s1"><contribution
+      langtype="en"><authors><author><given-name>L.</given-name><surname>Guth</surname></author></authors><title><maintitle>The
+      endpoint case of the Bennett-Carbery-Tao multilinear Kakeya conjecture</maintitle></title></contribution><host><issue><series><title><maintitle>Acta
+      Math.</maintitle></title><volume-nr>205</volume-nr></series><issue-nr>2</issue-nr><date>2010</date></issue><pages><first-page>263</first-page><last-page>286</last-page></pages></host></reference><source-text
+      id="srct0060">L. Guth, The endpoint case of the Bennett-Carbery-Tao multilinear
+      Kakeya conjecture, Acta Math. 205 (2010), no. 2, 263–286.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Acta Math.
+      journal_volume: '205'
+      journal_issue: '2'
+      year: 2010
+      page_start: '263'
+      page_end: '286'
+    label: '12'
+    authors:
+    - full_name: Guth, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: '<bib-reference id="br0130"><label>[13]</label><reference id="bib9585EA681052852B1504394B1A66FFDAs1"><contribution
+      langtype="en"><authors><author><given-name>G.</given-name><surname>Kempf</surname></author><author><given-name>L.</given-name><surname>Ness</surname></author></authors><title><maintitle>The
+      length of vectors in representation spaces</maintitle></title></contribution><host><edited-book><title><maintitle>Algebraic
+      Geometry</maintitle></title><conference>Proc. Summer Meeting, Univ. Copenhagen,
+      Copenhagen, 1978</conference><book-series><series><title><maintitle>Lecture
+      Notes in Math.</maintitle></title><volume-nr>vol. 732</volume-nr></series></book-series><date>1979</date><publisher><name>Springer</name><location>Berlin</location></publisher></edited-book><pages><first-page>233</first-page><last-page>243</last-page></pages></host></reference><source-text
+      id="srct0065">G. Kempf, L. Ness, The length of vectors in representation spaces,
+      in: Algebraic geometry (Proc. Summer Meeting, Univ. Copenhagen, Copenhagen,
+      1978), Lecture Notes in Math. vol. 732, Springer, Berlin, 1979, pp. 233–243.</source-text></bib-reference>'
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Lecture Notes in Math.
+      parent_title: Algebraic Geometry
+      journal_volume: vol. 732
+      year: 1979
+      page_start: '233'
+      page_end: '243'
+    label: '13'
+    misc:
+    - Proc. Summer Meeting, Univ. Copenhagen, Copenhagen, 1978
+    authors:
+    - full_name: Kempf, G.
+      inspire_role: author
+    - full_name: Ness, L.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0140"><label>[14]</label><reference id="bib27DD4EFC244912C28486FA9E5D23C481s1"><contribution
+      langtype="en"><authors><author><given-name>E.H.</given-name><surname>Lieb</surname></author></authors><title><maintitle>Gaussian
+      kernels have only Gaussian maximizers</maintitle></title></contribution><host><issue><series><title><maintitle>Invent.
+      Math.</maintitle></title><volume-nr>102</volume-nr></series><issue-nr>1</issue-nr><date>1990</date></issue><pages><first-page>179</first-page><last-page>208</last-page></pages></host></reference><source-text
+      id="srct0070">E.H. Lieb, Gaussian kernels have only Gaussian maximizers, Invent.
+      Math. 102 (1990), no. 1, 179–208.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Invent. Math.
+      journal_volume: '102'
+      journal_issue: '1'
+      year: 1990
+      page_start: '179'
+      page_end: '208'
+    label: '14'
+    authors:
+    - full_name: Lieb, E.H.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0150"><label>[15]</label><reference id="bib37663ECD6FDC8BF1C2C30560F814542Cs1"><contribution
+      langtype="en"><authors><author><given-name>D.</given-name><surname>Mumford</surname></author><author><given-name>J.</given-name><surname>Fogarty</surname></author><author><given-name>F.</given-name><surname>Kirwan</surname></author></authors><title><maintitle>Geometric
+      Invariant Theory</maintitle></title></contribution><host><book><edition>third</edition><book-series><series><title><maintitle>Ergebnisse
+      der Mathematik und ihrer Grenzgebiete (2)</maintitle></title><translated-title><maintitle>Results
+      in Mathematics and Related Areas (2)</maintitle></translated-title><volume-nr>vol.
+      34</volume-nr></series></book-series><date>1994</date><publisher><name>Springer-Verlag</name><location>Berlin</location></publisher></book></host></reference><source-text
+      id="srct0075">D. Mumford, J. Fogarty, F. Kirwan, Geometric invariant theory,
+      Third, Ergebnisse der Mathematik und ihrer Grenzgebiete (2) [Results in Mathematics
+      and Related Areas (2)], vol. 34, Springer-Verlag, Berlin, 1994.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Ergebnisse der Mathematik und ihrer Grenzgebiete (2)
+      journal_volume: vol. 34
+      year: 1994
+    label: '15'
+    misc:
+    - third
+    authors:
+    - full_name: Mumford, D.
+      inspire_role: author
+    - full_name: Fogarty, J.
+      inspire_role: author
+    - full_name: Kirwan, F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0160"><label>[16]</label><reference id="bibA21C30D29557C9666E19F4728032E9C7s1"><contribution
+      langtype="en"><authors><author><given-name>D.M.</given-name><surname>Oberlin</surname></author></authors><title><maintitle>Convolution
+      estimates and model surfaces of low codimension</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Fourier Anal. Appl.</maintitle></title><volume-nr>14</volume-nr></series><issue-nr>3</issue-nr><date>2008</date></issue><pages><first-page>484</first-page><last-page>491</last-page></pages></host><comment>MR2399110</comment></reference><source-text
+      id="srct0080">D.M. Oberlin, Convolution estimates and model surfaces of low
+      codimension, J. Fourier Anal. Appl. 14 (2008), no. 3, 484–491. MR2399110.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Fourier Anal. Appl.
+      journal_volume: '14'
+      journal_issue: '3'
+      year: 2008
+      page_start: '484'
+      page_end: '491'
+    label: '16'
+    misc:
+    - MR2399110
+    authors:
+    - full_name: Oberlin, D.M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0170"><label>[17]</label><reference id="bibEA88404FC402D767BAC04E4E9F57223Fs1"><contribution
+      langtype="en"><authors><author><given-name>N.</given-name><surname>Patel</surname></author></authors><title><maintitle>Three
+      new results on continuation criteria for the 3D relativistic Vlasov-Maxwell
+      system</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Differ. Equ.</maintitle></title><volume-nr>264</volume-nr></series><issue-nr>3</issue-nr><date>2018</date></issue><pages><first-page>1841</first-page><last-page>1885</last-page></pages></host></reference><source-text
+      id="srct0085">N. Patel, Three new results on continuation criteria for the 3D
+      relativistic Vlasov-Maxwell system, J. Differential Equations 264 (2018), no.
+      3, 1841–1885.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Differ. Equ.
+      journal_volume: '264'
+      journal_issue: '3'
+      year: 2018
+      page_start: '1841'
+      page_end: '1885'
+    label: '17'
+    authors:
+    - full_name: Patel, N.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0180"><label>[18]</label><reference id="bib29906AB0B97F85E6AA40E03290A5267Es1"><contribution
+      langtype="en"><authors><author><given-name>D.H.</given-name><surname>Phong</surname></author><author><given-name>E.M.</given-name><surname>Stein</surname></author></authors><title><maintitle>Singular
+      Radon transforms and oscillatory integrals</maintitle></title></contribution><host><issue><series><title><maintitle>Duke
+      Math. J.</maintitle></title><volume-nr>58</volume-nr></series><issue-nr>2</issue-nr><date>1989</date></issue><pages><first-page>347</first-page><last-page>369</last-page></pages></host></reference><source-text
+      id="srct0090">D.H. Phong, E.M. Stein, Singular Radon transforms and oscillatory
+      integrals, Duke Math. J. 58 (1989), no. 2, 347–369.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Duke Math. J.
+      journal_volume: '58'
+      journal_issue: '2'
+      year: 1989
+      page_start: '347'
+      page_end: '369'
+    label: '18'
+    authors:
+    - full_name: Phong, D.H.
+      inspire_role: author
+    - full_name: Stein, E.M.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0190"><label>[19]</label><reference id="bib362ACA06FFC74C5929BC20642B8826C0s1"><contribution
+      langtype="en"><authors><author><given-name>F.</given-name><surname>Ricci</surname></author></authors><title><maintitle><math
+      altimg="si1.svg"><msup><mrow><mi>L</mi></mrow><mrow><mi>p</mi></mrow></msup></math>-<math
+      altimg="si1098.svg"><msup><mrow><mi>L</mi></mrow><mrow><mi>q</mi></mrow></msup></math>
+      boundedness for convolution operators defined by singular measures in <math
+      altimg="si1099.svg"><msup><mrow><mi mathvariant="bold">R</mi></mrow><mrow><mi>n</mi></mrow></msup></math></maintitle></title></contribution><host><issue><series><title><maintitle>Boll.
+      Unione Mat. Ital., A (7)</maintitle></title><volume-nr>11</volume-nr></series><issue-nr>2</issue-nr><date>1997</date></issue><pages><first-page>237</first-page><last-page>252</last-page></pages></host><comment>MR1477777</comment></reference><source-text
+      id="srct0095">F. Ricci, Lp-Lq boundedness for convolution operators defined
+      by singular measures in Rn, Boll. Un. Mat. Ital. A (7) 11 (1997), no. 2, 237–252.
+      MR1477777.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Boll. Unione Mat. Ital., A (7)
+      journal_volume: '11'
+      journal_issue: '2'
+      year: 1997
+      page_start: '237'
+      page_end: '252'
+    label: '19'
+    misc:
+    - MR1477777
+    authors:
+    - full_name: Ricci, F.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0200"><label>[20]</label><reference id="bib0016C79070ADD844B1C44731D0C12F40s1"><contribution
+      langtype="en"><authors><author><given-name>R.W.</given-name><surname>Richardson</surname></author><author><given-name>P.J.</given-name><surname>Slodowy</surname></author></authors><title><maintitle>Minimum
+      vectors for real reductive algebraic groups</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Lond. Math. Soc. (2)</maintitle></title><volume-nr>42</volume-nr></series><issue-nr>3</issue-nr><date>1990</date></issue><pages><first-page>409</first-page><last-page>429</last-page></pages></host></reference><source-text
+      id="srct0100">R.W. Richardson, P.J. Slodowy, Minimum vectors for real reductive
+      algebraic groups, J. London Math. Soc. (2) 42 (1990), no. 3, 409–429.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Lond. Math. Soc. (2)
+      journal_volume: '42'
+      journal_issue: '3'
+      year: 1990
+      page_start: '409'
+      page_end: '429'
+    label: '20'
+    authors:
+    - full_name: Richardson, R.W.
+      inspire_role: author
+    - full_name: Slodowy, P.J.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0210"><label>[21]</label><reference id="bibC2ADD0DD3859E3CEE12DEA44406BFBDFs1"><contribution
+      langtype="en"><authors><author><given-name>W.</given-name><surname>Schlag</surname></author></authors><title><maintitle>A
+      generalization of Bourgain's circular maximal theorem</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Am. Math. Soc.</maintitle></title><volume-nr>10</volume-nr></series><issue-nr>1</issue-nr><date>1997</date></issue><pages><first-page>103</first-page><last-page>122</last-page></pages></host></reference><source-text
+      id="srct0105">W. Schlag, A generalization of Bourgain's circular maximal theorem,
+      J. Amer. Math. Soc. 10 (1997), no. 1, 103–122.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Am. Math. Soc.
+      journal_volume: '10'
+      journal_issue: '1'
+      year: 1997
+      page_start: '103'
+      page_end: '122'
+    label: '21'
+    authors:
+    - full_name: Schlag, W.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0220"><label>[22]</label><reference id="bibA09E25CE69296EA2EAFC18EB4D180F21s1"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Stovall</surname></author></authors><title><maintitle>Endpoint
+      bounds for a generalized Radon transform</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Lond. Math. Soc. (2)</maintitle></title><volume-nr>80</volume-nr></series><issue-nr>2</issue-nr><date>2009</date></issue><pages><first-page>357</first-page><last-page>374</last-page></pages></host></reference><source-text
+      id="srct0110">B. Stovall, Endpoint bounds for a generalized Radon transform,
+      J. Lond. Math. Soc. (2) 80 (2009), no. 2, 357–374.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Lond. Math. Soc. (2)
+      journal_volume: '80'
+      journal_issue: '2'
+      year: 2009
+      page_start: '357'
+      page_end: '374'
+    label: '22'
+    authors:
+    - full_name: Stovall, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0230"><label>[23]</label><reference id="bibE8654DCFE08B907A72F1FF7556B1BAC3s1"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Stovall</surname></author></authors><title><maintitle>Endpoint
+      <math altimg="si1100.svg"><msup><mrow><mi>L</mi></mrow><mrow><mi>p</mi></mrow></msup><mo
+      stretchy="false">→</mo><msup><mrow><mi>L</mi></mrow><mrow><mi>q</mi></mrow></msup></math>
+      bounds for integration along certain polynomial curves</maintitle></title></contribution><host><issue><series><title><maintitle>J.
+      Funct. Anal.</maintitle></title><volume-nr>259</volume-nr></series><issue-nr>12</issue-nr><date>2010</date></issue><pages><first-page>3205</first-page><last-page>3229</last-page></pages></host><comment>MR2727644</comment></reference><source-text
+      id="srct0115">B. Stovall, Endpoint Lp→Lq bounds for integration along certain
+      polynomial curves, J. Funct. Anal. 259 (2010), no. 12, 3205–3229. MR2727644.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: J. Funct. Anal.
+      journal_volume: '259'
+      journal_issue: '12'
+      year: 2010
+      page_start: '3205'
+      page_end: '3229'
+    label: '23'
+    misc:
+    - MR2727644
+    authors:
+    - full_name: Stovall, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0240"><label>[24]</label><reference id="bibAD3AFEF94F1224FCE55A76493DA0A225s1"><contribution
+      langtype="en"><authors><author><given-name>B.</given-name><surname>Sturmfels</surname></author></authors><title><maintitle>Algorithms
+      in Invariant Theory</maintitle></title></contribution><host><book><edition>second</edition><book-series><series><title><maintitle>Texts
+      and Monographs in Symbolic Computation</maintitle></title></series></book-series><date>2008</date><publisher><name>SpringerWienNewYork</name><location>Vienna</location></publisher></book></host></reference><source-text
+      id="srct0120">B. Sturmfels, Algorithms in invariant theory, Second, Texts and
+      Monographs in Symbolic Computation, SpringerWienNewYork, Vienna, 2008.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Texts and Monographs in Symbolic Computation
+      year: 2008
+    label: '24'
+    misc:
+    - second
+    authors:
+    - full_name: Sturmfels, B.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0250"><label>[25]</label><reference id="bibFF4D45F9574DDD518815D4E4BFC56009s1"><contribution
+      langtype="en"><authors><author><given-name>W.C.</given-name><surname>Waterhouse</surname></author></authors><title><maintitle>Introduction
+      to Affine Group Schemes</maintitle></title></contribution><host><book><book-series><series><title><maintitle>Graduate
+      Texts in Mathematics</maintitle></title><volume-nr>vol. 66</volume-nr></series></book-series><date>1979</date><publisher><name>Springer-Verlag</name><location>New
+      York-Berlin</location></publisher></book></host></reference><source-text id="srct0125">W.C.
+      Waterhouse, Introduction to affine group schemes, Graduate Texts in Mathematics,
+      vol. 66, Springer-Verlag, New York-Berlin, 1979.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Graduate Texts in Mathematics
+      journal_volume: vol. 66
+      year: 1979
+    label: '25'
+    authors:
+    - full_name: Waterhouse, W.C.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0260"><label>[26]</label><reference id="bib6C3C02B12BA6FED4C7946697CE21909Bs1"><contribution
+      langtype="en"><authors><author><given-name>T.</given-name><surname>Wolff</surname></author></authors><title><maintitle>An
+      improved bound for Kakeya type maximal functions</maintitle></title></contribution><host><issue><series><title><maintitle>Rev.
+      Mat. Iberoam.</maintitle></title><volume-nr>11</volume-nr></series><issue-nr>3</issue-nr><date>1995</date></issue><pages><first-page>651</first-page><last-page>674</last-page></pages></host></reference><source-text
+      id="srct0130">T. Wolff, An improved bound for Kakeya type maximal functions,
+      Rev. Mat. Iberoamericana, 11(1995), no. 3, 651–674.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Rev. Mat. Iberoam.
+      journal_volume: '11'
+      journal_issue: '3'
+      year: 1995
+      page_start: '651'
+      page_end: '674'
+    label: '26'
+    authors:
+    - full_name: Wolff, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0270"><label>[27]</label><reference id="bibFC5E9DAD1D4CC5E876E038A58E45ED00s1"><contribution
+      langtype="en"><authors><author><given-name>T.</given-name><surname>Wolff</surname></author></authors><title><maintitle>A
+      Kakeya-type problem for circles</maintitle></title></contribution><host><issue><series><title><maintitle>Am.
+      J. Math.</maintitle></title><volume-nr>119</volume-nr></series><issue-nr>5</issue-nr><date>1997</date></issue><pages><first-page>985</first-page><last-page>1026</last-page></pages></host></reference><source-text
+      id="srct0135">T. Wolff, A Kakeya-type problem for circles, Amer. J. Math. 119
+      (1997), no. 5, 985–1026.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Am. J. Math.
+      journal_volume: '119'
+      journal_issue: '5'
+      year: 1997
+      page_start: '985'
+      page_end: '1026'
+    label: '27'
+    authors:
+    - full_name: Wolff, T.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0280"><label>[28]</label><reference id="bib37FFED025B2889D1E4FC73C969D54FE2s1"><contribution
+      langtype="en"><authors><author><given-name>R.</given-name><surname>Zhang</surname></author></authors><title><maintitle>The
+      endpoint perturbed Brascamp-Lieb inequalities with examples</maintitle></title></contribution><host><issue><series><title><maintitle>Anal.
+      PDE</maintitle></title><volume-nr>11</volume-nr></series><issue-nr>3</issue-nr><date>2018</date></issue><pages><first-page>555</first-page><last-page>581</last-page></pages></host></reference><source-text
+      id="srct0140">R. Zhang, The endpoint perturbed Brascamp-Lieb inequalities with
+      examples, Anal. PDE 11 (2018), no. 3, 555–581.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      journal_title: Anal. PDE
+      journal_volume: '11'
+      journal_issue: '3'
+      year: 2018
+      page_start: '555'
+      page_end: '581'
+    label: '28'
+    authors:
+    - full_name: Zhang, R.
+      inspire_role: author
+- raw_refs:
+  - schema: Elsevier
+    value: <bib-reference id="br0290"><label>[29]</label><reference id="bib6D5D5FFBC96D5FE52E97726B88A38537s1"><contribution
+      langtype="en"><authors><author><given-name>P.</given-name><surname>Zorin-Kranich</surname></author></authors><title><maintitle>Kayeya-Brascamp-Lieb
+      inequalities</maintitle></title></contribution><comment>Available online at</comment><host><e-host><inter-ref
+      id="inf0020" role="http://www.elsevier.com/xml/linking-roles/preprint" href="arxiv:1807.09604"
+      type="simple">arXiv:1807.09604</inter-ref><date>2018</date></e-host></host></reference><source-text
+      id="srct0145">P. Zorin-Kranich, Kayeya-Brascamp-Lieb inequalities, 2018. Available
+      online at arXiv:1807.09604.</source-text></bib-reference>
+    source: Elsevier Inc.
+  reference:
+    publication_info:
+      year: 2018
+    arxiv_eprint: '1807.09604'
+    label: '29'
+    misc:
+    - Available online at
+    authors:
+    - full_name: Zorin-Kranich, P.
+      inspire_role: author
