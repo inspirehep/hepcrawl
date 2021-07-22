@@ -138,6 +138,7 @@ class InspireAPIPushPipeline(object):
             job_id=os.environ['SCRAPY_JOB'],
             results_uri=os.environ['SCRAPY_FEED_URI'],
             results_data=self.results_data,
+            log_file=None,
         )
         payload['errors'] = [
             {'exception': str(err['exception']), 'sender':str(err['sender'])}

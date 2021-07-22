@@ -51,7 +51,6 @@ def test_sentry_logging_init(mock_sentry_sdk, crawler):
         "SENTRY_DSN" : "TEST_SENTRY_DSN",
         "EXTENSIONS" : {
             'hepcrawl.extensions.SentryLogging': 100,
-            'scrapy_sentry.extensions.Errors': 200,
             'hepcrawl.extensions.ErrorHandler': 300,
         }
     }
