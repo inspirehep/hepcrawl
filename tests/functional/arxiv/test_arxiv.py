@@ -107,7 +107,7 @@ def test_arxiv(
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
         spider=spider,
-        settings={},
+        settings={'LOG_FILE': None},
         **config['CRAWLER_ARGUMENTS']
     )
 

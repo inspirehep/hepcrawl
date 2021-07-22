@@ -28,7 +28,7 @@ app.config_from_object(Config)
 
 
 @app.task
-def submit_results(job_id, errors, log_file, results_uri, results_data=None):
+def submit_results(job_id, errors, results_uri, results_data=None):
     """Receive the submission of the results of a crawl job."""
 
     def _extract_results_data(results_path):
@@ -52,7 +52,6 @@ def submit_results(job_id, errors, log_file, results_uri, results_data=None):
     return {
         'job_id': job_id,
         'errors': errors,
-        'log_file': log_file,
         'results_url': results_uri,
         'results_data': results_data,
     }

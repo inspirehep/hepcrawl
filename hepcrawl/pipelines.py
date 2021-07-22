@@ -138,7 +138,6 @@ class InspireAPIPushPipeline(object):
             job_id=os.environ['SCRAPY_JOB'],
             results_uri=os.environ['SCRAPY_FEED_URI'],
             results_data=self.results_data,
-            log_file=os.environ['SCRAPY_LOG_FILE'],
         )
         payload['errors'] = [
             {'exception': str(err['exception']), 'sender':str(err['sender'])}
@@ -167,9 +166,6 @@ class InspireAPIPushPipeline(object):
             json_data = {
                 "kwargs": self._prepare_payload(spider)
             }
-
-            spider.logger.info(
-                'Sending results:\n%s' % pprint.pformat(json_data))
 
             requests.post(api_url, json=json_data)
 

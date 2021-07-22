@@ -106,8 +106,9 @@ EXTENSIONS = {
 SENTRY_DSN = os.environ.get('APP_SENTRY_DSN')
 if SENTRY_DSN:
     EXTENSIONS = {
-        'scrapy_sentry.extensions.Errors': 100,
-        'hepcrawl.extensions.ErrorHandler': 200,
+        'hepcrawl.extensions.SentryLogging': 100,
+        'scrapy_sentry.extensions.Errors': 200,
+        'hepcrawl.extensions.ErrorHandler': 300,
     }
 
 # Configure item pipelines
@@ -177,6 +178,11 @@ MARC_TO_HEP_SETTINGS = {
     'LEGACY_BASE_URL': 'https://inspirehep.net',
     'SERVER_NAME': 'https://labs.inspirehep.net',
 }
+
+# LOGGER Settings
+LOG_FILE = None
+LOGS_ENABLED = True
+LOG_LEVEL = 'INFO'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

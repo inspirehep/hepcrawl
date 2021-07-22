@@ -46,7 +46,7 @@ install_requires = [
     'Twisted~=18.0,>=18.9.0',
     #latex parsing
     'pylatexenc~=2.9',
-    'queuelib==1.5.0'
+    'queuelib==1.5.0',
 ]
 
 tests_require = [
@@ -73,6 +73,7 @@ extras_require = {
     'sentry': [
         'raven~=6.0,>=6.2.1',
         'scrapy-sentry',
+        'sentry-sdk==1.3.0',
     ],
 }
 

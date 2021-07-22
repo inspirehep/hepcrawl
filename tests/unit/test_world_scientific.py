@@ -45,7 +45,6 @@ def get_records(response_file_name):
     # environmental variables needed for the pipelines payload
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
-    os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
     spider = create_spider()
     records = spider.parse(
