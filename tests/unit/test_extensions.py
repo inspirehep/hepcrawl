@@ -14,10 +14,12 @@ import pytest
 from scrapy.crawler import Crawler
 from scrapy.utils.project import get_project_settings
 
-from hepcrawl.extensions import ErrorHandler
+from hepcrawl.extensions import ErrorHandler, SentryLogging
 from hepcrawl.spiders.wsp_spider import WorldScientificSpider
 
 from hepcrawl.testlib.fixtures import fake_response_from_file
+
+import mock
 
 
 @pytest.fixture
@@ -40,3 +42,21 @@ def test_error_handler(crawler):
     assert 'errors' in crawler.spider.state
     assert crawler.spider.state['errors'][0]["exception"] == "Some failure"
     assert crawler.spider.state['errors'][0]["sender"] == response
+
+
+@mock.patch("hepcrawl.extensions.sentry_sdk.init")
+def test_sentry_logging_init(mock_sentry_sdk, crawler):
+    """Test SentryLogging extension."""
+    log_settings = {
+        "SENTRY_DSN" : "TEST_SENTRY_DSN",
+        "EXTENSIONS" : {
+            'hepcrawl.extensions.SentryLogging': 100,
+            'scrapy_sentry.extensions.Errors': 200,
+            'hepcrawl.extensions.ErrorHandler': 300,
+        }
+    }
+    settings = get_project_settings()
+    settings.update(log_settings)
+    crawler.settings = settings
+    SentryLogging.from_crawler(crawler)
+    mock_sentry_sdk.assert_called_once()

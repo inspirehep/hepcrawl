@@ -75,7 +75,6 @@ def test_prepare_payload(
     _, json_record = json_spider_record
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
-    os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
     fixed_time = expected_response['results_data'][0]['acquisition_source']['datetime']
     freezer = freeze_time(fixed_time)

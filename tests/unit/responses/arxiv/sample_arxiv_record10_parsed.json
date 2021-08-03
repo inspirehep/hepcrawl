@@ -1,7 +1,6 @@
 {
     "errors": [],
     "results_uri": "scrapy_feed_uri",
-    "log_file": "scrapy_log_file",
     "results_data": [
         {
             "_collections": ["Literature"],

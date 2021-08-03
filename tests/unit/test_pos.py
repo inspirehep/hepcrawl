@@ -49,7 +49,6 @@ def generated_conference_paper(scrape_pos_conference_paper_page_body):
     # environmental variables needed for the pipelines payload
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
-    os.environ['SCRAPY_LOG_FILE'] = 'scrapy_log_file'
 
     crawler = Crawler(spidercls=pos_spider.POSSpider)
     spider = pos_spider.POSSpider.from_crawler(crawler)
