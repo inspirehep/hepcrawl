@@ -41,6 +41,7 @@ install_requires = [
     'python-dateutil~=2.0,>=2.7.0',
     'python-scrapyd-api>=2.0.1',
     'harvestingkit>=0.6.12',
+    'sentry-sdk==1.3.0',
     'Sickle~=0.6,>=0.6.2',
     # newer versions seem incompatible with required scrapyd version
     'Twisted~=18.0,>=18.9.0',
@@ -73,7 +74,6 @@ extras_require = {
     'sentry': [
         'raven~=6.0,>=6.2.1',
         'scrapy-sentry',
-        'sentry-sdk==1.3.0',
     ],
 }
 
