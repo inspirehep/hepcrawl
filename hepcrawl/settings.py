@@ -101,13 +101,12 @@ CRAWL_ONCE_PATH = os.environ.get(
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
 EXTENSIONS = {
-    'hepcrawl.extensions.ErrorHandler': 200,
+    'hepcrawl.extensions.ErrorHandler': 300,
 }
 SENTRY_DSN = os.environ.get('APP_SENTRY_DSN')
 if SENTRY_DSN:
     EXTENSIONS = {
         'hepcrawl.extensions.SentryLogging': 100,
-        'scrapy_sentry.extensions.Errors': 200,
         'hepcrawl.extensions.ErrorHandler': 300,
     }
 
