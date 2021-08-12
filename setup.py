@@ -47,6 +47,7 @@ install_requires = [
     #latex parsing
     'pylatexenc~=2.9',
     'queuelib==1.5.0',
+    'sentry-sdk==1.3.0',
 ]
 
 tests_require = [
@@ -70,9 +71,6 @@ extras_require = {
         'sphinxcontrib-napoleon>=0.6.1',
     ],
     'tests': tests_require,
-    'sentry': [
-        'sentry-sdk==1.3.0',
-    ],
 }
 
 setup_requires = [
