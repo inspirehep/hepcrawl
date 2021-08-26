@@ -182,6 +182,7 @@ MARC_TO_HEP_SETTINGS = {
 LOG_FILE = None
 LOGS_ENABLED = True
 LOG_LEVEL = 'INFO'
+LOG_STDOUT = True
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
