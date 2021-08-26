@@ -95,6 +95,7 @@ references:
       journal_volume: '56'
       journal_issue: '8'
       year: 2015
+      artid: '082301'
     label: '2'
     authors:
     - full_name: Barrett, John W.
@@ -114,6 +115,7 @@ references:
       journal_volume: A52
       journal_issue: '27'
       year: 2019
+      artid: '275203'
     label: '3'
     authors:
     - full_name: Barrett, John W.
@@ -153,6 +155,7 @@ references:
       journal_title: J. Phys.
       journal_volume: A49
       year: 2016
+      artid: '245001'
     label: '5'
     authors:
     - full_name: Barrett, John W.
@@ -360,6 +363,7 @@ references:
       journal_volume: '114'
       journal_issue: '9'
       year: 2015
+      artid: '091302'
     label: '14'
     authors:
     - full_name: Chamseddine, Ali H.
@@ -574,6 +578,7 @@ references:
       journal_volume: '50'
       journal_issue: '27'
       year: 2017
+      artid: '275201'
     label: '23'
     authors:
     - full_name: Glaser, Lisa
@@ -593,6 +598,7 @@ references:
       journal_volume: '61'
       journal_issue: '3'
       year: 2020
+      artid: '033507'
     label: '24'
     misc:
     - '11'
@@ -841,6 +847,7 @@ references:
       journal_volume: '49'
       journal_issue: '28'
       year: 2016
+      artid: '285301'
     arxiv_eprint: '1601.08007'
     label: '35'
     authors:
@@ -982,6 +989,7 @@ references:
       journal_volume: '24'
       journal_issue: '9'
       year: 2012
+      artid: '1250027'
     label: '42'
     misc:
     - '26'

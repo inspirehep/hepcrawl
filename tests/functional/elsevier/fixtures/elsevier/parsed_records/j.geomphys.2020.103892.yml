@@ -407,6 +407,7 @@ references:
       journal_title: 'J. Phys.: Conf. Ser.'
       journal_volume: '343'
       year: 2012
+      artid: '012054'
     label: '15'
     authors:
     - full_name: Kaufmann, R.M.
@@ -511,6 +512,7 @@ references:
       journal_title: Phys. Rev. B
       journal_volume: '80'
       year: 2009
+      artid: '115316'
     label: '19'
     authors:
     - full_name: Khlebnikov, S.
@@ -599,6 +601,7 @@ references:
       journal_volume: '28'
       journal_issue: '10'
       year: 2016
+      artid: '1630003'
     label: '23'
     misc:
     - "(57 pages)"

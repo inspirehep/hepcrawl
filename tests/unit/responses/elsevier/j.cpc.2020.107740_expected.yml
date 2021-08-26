@@ -141,6 +141,7 @@ references:
       journal_title: J. Phys. A
       journal_volume: '45'
       year: 2012
+      artid: "215201"
     label: '6'
     authors:
     - full_name: Ivanov, I.P.
@@ -162,6 +163,7 @@ references:
       journal_title: Phys. Rev. D
       journal_volume: '93'
       year: 2016
+      artid: "095014"
     label: '7'
     authors:
     - full_name: Ivanov, I.P.
