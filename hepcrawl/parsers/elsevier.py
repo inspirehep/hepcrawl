@@ -543,6 +543,10 @@ class ElsevierParser(object):
         return editors_names
 
     @staticmethod
+    def get_reference_artid(ref_node):
+        return ref_node.xpath("string(.//article-number[1])").extract_first()
+
+    @staticmethod
     def get_reference_pages(ref_node):
         first_page = ref_node.xpath("string(.//pages/first-page[1])").extract_first()
         last_page = ref_node.xpath("string(.//pages/last-page[1])").extract_first()
@@ -598,6 +602,9 @@ class ElsevierParser(object):
             builder.set_label(label_value.strip("[]"))
 
             pages = self.get_reference_pages(citation_node)
+            artid = self.get_reference_artid(citation_node)
+            if artid:
+                builder.set_page_artid(artid=artid)
             if any(pages):
                 builder.set_page_artid(*pages)
 
@@ -614,7 +621,7 @@ class ElsevierParser(object):
                     "|self::label"
                     "|self::publisher"
                     "|self::doi"
-                    "|self::pages",
+                    "|self::pages"
                 )
                 .strip("\"';,. \t\n\r")
                 .replace("()", "")

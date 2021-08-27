@@ -380,6 +380,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '92'
       year: 2015
+      artid: "045503"
     label: '16'
     authors:
     - full_name: Grinyer, J.
@@ -572,6 +573,7 @@ references:
       journal_title: Rev. Sci. Instrum.
       journal_volume: '83'
       year: 2012
+      artid: "113303"
     label: '28'
     authors:
     - full_name: Vondrasek, R.

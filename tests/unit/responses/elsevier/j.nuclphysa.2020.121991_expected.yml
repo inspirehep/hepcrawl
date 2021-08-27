@@ -65,6 +65,7 @@ references:
       journal_title: Phys. Scr.
       journal_volume: '95'
       year: 2020
+      artid: "074002"
     dois:
     - 10.1088/1402-4896/ab8c15
     label: '1'
@@ -86,6 +87,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '95'
       year: 2017
+      artid: "025809"
     dois:
     - 10.1103/PhysRevC.95.025809
     label: '2'
@@ -140,6 +142,7 @@ references:
       journal_volume: '75'
       journal_issue: '5'
       year: 2007
+      artid: "055803"
     arxiv_eprint: nucl-th/0702044
     dois:
     - 10.1103/PhysRevC.75.055803
@@ -200,6 +203,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '77'
       year: 2008
+      artid: "055804"
     dois:
     - 10.1103/PhysRevC.77.055804
     label: '6'
@@ -226,6 +230,7 @@ references:
       journal_volume: '78'
       journal_issue: '1'
       year: 2008
+      artid: "015806"
     arxiv_eprint: '0805.3752'
     dois:
     - 10.1103/PhysRevC.78.015806
@@ -265,6 +270,7 @@ references:
       journal_volume: '100'
       journal_issue: '1'
       year: 2008
+      artid: "011101"
     arxiv_eprint: '0706.1687'
     dois:
     - 10.1103/PhysRevLett.100.011101
@@ -638,6 +644,7 @@ references:
       journal_volume: '44'
       journal_issue: '9'
       year: 2017
+      artid: "094001"
     urls:
     - value: http://stacks.iop.org/0954-3899/44/i=9/a=094001
     label: '20'
@@ -672,6 +679,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '98'
       year: 2018
+      artid: "065802"
     dois:
     - 10.1103/PhysRevC.98.065802
     label: '21'
@@ -694,6 +702,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '96'
       year: 2017
+      artid: "065802"
     dois:
     - 10.1103/PhysRevC.96.065802
     label: '22'
@@ -720,6 +729,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '99'
       year: 2019
+      artid: "055806"
     dois:
     - 10.1103/PhysRevC.99.055806
     label: '23'
@@ -752,6 +762,7 @@ references:
       journal_volume: '2020'
       journal_issue: '1'
       year: 2020
+      artid: "013D05"
     urls:
     - value: https://academic.oup.com/ptep/article-pdf/2020/1/013D05/32290084/ptz135.pdf
     dois:
@@ -785,6 +796,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '95'
       year: 2017
+      artid: "035802"
     dois:
     - 10.1103/PhysRevC.95.035802
     label: '25'
@@ -809,6 +821,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '97'
       year: 2018
+      artid: "025804"
     dois:
     - 10.1103/PhysRevC.97.025804
     label: '26'
@@ -860,6 +873,7 @@ references:
       journal_volume: '32'
       journal_issue: '01'
       year: 2017
+      artid: "1750010"
     dois:
     - 10.1142/S0217732317500109
     label: '28'
@@ -949,6 +963,7 @@ references:
       journal_volume: '44'
       journal_issue: '12'
       year: 2017
+      artid: "125102"
     arxiv_eprint: '1704.08039'
     dois:
     - 10.1088/1361-6471/aa8c5d
@@ -981,6 +996,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '99'
       year: 2019
+      artid: "024909"
     dois:
     - 10.1103/PhysRevC.99.024909
     label: '32'
@@ -1013,6 +1029,7 @@ references:
       journal_title: Phys. Rev. C
       journal_volume: '100'
       year: 2019
+      artid: "054304"
     dois:
     - 10.1103/PhysRevC.100.054304
     label: '33'
@@ -1067,6 +1084,7 @@ references:
       journal_volume: '75'
       journal_issue: '1'
       year: 2007
+      artid: "015801"
     arxiv_eprint: nucl-th/0609040
     dois:
     - 10.1103/PhysRevC.75.015801
@@ -1116,6 +1134,7 @@ references:
       journal_volume: '81'
       journal_issue: '1'
       year: 2010
+      artid: "015803"
     dois:
     - 10.1103/PhysRevC.81.015803
     label: '37'
@@ -1146,6 +1165,7 @@ references:
       journal_volume: '101'
       journal_issue: '2'
       year: 2020
+      artid: "024913"
     dois:
     - 10.1103/PhysRevC.101.024913
     label: '38'
