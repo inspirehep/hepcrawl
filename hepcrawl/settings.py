@@ -180,7 +180,7 @@ MARC_TO_HEP_SETTINGS = {
 
 # LOGGER Settings
 LOG_FILE = None
-LOGS_ENABLED = True
+LOG_ENABLED = True
 LOG_LEVEL = 'INFO'
 
 # Enable and configure the AutoThrottle extension (disabled by default)

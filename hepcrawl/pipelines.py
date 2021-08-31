@@ -77,7 +77,7 @@ class DocumentsPipeline(FilesPipeline):
 
     def item_completed(self, results, item, info):
         """Create a map that connects file names with downloaded files."""
-        LOGGER.info("results: %s, item: %s, info: %s", results, item, info)
+        LOGGER.debug("results: %s, item: %s, info: %s", results, item, info)
         record_files = [
             RecordFile(
                 path=self.generate_presigned_s3_url(result_data['path']),

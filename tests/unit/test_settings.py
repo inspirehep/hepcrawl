@@ -16,7 +16,7 @@ from scrapy.utils.log import (configure_logging, logger)
 def test_log_settings():
     settings = get_project_settings()
     assert settings.get('LOG_FILE') == None
-    assert settings.get('LOGS_ENABLED') == True
+    assert settings.get('LOG_ENABLED') == True
     assert settings.get('LOG_LEVEL') == 'INFO'
 
     configure_logging(settings=settings)
