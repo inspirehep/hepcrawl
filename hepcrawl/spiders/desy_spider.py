@@ -225,7 +225,7 @@ class DesySpider(StatefulSpider):
             if not list_items:
                 list_items = root.findall('.//record')
 
-        return [etree.tostring(item) for item in list_items]
+        return [etree.tostring(item, encoding='UTF-8') for item in list_items]
 
     def _parsed_items_from_marcxml(
             self,
