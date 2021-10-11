@@ -228,6 +228,10 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
             )
 
             res = self.celery.send_task(task_endpoint, kwargs=kwargs)
-            logger.info('Sent celery task %s', res)
+            celery_task_info_payload = {
+                'celery_task_id': res.id,
+                'scrapy_job_id': os.environ.get('SCRAPY_JOB')
+            }
+            logger.info('Sent celery task %s', pprint.pformat(celery_task_info_payload))
 
         self._cleanup(spider)
