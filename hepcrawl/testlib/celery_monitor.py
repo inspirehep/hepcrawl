@@ -55,7 +55,6 @@ class CeleryMonitor(object):
             )
             task = self.app.AsyncResult(task.id)
             self.results.append(task.result)
-            self.recv.should_stop = True
 
         def announce_failed_tasks(event):
             state.event(event)
@@ -69,7 +68,6 @@ class CeleryMonitor(object):
             )
             task = self.app.AsyncResult(task.id)
             self.results.append(task.result)
-            self.recv.should_stop = True
 
         self.app.control.enable_events()
         self.connection = self.app.connection()

@@ -76,7 +76,7 @@ def test_prepare_payload(
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
 
-    fixed_time = expected_response['results_data'][0]['acquisition_source']['datetime']
+    fixed_time = expected_response[0]['results_data'][0]['acquisition_source']['datetime']
     freezer = freeze_time(fixed_time)
     freezer.start()
 
@@ -86,19 +86,14 @@ def test_prepare_payload(
 
     pipeline.process_item(json_record, spider)
 
-    result = pipeline._prepare_payload(spider)
+    results = pipeline._prepare_payload(spider)
+    for result, response in zip(results, expected_response):
+        validate(result['results_data'][0]['record'], 'hep')
 
-    for crawl_result in result['results_data']:
-        validate(crawl_result['record'], 'hep')
-
-    for crawl_result, exp in zip(
-        result['results_data'],
-        expected_response['results_data'],
-    ):
-        record = crawl_result['record']
+        record = result['results_data'][0]['record']
         for key in record:
-            assert key in exp
-            assert record[key] == exp[key]
+            assert key in response['results_data'][0]
+            assert record[key] == response['results_data'][0][key]
 
-    assert sorted(result) == sorted(expected_response)
+        assert sorted(result) == sorted(response)
     freezer.stop()

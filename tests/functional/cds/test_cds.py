@@ -103,7 +103,7 @@ def test_cds(
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
@@ -112,13 +112,12 @@ def test_cds(
         **config['CRAWLER_ARGUMENTS']
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_results = sort_list_of_records_by_record_title(
         [
             override_generated_fields(result['record'])
+            for crawl_result in crawl_results 
             for result in crawl_result['results_data']
         ]
     )
@@ -130,4 +129,5 @@ def test_cds(
 
     for record, expected_record in zip(gotten_results, expected_results):
         assert DeepDiff(record, expected_record, ignore_order=True) == {}
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']

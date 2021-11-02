@@ -138,7 +138,7 @@ class TestElsevierSpider:
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
             monitor_timeout=5,
-            monitor_iter_limit=100,
+            monitor_iter_limit=20,
             events_limit=1,
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
@@ -147,9 +147,13 @@ class TestElsevierSpider:
             **CRAWLER_ARGS
         )
 
-        records_data = crawl_results[0]["results_data"]
-        records = [record["record"] for record in records_data]
-        for record in records:
+        gotten_records = [
+            result['record']
+            for crawl_result in crawl_results 
+            for result in crawl_result['results_data']
+        ]
+    
+        for record in gotten_records:
             record.pop("acquisition_source")
             for document in record['documents']:
                 assert CRAWLER_ARGS['s3_host'] in document['url'] and "Expires" in document['url']
@@ -163,7 +167,7 @@ class TestElsevierSpider:
         )
 
         correctly_parsed_records = [
-            record for record in records if record in expected_records
+            record for record in gotten_records if record in expected_records
         ]
 
         assert nb_of_packages_in_s3 == expected_number_of_zip_files
@@ -174,7 +178,7 @@ class TestElsevierSpider:
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
             monitor_timeout=5,
-            monitor_iter_limit=100,
+            monitor_iter_limit=20,
             events_limit=1,
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
@@ -198,7 +202,7 @@ class TestElsevierSpider:
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
             monitor_timeout=5,
-            monitor_iter_limit=100,
+            monitor_iter_limit=20,
             events_limit=1,
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],
@@ -224,7 +228,7 @@ class TestElsevierSpider:
         crawl_results = CeleryMonitor.do_crawl(
             app=celery_app,
             monitor_timeout=5,
-            monitor_iter_limit=100,
+            monitor_iter_limit=20,
             events_limit=1,
             crawler_instance=self.crawler,
             project=CONFIG["CRAWLER_PROJECT"],

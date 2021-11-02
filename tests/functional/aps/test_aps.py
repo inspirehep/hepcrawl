@@ -96,7 +96,7 @@ def test_aps_have_document_link_to_s3(cleanup):
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -105,9 +105,10 @@ def test_aps_have_document_link_to_s3(cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    crawl_result = crawl_results[0]
     gotten_records = [
-        result['record'] for result in crawl_result['results_data']
+        result['record'] 
+        for crawl_result in crawl_results 
+        for result in crawl_result['results_data']
     ]
     assert len(gotten_records) == expected_records_count
     documents = gotten_records[0]['documents']

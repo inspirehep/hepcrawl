@@ -222,9 +222,10 @@ def test_arxiv_eprints(results):
 
 def test_inspire_categories(results):
     expected_eprints = [
-        {'term': 'General Physics', 'source': 'arxiv'},
+        {'term': 'Quantum Physics', 'source': 'arxiv'},
         {'term': 'Gravitation and Cosmology', 'source': 'arxiv'},
-        {'term': 'Theory-HEP', 'source': 'arxiv'}
+        {'term': 'Theory-HEP', 'source': 'arxiv'},
+        {'term': 'General Physics', 'source': 'arxiv'},
     ]
 
     for record in results:

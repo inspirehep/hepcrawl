@@ -102,7 +102,7 @@ def test_arxiv(
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
@@ -111,12 +111,11 @@ def test_arxiv(
         **config['CRAWLER_ARGUMENTS']
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_results = [
         override_generated_fields(result['record'])
+        for crawl_result in crawl_results 
         for result in crawl_result['results_data']
     ]
     expected_results = [
@@ -124,4 +123,5 @@ def test_arxiv(
     ]
 
     assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']

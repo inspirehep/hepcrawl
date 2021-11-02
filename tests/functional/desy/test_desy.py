@@ -206,7 +206,7 @@ def test_desy(
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -215,10 +215,11 @@ def test_desy(
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    crawl_result = crawl_results[0]
     gotten_records = sort_list_of_records_by_record_title(
         [
-            result['record'] for result in crawl_result['results_data']
+            result['record']
+            for crawl_result in crawl_results 
+            for result in crawl_result['results_data']
         ]
     )
     expected_results = sort_list_of_records_by_record_title(expected_results)
@@ -236,7 +237,8 @@ def test_desy(
     for record, expected_record in zip(gotten_records, expected_results):
         assert DeepDiff(record, expected_record, ignore_order=True) == {}
 
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']
 
 
 @pytest.mark.parametrize(
@@ -257,7 +259,7 @@ def test_desy_broken_xml(settings, cleanup):
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=2,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -304,7 +306,7 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -313,13 +315,13 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_records = sort_list_of_records_by_record_title(
         [
-            result['record'] for result in crawl_result['results_data']
+            result['record']
+            for crawl_result in crawl_results 
+            for result in crawl_result['results_data']
         ]
     )
     expected_results = sort_list_of_records_by_record_title(expected_results)
@@ -334,16 +336,16 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
                 assert "&Expires=" in document['url']
                 document['url'] = document['url'].split('&Expires=')[0]
 
-    for record, expected_record in zip(gotten_records, expected_results):
-        assert DeepDiff(record, expected_record, ignore_order=True) == {}
+    assert DeepDiff(gotten_records, expected_results, ignore_order=True) == {}
 
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']
 
     # Second crawl
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -351,5 +353,4 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
         settings={},
         **settings.get('CRAWLER_ARGUMENTS')
     )
-
     assert len(crawl_results) == 0

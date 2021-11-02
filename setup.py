@@ -67,6 +67,7 @@ tests_require = [
 
 extras_require = {
     'docs': [
+        'docutils==0.17.1',
         'Sphinx~=1.0,>=1.5',
         'sphinxcontrib-napoleon>=0.6.1',
     ],
