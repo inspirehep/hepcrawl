@@ -30,7 +30,6 @@ from hepcrawl.testlib.utils import get_crawler_instance, sort_list_of_records_by
 @pytest.fixture(scope="function")
 def cleanup():
     yield
-
     clean_dir(path=os.path.join(os.getcwd(), '.scrapy'))
     clean_dir('/code/.tmp/file_urls')
     clean_dir('/code/.tmp/WSP')
@@ -64,7 +63,7 @@ def get_ftp_settings():
         'CRAWLER_ARGUMENTS': {
             'ftp_host': 'ftp_server',
             'ftp_netrc': netrc_location,
-            'destination_folder': "/code/.tmp/WSP"
+            'destination_folder': "/code/.tmp/WSP",
         }
     }
 
@@ -83,7 +82,7 @@ def get_local_settings():
         'CRAWLER_PROJECT': 'hepcrawl',
         'CRAWLER_ARGUMENTS': {
             'local_package_dir': package_location,
-            'destination_folder': "/code/.tmp/WSP"
+            'destination_folder': "/code/.tmp/WSP",
         }
     }
 
@@ -133,7 +132,7 @@ def test_wsp(expected_results, settings, cleanup):
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -142,12 +141,11 @@ def test_wsp(expected_results, settings, cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_results = sort_list_of_records_by_record_title([
         override_generated_fields(result['record'])
+        for crawl_result in crawl_results 
         for result in crawl_result['results_data']
     ])
     expected_results = sort_list_of_records_by_record_title([
@@ -156,7 +154,9 @@ def test_wsp(expected_results, settings, cleanup):
 
     assert DeepDiff(gotten_results, expected_results, ignore_order=True) == {}
     assert gotten_results == expected_results
-    assert not crawl_result['errors']
+
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']
 
 
 @pytest.mark.parametrize(
@@ -201,12 +201,11 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
         **settings.get('CRAWLER_ARGUMENTS')
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_results = sort_list_of_records_by_record_title([
         override_generated_fields(result['record'])
+        for crawl_result in crawl_results 
         for result in crawl_result['results_data']
     ])
     expected_results = sort_list_of_records_by_record_title([
@@ -214,7 +213,8 @@ def test_wsp_ftp_crawl_twice(expected_results, settings, cleanup):
     ])
 
     assert gotten_results == expected_results
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,

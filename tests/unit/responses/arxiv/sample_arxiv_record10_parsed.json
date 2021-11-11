@@ -1,10 +1,12 @@
-{
-    "errors": [],
-    "results_uri": "scrapy_feed_uri",
-    "log_file": "None",
-    "results_data": [
-        {
-            "_collections": ["Literature"],
+[
+    {
+        "errors": [],
+        "results_uri": "scrapy_feed_uri",
+        "log_file": "None",
+        "results_data": [{
+            "_collections": [
+                "Literature"
+            ],
             "preprint_date": "2016-06-14",
             "curated": false,
             "citeable": true,
@@ -70,7 +72,7 @@
                 "method": "hepcrawl",
                 "submission_number": "scrapy_job"
             }
-        }
-    ],
-    "job_id": "scrapy_job"
-}
+        }],
+        "job_id": "scrapy_job"
+    }
+]

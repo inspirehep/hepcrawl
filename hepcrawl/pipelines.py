@@ -134,17 +134,20 @@ class InspireAPIPushPipeline(object):
 
     def _prepare_payload(self, spider):
         """Return payload for push."""
-        payload = dict(
-            job_id=os.environ['SCRAPY_JOB'],
-            results_uri=os.environ['SCRAPY_FEED_URI'],
-            results_data=self.results_data,
-            log_file=None,
-        )
-        payload['errors'] = [
-            {'exception': str(err['exception']), 'sender':str(err['sender'])}
-            for err in spider.state.get('errors', [])
-        ]
-        return payload
+        payload_list = []
+        for result in self.results_data:
+            payload = dict(
+                job_id=os.environ['SCRAPY_JOB'],
+                results_uri=os.environ['SCRAPY_FEED_URI'],
+                results_data=[result],
+                log_file=None,
+            )
+            payload['errors'] = [
+                {'exception': str(err['exception']), 'sender':str(err['sender'])}
+                for err in spider.state.get('errors', [])
+            ]
+            payload_list.append(payload)
+        return payload_list
 
     @staticmethod
     def _cleanup(spider):
@@ -164,11 +167,12 @@ class InspireAPIPushPipeline(object):
             task_endpoint
         )
         if api_url and 'SCRAPY_JOB' in os.environ:
-            json_data = {
-                "kwargs": self._prepare_payload(spider)
-            }
+            for payload in self._prepare_payload(spider):
+                json_data = {
+                    "kwargs": payload
+                }
 
-            requests.post(api_url, json=json_data)
+                requests.post(api_url, json=json_data)
 
         self._cleanup(spider)
 
@@ -221,17 +225,17 @@ class InspireCeleryPushPipeline(InspireAPIPushPipeline):
             )
             logger.info('Triggering celery task: %s.', task_endpoint)
 
-            kwargs = self._prepare_payload(spider)
-            logger.debug(
-                '    Sending results:\n    %s',
-                pprint.pformat(kwargs),
-            )
+            for kwargs in self._prepare_payload(spider):
+                logger.debug(
+                    '    Sending results:\n    %s',
+                    pprint.pformat(kwargs),
+                )
 
-            res = self.celery.send_task(task_endpoint, kwargs=kwargs)
-            celery_task_info_payload = {
-                'celery_task_id': res.id,
-                'scrapy_job_id': os.environ.get('SCRAPY_JOB')
-            }
-            logger.info('Sent celery task %s', pprint.pformat(celery_task_info_payload))
+                res = self.celery.send_task(task_endpoint, kwargs=kwargs)
+                celery_task_info_payload = {
+                    'celery_task_id': res.id,
+                    'scrapy_job_id': os.environ.get('SCRAPY_JOB')
+                }
+                logger.info('Sent celery task %s', pprint.pformat(celery_task_info_payload))
 
         self._cleanup(spider)

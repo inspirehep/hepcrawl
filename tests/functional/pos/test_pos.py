@@ -91,7 +91,7 @@ def test_pos_conference_paper_record_and_proceedings_record(
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
         monitor_timeout=5,
-        monitor_iter_limit=100,
+        monitor_iter_limit=20,
         events_limit=2,
         crawler_instance=crawler,
         project=config['CRAWLER_PROJECT'],
@@ -100,29 +100,25 @@ def test_pos_conference_paper_record_and_proceedings_record(
         **config['CRAWLER_ARGUMENTS']
     )
 
-    assert len(crawl_results) == 1
-
-    crawl_result = crawl_results[0]
+    assert len(crawl_results) == len(expected_results)
 
     gotten_results = [
-        override_generated_fields(result['record'])
+        override_generated_fields(result['record']) 
+        for crawl_result in crawl_results 
         for result in crawl_result['results_data']
     ]
+
     expected_results = [
-        override_generated_fields(expected) for expected in expected_results
+        override_generated_fields(expected) 
+        for expected in expected_results
     ]
 
-    gotten_results = sorted(
-        gotten_results,
-        key=lambda x: x['document_type']
-    )
-    expected_results = sorted(
-        expected_results,
-        key=lambda x: x['document_type']
-    )
+    gotten_results = sorted(gotten_results, key=lambda x: x['document_type'])
+    expected_results = sorted(expected_results, key=lambda x: x['document_type'])
 
     assert gotten_results == expected_results
-    assert not crawl_result['errors']
+    for crawl_result in crawl_results:
+        assert not crawl_result['errors']
 
 
 # TODO create test that receives conference paper record AND proceedings
