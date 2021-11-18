@@ -134,19 +134,28 @@ class InspireAPIPushPipeline(object):
 
     def _prepare_payload(self, spider):
         """Return payload for push."""
-        payload_list = []
-        for result in self.results_data:
-            payload = dict(
+        payload_list = [
+            dict(
                 job_id=os.environ['SCRAPY_JOB'],
                 results_uri=os.environ['SCRAPY_FEED_URI'],
                 results_data=[result],
+                errors=[],
                 log_file=None,
+            ) for result in self.results_data
+        ]
+        if spider.state.get('errors'):
+            payload_list.append(
+                dict(
+                    job_id=os.environ['SCRAPY_JOB'],
+                    results_uri=os.environ['SCRAPY_FEED_URI'],
+                    results_data=[],
+                    log_file=None,
+                    errors=[
+                        {'exception': str(err['exception']), 'sender':str(err['sender'])}
+                        for err in spider.state['errors']
+                    ]
+                )
             )
-            payload['errors'] = [
-                {'exception': str(err['exception']), 'sender':str(err['sender'])}
-                for err in spider.state.get('errors', [])
-            ]
-            payload_list.append(payload)
         return payload_list
 
     @staticmethod
