@@ -169,7 +169,7 @@ class DesySpider(StatefulSpider):
     @classmethod
     def _is_local_path(cls, url):
         parsed_url = urllib.parse.urlparse(url)
-        return not parsed_url.scheme
+        return not parsed_url.scheme.startswith("http")
 
     def _get_full_uri(self, file_name, schema='https'):
 
