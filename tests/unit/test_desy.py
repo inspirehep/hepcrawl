@@ -13,6 +13,7 @@ import os
 
 import pytest
 from deepdiff import DeepDiff
+from mock import MagicMock
 from scrapy.crawler import Crawler
 from scrapy.http import TextResponse
 from scrapy.settings import Settings
@@ -124,7 +125,19 @@ def test_faulty_marc():
     path = os.path.abspath('tests/unit/responses/desy/faulty_record.xml')
     with open(path, 'r') as xmlfile:
         data = xmlfile.read()
-    result = spider._parsed_items_from_marcxml([data])
+    result = list(spider._parsed_items_from_marcxml([data], "faulty_record.xml"))
     assert result[0].exception.startswith('DoJsonError')
     assert result[0].traceback is not None
     assert result[0].source_data is not None
+
+
+def test_invalid_xml():
+    spider = create_spider()
+    response = MagicMock()
+    response.url = "https://s3.cern.ch/incoming-bucket/invalid_record.xml"
+    response.body = "This is not actually XML"
+    result = list(spider.parse(response))
+    assert result[0].exception.startswith('XMLSyntaxError')
+    assert result[0].traceback is not None
+    assert result[0].source_data == "This is not actually XML"
+
