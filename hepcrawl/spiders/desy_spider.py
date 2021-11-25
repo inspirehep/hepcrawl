@@ -134,30 +134,24 @@ class DesySpider(StatefulSpider):
             ExpiresIn=expire
         )
 
-    @staticmethod
-    def _filter_xml_files(list_files_paths):
-        return (
-            xml_file
-            for xml_file in list_files_paths
-            if xml_file.endswith('.xml')
-        )
-
-
     def crawl_s3_bucket(self):
         input_bucket = self.s3_resource.Bucket(self.s3_input_bucket)
         for s3_file in input_bucket.objects.all():
-            file_data = s3_file.get()
-            if file_data['ContentType'] == 'text/xml' or s3_file.key.endswith('.xml'):
-                self.logger.info("Remote: Try to crawl file from s3: {file}".format(file=s3_file.key))
-                try:
-                    self.s3_resource.Object(self.s3_output_bucket, s3_file.key).load()
-                    self.logger.info("File %s was already processed!", s3_file.key)
-                except ClientError:  # Process it only if file is not in output_bucket
-                    yield Request(
-                        self.s3_url(s3_file),
-                        meta={"s3_file": s3_file.key},
-                        callback=self.parse
-                    )
+            if not s3_file.key.endswith('.xml'):
+                # this is a document referenced in an XML file, it will be
+                # processed when dealing with attached documents
+                continue
+
+            self.logger.info("Remote: Try to crawl file from s3: {file}".format(file=s3_file.key))
+            try:
+                self.s3_resource.Object(self.s3_output_bucket, s3_file.key).load()
+                self.logger.info("File %s was already processed!", s3_file.key)
+            except ClientError:  # Process it only if file is not in output_bucket
+                yield Request(
+                    self.s3_url(s3_file),
+                    meta={"s3_file": s3_file.key},
+                    callback=self.parse
+                )
 
     def start_requests(self):
         """List selected bucket on s3 and yield files."""
@@ -172,7 +166,6 @@ class DesySpider(StatefulSpider):
         return not parsed_url.scheme.startswith("http")
 
     def _get_full_uri(self, file_name, schema='https'):
-
         self.move_file_to_processed(file_name)
         url = self.s3_url_for_file(file_name, bucket=self.s3_output_bucket)
         return url
@@ -182,26 +175,38 @@ class DesySpider(StatefulSpider):
         """
         self.logger.info('Got record from url/path: {0}'.format(response.url))
 
-        base_url = ""
+        self.logger.info('Getting MARXCML records...')
+        file_name = response.url.split('/')[-1].split("?")[0]
+        try:
+            marcxml_records = self._get_marcxml_records(response.body)
+        except Exception as e:
+            tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
+            yield ParsedItem.from_exception(
+                record_format='hep',
+                exception=repr(e),
+                traceback=tb,
+                source_data=response.body,
+                file_name=file_name
+            )
+            return
 
-        self.logger.info('Getting marc xml records...')
-        marcxml_records = self._get_marcxml_records(response.body)
-        self.logger.info('Got %d marc xml records', len(marcxml_records))
+        self.logger.info('Got %d MARCXML records in %s', len(marcxml_records), file_name)
         self.logger.info('Getting hep records...')
 
         parsed_items = self._parsed_items_from_marcxml(
             marcxml_records=marcxml_records,
-            base_url=base_url,
-            url=response.url
+            file_name=file_name
         )
-        self.logger.info('Got %d hep records', len(parsed_items))
+
+        for parsed_item in parsed_items:
+            yield parsed_item
+
+        self.logger.info('Processed all MARCXML records in %s', file_name)
 
         if "s3_file" in response.meta:
             s3_file = response.meta['s3_file']
             self.move_file_to_processed(file_name=s3_file)
 
-        for parsed_item in parsed_items:
-            yield parsed_item
 
     def move_file_to_processed(self, file_name, file_bucket=None, output_bucket=None):
         file_bucket = file_bucket or self.s3_input_bucket
@@ -230,16 +235,13 @@ class DesySpider(StatefulSpider):
     def _parsed_items_from_marcxml(
             self,
             marcxml_records,
-            base_url="",
-            url=""
+            file_name
     ):
         self.logger.info('parsing record')
         app = Flask('hepcrawl')
         app.config.update(self.settings.getdict('MARC_TO_HEP_SETTINGS', {}))
-        file_name = url.split('/')[-1].split("?")[0]
 
         with app.app_context():
-            parsed_items = []
             for xml_record in marcxml_records:
                 try:
                     record = marcxml2record(xml_record)
@@ -248,7 +250,7 @@ class DesySpider(StatefulSpider):
                     new_documents = []
                     files_to_download = []
                     self.logger.info("Parsed document: %s", parsed_item.record)
-                    self.logger.info("Record have documents: %s", "documents" in parsed_item.record)
+                    self.logger.info("Record has documents: %s", "documents" in parsed_item.record)
                     for document in parsed_item.record.get('documents', []):
                         if self._is_local_path(document['url']):
                             document['url'] = self._get_full_uri(document['url'])
@@ -264,7 +266,7 @@ class DesySpider(StatefulSpider):
                     self.logger.info('Got the following attached documents to download: %s', files_to_download)
                     self.logger.info('Got item: %s', parsed_item)
 
-                    parsed_items.append(parsed_item)
+                    yield parsed_item
 
                 except Exception as e:
                     tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
@@ -275,6 +277,4 @@ class DesySpider(StatefulSpider):
                         source_data=xml_record,
                         file_name=file_name
                     )
-                    parsed_items.append(error_parsed_item)
-
-            return parsed_items
+                    yield error_parsed_item
