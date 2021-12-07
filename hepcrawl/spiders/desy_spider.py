@@ -198,6 +198,10 @@ class DesySpider(StatefulSpider):
             file_name=file_name
         )
 
+        # make sure we don't yield control to scrapy while an app context is
+        # running to ensure different contexts don't get interleaved which
+        # Flask doesn't handle correctly (single global app context stack)
+        parsed_items = list(parsed_items)
         for parsed_item in parsed_items:
             yield parsed_item
 
