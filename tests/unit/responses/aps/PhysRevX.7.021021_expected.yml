@@ -1,0 +1,1208 @@
+abstract: Almheiri, Dong, and Harlow [J. High Energy Phys.04 (2015) 163.] proposed a highly illuminating connection between the <math display="inline"><mrow><mi>AdS</mi><mo>/</mo><mi>CFT</mi></mrow></math> holographic correspondence and operator algebra quantum error correction (OAQEC). Here, we explore this connection further. We derive some general results about OAQEC, as well as results that apply specifically to quantum codes that admit a holographic interpretation. We introduce a new quantity called price, which characterizes the support of a protected logical system, and find constraints on the price and the distance for logical subalgebras of quantum codes. We show that holographic codes defined on bulk manifolds with asymptotically negative curvature exhibit uberholography, meaning that a bulk logical algebra can be supported on a boundary region with a fractal structure. We argue that, for holographic codes defined on bulk manifolds with asymptotically flat or positive curvature, the boundary physics must be highly nonlocal, an observation with potential implications for black holes and for quantum gravity in AdS space at distance scales that are small compared to the AdS curvature radius.
+artid: "021021"
+publication_date: 2017-04-01
+year: 2017
+title: <math display="inline" id="d1e132" altimg="si3.svg"><msup><mrow><mi mathvariant="double-struck">R</mi></mrow><mrow><mn>2</mn></mrow></msup></math>
+journal_issue: "2"
+journal_volume: "7"
+publisher: American Physical Society
+journal_title: Physical Review X
+dois:
+- doi: 10.1103/PhysRevX.7.021021
+  material: publication
+authors:
+- full_name: Pastawski, Fernando
+  raw_affiliations:
+  - source: American Physical Society
+    value: Dahlem Center for Complex Quantum Systems, Freie Universität Berlin, 14195 Berlin, Germany
+- full_name: Preskill, John
+  raw_affiliations:
+  - source: American Physical Society
+    value: Institute for Quantum Information and Matter, California Institute of Technology, Pasadena, California 91125, USA
+copyright_holder: authors
+copyright_statement: Published by the American Physical Society
+copyright_year: 2017
+number_of_pages: 20
+document_type: article
+material: publication
+license_url: https://creativecommons.org/licenses/by/4.0/
+license_statement: Published by the American Physical Society under the terms of the Creative Commons Attribution 4.0 International license. Further distribution of this work must maintain attribution to the author(s) and the published article’s title, journal citation, and DOI.
+article_type: research-article
+is_conference_paper: false
+documents:
+- key: PhysRevX.7.021021.xml
+  url: http://example.org/PhysRevX.7.021021.xml
+  source: American Physical Society
+  fulltext: true
+  hidden: true
+references:
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '163'
+      journal_issue: '04'
+      artid: '163'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Almheiri, A.
+    - inspire_role: author
+      full_name: Dong, X.
+    - inspire_role: author
+      full_name: Harlow, D.
+    title:
+      title: Bulk Locality and Quantum Error Correction in AdS/CFT
+    label: '1'
+    dois:
+    - 10.1007/JHEP04(2015)163
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c1\">\n        <label>[1]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>1</object-id><person-group person-group-type=\"author\"\
+      ><string-name>A. Almheiri</string-name>, <string-name>X. Dong</string-name>,\
+      \ and <string-name>D. Harlow</string-name></person-group>, <article-title>Bulk\
+      \ Locality and Quantum Error Correction in AdS/CFT</article-title>, <source>J.\
+      \ High Energy Phys.</source><issue>04</issue> (<volume>2015</volume>) <page-range>163</page-range>.<pub-id\
+      \ pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1007/JHEP04(2015)163</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2015'
+      page_start: '149'
+      journal_issue: '06'
+      artid: '149'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Pastawski, F.
+    - inspire_role: author
+      full_name: Yoshida, B.
+    - inspire_role: author
+      full_name: Harlow, D.
+    - inspire_role: author
+      full_name: Preskill, J.
+    title:
+      title: 'Holographic Quantum Error-Correcting Codes: Toy Models for the Bulk/Boundary
+        Correspondence'
+    label: '2'
+    dois:
+    - 10.1007/JHEP06(2015)149
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c2\">\n        <label>[2]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>2</object-id><person-group person-group-type=\"author\"\
+      ><string-name>F. Pastawski</string-name>, <string-name>B. Yoshida</string-name>,\
+      \ <string-name>D. Harlow</string-name>, and <string-name>J. Preskill</string-name></person-group>,\
+      \ <article-title>Holographic Quantum Error-Correcting Codes: Toy Models for\
+      \ the Bulk/Boundary Correspondence</article-title>, <source>J. High Energy Phys.</source><issue>06</issue>\
+      \ (<volume>2015</volume>) <page-range>149</page-range>.<pub-id pub-id-type=\"\
+      coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1007/JHEP06(2015)149</pub-id></mixed-citation>\n     \
+      \ </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: 009
+      journal_issue: '11'
+      artid: 009
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Hayden, P.
+    - inspire_role: author
+      full_name: Nezami, S.
+    - inspire_role: author
+      full_name: Qi, X.-L.
+    - inspire_role: author
+      full_name: Thomas, N.
+    - inspire_role: author
+      full_name: Walter, M.
+    - inspire_role: author
+      full_name: Yang, Z.
+    title:
+      title: Holographic Duality from Random Tensor Networks
+    label: '3'
+    dois:
+    - 10.1007/JHEP11(2016)009
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c3\">\n        <label>[3]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>3</object-id><person-group person-group-type=\"author\"\
+      ><string-name>P. Hayden</string-name>, <string-name>S. Nezami</string-name>,\
+      \ <string-name>X.-L. Qi</string-name>, <string-name>N. Thomas</string-name>,\
+      \ <string-name>M. Walter</string-name>, and <string-name>Z. Yang</string-name></person-group>,\
+      \ <article-title>Holographic Duality from Random Tensor Networks</article-title>,\
+      \ <source>J. High Energy Phys.</source><issue>11</issue> (<volume>2016</volume>)\
+      \ <page-range>009</page-range>.<pub-id pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1007/JHEP11(2016)009</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '94'
+      year: 2005
+      artid: '180501'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Kribs, D.W.
+    - inspire_role: author
+      full_name: Laflamme, R.
+    - inspire_role: author
+      full_name: Poulin, D.
+    title:
+      title: Unified and Generalized Approach to Quantum Error Correction
+    label: '4'
+    dois:
+    - 10.1103/PhysRevLett.94.180501
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c4\">\n        <label>[4]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>4</object-id><person-group person-group-type=\"author\"\
+      ><string-name>D. W. Kribs</string-name>, <string-name>R. Laflamme</string-name>,\
+      \ and <string-name>D. Poulin</string-name></person-group>, <article-title>Unified\
+      \ and Generalized Approach to Quantum Error Correction</article-title>, <source>Phys.\
+      \ Rev. Lett.</source><volume>94</volume>, <page-range>180501</page-range> (<year>2005</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.94.180501</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '76'
+      year: 2007
+      artid: '042303'
+      journal_title: Phys. Rev. A
+    authors:
+    - inspire_role: author
+      full_name: Bény, C.
+    - inspire_role: author
+      full_name: Kempf, A.
+    - inspire_role: author
+      full_name: Kribs, D.W.
+    title:
+      title: Quantum Error Correction of Observables
+    label: '5'
+    dois:
+    - 10.1103/PhysRevA.76.042303
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c5\">\n        <label>[5]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>5</object-id><person-group person-group-type=\"author\"\
+      ><string-name>C. Bény</string-name>, <string-name>A. Kempf</string-name>, and\
+      \ <string-name>D. W. Kribs</string-name></person-group>, <article-title>Quantum\
+      \ Error Correction of Observables</article-title>, <source>Phys. Rev. A</source><volume>76</volume>,\
+      \ <page-range>042303</page-range> (<year>2007</year>).<pub-id pub-id-type=\"\
+      coden\">PLRAAN</pub-id><issn>1050-2947</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1103/PhysRevA.76.042303</pub-id></mixed-citation>\n  \
+      \    </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '98'
+      year: 2007
+      artid: '100502'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Bény, C.
+    - inspire_role: author
+      full_name: Kempf, A.
+    - inspire_role: author
+      full_name: Kribs, D.W.
+    title:
+      title: Generalization of Quantum Error Correction via the Heisenberg Picture
+    label: '6'
+    dois:
+    - 10.1103/PhysRevLett.98.100502
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c6\">\n        <label>[6]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>6</object-id><person-group person-group-type=\"author\"\
+      ><string-name>C. Bény</string-name>, <string-name>A. Kempf</string-name>, and\
+      \ <string-name>D. W. Kribs</string-name></person-group>, <article-title>Generalization\
+      \ of Quantum Error Correction via the Heisenberg Picture</article-title>, <source>Phys.\
+      \ Rev. Lett.</source><volume>98</volume>, <page-range>100502</page-range> (<year>2007</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.98.100502</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '75'
+      year: 2007
+      artid: '064304'
+      journal_title: Phys. Rev. A
+    authors:
+    - inspire_role: author
+      full_name: Nielsen, M.A.
+    - inspire_role: author
+      full_name: Poulin, D.
+    title:
+      title: Algebraic and Information-Theoretic Conditions for Operator Quantum Error
+        Correction
+    label: '7'
+    dois:
+    - 10.1103/PhysRevA.75.064304
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c7\">\n        <label>[7]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>7</object-id><person-group person-group-type=\"author\"\
+      ><string-name>M. A. Nielsen</string-name> and <string-name>D. Poulin</string-name></person-group>,\
+      \ <article-title>Algebraic and Information-Theoretic Conditions for Operator\
+      \ Quantum Error Correction</article-title>, <source>Phys. Rev. A</source><volume>75</volume>,\
+      \ <page-range>064304</page-range> (<year>2007</year>).<pub-id pub-id-type=\"\
+      coden\">PLRAAN</pub-id><issn>1050-2947</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1103/PhysRevA.75.064304</pub-id></mixed-citation>\n  \
+      \    </ref>"
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Donnelly, W.
+    - inspire_role: author
+      full_name: Michel, B.
+    - inspire_role: author
+      full_name: Marolf, D.
+    - inspire_role: author
+      full_name: Wien, J.
+    title:
+      title: 'Living on the Edge: A Toy Model for Holographic Reconstruction of Algebras
+        with Centers'
+    label: '8'
+    arxiv_eprint: '1611.05841'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c8\">\n        <label>[8]</label>\n        <mixed-citation publication-type=\"\
+      eprint\"><object-id>8</object-id><person-group person-group-type=\"author\"\
+      ><string-name>W. Donnelly</string-name>, <string-name>B. Michel</string-name>,\
+      \ <string-name>D. Marolf</string-name>, and <string-name>J. Wien</string-name></person-group>,\
+      \ <article-title>Living on the Edge: A Toy Model for Holographic Reconstruction\
+      \ of Algebras with Centers</article-title>, <pub-id pub-id-type=\"arxiv\">arXiv:1611.05841</pub-id>.</mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '074'
+      journal_issue: '02'
+      artid: '074'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Almheiri, A.
+    - inspire_role: author
+      full_name: Dong, X.
+    - inspire_role: author
+      full_name: Swingle, B.
+    title:
+      title: Linearity of Holographic Entanglement Entropy
+    label: '9'
+    dois:
+    - 10.1007/JHEP02(2017)074
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c9\">\n        <label>[9]</label>\n        <mixed-citation publication-type=\"\
+      journal\"><object-id>9</object-id><person-group person-group-type=\"author\"\
+      ><string-name>A. Almheiri</string-name>, <string-name>X. Dong</string-name>,\
+      \ and <string-name>B. Swingle</string-name></person-group>, <article-title>Linearity\
+      \ of Holographic Entanglement Entropy</article-title>, <source>J. High Energy\
+      \ Phys.</source><issue>02</issue> (<volume>2017</volume>) <page-range>074</page-range>.<pub-id\
+      \ pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1007/JHEP02(2017)074</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Harlow, D.
+    title:
+      title: The Ryu-Takayanagi Formula from Quantum Error Correction
+    label: '10'
+    arxiv_eprint: '1607.03901'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c10\">\n        <label>[10]</label>\n        <mixed-citation\
+      \ publication-type=\"eprint\"><object-id>10</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. Harlow</string-name></person-group>, <article-title>The\
+      \ Ryu-Takayanagi Formula from Quantum Error Correction</article-title>, <pub-id\
+      \ pub-id-type=\"arxiv\">arXiv:1607.03901</pub-id>.</mixed-citation>\n      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '95'
+      year: 2005
+      artid: '230504'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Poulin, D.
+    title:
+      title: Stabilizer Formalism for Operator Quantum Error Correction
+    label: '11'
+    dois:
+    - 10.1103/PhysRevLett.95.230504
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c11\">\n        <label>[11]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>11</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. Poulin</string-name></person-group>, <article-title>Stabilizer\
+      \ Formalism for Operator Quantum Error Correction</article-title>, <source>Phys.\
+      \ Rev. Lett.</source><volume>95</volume>, <page-range>230504</page-range> (<year>2005</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.95.230504</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '6'
+      page_start: '382'
+      year: 2006
+      artid: '382'
+      journal_title: Quantum Inf. Comput.
+    authors:
+    - inspire_role: author
+      full_name: Kribs, D.W.
+    - inspire_role: author
+      full_name: Laflamme, R.
+    - inspire_role: author
+      full_name: Poulin, D.
+    - inspire_role: author
+      full_name: Lesosky, M.
+    label: '12'
+    title:
+      title: Operator Quantum Error Correction
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c12\">\n        <label>[12]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>12</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. W. Kribs</string-name>, <string-name>R. Laflamme</string-name>,\
+      \ <string-name>D. Poulin</string-name>, and <string-name>M. Lesosky</string-name></person-group>,\
+      \ <article-title>Operator Quantum Error Correction</article-title>, <source>Quantum\
+      \ Inf. Comput.</source><volume>6</volume>, <page-range>382</page-range> (<year>2006</year>).<pub-id\
+      \ pub-id-type=\"coden\">QICUAW</pub-id><issn>1533-7146</issn></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '55'
+      page_start: '900'
+      year: 1997
+      artid: '900'
+      journal_title: Phys. Rev. A
+    authors:
+    - inspire_role: author
+      full_name: Knill, E.
+    - inspire_role: author
+      full_name: Laflamme, R.
+    title:
+      title: Theory of Quantum Error-Correcting Codes
+    label: '13'
+    dois:
+    - 10.1103/PhysRevA.55.900
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c13\">\n        <label>[13]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>13</object-id><person-group person-group-type=\"\
+      author\"><string-name>E. Knill</string-name> and <string-name>R. Laflamme</string-name></person-group>,\
+      \ <article-title>Theory of Quantum Error-Correcting Codes</article-title>, <source>Phys.\
+      \ Rev. A</source><volume>55</volume>, <page-range>900</page-range> (<year>1997</year>).<pub-id\
+      \ pub-id-type=\"coden\">PLRAAN</pub-id><issn>1050-2947</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevA.55.900</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2'
+      page_start: '231'
+      year: 1998
+      artid: '231'
+      journal_title: Adv. Theor. Math. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Maldacena, J.M.
+    title:
+      title: 'The Large '
+    label: '14'
+    dois:
+    - 10.4310/ATMP.1998.v2.n2.a1
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c14\">\n        <label>[14]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>14</object-id><person-group person-group-type=\"\
+      author\"><string-name>J. M. Maldacena</string-name></person-group>, <article-title>The\
+      \ Large <inline-formula><math display=\"inline\"><mrow><mi>N</mi></mrow></math></inline-formula>\
+      \ Limit of Superconformal Field Theories and Supergravity</article-title>, <source>Adv.\
+      \ Theor. Math. Phys.</source><volume>2</volume>, <page-range>231</page-range>\
+      \ (<year>1998</year>).<issn>1095-0761</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.4310/ATMP.1998.v2.n2.a1</pub-id></mixed-citation>\n  \
+      \    </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '96'
+      year: 2006
+      artid: '181602'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Ryu, S.
+    - inspire_role: author
+      full_name: Takayanagi, T.
+    title:
+      title: Holographic Derivation of Entanglement Entropy from the Anti–de Sitter
+        Space/Conformal Field Theory Correspondence
+    label: '15'
+    dois:
+    - 10.1103/PhysRevLett.96.181602
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c15\">\n        <label>[15]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>15</object-id><person-group person-group-type=\"\
+      author\"><string-name>S. Ryu</string-name> and <string-name>T. Takayanagi</string-name></person-group>,\
+      \ <article-title>Holographic Derivation of Entanglement Entropy from the Anti–de\
+      \ Sitter Space/Conformal Field Theory Correspondence</article-title>, <source>Phys.\
+      \ Rev. Lett.</source><volume>96</volume>, <page-range>181602</page-range> (<year>2006</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.96.181602</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '42'
+      page_start: '2323'
+      year: 2010
+      artid: '2323'
+      journal_title: Gen. Relativ. Gravit.
+    authors:
+    - inspire_role: author
+      full_name: Van Raamsdonk, M.
+    title:
+      title: Building up Spacetime with Quantum Entanglement
+    label: '16'
+    dois:
+    - 10.1007/s10714-010-1034-0
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c16\">\n        <label>[16]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>16</object-id><person-group person-group-type=\"\
+      author\"><string-name>M. Van Raamsdonk</string-name></person-group>, <article-title>Building\
+      \ up Spacetime with Quantum Entanglement</article-title>, <source>Gen. Relativ.\
+      \ Gravit.</source><volume>42</volume>, <page-range>2323</page-range> (<year>2010</year>).<pub-id\
+      \ pub-id-type=\"coden\">GRGVA8</pub-id><issn>0001-7701</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1007/s10714-010-1034-0</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2007'
+      page_start: '062'
+      journal_issue: '07'
+      artid: '062'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Hubeny, V.E.
+    - inspire_role: author
+      full_name: Rangamani, M.
+    - inspire_role: author
+      full_name: Takayanagi, T.
+    title:
+      title: A Covariant Holographic Entanglement Entropy Proposal
+    label: '17'
+    dois:
+    - 10.1088/1126-6708/2007/07/062
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c17\">\n        <label>[17]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>17</object-id><person-group person-group-type=\"\
+      author\"><string-name>V. E. Hubeny</string-name>, <string-name>M. Rangamani</string-name>,\
+      \ and <string-name>T. Takayanagi</string-name></person-group>, <article-title>A\
+      \ Covariant Holographic Entanglement Entropy Proposal</article-title>, <source>J.\
+      \ High Energy Phys.</source><issue>07</issue> (<volume>2007</volume>) <page-range>062</page-range>.<pub-id\
+      \ pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1088/1126-6708/2007/07/062</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '29'
+      year: 2012
+      artid: '155009'
+      journal_title: Classical Quantum Gravity
+    authors:
+    - inspire_role: author
+      full_name: Czech, B.
+    - inspire_role: author
+      full_name: Karczmarek, J.L.
+    - inspire_role: author
+      full_name: Nogueira, F.
+    - inspire_role: author
+      full_name: Van Raamsdonk, M.
+    title:
+      title: The Gravity Dual of a Density Matrix
+    label: '18'
+    dois:
+    - 10.1088/0264-9381/29/15/155009
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c18\">\n        <label>[18]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>18</object-id><person-group person-group-type=\"\
+      author\"><string-name>B. Czech</string-name>, <string-name>J. L. Karczmarek</string-name>,\
+      \ <string-name>F. Nogueira</string-name>, and <string-name>M. Van Raamsdonk</string-name></person-group>,\
+      \ <article-title>The Gravity Dual of a Density Matrix</article-title>, <source>Classical\
+      \ Quantum Gravity</source><volume>29</volume>, <page-range>155009</page-range>\
+      \ (<year>2012</year>).<pub-id pub-id-type=\"coden\">CQGRDG</pub-id><issn>0264-9381</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1088/0264-9381/29/15/155009</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2016'
+      page_start: 068
+      journal_issue: 09
+      artid: 068
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Jafferis, D.L.
+    - inspire_role: author
+      full_name: Suh, S.J.
+    title:
+      title: The Gravity Duals of Modular Hamiltonians
+    label: '19'
+    dois:
+    - 10.1007/JHEP09(2016)068
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c19\">\n        <label>[19]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>19</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. L. Jafferis</string-name> and <string-name>S. J. Suh</string-name></person-group>,\
+      \ <article-title>The Gravity Duals of Modular Hamiltonians</article-title>,\
+      \ <source>J. High Energy Phys.</source><issue>09</issue> (<volume>2016</volume>)\
+      \ <page-range>068</page-range>.<pub-id pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1007/JHEP09(2016)068</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '31'
+      year: 2014
+      artid: '225007'
+      journal_title: Classical Quantum Gravity
+    authors:
+    - inspire_role: author
+      full_name: Wall, A.
+    title:
+      title: Maximin Surfaces, and the Strong Subadditivity of the Covariant Holographic
+        Entanglement Entropy
+    label: '20'
+    dois:
+    - 10.1088/0264-9381/31/22/225007
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c20\">\n        <label>[20]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>20</object-id><person-group person-group-type=\"\
+      author\"><string-name>A. Wall</string-name></person-group>, <article-title>Maximin\
+      \ Surfaces, and the Strong Subadditivity of the Covariant Holographic Entanglement\
+      \ Entropy</article-title>, <source>Classical Quantum Gravity</source><volume>31</volume>,\
+      \ <page-range>225007</page-range> (<year>2014</year>).<pub-id pub-id-type=\"\
+      coden\">CQGRDG</pub-id><issn>0264-9381</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1088/0264-9381/31/22/225007</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '117'
+      year: 2016
+      artid: '021601'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Dong, X.
+    - inspire_role: author
+      full_name: Harlow, D.
+    - inspire_role: author
+      full_name: Wall, A.C.
+    title:
+      title: Reconstruction of Bulk Operators within the Entanglement Wedge in Gauge-Gravity
+        Duality
+    label: '21'
+    dois:
+    - 10.1103/PhysRevLett.117.021601
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c21\">\n        <label>[21]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>21</object-id><person-group person-group-type=\"\
+      author\"><string-name>X. Dong</string-name>, <string-name>D. Harlow</string-name>,\
+      \ and <string-name>A. C. Wall</string-name></person-group>, <article-title>Reconstruction\
+      \ of Bulk Operators within the Entanglement Wedge in Gauge-Gravity Duality</article-title>,\
+      \ <source>Phys. Rev. Lett.</source><volume>117</volume>, <page-range>021601</page-range>\
+      \ (<year>2016</year>).<pub-id pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.117.021601</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Bao, N.
+    - inspire_role: author
+      full_name: Kim, I.H.
+    title:
+      title: Precursor Problem and Holographic Mutual Information
+    label: '22'
+    arxiv_eprint: '1601.07616'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c22\">\n        <label>[22]</label>\n        <mixed-citation\
+      \ publication-type=\"eprint\"><object-id>22</object-id><person-group person-group-type=\"\
+      author\"><string-name>N. Bao</string-name> and <string-name>I. H. Kim</string-name></person-group>,\
+      \ <article-title>Precursor Problem and Holographic Mutual Information</article-title>,\
+      \ <pub-id pub-id-type=\"arxiv\">arXiv:hep-th/1601.07616</pub-id>.</mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '1999'
+      page_start: '004'
+      journal_issue: '07'
+      artid: '004'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Bousso, R.
+    title:
+      title: A Covariant Entropy Conjecture
+    label: '23'
+    dois:
+    - 10.1088/1126-6708/1999/07/004
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c23\">\n        <label>[23]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>23</object-id><person-group person-group-type=\"\
+      author\"><string-name>R. Bousso</string-name></person-group>, <article-title>A\
+      \ Covariant Entropy Conjecture</article-title>, <source>J. High Energy Phys.</source><issue>07</issue>\
+      \ (<volume>1999</volume>) <page-range>004</page-range>.<pub-id pub-id-type=\"\
+      coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1088/1126-6708/1999/07/004</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2003'
+      page_start: '021'
+      journal_issue: '04'
+      artid: '021'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Maldacena, J.
+    title:
+      title: Eternal Black Holes in Anti–de Sitter
+    label: '24'
+    dois:
+    - 10.1088/1126-6708/2003/04/021
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c24\">\n        <label>[24]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>24</object-id><person-group person-group-type=\"\
+      author\"><string-name>J. Maldacena</string-name></person-group>, <article-title>Eternal\
+      \ Black Holes in Anti–de Sitter</article-title>, <source>J. High Energy Phys.</source><issue>04</issue>\
+      \ (<volume>2003</volume>) <page-range>021</page-range>.<pub-id pub-id-type=\"\
+      coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1088/1126-6708/2003/04/021</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2013'
+      page_start: '074'
+      journal_issue: '11'
+      artid: '074'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Faulkner, T.
+    - inspire_role: author
+      full_name: Lewkowycz, A.
+    - inspire_role: author
+      full_name: Maldacena, J.
+    title:
+      title: Quantum Corrections to Holographic Entanglement Entropy
+    label: '25'
+    dois:
+    - 10.1007/JHEP11(2013)074
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c25\">\n        <label>[25]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>25</object-id><person-group person-group-type=\"\
+      author\"><string-name>T. Faulkner</string-name>, <string-name>A. Lewkowycz</string-name>,\
+      \ and <string-name>J. Maldacena</string-name></person-group>, <article-title>Quantum\
+      \ Corrections to Holographic Entanglement Entropy</article-title>, <source>J.\
+      \ High Energy Phys.</source><issue>11</issue> (<volume>2013</volume>) <page-range>074</page-range>.<pub-id\
+      \ pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1007/JHEP11(2013)074</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '61'
+      page_start: '781'
+      year: 2013
+      artid: '781'
+      journal_title: Fortschr. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Maldacena, J.
+    - inspire_role: author
+      full_name: Susskind, L.
+    title:
+      title: Cool Horizons for Entangled Black Holes
+    label: '26'
+    dois:
+    - 10.1002/prop.201300020
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c26\">\n        <label>[26]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>26</object-id><person-group person-group-type=\"\
+      author\"><string-name>J. Maldacena</string-name> and <string-name>L. Susskind</string-name></person-group>,\
+      \ <article-title>Cool Horizons for Entangled Black Holes</article-title>, <source>Fortschr.\
+      \ Phys.</source><volume>61</volume>, <page-range>781</page-range> (<year>2013</year>).<pub-id\
+      \ pub-id-type=\"coden\">FPYKA6</pub-id><issn>0015-8208</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1002/prop.201300020</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '104'
+      year: 2010
+      artid: '050503'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Bravyi, S.
+    - inspire_role: author
+      full_name: Poulin, D.
+    - inspire_role: author
+      full_name: Terhal, B.
+    title:
+      title: Tradeoffs for Reliable Quantum Information Storage in 2D Systems
+    label: '27'
+    dois:
+    - 10.1103/PhysRevLett.104.050503
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c27\">\n        <label>[27]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>27</object-id><person-group person-group-type=\"\
+      author\"><string-name>S. Bravyi</string-name>, <string-name>D. Poulin</string-name>,\
+      \ and <string-name>B. Terhal</string-name></person-group>, <article-title>Tradeoffs\
+      \ for Reliable Quantum Information Storage in 2D Systems</article-title>, <source>Phys.\
+      \ Rev. Lett.</source><volume>104</volume>, <page-range>050503</page-range> (<year>2010</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.104.050503</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Flammia, S.T.
+    - inspire_role: author
+      full_name: Haah, J.
+    - inspire_role: author
+      full_name: Kastoryano, M.J.
+    - inspire_role: author
+      full_name: Kim, I.H.
+    title:
+      title: Limits on the Storage of Quantum Information in a Volume of Space
+    label: '28'
+    arxiv_eprint: '1610.06169'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c28\">\n        <label>[28]</label>\n        <mixed-citation\
+      \ publication-type=\"eprint\"><object-id>28</object-id><person-group person-group-type=\"\
+      author\"><string-name>S. T. Flammia</string-name>, <string-name>J. Haah</string-name>,\
+      \ <string-name>M. J. Kastoryano</string-name>, and <string-name>I. H. Kim</string-name></person-group>,\
+      \ <article-title>Limits on the Storage of Quantum Information in a Volume of\
+      \ Space</article-title>, <pub-id pub-id-type=\"arxiv\">arXiv:1610.06169</pub-id>.</mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '39'
+      page_start: '97'
+      year: 1988
+      artid: '97'
+      journal_title: Q. J. Math.
+    authors:
+    - inspire_role: author
+      full_name: Petz, D.
+    title:
+      title: Sufficiency of Channels Over Von Neumann Algebras
+    label: '29'
+    dois:
+    - 10.1093/qmath/39.1.97
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c29\">\n        <label>[29]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>29</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. Petz</string-name></person-group>, <article-title>Sufficiency\
+      \ of Channels Over Von Neumann Algebras</article-title>, <source>Q. J. Math.</source><volume>39</volume>,\
+      \ <page-range>97</page-range> (<year>1988</year>).<pub-id pub-id-type=\"coden\"\
+      >QJMMAV</pub-id><issn>0033-5606</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1093/qmath/39.1.97</pub-id></mixed-citation>\n      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '340'
+      page_start: '575'
+      year: 2015
+      artid: '575'
+      journal_title: Commun. Math. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Fawzi, O.
+    - inspire_role: author
+      full_name: Renner, R.
+    title:
+      title: Quantum Conditional Mutual Information and Approximate Markov Chains
+    label: '30'
+    dois:
+    - 10.1007/s00220-015-2466-x
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c30\">\n        <label>[30]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>30</object-id><person-group person-group-type=\"\
+      author\"><string-name>O. Fawzi</string-name> and <string-name>R. Renner</string-name></person-group>,\
+      \ <article-title>Quantum Conditional Mutual Information and Approximate Markov\
+      \ Chains</article-title>, <source>Commun. Math. Phys.</source><volume>340</volume>,\
+      \ <page-range>575</page-range> (<year>2015</year>).<pub-id pub-id-type=\"coden\"\
+      >CMPHAY</pub-id><issn>0010-3616</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1007/s00220-015-2466-x</pub-id></mixed-citation>\n   \
+      \   </ref>"
+    schema: JATS
+- reference:
+    title:
+      title: Quantum Source-Channel Codes
+    misc:
+    - '[ (to be published)]'
+    label: '31'
+    authors:
+    - inspire_role: author
+      full_name: Pastawski, F.
+    - inspire_role: author
+      full_name: Eisert, J.
+    - inspire_role: author
+      full_name: Wilming, H.
+    publication_info:
+      journal_title: Phys. Rev. Lett.
+    arxiv_eprint: '1611.07528'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c31\">\n        <label>[31]</label>\n        <mixed-citation\
+      \ publication-type=\"eprint\"><object-id>31</object-id><person-group person-group-type=\"\
+      author\"><string-name>F. Pastawski</string-name>, <string-name>J. Eisert</string-name>,\
+      \ and <string-name>H. Wilming</string-name></person-group>, <article-title>Quantum\
+      \ Source-Channel Codes</article-title>, <pub-id pub-id-type=\"arxiv\">arXiv:1611.07528</pub-id>\
+      \ [<source>Phys. Rev. Lett.</source> (to be published)].</mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2017'
+      page_start: '040'
+      journal_issue: '04'
+      artid: '040'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Kim, I.H.
+    - inspire_role: author
+      full_name: Kastoryano, M.J.
+    title:
+      title: Entanglement Renormalization, Quantum Error Correction, and Bulk Causality
+    label: '32'
+    dois:
+    - 10.1007/JHEP04(2017)040
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c32\">\n        <label>[32]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>32</object-id><person-group person-group-type=\"\
+      author\"><string-name>I. H. Kim</string-name> and <string-name>M. J. Kastoryano</string-name></person-group>,\
+      \ <article-title>Entanglement Renormalization, Quantum Error Correction, and\
+      \ Bulk Causality</article-title>, <source>J. High Energy Phys.</source><issue>04</issue>\
+      \ (<volume>2017</volume>) <page-range>040</page-range>.<pub-id pub-id-type=\"\
+      coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1007/JHEP04(2017)040</pub-id></mixed-citation>\n     \
+      \ </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '82'
+      year: 2010
+      artid: '126010'
+      journal_title: Phys. Rev. D
+    authors:
+    - inspire_role: author
+      full_name: Headrick, M.
+    title:
+      title: Entanglement Rényi Entropies in Holographic Theories
+    label: '33'
+    dois:
+    - 10.1103/PhysRevD.82.126010
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c33\">\n        <label>[33]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>33</object-id><person-group person-group-type=\"\
+      author\"><string-name>M. Headrick</string-name></person-group>, <article-title>Entanglement\
+      \ Rényi Entropies in Holographic Theories</article-title>, <source>Phys. Rev.\
+      \ D</source><volume>82</volume>, <page-range>126010</page-range> (<year>2010</year>).<pub-id\
+      \ pub-id-type=\"coden\">PRVDAQ</pub-id><issn>1550-7998</issn><pub-id pub-id-type=\"\
+      doi\" specific-use=\"suppress-display\">10.1103/PhysRevD.82.126010</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '7'
+      year: 2016
+      artid: '12472'
+      journal_title: Nat. Commun.
+    authors:
+    - inspire_role: author
+      full_name: Dong, X.
+    title:
+      title: The Gravity Dual of Rényi Entropy
+    label: '34'
+    dois:
+    - 10.1038/ncomms12472
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c34\">\n        <label>[34]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>34</object-id><person-group person-group-type=\"\
+      author\"><string-name>X. Dong</string-name></person-group>, <article-title>The\
+      \ Gravity Dual of Rényi Entropy</article-title>, <source>Nat. Commun.</source><volume>7</volume>,\
+      \ <page-range>12472</page-range> (<year>2016</year>).<pub-id pub-id-type=\"\
+      coden\">NCAOBW</pub-id><issn>2041-1723</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1038/ncomms12472</pub-id></mixed-citation>\n      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '116'
+      year: 2016
+      artid: '251602'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Dong, X.
+    title:
+      title: Shape Dependence of Holographic Rényi Entropy in Conformal Field Theories
+    label: '35'
+    dois:
+    - 10.1103/PhysRevLett.116.251602
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c35\">\n        <label>[35]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>35</object-id><person-group person-group-type=\"\
+      author\"><string-name>X. Dong</string-name></person-group>, <article-title>Shape\
+      \ Dependence of Holographic Rényi Entropy in Conformal Field Theories</article-title>,\
+      \ <source>Phys. Rev. Lett.</source><volume>116</volume>, <page-range>251602</page-range>\
+      \ (<year>2016</year>).<pub-id pub-id-type=\"coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1103/PhysRevLett.116.251602</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '472'
+      page_start: '623'
+      year: 2016
+      artid: '623'
+      journal_title: Proc. R. Soc. Lond A
+    authors:
+    - inspire_role: author
+      full_name: Sutter, D.
+    - inspire_role: author
+      full_name: Fawzi, O.
+    - inspire_role: author
+      full_name: Renner, R.
+    title:
+      title: Universal Recovery Map for Approximate Markov Chains
+    label: '36'
+    dois:
+    - 10.1098/rspa.2015.0623
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c36\">\n        <label>[36]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>36</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. Sutter</string-name>, <string-name>O. Fawzi</string-name>,\
+      \ and <string-name>R. Renner</string-name></person-group>, <article-title>Universal\
+      \ Recovery Map for Approximate Markov Chains</article-title>, <source>Proc.\
+      \ R. Soc. Lond A</source><volume>472</volume>, <page-range>623</page-range>\
+      \ (<year>2016</year>).<issn>1364-5021</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1098/rspa.2015.0623</pub-id></mixed-citation>\n      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2007'
+      page_start: '120'
+      journal_issue: 09
+      artid: '120'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Hayden, P.
+    - inspire_role: author
+      full_name: Preskill, J.
+    title:
+      title: 'Black Holes as Mirrors: Quantum Information in Random Subsystems'
+    label: '37'
+    dois:
+    - 10.1088/1126-6708/2007/09/120
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c37\">\n        <label>[37]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>37</object-id><person-group person-group-type=\"\
+      author\"><string-name>P. Hayden</string-name> and <string-name>J. Preskill</string-name></person-group>,\
+      \ <article-title>Black Holes as Mirrors: Quantum Information in Random Subsystems</article-title>,\
+      \ <source>J. High Energy Phys.</source><issue>09</issue> (<volume>2007</volume>)\
+      \ <page-range>120</page-range>.<pub-id pub-id-type=\"coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1088/1126-6708/2007/09/120</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '2008'
+      page_start: '065'
+      journal_issue: '10'
+      artid: '065'
+      journal_title: J. High Energy Phys.
+    authors:
+    - inspire_role: author
+      full_name: Sekino, Y.
+    - inspire_role: author
+      full_name: Susskind, L.
+    title:
+      title: Fast Scramblers
+    label: '38'
+    dois:
+    - 10.1088/1126-6708/2008/10/065
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c38\">\n        <label>[38]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>38</object-id><person-group person-group-type=\"\
+      author\"><string-name>Y. Sekino</string-name> and <string-name>L. Susskind</string-name></person-group>,\
+      \ <article-title>Fast Scramblers</article-title>, <source>J. High Energy Phys.</source><issue>10</issue>\
+      \ (<volume>2008</volume>) <page-range>065</page-range>.<pub-id pub-id-type=\"\
+      coden\">JHEPFG</pub-id><issn>1029-8479</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1088/1126-6708/2008/10/065</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '71'
+      page_start: '1291'
+      year: 1993
+      artid: '1291'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Page, D.N.
+    title:
+      title: Average Entropy of a Subsystem
+    label: '39'
+    dois:
+    - 10.1103/PhysRevLett.71.1291
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c39\">\n        <label>[39]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>39</object-id><person-group person-group-type=\"\
+      author\"><string-name>D. N. Page</string-name></person-group>, <article-title>Average\
+      \ Entropy of a Subsystem</article-title>, <source>Phys. Rev. Lett.</source><volume>71</volume>,\
+      \ <page-range>1291</page-range> (<year>1993</year>).<pub-id pub-id-type=\"coden\"\
+      >PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1103/PhysRevLett.71.1291</pub-id></mixed-citation>\n \
+      \     </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '116'
+      year: 2016
+      artid: '191301'
+      journal_title: Phys. Rev. Lett.
+    authors:
+    - inspire_role: author
+      full_name: Brown, A.R.
+    - inspire_role: author
+      full_name: Roberts, D.A.
+    - inspire_role: author
+      full_name: Susskind, L.
+    - inspire_role: author
+      full_name: Swingle, B.
+    - inspire_role: author
+      full_name: Zhao, Y.
+    title:
+      title: Holographic Complexity Equals Bulk Action?
+    label: '40'
+    dois:
+    - 10.1103/PhysRevLett.116.191301
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c40\">\n        <label>[40]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>40</object-id><person-group person-group-type=\"\
+      author\"><string-name>A. R. Brown</string-name>, <string-name>D. A. Roberts</string-name>,\
+      \ <string-name>L. Susskind</string-name>, <string-name>B. Swingle</string-name>,\
+      \ and <string-name>Y. Zhao</string-name></person-group>, <article-title>Holographic\
+      \ Complexity Equals Bulk Action?</article-title>, <source>Phys. Rev. Lett.</source><volume>116</volume>,\
+      \ <page-range>191301</page-range> (<year>2016</year>).<pub-id pub-id-type=\"\
+      coden\">PRLTAO</pub-id><issn>0031-9007</issn><pub-id pub-id-type=\"doi\" specific-use=\"\
+      suppress-display\">10.1103/PhysRevLett.116.191301</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    publication_info:
+      journal_volume: '346'
+      page_start: '397'
+      year: 2016
+      artid: '397'
+      journal_title: Commun. Math. Phys.
+    authors:
+    - inspire_role: author
+      full_name: Brandão, F.G.S.L.
+    - inspire_role: author
+      full_name: Harrow, A.W.
+    - inspire_role: author
+      full_name: Horodecki, M.
+    title:
+      title: Local Random Quantum Circuits are Approximate Polynomial-Designs
+    label: '41'
+    dois:
+    - 10.1007/s00220-016-2706-8
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c41\">\n        <label>[41]</label>\n        <mixed-citation\
+      \ publication-type=\"journal\"><object-id>41</object-id><person-group person-group-type=\"\
+      author\"><string-name>F. G. S. L. Brandão</string-name>, <string-name>A. W.\
+      \ Harrow</string-name>, and <string-name>M. Horodecki</string-name></person-group>,\
+      \ <article-title>Local Random Quantum Circuits are Approximate Polynomial-Designs</article-title>,\
+      \ <source>Commun. Math. Phys.</source><volume>346</volume>, <page-range>397</page-range>\
+      \ (<year>2016</year>).<pub-id pub-id-type=\"coden\">CMPHAY</pub-id><issn>0010-3616</issn><pub-id\
+      \ pub-id-type=\"doi\" specific-use=\"suppress-display\">10.1007/s00220-016-2706-8</pub-id></mixed-citation>\n\
+      \      </ref>"
+    schema: JATS
+- reference:
+    authors:
+    - inspire_role: author
+      full_name: Bény, C.
+    title:
+      title: Conditions for the Approximate Correction of Algebras
+    label: '42'
+    arxiv_eprint: '0907.4207'
+  raw_refs:
+  - source: American Physical Society
+    value: "<ref id=\"c42\">\n        <label>[42]</label>\n        <mixed-citation\
+      \ publication-type=\"eprint\"><object-id>42</object-id><person-group person-group-type=\"\
+      author\"><string-name>C. Bény</string-name></person-group>, <article-title>Conditions\
+      \ for the Approximate Correction of Algebras</article-title>, <pub-id pub-id-type=\"\
+      arxiv\">arXiv:0907.4207</pub-id>.</mixed-citation>\n      </ref>"
+    schema: JATS
