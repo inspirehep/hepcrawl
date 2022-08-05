@@ -156,6 +156,10 @@ class ElsevierParser(object):
         "strip": "self::pub-id|self::issn",
     }
 
+    remove_tags_config_title = {
+        'allowed_trees': ['math'],
+    }
+
     @property
     def abstract(self):
         abstract_nodes = self.root.xpath(".//head/abstract[not(@graphical)]/abstract-sec/simple-para")
@@ -416,9 +420,8 @@ class ElsevierParser(object):
 
     @property
     def title(self):
-        title = self.root.xpath("string(./*/head/title[1])").extract_first()
-
-        return title.strip("\n") if title else None
+        title = self.root.xpath("./*/head/title[1]").extract_first()
+        return remove_tags(title, **self.remove_tags_config_title).strip("\n") if title else None
 
     @property
     def year(self):

@@ -90,6 +90,10 @@ class JatsParser(object):
         'strip': 'self::pub-id|self::issn'
     }
 
+    remove_tags_config_title = {
+        'allowed_trees': ['math'],
+    }
+
     @property
     def abstract(self):
         abstract_nodes = self.root.xpath('./front//abstract[1]')
@@ -322,9 +326,8 @@ class JatsParser(object):
 
     @property
     def title(self):
-        title = self.root.xpath('string(./front//article-title)').extract_first()
-
-        return title
+        title = self.root.xpath('./front//article-title').extract_first()
+        return remove_tags(title, **self.remove_tags_config_title)
 
     def get_affiliation(self, id_):
         """Get the affiliation with the specified id.

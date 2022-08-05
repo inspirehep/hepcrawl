@@ -52,6 +52,7 @@ def get_parser_by_file(filename):
     ('j.scib.2020.01.008.xml', 'j.scib.2020.01.008_expected.yml'),
     ('aphy.2001.6176.xml', 'aphy.2001.6176_expected.yml'),
     ('j.aim.2021.107831.xml', 'j.aim.2021.107831_expected.yml'),
+    ('j.nuclphysa.2020.121992.xml', 'j.nuclphysa.2020.121992_expected.yml'),
 ])
 def records(request):
     return {
