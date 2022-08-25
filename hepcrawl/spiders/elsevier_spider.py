@@ -23,7 +23,7 @@ from six.moves.urllib.parse import urlparse
 
 from . import StatefulSpider
 from ..parsers import ElsevierParser
-from ..utils import ParsedItem, strict_kwargs
+from ..utils import ParsedItem
 
 
 class ElsevierSpider(StatefulSpider):
@@ -31,13 +31,13 @@ class ElsevierSpider(StatefulSpider):
     start_urls = []
     source = "Elsevier"
 
-    @strict_kwargs
     def __init__(
         self,
         access_key_id,
         secret_access_key,
         packages_bucket_name,
         files_bucket_name,
+        elsevier_authorization_data_base64_encoded,
         elsevier_consyn_url,
         s3_host="https://s3.cern.ch",
         *args,
@@ -49,8 +49,10 @@ class ElsevierSpider(StatefulSpider):
         self.packages_bucket_name = packages_bucket_name
         self.files_bucket_name = files_bucket_name
         self.elsevier_consyn_url = elsevier_consyn_url
+        self.elsevier_authorization_data_base64_encoded = elsevier_authorization_data_base64_encoded
         self.new_xml_files = set()
         self.s3_host = s3_host
+
 
         if not all(
             [
@@ -122,9 +124,10 @@ class ElsevierSpider(StatefulSpider):
         return urls_for_packages
 
     def start_requests(self):
+        request_headers = {'Authorization': 'Basic ' + self.elsevier_authorization_data_base64_encoded}
         elsevier_batch_download_url = self.elsevier_consyn_url
         yield Request(
-            elsevier_batch_download_url, callback=self.extract_packages_from_consyn_feed
+            elsevier_batch_download_url, headers=request_headers, callback=self.extract_packages_from_consyn_feed
         )
 
     def extract_packages_from_consyn_feed(self, response):

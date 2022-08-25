@@ -16,6 +16,7 @@ CRAWLER_ARGS = {
     "packages_bucket_name": "inspire-publishers-elsevier-packages",
     "files_bucket_name": "inspire-publishers-elsevier-articles",
     "s3_host": "http://localstack:4566",
+    'elsevier_authorization_data_base64_encoded': ''
 }
 
 CONFIG = {
