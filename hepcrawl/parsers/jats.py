@@ -416,19 +416,48 @@ class JatsParser(object):
         return author_name
 
     @staticmethod
-    def get_date(date_node):
+    def _get_iso_date(iso_date_string):
+        try:
+            iso_date = PartialDate.loads(iso_date_string)
+            return iso_date
+        except ValueError:
+            return
+
+    @staticmethod
+    def _get_date_from_parts(year, month, day):
+        possible_dates = [
+            [year, month, day], 
+            [year, month], 
+            [year]
+        ]
+        # we try different date combinations
+        # cause even if date part is not None
+        # it can raise validation error
+        # (better ask for forgiveness than permission)
+        for date_parts in possible_dates:
+            try:
+                date = PartialDate.from_parts(*date_parts)
+                return date
+            except:
+                continue
+
+    def get_date(self, date_node):
         """Extract a date from a date node.
 
         Returns:
             PartialDate: the parsed date.
         """
-        iso_string = date_node.xpath('./@iso-8601-date').extract_first()
-        iso_date = PartialDate.loads(iso_string) if iso_string else None
-
+        iso_string = date_node.xpath('./@iso-8601-date').extract_first(default="")
+        iso_date = self._get_iso_date(iso_string)
+        if iso_date:
+            return iso_date
         year = date_node.xpath('string(./year)').extract_first()
         month = date_node.xpath('string(./month)').extract_first()
         day = date_node.xpath('string(./day)').extract_first()
-        date_from_parts = PartialDate.from_parts(year, month, day) if year else None
+
+        date_from_parts = self._get_date_from_parts(year, month, day)
+        if date_from_parts:
+            return date_from_parts
 
         string_date = date_node.xpath('string(./string-date)').extract_first()
         try:
@@ -436,8 +465,7 @@ class JatsParser(object):
         except ValueError:
             parsed_date = None
 
-        date = get_first([iso_date, date_from_parts, parsed_date])
-        return date
+        return parsed_date
 
     @staticmethod
     def get_keywords(group_node):
