@@ -26,6 +26,52 @@ from ..parsers import ElsevierParser
 from ..utils import ParsedItem
 
 
+class S3Handler():
+    def __init__(
+        self, 
+        access_key_id, 
+        secret_access_key, 
+        s3_host="https://s3.cern.ch"
+    ):
+        self.access_key_id = access_key_id
+        self.secret_access_key = secret_access_key
+        self.s3_host = s3_host
+        self.s3_connection = self._create_s3_connection()
+        self.s3_client = self._connect_s3_client()
+
+    def _create_s3_connection(self):
+        session = boto3.Session(
+            aws_access_key_id=self.access_key_id,
+            aws_secret_access_key=self.secret_access_key,
+        )
+        s3 = session.resource("s3", endpoint_url=self.s3_host)
+        return s3
+
+    def _s3_bucket_connection(self, bucket_name):
+        bucket_connection = self.s3_connection.Bucket(bucket_name)
+        return bucket_connection
+
+    def _connect_s3_client(self):
+        s3_client = boto3.client(
+            "s3",
+            aws_access_key_id=self.access_key_id,
+            aws_secret_access_key=self.secret_access_key,
+            endpoint_url=self.s3_host,
+        )
+        return s3_client
+
+    def create_presigned_url(self, bucket, file, method):
+        url = self.s3_client.generate_presigned_url(
+            ClientMethod=method,
+            Params={"Bucket": bucket, "Key": file},
+            ExpiresIn=920000,
+        )
+        return url
+
+    def get_s3_client(self):
+        return self.s3_client
+
+
 class ElsevierSpider(StatefulSpider):
     name = "elsevier"
     start_urls = []
@@ -43,72 +89,32 @@ class ElsevierSpider(StatefulSpider):
         *args,
         **kwargs
     ):
+        if not all(
+            [
+                access_key_id,
+                secret_access_key,
+                packages_bucket_name,
+                files_bucket_name,
+            ]
+        ):
+            raise Exception("Missing parametrs necessary to establish s3 connection")
         super(ElsevierSpider, self).__init__(*args, **kwargs)
-        self.access_key_id = access_key_id
-        self.secret_access_key = secret_access_key
         self.packages_bucket_name = packages_bucket_name
         self.files_bucket_name = files_bucket_name
         self.elsevier_consyn_url = elsevier_consyn_url
         self.elsevier_authorization_data_base64_encoded = elsevier_authorization_data_base64_encoded
         self.new_xml_files = set()
-        self.s3_host = s3_host
-
-
-        if not all(
-            [
-                self.access_key_id,
-                self.secret_access_key,
-                self.packages_bucket_name,
-                self.files_bucket_name,
-            ]
-        ):
-            raise Exception("Missing parametrs necessary to establish s3 connection")
-        else:
-            self.s3_connection = self.create_s3_connection()
-            self.s3_packages_bucket_conn = self.s3_bucket_connection(
-                self.packages_bucket_name
+        self.s3_handler = S3Handler(
+                access_key_id,
+                secret_access_key,
+                s3_host
             )
-            self.s3_files_bucket_conn = self.s3_bucket_connection(
-                self.files_bucket_name
-            )
-            self.s3_client = self.connect_s3_client()
-
-    def create_s3_connection(self):
-        session = boto3.Session(
-            aws_access_key_id=self.access_key_id,
-            aws_secret_access_key=self.secret_access_key,
-        )
-        s3 = session.resource("s3", endpoint_url=self.s3_host)
-        return s3
-
-    def s3_bucket_connection(self, bucket_name):
-        bucket_connection = self.s3_connection.Bucket(bucket_name)
-        return bucket_connection
-
-    def connect_s3_client(self):
-        s3_client = boto3.client(
-            "s3",
-            aws_access_key_id=self.access_key_id,
-            aws_secret_access_key=self.secret_access_key,
-            endpoint_url=self.s3_host,
-        )
-        return s3_client
-
-    def create_presigned_url(self, bucket, file, method):
-        url = self.s3_client.generate_presigned_url(
-            ClientMethod=method,
-            Params={"Bucket": bucket, "Key": file},
-            ExpiresIn=920000,
-        )
-        return url
 
     def _get_package_urls_from_elsevier(self, elsevier_metadata):
         """
         Extracts names and urls of the zip packages from elsevier batch feed
-
         Returns:
             dict(name: url): dict of zip packages names and urls
-
         """
         packages_links = (
             Selector(text=elsevier_metadata).xpath("//entry/link/@href").getall()
@@ -139,7 +145,7 @@ class ElsevierSpider(StatefulSpider):
             elsevier_metadata
         )
         for name, url in packages_from_consyn_feed.items():
-            presigned_url = self.create_presigned_url(
+            presigned_url = self.s3_handler.create_presigned_url(
                 method="head_object", bucket=self.packages_bucket_name, file=name
             )
             yield Request(
@@ -170,7 +176,7 @@ class ElsevierSpider(StatefulSpider):
         Uploads to s3 bucket new zip packages.
         """
         name = response.meta["name"]
-        url = self.create_presigned_url(
+        url = self.s3_handler.create_presigned_url(
             method="put_object", bucket=self.packages_bucket_name, file=name
         )
         yield Request(
@@ -202,7 +208,7 @@ class ElsevierSpider(StatefulSpider):
                         elsevier_xml = f.read()
                     file_doi = self._get_doi_for_xml_file(elsevier_xml)
                     self.new_xml_files.add("{file_doi}.xml".format(file_doi=file_doi))
-                    url = self.create_presigned_url(
+                    url = self.s3_handler.create_presigned_url(
                         method="put_object",
                         bucket=self.files_bucket_name,
                         file="{file_doi}.xml".format(file_doi=file_doi),
@@ -226,24 +232,102 @@ class ElsevierSpider(StatefulSpider):
     def parse_record(self, response):
         """Parse an elsevier XML downloaded from s3 into a HEP record."""
         parser = ElsevierParser(response.meta["data"])
-        if parser.should_record_be_harvested():
-            file_name = self._file_name_from_url(response.url)
-            self.logger.info("Harvesting file: %s", file_name)
-            document_url = self.create_presigned_url(
-                self.files_bucket_name, response.meta["name"], "get_object"
-            )
-            parser.attach_fulltext_document(file_name, document_url)
-            parsed_record = parser.parse()
-            file_urls = [
-                document['url'] for document in parsed_record.get('documents', [])
-            ]
-            self.logger.info("Files to download: %s", file_urls)
-            return ParsedItem(
-                record=parsed_record, file_urls=file_urls, record_format="hep"
-            )
-        else:
+        if not parser.should_record_be_harvested():
             self.logger.info(
                 "Document {name} is missing required metadata, skipping item creation.".format(
                     name=response.meta["name"]
                 )
             )
+            return
+        file_name = self._file_name_from_url(response.url)
+        self.logger.info("Harvesting file: %s", file_name)
+        document_url = self.s3_handler.create_presigned_url(
+            self.files_bucket_name, response.meta["name"], "get_object"
+        )
+        parser.attach_fulltext_document(file_name, document_url)
+        parsed_record = parser.parse()
+        file_urls = [
+            document['url'] for document in parsed_record.get('documents', [])
+        ]
+        self.logger.info("Files to download: %s", file_urls)
+        return ParsedItem(
+            record=parsed_record, file_urls=file_urls, record_format="hep"
+        )
+
+
+class ElsevierSingleSpider(StatefulSpider):
+    name = "elsevier-single"
+    start_urls = []
+    source = "Elsevier"
+
+    def __init__(
+        self,
+        access_key_id,
+        secret_access_key,
+        files_bucket_name,
+        elsevier_authorization_data_base64_encoded,
+        elsevier_consyn_url,
+        identifier,
+        s3_host="https://s3.cern.ch",
+        *args,
+        **kwargs
+    ):
+        if not all(
+            [
+                access_key_id,
+                secret_access_key,
+                files_bucket_name,
+            ]
+        ):
+            raise Exception("Missing parametrs necessary to establish s3 connection")
+        super(ElsevierSingleSpider, self).__init__(*args, **kwargs)
+        self.files_bucket_name = files_bucket_name
+        self.elsevier_consyn_url = elsevier_consyn_url
+        self.elsevier_authorization_data_base64_encoded = elsevier_authorization_data_base64_encoded
+        self.new_xml_files = set()
+        self.s3_hanler = S3Handler(
+                access_key_id,
+                secret_access_key,
+                s3_host
+            )
+        self.identifier = identifier
+
+
+    def start_requests(self):
+        s3_client = self.s3_hanler.get_s3_client()
+        self.logger.info("listing objects in %s" % self.files_bucket_name)
+        files = s3_client.list_objects(Bucket=self.files_bucket_name)
+        file_key = "{}.xml".format(self.identifier)
+        file = filter(lambda item: item["Key"] == file_key, files['Contents'])
+        if not file:
+            self.logger.info("File with identifier {} was not found in S3".format(self.identifier))
+            return
+        document_url = self.s3_hanler.create_presigned_url(
+                self.files_bucket_name, file_key, "get_object"
+            )
+        yield Request(
+            document_url,
+            meta={"filename": file_key},
+            callback=self.parse_record
+        )
+
+    def parse_record(self, response):
+        """Parse an elsevier XML downloaded from s3 into a HEP record."""
+        parser = ElsevierParser(response.body)
+        if not parser.should_record_be_harvested():
+            self.logger.warning(
+                "Document {name} is missing required metadata, skipping item creation.".format(
+                    name=response.meta["filename"]
+                )
+            )
+            return
+
+        parser.attach_fulltext_document(response.meta['filename'], response.url)
+        parsed_record = parser.parse()
+        file_urls = [
+            document['url'] for document in parsed_record.get('documents', [])
+        ]
+        self.logger.info("Files to download: %s", file_urls)
+        return ParsedItem(
+            record=parsed_record, file_urls=file_urls, record_format="hep"
+        )
