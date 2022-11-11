@@ -20,7 +20,12 @@ from inspire_schemas.utils import split_page_artid
 from inspire_utils.date import PartialDate
 from inspire_utils.helpers import maybe_int, remove_tags
 
-from ..utils import get_first, get_node
+from ..utils import get_node
+
+
+JOURNAL_TITLES_MAPPING = {
+    "Physics": "APS Physics"
+}
 
 
 class JatsParser(object):
@@ -204,7 +209,7 @@ class JatsParser(object):
             './front/journal-meta//journal-title/text()'
         ).extract_first()
 
-        return journal_title
+        return JOURNAL_TITLES_MAPPING.get(journal_title) or journal_title
 
     @property
     def journal_issue(self):

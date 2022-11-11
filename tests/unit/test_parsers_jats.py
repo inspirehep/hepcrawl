@@ -138,3 +138,10 @@ def test_attach_fulltext_document(records):
     result = parser.parse()
 
     assert result['documents'] == records['expected']['documents']
+
+
+def test_journal_title_physcis_is_converted_to_aps_physics():
+    parser = get_parser_by_file("Physics.15.168.xml")
+    result = parser.parse()
+    assert result['publication_info'][0]['journal_title'] == "APS Physics"
+
