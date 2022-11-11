@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD with OASIS Tables with MathML3 v1.1d1 20130915//EN" "JATS-journalpublishing-oasis-article1-mathml3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:oasis="http://www.niso.org/standards/z39-96/ns/oasis-exchange/table" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" article-type="viewpoint" dtd-version="1.1d1" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher-id">PHYSICS</journal-id>
+      <journal-id journal-id-type="coden">PHYSGM</journal-id>
+      <journal-title-group>
+        <journal-title>Physics</journal-title>
+        <journal-title specific-use="issn-registration">Physics</journal-title>
+        <abbrev-journal-title>Physics</abbrev-journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">1943-2879</issn>
+      <publisher>
+        <publisher-name>American Physical Society</publisher-name>
+      </publisher>
+    </journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1103/Physics.15.168</article-id>
+      <article-categories>
+        <subj-group subj-group-type="toc-major">
+          <subject>VIEWPOINTS</subject>
+        </subj-group>
+        <subj-group subj-group-type="primary-subject-area">
+          <compound-subject>
+            <compound-subject-part content-type="code">quantum-info</compound-subject-part>
+            <compound-subject-part content-type="subject">Quantum Information</compound-subject-part>
+          </compound-subject>
+        </subj-group>
+        <subj-group subj-group-type="subject-areas">
+          <compound-subject>
+            <compound-subject-part content-type="code">quantum</compound-subject-part>
+            <compound-subject-part content-type="subject">Quantum Physics</compound-subject-part>
+          </compound-subject>
+        </subj-group>
+      </article-categories>
+      <title-group>
+        <article-title>Chirping toward a Quantum RAM</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <name>
+            <surname>Pla</surname>
+            <given-names>Jarryd</given-names>
+          </name>
+          <bio id="n1">
+            <label>
+              <sup>*</sup>
+            </label>
+            <graphic xlink:href="e168_1.png" position="anchor" content-type="author-bio"/>
+            <p>Jarryd Pla is a quantum engineer at the University of New South Wales, Sydney. He works on problems related to quantum information processing and more broadly to quantum technologies. Pla was instrumental in demonstrating the first quantum bits made from the electron and nucleus of a single impurity atom inside a silicon chip. His current research interests span spin-based quantum computation, superconducting quantum circuits, and hybrid quantum technologies. He is focused on developing new quantum technologies to aid the scaling of quantum computers and to advance capabilities in spectroscopy and sensing.</p>
+          </bio>
+          <xref ref-type="aff" rid="a1">
+            <sup>1</sup>
+          </xref>
+        </contrib>
+        <aff id="a1"><label><sup>1</sup></label>School of Electrical Engineering and Telecommunications, <institution>University of New South Wales</institution>, Sydney, Australia</aff>
+      </contrib-group>
+      <pub-date iso-8601-date="2022-11-07" pub-type="epub">
+        <day>07</day>
+        <month>November</month>
+        <year>2022</year>
+      </pub-date>
+      <volume>15</volume>
+      <issue/>
+      <elocation-id>168</elocation-id>
+      <permissions>
+        <copyright-statement>© 2022 American Physical Society</copyright-statement>
+        <copyright-year>2022</copyright-year>
+        <copyright-holder>American Physical Society</copyright-holder>
+      </permissions>
+      <related-article ext-link-type="doi" xlink:href="10.1103/PhysRevX.12.041014" related-article-type="companion"/>
+      <abstract abstract-type="teaser">
+        <p>A new quantum random-access memory device reads and writes information using a chirped electromagnetic pulse and a superconducting resonator, making it significantly more hardware-efficient than previous devices.</p>
+      </abstract>
+      <counts>
+        <page-count count="1"/>
+      </counts>
+    </article-meta>
+  </front>
+  <body>
+    <fig id="f1">
+      <object-id pub-id-type="doi">10.1103/Physics.15.168.f1</object-id>
+      <object-id>1</object-id>
+      <label>FIG. 1.</label>
+      <caption>
+        <p>Researchers have developed a RAM device from a superconducting circuit resonator and a silicon chip embedded with bismuth atoms. Chirped microwave pulses transfer quantum information back and forth between the resonator and the bismuth atoms, where the information is stored in the atoms’ spin states.</p>
+      </caption>
+      <graphic xlink:href="e168_2.png"/>
+      <attrib>APS/Carin Cain</attrib>
+    </fig>
+    <p>Random-access memory (or RAM) is an integral part of a computer, acting as a short-term memory bank from which information can be quickly recalled. Applications on your phone or computer use RAM so that you can switch between tasks in the blink of an eye. Researchers working on building future quantum computers hope that such systems might one day operate with analogous quantum RAM elements, which they envision could speed up the execution of a quantum algorithm [<xref ref-type="bibr" rid="c1">1</xref>, <xref ref-type="bibr" rid="c2">2</xref>] or increase the density of information storable in a quantum processor. Now James O’Sullivan of the London Centre for Nanotechnology and colleagues have taken an important step toward making quantum RAM a reality, demonstrating a hardware-efficient approach that uses chirped microwave pulses to store and retrieve quantum information in atomic spins [<xref ref-type="bibr" rid="c3">3</xref>].</p>
+    <p> Just like quantum computers, experimental demonstrations of quantum memory devices are in their early days. One leading chip-based platform for quantum computation uses circuits made from superconducting metals. In this system, the central processing is done with superconducting qubits, which send and receive information via microwave photons. At present, however, there exists no quantum memory device that can reliably store these photons for long times. Luckily, scientists have a few ideas.</p>
+    <p>One of those ideas is to use the spins of impurity atoms embedded in the superconducting circuit’s chip. Spin is one of the fundamental quantum properties of an atom. It acts like an internal compass needle, aligning with or against an applied magnetic field. These two alignments are analogous to the 0 and 1 of a classical bit and can be used to store quantum information [<xref ref-type="bibr" rid="c4">4</xref>, <xref ref-type="bibr" rid="c5">5</xref>]. If the chip contains many impurity atoms, the atoms’ spins can act as a “multimode” memory device—one that can simultaneously store the information contained in numerous photons.</p>
+    <p>For atomic spins, the information-storage times can be orders of magnitude longer than those of superconducting qubits. Researchers have shown, for example, that bismuth atoms placed inside silicon chips can store quantum information for times longer than a second [<xref ref-type="bibr" rid="c6">6</xref>]. One might ask: why not use spin qubits in place of superconducting qubits? Indeed, there are research groups working on atom-based quantum computers, but the control and measurement of atomic spins presents its own unique challenges. A hybrid approach is to use superconducting qubits for processing and atomic spins for storage, but here the challenge has been how to transfer information between the two systems using microwave photons. While researchers have already demonstrated the absorption and retrieval of information from microwave photons by an atomic spin ensemble, those demonstrations required the use of strong magnetic-field gradients or specialized superconducting circuitry, both of which add complexity to the quantum memory hardware [<xref ref-type="bibr" rid="c7">7</xref>, <xref ref-type="bibr" rid="c8">8</xref>].</p>
+    <p>O’Sullivan and his colleagues offer an elegant solution to microwave photon information storage and retrieval that uses a hardware-efficient approach. The team’s device consists of a superconducting circuit resonator that sits on a silicon chip embedded with bismuth atoms (Fig. <xref ref-type="fig" rid="f1">1</xref>). The team sent into the resonator weak microwave excitations containing approximately 1000 photons, which were absorbed by the spins of the bismuth atoms. They then hit the resonator with electromagnetic microwave pulses that had a frequency that ramped up over time, an effect known as chirping. Because of that, the quantum information contained in the photons imprinted on the spins with a unique “phase” identifier, which captured the relative pointing positions of neighboring spins. The team then retrieved this information, transferring photons back to the superconducting circuit, by hitting the spin ensemble with an identical pulse, which they found reversed this imprinted phase.</p>
+    <p>O’Sullivan and colleagues show that their memory device is able to simultaneously store multiple pieces of photonic information in the form of four weak microwave pulses. Importantly, they also demonstrate that the information can be read back in any order, making their device a true RAM.</p>
+    <p>In this first demonstration, the team reports a 3% efficiency, indicating that most of the information is lost by the memory. Thus, their device is still some way from the faithful storage and retrieval required for a future quantum computer. However, an analysis of the potential sources of this low efficiency indicates that it does not come from the transfer process but instead arises from potentially resolvable limitations of the device. The team thinks that by increasing the number of spins they could significantly improve the device’s efficiency.</p>
+    <p>As well as storing information, quantum RAM elements could help in increasing the density of qubits in a quantum processor. In September, IBM introduced Project Goldeneye, a large dilution refrigerator  [<xref ref-type="bibr" rid="c9">9</xref>]. This ultracold behemoth has a volume larger than that of three home refrigerators and will host IBM’s next-generation superconducting quantum computer. Current superconducting quantum computers have a qubit density of less than 100 per square millimeter—classical computer chips contain 100 million transistors per square millimeter—so it is understandable why IBM needs such a large refrigerator. O’Sullivan and colleagues’ spin-based quantum memory device could, in principle, store multiple qubit states in the space currently occupied by just one, which might one day help alleviate this size problem.</p>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="c1">
+        <label>[1]</label>
+        <mixed-citation publication-type="journal"><object-id>1</object-id><person-group person-group-type="author"><string-name name-style="western">V. Giovannetti</string-name><etal/></person-group>, “<article-title>Quantum random access memory</article-title>,” <source>Phys. Rev. Lett.</source> <volume>100</volume>, <page-range>160501</page-range> (<year>2008</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1103/PhysRevLett.100.160501</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c2">
+        <label>[2]</label>
+        <mixed-citation publication-type="journal"><object-id>2</object-id><person-group person-group-type="author"><string-name name-style="western">J. Biamonte</string-name><etal/></person-group>, “<article-title>Quantum machine learning</article-title>,” <source>Nature</source> <volume>549</volume>, <page-range>195</page-range> (<year>2017</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1038/nature23474</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c3">
+        <label>[3]</label>
+        <mixed-citation publication-type="journal"><object-id>3</object-id><person-group person-group-type="author"><string-name name-style="western">J. O’Sullivan</string-name><etal/></person-group>, “<article-title>Random-access quantum memory using chirped pulse phase encoding</article-title>,” <source>Phys. Rev. X</source> <volume>12</volume>, <page-range>041014</page-range><pub-id pub-id-type="doi" specific-use="suppress-display">10.1103/PhysRevX.12.041014</pub-id> (<year>2022</year>).</mixed-citation>
+      </ref>
+      <ref id="c4">
+        <label>[4]</label>
+        <mixed-citation publication-type="journal"><object-id>4</object-id><person-group person-group-type="author"><string-name name-style="western">Daniel Loss</string-name> and <string-name name-style="western">D. P. DiVincenzo</string-name></person-group>, “<article-title>Quantum computation with quantum dots</article-title>,” <source>Phys. Rev. A</source> <volume>57</volume>, <page-range>120</page-range> (<year>1998</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1103/PhysRevA.57.120</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c5">
+        <label>[5]</label>
+        <mixed-citation publication-type="journal"><object-id>5</object-id><person-group person-group-type="author"><string-name name-style="western">B. E. Kane</string-name></person-group>, “<article-title>A silicon-based nuclear spin quantum computer</article-title>,” <source>Nature</source> <volume>393</volume>, <page-range>133</page-range> (<year>1998</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1038/30156</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c6">
+        <label>[6]</label>
+        <mixed-citation publication-type="journal"><object-id>6</object-id><person-group person-group-type="author"><string-name name-style="western">G. Wolfowicz</string-name><etal/></person-group>, “<article-title>Atomic clock transitions in silicon-based spin qubits</article-title>,” <source>Nat. Nanotechnol.</source> <volume>8</volume>, <page-range>561</page-range> (<year>2013</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1038/nnano.2013.117</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c7">
+        <label>[7]</label>
+        <mixed-citation publication-type="journal"><object-id>7</object-id><person-group person-group-type="author"><string-name name-style="western">H. Wu</string-name><etal/></person-group>, “<article-title>Storage of multiple coherent microwave excitations in an electron spin ensemble</article-title>,” <source>Phys. Rev. Lett.</source> <volume>105</volume>, <page-range>140503</page-range> (<year>2010</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1103/PhysRevLett.105.140503</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c8">
+        <label>[8]</label>
+        <mixed-citation publication-type="journal"><object-id>8</object-id><person-group person-group-type="author"><string-name name-style="western">C. Grezes</string-name><etal/></person-group>, “<article-title>Multimode storage and retrieval of microwave fields in a spin ensemble</article-title>,” <source>Phys. Rev. X</source> <volume>4</volume>, <page-range>021049</page-range> (<year>2014</year>)<pub-id specific-use="suppress-display" pub-id-type="doi">10.1103/PhysRevX.4.021049</pub-id>.</mixed-citation>
+      </ref>
+      <ref id="c9">
+        <label>[9]</label>
+        <mixed-citation publication-type="misc"><object-id>9</object-id><person-group person-group-type="author"><string-name name-style="western">P. Gumann</string-name> and <string-name name-style="western">J. Chow</string-name></person-group>, “<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://research.ibm.com/blog/goldeneye-cryogenic-concept-system">IBM scientists cool down the world’s largest quantum-ready cryogenic concept system</ext-link>,” IBM blog, 8 Sept. 2022.</mixed-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

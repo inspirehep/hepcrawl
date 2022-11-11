@@ -16,6 +16,7 @@ from setuptools import setup, find_packages
 readme = open('README.rst').read()
 
 install_requires = [
+    'automat==20.2.0',
     'amqp~=2.0,>2.2.0,!=2.3.0',
     'autosemver~=0.2',
     "backports.tempfile==1.0",
