@@ -76,7 +76,7 @@ extras_require = {
 }
 
 setup_requires = [
-    'autosemver~=0.2',
+    "autosemver~=0.0,>=0.5.2,<1.0.0",
 ]
 
 extras_require['all'] = []
