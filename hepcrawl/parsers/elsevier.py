@@ -127,9 +127,12 @@ class ElsevierParser(object):
             self.builder.add_doi(**doi)
         for keyword in self.keywords:
             self.builder.add_keyword(keyword)
-        self.builder.add_imprint_date(
-            self.publication_date.dumps() if self.publication_date else None
-        )
+        if self.imprints_date:
+            self.builder.add_imprint_date(self.imprints_date)
+        elif self.publication_date:
+            self.builder.add_imprint_date(
+                self.publication_date.dumps()
+            )
         for reference in self.references:
             self.builder.add_reference(reference)
 
@@ -371,6 +374,14 @@ class ElsevierParser(object):
             "string(./RDF/Description/endingPage[1])"
         ).extract_first()
         return page_end
+
+    @property
+    def imprints_date(self):
+        imprints_date = self.root.xpath(
+            "string(./RDF/Description/availableOnlineInformation/availableOnline)"
+        ).extract_first()
+        if imprints_date:
+            return PartialDate.parse(imprints_date).dumps()
 
     @property
     def publication_date(self):

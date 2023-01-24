@@ -157,3 +157,9 @@ def test_record_should_be_harvested(records):
 def test_record_shouldnt_be_harvested():
     parser = get_parser_by_file("record-that-shouldnt-be-harvested.xml")
     assert not parser.should_record_be_harvested()
+
+
+def test_imprints_date_should_be_taken_from_avaliable_online():
+    parser = get_parser_by_file("j.nima.2023.168018.xml")
+    result = parser.parse()
+    assert result['imprints'] == [{'date': '2023-01-02'}]
