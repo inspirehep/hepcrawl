@@ -95,16 +95,11 @@ def override_generated_fields(record):
     'generated_records, expected_records',
     [
         (
-            [get_one_record('desy_record.xml')],
-            [get_expected_fixture('desy_record_expected.json')],
-        ),
-        (
-            list(get_records('desy_collection_records.xml')),
-            get_expected_fixture('desy_collection_records_expected.json'),
+            list(get_records('jap133.3.jsonl')),
+            get_expected_fixture('desy_records_from_jsonlines_expected.json'),
         ),
     ],
     ids=[
-        'single record',
         'collection of records',
     ]
 )
@@ -120,24 +115,12 @@ def test_pipeline(generated_records, expected_records):
                         exclude_types=[(unicode, str)]) == {}
 
 
-def test_faulty_marc():
-    spider = create_spider()
-    path = os.path.abspath('tests/unit/responses/desy/faulty_record.xml')
-    with open(path, 'r') as xmlfile:
-        data = xmlfile.read()
-    result = list(spider._parsed_items_from_marcxml([data], "faulty_record.xml"))
-    assert result[0].exception.startswith('DoJsonError')
-    assert result[0].traceback is not None
-    assert result[0].source_data is not None
-
-
-def test_invalid_xml():
+def test_invalid_jsonll():
     spider = create_spider()
     response = MagicMock()
-    response.url = "https://s3.cern.ch/incoming-bucket/invalid_record.xml"
-    response.body = "This is not actually XML"
+    response.url = "https://s3.cern.ch/incoming-bucket/invalid_record.jsonl"
+    response.text = "This is not actually JSONL\n"
     result = list(spider.parse(response))
-    assert result[0].exception.startswith('XMLSyntaxError')
+    assert result[0].exception.startswith('ValueError')
     assert result[0].traceback is not None
-    assert result[0].source_data == "This is not actually XML"
-
+    assert result[0].source_data == "This is not actually JSONL"

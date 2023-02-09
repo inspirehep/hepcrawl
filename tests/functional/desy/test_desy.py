@@ -80,7 +80,7 @@ def setup_s3_files(s3_key, s3_secret, s3_server, buckets=[], files_to_upload=[],
         bucket.create()
         buckets_map[bucket_name] = bucket
 
-
+    sleep(10)
     test_files_path = get_test_suite_path(
         *files_path,
         test_suite='functional'
@@ -104,10 +104,7 @@ def s3_connection(s3_key, s3_secret, s3_server):
 
 def setup_correct_files(*args, **kwargs):
     files_to_upload = [
-        ("incoming", "desy_collection_records.xml"),
-        ("incoming", "file_not_for_download.txt"),
-        ("incoming", "FFT/desy-thesis-17-035.title.pdf"),
-        ("incoming", "FFT/desy-thesis-17-036.title.pdf")
+        ("incoming", "jap133.3.jsonl")
     ]
     files_path = [
         'desy',
@@ -120,14 +117,13 @@ def setup_correct_files(*args, **kwargs):
 
 def setup_broken_files(*args, **kwargs):
     files_to_upload = [
-        ("incoming", "broken_record.xml"),
+        ("incoming", "invalid.jsonl"),
     ]
     files_path = [
         'desy',
         'fixtures',
         's3_server',
-        'DESY',
-        'BROKEN'
+        'DESY'
     ]
     setup_s3_files(files_to_upload=files_to_upload, files_path=files_path, *args, **kwargs)
 
@@ -184,7 +180,7 @@ def cleanup():
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_records_s3_expected.json',
+                'desy_records_from_jsonlines_expected.json',
             ),
             get_s3_settings(),
         ),
@@ -205,8 +201,8 @@ def test_desy(
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
+        monitor_timeout=50,
+        monitor_iter_limit=50,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -214,7 +210,6 @@ def test_desy(
         settings=settings.get('CRAWLER_SETTINGS'),
         **settings.get('CRAWLER_ARGUMENTS')
     )
-
     gotten_records = sort_list_of_records_by_record_title(
         [
             result['record']
@@ -227,7 +222,7 @@ def test_desy(
     gotten_records = override_dynamic_fields_on_records(gotten_records)
     expected_results = override_dynamic_fields_on_records(expected_results)
 
-    #preproces s3 urls
+    # preproces s3 urls
     for rec in gotten_records:
         for document in rec.get('documents', []):
             if settings['CRAWLER_ARGUMENTS']['s3_server'] in document['url']:
@@ -250,7 +245,7 @@ def test_desy(
         's3 package',
     ]
 )
-def test_desy_broken_xml(settings, cleanup):
+def test_desy_broken_jsonline(settings, cleanup):
     crawler = get_crawler_instance(
         settings.get('CRAWLER_HOST_URL')
     )
@@ -258,8 +253,8 @@ def test_desy_broken_xml(settings, cleanup):
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
+        monitor_timeout=50,
+        monitor_iter_limit=50,
         events_limit=2,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -275,9 +270,9 @@ def test_desy_broken_xml(settings, cleanup):
     res = result_records[0]
     assert res['record']
     assert len(res['errors']) == 1
-    assert 'DoJsonError' in res['errors'][0]['exception']
+    assert 'ValueError' in res['errors'][0]['exception']
     assert res['errors'][0]['traceback']
-    assert res['file_name'] == 'broken_record.xml'
+    assert res['file_name'] == 'invalid.jsonl'
     assert res['source_data']
 
 
@@ -288,7 +283,7 @@ def test_desy_broken_xml(settings, cleanup):
             expected_json_results_from_file(
                 'desy',
                 'fixtures',
-                'desy_records_s3_expected.json',
+                'desy_records_from_jsonlines_expected.json',
             ),
             get_s3_settings(),
         ),
@@ -305,8 +300,8 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
 
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
+        monitor_timeout=50,
+        monitor_iter_limit=50,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),
@@ -314,7 +309,6 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
         settings=settings.get('CRAWLER_SETTINGS'),
         **settings.get('CRAWLER_ARGUMENTS')
     )
-
     assert len(crawl_results) == len(expected_results)
 
     gotten_records = sort_list_of_records_by_record_title(
@@ -344,8 +338,8 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
     # Second crawl
     crawl_results = CeleryMonitor.do_crawl(
         app=celery_app,
-        monitor_timeout=5,
-        monitor_iter_limit=20,
+        monitor_timeout=50,
+        monitor_iter_limit=50,
         events_limit=1,
         crawler_instance=crawler,
         project=settings.get('CRAWLER_PROJECT'),

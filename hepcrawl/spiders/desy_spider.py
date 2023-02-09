@@ -12,6 +12,7 @@ from __future__ import absolute_import, division, print_function
 import os
 import sys
 import traceback
+import json
 
 import boto3
 from botocore.exceptions import UnknownServiceError, ClientError
@@ -137,8 +138,8 @@ class DesySpider(StatefulSpider):
     def crawl_s3_bucket(self):
         input_bucket = self.s3_resource.Bucket(self.s3_input_bucket)
         for s3_file in input_bucket.objects.all():
-            if not s3_file.key.endswith('.xml'):
-                # this is a document referenced in an XML file, it will be
+            if not s3_file.key.endswith('.jsonl'):
+                # this is a document referenced in an jsonl file, it will be
                 # processed when dealing with attached documents
                 continue
 
@@ -171,30 +172,37 @@ class DesySpider(StatefulSpider):
         return url
 
     def parse(self, response):
-        """Parse a ``Desy`` XML file into a :class:`hepcrawl.utils.ParsedItem`.
+        """Parse a ``Desy`` jsonl file into a :class:`hepcrawl.utils.ParsedItem`.
         """
         self.logger.info('Got record from url/path: {0}'.format(response.url))
 
-        self.logger.info('Getting MARXCML records...')
+        self.logger.info('Getting json records...')
+        response_body = response.text
         file_name = response.url.split('/')[-1].split("?")[0]
-        try:
-            marcxml_records = self._get_marcxml_records(response.body)
-        except Exception as e:
-            tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
-            yield ParsedItem.from_exception(
-                record_format='hep',
-                exception=repr(e),
-                traceback=tb,
-                source_data=response.body,
-                file_name=file_name
-            )
-            return
+        json_lines = response_body.split("\n")
+        self.logger.info("Found lines in total {}".format(len(json_lines)))
+        json_records = []
+        for line in json_lines:
+            if not line:
+                continue
+            try:
+                json_records.append(json.loads(line))
+            except ValueError as e:
+                tb = ''.join(traceback.format_tb(sys.exc_info()[2]))
+                yield ParsedItem.from_exception(
+                    record_format='hep',
+                    exception=repr(e),
+                    traceback=tb,
+                    source_data=line,
+                    file_name=file_name
+                )
+                continue
 
-        self.logger.info('Got %d MARCXML records in %s', len(marcxml_records), file_name)
+        self.logger.info('Got %d JSON records in %s', len(json_records), file_name)
         self.logger.info('Getting hep records...')
 
-        parsed_items = self._parsed_items_from_marcxml(
-            marcxml_records=marcxml_records,
+        parsed_items = self._parsed_items_from_json(
+            json_records=json_records,
             file_name=file_name
         )
 
@@ -205,7 +213,7 @@ class DesySpider(StatefulSpider):
         for parsed_item in parsed_items:
             yield parsed_item
 
-        self.logger.info('Processed all MARCXML records in %s', file_name)
+        self.logger.info('Processed all JSON records in %s', file_name)
 
         if "s3_file" in response.meta:
             s3_file = response.meta['s3_file']
@@ -223,33 +231,18 @@ class DesySpider(StatefulSpider):
         processed_bucket.copy(source, file_name)
         self.s3_resource.Object(file_bucket, file_name).delete()
 
-    def _get_marcxml_records(self, response_body):
-        root = etree.fromstring(response_body)
-        if root.tag == 'record':
-            list_items = [root]
-        else:
-            list_items = root.findall(
-                './/{http://www.loc.gov/MARC21/slim}record'
-            )
-            if not list_items:
-                list_items = root.findall('.//record')
-
-        return [etree.tostring(item, encoding='UTF-8') for item in list_items]
-
-    def _parsed_items_from_marcxml(
+    def _parsed_items_from_json(
             self,
-            marcxml_records,
+            json_records,
             file_name
     ):
         self.logger.info('parsing record')
         app = Flask('hepcrawl')
-        app.config.update(self.settings.getdict('MARC_TO_HEP_SETTINGS', {}))
 
         with app.app_context():
-            for xml_record in marcxml_records:
+            for json_record in json_records:
                 try:
-                    record = marcxml2record(xml_record)
-                    parsed_item = ParsedItem(record=record, record_format='hep')
+                    parsed_item = ParsedItem(record=json_record, record_format='hep')
                     parsed_item.file_name = file_name
                     new_documents = []
                     files_to_download = []

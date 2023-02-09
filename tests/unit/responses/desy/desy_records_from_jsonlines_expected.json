@@ -1,0 +1,3022 @@
+[
+    {
+       "refereed":true,
+       "curated":false,
+       "_collections":[
+          "Literature"
+       ],
+       "authors":[
+          {
+             "raw_affiliations":[
+                {
+                   "value":"School of Physical and Chemical Sciences, University of Canterbury, PB4800, Christchurch 8140, New Zealand"
+                },
+                {
+                   "value":"The Dodd-Walls Centre for Photonic and Quantum Technologies, Dunedin, New Zealand"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-1440-7931",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Solanki, Pratik S."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"School of Physical and Chemical Sciences, University of Canterbury, PB4800, Christchurch 8140, New Zealand"
+                },
+                {
+                   "value":"The Dodd-Walls Centre for Photonic and Quantum Technologies, Dunedin, New Zealand"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-8312-3724",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Balabhadra, Sangeetha"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"School of Physical and Chemical Sciences, University of Canterbury, PB4800, Christchurch 8140, New Zealand"
+                },
+                {
+                   "value":"The Dodd-Walls Centre for Photonic and Quantum Technologies, Dunedin, New Zealand"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-2984-9951",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Reid, Michael F."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"School of Physical and Chemical Sciences, University of Canterbury, PB4800, Christchurch 8140, New Zealand"
+                },
+                {
+                   "value":"The Dodd-Walls Centre for Photonic and Quantum Technologies, Dunedin, New Zealand"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-8421-6604",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Wells, Jon-Paul R."
+          }
+       ],
+       "acquisition_source":{
+          "source":"desy",
+          "method":"hepcrawl",
+          "submission_number":"5652c7f6190f11e79e8000224dabeaad",
+          "datetime":"2017-04-03T10:26:40.365216"
+       },
+       "titles":[
+          {
+             "source":"AIP",
+             "title":"A spectroscopic and thermometric comparison of \u03b1- and \u03b2-phase KYF4:Yb3+/Er3+ nanoparticles"
+          }
+       ],
+       "_private_notes":[
+          {
+             "value":"Physics of Materials, Including Electrical, Thermal, Mechanical and Other Properties"
+          },
+          {
+             "value":"DOKIFILE:jap133.3"
+          }
+       ],
+       "references":[
+          {
+             "raw_refs":[
+                {
+                   "value":"1. H. Zheng, B. Chen, H. Yu, J. Zhang, J. Sun, X. Li, M. Sun, B. Tian, H. Zhong, S. Fu, R. Hua, and H. Xia, RSC Adv. 4, 47556 (2014). , DOI: 10.1039/C4RA05492J,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"2. H. Suo, C. Guo, J. Zheng, B. Zhou, C. Ma, X. Zhao, T. Li, P. Guo, and E. M. Goldys, ACS Appl. Mater. Interfaces 8, 30312 (2016). , DOI: 10.1021/acsami.6b12176,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"3. S. Zhou, S. Jiang, X. Wei, Y. Chen, C. Duan, and M. Yin, J. Alloys Compd. 588, 654 (2014). , DOI: 10.1016/j.jallcom.2013.11.132,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"4. X. Wang, Q. Liu, P. Cai, J. Wang, L. Qin, T. Vu, and H. J. Seo, Opt Express 24, 17792 (2016). , DOI: 10.1364/OE.24.017792,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"5. K. Saidi, M. Dammak, K. Soler-Carracedo, and I. R. Mart\u00edn, Dalton Trans. 51, 5108 (2022). , DOI: 10.1039/D1DT03747A,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"6. I. E. Kolesnikov, E. V. Afanaseva, M. A. Kurochkin, E. I. Vaishlia, A. A. Kalinichev, E. Y. Kolesnikov, and E. L\u00e4hderanta, ACS Appl. Mater. Interfaces 14, 1757 (2022). , DOI: 10.1021/acsami.1c20937,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"7. R. Lei, D. Deng, X. Liu, F. Huang, H. Wang, S. Zhao, and S. Xu, Opt. Mater. Express 8, 3023 (2018). , DOI: 10.1364/OME.8.003023,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"8. L. Marciniak and A. Bednarkiewicz, Phys. Chem. Chem. Phys. 18, 15584 (2016). , DOI: 10.1039/C6CP00898D,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"9. B. Dong, R. N. Hua, B. S. Cao, Z. P. Li, Y. Y. He, Z. Y. Zhang, and O. S. Wolfbeis, Phys. Chem. Chem. Phys. 16, 20009 (2014). , DOI: 10.1039/C4CP01966K,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"10. L. Marciniak, K. Prorok, and A. Bednarkiewicz, J. Mater. Chem. C 5, 7890 (2017). , DOI: 10.1039/C7TC02322G,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"11. L. Marciniak, K. Waszniewska, A. Bednarkiewicz, D. Hreniak, and W. Strek, J. Phys. Chem. C 120, 8877 (2016). , DOI: 10.1021/acs.jpcc.6b01636,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"12. M. Ding, M. Xu, and D. Chen, J. Alloys Compd. 713, 236 (2017). , DOI: 10.1016/j.jallcom.2017.04.202,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"13. X. Rao, T. Song, J. Gao, Y. Cui, Y. Yang, C. Wu, B. Chen, and G. Qian, J. Am. Chem. Soc. 135, 15559 (2013). , DOI: 10.1021/ja407219k,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"14. H. Dong, L.-D. Sun, and C.-H. Yan, Chem. Soc. Rev. 44, 1608 (2015). , DOI: 10.1039/C4CS00188E,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"15. M. S. Pudovkin, D. A. Koryakovtseva, E. V. Lukinova, S. L. Korableva, R. S. Khusnutdinova, A. G. Kiiamov, A. S. Nizamutdinov, and V. V. Semashko, Adv. Mater. Sci. Eng. 2019, 1. , DOI: 10.1155/2019/2618307,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"16. D. Chen, M. Xu, and P. Huang, Sens. Actuators B 231, 576 (2016). , DOI: 10.1016/j.snb.2016.03.070,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"17. W. Bi, Q. Meng, W. Sun, and S. Lu, Ceram. Int. 43, 1460 (2017). , DOI: 10.1016/j.ceramint.2016.10.114,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"18. Y. Zhang, B. Chen, S. Xu, X. Li, J. Zhang, J. Sun, H. Zheng, L. Tong, G. Sui, H. Zhong, H. Xia, and R. Hua, Sci. Rep. 7, 11849 (2017). , DOI: 10.1038/s41598-017-11897-4,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"19. V. Lojpur, G. Nikoli\u0107, and M. D. Drami\u0107anin, J. Appl. Phys. 115, 203106 (2014). , DOI: 10.1063/1.4880158, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"20. M. K. Mahata, K. Kumar, and V. K. Rai, Sens. Actuators B 209, 775 (2015). , DOI: 10.1016/j.snb.2014.12.039,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"21. Q. Qiang and Y. Wang, Front Chem. 7, 1\u201310 (2019). , DOI: 10.3389/fchem.2019.00425,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"22. P. Du, Q. Zhang, X. Wang, L. Luo, and W. Li, J. Alloys Compd. 805, 171 (2019). , DOI: 10.1016/j.jallcom.2019.07.054,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"23. L. Mukhopadhyay, V. K. Rai, R. Bokolia, and K. Sreenivas, J. Lumin. 187, 368 (2017). , DOI: 10.1016/j.jlumin.2017.03.035,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"24. Z. Cui, L. Zhao, T. Wang, J. Cao, Y. Qiao, C. Pi, Z. Fang, J. Qiu, X. Xu, and X. Yu, CrystEngComm 24, 1764 (2022). , DOI: 10.1039/D1CE01651B,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"25. D. T. Klier and M. U. Kumke, J. Mater. Chem. C 3, 11228 (2015). , DOI: 10.1039/C5TC02218E,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"26. F. Wang, Y. Han, C. S. Lim, Y. Lu, J. Wang, J. Xu, H. Chen, C. Zhang, M. Hong, and X. Liu, Nature 463, 1061 (2010). , DOI: 10.1038/nature08777, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"27. A. Grzechnik, N. Khaidukov, and K. Friese, Dalton Trans. 42, 441 (2013). , DOI: 10.1039/C2DT31483E,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"28. B. Zhou, Y. Wang, and D. Xia, RSC Adv. 5, 66807 (2015). , DOI: 10.1039/C5RA10406H,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"29. Z. Yang, P. Gredin, and M. Mortier, Opt Mater. 98, 109458 (2019). , DOI: 10.1016/j.optmat.2019.109458,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"30. S. Veronesi, D. Parisi, R. Faoro, and M. Tonelli, J. Lumin. 132, 2307 (2012). , DOI: 10.1016/j.jlumin.2012.03.059,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"31. E. Sani, A. Toncelli, M. Tonelli, and F. Traverso, J. Phys.: Condens. Matter 16, 241 (2004). , DOI: 10.1088/0953-8984/16/3/005,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"32. M. Bouffard, T. Duvaut, J. P. Jouart, N. M. Khaidukov, and M. F. Joubert, J. Phys. Condens. Matter 11, 4775 (1999). , DOI: 10.1088/0953-8984/11/24/317,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"33. G. Galzerano, S. Taccheo, P. Laporta, E. Sani, A. Toncelli, and M. Tonelli, in Single-mode Diode-Pumped Tm-Ho:KYF4 Laser Widely Tunable Around 2 \u03bcm (Optica Publishing Group, Santa Fe, New Mexico, 2004), p. 350.",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"34. G. Galzerano, P. Laporta, L. Bonelli, A. Toncelli, and M. Tonelli, Opt Express 15, 3257 (2007). , DOI: 10.1364/OE.15.003257,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"35. H. Sch\u00e4fer, P. Ptacek, O. Zerzouf, and M. Haase, Adv. Funct. Mater. 18, 2913 (2008). , DOI: 10.1002/adfm.200800368,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"36. R. Liu, D. Tu, Y. Liu, H. Zhu, R. Li, W. Zheng, E. Ma, and X. Chen, Nanoscale 4, 4485 (2012). , DOI: 10.1039/c2nr30794d,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"37. S. Das, A. Amarnath Reddy, S. Ahmad, R. Nagarajan, and G. Vijaya Prakash, Chem. Phys. Lett. 508, 117 (2011). , DOI: 10.1016/j.cplett.2011.04.029,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"38. P. S. Solanki, S. Balabhadra, L. D. Browne, M. F. Reid, N. J. L. K. Davis, and J.-P. R. Wells, Opt Mater. 132, 112783 (2022). , DOI: 10.1016/j.optmat.2022.112783,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"39. H.-X. Mai, Y.-W. Zhang, L.-D. Sun, and C.-H. Yan, J. Phys. Chem. C 111, 13721 (2007). , DOI: 10.1021/jp073920d,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"40. G. Chen, H. \u00c5gren, T. Y. Ohulchanskyy, and P. N. Prasad, Chem. Soc. Rev. 44, 1680 (2015). , DOI: 10.1039/C4CS00170B,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"41. S. Liu, G. De, X. Wang, Y. Xu, Y. Liu, J. Wang, and C. Cheng, CrystEngComm 20, 7293 (2018). , DOI: 10.1039/C8CE01296B,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"42. S. Balabhadra, M. F. Reid, V. Golovko, and J.-P. R. Wells, Opt. Mater. 107, 110050 (2020). , DOI: 10.1016/j.optmat.2020.110050,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"43. P. S. Solanki, S. Balabhadra, M. F. Reid, V. B. Golovko, and J.-P. R. Wells, ACS Appl. Nano Mater. 4, 5696 (2021). , DOI: 10.1021/acsanm.1c00353,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"44. M. Kusuma and G. T. Chandrappa, J. Sci. Adv. Mater. Devices 4, 150 (2019). , DOI: 10.1016/j.jsamd.2019.02.003,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"45. M. Ito, G. Boulon, A. Bensalah, Y. Guyot, C. Goutaudier, and H. Sato, J. Opt. Soc. Am. B 24, 3023 (2007). , DOI: 10.1364/JOSAB.24.003023,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"46. G. Yi, H. Lu, S. Zhao, Y. Ge, W. Yang, D. Chen, and L.-H. Guo, Nano Lett. 4, 2191 (2004). , DOI: 10.1021/nl048680h, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"47. K. W. Kr\u00e4mer, D. Biner, G. Frei, H. U. G\u00fcdel, M. P. Hehlen, and S. R. L\u00fcthi, Chem. Mater. 16, 1244 (2004). , DOI: 10.1021/cm031124o, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"48. J. Zhuang, L. Liang, H. H. Y. Sung, X. Yang, M. Wu, I. D. Williams, S. Feng, and Q. Su, Inorg. Chem. 46, 5404 (2007). , DOI: 10.1021/ic070220e,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"49. L. E. Mackenzie, J. A. Goode, A. Vakurov, P. P. Nampi, S. Saha, G. Jose, and P. A. Millner, Sci. Rep. 8, 1106 (2018). , DOI: 10.1038/s41598-018-19415-w,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"50. S. S. Perera, D. K. Amarasinghe, K. T. Dissanayake, and F. A. Rabuffetti, Chem. Mater. 29, 6289 (2017). , DOI: 10.1021/acs.chemmater.7b01495,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"51. Y. Yamaguchi, K. M. Dinndorf, H. P. Jenssen, and A. Cassanho, in Spectroscopy of Nd:KYF4 (Optical Society of America, New Orleans, LA, 1993), p. DL9.",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"52. Y. Le Fur, N. M. Khaidukov, and S. Aleonard, Acta Crystallogr. Sec. C 48, 2062 (1992). , DOI: 10.1107/S010827019200461X,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"53. S. F. Lim, W. S. Ryu, and R. H. Austin, Opt. Express 18, 2309 (2010). , DOI: 10.1364/OE.18.002309,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"54. Y. Tian, B. Tian, C. e. Cui, P. Huang, L. Wang, and B. Chen, RSC Adv. 5, 14123 (2015). , DOI: 10.1039/C4RA13204A,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"55. X. Bai, H. Song, G. Pan, Y. Lei, T. Wang, X. Ren, S. Lu, B. Dong, Q. Dai, and L. Fan, J. Phys. Chem. C 111, 13611 (2007). , DOI: 10.1021/jp070122e,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"56. D. Xu, C. Liu, J. Yan, S. Yang, and Y. Zhang, J. Phys. Chem. C 119, 6852 (2015). , DOI: 10.1021/acs.jpcc.5b00882,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"57. J. Zhang, Z. Hao, J. Li, X. Zhang, Y. Luo, and G. Pan, Light Sci. Appl. 4, e239 (2015). , DOI: 10.1038/lsa.2015.12,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"58. Y. Li, J. Zhang, X. Zhang, Y. Luo, X. Ren, H. Zhao, X. Wang, L. Sun, and C. Yan, J. Phys. Chem. C 113, 4413 (2009). , DOI: 10.1021/jp810275t, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"59. Y.-C. Li, Y.-H. Chang, Y.-F. Lin, Y.-J. Lin, and Y.-S. Chang, Appl. Phys. Lett. 89, 081110 (2006). , DOI: 10.1063/1.2337275, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"60. X. Huang, B. Li, H. Guo, and D. Chen, Dyes Pigm. 143, 86 (2017). , DOI: 10.1016/j.dyepig.2017.04.037,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"61. C. D. S. Brites, S. Balabhadra, and L. D. Carlos, Adv. Opt. Mater. 7, 1801239 (2019). , DOI: 10.1002/adom.201801239,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"62. M. L. Debasu, C. D. S. Brites, S. Balabhadra, H. Oliveira, J. Rocha, and L. D. Carlos, ChemNanoMat 2, 520 (2016). , DOI: 10.1002/cnma.201600061,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"63. M. Quintanilla, E. Cantelar, F. Cuss\u00f3, M. Villegas, and A. C. Caballero, Appl. Phys. Express 4, 022601 (2011). , DOI: 10.1143/APEX.4.022601,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"64. H. Yu, S. Li, Y. Qi, W. Lu, X. Yu, X. Xu, and J. Qiu, J. Lumin. 194, 433 (2018). , DOI: 10.1016/j.jlumin.2017.10.014,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"65. B. R. Judd, Phys. Rev. 127, 750 (1962). , DOI: 10.1103/PhysRev.127.750, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"66. G. S. Ofelt, J. Chem. Phys. 37, 511 (1962). , DOI: 10.1063/1.1701366, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"67. V. P. Tuyen, V. X. Quang, N. M. Khaidukov, L. D. Thanh, N. X. Ca, N. Van Hao, N. Van Nghia, and P. Van Do, Opt. Mater. 106, 109939 (2020). , DOI: 10.1016/j.optmat.2020.109939,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"68. F. Hu, X. Liu, R. Chen, Y. Liu, Y. Mai, R. Maalej, and Y. Yang, J. Rare Earths 35, 964 (2017). , DOI: 10.1016/S1002-0721(17)61000-7,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"69. M. Ding, D. Chen, S. Yin, Z. Ji, J. Zhong, Y. Ni, C. Lu, and Z. Xu, Sci. Rep. 5, 12745 (2015). , DOI: 10.1038/srep12745,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"70. J. Rocha, C. D. S. Brites, and L. D. Carlos, Chem. A: Eur J. 22, 14782 (2016). , DOI: 10.1002/chem.201600860,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"71. S. Balabhadra, M. L. Debasu, C. D. S. Brites, R. A. S. Ferreira, and L. D. Carlos, J. Phys. Chem. C 121, 13962 (2017). , DOI: 10.1021/acs.jpcc.7b04827,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"72. P. Du, L. Luo, X. Huang, and J. S. Yu, J. Colloid Interface Sci. 514, 172 (2018). , DOI: 10.1016/j.jcis.2017.12.027,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"73. O. A. Savchuk, J. J. Carvajal, C. Cascales, M. Aguil\u00f3, and F. D\u00edaz, ACS Appl. Mater. Interfaces 8, 7266 (2016). , DOI: 10.1021/acsami.6b01371,",
+                   "schema":"text"
+                }
+             ]
+          }
+       ],
+       "dois":[
+          {
+             "source":"AIP",
+             "value":"10.1063/5.0131207"
+          }
+       ],
+       "publication_info":[
+          {
+             "journal_volume":"133",
+             "year":2023,
+             "journal_issue":"3",
+             "artid":"035104",
+             "journal_title":"J.Appl.Phys."
+          }
+       ],
+       "$schema":"https://inspirehep.net/schemas/records/hep.json",
+       "document_type":[
+          "article"
+       ],
+       "abstracts":[
+          {
+             "source":"AIP",
+             "value":"We report absorption, fluorescence, and thermometric studies of both (\u03b1) cubic and (\u03b2) hexagonal phase KYF4:Yb/Er nanoparticles. The cubic phase of KYF4:Yb/Er nanoparticles was achieved using a hydrothermal approach, and the cubic to hexagonal phase transformation was successfully realized by controlling the annealing temperature at 500\u2009\u00b0C. Both nanoparticle systems exhibit similar maxima in the Yb3+ absorption spectra at 10\u2009268\u2009cm\u22121 (974\u2009nm). The 2H11/2, 4S3/2, and 4F9/2\u2009\u2192\u20094I15/2 transitions are recorded in the Er3+ upconversion fluorescence spectrum using 974\u2009nm laser excitation. The green and red fluorescence of the hexagonal phase were approximately 100 and 2000 times more intense, respectively, than that of the cubic phase. The red to green ratio (R/G) was 50:1 and 2:1 for \u03b2-KYF4:Yb/Er and \u03b1-KYF4:Yb/Er nanoparticles, respectively. A three-photon process is involved in green upconversion for \u03b2-KYF4:Yb/Er, as described by 2F5/2 (Yb3+)\u2009+\u20094F9/2 (Er3+)\u2009\u2192\u20092F7/2 (Yb3+)\u2009+\u20094G11/2 (Er3+). Using the fluorescence intensity ratio technique from thermally coupled Er3+ 2H11/2 and 4S3/2 levels, a very high thermal sensitivity of 1.76 and 1.49%\u2009K\u22121 at ambient temperatures was achieved for \u03b1- and \u03b2-phase materials, respectively."
+          }
+       ],
+       "imprints":[
+          {
+             "date":"2023-01-18"
+          }
+       ],
+       "citeable":true
+    },
+    {
+       "refereed":true,
+       "curated":false,
+       "_collections":[
+          "Literature"
+       ],
+       "authors":[
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-8327-6285",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Novatski, Andressa"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-7314-0723",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Ribeiro, Mauricio Ap."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-3930-694X",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Jr., Alexandre Camilo"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-3853-1790",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Lenzi, Ervin Kaminski"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Ci\u00eancias Farmac\u00eauticas, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-6805-1603",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Urban, Amanda M."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Odontologia, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-6978-4913",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Schoeffel, Amanda"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Odontologia, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-3320-8783",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Urban, Vanessa M."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Pr\u00f3tese e Periodontia, Faculdade de Odontologia de Bauru, Universidade de S\u00e3o Paulo, Bauru, 17012-901 SP, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-7086-2667",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Neppelenbroek, Karin H."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Group of Nano-Photonics and Imaging, Instituto de F\u00edsica\u2014Universidade Federal de Alagoas, Macei\u00f3, 57072-900 AL, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-1101-7196",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Jacinto, Carlos"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Maring\u00e1, Maring\u00e1, 87020-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-8273-2891",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Sato, Francielle"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de F\u00edsica, Universidade Estadual de Maring\u00e1, Maring\u00e1, 87020-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-1658-8043",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Astrath, Nelson G.C."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Ci\u00eancias Farmac\u00eauticas, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-5512-9659",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Rudnik, Loanda A.C."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departmento de Biologia Geral, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-2865-3084",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Kanunfre, Carla C."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Ci\u00eancias Farmac\u00eauticas, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-2419-2110",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Nadal, Jessica Mendes"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Departamento de Ci\u00eancias Farmac\u00eauticas, Universidade Estadual de Ponta Grossa, Ponta Grossa, 84030-900 PR, Brazil"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-9934-4027",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Farago, Paulo V."
+          }
+       ],
+       "acquisition_source":{
+          "source":"desy",
+          "method":"hepcrawl",
+          "submission_number":"5652c7f6190f11e79e8000224dabeaad",
+          "datetime":"2017-04-03T10:26:40.365216"
+       },
+       "titles":[
+          {
+             "source":"AIP",
+             "title":"Chlorhexidine/\u03b2-cyclodextrin inclusion complexes by freeze- and spray-drying: Characterization and behavior in aqueous system"
+          }
+       ],
+       "_private_notes":[
+          {
+             "value":"Emerging, Interdisciplinary, and Other Fields of Applied Physics"
+          },
+          {
+             "value":"DOKIFILE:jap133.3"
+          }
+       ],
+       "references":[
+          {
+             "raw_refs":[
+                {
+                   "value":"1. A. Fahim, W. H. Himratul-Aznita, P. S. Abdul-Rahman, and M. K. Alam, PeerJ 10, e12251 (2022). , DOI: 10.7717/peerj.12251,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"2. L. Jackson and M. Owens, British J. Nursing 28, 682\u2013689 (2019). , DOI: 10.12968/bjon.2019.28.11.682,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"3. E. Huerta, D. Gorup, M. Manr\u00edquez, R. C. Choappa, P. Vieille, and W. Gonz\u00e1lez-Arriagada, J. Oral Res. 9, 57\u201362 (2020).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"4. A. S. Coelho, M. Laranjo, A. C. Gon\u00e7alves, A. Paula, S. Paulo, A. M. Abrantes, F. Caramelo, M. M. Ferreira, M. J. Silva, and E. Carrilho, Odontology 108, 260\u2013270 (2020). , DOI: 10.1007/s10266-019-00465-z,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"5. E. M. G. Raso, M. E. Cortes, K. I. Teixeira, M. B. Franco, N. D. S. Mohallem, and R. D. Sinisterra, J. Incl. Phenom. Macrocycl. Chem. 67, 159\u2013168 (2010). , DOI: 10.1007/s10847-009-9692-9,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"6. A. M. L. Denadai, K. I. Teixeira, M. M. Santoro, A. M. C. Pimenta, M. E. Cort\u00e9s, and R. D. Sinisterra, Carbohydr. Res. 342, 2286\u20132296 (2007). , DOI: 10.1016/j.carres.2007.05.002,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"7. M. Kasapoglu-Calik and M. Ozdemir, J. Appl. Polym. Sci. 136, 47554 (2019). , DOI: 10.1002/app.47554,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"8. K. Uekama, F. Hirayama, and T. Irie, Chem. Rev. 98, 2045\u20132076 (1998). , DOI: 10.1021/cr970025p,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"9. G. G. Z. Zhang, D. Law, E. A. Schmitt, and Y. Qiu, Adv. Drug. Deliv. Rev. 56, 371\u2013390 (2004). , DOI: 10.1016/j.addr.2003.10.009,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"10. M. K. Banjare, R. K. Banjare, K. Behera, S. Pandey, P. Mundeja, and K. K. Ghosh, J. Mol. Liq. 299, 112204 (2020). , DOI: 10.1016/j.molliq.2019.112204,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"11. M. Banchero, Pharmaceuticals 14, 562 (2021). , DOI: 10.3390/ph14060562,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"12. R. Mammucari and N. Foster, Curr. Org. Chem. 12, 476\u2013491 (2008). , DOI: 10.2174/138527208784083914,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"13. L. N. C. Rodrigues, M. G. Issa, A. C. C. Asbahr, M. A. C. Silva, and H. G. Ferraz, Brazilian Archiv. Biol. Technol. 54, 965\u2013972 (2011). , DOI: 10.1590/S1516-89132011000500014,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"14. I. L. Nunes and A. Z. Mercadante, Brazilian Archiv. Biol. Technol. 50, 893\u2013900 (2007). , DOI: 10.1590/S1516-89132007000500018,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"15. X. Zhang, D. Wu, J. Lai, Y. Lu, Z. Yin, and W. Wu, J. Pharm. Sci. 98, 665\u2013675 (2009). , DOI: 10.1002/jps.21453,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"16. R. L. Carrier, L. A. Miller, and I. Ahmed, J. Control. Release 123, 78\u201399 (2007). , DOI: 10.1016/j.jconrel.2007.07.018,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"17. H. Cabral-Marques and R. Almeida, Eur. J. Pharm. Biopharm. 73, 121\u2013129 (2009). , DOI: 10.1016/j.ejpb.2009.05.002,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"18. I. C. Yue, J. Poff, M. E. Cort\u00e9s, R. D. Sinisterra, C. B. Faris, P. Hildgen, R. Langer, and V. P. Shastri, Biomaterials 25, 3743\u20133750 (2004). , DOI: 10.1016/j.biomaterials.2003.09.113,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"19. M. E. Cort\u00e9s, R. D. Sinisterra, M. J. Avila-Campos, N. Tortamano, and R. G. Rocha, J. Incl. Phenom. Macrocycl. Chem. 40, 297\u2013302 (2001). , DOI: 10.1023/A:1012788432106,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"20. C. G. Pupe, M. Villardi, C. R. Rodrigues, H. V. Rocha, L. C. Maia, V. P. de Sousa, and L. M. Cabral, Int. J. Nanomed. 6, 2581\u20132590 (2011). , DOI: 10.2147/IJN.S25667,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"21. F. de Sousa, A. Denadai, I. Lula, J. Lopes, H. Dos Santos, W. De Almeida, and R. Sinisterra, Int. J. Pharm. 353, 160\u2013169 (2008). , DOI: 10.1016/j.ijpharm.2007.11.050,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"22. N. Lavoine, N. Tabary, I. Desloges, B. Martel, and J. Bras, Colloids Surf. B 121, 196\u2013205 (2014). , DOI: 10.1016/j.colsurfb.2014.06.021,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"23. S. Chelli, M. Majdoub, M. Jouini, S. Aeiyach, F. Maurel, K. I. Chane-Ching, and P.-C. Lacaze, J. Phys. Org. Chem. 20, 30\u201343 (2007). , DOI: 10.1002/poc.1122,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"24. L. Vrielynck, C. Lapouge, S. Marquis, J. Kister, and N. Dupuy, Spectrochim. Acta A 60, 2553\u20132559 (2004). , DOI: 10.1016/j.saa.2003.12.035,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"25. B. Rossi, P. Verrocchio, G. Viliani, I. Mancini, G. Guella, E. Rigo, G. Scarduelli, and G. Mariotto, J. Raman Spectrosc. 40, 453\u2013458 (2009). , DOI: 10.1002/jrs.2150,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"26. W. Li, B. Lu, A. Sheng, F. Yang, and Z. Wang, J. Mol. Struct. 981, 194\u2013203 (2010). , DOI: 10.1016/j.molstruc.2010.08.008,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"27. N. Ogawa, T. Hashimoto, T. Furuishi, H. Nagase, T. Endo, H. Yamamoto, Y. Kawashima, and H. Ueda, J. Pharm. Biomed. Anal. 107, 265\u2013272 (2015). , DOI: 10.1016/j.jpba.2014.12.036,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"28. M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, M. A. Robb, J. R. Cheeseman, G. Scalmani, V. Barone, B. Mennucci, G. A. Petersson, H. Nakatsuji, M. Caricato, X. Li, H. P. Hratchian, A. F. Izmaylov, J. Bloino, G. Zheng, J. L. Sonnenberg, M. Hada, M. Ehara, K. Toyota, R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, O. Kitao, H. Nakai, T. Vreven, J. A. Montgomery, Jr., J. E. Peralta, F. Ogliaro, M. Bearpark, J. J. Heyd, E. Brothers, K. N. Kudin, V. N. Staroverov, R. Kobayashi, J. Normand, K. Raghavachari, A. Rendell, J. C. Burant, S. S. Iyengar, J. Tomasi, M. Cossi, N. Rega, J. M. Millam, M. Klene, J. E. Knox, J. B. Cross, V. Bakken, C. Adamo, J. Jaramillo, R. Gomperts, R. E. Stratmann, O. Yazyev, A. J. Austin, R. Cammi, C. Pomelli, J. W. Ochterski, R. L. Martin, K. Morokuma, V. G. Zakrzewski, G. A. Voth, P. Salvador, J. J. Dannenberg, S. Dapprich, A. D. Daniels, \u00d6. Farkas, J. B. Foresman, J. V. Ortiz, J. Cioslowski, and D. J. Fox, GAUSSIAN 09 (Gaussian, Inc., Wallingford, CT, 2009).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"29. P. Weinzinger, P. Weiss-Greiler, W. Snor, H. Viernstein, and P. Wolschann, J. Incl. Phenom. Macrocycl. Chem. 57, 29\u201333 (2007). , DOI: 10.1007/s10847-006-9165-3,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"30. A. Botsi, K. Yannakopoulou, E. Hadjoudis, and J. Waite, Carbohydr. Res. 283, 1\u201316 (1996). , DOI: 10.1016/0008-6215(95)00410-6,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"31. A. A. Rafati, S. M. Hashemianzadeh, Z. B. Nojini, and M. A. Safarpour, J. Mol. Liq. 135, 153\u2013157 (2007). , DOI: 10.1016/j.molliq.2006.11.006,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"32. J. J. P. Stewart, \u201cMOPAC2016,\u201d Stewart Computational Chemistry, Colorado Springs, 2016; available at .",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"33. J. G. Camilotti, A. Somer, G. F. Costa, M. A. Ribeiro, C. Bonardi, G. K. Cruz, S. L. G\u00f3mez, F. L. Beltrame, A. N. Medina, F. Sato, N. G. C. Astrath, and A. Novatski, Spectrochim. Acta A: Mol. Biomol. Spectrosc. 121, 719\u2013723 (2014). , DOI: 10.1016/j.saa.2013.11.099,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"34. C. S. Mangolim, C. Moriwaki, A. C. Nogueira, F. Sato, M. L. Baesso, A. M. Neto, and G. Matioli, Food Chem. 153, 361\u2013370 (2014). , DOI: 10.1016/j.foodchem.2013.12.067,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"35. J. B. E. Mendes, M. K. Riekes, V. M. de Oliveira, M. D. Michel, H. K. Stulzer, N. M. Khalil, S. F. Zawadzki, R. M. Mainardes, and P. V. Farago, Sci. World J. 2012, 542937.",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"36. M. D. R. Gaspar, A. Martinez Lyra, G. A. Camargo, J. Mendes Nadal, A.P. Teitelbaum, F.A. dos Santos, and P. Farago, Lat. Am. J. Pharm. 39(4), 792\u2013798 (2020).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"37. A. M. Lyra, J. M. Nadal, T. Klein, and P. V. Farago, Lat. Am. J. Pharm. 36(12), 2354\u20132362 (2017).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"38. L. Seridi and A. Boufelfel, J. Mol. Liq. 158, 151\u2013158 (2011). , DOI: 10.1016/j.molliq.2010.11.011,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"39. G. S. Suresh Kumar, A. Antony Muthu Prabu, S. Jegan Jenniefer, N. Bhuvanesh, P. Thomas Muthiah, and S. Kumaresan, J. Mol. Struct. 1047, 109\u2013120 (2013). , DOI: 10.1016/j.molstruc.2013.04.024,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"40. A. Antony Muthu Prabhu, G. S. Suresh Kumar, M. Fatiha, S. Sorimuthu, and M. Sundar Raj, J. Mol. Struct. 1079, 370\u2013382 (2015). , DOI: 10.1016/j.molstruc.2014.08.045,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"41. H. Qi, T. Nishihata, and J. H. Rytting, Pharm. Res. 11, 1207\u20131210 (1994). , DOI: 10.1023/A:1018909504267,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"42. A. Somer, J. R. Roik, M. A. Ribeiro, A. M. Urban, A. Schoeffel, V. M. Urban, P. V. Farago, L. V. de Castro, F. Sato, C. Jacinto, E. Campesatto, M. S. A. Moreira, and A. Novatski, Mater. Chem. Phys. 239, 122117 (2020). , DOI: 10.1016/j.matchemphys.2019.122117,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"43. M. Calinescu, T. Negreanu-Pirjol, O. Calinescu, and R. Georgescu, Rev. Chim. 63, 682 (2012).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"44. M. Badea, R. Olar, M. Ili\u015f, R. Georgescu, and M. C\u0103linescu, J. Therm. Anal. Calorim. 111, 1763\u20131770 (2013). , DOI: 10.1007/s10973-012-2316-4,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"45. J. Siepmann and N. A. Peppas, Adv. Drug Deliv. Rev. 64, 163\u2013174 (2012). , DOI: 10.1016/j.addr.2012.09.028,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"46. N. A. Peppas, Pharm. Acta Helv. 60, 110\u2013111 (1985).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"47. N. A. Peppas and R. W. Korsmeyer, Hydr. Med. Pharm. 3, 109\u2013131 (1987).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"48. M. J. Lis, \u00d3. Garc\u00eda Carmona, C. Garc\u00eda Carmona, and F. Maest\u00e1 Bezerra, Polymers 10, 1324 (2018). , DOI: 10.3390/polym10121324,",
+                   "schema":"text"
+                }
+             ]
+          }
+       ],
+       "dois":[
+          {
+             "source":"AIP",
+             "value":"10.1063/5.0123709"
+          }
+       ],
+       "publication_info":[
+          {
+             "journal_volume":"133",
+             "year":2023,
+             "journal_issue":"3",
+             "artid":"034902",
+             "journal_title":"J.Appl.Phys."
+          }
+       ],
+       "$schema":"https://inspirehep.net/schemas/records/hep.json",
+       "document_type":[
+          "article"
+       ],
+       "abstracts":[
+          {
+             "source":"AIP",
+             "value":"Freeze- and spray-dried inclusion complexes (ICs) of chlorhexidine (CHX) in \u03b2-cyclodextrin were characterized by Fourier transform (FT)-Raman, 1H nuclear magnetic resonance (NMR), and photoacoustic spectroscopy. The active Raman modes of CHX were simulated using the density functional theory. By considering semiempirical calculations, it was observed that the guest penetrates on the wider rim of the host in a proportion of 1:2. We observe from the FT-Raman analysis that the drying method influences the CHX:\u03b2-cyclodextrin conformational adjustment by the rearrangement of hydrophilic biguanides of the guest. The photoacoustic spectroscopy results inferred that the freeze-drying method provided a better inclusion due to a lower interaction between phenyl groups and hexamethylene of CHX. The freeze-dried IC achieved a faster dissolution pattern. These ICs provided immediate drug dissolution profiles in an aqueous medium better than a pure drug. The release profiles of freeze- and spray-dried ICs were explained by Fickian diffusion. These data support further planning and development projects of novel immediate release systems based on CHX."
+          }
+       ],
+       "imprints":[
+          {
+             "date":"2023-01-18"
+          }
+       ],
+       "citeable":true
+    },
+    {
+       "refereed":true,
+       "curated":false,
+       "_collections":[
+          "Literature"
+       ],
+       "authors":[
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-1740-3925",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Mao, Wei"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-5238-8989",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Deng, Xing"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "full_name":"Sui, Feng-Rui"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "full_name":"Xu, Ya-Ting"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-2305-0505",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Qi, Rui-Juan"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                }
+             ],
+             "full_name":"Chen, Bin-Bin"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                },
+                {
+                   "value":"Collaborative Innovation Center of Extreme Optics, Shanxi University, Taiyuan, Shanxi 030006, China"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-2944-4986",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Xiang, Ping-Hua"
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Key Laboratory of Polar Materials and Devices (MOE) and State Key Laboratory of Precision Spectroscopy, East China Normal University, 500 Dongchuan Rd., Shanghai 200241, China"
+                },
+                {
+                   "value":"Collaborative Innovation Center of Extreme Optics, Shanxi University, Taiyuan, Shanxi 030006, China"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-6875-4007",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Zhong, Ni"
+          }
+       ],
+       "acquisition_source":{
+          "source":"desy",
+          "method":"hepcrawl",
+          "submission_number":"5652c7f6190f11e79e8000224dabeaad",
+          "datetime":"2017-04-03T10:26:40.365216"
+       },
+       "titles":[
+          {
+             "source":"AIP",
+             "title":"Epitaxial growth of flexible 1T-VSe2 thin films on mica by pulsed laser deposition"
+          }
+       ],
+       "_private_notes":[
+          {
+             "value":"Thin Films, Interfaces, and Surfaces"
+          },
+          {
+             "value":"DOKIFILE:jap133.3"
+          }
+       ],
+       "references":[
+          {
+             "raw_refs":[
+                {
+                   "value":"1. M. Bonilla, S. Kolekar, Y. Ma, H. C. Diaz, V. Kalappattil, R. Das, T. Eggers, H. R. Gutierrez, M.-H. Phan, and M. Batzill, \u201cStrong room-temperature ferromagnetism in VSe2 monolayers on van der Waals substrates,\u201d Nat. Nanotechnol. 13, 289 (2018). , DOI: 10.1038/s41565-018-0063-9, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"2. D. Li, X. Wang, C.-m. Kan, D. He, Z. Li, Q. Hao, H. Zhao, C. Wu, C. Jin, and X. Cui, \u201cStructural phase transition of multilayer VSe2,\u201d ACS Appl. Mater. Interfaces 12(25143), 25143\u201325149 (2020). , DOI: 10.1021/acsami.0c04449,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"3. G. Duvjir, B. K. Choi, I. Jang, S. Ulstrup, S. Kang, T. Thi Ly, S. Kim, Y. H. Choi, C. Jozwiak, A. Bostwick, E. Rotenberg, J.-G. Park, R. Sankar, K.-S. Kim, J. Kim, and Y. J. Chang, \u201cEmergence of a metal\u2013insulator transition and high-temperature charge-density waves in VSe2 at the monolayer limit,\u201d Nano Lett. 18, 5432 (2018). , DOI: 10.1021/acs.nanolett.8b01764,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"4. W.-Y. Tong, S.-J. Gong, X. Wan, and C.-G. Duan, \u201cConcepts of ferrovalley material and anomalous valley Hall effect,\u201d Nat. Commun. 7, 13612 (2016).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"5. W.-Y. Tong and C.-G. Duan, \u201cElectrical control of the anomalous valley Hall effect in antiferrovalley bilayers,\u201d npj Quant. Mater. 2, 47 (2017).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"6. C. Wang, X. Wu, Y. Ma, G. Mu, Y. Li, C. Luo, H. Xu, Y. Zhang, J. Yang, X. Tang, J. Zhang, W. Bao, and C. Duan, \u201cMetallic few-layered VSe2 nanosheets: High two-dimensional conductivity for flexible in-plane solid-state supercapacitors,\u201d J. Mater. Chem. A 6, 8299 (2018). , DOI: 10.1039/C8TA00089A,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"7. C. Wang, X. Wu, H. Xu, Y. Zhu, F. Liang, C. Luo, Y. Xia, X. Xie, J. Zhang, and C. Duan, \u201cVSe2/carbon-nanotube compound for all solid-state flexible in-plane supercapacitor,\u201d Appl. Phys. Lett. 114, 023902 (2019). , DOI: 10.1063/1.5078555,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"8. J. Zhou, J. Qiao, C.-G. Duan, A. Bournel, K. L. Wang, and W. Zhao, \u201cLarge tunneling magnetoresistance in VSe2/MoS2 magnetic tunnel junction,\u201d ACS Appl. Mater. Interfaces 11, 17647 (2019). , DOI: 10.1021/acsami.9b02493,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"9. Z. Guan, H. Hu, X. Shen, P. Xiang, N. Zhong, J. Chu, and C. Duan, \u201cRecent progress in two-dimensional ferroelectric materials,\u201d Adv. Electron. Mater. 6, 1900818 (2020). , DOI: 10.1002/aelm.201900818,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"10. D. W. Boukhvalov and A. Politano, \u201cUnveiling the origin of room-temperature ferromagnetism in monolayer VSe2: The role of extrinsic effects,\u201d Nanoscale 12, 20875 (2020). , DOI: 10.1039/D0NR04663A,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"11. J. Feng, R. A. Susilo, B. Lin, W. Deng, Y. Wang, B. Li, K. Jiang, Z. Chen, X. Xing, Z. Shi, C. Wang, and B. Chen, \u201cAchieving room-temperature charge density wave in transition metal dichalcogenide 1T-VSe2,\u201d Adv. Electron. Mater. 6, 1901427 (2020). , DOI: 10.1002/aelm.201901427,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"12. X. Wang, D. Li, Z. Li, C. Wu, C.-M. Che, G. Chen, and X. Cui, \u201cFerromagnetism in 2D vanadium diselenide,\u201d ACS Nano 15, 16236 (2021). , DOI: 10.1021/acsnano.1c05232,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"13. M. Buscema, D. J. Groenendijk, G. A. Steele, H. S. J. van der Zant, and A. Castellanos-Gomez, \u201cPhotovoltaic effect in few-layer black phosphorus PN junctions defined by local electrostatic gating,\u201d Nat. Commun. 5, 4651 (2014). , DOI: 10.1038/ncomms5651, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"14. Z. Liu, S. P. Lau, and F. Yan, \u201cFunctionalized graphene and other two-dimensional materials for photovoltaic devices: Device design and processing,\u201d Chem. Soc. Rev. 44, 5638 (2015). , DOI: 10.1039/C4CS00455H,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"15. H. Zeng, J. Dai, W. Yao, D. Xiao, and X. Cui, \u201cValley polarization in MoS2 monolayers by optical pumping,\u201d Nat. Nanotechnol. 7, 490 (2012). , DOI: 10.1038/nnano.2012.95, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"16. D.-D. Xu, R.-R. Ma, A.-P. Fu, Z. Guan, N. Zhong, H. Peng, P.-H. Xiang, and C.-G. Duan, \u201cIon adsorption-induced reversible polarization switching of a van der Waals layered ferroelectric,\u201d Nat. Commun. 12, 655 (2021).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"17. L. J. Cote, F. Kim, and J. Huang, \u201cLangmuir-Blodgett assembly of graphite oxide single layers,\u201d J. Am. Chem. Soc. 131, 1043 (2009). , DOI: 10.1021/ja806262m,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"18. C. Lee, H. Yan, L. E. Brus, T. F. Heinz, J. Hone, and S. Ryu, \u201cAnomalous lattice vibrations of single- and few-layer MoS2,\u201d ACS Nano 4, 2695 (2010). , DOI: 10.1021/nn1003937,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"19. M. Chhowalla, H. S. Shin, G. Eda, L.-J. Li, K. P. Loh, and H. Zhang, \u201cThe chemistry of two-dimensional layered transition metal dichalcogenide nanosheets,\u201d Nat. Chem. 5, 263 (2013). , DOI: 10.1038/nchem.1589, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"20. S. Lin, S. Liu, Z. Yang, Y. Li, T. W. Ng, Z. Xu, Q. Bao, J. Hao, C.-S. Lee, C. Surya, F. Yan, and S. P. Lau, \u201cSolution-processable ultrathin black phosphorus as an effective electron transport layer in organic photovoltaics,\u201d Adv. Funct. Mater. 26, 864 (2016). , DOI: 10.1002/adfm.201503273,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"21. L. Tang, R. Ji, X. Li, G. Bai, C. P. Liu, J. Hao, J. Lin, H. Jiang, K. S. Teng, Z. Yang, and S. P. Lau, \u201cDeep ultraviolet to near-infrared emission and photoresponse in layered n-doped graphene quantum dots,\u201d ACS Nano 8, 6312 (2014). , DOI: 10.1021/nn501796r,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"22. W. Ci, H. Yang, W. Xue, R. Yang, B. Lv, P. Wang, R.-W. Li, and X.-H. Xu, \u201cThickness-dependent and strain-tunable magnetism in two-dimensional van der Waals VSe2,\u201d Nano Res. 15, 7597 (2022). , DOI: 10.1007/s12274-022-4400-9,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"23. Y.-S. Zhang, Y.-Q. Hu, Y. Cai, X. Deng, Z. Guan, N. Zhong, P.-H. Xiang, and C.-G. Duan, \u201cEffect of Ce doping on the structural, transport and magnetic properties of Sr2IrO4 epitaxial films,\u201d J. Phys. D: Appl. Phys. 54, 405304 (2021). , DOI: 10.1088/1361-6463/ac0b73,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"24. Y.-S. Zhang, B.-J. Chen, X. Deng, Z. Guan, B.-B. Chen, Y. Chen, N. Zhong, P.-H. Xiang, and C.-G. Duan, \u201cA Mott transistor with giant switching ratio at room temperature and its emulation of artificial synapses,\u201d J. Mater. Chem. C 10, 11654 (2022). , DOI: 10.1039/D2TC01592G,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"25. Z. Yang and J. Hao, \u201cProgress in pulsed laser deposited two-dimensional layered materials for device applications,\u201d J. Mater. Chem. C 4, 8859 (2016). , DOI: 10.1039/C6TC01602B,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"26. J. Hao, Y. Zhang, and X. Wei, \u201cElectric-induced enhancement and modulation of upconversion photoluminescence in epitaxial BaTiO3:Yb/Er thin films,\u201d Angew. Chem. 123, 7008 (2011). , DOI: 10.1002/ange.201101374,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"27. I. A. Akimov, A. A. Sirenko, A. M. Clark, J. H. Hao, and X. X. Xi, \u201cElectric-field-induced soft-mode hardening in SrTiO3 films,\u201d Phys. Rev. Lett. 84, 4625 (2000). , DOI: 10.1103/PhysRevLett.84.4625, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"28. Y. Zhang and J. Hao, \u201cColor-tunable upconversion luminescence of Yb3+, Er3+, and Tm3+ tri-doped ferroelectric BaTiO3 materials,\u201d J. Appl. Phys. 113, 184112 (2013). , DOI: 10.1063/1.4805050,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"29. J. Hao, W. Si, X. X. Xi, R. Guo, A. S. Bhalla, and L. E. Cross, \u201cDielectric properties of pulsed-laser-deposited calcium titanate thin films,\u201d Appl. Phys. Lett. 76, 3100 (2000). , DOI: 10.1063/1.126536, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"30. Z. Yang, W. Huang, and J. Hao, \u201cDetermination of band alignment of pulsed-laser-deposited perovskite titanate/III-V semiconductor heterostructure using x-ray and ultraviolet photoelectron spectroscopy,\u201d Appl. Phys. Lett. 103, 031919 (2013). , DOI: 10.1063/1.4816356, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"31. W. Huang, J. Y. Dai, and J. H. Hao, \u201cStructural and resistance switching properties of ZnO/SrTiO3/GaAs heterostructure grown by laser molecular beam epitaxy,\u201d Appl. Phys. Lett. 97, 162905 (2010). , DOI: 10.1063/1.3505136, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"32. W. Huang, Z. P. Wu, and J. H. Hao, \u201cElectrical properties of ferroelectric BaTiO3 thin film on SrTiO3 buffered GaAs by laser molecular beam epitaxy,\u201d Appl. Phys. Lett. 94, 032905 (2009). , DOI: 10.1063/1.3075955, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"33. Y. Zhang, G. Gao, H. L. W. Chan, J. Dai, Y. Wang, and J. Hao, \u201cPiezo-phototronic effect-induced dual-mode light and ultrasound emissions from ZnS:Mn/PMN-PT thin-film structures,\u201d Adv. Mater. 24, 1729 (2012). , DOI: 10.1002/adma.201104584,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"34. Z. Yang and J. Hao, \u201cIn-plane dielectric properties of epitaxial Ba0.7Sr0.3TiO3 thin films grown on GaAs for tunable device application,\u201d J. Appl. Phys. 112, 054110 (2012). , DOI: 10.1063/1.4749270,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"35. T. Tite, C. Donnet, A.-S. Loir, S. Reynaud, J.-Y. Michalon, F. Vocanson, and F. Garrelie, \u201cGraphene-based textured surface by pulsed laser deposition as a robust platform for surface enhanced Raman scattering applications,\u201d Appl. Phys. Lett. 104, 041912 (2014). , DOI: 10.1063/1.4863824, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"36. C. R. Serrao, A. M. Diamond, S.-L. Hsu, L. You, S. Gadgil, J. Clarkson, C. Carraro, R. Maboudian, C. Hu, and S. Salahuddin, \u201cHighly crystalline MoS2 thin films grown by pulsed laser deposition,\u201d Appl. Phys. Lett. 106, 052101 (2015). , DOI: 10.1063/1.4907169, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"37. S. N. Grigoriev, V. Y. Fominski, R. I. Romanov, A. G. Gnedovets, and M. A. Volosova, \u201cShadow masked pulsed laser deposition of WSex films: Experiment and modeling,\u201d Appl. Surf. Sci. 282, 607 (2013). , DOI: 10.1016/j.apsusc.2013.06.020,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"38. T. A. J. Loh, D. H. C. Chua, and A. T. S. Wee, \u201cOne-step synthesis of few-layer WS2 by pulsed laser deposition,\u201d Sci. Rep. 5, 18116 (2015). , DOI: 10.1038/srep18116,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"39. A. Aldalbahi, A. F. Zhou, and P. Feng, \u201cVariations in crystalline structures and electrical properties of single crystalline boron nitride nanosheets,\u201d Sci. Rep. 5, 16703 (2015). , DOI: 10.1038/srep16703,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"40. P. Feng, M. Sajjad, E. Y. Li, H. Zhang, J. Chu, A. Aldalbahi, and G. Morell, \u201cFringe structures and tunable bandgap width of 2D boron nitride nanosheets,\u201d Beilstein. J. Nanotech. 5, 1186 (2014). , DOI: 10.3762/bjnano.5.130,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"41. Y. Bitla and Y.-H. Chu, \u201cMICAtronics: A new platform for flexible X-tronics,\u201d FlatChem 3, 26 (2017). , DOI: 10.1016/j.flatc.2017.06.003,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"42. S. S. Majid, D. K. Shukla, F. Rahman, K. Gautam, R. J. Choudhary, V. G. Sathe, and D. M. Phase, \u201cStabilization of metallic phase in V2O3 thin film,\u201d Appl. Phys. Lett. 110, 173101 (2017). , DOI: 10.1063/1.4982588, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"43. F. Ure\u00f1a-Begara, A. Crunteanu, and J.-P. Raskin, \u201cRaman and XPS characterization of vanadium oxide thin films with temperature,\u201d Appl. Surf. Sci. 403, 717 (2017). , DOI: 10.1016/j.apsusc.2017.01.160,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"44. R. Yuvakkumar and S. I. Hong, \u201cStructural and toxic effect investigation of vanadium pentoxide,\u201d Mater. Sci. Eng. C 65, 419 (2016). , DOI: 10.1016/j.msec.2016.04.066,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"45. A. Feroze, H. R. Na, Y. C. Park, J.-H. Jun, M.-H. Jung, J.-H. Lee, J.-H. Kim, M.-J. Seong, S. Hong, S.-H. Chun, and S. Lee, \u201cIn-depth structural characterization of 1T-VSe2 single crystals grown by chemical vapor transport,\u201d Cryst. Growth Des. 20, 2860 (2020). , DOI: 10.1021/acs.cgd.0c00219,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"46. Z. Zhang, J. Niu, P. Yang, Y. Gong, Q. Ji, J. Shi, Q. Fang, S. Jiang, H. Li, X. Zhou, L. Gu, X. Wu, and Y. Zhang, \u201cVan der Waals epitaxial growth of 2D metallic vanadium diselenide single crystals and their extra-high electrical conductivity,\u201d Adv. Mater. 29, 1702359 (2017). , DOI: 10.1002/adma.201702359, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"47. M. Hossain, J. Wu, W. Wen, H. Liu, X. Wang, and L. Xie, \u201cChemical vapor deposition of 2D vanadium disulfide and diselenide and Raman characterization of the phase transitions,\u201d Adv. Mater. Interfaces 5, 1800528 (2018). , DOI: 10.1002/admi.201800528, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"48. S. Sugai, K. Murase, S. Uchida, and S. Tanaka, \u201cInvestigation of the charge density waves in 1T-VSe2 by Raman scattering,\u201d J. Phys. Colloques 42, C6 (1981). , DOI: 10.1051/jphyscol:19816217,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"49. J. Pandey and A. Soni, \u201cElectron-phonon interactions and two-phonon modes associated with charge density wave in single crystalline 1T-VSe2,\u201d Phys. Rev. Res. 2, 033118 (2020). , DOI: 10.1103/PhysRevResearch.2.033118,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"50. K. Xu, P. Chen, X. Li, C. Wu, Y. Guo, J. Zhao, X. Wu, and Y. Xie, \u201cUltrathin nanosheets of vanadium diselenide: A metallic Two-dimensional material with ferromagnetic charge-density-wave behavior,\u201d Angew. Chem. Int. Ed. 52, 10477 (2013). , DOI: 10.1002/anie.201304337,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"51. X. Deng, Y. F. Zhao, N. Zhong, F. Y. Yue, R. Huang, H. Peng, X. D. Tang, P. H. Xiang, Y. H. Chu, and C. G. Duan, \u201cProton-mediated phase control in flexible and transparent Mott transistors,\u201d Adv. Electron. Mater. 6, 1900742 (2019).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"52. S.-Y. Bao, X. Deng, F. Mao, N. Zhong, F.-Y. Yue, L. Sun, P.-H. Xiang, and C.-G. Duan, \u201cUltra-flat ITO films on mica for high temperature transparent flexible electrodes,\u201d Ceram. Int. 46, 2268 (2020). , DOI: 10.1016/j.ceramint.2019.09.215,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"53. X. Deng, S. Q. Wang, Y. X. Liu, N. Zhong, Y. H. He, H. Peng, P. H. Xiang, and C. G. Duan, \u201cA flexible Mott synaptic transistor for nociceptor simulation and neuromorphic computing,\u201d Adv. Funct. Mater. 31, 2101099 (2021). , DOI: 10.1002/adfm.202101099,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"54. Y.-X. Liu, Y. Cai, Y.-S. Zhang, X. Deng, N. Zhong, P.-H. Xiang, and C.-G. Duan, \u201cVan der Waals epitaxy for high-quality flexible VO2 film on mica substrate,\u201d J. Appl. Phys. 130, 025301 (2021). , DOI: 10.1063/5.0046827,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"55. S. He, W. Dong, Y. Guo, L. Guan, H. Xiao, and H. Liu, \u201cPiezoelectric thin film on glass fiber fabric with structural hierarchy: An approach to high-performance, superflexible, cost-effective, and large-scale nanogenerators,\u201d Nano Energy 59, 745 (2019). , DOI: 10.1016/j.nanoen.2019.03.025,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"56. D. Yu, Z. Zheng, J. Liu, H. Xiao, G. Huangfu, and Y. Guo, \u201cSuperflexible and lead-free piezoelectric nanogenerator as a highly sensitive self-powered sensor for human motion monitoring,\u201d Nano-Micro Lett. 13, 117 (2021).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"57. D. D. Xu, X. Deng, Y. F. Zhao, R. R. Ma, N. Zhong, R. Huang, H. Peng, P. H. Xiang, and C. G. Duan, \u201cHydrogenation dynamics of electrically controlled metal-insulator transition in proton-gated transparent and flexible WO3 transistors,\u201d Adv. Funct. Mater. 29, 1902497 (2019). , DOI: 10.1002/adfm.201902497,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"58. G. Gustafsson, Y. Cao, G. M. Treacy, F. Klavetter, N. Colaneri, and A. J. Heeger, \u201cFlexible light-emitting diodes made from soluble conducting polymers,\u201d Nature 357, 477 (1992). , DOI: 10.1038/357477a0, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"59. R. J. Hamers, \u201cFlexible electronic futures,\u201d Nature 412, 489 (2001). , DOI: 10.1038/35087682, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"60. B. Radisavljevic, M. B. Whitwick, and A. Kis, \u201cIntegrated circuits and logic operations based on single-layer MoS2,\u201d ACS Nano 5, 9934 (2011). , DOI: 10.1021/nn203715c,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"61. D. Akinwande, N. Petrone, and J. Hone, \u201cTwo-dimensional flexible nanoelectronics,\u201d Nat. Commun. 5, 5678 (2014). , DOI: 10.1038/ncomms6678, ,",
+                   "schema":"text"
+                }
+             ]
+          }
+       ],
+       "dois":[
+          {
+             "source":"AIP",
+             "value":"10.1063/5.0132931"
+          }
+       ],
+       "publication_info":[
+          {
+             "journal_volume":"133",
+             "year":2023,
+             "journal_issue":"3",
+             "artid":"035302",
+             "journal_title":"J.Appl.Phys."
+          }
+       ],
+       "$schema":"https://inspirehep.net/schemas/records/hep.json",
+       "document_type":[
+          "article"
+       ],
+       "abstracts":[
+          {
+             "source":"AIP",
+             "value":"Recently, vanadium diselenide (VSe2), a member of transition metal dichalcogenides, has attracted a great deal of interest in spintronic devices and memory devices due to its unique physical properties. However, it is still a challenge to prepare a continuous VSe2 thin film which is critical for its potential application. Here, we report a continuous single-crystalline 1T-VSe2 thin film grown on mica by pulsed laser deposition. Both x-ray diffraction and high-resolution transmission electron microscopy verify the van der Waals epitaxy of the VSe2/mica heterostructure. Free-standing and flexible VSe2 thin films can be obtained and combined with integrated circuit technology, which is of great significance for the application of two-dimensional materials in the field of multifunctional flexible electronic devices."
+          }
+       ],
+       "imprints":[
+          {
+             "date":"2023-01-17"
+          }
+       ],
+       "citeable":true
+    },
+    {
+       "refereed":true,
+       "curated":false,
+       "_collections":[
+          "Literature"
+       ],
+       "authors":[
+          {
+             "ids":[
+                {
+                   "value":"0000-0002-7868-4524",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Sharafedini, Elham"
+          },
+          {
+             "ids":[
+                {
+                   "value":"0000-0001-7641-8786",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Hamzehpour, Hossein"
+          },
+          {
+             "ids":[
+                {
+                   "value":"0000-0002-1554-687X",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Alidoust, Mohammad"
+          }
+       ],
+       "acquisition_source":{
+          "source":"desy",
+          "method":"hepcrawl",
+          "submission_number":"5652c7f6190f11e79e8000224dabeaad",
+          "datetime":"2017-04-03T10:26:40.365216"
+       },
+       "titles":[
+          {
+             "source":"AIP",
+             "title":"Multiscale statistical quantum transport in porous media and random alloys with vacancies"
+          }
+       ],
+       "_private_notes":[
+          {
+             "value":"Physics of Materials, Including Electrical, Thermal, Mechanical and Other Properties"
+          },
+          {
+             "value":"DOKIFILE:jap133.3"
+          }
+       ],
+       "references":[
+          {
+             "raw_refs":[
+                {
+                   "value":"1. M. Sahimi, Heterogeneous Materials: Linear Transport and Optical Properties (Springer, New York, 2003), Vol. I.",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"2. A. A. Snarskii, I. V. Bezsudnov, V. A. Sevryukov, A. Morozovskiy, and J. Malinsky, Transport Processes in Macroscopically Disordered Media: From Mean Field Theory to Percolation (Springer, New York, 2016).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"3. M. Walschaers, F. Schlawin, T. Wellens, and A. Buchleitner, \u201cQuantum transport on disordered and noisy networks: An interplay of structural complexity and uncertainty,\u201d Annu. Rev. Condens. Matter. Phys. 7, 223 (2016). , DOI: 10.1146/annurev-conmatphys-031115-011327,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"4. M. Kim, Y. Choi, C. Yoon, W. Choi, J. Kim, Q. H. Park, and W. Choi, \u201cScattering invariant modes of light in complex media,\u201d Nat. Photonics 6, 581 (2012). , DOI: 10.1038/nphoton.2012.159,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"5. M. Janssen, \u201cStatistics and scaling in disordered mesoscopic electron systems,\u201d Phys. Rep. 295, 1-91 (1998). , DOI: 10.1016/S0370-1573(97)00050-1,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"6. J. C. Dyre and T. B. Schr\u00f8der, \u201cUniversality of ac conduction in disordered solids,\u201d Rev. Mod. Phys. 72, 873 (2000); , DOI: 10.1103/RevModPhys.72.873, J. C. Dyre, \u201cUniversal low-temperature ac conductivity of macroscopically disordered nonmetals,\u201d Phys. Rev. B 48, 12511 (1993). , DOI: 10.1103/PhysRevB.48.12511. ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"7. S. Torquato, Random Heterogeneous Materials (Springer, New York, 2002).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"8. E. Pazhoohesh, H. Hamzehpour, and M. Sahimi, \u201cNumerical simulation of ac conduction in three-dimensional heterogeneous materials,\u201d Phys. Rev. B 73, 174206 (2006). , DOI: 10.1103/PhysRevB.73.174206,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"9. E. N. Oskoee, M. R. H. Khajehpour, and M. Sahimi, \u201cNumerical simulation of a continuum model of growth of thin composite films,\u201d Phys. Rev. E 69, 061606 (2004); , DOI: 10.1103/PhysRevE.69.061606, E. N. Oskoee and M. Sahimi, \u201cPhase diagrams and scaling regimes for a continuum model of the growth of thin composite films,\u201d Int. J. Mod. Phys. C 16, 727 (2005); , DOI: 10.1142/S0129183105007443, ,\u00a0E. N. Oskoee and M. Sahimi, \u201cTransport properties of composite solid films with rough self-affine surfaces,\u201d Phys. Rev. B 74, 045413 (2006). , DOI: 10.1103/PhysRevB.74.045413, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"10. E. Sharafedini, H. Hamzehpour, S. F. Masoudi, and M. Sahimi, \u201cElectrical conductivity of the films grown by ballistic deposition of rodlike particles,\u201d J. Appl. Phys. 118, 168 (2015). , DOI: 10.1063/1.4936548,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"11. C. De Falco, E. Gatti, A. L. Lacaita, and R. Sacco, \u201cQuantum-corrected drift-diffusion models for transport in semiconductor devices,\u201d J. Comput. Phys. 204, 533 (2005). , DOI: 10.1016/j.jcp.2004.10.029,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"12. S. Yamakawa, S. Goodnick, S. Aboud, and M. Saraniti, \u201cQuantum corrected full-band cellular Monte Carlo simulation of AlGaN/GaN HEMTs,\u201d J. Comput. Electron. 3, 299 (2004). , DOI: 10.1007/s10825-004-7065-6,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"13. L. Shifren, C. Ringhofer, and D. Ferry, \u201cA Wigner function-based quantum ensemble Monte Carlo study of a resonant tunneling diode,\u201d IEEE Trans. Electron Devices 50, 769 (2003). , DOI: 10.1109/TED.2003.809434,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"14. K. Li, J. Lu, and F. Zhai, \u201cNeural networks for modeling electron transport properties of mesoscopic systems,\u201d Phys. Rev. B 102, 064205 (2020). , DOI: 10.1103/PhysRevB.102.064205,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"15. N. A. Lanzillo and C. M. Breneman, \u201cPredicting single-molecule conductance through machine learning,\u201d J. Appl. Phys. 120, 134902 (2016). , DOI: 10.1063/1.4964414, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"16. R. Korol and D. Segal, \u201cMachine learning prediction of DNA charge transport,\u201d J. Phys. Chem. B 123, 2801 (2019). , DOI: 10.1021/acs.jpcb.8b12557,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"17. J. G. Nedell, J. Spector, A. Abbout, M. Vogl, and G. A. Fiete, \u201cDeep learning of deformation-dependent conductance in thin films: Nanobubbles in graphene,\u201d arXiv:2108.01057 (2021).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"18. A. K. Pimachev and S. Neogi, \u201cFirst-principles prediction of electronic transport in experimental semiconductor heterostructures via physics-based machine learning,\u201d npj Comput. Mater. 7, 93 (2021). , DOI: 10.1038/s41524-021-00562-0,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"19. A. Di Vito, A. Pecchia, A. Di Carlo, and M. Auf der Maur, \u201cSimulating random alloy effects in III-nitride light emitting diodes,\u201d J. Appl. Phys. 128, 041102 (2020). , DOI: 10.1063/5.0005862, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"20. R. Landauer and J. C. Helland, \u201cElectronic structure of disordered one-dimensional chains,\u201d J. Chem. Phys. 22, 1655 (1954). , DOI: 10.1063/1.1739868, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"21. N. F. Mott and W. D. Twose, \u201cThe theory of impurity conduction,\u201d Adv. Phys. 10, 107 (1961). , DOI: 10.1080/00018736100101271, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"22. G. Eilenberger, \u201cTransformation of Gorkov\u2019s equation for type II superconductors into transport-like equations,\u201d Z. Phys. 214, 195 (1968). , DOI: 10.1007/BF01379803,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"23. K. D. Usadel, \u201cGeneralized diffusion equation for superconducting alloys,\u201d Phys. Rev. Lett. 25, 507 (1977). , DOI: 10.1103/PhysRevLett.25.507,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"24. M. Alidoust and K. Halterman, \u201cSpontaneous edge accumulation of spin currents in finite-size two-dimensional diffusive spin-orbit coupled SFS heterostructures,\u201d New J. Phys. 17, 033001 (2015). , DOI: 10.1088/1367-2630/17/3/033001,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"25. M. Alidoust and K. Halterman, \u201cLong-range spin-triplet correlations and edge spin currents in diffusive spin-orbit coupled SNS hybrids with a single spin-active interface,\u201d J. Phys: Condens. Matter 27, 235301 (2015). , DOI: 10.1088/0953-8984/27/23/235301,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"26. M. Alidoust, \u201cCritical supercurrent and \u03c60 state for probing a persistent spin helix,\u201d Phys. Rev. B 101, 155123 (2020). , DOI: 10.1103/PhysRevB.101.155123,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"27. A. Zyuzin, M. Alidoust, and D. Loss, \u201cJosephson junction through a disordered topological insulator with helical magnetization,\u201d Phys. Rev. B 93, 214502 (2016). , DOI: 10.1103/PhysRevB.93.214502,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"28. I. V. Bobkova, A. M. Bobkov, A. A. Zyuzin, and M. Alidoust, \u201cMagnetoelectrics in disordered topological insulator Josephson junctions,\u201d Phys. Rev. B 94, 134506 (2016). , DOI: 10.1103/PhysRevB.94.134506,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"29. M. Alidoust and H. Hamzehpour, \u201cSpontaneous supercurrent and \u03c60 phase shift parallel to magnetized topological insulator interfaces,\u201d Phys. Rev. B 96, 165422 (2017). , DOI: 10.1103/PhysRevB.96.165422,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"30. M. Alidoust, M. Willatzen, and A.-P. Jauho, \u201cFraunhofer response and supercurrent spin switching in black phosphorus with strain and disorder,\u201d Phys. Rev. B 98, 184505 (2018). , DOI: 10.1103/PhysRevB.98.184505,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"31. M. Alidoust, \u201cSelf-biased current, magnetic interference response, and superconducting vortices in tilted Weyl semimetals with disorder,\u201d Phys. Rev. B 98, 245418 (2018). , DOI: 10.1103/PhysRevB.98.245418,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"32. V. S. Proshchenko, P. P. Dholabhai, T. C. Sterling, and S. Neogi, \u201cHeat and charge transport in bulk semiconductors with interstitial defects,\u201d Phys. Rev. B 99, 014207 (2019). , DOI: 10.1103/PhysRevB.99.014207,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"33. V. S. Proshchenko, M. Settipalli, A. K. Pimachev, and S. Neogi, \u201cModulation of semiconductor superlattice thermopower through symmetry and strain,\u201d J. Appl. Phys. 129, 025301 (2021). , DOI: 10.1063/5.0031523, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"34. M. O\u2019Donovan, D. Chaudhuri, T. Streckenbach, P. Farrell, S. Schulz, and T. Koprucki, \u201cFrom atomistic tight binding theory to macroscale drift diffusion: Multiscale modeling and numerical simulation of uni-polar charge transport in (In, Ga)N devices with random fluctuations,\u201d J. Appl. Phys. 130, 065702 (2021). , DOI: 10.1063/5.0059014, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"35. M. Auf der Maur, A. Pecchia, G. Penazzi, F. Sacconi, and A. Di Carlo, \u201cCoupling atomistic and continuous media models for electronic device simulation,\u201d J. Comput. Electron. 12, 553 (2013). , DOI: 10.1007/s10825-013-0517-0,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"36. S. Steiger, M. Povolotskyi, H.-H. Park, T. Kubis, and G. Klimeck, \u201cNEMO5: A parallel multiscale nanoelectronics modeling tool,\u201d IEEE Trans. Nanotechnol. 10, 1464 (2011). , DOI: 10.1109/TNANO.2011.2166164, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"37. C. Yam, L. Meng, G. Chen, Q. Chen, and N. Wong, \u201cMultiscale quantum mechanics/electromagnetics simulation for electronic devices,\u201d Phys. Chem. Chem. Phys. 13, 14365 (2011). , DOI: 10.1039/c1cp20766k,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"38. M. Auf der Maur, A. Pecchia, G. Penazzi, W. Rodrigues, and A. Di Carlo, \u201cEfficiency drop in green InGaN/GaN light emitting diodes: The role of random alloy fluctuations,\u201d Phys. Rev. Lett. 116, 027401 (2016). , DOI: 10.1103/PhysRevLett.116.027401,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"39. A. David, N. G. Young, and M. D. Craven, \u201cMany-body effects in strongly disordered III-nitride quantum wells: Interplay between carrier localization and Coulomb interaction,\u201d Phys. Rev. Appl. 12, 044059 (2019). , DOI: 10.1103/PhysRevApplied.12.044059,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"40. T.-Y. Tsai, K. Michalczewski, P. Martyniuk, C.-H. Wu, and Y.-R. Wu, \u201cApplication of localization landscape theory and the k.p model for direct modeling of carrier transport in a type II superlattice InAs/InAsSb photoconductor system,\u201d J. Appl. Phys. 127, 033104 (2020). , DOI: 10.1063/1.5131470, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"41. H.-H. Chen, J. Speck, C. Weisbuch, and Y.-R. Wu, \u201cThree dimensional simulation on the transport and quantum efficiency of UVC-LEDs with random alloy fluctuations,\u201d Appl. Phys. Lett. 113, 153504 (2018). , DOI: 10.1063/1.5051081, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"42. V. Vargiamidis and N. Neophytou, \u201cHierarchical nanostructuring approaches for thermoelectric materials with high power factors,\u201d Phys. Rev. B 99, 045405 (2019). , DOI: 10.1103/PhysRevB.99.045405,",
+                   "schema":"text"
+                }
+             ]
+          }
+       ],
+       "dois":[
+          {
+             "source":"AIP",
+             "value":"10.1063/5.0130917"
+          }
+       ],
+       "publication_info":[
+          {
+             "journal_volume":"133",
+             "year":2023,
+             "journal_issue":"3",
+             "artid":"035102",
+             "journal_title":"J.Appl.Phys."
+          }
+       ],
+       "$schema":"https://inspirehep.net/schemas/records/hep.json",
+       "document_type":[
+          "article"
+       ],
+       "abstracts":[
+          {
+             "source":"AIP",
+             "value":"We have developed a multiscale self-consistent method to study the charge conductivity of a porous system or a metallic matrix alloyed by randomly distributed nonmetallic grains and vacancies by incorporating Schr\u00f6dinger\u2019s equation and Poisson\u2019s equation. To account for the random distribution of the nonmetallic grains and clusters within the alloy system, we have used an uncorrelated white-noise Monte Carlo sampling to generate numerous random alloys and statistically evaluate the charge conductance. We have performed a parametric study and investigated various electrical aspects of random porous and alloy systems as a function of the inherent parameters and density of the random grains. Our results find that the charge conductance within the low-voltage regime shows a highly nonlinear behavior against voltage variations in stark contrast to the high-voltage regime where the charge conductance is constant. The former finding is a direct consequence of the quantum scattering processes. The results reveal the threshold to the experimentally observable quantities, e.g., voltage difference, so that the charge current is activated for values larger than the threshold. The numerical study determines the threshold of one quantity as a function of the remaining quantities. Our method and results can serve to guide future experiments in designing circuital elements, involving this type of random alloy system."
+          }
+       ],
+       "imprints":[
+          {
+             "date":"2023-01-18"
+          }
+       ],
+       "citeable":true
+    },
+    {
+       "refereed":true,
+       "curated":false,
+       "_collections":[
+          "Literature"
+       ],
+       "authors":[
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Institut f\u00fcr Halbleiter- und Festk\u00f6rperphysik, Johannes Kepler Universit\u00e4t, Altenberger Str. 69, 4040 Linz, Austria"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0001-9413-8649",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Ney, V."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Institut f\u00fcr Halbleiter- und Festk\u00f6rperphysik, Johannes Kepler Universit\u00e4t, Altenberger Str. 69, 4040 Linz, Austria"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-4507-0582",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Henne, B."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Institut f\u00fcr Halbleiter- und Festk\u00f6rperphysik, Johannes Kepler Universit\u00e4t, Altenberger Str. 69, 4040 Linz, Austria"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-2466-3402",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"de Souza, M."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Institut f\u00fcr Halbleiter- und Festk\u00f6rperphysik, Johannes Kepler Universit\u00e4t, Altenberger Str. 69, 4040 Linz, Austria"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0003-3396-2356",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Jantsch, W."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Department of Physics, Centre for Materials Science and Nanotechnology, University of Oslo, N-0316 Oslo, Norway"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-6268-1740",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Johansen, K.M."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"European Synchrotron Radiation Facility (ESRF), CS 40220, 38043 Grenoble Cedex, France"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-4425-3662",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Wilhelm, F."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"European Synchrotron Radiation Facility (ESRF), CS 40220, 38043 Grenoble Cedex, France"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-0501-698X",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Rogalev, A."
+          },
+          {
+             "raw_affiliations":[
+                {
+                   "value":"Institut f\u00fcr Halbleiter- und Festk\u00f6rperphysik, Johannes Kepler Universit\u00e4t, Altenberger Str. 69, 4040 Linz, Austria"
+                }
+             ],
+             "ids":[
+                {
+                   "value":"0000-0002-2388-6006",
+                   "schema":"ORCID"
+                }
+             ],
+             "full_name":"Ney, A."
+          }
+       ],
+       "acquisition_source":{
+          "source":"desy",
+          "method":"hepcrawl",
+          "submission_number":"5652c7f6190f11e79e8000224dabeaad",
+          "datetime":"2017-04-03T10:26:40.365216"
+       },
+       "titles":[
+          {
+             "source":"AIP",
+             "title":"Valence state, lattice incorporation, and resulting magnetic properties of Ni in Zn/Co-based magnetic oxides"
+          }
+       ],
+       "_private_notes":[
+          {
+             "value":"Magnetism, Spintronics, and Superconductivity"
+          },
+          {
+             "value":"DOKIFILE:jap133.3"
+          }
+       ],
+       "references":[
+          {
+             "raw_refs":[
+                {
+                   "value":"1. Y. Jiang, N. C. Giles, and L. E. Halliburton, J. Appl. Phys. 101, 093706 (2007). , DOI: 10.1063/1.2723872, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"2. T. L. Estle and M. de Wit, Bull. Am. Phys. Soc. 6, 445 (1961).",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"3. P. Koidl, Phys. Rev. B 15, 2493 (1977). , DOI: 10.1103/PhysRevB.15.2493, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"4. P. Sati, R. Hayn, R. Kuzian, S. R\u00e9gnier, S. Sch\u00e4fer, A. Stepanov, C. Morhain, C. Deparis, M. La\u00fcgt, M. Goiran, and Z. Golacki, Phys. Rev. Lett. 96, 017203 (2006). , DOI: 10.1103/PhysRevLett.96.017203, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"5. A. Ney, T. Kammermeier, K. Ollefs, S. Ye, V. Ney, T. C. Kaspar, S. A. Chambers, F. Wilhelm, and A. Rogalev, Phys. Rev. B 81, 054420 (2010). , DOI: 10.1103/PhysRevB.81.054420,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"6. S. A. Chambers, Adv. Mater. 22, 219 (2010). , DOI: 10.1002/adma.200901867, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"7. S. B. Ogale, Adv. Mater. 22, 3125 (2010). , DOI: 10.1002/adma.200903891, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"8. A. Ney, K. Ollefs, S. Ye, T. Kammermeier, V. Ney, T. C. Kaspar, S. A. Chambers, F. Wilhelm, and R. Rogalev, Phys. Rev. Lett. 100, 157201 (2008). , DOI: 10.1103/PhysRevLett.100.157201, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"9. A. Ney, M. Opel, T. C. Kaspar, V. Ney, S. Ye, K. Ollefs, T. Kammermeier, S. Bauer, K.-W. Nielsen, S. T. B. Goennenwein, M. H. Engelhard, S. Zhou, K. Potzger, J. Simon, W. Mader, S. M. Heald, J. C. Cezar, F. Wilhelm, A. Rogalev, R. Gross, and S. A. Chambers, New J. Phys. 12, 013020 (2010). , DOI: 10.1088/1367-2630/12/1/013020,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"10. C. Lorenz, R. May, and R. M. Ziff, J. Stat. Phys. 98, 961 (2000). , DOI: 10.1023/A:1018648130343,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"11. A. Ney, V. Ney, F. Wilhelm, A. Rogalev, and K. Usadel, Phys. Rev. B 85, 245202 (2012). , DOI: 10.1103/PhysRevB.85.245202,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"12. V. Ney, B. Henne, J. Lumetzberger, F. Wilhelm, K. Ollefs, A. Rogalev, A. Kovacs, M. Kieschnick, and A. Ney, Phys. Rev. B 94, 224405 (2016). , DOI: 10.1103/PhysRevB.94.224405, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"13. B. Henne, V. Ney, M. de Souza, and A. Ney, Phys. Rev. B 93, 144406 (2016). , DOI: 10.1103/PhysRevB.93.144406, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"14. Y. Sharma, N. Sharma, G. V. Subba Rao, and B. Chowdari, Adv. Funct. Mater. 17, 2855 (2007). , DOI: 10.1002/adfm.200600997,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"15. F. Schein, H. von Wenckstern, and M. Grundmann, IEEE Electron Device Lett. 33, 676 (2012). , DOI: 10.1109/LED.2012.2187633,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"16. D. Doppelbauer, A. Aljabour, H. Coskun, H. Sun, M. Gusenbauer, J. Lumetzberger, D. Primetzhofer, B. Faina, J. Duchoslav, M. Kehrer, D. Stifter, H. Groiss, V. Ney, A. Ney, and P. Stadler, Mater. Adv. 2, 5494 (2021). , DOI: 10.1039/D1MA00157D,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"17. P. Cossee, Recueil 75, 1089 (2010). , DOI: 10.1002/recl.19560750913,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"18. J. D. Perkins, T. R. Paudel, A. Zakutayev, P. F. Ndione, P. A. Parilla, D. L. Young, S. Lany, D. S. Ginley, A. Zunger, N. H. Perry, Y. Tang, M. Grayson, T. O. Mason, J. S. Bettinger, Y. Shi, and M. F. Toney, Phys. Rev. B 84, 205207 (2011). , DOI: 10.1103/PhysRevB.84.205207,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"19. B. Henne, V. Ney, K. Ollefs, F. Wilhelm, A. Rogalev, and A. Ney, Sci. Rep. 5, 16863 (2015). , DOI: 10.1038/srep16863, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"20. W. L. Roth, J. Phys. Chem. Solids 25, 1 (1964). , DOI: 10.1016/0022-3697(64)90156-8, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"21. K. Sato and H. Katayama-Yoshida, Jpn. J. Appl. Phys. 39, L555 (2000). , DOI: 10.1143/JJAP.39.L555, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"22. P. V. Radovanovic and D. R. Gamelin, Phys. Rev. Lett. 91, 157202 (2003). , DOI: 10.1103/PhysRevLett.91.157202, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"23. G. Pei, Ch. Xia, S. Cao, J. Zhang, F. Wu, and J. Xu, J. Magn. Magn. Mater. 302, 340 (2006). , DOI: 10.1016/j.jmmm.2005.09.029,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"24. N. Dogan, A. Bing\u00f6lbali, and L. Arda, J. Magn. Magn. Mater. 373, 226 (2015). , DOI: 10.1016/j.jmmm.2014.03.053,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"25. P. Shukla and J. Kumar Shukla, Physica B 569, 31 (2019). , DOI: 10.1016/j.physb.2019.05.028,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"26. Y. Liu, H. Liu, Z. Chen, N. Kadasala, C. Mao, Y. Wanga, Y. Zhang, H. Liu, Y. Liu, J. Yang, and Y. Yan, J. Alloys Compd. 604, 218 (2014). , DOI: 10.1016/j.jallcom.2013.11.106,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"27. B. Pal, D. Sarkar, and P. K. Giri, Appl. Surf. Sci. 356, 804 (2015). , DOI: 10.1016/j.apsusc.2015.08.163,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"28. D. Guruvammal, S. Selvaraj, and S. Meenakshi Sundar, J. Alloys Compd. 682, 850 (2016). , DOI: 10.1016/j.jallcom.2016.05.038,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"29. N. Goswami and A. Sahai, Mater. Res. Bull. 48, 346 (2013). , DOI: 10.1016/j.materresbull.2012.10.045,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"30. G. Vijayaprasath, R. Murugan, S. Palanisamy, N. M. Prabho, T. Mahalingam, Y. Hayakawad, and G. Ravi, Mater. Res. Bull. 76, 48 (2016). , DOI: 10.1016/j.materresbull.2015.11.053,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"31. J. Kegel, I. M. Povey, and M. E. Pemble, Nano Energy 54, 409 (2018). , DOI: 10.1016/j.nanoen.2018.10.043,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"32. A. Mondal, N. Giri, S. Sarkar, S. Majumdar, and R. Ray, Mater. Sci. Semicond. Process. 91, 333 (2019). , DOI: 10.1016/j.mssp.2018.12.003,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"33. V. Ney, V. Venkataraman, F. Wilhelm, A. Rogalev, and A. Ney, J. Appl. Phys. 126, 143904 (2019). , DOI: 10.1063/1.5124352, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"34. A. Rogalev, F. Wilhelm, J. Goulon, and G. Goujon, in Magnetism and Synchrotron Radiation: Towards the Fourth Generation Light Sources, Springer Proceedings in Physics Vol. 151 (Springer, 2013), pp. 289\u2013314.",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"35. A. Ney, V. Ney, M. Kieschnick, K. Ollefs, F. Wilhelm, and A. Rogalev, J. Appl. Phys. 115, 172603 (2014). , DOI: 10.1063/1.4870916, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"36. M. Sawicki, W. Stefanowicz, and A. Ney, Semicond. Sci. Technol. 26, 064006 (2011). , DOI: 10.1088/0268-1242/26/6/064006, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"37. M. Buchner, K. H\u00f6fler, B. Henne, V. Ney, and A. Ney, J. Appl. Phys. 124, 161101 (2018). , DOI: 10.1063/1.5045299, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"38. E. H. Kisi and M. M. Elcombe, Acta Crystallogr. C 45, 1867 (1989). , DOI: 10.1107/S0108270189004269,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"39. M. O. Krause and J. H. Oliver, J. Phys. Chem. Ref. Data 8, 329 (1979). , DOI: 10.1063/1.555595, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"40. P. Srivastava, S. Ghosh, B. Joshi, P. Satyarthi, P. Kumar, D. Kanjilal, D. Buerger, S. Zhou, H. Schmidt, A. Rogalev, and F. Wilhelm, J. Appl. Phys. 111, 013715 (2012). , DOI: 10.1063/1.3676260, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"41. D. Savchenko, A. Vasin, O. Kuz, I. Verovsky, A. Prokhorov, A. Nazarov, J. Lancok, and E. Kalabukhova, Sci. Rep. 10, 17347 (2020). , DOI: 10.1038/s41598-020-74449-3, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"42. J. E. Stehr, K. M. Johansen, T. S. Bjorheim, L. Vines, B. G. Svensson, W. M. Chen, and I. A. Buyanova, Phys. Rev. Appl. 2, 021001 (2014). , DOI: 10.1103/PhysRevApplied.2.021001,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"43. V. Yu. Ivanov, M. Godlewski, and A. Dejneka, Phys. Status Solidi B 252, 1988 (2015). , DOI: 10.1002/pssb.201451496,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"44. H. Raebiger, S. Lany, and A. Zunger, Phys. Rev. B 79, 165202 (2009). , DOI: 10.1103/PhysRevB.79.165202,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"45. A. Ney, A. Kovacs, V. Ney, S. Ye, K. Ollefs, T. Kammermeier, F. Wilhelm, A. Rogalev, and R. E. Dunin-Borkowski, New J. Phys. 13, 103001 (2011). , DOI: 10.1088/1367-2630/13/10/103001, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"46. W. L. Roth, Phys. Rev. 110, 1333 (1958). , DOI: 10.1103/PhysRev.110.1333, ,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"47. A. Mandziak, G. D. Soria, J. E. Prieto, P. Prieto, C. Granados-Miralles, A. Quesada, M. Foerster, L. Aballe, and J. de la Figuera, Sci. Rep. 9, 13584 (2019). , DOI: 10.1038/s41598-019-49642-8,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"48. O. Bunau and Y. Joly, J. Phys.: Condens. Matter 21, 345501 (2009). , DOI: 10.1088/0953-8984/21/34/345501,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"49. S. A. Guda, A. A. Guda, M. A. Soldatov, K. A. Lomachenko, A. L. Bugaev, C. Lamberti, W. Gawelda, C. Bressler, G. Smolentsev, A. V. Soldatov, and Y. Joly, J. Chem. Theory Comput. 11, 4512\u20134521 (2015). , DOI: 10.1021/acs.jctc.5b00327,",
+                   "schema":"text"
+                }
+             ]
+          },
+          {
+             "raw_refs":[
+                {
+                   "value":"50. Y. Bitla, Y.-Y. Chin, J.-C. Lin, C. N. Van, R. Liu, Y. Zhu, H.-J. Liu, Q. Zhan, H.-J. Lin, C.-T. Chen, Y.-H. Chu, and Q. He, Sci. Rep. 5, 15201 (2015). , DOI: 10.1038/srep15201,",
+                   "schema":"text"
+                }
+             ]
+          }
+       ],
+       "dois":[
+          {
+             "source":"AIP",
+             "value":"10.1063/5.0130731"
+          }
+       ],
+       "publication_info":[
+          {
+             "journal_volume":"133",
+             "year":2023,
+             "journal_issue":"3",
+             "artid":"033904",
+             "journal_title":"J.Appl.Phys."
+          }
+       ],
+       "$schema":"https://inspirehep.net/schemas/records/hep.json",
+       "document_type":[
+          "article"
+       ],
+       "abstracts":[
+          {
+             "source":"AIP",
+             "value":"Ni incorporation has been studied in a comprehensive range of Zn/Co-based magnetic oxides to elucidate its valence state and lattice incorporation. The resulting structural and magnetic properties of a range of related types of samples are studied in detail. On the one hand, Ni doping is studied in wurtzite ZnO which is either done by in-diffusion of the Ni into bulk ZnO or by reactive magnetron sputtering for Ni-doped thin films of ZnO. The latter is complemented by Ni and Co codoping of ZnO leading to altered magnetic properties which are then dominated by Co. On the other hand, the ZnCo2O4 spinel is codoped with varying amounts of Ni. In the wurtzite oxides, Ni is exclusively found on tetrahedral lattice sites in its formal 2+ oxidation state as deep donor. It behaves as an anisotropic paramagnet, and a limited solubility of Ni below 10% is found. Furthermore, the partial compensation of the antiferromagnetically coupled Co magnetic moments is induced by the Ni due to its smaller magnetic moment. In the ZnCo2O4 spinel, Ni is found to be incorporated in its formal 3+ oxidation state on octahedral sites and also couples antiferromagnetically to the Co moments. At low Ni concentrations, this leads to a lifting of the partial magnetic compensation of the antiferromagnetic ZnCo2O4 spinel and to ferrimagnetism at higher Ni concentrations. Increasing the Ni concentration even further leads to phase separation of cubic NiO resulting in a structurally less defined, exchange-biased composite magnetic oxide."
+          }
+       ],
+       "imprints":[
+          {
+             "date":"2023-01-19"
+          }
+       ],
+       "citeable":true
+    }
+ ]
+ 
