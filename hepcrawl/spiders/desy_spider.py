@@ -271,7 +271,7 @@ class DesySpider(StatefulSpider):
                         record_format='hep',
                         exception=repr(e),
                         traceback=tb,
-                        source_data=xml_record,
+                        source_data=json_record,
                         file_name=file_name
                     )
                     yield error_parsed_item
