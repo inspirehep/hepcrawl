@@ -326,6 +326,7 @@ def test_desy_crawl_twice(expected_results, settings, cleanup):
     # preproces s3 urls
     for rec in gotten_records:
         for document in rec.get('documents', []):
+            assert '/api/files' not in document
             if settings['CRAWLER_ARGUMENTS']['s3_server'] in document['url']:
                 assert "&Expires=" in document['url']
                 document['url'] = document['url'].split('&Expires=')[0]
