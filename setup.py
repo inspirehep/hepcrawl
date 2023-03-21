@@ -48,7 +48,7 @@ install_requires = [
     #latex parsing
     'pylatexenc~=2.9',
     'queuelib==1.5.0',
-    'sentry-sdk==1.3.0',
+    'sentry-sdk==1.14.0',
 ]
 
 tests_require = [
