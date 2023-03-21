@@ -167,9 +167,10 @@ class DesySpider(StatefulSpider):
         return not parsed_url.scheme.startswith("http")
 
     def _get_full_uri(self, file_name, schema='https'):
+        file_name = file_name.lstrip('/api/files/')
         self.move_file_to_processed(file_name)
         url = self.s3_url_for_file(file_name, bucket=self.s3_output_bucket)
-        return url.lstrip('/api/files/')
+        return url
 
     def parse(self, response):
         """Parse a ``Desy`` jsonl file into a :class:`hepcrawl.utils.ParsedItem`.
