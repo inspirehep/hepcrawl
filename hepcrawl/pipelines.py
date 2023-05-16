@@ -141,6 +141,7 @@ class InspireAPIPushPipeline(object):
                 results_data=[result],
                 errors=[],
                 log_file=None,
+                spider_name=spider.name
             ) for result in self.results_data
         ]
         if spider.state.get('errors'):

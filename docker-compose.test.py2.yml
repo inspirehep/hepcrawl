@@ -216,7 +216,7 @@ services:
       - 80:80
 
   rabbitmq:
-    image: rabbitmq:3-management
+    image: rabbitmq:3.9.11-management
     restart: "always"
     healthcheck:
       timeout: 5s
