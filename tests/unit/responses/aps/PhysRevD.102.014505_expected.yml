@@ -16,7 +16,13 @@ authors:
   - value: Department of Physics, University of Turin and INFN, Turin, Via Pietro
       Giuria 1, I-10125 Turin, Italy
     source: American Physical Society
+  ids:
+  - schema: ORCID
+    value: 0000-0001-5488-142X
 - full_name: Sorba, Marianna
+  ids:
+  - schema: ORCID
+    value: 0000-0002-7582-0121
   raw_affiliations:
   - value: Department of Physics, University of Turin and INFN, Turin, Via Pietro
       Giuria 1, I-10125 Turin, Italy

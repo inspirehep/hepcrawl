@@ -519,8 +519,19 @@ class JatsParser(object):
         author_name = self.get_author_name(author_node)
         emails = self.get_author_emails(author_node)
         affiliations = self.get_author_affiliations(author_node)
+        orcid = self.get_orcid(author_node)
+        author_ids = [("ORCID", orcid)] if orcid else []
+        return self.builder.make_author(
+            author_name,
+            raw_affiliations=affiliations,
+            emails=emails,
+            ids=author_ids
+        )
 
-        return self.builder.make_author(author_name, raw_affiliations=affiliations, emails=emails)
+    @staticmethod
+    def get_orcid(author_node):
+        orcid = author_node.xpath('./contrib-id[@contrib-id-type="orcid"]/text()').extract_first()
+        return orcid
 
     @staticmethod
     def get_reference_authors(ref_node, role):
