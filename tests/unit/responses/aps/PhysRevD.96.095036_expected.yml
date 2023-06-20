@@ -15,6 +15,9 @@ authors:
   - source: American Physical Society
     value: Scuola Normale Superiore and INFN, Pisa IT-56125, Italy
   full_name: Contino, Roberto
+  ids:
+    - schema: ORCID
+      value: 0000-0003-1813-2645
 - raw_affiliations:
   - source: American Physical Society
     value: Theoretical Particle Physics Laboratory, Institute of Physics, EPFL, Lausanne
