@@ -9,7 +9,6 @@
 
 from __future__ import absolute_import, division, print_function
 
-import os
 import sys
 import traceback
 import json
@@ -17,8 +16,6 @@ import json
 import boto3
 from botocore.exceptions import UnknownServiceError, ClientError
 from flask.app import Flask
-from inspire_dojson import marcxml2record
-from lxml import etree
 from scrapy import Request
 
 from six.moves import urllib
