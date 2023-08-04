@@ -84,9 +84,9 @@ jobs:
 
       - name: Install python dependencies
         run: |
-          pip2 install --user --upgrade pip
-          pip2 --no-cache-dir install --user setuptools wheel coveralls check-manifest
-          pip2 --no-cache-dir install --user -e .[tests]
+          pip install --user --upgrade pip
+          pip --no-cache-dir install --user setuptools wheel coveralls check-manifest
+          pip --no-cache-dir install --user -e .[tests]
 
       - name: Build package
         run: python setup.py sdist bdist_wheel
