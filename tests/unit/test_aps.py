@@ -49,13 +49,18 @@ def results_from_json():
     return records
 
 
-def test_results_from_jats():
+@pytest.mark.parametrize("file", [
+    "aps/PhysRevResearch.5.033093.xml",
+    "aps/PhysRevD.96.095036.xml"
+    ]
+)
+def test_results_from_jats(file):
     """Get and validate results from mocking a JATS response."""
     from scrapy.http import XmlResponse
 
     spider = aps_spider.APSSpider(aps_token="secret")
     fake_response = fake_response_from_file(
-        'aps/PhysRevD.96.095036.xml',
+        file,
         response_type=XmlResponse,
     )
     record = spider._parse_jats(fake_response).record
