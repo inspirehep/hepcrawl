@@ -15,6 +15,7 @@ import itertools
 
 import six
 
+from idutils import normalize_orcid
 from inspire_schemas.api import LiteratureBuilder, ReferenceBuilder
 from inspire_schemas.utils import split_page_artid
 from inspire_utils.date import PartialDate
@@ -531,7 +532,8 @@ class JatsParser(object):
     @staticmethod
     def get_orcid(author_node):
         orcid = author_node.xpath('./contrib-id[@contrib-id-type="orcid"]/text()').extract_first()
-        return orcid
+        if orcid:
+            return normalize_orcid(orcid)
 
     @staticmethod
     def get_reference_authors(ref_node, role):
