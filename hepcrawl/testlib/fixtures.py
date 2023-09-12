@@ -19,7 +19,7 @@ from scrapy.selector import Selector
 from hepcrawl.settings import CRAWL_ONCE_PATH
 
 
-def fake_response_from_file(file_name, test_suite='unit', url='http://www.example.com', response_type=TextResponse):
+def fake_response_from_file(file_name, test_suite='unit', url='http://www.example.com', response_type=TextResponse, response_meta={}):
     """Create a Scrapy fake HTTP response from a HTML file
 
     Args:
@@ -34,7 +34,7 @@ def fake_response_from_file(file_name, test_suite='unit', url='http://www.exampl
     Returns:
         ``response_type``: A scrapy HTTP response which can be used for unit testing.
     """
-    request = Request(url=url)
+    request = Request(url=url, meta=response_meta)
 
     if not file_name[0] == '/':
         file_path = get_test_suite_path(
@@ -53,7 +53,6 @@ def fake_response_from_file(file_name, test_suite='unit', url='http://www.exampl
         body=file_content,
         **{'encoding': 'utf-8'}
     )
-
     return response
 
 

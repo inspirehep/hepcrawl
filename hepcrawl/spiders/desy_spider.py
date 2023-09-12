@@ -122,7 +122,7 @@ class DesySpider(StatefulSpider):
         return connections
 
     def s3_url(self, s3_file=None, expire=86400):
-        return self.s3_url_for_file(s3_file.key, bucket=s3_file.bucket_name, expire=expire)
+        return self.s3_url_for_file(s3_file, expire=expire)
 
     def s3_url_for_file(self, file_name, bucket=None, expire=7776000):
         bucket = bucket or self.s3_input_bucket
@@ -132,28 +132,30 @@ class DesySpider(StatefulSpider):
             ExpiresIn=expire
         )
 
-    def crawl_s3_bucket(self):
-        input_bucket = self.s3_resource.Bucket(self.s3_input_bucket)
-        for s3_file in input_bucket.objects.all():
-            if not s3_file.key.endswith('.jsonl'):
-                # this is a document referenced in an jsonl file, it will be
-                # processed when dealing with attached documents
-                continue
-
-            self.logger.info("Remote: Try to crawl file from s3: {file}".format(file=s3_file.key))
+    def crawl(self):
+        objects_metadata = self.s3_resource.meta.client.list_objects_v2(
+            Bucket=self.s3_input_bucket, Delimiter='/'
+        ) 
+        for subdir in objects_metadata.get('CommonPrefixes'):
+            subdir_name = subdir.get('Prefix')
             try:
-                self.s3_resource.Object(self.s3_output_bucket, s3_file.key).load()
-                self.logger.info("File %s was already processed!", s3_file.key)
-            except ClientError:  # Process it only if file is not in output_bucket
+                self.s3_resource.Object(self.s3_output_bucket, subdir_name).load()
+            except ClientError:
+                jsonl_file_name = "{}.jsonl".format(subdir_name.strip('/'))
+                jsonl_s3_path = "{}{}".format(subdir_name, jsonl_file_name)
                 yield Request(
-                    self.s3_url(s3_file),
-                    meta={"s3_file": s3_file.key},
+                    self.s3_url(jsonl_s3_path),
+                    meta={"s3_file": jsonl_file_name, "s3_subdirectory": subdir_name},
                     callback=self.parse
                 )
+    
+    def handle_not_found_jsonl(self, response):
+        self.logger.error("jsonl file %s was not found in subdirectory!", response.meta['s3_file'])
+        return
 
     def start_requests(self):
         """List selected bucket on s3 and yield files."""
-        requests = self.crawl_s3_bucket()
+        requests = self.crawl()
 
         for request in requests:
             yield request
@@ -165,9 +167,19 @@ class DesySpider(StatefulSpider):
 
     def _get_full_uri(self, file_name, schema='https'):
         file_name = file_name.lstrip('/api/files/')
-        self.move_file_to_processed(file_name)
         url = self.s3_url_for_file(file_name, bucket=self.s3_output_bucket)
         return url
+    
+    def move_all_files_for_subdirectory(self, prefix):
+        delimiter = '/'
+
+        files_to_move = self.s3_resource.meta.client.list_objects_v2(
+            Bucket=self.s3_input_bucket, Prefix=prefix, Delimiter=delimiter
+        )
+
+        for file in files_to_move['Contents']:
+            file_key = file['Key']
+            self.move_file_to_processed(file_key)
 
     def parse(self, response):
         """Parse a ``Desy`` jsonl file into a :class:`hepcrawl.utils.ParsedItem`.
@@ -204,6 +216,9 @@ class DesySpider(StatefulSpider):
             file_name=file_name
         )
 
+        self.move_all_files_for_subdirectory(
+            prefix=response.meta['s3_subdirectory']
+        )
         # make sure we don't yield control to scrapy while an app context is
         # running to ensure different contexts don't get interleaved which
         # Flask doesn't handle correctly (single global app context stack)
@@ -212,10 +227,6 @@ class DesySpider(StatefulSpider):
             yield parsed_item
 
         self.logger.info('Processed all JSON records in %s', file_name)
-
-        if "s3_file" in response.meta:
-            s3_file = response.meta['s3_file']
-            self.move_file_to_processed(file_name=s3_file)
 
 
     def move_file_to_processed(self, file_name, file_bucket=None, output_bucket=None):
@@ -256,7 +267,6 @@ class DesySpider(StatefulSpider):
 
                     if new_documents:
                         parsed_item.record['documents'] = new_documents
-
                     parsed_item.file_urls = files_to_download
                     self.logger.info('Got the following attached documents to download: %s', files_to_download)
                     self.logger.info('Got item: %s', parsed_item)
