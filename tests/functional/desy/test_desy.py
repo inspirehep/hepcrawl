@@ -87,9 +87,13 @@ def setup_s3_files(s3_key, s3_secret, s3_server, buckets=[], files_to_upload=[],
     )
     transfer_config = TransferConfig(use_threads=False)
     for bucket_name, file_name in files_to_upload:
+        file_root = file_name.split('.jsonl')[0]
         buckets_map[bucket_name].upload_file(
             Filename=os.path.join(test_files_path, file_name),
-            Key=file_name, Config=transfer_config
+            Key='{subdirectory}/{filename}'.format(
+                subdirectory=file_root, 
+                filename=file_name
+            ), Config=transfer_config
         )
 
 

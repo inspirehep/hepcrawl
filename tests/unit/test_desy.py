@@ -11,6 +11,7 @@ from __future__ import absolute_import, division, print_function
 
 import os
 
+import mock
 import pytest
 from deepdiff import DeepDiff
 from mock import MagicMock
@@ -21,6 +22,7 @@ from scrapy.settings import Settings
 from hepcrawl import settings
 from hepcrawl.pipelines import InspireCeleryPushPipeline
 from hepcrawl.spiders import desy_spider
+from hepcrawl.spiders.desy_spider import DesySpider
 from hepcrawl.testlib.fixtures import (
     expected_json_results_from_file,
     fake_response_from_file,
@@ -47,24 +49,24 @@ def get_records(response_file_name):
     # environmental variables needed for the pipelines payload
     os.environ['SCRAPY_JOB'] = 'scrapy_job'
     os.environ['SCRAPY_FEED_URI'] = 'scrapy_feed_uri'
+    with mock.patch('hepcrawl.spiders.desy_spider.DesySpider.move_all_files_for_subdirectory'):
+        spider = create_spider()
+        records = list(spider.parse(
+            fake_response_from_file(
+                file_name='desy/' + response_file_name,
+                response_type=TextResponse,
+                response_meta={"s3_subdirectory": response_file_name.strip('.jsonl') + '/'}
+            )
+        ))
+        pipeline = InspireCeleryPushPipeline()
+        pipeline.open_spider(spider)
 
-    spider = create_spider()
-    records = spider.parse(
-        fake_response_from_file(
-            file_name='desy/' + response_file_name,
-            response_type=TextResponse
+        return (
+            pipeline.process_item(
+                record,
+                spider
+            )['record'] for record in records
         )
-    )
-
-    pipeline = InspireCeleryPushPipeline()
-    pipeline.open_spider(spider)
-
-    return (
-        pipeline.process_item(
-            record,
-            spider
-        )['record'] for record in records
-    )
 
 
 def get_one_record(response_file_name):
@@ -116,11 +118,14 @@ def test_pipeline(generated_records, expected_records):
 
 
 def test_invalid_jsonll():
-    spider = create_spider()
-    response = MagicMock()
-    response.url = "https://s3.cern.ch/incoming-bucket/invalid_record.jsonl"
-    response.text = "This is not actually JSONL\n"
-    result = list(spider.parse(response))
-    assert result[0].exception.startswith('ValueError')
-    assert result[0].traceback is not None
-    assert result[0].source_data == "This is not actually JSONL"
+    with mock.patch('hepcrawl.spiders.desy_spider.DesySpider.move_all_files_for_subdirectory'):
+        spider = create_spider()
+        response = MagicMock()
+        response.url = "https://s3.cern.ch/incoming-bucket/invalid_record.jsonl"
+        response.text = "This is not actually JSONL\n"
+        response.meta = {"s3_subdirectory": 'invalid_record'}
+
+        result = list(spider.parse(response))
+        assert result[0].exception.startswith('ValueError')
+        assert result[0].traceback is not None
+        assert result[0].source_data == "This is not actually JSONL"
