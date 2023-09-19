@@ -136,7 +136,7 @@ class DesySpider(StatefulSpider):
         objects_metadata = self.s3_resource.meta.client.list_objects_v2(
             Bucket=self.s3_input_bucket, Delimiter='/'
         ) 
-        for subdir in objects_metadata.get('CommonPrefixes'):
+        for subdir in objects_metadata.get('CommonPrefixes', []):
             subdir_name = subdir.get('Prefix')
             try:
                 self.s3_resource.Object(self.s3_output_bucket, subdir_name).load()
