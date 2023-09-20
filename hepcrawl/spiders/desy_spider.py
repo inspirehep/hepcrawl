@@ -165,9 +165,10 @@ class DesySpider(StatefulSpider):
         parsed_url = urllib.parse.urlparse(url)
         return not parsed_url.scheme.startswith("http")
 
-    def _get_full_uri(self, file_name, schema='https'):
+    def _get_full_uri(self, file_name, subdirectory_name, schema='https'):
         file_name = file_name.lstrip('/api/files/')
-        url = self.s3_url_for_file(file_name, bucket=self.s3_output_bucket)
+        full_file_s3_path = "{}{}".format(subdirectory_name, file_name)
+        url = self.s3_url_for_file(full_file_s3_path, bucket=self.s3_output_bucket)
         return url
     
     def move_all_files_for_subdirectory(self, prefix):
@@ -213,7 +214,8 @@ class DesySpider(StatefulSpider):
 
         parsed_items = self._parsed_items_from_json(
             json_records=json_records,
-            file_name=file_name
+            file_name=file_name,
+            subdirectory_name=response.meta['s3_subdirectory']
         )
 
         self.move_all_files_for_subdirectory(
@@ -227,7 +229,6 @@ class DesySpider(StatefulSpider):
             yield parsed_item
 
         self.logger.info('Processed all JSON records in %s', file_name)
-
 
     def move_file_to_processed(self, file_name, file_bucket=None, output_bucket=None):
         file_bucket = file_bucket or self.s3_input_bucket
@@ -243,7 +244,8 @@ class DesySpider(StatefulSpider):
     def _parsed_items_from_json(
             self,
             json_records,
-            file_name
+            file_name,
+            subdirectory_name
     ):
         self.logger.info('parsing record')
         app = Flask('hepcrawl')
@@ -259,7 +261,7 @@ class DesySpider(StatefulSpider):
                     self.logger.info("Record has documents: %s", "documents" in parsed_item.record)
                     for document in parsed_item.record.get('documents', []):
                         if self._is_local_path(document['url']):
-                            document['url'] = self._get_full_uri(document['url'])
+                            document['url'] = self._get_full_uri(document['url'], subdirectory_name)
                             self.logger.info("Updating document %s", document)
                         else:
                             files_to_download.append(document['url'])
