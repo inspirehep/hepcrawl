@@ -20,6 +20,7 @@ from __future__ import absolute_import, division, print_function
 from scrapy.settings import default_settings
 
 import os
+import structlog
 
 
 BOT_NAME = 'hepcrawl'
@@ -206,3 +207,9 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+structlog.configure(
+    processors=[
+        structlog.processors.JSONRenderer()
+    ],
+)
