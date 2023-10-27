@@ -138,10 +138,10 @@ class InspireAPIPushPipeline(object):
         crawl_result = CrawlResult.from_parsed_item(item).to_dict()
         self.results_data.append(crawl_result)
 
-        titles = get_value(crawl_result, "titles.title", default=[])
-        dois = get_value(crawl_result, "dois.value", default=[])
-        arxiv_eprints = get_value(crawl_result, "arxiv_eprints.value", default=[])
-        report_numbers = get_value(crawl_result, "report_numbers.value", default=[])
+        titles = get_value(crawl_result, "record.titles.title", default=[])
+        dois = get_value(crawl_result, "record.dois.value", default=[])
+        arxiv_eprints = get_value(crawl_result, "record.arxiv_eprints.value", default=[])
+        report_numbers = get_value(crawl_result, "record.report_numbers.value", default=[])
 
         for doi in dois:
             self.dois.append(doi)
