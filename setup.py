@@ -49,7 +49,7 @@ install_requires = [
     'pylatexenc~=2.9',
     'queuelib>=1.5.0',
     'sentry-sdk>=1.3.0',
-    'structlog>=20.1.0',
+    'structlog>=19.0.0',
     'python-logstash>=0.4.8',
 ]
 
