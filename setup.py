@@ -17,7 +17,7 @@ readme = open('README.rst').read()
 
 install_requires = [
     'automat==20.2.0',
-    'amqp~=2.0,>2.2.0',
+    'amqp',
     'autosemver~=0.2',
     "backports.tempfile==1.0",
     'boto3~=1.14',
