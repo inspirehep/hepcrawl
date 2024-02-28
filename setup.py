@@ -47,10 +47,10 @@ install_requires = [
     'Twisted~=18.0,>=18.9.0',
     #latex parsing
     'pylatexenc~=2.9',
-    'queuelib==1.5.0',
-    'sentry-sdk==1.3.0',
-    'structlog==20.1.0',
-    'python-logstash==0.4.8',
+    'queuelib>=1.5.0',
+    'sentry-sdk>=1.3.0',
+    'structlog>=20.1.0',
+    'python-logstash>=0.4.8',
 ]
 
 tests_require = [
