@@ -13,10 +13,6 @@
             <img src="https://travis-ci.org/inspirehep/hepcrawl.png?branch=master"
                  alt="travis-ci badge"/>
         </a>
-        <a href="https://coveralls.io/r/inspirehep/hepcrawl">
-            <img src="https://coveralls.io/repos/inspirehep/hepcrawl/badge.png?branch=master"
-                 alt="coveralls.io badge"/>
-        </a>
     </p>
 
 

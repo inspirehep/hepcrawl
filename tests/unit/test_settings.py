@@ -8,7 +8,7 @@
 # more details.
 
 import logging
-
+import sys
 from scrapy.utils.project import get_project_settings
 from scrapy.utils.log import (configure_logging, logger)
 
@@ -21,4 +21,7 @@ def test_log_settings():
 
     configure_logging(settings=settings)
     assert any(isinstance(handler, logging.StreamHandler) for handler in logger.root.handlers)
-    assert not any(isinstance(handler, logging.FileHandler) for handler in logger.root.handlers)
+    if sys.version_info[0] >= 3:
+        assert any(isinstance(handler, logging.FileHandler) and handler.level == logging.NOTSET for handler in logger.root.handlers)
+    else:
+        assert not any(isinstance(handler, logging.FileHandler) for handler in logger.root.handlers)
