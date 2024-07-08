@@ -21,6 +21,7 @@ install_requires = [
     'autosemver~=0.2',
     "backports.tempfile==1.0",
     'boto3~=1.14',
+    'dojson==1.4.0',
     'inspire-schemas~=61.5',
     'inspire-dojson~=63.0',
     'inspire-utils~=3.0,>=3.0.0',

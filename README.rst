@@ -14,9 +14,6 @@
 .. image:: https://img.shields.io/travis/inspirehep/hepcrawl.svg
         :target: https://travis-ci.org/inspirehep/hepcrawl
 
-.. image:: https://img.shields.io/coveralls/inspirehep/hepcrawl.svg
-        :target: https://coveralls.io/r/inspirehep/hepcrawl
-
 .. image:: https://img.shields.io/github/tag/inspirehep/hepcrawl.svg
         :target: https://github.com/inspirehep/hepcrawl/releases
 
