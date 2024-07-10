@@ -16,9 +16,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
+          python-version: ${{ matrix.python-version }}
 
       - name: Install python dependencies
         run: |
