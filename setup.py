@@ -21,11 +21,13 @@ install_requires = [
     'autosemver~=0.2',
     "backports.tempfile==1.0",
     'boto3~=1.14',
+    'dojson==1.4.0',
     'inspire-schemas~=61.5',
     'inspire-dojson~=63.0',
     'inspire-utils~=3.0,>=3.0.0',
     # newer scrapy is incompatible with old scrapyd
     'Scrapy~=1.6,<1.7.0',
+    'parsel<=1.8.0',
     'scrapy-crawl-once~=0.1,>=0.1.1',
     'scrapy-sentry~=0.0,>=0.8.0',
     # TODO: unpin once they support wheel building again, needed for Python 3
@@ -44,7 +46,8 @@ install_requires = [
     'harvestingkit>=0.6.12',
     'Sickle~=0.6,>=0.6.2',
     # newer versions seem incompatible with required scrapyd version
-    'Twisted~=18.0,>=18.9.0',
+    'Twisted~=18.0,>=18.9.0; python_version == "2.7"',
+    'Twisted>=21.2.0; python_version >= "3"',
     #latex parsing
     'pylatexenc~=2.9',
     'queuelib>=1.5.0',
@@ -60,7 +63,7 @@ tests_require = [
     'freezegun>=0.3.9',
     'isort==4.2.2',
     'mock~=2.0,>=2.0.0',
-    'pytest>=2.8.0',
+    'pytest>=2.8.0, <8.0.0',
     'pytest-cov>=2.1.0',
     'pytest-pep8>=1.0.6',
     'requests-mock>=1.3.0',

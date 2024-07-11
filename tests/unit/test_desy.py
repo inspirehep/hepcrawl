@@ -10,7 +10,7 @@
 from __future__ import absolute_import, division, print_function
 
 import os
-
+import sys
 import mock
 import pytest
 from deepdiff import DeepDiff
@@ -106,6 +106,8 @@ def override_generated_fields(record):
     ]
 )
 def test_pipeline(generated_records, expected_records):
+    if sys.version_info[0] >= 3:
+        unicode = str
     clean_generated_records = [
         override_generated_fields(generated_record)
         for generated_record in generated_records
@@ -126,6 +128,10 @@ def test_invalid_jsonll():
         response.meta = {"s3_subdirectory": 'invalid_record'}
 
         result = list(spider.parse(response))
-        assert result[0].exception.startswith('ValueError')
+        exception = result[0].exception
+        if exception.startswith('ValueError') or exception.startswith('JSONDecodeError'):
+            assert True
+        else:
+            assert False
         assert result[0].traceback is not None
         assert result[0].source_data == "This is not actually JSONL"
