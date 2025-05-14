@@ -31,7 +31,7 @@ install_requires = [
     'scrapy-sentry~=0.0,>=0.8.0',
     # TODO: unpin once they support wheel building again, needed for Python 3
     'scrapyd==1.1.0',
-    'scrapyd-client>=1.0.1',
+    'scrapyd-client~=1.0, >=1.0.1',
     'six>=1.9.0',
     'requests~=2.22,>=2.22.0',
     'celery>=4.1',
@@ -66,7 +66,7 @@ tests_require = [
     'pytest-pep8>=1.0.6',
     'requests-mock>=1.3.0',
     'pydocstyle>=1.0.0',
-    'PyYAML',
+    'PyYAML==5.3',
 ]
 
 extras_require = {
@@ -123,6 +123,6 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.10',
     ],
 )

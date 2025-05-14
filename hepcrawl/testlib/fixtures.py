@@ -46,7 +46,6 @@ def fake_response_from_file(file_name, test_suite='unit', url='http://www.exampl
         file_path = file_name
 
     file_content = open(file_path, 'r').read()
-
     response = response_type(
         url=url,
         request=request,

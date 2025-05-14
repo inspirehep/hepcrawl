@@ -166,6 +166,10 @@ class ElsevierParser(object):
     @property
     def abstract(self):
         abstract_nodes = self.root.xpath(".//head/abstract[not(@graphical)]/abstract-sec/simple-para")
+        if not abstract_nodes:
+            abstract_nodes = self.root.xpath(
+                ".//simple-head/abstract[not(@graphical)]/abstract-sec/simple-para"
+            )
 
         if not abstract_nodes:
             return
@@ -191,6 +195,8 @@ class ElsevierParser(object):
     @property
     def authors(self):
         author_nodes = self.root.xpath("./*/head/author-group")
+        if not author_nodes:
+            author_nodes = self.root.xpath("./*/simple-head/author-group")
         all_authors = []
         for author_group in author_nodes:
             authors = [
@@ -205,6 +211,11 @@ class ElsevierParser(object):
         collaborations = self.root.xpath(
             "./*/head/author-group//collaboration/text/text()"
         ).extract()
+        if not collaborations:
+            collaborations = self.root.xpath(
+                "./*/simple-head/author-group//collaboration/text/text()"
+            ).extract()
+
         return collaborations
 
     @property
@@ -253,8 +264,12 @@ class ElsevierParser(object):
 
     @property
     def dois(self):
-        doi = self.root.xpath("string(./RDF/Description/doi[1])").extract_first()
-        return [{"doi": doi, "material": self.material}]
+        rdf_doi = self.root.xpath("string(./RDF/Description/doi[1])").extract_first()
+        result = [{"doi": rdf_doi, "material": self.material}]
+        simple_article_publication_doi = self.root.xpath("string(.//simple-article/item-info/document-thread/refers-to-document/doi)").extract_first()
+        if simple_article_publication_doi:
+            result.append({"doi": simple_article_publication_doi, "material": "publication"})
+        return result
 
     @property
     def document_type(self):
@@ -315,6 +330,10 @@ class ElsevierParser(object):
         keywords = self.root.xpath(
             "./*/head/keywords[not(@abr)]/keyword/text/text()"
         ).getall()
+        if not keywords:
+            keywords = self.root.xpath(
+                "./*/simple-head/keywords[not(@abr)]/keyword/text/text()"
+            ).getall()
 
         return keywords
 
@@ -426,12 +445,19 @@ class ElsevierParser(object):
     @property
     def subtitle(self):
         subtitle = self.root.xpath("string(./*/head/subtitle[1])").extract_first()
-
+        if not subtitle:
+            subtitle = self.root.xpath(
+                "string(./*/simple-head/subtitle[1])"
+            ).extract_first()
         return subtitle
 
     @property
     def title(self):
         title = self.root.xpath("./*/head/title[1]").extract_first()
+        if not title:
+            title = self.root.xpath(
+                "./*/simple-head/title[1]"
+            ).extract_first()
         return remove_tags(title, **self.remove_tags_config_title).strip("\n") if title else None
 
     @property
