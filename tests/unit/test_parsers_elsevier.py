@@ -17,7 +17,7 @@ from __future__ import (
 import pytest
 import yaml
 import sys
-from datetime import datetime
+import six
 
 from deepdiff import DeepDiff
 from inspire_schemas.utils import validate
@@ -163,3 +163,48 @@ def test_imprints_date_should_be_taken_from_avaliable_online():
     parser = get_parser_by_file("j.nima.2023.168018.xml")
     result = parser.parse()
     assert result['imprints'] == [{'date': '2023-01-02'}]
+
+
+def test_title_should_be_taken_from_simple_head_if_no_head():
+    parser = get_parser_by_file("j.nuclphysb.2022.115991.xml")
+    result = parser.parse()
+    expected_title = six.ensure_text('Erratum to \u201cThe fifth-order post-Newtonian Hamiltonian dynamics of two-body systems from an effective field theory approach\u201d [Nucl. Phys. B 983 (2022) 115900]')
+    assert result['titles'][0]['title']  == expected_title
+
+
+def test_authors_should_be_taken_from_simple_head_if_no_head():
+    parser = get_parser_by_file("j.nuclphysb.2022.115991.xml")
+    result = parser.parse()
+    expected_authors = [
+        {
+            'emails': [six.ensure_text('Johannes.Bluemlein@desy.de')], 
+            'full_name': six.ensure_text('Bl\xfcmlein, J.')
+        }, 
+        {
+            'full_name': six.ensure_text('Maier, A.')
+        }, 
+        {
+            'full_name': six.ensure_text('Marquard, P.')
+        }, 
+        {
+            'full_name': six.ensure_text('Sch\xe4fer, G.')
+        },
+    ]
+    assert result['authors'] == expected_authors
+
+def test_dois_should_be_taken_from_simple_article_too():
+    parser = get_parser_by_file("j.nuclphysb.2022.115991.xml")
+    result = parser.parse()
+    expected_dois = [
+        {
+            'material': 'erratum',
+            'source': six.ensure_text('Elsevier B.V.'),
+            'value': six.ensure_text('10.1016/j.nuclphysb.2022.115991')
+        },
+        {
+            'material': 'publication',
+            'source': six.ensure_text('Elsevier B.V.'),
+            'value': six.ensure_text('10.1016/j.nuclphysb.2022.115900')
+        }
+    ]
+    assert result['dois'] == expected_dois

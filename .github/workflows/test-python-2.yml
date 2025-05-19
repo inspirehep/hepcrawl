@@ -1,0 +1,42 @@
+name: Test Python 2
+
+on:
+  workflow_call:
+
+jobs:
+    test:
+      runs-on: ubuntu-22.04
+      strategy:
+        matrix:
+          suite:
+            [
+              unit,
+              functional_wsp,
+              functional_arxiv,
+              functional_desy,
+              functional_cds,
+              functional_pos,
+              functional_elsevier,
+              functional_aps
+            ]
+          python-version: [2.7]
+  
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+        - name: Install dependencies
+          run: |
+            docker compose -f docker-compose.deps.py2.yml build
+            docker compose -f docker-compose.test.py2.yml run --rm scrapyd-deploy
+  
+        - name: Print logs if failure
+          if: ${{ failure() }}
+          run: |
+            docker compose -f docker-compose.test.py2.yml logs --tail=200
+  
+        - name: Run tests
+          run: |
+            docker compose -f docker-compose.test.py2.yml run --rm ${{ matrix.suite }}

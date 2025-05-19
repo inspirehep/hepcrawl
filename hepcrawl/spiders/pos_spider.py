@@ -108,7 +108,6 @@ class POSSpider(StatefulSpider):
         conference paper, and later the internal conference id.
         """
         meta = meta or {}
-
         identifier = xml_selector.xpath(
             './/metadata/pex-dc/identifier/text()'
         ).extract_first()
