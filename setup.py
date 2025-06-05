@@ -22,7 +22,7 @@ install_requires = [
     "backports.tempfile==1.0",
     'boto3~=1.14',
     'dojson==1.4.0',
-    'inspire-schemas~=61.5',
+    'inspire-schemas~=61.6,>=61.6.17',
     'inspire-dojson~=63.0',
     'inspire-utils~=3.0,>=3.0.0',
     # newer scrapy is incompatible with old scrapyd
