@@ -34,6 +34,7 @@ publication_date: '2001-11-01'
 collaborations: []
 documents:
 - key: aphy.2001.6176.xml
+  material: publication
   url: http://example.org/aphy.2001.6176.xml
   source: Elsevier Inc.
   fulltext: true

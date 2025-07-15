@@ -128,6 +128,7 @@ publication_date: '2020-01-15'
 collaborations: []
 documents:
 - key: j.nimb.2019.04.063.xml
+  material: publication
   url: http://example.org/j.nimb.2019.04.063.xml
   source: Elsevier B.V.
   fulltext: true

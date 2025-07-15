@@ -31,6 +31,7 @@ publication_date: '2021-03'
 collaborations: []
 documents:
 - key: j.cpc.2020.107740.xml
+  material: publication
   url: http://example.org/j.cpc.2020.107740.xml
   source: Elsevier B.V.
   fulltext: true

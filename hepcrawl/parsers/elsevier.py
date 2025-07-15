@@ -678,7 +678,7 @@ class ElsevierParser(object):
             yield builder.obj
 
     def attach_fulltext_document(self, file_name, url):
-        self.builder.add_document(file_name, url, fulltext=True, hidden=True)
+        self.builder.add_document(file_name, url, fulltext=True, hidden=True, material=self.material)
 
     def get_identifier(self):
         return self.dois[0]["doi"]

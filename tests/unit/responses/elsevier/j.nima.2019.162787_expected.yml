@@ -31,6 +31,7 @@ publication_date: '2020-04-01'
 collaborations: ['on behalf of LHCb Muon group']
 documents:
 - key: j.nima.2019.162787.xml
+  material: publication
   url: http://example.org/j.nima.2019.162787.xml
   source: Elsevier B.V.
   fulltext: true
