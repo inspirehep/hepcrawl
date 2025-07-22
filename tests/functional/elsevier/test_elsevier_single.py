@@ -17,6 +17,7 @@ CRAWLER_ARGS_ELSEVIER_SINGLE = {
     "files_bucket_name": "inspire-publishers-elsevier-articles",
     "s3_host": "http://localstack:4566",
     'elsevier_authorization_data_base64_encoded': '',
+    'elsevier_api_key': '',
     "identifier": "10.1016/j.geomphys.2020.103892"
 }
 
