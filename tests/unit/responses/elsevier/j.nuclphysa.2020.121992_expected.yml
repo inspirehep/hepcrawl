@@ -46,6 +46,7 @@ publication_date: 2020-10
 collaborations: []
 documents:
 - key: j.nuclphysa.2020.121992.xml
+  material: publication
   url: http://example.org/j.nuclphysa.2020.121992.xml
   source: Elsevier B.V.
   fulltext: true

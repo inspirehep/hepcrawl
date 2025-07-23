@@ -78,6 +78,7 @@ publication_date: '2020-04-15'
 collaborations: []
 documents:
 - key: j.scib.2020.01.008.xml
+  material: publication
   url: http://example.org/j.scib.2020.01.008.xml
   source: Elsevier B.V.
   fulltext: true

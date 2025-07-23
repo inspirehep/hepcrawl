@@ -75,6 +75,7 @@ publication_date: '2020-04-01'
 collaborations: ['NA61/SHINE, CBM and BM@N collaborations']
 documents:
 - key: j.nima.2019.162728.xml
+  material: publication
   url: http://example.org/j.nima.2019.162728.xml
   source: Elsevier B.V.
   fulltext: true
