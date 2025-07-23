@@ -84,6 +84,7 @@ class ElsevierSpider(StatefulSpider):
         packages_bucket_name,
         files_bucket_name,
         elsevier_authorization_data_base64_encoded,
+        elsevier_api_key,
         elsevier_consyn_url,
         s3_host="https://s3.cern.ch",
         *args,
@@ -103,6 +104,7 @@ class ElsevierSpider(StatefulSpider):
         self.files_bucket_name = files_bucket_name
         self.elsevier_consyn_url = elsevier_consyn_url
         self.elsevier_authorization_data_base64_encoded = elsevier_authorization_data_base64_encoded
+        self.elsevier_api_key = elsevier_api_key
         self.new_xml_files = set()
         self.s3_handler = S3Handler(
                 access_key_id,
@@ -130,7 +132,25 @@ class ElsevierSpider(StatefulSpider):
         return urls_for_packages
 
     def start_requests(self):
-        request_headers = {'Authorization': 'Basic ' + self.elsevier_authorization_data_base64_encoded}
+        if self.elsevier_authorization_data_base64_encoded and self.elsevier_api_key:
+            request_headers = {
+            'Authorization': 'Basic ' + self.elsevier_authorization_data_base64_encoded,
+            'x-els-api-key': self.elsevier_api_key
+            }
+        elif self.elsevier_authorization_data_base64_encoded:
+            request_headers = {
+            'Authorization': 'Basic ' + self.elsevier_authorization_data_base64_encoded
+            }
+        elif self.elsevier_api_key:
+            request_headers = {
+            'x-els-api-key': self.elsevier_api_key
+            }
+        else:
+            self.logger.info(
+                "No Elsevier API key or authorization data provided, "
+                "proceeding without authentication."
+            )
+            request_headers = {}
         elsevier_batch_download_url = self.elsevier_consyn_url
         yield Request(
             elsevier_batch_download_url, headers=request_headers, callback=self.extract_packages_from_consyn_feed
@@ -266,6 +286,7 @@ class ElsevierSingleSpider(StatefulSpider):
         secret_access_key,
         files_bucket_name,
         elsevier_authorization_data_base64_encoded,
+        elsevier_api_key,
         elsevier_consyn_url,
         identifier,
         s3_host="https://s3.cern.ch",
@@ -284,6 +305,7 @@ class ElsevierSingleSpider(StatefulSpider):
         self.files_bucket_name = files_bucket_name
         self.elsevier_consyn_url = elsevier_consyn_url
         self.elsevier_authorization_data_base64_encoded = elsevier_authorization_data_base64_encoded
+        self.elsevier_api_key = elsevier_api_key
         self.new_xml_files = set()
         self.s3_hanler = S3Handler(
                 access_key_id,
