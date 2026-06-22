@@ -67,7 +67,7 @@ tests_require = [
     'pytest-pep8>=1.0.6',
     'requests-mock>=1.3.0',
     'pydocstyle>=1.0.0',
-    'PyYAML==5.3',
+    'PyYAML==5.4',
 ]
 
 extras_require = {
